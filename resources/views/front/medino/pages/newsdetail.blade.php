@@ -3,7 +3,7 @@
 <!-- Banner Area Starts -->
 <section class="banner-area other-page">
     <div class="container">
-        <div class="row">
+        <div class="row header-judul">
             <div class="col-lg-12">
                 <h1>{{ $data->title }}</h1>
                 <a href="{{ url('/') }}">Beranda</a> <span>|</span> <a href="{{ url('newsall') }}">Semua
@@ -22,7 +22,7 @@
                 <div class="single-post row">
                     {!! $data->description !!}
                 </div>
-                <div class="comments-area">
+                <!-- <div class="comments-area">
                     <h4>05 Comments</h4>
                     <div class="comment-list">
                         <div class="single-comment justify-content-between d-flex">
@@ -119,8 +119,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="comment-form">
+                </div> -->
+                <!-- <div class="comment-form">
                     <h4>Leave a Reply</h4>
                     <form>
                         <div class="form-group form-inline">
@@ -144,7 +144,7 @@
                         </div>
                         <a href="#" class="template-btn">Post Comment</a>
                     </form>
-                </div>
+                </div> -->
             </div>
             <div class="col-lg-4">
                 <div class="blog_right_sidebar">

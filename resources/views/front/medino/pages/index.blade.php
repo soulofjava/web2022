@@ -5,8 +5,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-5">
-                <h1>Selamat Datang</h1>
-                <p>{{ $data_website->web_description }}</p>
+                <!-- <h1>Selamat Datang</h1> -->
+                <!-- <p>{{ $data_website->web_description }}</p> -->
             </div>
         </div>
     </div>

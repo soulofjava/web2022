@@ -3,7 +3,7 @@
 <!-- Banner Area Starts -->
 <section class="banner-area other-page">
     <div class="container">
-        <div class="row">
+        <div class="row header-judul">
             <div class="col-lg-12">
                 <h1>{{ $data->menu_name }}</h1>
                 <a href="{{ url('/') }}">Beranda</a> | <a href="{{ url('newsall') }}">Detail Postingan</a>

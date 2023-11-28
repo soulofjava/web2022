@@ -12,16 +12,13 @@
 <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap4.min.js"></script>
 <script>
     document.addEventListener("keydown", function (event) {
-        // Check if the 'T' key (key code 84) is pressed
-        if (event.keyCode === 67) {
+        // Check if the '`' key (key code 192) is pressed
+        if (event.keyCode === 192) {
             var aku = $('#exampleModal').modal('show');
             if ($('#exampleModal').modal('show')) {
                 $('#exampleModal').modal('hide')
             } else {
                 $('#exampleModal').modal('show')
-                // $('#exampleModal').on('shown.bs.modal', function () {
-                //     $('#textareaID1').focus();
-                // })
             }
         }
     });
