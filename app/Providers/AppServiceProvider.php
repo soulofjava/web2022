@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
 
         if (env('APP_ENV') === 'production') {
             \Illuminate\Support\Facades\URL::forceScheme('https');
-        } else {
+        } else if (env('APP_ENV') === 'local') {
             \Illuminate\Support\Facades\URL::forceScheme('http');
         }
     }
