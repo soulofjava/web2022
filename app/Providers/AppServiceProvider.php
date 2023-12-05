@@ -28,9 +28,9 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
 
         if (env('APP_ENV') === 'production') {
-            \Illuminate\Support\Facades\URL::forceScheme('https');
-        } else if (env('APP_ENV') === 'local') {
-            \Illuminate\Support\Facades\URL::forceScheme('http');
+            $this->app['request']->server->set('HTTPS', true);
+        } else {
+            $this->app['request']->server->set('HTTP', true);
         }
     }
 }
