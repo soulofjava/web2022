@@ -25,6 +25,7 @@ use App\Models\Website;
 use App\Models\Themes;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\URL;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,10 @@ use Illuminate\Support\Facades\Redirect;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+if (env('APP_ENV') === 'production') {
+    URL::forceSchema('https');
+}
 
 // Route::group(
 //     ['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']],
