@@ -60,7 +60,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="col">
+                                <div class="col-2">
                                     <div class="d-flex flex-row-reverse">
                                         {!! Share::currentPage()->facebook()->twitter()->whatsapp(); !!}
                                     </div>

@@ -35,10 +35,12 @@
                         <i class="bi bi-chevron-down dropdown-indicator"></i>
                     </a>
                     <ul>
-                        @foreach (App\Models\FrontMenu::where('menu_parent', $menu->id)->where('active',1)->orderBy('menu_parent',
+                        @foreach (App\Models\FrontMenu::where('menu_parent',
+                        $menu->id)->where('active',1)->orderBy('menu_parent',
                         'ASC')->get() as $sm)
 
-                        @if (App\Models\FrontMenu::where('menu_parent', $sm->id)->where('active',1)->orderBy('menu_parent',
+                        @if (App\Models\FrontMenu::where('menu_parent',
+                        $sm->id)->where('active',1)->orderBy('menu_parent',
                         'ASC')->count() == 0)
                         <li>
                             @if($sm->link)
@@ -58,14 +60,21 @@
                                 <i class="bi bi-chevron-down dropdown-indicator"></i>
                             </a>
                             <ul>
-                                @foreach (App\Models\FrontMenu::where('menu_parent', $sm->id)->where('active',1)->orderBy('menu_parent',
+                                @foreach (App\Models\FrontMenu::where('menu_parent',
+                                $sm->id)->where('active',1)->orderBy('menu_parent',
                                 'ASC')->get() as $sub3)
 
-                                @if (App\Models\FrontMenu::where('menu_parent', $sub3->id)->where('active',1)->orderBy('menu_parent',
+                                @if (App\Models\FrontMenu::where('menu_parent',
+                                $sub3->id)->where('active',1)->orderBy('menu_parent',
                                 'ASC')->count() == 0)
                                 <li>
                                     @if ($sub3->link)
                                     <a href="{{ $sub3->menu_url }}" target="_blank">
+                                        {{ $sub3->menu_name }}
+                                    </a>
+                                    @elseif($sub3->menu_parent == 89 || $sub3->menu_parent == 90 || $sub3->menu_parent
+                                    == 91)
+                                    <a href="{{ url('transparansi') }}/{{ $sub3->menu_url }}">
                                         {{ $sub3->menu_name }}
                                     </a>
                                     @else

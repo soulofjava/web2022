@@ -156,6 +156,15 @@ class FrontController extends Controller
         return view('front.pages.beritadetail', compact('berita', 'news'));
     }
 
+    public function transparansi($id)
+    {
+        Seo::seO();
+        $cari = $id;
+        $hasil = 'Hasil Pencarian : ' . $cari;
+        $data = News::with('gambar')->Where('title', 'like', '%' . $cari . '%')->latest("date")->paginate(10);
+        return view('front.pages.newsbyauthor', compact('hasil', 'data'));
+    }
+
     public function newsByAuthor($id)
     {
         Seo::seO();
