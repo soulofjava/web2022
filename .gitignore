@@ -3,6 +3,8 @@
 /public/build
 /public/storage
 /storage/*.key
+/storage/debugbar
+/storage/clockwork
 /vendor
 .env
 .env.backup
