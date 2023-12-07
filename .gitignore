@@ -5,6 +5,8 @@
 /storage/*.key
 /storage/debugbar
 /storage/clockwork
+/storage/tmp/uploads
+!/storage/tmp/uploads/.gitkeep
 /vendor
 .env
 .env.backup
