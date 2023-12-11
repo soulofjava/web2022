@@ -21,61 +21,6 @@
     </div>
 </section>
 <main id="main">
-    @if($gallery->count() != 0)
-    <section id="portfolio" class="portfolio" data-aos="fade-up">
-        <div class="container">
-            <div class="section-header">
-                <h2>Gallery</h2>
-            </div>
-        </div>
-        <div class="container-fluid" data-aos="fade-up" data-aos-delay="200">
-            <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry"
-                data-portfolio-sort="original-order">
-                <ul class="portfolio-flters">
-                    <!-- <li data-filter="*" class="filter-active">All</li>
-                    <li data-filter=".filter-app">App</li>
-                    <li data-filter=".filter-product">Product</li>
-                    <li data-filter=".filter-branding">Branding</li>
-                    <li data-filter=".filter-books">Books</li> -->
-                </ul>
-                <div class="row g-0">
-                    @foreach($gallery as $g)
-                    <div class="col-lg-3 col-md-4" style="display: flex">
-                        <div class="d-flex justify-content-center">
-                            @foreach($g->gambar as $pic)
-                            @if($loop->iteration == 1)
-                            <a data-fancybox="gallery-group-{{ $pic->id_news }}"
-                                href="{{ asset('storage/') }}/{{ $pic->path }}" data-caption="{{ $g->description }}">
-                                <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid"
-                                    style="height: 250px;">
-                            </a>
-                            @else
-                            <div style="display:none;">
-                                <a data-fancybox="gallery-group-{{ $pic->id_news }}"
-                                    href="{{ asset('storage/') }}/{{ $pic->path }}"
-                                    data-caption="{{ $g->description }}">
-                                    <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid">
-                                </a>
-                            </div>
-                            @endif
-                            @endforeach
-                        </div>
-                    </div>
-                    @if($loop->iteration == 12)
-                    @break
-                    @endif
-                    @endforeach
-                </div>
-                <div class="d-flex justify-content-end m-2">
-                    <a href="{{ url('photos') }}" class="btn"
-                        style="background-color: var(--color-primary); color: white;">Show
-                        All</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    @endif
-
     @if($news->count() != 0)
     <section id="recent-blog-posts" class="recent-blog-posts">
         <div class="container" data-aos="fade-up">
