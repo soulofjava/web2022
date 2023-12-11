@@ -34,11 +34,6 @@ class WebHelper
         $counter = Counter::all()->count();
         $inbox = Inbox::all()->count();
         $related = RelatedLink::all();
-        $berita = News::where('kategori', 'KATEGORI_NEWS_4')->count();
-        $dokumentasi = News::where('kategori', 'KATEGORI_NEWS_1')->count();
-        $notulensi = News::where('kategori', 'KATEGORI_NEWS_3')->count();
-        $press = News::where('kategori', 'KATEGORI_NEWS_2')->count();
-        $sambutan = News::where('kategori', 'KATEGORI_NEWS_0')->count();
 
         // Sharing is caring
         view()->share('data_website', $data);
@@ -48,11 +43,6 @@ class WebHelper
         view()->share('related', $related);
         view()->share('inbox', $inbox);
         view()->share('agenda', $agenda);
-        view()->share('berita', $berita);
-        view()->share('dokumentasi', $dokumentasi);
-        view()->share('notulensi', $notulensi);
-        view()->share('press', $press);
-        view()->share('sambutan', $sambutan);
         return $next($request);
     }
 }

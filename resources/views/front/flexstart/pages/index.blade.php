@@ -82,59 +82,6 @@
     @endif
     <!-- End Recent Blog Posts Section -->
 
-    @if($gallery->count() != 0)
-    <!-- ======= Gallery Section ======= -->
-    <section id="gallery" class="portfolio">
-
-        <div class="container" data-aos="fade-up">
-
-            <header class="section-header">
-                <h2>Gallery</h2>
-                <p>Check our latest photo</p>
-            </header>
-
-            <div class="row mb-3" data-aos="fade-up" data-aos-delay="100">
-                <div class="col-lg-12 d-flex justify-content-center">
-                    <div class="mb-3">
-                        <a class="btn" style="background: #4154f1; color: white;" href="{{ url('/photos') }}">Show
-                            All</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
-                @foreach($gallery as $g)
-                <div class="col-lg-3 col-md-4 portfolio-item filter-app" style="display: flex">
-                    <div class="d-flex justify-content-center">
-                        @foreach($g->gambar as $pic)
-                        @if($loop->iteration == 1)
-                        <a data-fancybox="gallery-group-{{ $pic->id_news }}"
-                            href="{{ asset('storage/') }}/{{ $pic->path }}" data-caption="{{ $g->description }}">
-                            <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid"
-                                style="height: 250px;">
-                        </a>
-                        @else
-                        <div style="display:none;">
-                            <a data-fancybox="gallery-group-{{ $pic->id_news }}"
-                                href="{{ asset('storage/') }}/{{ $pic->path }}" data-caption="{{ $g->description }}">
-                                <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid">
-                            </a>
-                        </div>
-                        @endif
-                        @endforeach
-                    </div>
-                </div>
-                @if($loop->iteration == 8)
-                @break
-                @endif
-                @endforeach
-            </div>
-        </div>
-
-    </section>
-    <!-- End Gallery Section -->
-    @endif
-
     <x-seputar-wonosobo :message='$berita' />
 
     <section id="contact" class="contact">
