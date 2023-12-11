@@ -17,10 +17,6 @@
             <h2>Blog</h2>
             <p>Recent posts from our Blog</p>
 
-            <div class="mt-3">
-                <x-head-category_news bc='var(--color-primary)' tc='white' />
-            </div>
-
             <div class="sidebar mt-4">
                 <div class="sidebar-item search-form">
                     {{Form::open(['route' => 'news.search','method' => 'get', ''])}}

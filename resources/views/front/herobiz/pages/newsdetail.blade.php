@@ -71,8 +71,6 @@
                             {{Form::close()}}
                         </div>
 
-                        <x-category h3='sidebar-title' div='sidebar-item categories' />
-
                         <h3 class="sidebar-title mt-3">Recent Posts</h3>
                         <div class="sidebar-item recent-posts">
                             @foreach($news as $n)

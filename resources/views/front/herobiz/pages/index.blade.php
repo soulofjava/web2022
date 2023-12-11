@@ -29,8 +29,6 @@
                 <p>Recent posts form our Blog</p>
             </div>
 
-            <x-head-category_news bc='var(--color-primary)' tc='white' />
-
             <div class="row mt-3">
                 @foreach($news as $n)
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200" style="display: flex">
