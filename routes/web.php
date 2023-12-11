@@ -44,12 +44,12 @@ use Illuminate\Support\Facades\Redirect;
 |
 */
 
-Route::group(
-    ['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']],
-    function () {
-        \UniSharp\LaravelFilemanager\Lfm::routes();
-    }
-);
+// Route::group(
+//     ['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']],
+//     function () {
+//         \UniSharp\LaravelFilemanager\Lfm::routes();
+//     }
+// );
 
 Route::any('/register', function () {
     return Redirect::to(route('login'));

@@ -18,14 +18,6 @@
                     <!-- Example of a form that Dropzone can take over -->
                     <div class="dropzone" id="my-awesome-dropzone"></div>
                     <div class="form-group label-floating">
-                        <label class="control-label">Highlight</label>
-                        {{Form::select('highlight', $highlight, null, ['class' => 'form-control'])}}
-                    </div>
-                    <div class="form-group label-floating">
-                        <label class="control-label">Kategori</label>
-                        {{Form::select('kategori', $categori, null, ['class' => 'form-control'])}}
-                    </div>
-                    <div class="form-group label-floating">
                         <label class="control-label">Title</label>
                         {{Form::text('title', null,['class' => 'form-control'])}}
                     </div>
@@ -35,7 +27,7 @@
                     </div>
                     <div class="form-group label-floating">
                         <label class="control-label">Description</label>
-                        {{Form::textarea('description', null,['class' => 'my-editor form-control'])}}
+                        {{Form::textarea('description', null,['class' => 'form-control', 'id' => 'my-editor'])}}
                     </div>
                     <div class="d-flex text-right">
                         <a href="{{ route('news.index') }}" class="btn btn-default btn-fill">Cancel</a>
@@ -59,56 +51,19 @@
 </script>
 
 <!-- ck editor -->
-<!-- <script src="{{ asset('assets/back/assets/ckeditor/ckeditor.js') }}"></script>
+<script src="{{asset('assets/back/assets/ckeditor/ckeditor.js')}}"></script>
 <script>
-    CKEDITOR.replace('my-editor');
-</script> -->
-<!-- end ck editor -->
-<!-- tiny mce editor -->
-<!-- <script src="{{ asset('assets/back/assets/tinymce/js/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script> -->
-<script src="https://cdn.tiny.cloud/1/ntnf44xuwietuzyond0qbg8p2e6eqo90pzbi04o4j1jzeiqk/tinymce/5/tinymce.min.js"
-    referrerpolicy="origin"></script>
-<script>
-    var editor_config = {
-        path_absolute: "/",
-        selector: 'textarea.my-editor',
-        relative_urls: false,
-        height: '500px',
-        plugins: [
-            "advlist autolink autosave lists link image charmap print preview hr anchor pagebreak",
-            "searchreplace wordcount visualblocks visualchars code fullscreen",
-            "insertdatetime media nonbreaking save table directionality",
-            "emoticons template paste textpattern"
-        ],
-        toolbar: "restoredraft insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media",
-        file_picker_callback: function (callback, value, meta) {
-            var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
-            var y = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
-
-            var cmsURL = editor_config.path_absolute + 'laravel-filemanager?editor=' + meta.fieldname;
-            if (meta.filetype == 'image') {
-                cmsURL = cmsURL + "&type=Images";
-            } else {
-                cmsURL = cmsURL + "&type=Files";
-            }
-
-            tinyMCE.activeEditor.windowManager.openUrl({
-                url: cmsURL,
-                title: 'Filemanager',
-                width: x * 0.8,
-                height: y * 0.8,
-                resizable: "yes",
-                close_previous: "no",
-                onMessage: (api, message) => {
-                    callback(message.content);
-                }
-            });
-        }
+    var konten = document.getElementById("my-editor");
+    var options = {
+        filebrowserImageBrowseUrl: '/filemanager?type=Images',
+        filebrowserImageUploadUrl: '/filemanager/upload?type=Images&_token=',
+        filebrowserBrowseUrl: '/filemanager?type=Files',
+        filebrowserUploadUrl: '/filemanager/upload?type=Files&_token='
     };
-
-    tinymce.init(editor_config);
+    CKEDITOR.replace(konten, options);
+    CKEDITOR.config.allowedContent = true;
 </script>
-<!-- end tiny mce editor -->
+<!-- end ck editor -->
 
 <script>
     var uploadedDocumentMap = {}
@@ -165,15 +120,16 @@
             });
         },
         init: function () {
-            @if (isset($project) && $project->document)
-                var files = {!! json_encode($project->document) !!}
+            @if (isset($project) && $project -> document)
+                var files = {!! json_encode($project -> document)!!
+        }
                 for(var i in files) {
-                    var file = files[i]
-                    this.options.addedfile.call(this, file)
-                    file.previewElement.classList.add('dz-complete')
-                    $('form').append('<input type="hidden" name="document[]" value="' + file.file_name + '">')
-                }
-            @endif
+        var file = files[i]
+        this.options.addedfile.call(this, file)
+        file.previewElement.classList.add('dz-complete')
+        $('form').append('<input type="hidden" name="document[]" value="' + file.file_name + '">')
+    }
+    @endif
         }
     }
 </script>

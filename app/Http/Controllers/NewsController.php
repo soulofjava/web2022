@@ -146,19 +146,13 @@ class NewsController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'highlight' => 'required',
             'date' => 'required',
-            'kategori' => 'required',
         ]);
 
         $data = News::find($id);
         $data->slug = null;
 
-        if ($request->dip_tahun) {
-            $data->update($request->except(['_token', 'document', 'tag', 'kategori']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
-        } else {
-            $data->update($request->except(['_token', 'document', 'tag']) + ['upload_by' => auth()->user()->id]);
-        }
+        $data->update($request->except(['_token', 'document', 'tag']) + ['upload_by' => auth()->user()->id]);
 
         // tag ulang postingan
         $data->retag($request->tag);

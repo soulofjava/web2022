@@ -19,14 +19,6 @@
                     <input type="text" value="{{ $data->id }}" id="malika" hidden>
                     <div class="dropzone" id="my-awesome-dropzone"></div>
                     <div class="form-group label-floating">
-                        <label class="control-label">Highlight</label>
-                        {{Form::select('highlight', $highlight, null, ['class' => 'form-control'])}}
-                    </div>
-                    <div class="form-group label-floating">
-                        <label class="control-label">Kategori</label>
-                        {{Form::select('kategori', $categori, null, ['class' => 'form-control'])}}
-                    </div>
-                    <div class="form-group label-floating">
                         <label class="control-label">Title</label>
                         {{Form::text('title', null,['class' => 'form-control'])}}
                     </div>
@@ -36,7 +28,7 @@
                     </div>
                     <div class="form-group label-floating">
                         <label class="control-label">Description</label>
-                        {{Form::textarea('description', null,['class' => 'my-editor form-control'])}}
+                        {{Form::textarea('description', null,['class' => 'form-control', 'id' => 'my-editor'])}}
                     </div>
                     <div class="d-flex text-right">
                         <a href="{{ route('news.index') }}" class="btn btn-default btn-fill">Cancel</a>
@@ -58,135 +50,108 @@
     });
 
     var uploadedDocumentMap = {};
-        let token = $("meta[name='csrf-token']").attr("content");
+    let token = $("meta[name='csrf-token']").attr("content");
 
-        Dropzone.autoDiscover = false;
-        $(".dropzone").dropzone({
+    Dropzone.autoDiscover = false;
+    $(".dropzone").dropzone({
 
-            url: `{{ route('file_image.store') }}`,
-            // maxFilesize: 2, // MB
-            addRemoveLinks: true,
-            headers: {
-                'X-CSRF-TOKEN': "{{ csrf_token() }}"
-            },
-            success: function (file, response) {
-                $('form').append('<input type="hidden" name="document[]" value="' + response.name + '">')
-                uploadedDocumentMap[file.name] = response.name
-                uploadedDocumentMap[file.path] = response.path
-            },
-            removedfile: function (file) {
-                file.previewElement.remove()
-                var name = '';
-                var path = '';
-                if (typeof file.file_name !== 'undefined') {
-                    name = file.file_name;
-                } else {
-                    name = uploadedDocumentMap[file.name];
-                    path = uploadedDocumentMap[file.path];
+        url: `{{ route('file_image.store') }}`,
+        // maxFilesize: 2, // MB
+        addRemoveLinks: true,
+        headers: {
+            'X-CSRF-TOKEN': "{{ csrf_token() }}"
+        },
+        success: function (file, response) {
+            $('form').append('<input type="hidden" name="document[]" value="' + response.name + '">')
+            uploadedDocumentMap[file.name] = response.name
+            uploadedDocumentMap[file.path] = response.path
+        },
+        removedfile: function (file) {
+            file.previewElement.remove()
+            var name = '';
+            var path = '';
+            if (typeof file.file_name !== 'undefined') {
+                name = file.file_name;
+            } else {
+                name = uploadedDocumentMap[file.name];
+                path = uploadedDocumentMap[file.path];
+            }
+
+            // console.log(file.name);
+
+            $('form').find('input[name="document[]"][value="' + name + '"]').remove();
+
+            $.ajax({
+                url: `/admin/file_image/${name}`,
+                type: "DELETE",
+                cache: false,
+                data: {
+                    "_token": token
+                },
+                success: function (response) {
+                    console.log(response);
                 }
+            });
+        },
+        init: function () {
+            myDropzone = this;
+            let id_ku = document.getElementById('malika').value;
 
-                // console.log(file.name);
-
-                $('form').find('input[name="document[]"][value="' + name + '"]').remove();
-
+            this.on("removedfile", function (file) {
+                alert("Delete this file?");
                 $.ajax({
-                    url: `/admin/file_image/${name}`,
+                    url: '/admin/file_image/' + file.name,
                     type: "DELETE",
-                    cache: false,
                     data: {
                         "_token": token
                     },
-                    success: function (response) {
-                        console.log(response);
-                    }
+                    // data: { 'filetodelete': file.name }
                 });
-            },
-            init: function () {
-                myDropzone = this;
-                let id_ku = document.getElementById('malika').value;
+            });
 
-                this.on("removedfile", function (file) {
-                    alert("Delete this file?");
-                    $.ajax({
-                        url: '/admin/file_image/' + file.name,
-                        type: "DELETE",
-                        data: {
-                            "_token": token
-                        },
-                        // data: { 'filetodelete': file.name }
+            $.ajax({
+                url: `/admin/file_image/${id_ku}`,
+                type: 'get',
+                // data: { request: 'fetch' },
+                dataType: 'json',
+                success: function (response) {
+                    $.each(response, function (key, value) {
+                        var mockFile = { name: value.name, size: value.size };
+
+                        myDropzone.emit("addedfile", mockFile);
+                        myDropzone.emit("thumbnail", mockFile, value.path);
+                        myDropzone.emit("complete", mockFile);
+
                     });
-                });
 
-                $.ajax({
-                    url: `/admin/file_image/${id_ku}`,
-                    type: 'get',
-                    // data: { request: 'fetch' },
-                    dataType: 'json',
-                    success: function (response) {
-                        $.each(response, function (key, value) {
-                            var mockFile = { name: value.name, size: value.size };
+                }
+            });
 
-                            myDropzone.emit("addedfile", mockFile);
-                            myDropzone.emit("thumbnail", mockFile, value.path);
-                            myDropzone.emit("complete", mockFile);
-
-                        });
-
-                    }
-                });
-
-                @if (isset($project) && $project->document)
-                    var files = {!! json_encode($project->document) !!}
+            @if (isset($project) && $project -> document)
+                var files = {!! json_encode($project -> document)!!
+        }
                     for(var i in files) {
-                        var file = files[i]
-                        this.options.addedfile.call(this, file)
-                        file.previewElement.classList.add('dz-complete')
-                        $('form').append('<input type="hidden" name="document[]" value="' + file.file_name + '">')
-                    }
-                @endif
+        var file = files[i]
+        this.options.addedfile.call(this, file)
+        file.previewElement.classList.add('dz-complete')
+        $('form').append('<input type="hidden" name="document[]" value="' + file.file_name + '">')
+    }
+    @endif
             }
     });
 </script>
-<script src="https://cdn.tiny.cloud/1/ntnf44xuwietuzyond0qbg8p2e6eqo90pzbi04o4j1jzeiqk/tinymce/5/tinymce.min.js"
-    referrerpolicy="origin"></script>
+<!-- ck editor -->
+<script src="{{asset('assets/back/assets/ckeditor/ckeditor.js')}}"></script>
 <script>
-    var editor_config = {
-        path_absolute: "/",
-        selector: 'textarea.my-editor',
-        relative_urls: false,
-        height: '500px',
-        plugins: [
-            "advlist autolink autosave lists link image charmap print preview hr anchor pagebreak",
-            "searchreplace wordcount visualblocks visualchars code fullscreen",
-            "insertdatetime media nonbreaking save table directionality",
-            "emoticons template paste textpattern"
-        ],
-        toolbar: "restoredraft insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media",
-        file_picker_callback: function (callback, value, meta) {
-            var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
-            var y = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
-
-            var cmsURL = editor_config.path_absolute + 'laravel-filemanager?editor=' + meta.fieldname;
-            if (meta.filetype == 'image') {
-                cmsURL = cmsURL + "&type=Images";
-            } else {
-                cmsURL = cmsURL + "&type=Files";
-            }
-
-            tinyMCE.activeEditor.windowManager.openUrl({
-                url: cmsURL,
-                title: 'Filemanager',
-                width: x * 0.8,
-                height: y * 0.8,
-                resizable: "yes",
-                close_previous: "no",
-                onMessage: (api, message) => {
-                    callback(message.content);
-                }
-            });
-        }
+    var konten = document.getElementById("my-editor");
+    var options = {
+        filebrowserImageBrowseUrl: '/filemanager?type=Images',
+        filebrowserImageUploadUrl: '/filemanager/upload?type=Images&_token=',
+        filebrowserBrowseUrl: '/filemanager?type=Files',
+        filebrowserUploadUrl: '/filemanager/upload?type=Files&_token='
     };
-
-    tinymce.init(editor_config);
+    CKEDITOR.replace(konten, options);
+    CKEDITOR.config.allowedContent = true;
 </script>
+<!-- end ck editor -->
 @endpush
