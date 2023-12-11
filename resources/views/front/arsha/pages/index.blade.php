@@ -41,9 +41,6 @@
                 <h2>Latest Post</h2>
             </div>
 
-            
-            <x-head-category_news bc='#47b2e4' tc='white' />
-
             <div class="row mt-3">
                 @foreach($news as $n)
                 <div class="col-xl-3 col-md-6 d-flex align-items-stretch mb-3" data-aos="zoom-in" data-aos-delay="100">
@@ -75,51 +72,8 @@
     </section>
     <!-- End Services Section -->
     @endif
-    @if($gallery->count() != 0)
-    <!-- keanehan yang terjadi jika div dibawah ini dihapus maka slideshow blank hitam -->
     <div class="skills-content">
     </div>
-    <!-- end of aneh -->
-    <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio">
-        <div class="container" data-aos="fade-up">
-            <div class="section-title">
-                <h2>Gallery</h2>
-                <p>Check our latest photo</p>
-                <a class="btn rounded-pill" style="background: #47b2e4; color: white;" href="{{ url('/photos') }}">
-                    Show All</a>
-            </div>
-            <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-                @foreach($gallery as $g)
-                <div class="col-lg-3 col-md-6 portfolio-item filter-web" style="display: flex">
-                    <div class="portfolio-img">
-                        @foreach($g->gambar as $pic)
-                        @if($loop->iteration == 1)
-                        <a data-fancybox="gallery-group-{{ $pic->id_news }}"
-                            href="{{ asset('storage/') }}/{{ $pic->path }}" data-caption="{{ $g->description }}">
-                            <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid"
-                                style="height: 250px;">
-                        </a>
-                        @else
-                        <div style="display:none;">
-                            <a data-fancybox="gallery-group-{{ $pic->id_news }}"
-                                href="{{ asset('storage/') }}/{{ $pic->path }}" data-caption="{{ $g->description }}">
-                                <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid">
-                            </a>
-                        </div>
-                        @endif
-                        @endforeach
-                    </div>
-                </div>
-                @if($loop->iteration == 8)
-                @break
-                @endif
-                @endforeach
-            </div>
-        </div>
-    </section>
-    @endif
-    <!-- End Portfolio Section -->
 
     <section id="services" class="services section-bg">
         <x-seputar-wonosobo :message='$berita' />

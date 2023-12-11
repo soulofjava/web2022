@@ -7,9 +7,6 @@
             <h2>Blog</h2>
             <p>Recent posts from our Blog</p>
         </header>
-        <div class="py-3">
-            <x-head-category_news bc='#47b2e4' tc='white' />
-        </div>
         <x-cari-news />
         <div class="row mt-3">
             @foreach($news as $n)
