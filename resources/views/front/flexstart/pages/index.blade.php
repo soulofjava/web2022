@@ -45,8 +45,6 @@
                 <p>Recent posts form our Blog</p>
             </header>
 
-            <x-head-category_news bc='#4154f1' tc='white' />
-
             <div class="row mt-4">
                 @foreach($news as $n)
                 <div class="col-lg-4 col-md-6 mb-3">

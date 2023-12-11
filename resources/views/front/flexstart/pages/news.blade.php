@@ -8,10 +8,6 @@
             <p>Recent posts from our Blog</p>
         </header>
 
-        <div class="mb-3">
-            <x-head-category_news bc='#4154f1' tc='white' />
-        </div>
-
         <x-cari-news />
 
         <div class="row mt-3">

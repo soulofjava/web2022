@@ -115,8 +115,6 @@
                         </div>
                         <!-- End sidebar search formn-->
 
-                        <x-category h3='sidebar-title' div='sidebar-item categories' />
-
                         <h3 class="sidebar-title">Recent Posts</h3>
                         <div class="sidebar-item recent-posts">
                             @foreach($news as $n)
