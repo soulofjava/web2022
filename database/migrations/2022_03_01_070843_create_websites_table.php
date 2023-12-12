@@ -33,7 +33,7 @@ class CreateWebsitesTable extends Migration
             $table->string('heroes_video')->nullable()->default('https://www.youtube.com/watch?v=DhyDhaCynGw');
             $table->string('latitude')->nullable()->default('-7.356823979078527');
             $table->string('longitude')->nullable()->default('109.90581334769975');
-            $table->string('themes_front')->default('medino');
+            $table->string('themes_front')->nullable();
             $table->string('themes_back')->default('sneat');
             $table->timestamps();
         });

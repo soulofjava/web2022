@@ -365,11 +365,9 @@ class FrontController extends Controller
         }
     }
 
-    function copydatapostingfromwonosobokab()
+    public function copydatapostingfromwonosobokab()
     {
         ini_set('max_execution_time', 0);
-        // $data = DB::table('postings')->where('id_posting', '7367')->get();
-        // $data = DB::table('postings')->get();
         $data = News::all();
 
         foreach ($data as $index => $item) {
@@ -394,7 +392,7 @@ class FrontController extends Controller
         // print_r('Selesai!');
     }
 
-    function copydatafilefromwonosobokab($a, $b)
+    public function copydatafilefromwonosobokab($a, $b)
     {
         $isa = [];
         $data = DB::table('images')->select('file_name')->where('id_images', '=', $a)->get();
@@ -408,5 +406,31 @@ class FrontController extends Controller
             File::create($fff);
         }
         return json_encode($isa);
+    }
+
+    public function ubahstring()
+    {
+        // $users = DB::table('front_menus')
+        //     ->leftJoin('news', 'front_menus.menu_name', '=', 'news.title')
+        //     ->whereNotNull('news.content')
+        //     ->get();
+        // return $users;
+        // foreach ($users as $key => $value) {
+        //     FrontMenu::where('menu_url', '=', $value->menu_url)->update(['content' => $value->content]);
+        // echo $value->content . '<br>';
+        // }
+        // return 'selesai';
+
+        // start ganti string
+        // $data = News::all();
+        // foreach ($data as $key => $value) {
+        //     if (Str::contains($value->content, '../../')) {
+        //         $new = str_replace('../../', 'https://website.wonosobokab.go.id/', $value->content) . '<br>';
+        //         // echo $value->id;
+        //         News::find($value->id)->update(['content' => $new]);
+        //     };
+        // }
+        // return 'selesai';
+        // end ganti string
     }
 }
