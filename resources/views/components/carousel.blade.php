@@ -23,6 +23,11 @@
             <img src="{{ url('storage/')}}/{{ $gambar->path }}" class="d-block w-100" alt="{{ $gambar->file_name }}">
         </div>
         @endif
+        @empty
+        <div class="carousel-item active">
+            <img src="{{ asset('img/soulofjava.jpg') }}" class="d-block w-100" alt="soul of java">
+        </div>
+        @endforelse
     </div>
     <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
