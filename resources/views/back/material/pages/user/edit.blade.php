@@ -22,12 +22,14 @@
                         @endif
                         {{Form::model($data, ['route' => ['user.update', $data->id],'method' => 'put', 'files' =>
                         'true', ''])}}
-                        @role('superadmin')
+                        @role('admin')
                         <div class="form-group label-floating is-focused">
                             <label class="control-label">Role</label>
                             {{ Form::select('role', $role, $user_role, ['class' => 'form-control',
                             'placeholder' => 'Select Role']); }}
                         </div>
+                        @endrole
+                        @role('superadmin')
                         <div class="form-group label-floating is-focused">
                             <label class="control-label">Permission</label>
                             {{ Form::select('permission', $permission, $permis, ['class' => 'form-control',
@@ -40,6 +42,11 @@
                             'data-style'
                             => 'btn btn-success btn-round', 'title' => 'Choose Bidang'])}}
                         </div>
+                        @endcan
+                        <div class="form-group label-floating">
+                            <label class="control-label">Name</label>
+                            {{Form::text('name', null,['class' => 'form-control'])}}
+                        </div>
                         <div class="form-group label-floating">
                             <label class="control-label">NIP</label>
                             {{Form::number('nip', null,['class' => 'form-control'])}}
@@ -48,34 +55,29 @@
                             <label class="control-label">Jabatan / Golongan</label>
                             {{Form::text('jabatan', null,['class' => 'form-control'])}}
                         </div>
-                        @endcan
                         <div class="form-group label-floating">
-                            <label class="control-label">Nama</label>
-                            {{Form::text('name', null,['class' => 'form-control'])}}
-                        </div>
-                        <div class="form-group label-floating">
-                            <label class="control-label">Nomor Telp</label>
-                            {{Form::number('user_phone', null,['class' => 'form-control'])}}
+                            <label class="control-label">Phone Number</label>
+                            {{Form::text('user_phone', null,['class' => 'form-control'])}}
                         </div>
                         <div class="form-group label-floating">
                             <label class="control-label">Email</label>
                             {{Form::email('email', null,['class' => 'form-control'])}}
                         </div>
                         <div class="form-group label-floating">
-                            <label class="control-label">Sandi Lama</label>
+                            <label class="control-label">Old Password</label>
                             {{Form::password('current_password',['class' => 'form-control'])}}
                         </div>
                         <div class="form-group label-floating">
-                            <label class="control-label">Sandi Baru</label>
+                            <label class="control-label">New Password</label>
                             {{Form::password('new_password',['class' => 'form-control'])}}
                         </div>
                         <div class="form-group label-floating">
-                            <label class="control-label">Konfirmasi Sandi Baru</label>
+                            <label class="control-label">New Confirm Password</label>
                             {{Form::password('new_confirm_password',['class' => 'form-control'])}}
                         </div>
                         <div class="d-flex text-right">
                             <a href="{{ route('user.index') }}" class="btn btn-default btn-fill">Batal</a>
-                            <button type="submit" class="btn btn-success btn-fill">Ubah</button>
+                            <button type="submit" class="btn btn-success btn-fill">Update</button>
                         </div>
                         {{Form::close()}}
                     </div>

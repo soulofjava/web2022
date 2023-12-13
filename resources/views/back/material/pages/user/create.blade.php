@@ -33,11 +33,9 @@
                             'placeholder' => 'Select Permission']); }}
                         </div>
                         @endrole
-                        @can ('satpolpp')
-                        <div>
-                            {{Form::select('bidang_id', $bidang, null,['class' => 'form-control selectpicker',
-                            'data-style'
-                            => 'btn btn-success btn-round', 'title' => 'Choose Bidang'])}}
+                        <div class="form-group label-floating">
+                            <label class="control-label">Name</label>
+                            {{Form::text('name', null,['class' => 'form-control'])}}
                         </div>
                         <div class="form-group label-floating">
                             <label class="control-label">NIP</label>
@@ -47,13 +45,8 @@
                             <label class="control-label">Jabatan / Golongan</label>
                             {{Form::text('jabatan', null,['class' => 'form-control'])}}
                         </div>
-                        @endcan
                         <div class="form-group label-floating">
-                            <label class="control-label">Nama</label>
-                            {{Form::text('name', null,['class' => 'form-control'])}}
-                        </div>
-                        <div class="form-group label-floating">
-                            <label class="control-label">Nomor Telp</label>
+                            <label class="control-label">Phone Number</label>
                             {{Form::number('user_phone', null,['class' => 'form-control'])}}
                         </div>
                         <div class="form-group label-floating">
@@ -61,11 +54,11 @@
                             {{Form::email('email', null,['class' => 'form-control'])}}
                         </div>
                         <div class="form-group label-floating">
-                            <label class="control-label">Sandi</label>
+                            <label class="control-label">Password</label>
                             {{Form::password('password',['class' => 'form-control'])}}
                         </div>
                         <div class="form-group label-floating">
-                            <label class="control-label">Konfirmasi Sandi</label>
+                            <label class="control-label">Confirm Password</label>
                             {{Form::password('password_confirmation',['class' => 'form-control'])}}
                         </div>
                         <div class="d-flex text-right">
