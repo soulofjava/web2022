@@ -3,7 +3,7 @@
 <!-- Banner Area Starts -->
 <section class="banner-area other-page">
     <div class="container">
-        <div class="row">
+        <div class="row header-judul">
             <div class="col-lg-12">
                 <h1>Buku Tamu</h1>
                 <a href="{{ url('/') }}">Beranda</a> <span>|</span> <a href="#">Buku Tamu</a>
@@ -127,7 +127,7 @@
         ]
 
     });
-        // var table = $('#datatables').DataTable();
-        // $('.card .material-datatables label').addClass('form-group');
+    // var table = $('#datatables').DataTable();
+    // $('.card .material-datatables label').addClass('form-group');
 </script>
 @endpush
