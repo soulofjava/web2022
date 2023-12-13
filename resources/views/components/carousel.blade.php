@@ -1,4 +1,4 @@
-<div id="carouselExample" class="carousel slide">
+<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         @forelse($jjj->gambar as $gambar)
         @if($loop->iteration == 1)

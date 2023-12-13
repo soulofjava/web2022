@@ -19,6 +19,9 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 posts-list">
+                <div class="post-img">
+                    <x-carousel :jjj='$data' />
+                </div>
                 <div class="single-post row">
                     {!! $data->description !!}
                 </div>
