@@ -13,6 +13,16 @@
                         <h4 class="card-title">Form Edit Menu / Submenu</h4>
                         {{Form::model($data, ['route' => ['frontmenu.update', $data->id],'method' => 'put', 'files' =>
                         'true', ''])}}
+
+                        <input type="text" value="{{ $data->link }}" id="bbb" hidden>
+
+                        <div class="togglebutton" style="margin-bottom: 15px;">
+                            <label>
+                                Hanya Link? <input name="acb" type="checkbox" id="hideButton" {{ $data->link ?
+                                'checked' : '' }}>
+                            </label>
+                        </div>
+
                         <div class="form-group label-floating">
                             <label class="control-label">Menu Parent</label>
                             @if($data->id <= 45) {{ Form::select('menu_parent', $root, $data->menu_parent,
@@ -22,6 +32,7 @@
                                 ['class' => 'cari form-control']) }}
                                 @endif
                         </div>
+
                         <div class="form-group label-floating">
                             <label class="control-label">Menu Name</label>
                             @if($data->id <= 45) {{Form::text('menu_name', null,['class'=> 'form-control',
@@ -33,7 +44,16 @@
                         @error('menu_name')
                         <div class="error text-danger">Tidak Boleh Kosong</div>
                         @enderror
-                        <div class="form-group label-floating">
+
+                        <div class="form-group url label-floating" style="display: none;">
+                            <label class="control-label">Alamat URL</label>
+                            {{Form::text('menu_url', null,['class' => 'form-control'])}}
+                        </div>
+                        @error('menu_url')
+                        <div class="error text-danger">Tidak Boleh Kosong</div>
+                        @enderror
+
+                        <div class="form-group jip label-floating">
                             <label class="control-label">Jenis Informasi Publik</label>
                             {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
                             'form-control','placeholder' => ''])}}
@@ -41,10 +61,12 @@
                         @error('kategori')
                         <div class="error text-danger">Tidak Boleh Kosong</div>
                         @enderror
-                        <div class="form-group label">
+
+                        <div class="form-group konten label">
                             <label class="control-label">Content</label>
                             {{Form::textarea('content', null,['class' => 'form-control','id'=>'my-editor'])}}
                         </div>
+
                         <div class="d-flex text-right">
                             <a href="{{ route('frontmenu.index') }}" class="btn btn-default btn-fill">Cancel</a>
                             <button type="submit" class="btn btn-success btn-fill">Update</button>
@@ -58,6 +80,31 @@
 </div>
 @endsection
 @push('after-script')
+<script>
+    $(document).ready(function () {
+
+        let a = document.getElementById('bbb').value;
+        console.log(a);
+        if (a == 1) {
+            $(".konten").hide();
+            $(".jip").hide();
+            $(".url").show();
+        }
+
+        $("#hideButton").click(function () {
+            if ($(this).is(":checked")) {
+                $(".konten").hide();
+                $(".jip").hide();
+                $(".url").show();
+            } else {
+                $(".konten").show();
+                $(".jip").show();
+                $(".url").hide();
+            }
+        });
+
+    });
+</script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script type="text/javascript">
     $('.cari').select2({
@@ -86,10 +133,10 @@
 <script>
     var konten = document.getElementById("my-editor");
     var options = {
-        filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
-        filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
-        filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-        filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+        filebrowserImageBrowseUrl: '/filemanager?type=Images',
+        filebrowserImageUploadUrl: '/filemanager/upload?type=Images&_token=',
+        filebrowserBrowseUrl: '/filemanager?type=Files',
+        filebrowserUploadUrl: '/filemanager/upload?type=Files&_token='
     };
     CKEDITOR.replace(konten, options);
     CKEDITOR.config.allowedContent = true;

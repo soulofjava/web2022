@@ -99,14 +99,25 @@ class FrontMenuController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate(
-            [
-                'menu_name' => 'required',
-            ],
-        );
-        FrontMenu::create($request->except('_token') + [
-            'menu_url' => Str::slug($request->menu_name)
-        ]);
+        if ($request->acb) {
+            $data = [
+                'menu_parent' => $request->menu_parent,
+                'menu_name' => $request->menu_name,
+                'menu_url' => $request->menu_url,
+                'link' => 1
+            ];
+        } else {
+            $data = [
+                'menu_parent' => $request->menu_parent,
+                'menu_name' => $request->menu_name,
+                'menu_url' => Str::slug($request->menu_name),
+                'content' => $request->content,
+                'link' => 0
+            ];
+        }
+
+        FrontMenu::insert($data);
+
         return redirect(route('frontmenu.index'))->with(['success' => 'Data added successfully!']);
     }
 
@@ -143,9 +154,28 @@ class FrontMenuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        FrontMenu::find($id)->update(
-            $request->except(['_token']),
-        );
+        $o = FrontMenu::find($id);
+
+        if ($request->acb) {
+            $o->content = null;
+            $data = [
+                'menu_parent' => $request->menu_parent,
+                'menu_name' => $request->menu_name,
+                'menu_url' => $request->menu_url,
+                'link' => 1
+            ];
+        } else {
+            $data = [
+                'menu_parent' => $request->menu_parent,
+                'menu_name' => $request->menu_name,
+                'menu_url' => Str::slug($request->menu_name),
+                'content' => $request->content,
+                'link' => 0
+            ];
+        }
+
+        $o->update($data);
+
         return redirect(route('frontmenu.index'))->with(['success' => 'Data has been successfully changed!']);
     }
 

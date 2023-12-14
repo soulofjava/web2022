@@ -69,6 +69,7 @@
         processing: true,
         serverSide: true,
         lengthChange: true,
+        scrollX: true,
         language: {
             search: "_INPUT_",
             searchPlaceholder: "Search records",

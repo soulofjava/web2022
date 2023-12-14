@@ -15,22 +15,26 @@
                 <div class="card-content">
                     <h4 class="card-title">Form Tambah Data</h4>
                     {{Form::open(['route' => 'news.store','method' => 'post', 'files' => 'true', ''])}}
+
                     <div class="togglebutton" style="margin-bottom: 15px;">
                         <label>
-                            Data DIP? <input type="checkbox" id="hideButton">
+                            Data DIP? <input name="datadip" type="checkbox" id="hideButton">
                         </label>
                     </div>
+
                     <!-- Example of a form that Dropzone can take over -->
                     <div class="dropzone" id="my-awesome-dropzone"></div>
                     <!-- <div class="form-group label-floating">
                         <label class="control-label">Highlight</label>
                         {{Form::select('highlight', $highlight, null, ['class' => 'form-control'])}}
                     </div> -->
-                    <div class="form-group jip">
+
+                    <div class="form-group jip" style="display: none;">
                         <label class="control-label">Jenis Informasi Publik</label>
                         {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
                         'form-control','placeholder' => ''])}}
                     </div>
+
                     <div class="form-group">
                         <label class="control-label">Tanggal</label>
                         {{Form::text('date', null,['class' => 'form-control datepicker'])}}
@@ -38,11 +42,13 @@
                     @error('date')
                     <div class="error text-danger">Tidak Boleh Kosong</div>
                     @enderror
+
                     <div class="form-group dip" style="display: none;">
                         <label class="control-label">Tahun Daftar Informasi Publik</label>
                         {{Form::number('dip_tahun', null, ['class' =>
                         'form-control','placeholder' => ''])}}
                     </div>
+
                     <div class="form-group">
                         <label class="control-label">Judul Postingan</label>
                         {{Form::text('title', null,['class' => 'form-control'])}}
@@ -50,6 +56,7 @@
                     @error('title')
                     <div class="error text-danger">Tidak Boleh Kosong</div>
                     @enderror
+
                     <div class="form-group label">
                         <label class="control-label">Deskripsi</label>
                         {{Form::textarea('description', null,['class' => 'my-editor form-control','id'=>'my-editor'])}}
@@ -80,11 +87,11 @@
         $("#hideButton").click(function () {
             if ($(this).is(":checked")) {
                 $(".dropzone").hide();
-                $(".jip").hide();
+                $(".jip").show();
                 $(".dip").show();
             } else {
                 $(".dropzone").show();
-                $(".jip").show();
+                $(".jip").hide();
                 $(".dip").hide();
             }
         });
@@ -96,61 +103,15 @@
 <script>
     var konten = document.getElementById("my-editor");
     var options = {
-        filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
-        filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
-        filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-        filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+        filebrowserImageBrowseUrl: '/filemanager?type=Images',
+        filebrowserImageUploadUrl: '/filemanager/upload?type=Images&_token=',
+        filebrowserBrowseUrl: '/filemanager?type=Files',
+        filebrowserUploadUrl: '/filemanager/upload?type=Files&_token='
     };
     CKEDITOR.replace(konten, options);
     CKEDITOR.config.allowedContent = true;
 </script>
 <!-- end ck editor -->
-
-<!-- tiny mce editor -->
-<!-- <script src="{{ asset('assets/back/assets/tinymce/js/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script> -->
-<!-- <script src="https://cdn.tiny.cloud/1/ntnf44xuwietuzyond0qbg8p2e6eqo90pzbi04o4j1jzeiqk/tinymce/5/tinymce.min.js"
-    referrerpolicy="origin"></script> -->
-<!-- <script>
-    var editor_config = {
-        path_absolute: "/",
-        selector: 'textarea.my-editor',
-        relative_urls: false,
-        height: '500px',
-        plugins: [
-            "advlist autolink autosave lists link image charmap print preview hr anchor pagebreak",
-            "searchreplace wordcount visualblocks visualchars code fullscreen",
-            "insertdatetime media nonbreaking save table directionality",
-            "emoticons template paste textpattern"
-        ],
-        toolbar: "restoredraft insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media",
-        file_picker_callback: function (callback, value, meta) {
-            var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
-            var y = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
-
-            var cmsURL = editor_config.path_absolute + 'laravel-filemanager?editor=' + meta.fieldname;
-            if (meta.filetype == 'image') {
-                cmsURL = cmsURL + "&type=Images";
-            } else {
-                cmsURL = cmsURL + "&type=Files";
-            }
-
-            tinyMCE.activeEditor.windowManager.openUrl({
-                url: cmsURL,
-                title: 'Filemanager',
-                width: x * 0.8,
-                height: y * 0.8,
-                resizable: "yes",
-                close_previous: "no",
-                onMessage: (api, message) => {
-                    callback(message.content);
-                }
-            });
-        }
-    };
-
-    tinymce.init(editor_config);
-</script> -->
-<!-- end tiny mce editor -->
 
 <script>
     var uploadedDocumentMap = {}

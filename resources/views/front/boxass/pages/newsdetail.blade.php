@@ -62,13 +62,13 @@
                                 </div>
                                 <h3>{{ $data->title }}</h3>
                                 {!! $data->description !!}
-                                <div class="post-tags">
+                                <!-- <div class="post-tags">
                                     <span>Tags: </span>
                                     <a href="#">Consulting</a>
                                     <a href="#">Planing</a>
                                     <a href="#">Business</a>
                                     <a href="#">Fashion</a>
-                                </div>
+                                </div> -->
                                 <div class="post-pagi-area">
                                     <a href="{{ ($prev_data == []) ? '#' : url('/news-detail', $prev_data->slug) }}">
                                         <i class="fas fa-arrow-left"></i>
@@ -76,7 +76,7 @@
                                     <a href="{{  ($next_data == []) ? '#' : url('/news-detail', $next_data->slug) }}">
                                         Next Post <i class="fas fa-arrow-right"></i></a>
                                 </div>
-                                <div class="comments-area">
+                                <!-- <div class="comments-area">
                                     <div class="comments-title">
                                         <h4>5 comments</h4>
                                         <div class="comments-list">
@@ -128,21 +128,18 @@
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="form-group">
-                                                    <!-- Name -->
                                                     <input name="name" class="form-control" placeholder="Name *"
                                                         type="text">
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="form-group">
-                                                    <!-- Email -->
                                                     <input name="email" class="form-control" placeholder="Email *"
                                                         type="email">
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 col-md-12">
                                                 <div class="form-group comments">
-                                                    <!-- Comment -->
                                                     <textarea class="form-control" placeholder="Comment"></textarea>
                                                 </div>
                                                 <div class="form-group full-width submit">
@@ -153,7 +150,7 @@
                                             </div>
                                         </div>
                                     </form>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>

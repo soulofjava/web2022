@@ -16,33 +16,35 @@
                     <h4 class="card-title">Form Edit News</h4>
                     {{Form::model($data, ['route' => ['news.update', $data->id],'method' => 'put', 'files' =>
                     'true', ''])}}
+
                     <input type="text" value="{{ $data->id }}" id="malika" hidden>
+                    <input type="text" value="{{ $data->dip }}" id="bbb" hidden>
+
                     <div class="togglebutton" style="margin-bottom: 15px;">
                         <label>
-                            Data DIP? <input type="checkbox" {{ $data->dip ? 'checked disabled' : '' }} id="hideButton">
+                            Data DIP? <input name="datadip" type="checkbox" id="hideButton" {{ $data->dip ? 'checked' :
+                            '' }}>
                         </label>
                     </div>
-                    @if(!$data->dip)
+
                     <div class="dropzone" id="my-awesome-dropzone"></div>
-                    @endif
+
                     <!-- <div class="form-group label-floating">
                         <label class="control-label">Highlight</label>
                         {{Form::select('highlight', $highlight, null, ['class' => 'form-control'])}}
                     </div> -->
-                    @if(!$data->dip)
-                    <div class="form-group label-floating jip">
+                    <div class="form-group label-floating jip" style="display: none;">
                         <label class="control-label">Jenis Informasi Publik</label>
                         {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
                         'form-control','placeholder' => ''])}}
                     </div>
-                    @endif
-                    @if($data->dip)
-                    <div class="form-group label-floating dip">
+
+                    <div class="form-group label-floating dip" style="display: none;">
                         <label class="control-label">Tahun Daftar Informasi Publik</label>
                         {{Form::number('dip_tahun', null, ['class' =>
                         'form-control','placeholder' => ''])}}
                     </div>
-                    @endif
+
                     <div class="form-group label-floating">
                         <label class="control-label">Judul Postingan</label>
                         {{Form::text('title', null,['class' => 'form-control'])}}
@@ -50,6 +52,7 @@
                     @error('title')
                     <div class="error text-danger">Tidak Boleh Kosong</div>
                     @enderror
+
                     <div class="form-group">
                         <label class="control-label">Tanggal</label>
                         {{Form::text('date', null,['class' => 'form-control datepicker'])}}
@@ -57,6 +60,7 @@
                     @error('date')
                     <div class="error text-danger">Tidak Boleh Kosong</div>
                     @enderror
+
                     <div class="form-group label-floating">
                         <label class="control-label">Description</label>
                         {{Form::textarea('description', null,['class' => 'form-control','id'=>'my-editor'])}}
@@ -64,6 +68,7 @@
                     @error('description')
                     <div class="error text-danger">Tidak Boleh Kosong</div>
                     @enderror
+
                     <div class="d-flex text-right">
                         <a href="{{ route('news.index') }}" class="btn btn-default btn-fill">Cancel</a>
                         <button type="submit" class="btn btn-success btn-fill">Update</button>
@@ -82,14 +87,22 @@
     $(document).ready(function () {
         demo.initFormExtendedDatetimepickers();
 
+        let a = document.getElementById('bbb').value;
+        console.log(a);
+        if (a == 1) {
+            $(".dropzone").hide();
+            $(".jip").show();
+            $(".dip").show();
+        }
+
         $("#hideButton").click(function () {
             if ($(this).is(":checked")) {
                 $(".dropzone").hide();
-                $(".jip").hide();
+                $(".jip").show();
                 $(".dip").show();
             } else {
                 $(".dropzone").show();
-                $(".jip").show();
+                $(".jip").hide();
                 $(".dip").hide();
             }
         });
@@ -191,10 +204,10 @@
 <script>
     var konten = document.getElementById("my-editor");
     var options = {
-        filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
-        filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
-        filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-        filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+        filebrowserImageBrowseUrl: '/filemanager?type=Images',
+        filebrowserImageUploadUrl: '/filemanager/upload?type=Images&_token=',
+        filebrowserBrowseUrl: '/filemanager?type=Files',
+        filebrowserUploadUrl: '/filemanager/upload?type=Files&_token='
     };
     CKEDITOR.replace(konten, options);
     CKEDITOR.config.allowedContent = true;
