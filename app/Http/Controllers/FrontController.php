@@ -7,6 +7,7 @@ use App\Jobs\KirimEmailInbox;
 use App\Models\Agenda;
 use App\Models\File;
 use App\Models\Component;
+use App\Models\Download;
 use App\Models\FrontMenu;
 use Illuminate\Http\Request;
 use App\Models\News;
@@ -21,6 +22,7 @@ use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
 
 class FrontController extends Controller
 {
@@ -134,6 +136,26 @@ class FrontController extends Controller
         $news = News::latest('date')->paginate(12);
         $sideposts = News::latest('date')->take(5)->get();
         return view('front.' . $this->themes->themes_front . '.pages.news', compact('news', 'sideposts'));
+    }
+
+    public function downloadarea(Request $request)
+    {
+        Seo::seO();
+        if ($request->ajax()) {
+            $data = Download::latest();
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn(
+                    'download',
+                    function ($data) {
+                        $actionBtn = '<a href="' . Storage::url($data->path) . '" target="_blank" class="btn btn-primary">Download</a>';
+                        return $actionBtn;
+                    }
+                )
+                ->rawColumns(['download'])
+                ->make(true);
+        }
+        return view('front.' . $this->themes->themes_front . '.component.download-area');
     }
 
     public function newsByCategory($id)
@@ -274,26 +296,6 @@ class FrontController extends Controller
         }
     }
 
-    // kampung pancasila
-    public function tentangkami()
-    {
-        return view('front.kampungpancasila.tentang-kami');
-    }
-
-    public function latarbelakang()
-    {
-        return view('front.kampungpancasila.latar-belakang');
-    }
-
-    public function tujuan()
-    {
-        return view('front.kampungpancasila.tujuan');
-    }
-
-    public function kampungpancasila()
-    {
-        return view('front.kampungpancasila.kampung-pancasila');
-    }
 
     // sql ppid setda
     public function loadsql()

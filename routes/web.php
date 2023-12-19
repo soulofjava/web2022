@@ -14,6 +14,7 @@ use App\Http\Controllers\InboxController;
 use App\Http\Controllers\RelatedLinkController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\ComRegionController;
+use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\MigrasiDataController;
 use App\Http\Controllers\SSO\SSOController;
@@ -113,6 +114,7 @@ Route::group(['middleware' => 'data_web'], function () {
     Route::post('guest', [FrontController::class, 'addguest']);
     Route::resource('buku-tamu', GuestBookController::class);
     Route::get('agenda', [FrontController::class, 'event']);
+    Route::get('download-area', [FrontController::class, 'downloadarea']);
     Route::get('berita', [FrontController::class, 'newsall']);
     Route::get('/reload-captcha', [FrontController::class, 'reloadCaptcha']);
 });
@@ -134,6 +136,7 @@ Route::group(['middleware' => ['auth', 'data_web', 'cek_inbox'], 'prefix' => 'ad
         Route::resource('component', ComponentController::class);
     });
     Route::resource('news', NewsController::class);
+    Route::resource('download', DownloadController::class);
     Route::resource('myprofile', CredentialController::class);
     Route::resource('event', AgendaController::class);
     Route::resource('inbox', InboxController::class);

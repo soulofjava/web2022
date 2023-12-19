@@ -62,35 +62,18 @@
                         <p>Kotak Masuk</p>
                     </a>
                 </li> -->
+                <li class="{{ (Str::contains(Request::url(), 'download')) ? 'active' : '' }}">
+                    <a href="{{ route('download.index') }}">
+                        <i class="material-icons">file_download</i>
+                        <p>Download Area</p>
+                    </a>
+                </li>
                 <li class="{{ (Str::contains(Request::url(), 'news')) ? 'active' : '' }}">
                     <a href="{{ route('news.index') }}">
                         <i class="material-icons">event_note</i>
                         <p>Postingan</p>
                     </a>
                 </li>
-                @role('superadmin')
-                <li class="{{ (Str::contains(Request::url(), ['permohonaninformasi'])) ? 'active' : '' }}">
-                    <a data-toggle="collapse" href="#pagesExamplesss"
-                        aria-expanded="{{ (Str::contains(Request::url(), ['gallery', 'news'])) ? 'true' : '' }}">
-                        <i class="material-icons">
-                            receipt
-                        </i>
-                        <p>Layanan
-                            <b class="caret"></b>
-                        </p>
-                    </a>
-                    <div class="collapse {{ (Str::contains(Request::url(), ['permohonaninformasi'])) ? 'in' : '' }}"
-                        id="pagesExamplesss">
-                        <ul class="nav">
-                            <li class="{{ (Str::contains(Request::url(), 'permohonaninformasi')) ? 'active' : '' }}">
-                                <a href="{{ route('permohonaninformasi.index') }}"> <i
-                                        class="material-icons">view_list</i>
-                                    Permohonan Informasi</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                @endrole
                 @role('superadmin|admin')
                 <li
                     class="{{ (Str::contains(Request::url(), ['component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user', 'bidang'])) ? 'active' : '' }}">
