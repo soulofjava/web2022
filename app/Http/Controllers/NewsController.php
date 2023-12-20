@@ -143,7 +143,7 @@ class NewsController extends Controller
         $data = News::find($id);
         $data->slug = null;
 
-        $data->update($validated + ['upload_by' => auth()->user()->name]);
+        $data->update($validated + ['upload_by' => auth()->user()->id]);
 
         if ($request->document) {
             foreach ($request->document as $df) {
