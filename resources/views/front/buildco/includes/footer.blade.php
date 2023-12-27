@@ -31,7 +31,7 @@
                 <!-- Single Item -->
                 <div class="col-md-3 col-sm-6 equal-height item">
                     <div class="f-item link">
-                        <h4>Services</h4>
+                        <!-- <h4>Services</h4>
                         <ul>
                             <li>
                                 <a href="#">Oil & Gas Engineering</a>
@@ -51,34 +51,23 @@
                             <li>
                                 <a href="#">Mechanical</a>
                             </li>
-                        </ul>
+                        </ul> -->
                     </div>
                 </div>
                 <!-- End Single Item -->
                 <!-- Single Item -->
                 <div class="col-md-3 col-sm-6 equal-height item">
                     <div class="f-item link">
-                        <h4>Useful Links</h4>
+                        @if($related->count() > 0)
+                        <h3>Link Terkait</h3>
                         <ul>
+                            @foreach($related as $rr)
                             <li>
-                                <a href="#">Latest News</a>
+                                <a target="_blank" href="{{ $rr->url }}">{{ $rr->name }}</a>
                             </li>
-                            <li>
-                                <a href="#">Careers</a>
-                            </li>
-                            <li>
-                                <a href="#">General Inquiries</a>
-                            </li>
-                            <li>
-                                <a href="#">Case Studies</a>
-                            </li>
-                            <li>
-                                <a href="#">Customers Feedback</a>
-                            </li>
-                            <li>
-                                <a href="#">Contact Us</a>
-                            </li>
+                            @endforeach
                         </ul>
+                        @endif
                     </div>
                 </div>
                 <!-- End Single Item -->
@@ -92,6 +81,12 @@
                             </li>
                         </ul>
                         <div class="bottom">
+                            <h4>Total Pengunjung</h4>
+                            <ul>
+                                <li>
+                                    <span> {{ $counter_web }} </span>
+                                </li>
+                            </ul>
                             <!-- <h4>Subscribe Newsletter</h4>
                             <form action="#">
                                 <div class="input-group stylish-input-group">
