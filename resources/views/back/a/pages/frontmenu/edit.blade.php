@@ -26,7 +26,8 @@
                         <div class="form-group label-floating">
                             <label class="control-label">Menu Parent</label>
                             @if($data->id <= 45) {{ Form::select('menu_parent', $root, $data->menu_parent,
-                                ['class' => 'cari form-control', 'disabled' => 'disabled']) }}
+                                ['class' => 'cari form-control','disabled']) }}
+                                <input type="hidden" name="menu_parent" value="{{ $data->menu_parent }}">
                                 @else
                                 {{ Form::select('menu_parent', $root, $data->menu_parent,
                                 ['class' => 'cari form-control']) }}
@@ -36,7 +37,8 @@
                         <div class="form-group label-floating">
                             <label class="control-label">Menu Name</label>
                             @if($data->id <= 45) {{Form::text('menu_name', null,['class'=> 'form-control',
-                                'id' => 'title', 'disabled' => 'disabled'])}}
+                                'id' => 'title','disabled'])}}
+                                <input type="hidden" name="menu_name" value="{{ $data->menu_name }}">
                                 @else
                                 {{Form::text('menu_name', null,['class' => 'form-control', 'id' => 'title'])}}
                                 @endif

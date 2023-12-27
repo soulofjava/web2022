@@ -98,7 +98,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ asset('assets/front/buildco/img/logo.png') }}" class="logo" alt="Logo">
                 </a>
             </div>
