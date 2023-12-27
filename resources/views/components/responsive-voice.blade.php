@@ -1,5 +1,5 @@
 <!-- voice -->
-<script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+<script src="https://code.responsivevoice.org/responsivevoice.js?key=ubCKZXLs"></script>
 <script>
     $(document).ready(function () {
         $web = document.getElementById('websitename').innerText;
