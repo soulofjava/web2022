@@ -6,22 +6,30 @@
     <div id="bootcarousel" class="carousel slide carousel-fade animate_text" data-ride="carousel">
         <!-- Wrapper for slides -->
         <div class="carousel-inner text-light carousel-zoom">
+            @foreach(App\Models\News::latest('date')->take(3)->get() as $hl)
+            @if ($loop->first)
             <div class="item active">
+                @if($hl->attachment)
+                <div class="slider-thumb bg-cover" style="background-image: url('{{ $hl->attachment }}');">
+                </div>
+                @elseif($hl->gambarmuka)
                 <div class="slider-thumb bg-cover"
-                    style="background-image: url({{ asset('assets/front/buildco/img/2440x1578.png') }});"></div>
+                    style="background-image: url('storage/{{ $hl->gambarmuka->path }}');">
+                </div>
+                @else
+                <div class="slider-thumb bg-cover" style="background-image: url('{{ asset('img/soulofjava.jpg') }}');">
+                </div>
+                @endif
                 <div class="box-table shadow dark">
                     <div class="box-cell">
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-8">
                                     <div class="content">
-                                        <h3 data-animation="animated slideInRight">Let's grow together</h3>
-                                        <h1 data-animation="animated slideInLeft">Build <span>innovative</span>
-                                            industrial solutions</h1>
-                                        <a data-animation="animated slideInUp" class="btn btn-light border btn-md"
-                                            href="#">Our Services</a>
+                                        <!-- <h3 data-animation="animated slideInRight">Let's grow together</h3> -->
+                                        <h1 data-animation="animated slideInLeft">{{ $hl->title }}</h1>
                                         <a data-animation="animated slideInUp" class="btn btn-theme effect btn-md"
-                                            href="#">Learn more</a>
+                                            href="{{ url('/news-detail', $hl->slug) }}">Lebih Detail</a>
                                     </div>
                                 </div>
                             </div>
@@ -29,23 +37,29 @@
                     </div>
                 </div>
             </div>
+            @else
             <div class="item">
-                <div class="slider-thumb bg-cover"
-                    style="background-image: url({{ asset('assets/front/buildco/img/2440x1578.png') }});"></div>
+                @if($hl->attachment)
+                <div class="slider-thumb bg-cover" style="background-image: url('{{ $hl->attachment }}');">
+                </div>
+                @else
+                <div class="slider-thumb bg-cover" style="background-image: url('{{ asset('img/soulofjava.jpg') }}');">
+                </div>
+                @endif
                 <div class="box-table shadow dark">
                     <div class="box-cell">
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-8">
                                     <div class="content">
-                                        <h3 data-animation="animated slideInUp">Since 1985</h3>
-                                        <h1 data-animation="animated slideInDown">Expert knowledge in
-                                            <span>Technical</span> Solutions
+                                        <!-- <h3 data-animation="animated slideInUp">Since 1985</h3> -->
+                                        <h1 data-animation="animated slideInDown">{{ $hl->title }}
                                         </h1>
-                                        <a data-animation="animated slideInUp" class="btn btn-light border btn-md"
-                                            href="#">Our Services</a>
+                                        <!-- <a data-animation="animated slideInUp" class="btn btn-light border btn-md"
+                                            href="#">Our
+                                            Services</a> -->
                                         <a data-animation="animated slideInUp" class="btn btn-theme effect btn-md"
-                                            href="#">Learn more</a>
+                                            href="{{ url('/news-detail', $hl->slug) }}">Lebih Detail</a>
                                     </div>
                                 </div>
                             </div>
@@ -53,30 +67,8 @@
                     </div>
                 </div>
             </div>
-            <div class="item">
-                <div class="slider-thumb bg-cover"
-                    style="background-image: url({{ asset('assets/front/buildco/img/2440x1578.png') }});"></div>
-                <div class="box-table shadow dark">
-                    <div class="box-cell">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-8">
-                                    <div class="content">
-                                        <h3 data-animation="animated slideInLeft">Expert in</h3>
-                                        <h1 data-animation="animated slideInRight">Empowering oil Refiling &
-                                            <span>Processing</span> plants
-                                        </h1>
-                                        <a data-animation="animated slideInUp" class="btn btn-light border btn-md"
-                                            href="#">Our Services</a>
-                                        <a data-animation="animated slideInUp" class="btn btn-theme effect btn-md"
-                                            href="#">Learn more</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endif
+            @endforeach
         </div>
         <!-- End Wrapper for slides -->
 

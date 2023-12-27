@@ -65,13 +65,13 @@ return [
 
         'wordpress' => [ // for WordPress database (used by Corcel)
             'driver'    => 'mysql',
-            'host'      => 'localhost',
-            'database'  => 'prokompimdb',
+            'host'      => 'localhost:8889',
+            'database'  => 'bappeda_wordpress',
             'username'  => 'root',
-            'password'  => '',
+            'password'  => 'root',
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
-            'prefix'    => 'pro_',
+            'prefix'    => 'wp_',
             'strict'    => false,
             'engine'    => null,
         ],
