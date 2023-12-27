@@ -42,6 +42,10 @@
                 @if($hl->attachment)
                 <div class="slider-thumb bg-cover" style="background-image: url('{{ $hl->attachment }}');">
                 </div>
+                @elseif($hl->gambarmuka)
+                <div class="slider-thumb bg-cover"
+                    style="background-image: url('storage/{{ $hl->gambarmuka->path }}');">
+                </div>
                 @else
                 <div class="slider-thumb bg-cover" style="background-image: url('{{ asset('img/soulofjava.jpg') }}');">
                 </div>

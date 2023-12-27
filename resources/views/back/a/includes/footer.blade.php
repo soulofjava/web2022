@@ -1,5 +1,5 @@
 <footer class="footer">
-    <div class="container">
+    <div class="container-fluid">
         <p class="copyright pull-right">
             &copy; 2022
             <!-- <script>

@@ -32,6 +32,11 @@ class ComponentSeeder extends Seeder
                 'active' => 0,
                 'slug' => Str::slug('Seputar Wonosobo', '-'),
             ],
+            [
+                'name' => 'Download Area',
+                'active' => 0,
+                'slug' => Str::slug('Download Area', '-'),
+            ],
             // [
             //     'name' => 'Layanan',
             //     'active' => 1,
