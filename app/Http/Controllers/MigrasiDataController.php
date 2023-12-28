@@ -31,7 +31,7 @@ class MigrasiDataController extends Controller
         set_time_limit(0);
 
         // insert into database laravel
-        $posts = Post::published()->get();
+        $posts = Post::where('post_title', '!=', '')->where('post_content', '!=', '')->whereYear('post_date', 2023)->published()->get();
 
         foreach ($posts as $key) {
             $data = ([
