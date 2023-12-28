@@ -221,7 +221,7 @@
 
 <!-- Start Our About
     ============================================= -->
-<div class="about-area default-padding">
+<!-- <div class="about-area default-padding">
     <div class="container">
         <div class="row">
             <div class="col-md-6 info-content">
@@ -248,7 +248,6 @@
                 <div class="row">
                     <div class="content-box">
                         <div class="center">
-                            <!-- Single Item -->
                             <div class="col-md-6 col-sm-6 equal-height">
                                 <div class="item">
                                     <i class="flaticon-equipment"></i>
@@ -258,8 +257,6 @@
                                     </p>
                                 </div>
                             </div>
-                            <!-- End Single Item -->
-                            <!-- Single Item -->
                             <div class="col-md-6 col-sm-6 equal-height">
                                 <div class="item">
                                     <i class="flaticon-engineer-1"></i>
@@ -269,8 +266,6 @@
                                     </p>
                                 </div>
                             </div>
-                            <!-- End Single Item -->
-                            <!-- Single Item -->
                             <div class="col-md-6 col-sm-6 equal-height">
                                 <div class="item">
                                     <i class="flaticon-factory"></i>
@@ -280,8 +275,6 @@
                                     </p>
                                 </div>
                             </div>
-                            <!-- End Single Item -->
-                            <!-- Single Item -->
                             <div class="col-md-6 col-sm-6 equal-height">
                                 <div class="item">
                                     <i class="flaticon-helmet"></i>
@@ -291,19 +284,18 @@
                                     </p>
                                 </div>
                             </div>
-                            <!-- End Single Item -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- End Our About -->
 
 <!-- Start Why Chose Us
     ============================================= -->
-<div class="choseus-area about-area bg-gray">
+<!-- <div class="choseus-area about-area bg-gray">
     <div class="container-full">
         <div class="row">
             <div class="content-box">
@@ -343,12 +335,12 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- End Why Chose Us -->
 
 <!-- Start Portfolio 
     ============================================= -->
-<div class="portfolio-area info-less default-padding bg-gray">
+<!-- <div class="portfolio-area info-less default-padding bg-gray">
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -374,100 +366,83 @@
                     <button data-filter=".metarials">Metarials</button>
                     <button data-filter=".construction">Construction</button>
                 </div>
-                <!-- End Mixitup Nav-->
-                <div class="row magnific-mix-gallery masonary text-left">
-                    <div id="portfolio-grid" class="portfolio-items col-3">
-                        <div class="portfolio-items">
-                            <!-- Single Item -->
-                            <div class="pf-item construction">
-                                <div class="effect-up">
-                                    <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
-                                    <div class="overlay">
-                                        <h4>Thread Grinding</h4>
-                                        <div class="link">
-                                            <a href="{{ asset('assets/front/buildco/img/800x600.png') }}"
-                                                class="item popup-link"><i class="fa fa-search"></i></a>
-                                            <a href="#"><i class="fas fa-link"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Item -->
-                            <!-- Single Item -->
-                            <div class="pf-item metarials renovation">
-                                <div class="effect-up">
-                                    <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
-                                    <div class="overlay">
-                                        <h4>Spring Renovation</h4>
-                                        <div class="link">
-                                            <a href="{{ asset('assets/front/buildco/img/800x600.png') }}"
-                                                class="item popup-link"><i class="fa fa-search"></i></a>
-                                            <a href="#"><i class="fas fa-link"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Item -->
-                            <!-- Single Item -->
-                            <div class="pf-item construction industry">
-                                <div class="effect-up">
-                                    <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
-                                    <div class="overlay">
-                                        <h4>Wind Energy Plant</h4>
-                                        <div class="link">
-                                            <a href="{{ asset('assets/front/buildco/img/800x600.png') }}"
-                                                class="item popup-link"><i class="fa fa-search"></i></a>
-                                            <a href="#"><i class="fas fa-link"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Item -->
-                            <!-- Single Item -->
-                            <div class="pf-item metarials industry">
-                                <div class="effect-up">
-                                    <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
-                                    <div class="overlay">
-                                        <h4>Petroleum Tank</h4>
-                                        <div class="link">
-                                            <a href="{{ asset('assets/front/buildco/img/800x600.png') }}"
-                                                class="item popup-link"><i class="fa fa-search"></i></a>
-                                            <a href="#"><i class="fas fa-link"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Item -->
-                            <!-- Single Item -->
-                            <div class="pf-item petroleum renovation">
-                                <div class="effect-up">
-                                    <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
-                                    <div class="overlay">
-                                        <h4>Construction Work</h4>
-                                        <div class="link">
-                                            <a href="{{ asset('assets/front/buildco/img/800x600.png') }}"
-                                                class="item popup-link"><i class="fa fa-search"></i></a>
-                                            <a href="#"><i class="fas fa-link"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Item -->
-                            <!-- Single Item -->
-                            <div class="pf-item petroleum industry">
-                                <div class="effect-up">
-                                    <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
-                                    <div class="overlay">
-                                        <h4>Mechanical Engineering</h4>
-                                        <div class="link">
-                                            <a href="{{ asset('assets/front/buildco/img/800x600.png') }}"
-                                                class="item popup-link"><i class="fa fa-search"></i></a>
-                                            <a href="#"><i class="fas fa-link"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Item -->
+<div class="row magnific-mix-gallery masonary text-left">
+    <div id="portfolio-grid" class="portfolio-items col-3">
+        <div class="portfolio-items">
+            <div class="pf-item construction">
+                <div class="effect-up">
+                    <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
+                    <div class="overlay">
+                        <h4>Thread Grinding</h4>
+                        <div class="link">
+                            <a href="{{ asset('assets/front/buildco/img/800x600.png') }}" class="item popup-link"><i
+                                    class="fa fa-search"></i></a>
+                            <a href="#"><i class="fas fa-link"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pf-item metarials renovation">
+                <div class="effect-up">
+                    <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
+                    <div class="overlay">
+                        <h4>Spring Renovation</h4>
+                        <div class="link">
+                            <a href="{{ asset('assets/front/buildco/img/800x600.png') }}" class="item popup-link"><i
+                                    class="fa fa-search"></i></a>
+                            <a href="#"><i class="fas fa-link"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pf-item construction industry">
+                <div class="effect-up">
+                    <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
+                    <div class="overlay">
+                        <h4>Wind Energy Plant</h4>
+                        <div class="link">
+                            <a href="{{ asset('assets/front/buildco/img/800x600.png') }}" class="item popup-link"><i
+                                    class="fa fa-search"></i></a>
+                            <a href="#"><i class="fas fa-link"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pf-item metarials industry">
+                <div class="effect-up">
+                    <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
+                    <div class="overlay">
+                        <h4>Petroleum Tank</h4>
+                        <div class="link">
+                            <a href="{{ asset('assets/front/buildco/img/800x600.png') }}" class="item popup-link"><i
+                                    class="fa fa-search"></i></a>
+                            <a href="#"><i class="fas fa-link"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pf-item petroleum renovation">
+                <div class="effect-up">
+                    <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
+                    <div class="overlay">
+                        <h4>Construction Work</h4>
+                        <div class="link">
+                            <a href="{{ asset('assets/front/buildco/img/800x600.png') }}" class="item popup-link"><i
+                                    class="fa fa-search"></i></a>
+                            <a href="#"><i class="fas fa-link"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pf-item petroleum industry">
+                <div class="effect-up">
+                    <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
+                    <div class="overlay">
+                        <h4>Mechanical Engineering</h4>
+                        <div class="link">
+                            <a href="{{ asset('assets/front/buildco/img/800x600.png') }}" class="item popup-link"><i
+                                    class="fa fa-search"></i></a>
+                            <a href="#"><i class="fas fa-link"></i></a>
                         </div>
                     </div>
                 </div>
@@ -475,11 +450,15 @@
         </div>
     </div>
 </div>
+</div>
+</div>
+</div>
+</div> -->
 <!-- End Portfolio -->
 
 <!-- Start Team
     ============================================= -->
-<div class="team-area default-padding bottom-less">
+<!-- <div class="team-area default-padding bottom-less">
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -495,7 +474,6 @@
         </div>
         <div class="row">
             <div class="team-items text-center">
-                <!-- Single Item -->
                 <div class="col-md-4 single-item">
                     <div class="item">
                         <div class="thumb">
@@ -531,8 +509,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- End Single Item -->
-                <!-- Single Item -->
                 <div class="col-md-4 single-item">
                     <div class="item">
                         <div class="thumb">
@@ -568,8 +544,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- End Single Item -->
-                <!-- Single Item -->
                 <div class="col-md-4 single-item">
                     <div class="item">
                         <div class="thumb">
@@ -605,16 +579,15 @@
                         </div>
                     </div>
                 </div>
-                <!-- End Single Item -->
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- End Team -->
 
 <!-- Start Achivement
     ============================================= -->
-<div class="achivement-area bg-fixed shadow dark text-light"
+<!-- <div class="achivement-area bg-fixed shadow dark text-light"
     style="background-image: url({{ asset('assets/front/buildco/img/2440x1578.png') }});">
     <div class="container">
         <div class="row">
@@ -650,12 +623,12 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- End Achivement Area -->
 
 <!-- Start Contact
     ============================================= -->
-<div class="contact-area default-padding">
+<!-- <div class="contact-area default-padding">
     <div class="container">
         <div class="row">
             <div class="col-md-6 contact-items">
@@ -704,153 +677,139 @@
                             </button>
                         </div>
                     </div>
-                    <!-- Alert Message -->
-                    <div class="col-md-12 alert-notification">
-                        <div id="message" class="alert-msg"></div>
-                    </div>
-                </form>
-                <ul>
-                    <li>
-                        <div class="icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="info">
-                            <span>Hotline</span> +99-34-8878-9989
-                        </div>
-                    </li>
-                    <li>
-                        <div class="icon">
-                            <i class="fas fa-envelope-open"></i>
-                        </div>
-                        <div class="info">
-                            <span>Emergency Email</span> info@yourdomain.com
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <!-- Start Faq -->
-            <div class="col-md-6 faq-area">
-                <div class="heading">
-                    <h2>Answer & Questions</h2>
+<div class="col-md-12 alert-notification">
+    <div id="message" class="alert-msg"></div>
+</div>
+</form>
+<ul>
+    <li>
+        <div class="icon">
+            <i class="fas fa-phone"></i>
+        </div>
+        <div class="info">
+            <span>Hotline</span> +99-34-8878-9989
+        </div>
+    </li>
+    <li>
+        <div class="icon">
+            <i class="fas fa-envelope-open"></i>
+        </div>
+        <div class="info">
+            <span>Emergency Email</span> info@yourdomain.com
+        </div>
+    </li>
+</ul>
+</div>
+<div class="col-md-6 faq-area">
+    <div class="heading">
+        <h2>Answer & Questions</h2>
+    </div>
+    <div class="acd-items acd-arrow">
+        <div class="panel-group symb" id="accordion">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#ac1">
+                            Do I need a business plan?
+                        </a>
+                    </h4>
                 </div>
-                <div class="acd-items acd-arrow">
-                    <div class="panel-group symb" id="accordion">
-
-                        <!-- Single Item -->
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#ac1">
-                                        Do I need a business plan?
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="ac1" class="panel-collapse collapse in">
-                                <div class="panel-body">
-                                    <p>
-                                        Removing welcomed civility or hastened is. Justice elderly but perhaps
-                                        expense six her are another passage. Full her ten open fond walk not
-                                        down.For request general express unknown are.
-                                    </p>
-                                    <p>
-                                        He in just mr door body held john down he. So journey greatly or garrets.
-                                        Draw door kept do so come on open mean. Estimating stimulated how reasonably
-                                        precaution diminution she simplicity sir but.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-
-                        <!-- Single Item -->
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#ac2">
-                                        How long should a business plan be?
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="ac2" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <p>
-                                        Removing welcomed civility or hastened is. Justice elderly but perhaps
-                                        expense six her are another passage. Full her ten open fond walk not
-                                        down.For request general express unknown are.
-                                    </p>
-                                    <p>
-                                        He in just mr door body held john down he. So journey greatly or garrets.
-                                        Draw door kept do so come on open mean. Estimating stimulated how reasonably
-                                        precaution diminution she simplicity sir but.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-
-                        <!-- Single Item -->
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#ac3">
-                                        What goes into a business plan?
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="ac3" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <p>
-                                        Removing welcomed civility or hastened is. Justice elderly but perhaps
-                                        expense six her are another passage. Full her ten open fond walk not
-                                        down.For request general express unknown are.
-                                    </p>
-                                    <p>
-                                        He in just mr door body held john down he. So journey greatly or garrets.
-                                        Draw door kept do so come on open mean. Estimating stimulated how reasonably
-                                        precaution diminution she simplicity sir but.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-
-                        <!-- Single Item -->
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#ac4">
-                                        Where do I start?
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="ac4" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <p>
-                                        Removing welcomed civility or hastened is. Justice elderly but perhaps
-                                        expense six her are another passage. Full her ten open fond walk not
-                                        down.For request general express unknown are.
-                                    </p>
-                                    <p>
-                                        He in just mr door body held john down he. So journey greatly or garrets.
-                                        Draw door kept do so come on open mean. Estimating stimulated how reasonably
-                                        precaution diminution she simplicity sir but.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Single Item -->
+                <div id="ac1" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <p>
+                            Removing welcomed civility or hastened is. Justice elderly but perhaps
+                            expense six her are another passage. Full her ten open fond walk not
+                            down.For request general express unknown are.
+                        </p>
+                        <p>
+                            He in just mr door body held john down he. So journey greatly or garrets.
+                            Draw door kept do so come on open mean. Estimating stimulated how reasonably
+                            precaution diminution she simplicity sir but.
+                        </p>
                     </div>
                 </div>
             </div>
-            <!-- End Faq -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#ac2">
+                            How long should a business plan be?
+                        </a>
+                    </h4>
+                </div>
+                <div id="ac2" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>
+                            Removing welcomed civility or hastened is. Justice elderly but perhaps
+                            expense six her are another passage. Full her ten open fond walk not
+                            down.For request general express unknown are.
+                        </p>
+                        <p>
+                            He in just mr door body held john down he. So journey greatly or garrets.
+                            Draw door kept do so come on open mean. Estimating stimulated how reasonably
+                            precaution diminution she simplicity sir but.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#ac3">
+                            What goes into a business plan?
+                        </a>
+                    </h4>
+                </div>
+                <div id="ac3" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>
+                            Removing welcomed civility or hastened is. Justice elderly but perhaps
+                            expense six her are another passage. Full her ten open fond walk not
+                            down.For request general express unknown are.
+                        </p>
+                        <p>
+                            He in just mr door body held john down he. So journey greatly or garrets.
+                            Draw door kept do so come on open mean. Estimating stimulated how reasonably
+                            precaution diminution she simplicity sir but.
+                        </p>
+                    </div>
+                </div>
+            </div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#ac4">
+                Where do I start?
+            </a>
+        </h4>
+    </div>
+    <div id="ac4" class="panel-collapse collapse">
+        <div class="panel-body">
+            <p>
+                Removing welcomed civility or hastened is. Justice elderly but perhaps
+                expense six her are another passage. Full her ten open fond walk not
+                down.For request general express unknown are.
+            </p>
+            <p>
+                He in just mr door body held john down he. So journey greatly or garrets.
+                Draw door kept do so come on open mean. Estimating stimulated how reasonably
+                precaution diminution she simplicity sir but.
+            </p>
         </div>
     </div>
 </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div> -->
 <!-- End Contact Area -->
 
 <!-- Start Testimonials
     ============================================= -->
-<div class="testimonials-area bg-gray default-padding">
+<!-- <div class="testimonials-area bg-gray default-padding">
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -863,7 +822,6 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="testimonial-items testimonial-carousel owl-carousel owl-theme">
-                    <!-- Single Item -->
                     <div class="item">
                         <div class="thumb">
                             <img src="{{ asset('assets/front/buildco/img/800x800.png') }}" alt="Thumb">
@@ -883,8 +841,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- End Single Item -->
-                    <!-- Single Item -->
                     <div class="item">
                         <div class="thumb">
                             <img src="{{ asset('assets/front/buildco/img/800x800.png') }}" alt="Thumb">
@@ -904,8 +860,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- End Single Item -->
-                    <!-- Single Item -->
                     <div class="item">
                         <div class="thumb">
                             <img src="{{ asset('assets/front/buildco/img/800x800.png') }}" alt="Thumb">
@@ -925,17 +879,16 @@
                             </div>
                         </div>
                     </div>
-                    <!-- End Single Item -->
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- End Testimonials -->
 
 <!-- Start Blog
     ============================================= -->
-<div class="blog-area default-padding bottom-less">
+<!-- <div class="blog-area default-padding bottom-less">
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -951,100 +904,94 @@
         </div>
         <div class="row">
             <div class="blog-items">
-                <!-- Single Item -->
-                <div class="col-md-4">
-                    <div class="single-item">
-                        <div class="thumb">
-                            <a href="#">
-                                <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
-                            </a>
-                            <div class="author">
-                                <div class="thumb">
-                                    <img src="{{ asset('assets/front/buildco/img/100x100.png') }}" alt="Author">
-                                </div>
-                                <div class="meta">
-                                    <h5>Admin</h5>
-                                    <span>25 Mar, 2019</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="info">
-                            <h4>
-                                <a href="#">Longer mrs sudden talent become</a>
-                            </h4>
-                            <p>
-                                On assistance he cultivated considered frequently. Person how having tended direct
-                                own day man. Saw sufficient indulgence one own you inquietude sympathize.
-                            </p>
-                            <a href="#">Read More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
+<div class="col-md-4">
+    <div class="single-item">
+        <div class="thumb">
+            <a href="#">
+                <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
+            </a>
+            <div class="author">
+                <div class="thumb">
+                    <img src="{{ asset('assets/front/buildco/img/100x100.png') }}" alt="Author">
                 </div>
-                <!-- Single Item -->
-                <!-- Single Item -->
-                <div class="col-md-4">
-                    <div class="single-item">
-                        <div class="thumb">
-                            <a href="#">
-                                <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
-                            </a>
-                            <div class="author">
-                                <div class="thumb">
-                                    <img src="{{ asset('assets/front/buildco/img/100x100.png') }}" alt="Author">
-                                </div>
-                                <div class="meta">
-                                    <h5>Admin</h5>
-                                    <span>12 Apr, 2019</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="info">
-                            <h4>
-                                <a href="#">Conduct esteems cottage pasture we winding</a>
-                            </h4>
-                            <p>
-                                On assistance he cultivated considered frequently. Person how having tended direct
-                                own day man. Saw sufficient indulgence one own you inquietude sympathize.
-                            </p>
-                            <a href="#">Read More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
+                <div class="meta">
+                    <h5>Admin</h5>
+                    <span>25 Mar, 2019</span>
                 </div>
-                <!-- Single Item -->
-                <!-- Single Item -->
-                <div class="col-md-4">
-                    <div class="single-item">
-                        <div class="thumb">
-                            <a href="#">
-                                <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
-                            </a>
-                            <div class="author">
-                                <div class="thumb">
-                                    <img src="{{ asset('assets/front/buildco/img/100x100.png') }}" alt="Author">
-                                </div>
-                                <div class="meta">
-                                    <h5>Admin</h5>
-                                    <span>19 Nov, 2019</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="info">
-                            <h4>
-                                <a href="#">Considered discovered projecting</a>
-                            </h4>
-                            <p>
-                                On assistance he cultivated considered frequently. Person how having tended direct
-                                own day man. Saw sufficient indulgence one own you inquietude sympathize.
-                            </p>
-                            <a href="#">Read More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Item -->
             </div>
+        </div>
+        <div class="info">
+            <h4>
+                <a href="#">Longer mrs sudden talent become</a>
+            </h4>
+            <p>
+                On assistance he cultivated considered frequently. Person how having tended direct
+                own day man. Saw sufficient indulgence one own you inquietude sympathize.
+            </p>
+            <a href="#">Read More <i class="fas fa-arrow-right"></i></a>
         </div>
     </div>
 </div>
+<div class="col-md-4">
+    <div class="single-item">
+        <div class="thumb">
+            <a href="#">
+                <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
+            </a>
+            <div class="author">
+                <div class="thumb">
+                    <img src="{{ asset('assets/front/buildco/img/100x100.png') }}" alt="Author">
+                </div>
+                <div class="meta">
+                    <h5>Admin</h5>
+                    <span>12 Apr, 2019</span>
+                </div>
+            </div>
+        </div>
+        <div class="info">
+            <h4>
+                <a href="#">Conduct esteems cottage pasture we winding</a>
+            </h4>
+            <p>
+                On assistance he cultivated considered frequently. Person how having tended direct
+                own day man. Saw sufficient indulgence one own you inquietude sympathize.
+            </p>
+            <a href="#">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="single-item">
+        <div class="thumb">
+            <a href="#">
+                <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
+            </a>
+            <div class="author">
+                <div class="thumb">
+                    <img src="{{ asset('assets/front/buildco/img/100x100.png') }}" alt="Author">
+                </div>
+                <div class="meta">
+                    <h5>Admin</h5>
+                    <span>19 Nov, 2019</span>
+                </div>
+            </div>
+        </div>
+        <div class="info">
+            <h4>
+                <a href="#">Considered discovered projecting</a>
+            </h4>
+            <p>
+                On assistance he cultivated considered frequently. Person how having tended direct
+                own day man. Saw sufficient indulgence one own you inquietude sympathize.
+            </p>
+            <a href="#">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div> -->
 <!-- End Blog -->
 @if($news->count() != 0)
 
