@@ -33,7 +33,7 @@
                     <!-- Single Item -->
                     <div class="single-item">
                         <div class="thumb">
-                            <a href="#">
+                            <a href="{{ url('/news-detail', $n->slug) }}">
                                 @if($n->attachment)
                                 <img src="{{ $n->attachment }}" alt="thumbnail">
                                 @elseif(count($n->gambar))
@@ -57,7 +57,7 @@
                         </div>
                         <div class="info">
                             <h3>
-                                <a href="#">{{ $n->title }}</a>
+                                <a href="{{ url('/news-detail', $n->slug) }}">{{ $n->title }}</a>
                             </h3>
                             <p>
                                 {{ \Illuminate\Support\Str::limit($n->title, 200,
