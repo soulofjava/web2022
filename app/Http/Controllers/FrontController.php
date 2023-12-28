@@ -44,12 +44,12 @@ class FrontController extends Controller
                 function ($combinedData) {
                     if ($combinedData->slug) {
                         $actionBtn = '<td class="text-center">
-                                <a target="_blank" href="' . url('news-detail', $combinedData->menu_url ?? $combinedData->slug) . '" class="btn btn-primary">LIHAT
+                                <a target="_blank" href="' . url('news-detail', $combinedData->menu_url ?? $combinedData->slug) . '" class="btn" style="color: white; background-color: #FF5E14;">LIHAT
                                     DATA</a>
                             </td>';
                     } else {
                         $actionBtn = '<td class="text-center">
-                                <a target="_blank" href="' . url('page', $combinedData->menu_url ?? $combinedData->slug) . '" class="btn btn-primary">LIHAT
+                                <a target="_blank" href="' . url('page', $combinedData->menu_url ?? $combinedData->slug) . '" class="btn" style="color: white; background-color: #FF5E14;">LIHAT
                                     DATA</a>
                             </td>';
                     }
@@ -254,8 +254,9 @@ class FrontController extends Controller
         Seo::seO();
         $cari = $request->kolomcari;
         $hasil = 'Hasil Pencarian : ' . $cari;
-        $data = News::with('gambar')->whereDate('date', 'like', '%' . $cari . '%')->orWhere('title', 'like', '%' . $cari . '%')->orderBy("date", "desc")->get();
-        $data2 = DB::table('front_menus')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like', '%' . $cari . '%')->get();
+        $data = News::with('kategorinya')->whereDate('date', 'like', '%' . $cari . '%')->orWhere('title', 'like', '%' . $cari . '%')->orderBy("date", "desc")->get();
+        $data2 = FrontMenu::with('kategorinya')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like', '%' . $cari . '%')->get();
+
         $combinedData = $data->concat($data2);
         // return $combinedData;
 

@@ -20,4 +20,9 @@ class FrontMenu extends Model
     {
         return $this->hasMany(FrontMenu::class, 'menu_parent');
     }
+
+    public function kategorinya()
+    {
+        return $this->hasOne(ComCodes::class, 'code_cd', 'kategori');
+    }
 }

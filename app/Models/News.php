@@ -37,4 +37,9 @@ class News extends Model implements Viewable
     {
         return $this->hasOne(User::class, 'id', 'upload_by');
     }
+
+    public function kategorinya()
+    {
+        return $this->hasOne(ComCodes::class, 'code_cd', 'kategori');
+    }
 }

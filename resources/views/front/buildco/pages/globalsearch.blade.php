@@ -96,7 +96,7 @@
         columns: [
             { data: 'DT_RowIndex', orderable: false, searchable: false },
             { data: 'title', name: 'title', className: "text-center", defaultContent: 'N/A' },
-            { data: 'kategori', name: 'kategori', className: "text-center" },
+            { data: 'kategorinya.code_nm', name: 'kategori', className: "text-center" },
             { data: 'action', className: "text-center" },
         ]
 
