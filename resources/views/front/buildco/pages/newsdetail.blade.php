@@ -32,6 +32,8 @@
                         <div class="thumb">
                             @if(count($data->gambar))
                             <x-looping-image :foto="$data" />
+                            @elseif($data->attachment)
+                            <img src="{{ $data->attachment }}" alt="soul of java">
                             @else
                             <img src="{{ asset('img/soulofjava.jpg') }}" alt="soul of java">
                             @endif

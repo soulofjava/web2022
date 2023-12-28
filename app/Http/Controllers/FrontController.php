@@ -148,7 +148,7 @@ class FrontController extends Controller
                 ->addColumn(
                     'download',
                     function ($data) {
-                        $actionBtn = '<a href="' . Storage::url($data->path) . '" target="_blank" class="btn btn-primary">Download</a>';
+                        $actionBtn = '<a href="' . Storage::url($data->path) . '" target="_blank" class="btn" style="color: white; background-color: #FF5E14;">Download</a>';
                         return $actionBtn;
                     }
                 )
@@ -247,6 +247,43 @@ class FrontController extends Controller
             Alert::success('Success', 'Your Data Has Been Save');
             return redirect()->back();
         }
+    }
+
+    public function globalSearch(Request $request)
+    {
+        Seo::seO();
+        $cari = $request->kolomcari;
+        $hasil = 'Hasil Pencarian : ' . $cari;
+        $data = News::with('gambar')->whereDate('date', 'like', '%' . $cari . '%')->orWhere('title', 'like', '%' . $cari . '%')->orderBy("date", "desc")->get();
+        $data2 = DB::table('front_menus')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like', '%' . $cari . '%')->get();
+        $combinedData = $data->concat($data2);
+        // return $combinedData;
+
+        if ($request->ajax()) {
+            return DataTables::of($combinedData)
+                ->addIndexColumn()
+                ->addColumn(
+                    'action',
+                    function ($combinedData) {
+                        if ($combinedData->menu_url) {
+                            $actionBtn = '<td class="text-center">
+                            <a target="_blank" href="' . url('page', $combinedData->menu_url) . '" class="btn btn-sm" style="color: white; background-color: #FF5E14;">LIHAT
+                            DATA</a>
+                            </td>';
+                        } else {
+                            $actionBtn = '<td class="text-center">
+                                <a target="_blank" href="' . url('news-detail', $combinedData->slug) . '" class="btn btn-sm" style="color: white; background-color: #FF5E14;">LIHAT
+                                    DATA</a>
+                            </td>';
+                        }
+                        return $actionBtn;
+                    }
+                )
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+
+        return view('front.' . $this->themes->themes_front . '.pages.globalsearch', compact('hasil', 'combinedData'));
     }
 
     public function event(Request $request)

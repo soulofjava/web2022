@@ -70,12 +70,17 @@
             <div class="row">
                 <div class="top-search">
                     <div class="input-group">
-                        <form action="#">
+                        <!-- <form action="#">
                             <input type="text" name="text" class="form-control" placeholder="Search">
                             <button type="submit">
                                 <i class="fas fa-search"></i>
                             </button>
-                        </form>
+                        </form> -->
+                        {{Form::open(['route' => 'global.search','method' => 'get', ''])}}
+                        {{Form::text('kolomcari', null,['class' => 'form-control mb-3 text-center',
+                        'placeholder' => 'Kata Pencarian','id'=>'textareaID1'])}}
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                        {{Form::close()}}
                     </div>
                 </div>
             </div>
@@ -87,7 +92,11 @@
             <!-- Start Atribute Navigation -->
             <div class="attr-nav">
                 <ul>
-                    <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
+                    <li class="search">
+                        <a href="#">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </li>
                     <!-- <li class="btn"><a href="#">free quote</a></li> -->
                 </ul>
             </div>
@@ -99,7 +108,8 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('assets/front/buildco/img/logo.png') }}" class="logo" alt="Logo">
+                    <img src="https://bappeda.wonosobokab.go.id/wp-content/uploads/2023/06/logoheader.png" class="logo"
+                        alt="Logo" style="max-width: 250px;">
                 </a>
             </div>
             <!-- End Header Navigation -->

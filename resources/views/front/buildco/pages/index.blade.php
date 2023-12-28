@@ -89,6 +89,136 @@
 </div>
 <!-- End Banner -->
 
+<!-- Start Services
+    ============================================= -->
+<div class="services-area carousel-shadow flex-less inc-thumb default-padding">
+    <div class="container">
+        <!-- <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="site-heading text-center">
+                    <h4>What we do</h4>
+                    <h2>Our Services</h2>
+                    <p>
+                        While mirth large of on front. Ye he greater related adapted proceed entered an. Through it
+                        examine express promise no. Past add size game cold girl off how old
+                    </p>
+                </div>
+            </div>
+        </div> -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="services-items services-carousel-3-col owl-carousel owl-theme text-center inc-overlay">
+                    <!-- Single Item -->
+                    <div class="item">
+                        <div class="thumbs overlay">
+                            <img src="https://bappeda.wonosobokab.go.id/wp-content/uploads/2023/09/Logo-sipd-scaled.jpg"
+                                alt="Thumb">
+                            <div class="info">
+                                <!-- <h4>Oil and Gass Energy</h4>
+                                <p>
+                                    Depend repair met before man admire see and. An he observe be it covered delight
+                                    hastily message.
+                                </p> -->
+                                <a href="https://sipd-ri.kemendagri.go.id/auth/login" target="_blank">Lebih Lanjut</a>
+                            </div>
+                        </div>
+                        <!-- <div class="info">
+                            <div class="content">
+                                <div class="top-info">
+                                    <h4><a href="#">Oil and Gass Energy</a></h4>
+                                </div>
+                                <div class="bottom">
+                                    <i class="flaticon-valve"></i>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                    <!-- End Single Item -->
+                    <!-- Single Item -->
+                    <div class="item">
+                        <div class="thumbs overlay">
+                            <img src="https://bappeda.wonosobokab.go.id/wp-content/uploads/2023/09/Logo-gardu-scaled.jpg"
+                                alt="Thumb">
+                            <div class="info">
+                                <!-- <h4>Agriculture Automation</h4>
+                                <p>
+                                    Depend repair met before man admire see and. An he observe be it covered delight
+                                    hastily message.
+                                </p> -->
+                                <a href="https://gardu.wonosobokab.go.id/" target="_blank">Lebih Lanjut</a>
+                            </div>
+                        </div>
+                        <!-- <div class="info">
+                            <div class="content">
+                                <div class="top-info">
+                                    <h4><a href="#">Agriculture Automation</a></h4>
+                                </div>
+                                <div class="bottom">
+                                    <i class="flaticon-tractor-1"></i>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                    <!-- End Single Item -->
+                    <!-- Single Item -->
+                    <div class="item">
+                        <div class="thumbs overlay">
+                            <img src="https://bappeda.wonosobokab.go.id/wp-content/uploads/2023/09/Logo-simake-scaled.jpg"
+                                alt="Thumb">
+                            <div class="info">
+                                <!-- <h4>Civil Engineering</h4>
+                                <p>
+                                    Depend repair met before man admire see and. An he observe be it covered delight
+                                    hastily message.
+                                </p> -->
+                                <a href="https://www.simnangkis.wonosobokab.go.id/" target="_blank">Lebih Lanjut</a>
+                            </div>
+                        </div>
+                        <!-- <div class="info">
+                            <div class="content">
+                                <div class="top-info">
+                                    <h4><a href="#">Civil Engineering</a></h4>
+                                </div>
+                                <div class="bottom">
+                                    <i class="flaticon-mayan-pyramid"></i>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                    <!-- End Single Item -->
+                    <!-- Single Item -->
+                    <div class="item">
+                        <div class="thumbs overlay">
+                            <img src="https://bappeda.wonosobokab.go.id/wp-content/uploads/2023/09/Logo-SKM-scaled.jpg"
+                                alt="Thumb">
+                            <div class="info">
+                                <!-- <h4>Bridge Construction</h4>
+                                <p>
+                                    Depend repair met before man admire see and. An he observe be it covered delight
+                                    hastily message.
+                                </p> -->
+                                <a href="https://www.skm.wonosobokab.go.id/">Lebih Lanjut</a>
+                            </div>
+                        </div>
+                        <!-- <div class="info">
+                            <div class="content">
+                                <div class="top-info">
+                                    <h4><a href="#" target="_blank">Bridge Construction</a></h4>
+                                </div>
+                                <div class="bottom">
+                                    <i class="flaticon-bridge-2"></i>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                    <!-- End Single Item -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Services Area -->
+
 <!-- Start Our About
     ============================================= -->
 <div class="about-area default-padding">
@@ -215,182 +345,6 @@
     </div>
 </div>
 <!-- End Why Chose Us -->
-
-<!-- Start Services
-    ============================================= -->
-<div class="services-area carousel-shadow flex-less inc-thumb default-padding">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="site-heading text-center">
-                    <h4>What we do</h4>
-                    <h2>Our Services</h2>
-                    <p>
-                        While mirth large of on front. Ye he greater related adapted proceed entered an. Through it
-                        examine express promise no. Past add size game cold girl off how old
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="services-items services-carousel-3-col owl-carousel owl-theme text-center inc-overlay">
-                    <!-- Single Item -->
-                    <div class="item">
-                        <div class="thumbs overlay">
-                            <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
-                            <div class="info">
-                                <h4>Oil and Gass Energy</h4>
-                                <p>
-                                    Depend repair met before man admire see and. An he observe be it covered delight
-                                    hastily message.
-                                </p>
-                                <a href="#">Read More</a>
-                            </div>
-                        </div>
-                        <div class="info">
-                            <div class="content">
-                                <div class="top-info">
-                                    <h4><a href="#">Oil and Gass Energy</a></h4>
-                                </div>
-                                <div class="bottom">
-                                    <i class="flaticon-valve"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Item -->
-                    <!-- Single Item -->
-                    <div class="item">
-                        <div class="thumbs overlay">
-                            <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
-                            <div class="info">
-                                <h4>Agriculture Automation</h4>
-                                <p>
-                                    Depend repair met before man admire see and. An he observe be it covered delight
-                                    hastily message.
-                                </p>
-                                <a href="#">Read More</a>
-                            </div>
-                        </div>
-                        <div class="info">
-                            <div class="content">
-                                <div class="top-info">
-                                    <h4><a href="#">Agriculture Automation</a></h4>
-                                </div>
-                                <div class="bottom">
-                                    <i class="flaticon-tractor-1"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Item -->
-                    <!-- Single Item -->
-                    <div class="item">
-                        <div class="thumbs overlay">
-                            <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
-                            <div class="info">
-                                <h4>Civil Engineering</h4>
-                                <p>
-                                    Depend repair met before man admire see and. An he observe be it covered delight
-                                    hastily message.
-                                </p>
-                                <a href="#">Read More</a>
-                            </div>
-                        </div>
-                        <div class="info">
-                            <div class="content">
-                                <div class="top-info">
-                                    <h4><a href="#">Civil Engineering</a></h4>
-                                </div>
-                                <div class="bottom">
-                                    <i class="flaticon-mayan-pyramid"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Item -->
-                    <!-- Single Item -->
-                    <div class="item">
-                        <div class="thumbs overlay">
-                            <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
-                            <div class="info">
-                                <h4>Bridge Construction</h4>
-                                <p>
-                                    Depend repair met before man admire see and. An he observe be it covered delight
-                                    hastily message.
-                                </p>
-                                <a href="#">Read More</a>
-                            </div>
-                        </div>
-                        <div class="info">
-                            <div class="content">
-                                <div class="top-info">
-                                    <h4><a href="#">Bridge Construction</a></h4>
-                                </div>
-                                <div class="bottom">
-                                    <i class="flaticon-bridge-2"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Item -->
-                    <!-- Single Item -->
-                    <div class="item">
-                        <div class="thumbs overlay">
-                            <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
-                            <div class="info">
-                                <h4>Mechanical Engineering</h4>
-                                <p>
-                                    Depend repair met before man admire see and. An he observe be it covered delight
-                                    hastily message.
-                                </p>
-                                <a href="#">Read More</a>
-                            </div>
-                        </div>
-                        <div class="info">
-                            <div class="content">
-                                <div class="top-info">
-                                    <h4><a href="#">Mechanical Engineering</a></h4>
-                                </div>
-                                <div class="bottom">
-                                    <i class="flaticon-work-time"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Item -->
-                    <!-- Single Item -->
-                    <div class="item">
-                        <div class="thumbs overlay">
-                            <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
-                            <div class="info">
-                                <h4>Power & Energy</h4>
-                                <p>
-                                    Depend repair met before man admire see and. An he observe be it covered delight
-                                    hastily message.
-                                </p>
-                                <a href="#">Read More</a>
-                            </div>
-                        </div>
-                        <div class="info">
-                            <div class="content">
-                                <div class="top-info">
-                                    <h4><a href="#">Power & Energy</a></h4>
-                                </div>
-                                <div class="bottom">
-                                    <i class="flaticon-solar-panel"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Item -->
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Services Area -->
 
 <!-- Start Portfolio 
     ============================================= -->

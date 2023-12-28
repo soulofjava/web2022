@@ -50,17 +50,25 @@ class DatabaseSeeder extends Seeder
 
         $related = [
             [
-                'name' => 'Website Pemkab Wonosobo',
-                'url' => 'https://website.wonosobokab.go.id/',
+                'name' => 'SIPD',
+                'url' => 'https://wonosobokab.sipd.kemendagri.go.id/daerah',
             ],
             [
-                'name' => 'Dashboard Smartcity',
-                'url' => 'https://smartcity.wonosobokab.go.id/',
+                'name' => 'Bappenas',
+                'url' => 'https://www.bappenas.go.id/',
             ],
             [
-                'name' => 'Website Diskominfo Wonosobo',
-                'url' => 'https://diskominnfo.wonosobokab.go.id/',
-            ]
+                'name' => 'Bappeda Jateng',
+                'url' => 'https://bappeda.jatengprov.go.id/',
+            ],
+            [
+                'name' => 'Evaluasi Kinerja',
+                'url' => 'https://gardu.wonosobokab.go.id/',
+            ],
+            [
+                'name' => 'Agendane Bappeda',
+                'url' => 'https://bappedawonosobo.online/agenda_bappeda/v_agenda',
+            ],
         ];
 
         foreach ($related as $rr) {

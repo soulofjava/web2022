@@ -2,10 +2,10 @@
 <section id="" class="">
     <div class="container" data-aos="">
         <header class="text-center">
-            <h2>Seputar Wonosobo</h2>
+            <h1>Seputar Wonosobo</h1>
             <!-- <p>Seputar Wonosobo</p> -->
         </header>
-        <div class="row mt-4">
+        <div class="row mt-4" style="margin-bottom: 22px;">
             @foreach($message as $art)
             <div class="col-lg-4 col-md-6 mb-3" style="display: flex">
                 <div class="card">
@@ -24,7 +24,7 @@
 
                     <div class="d-flex flex-row-reverse">
                         <div class="p-2">
-                            <a class="btn btn-primary" target="_blank"
+                            <a class="btn" style="background-color: #FF5E14; color: white;" target="_blank"
                                 href="https://diskominfo.wonosobokab.go.id/detail/{{ $art['slug'] }}" class="">
                                 <span>Read More</span><i class="bi bi-arrow-right"></i>
                             </a>

@@ -94,6 +94,7 @@ Route::get('/', function () {
 })->name('root')->middleware('data_web');
 
 Route::group(['middleware' => 'data_web'], function () {
+    Route::get('global-search', [FrontController::class, 'globalsearch'])->name('global.search');
     Route::get('newscategory/{id}', [FrontController::class, 'newsByCategory']);
     Route::get('/detail-berita/{id}', [FrontController::class, 'detailberita'])->name('detail-berita');
     Route::get('/news-detail/{slug}', [FrontController::class, 'newsdetail'])->name('news.detail');
