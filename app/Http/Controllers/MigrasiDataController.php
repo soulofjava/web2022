@@ -19,14 +19,14 @@ class MigrasiDataController extends Controller
         return response()->json($posts, 200);
     }
 
-    public function post_id()
+    public function insert()
     {
         // post by id
         $posts = Post::find(6590);
         return response()->json($posts, 200);
     }
 
-    public function insert()
+    public function insert2()
     {
         set_time_limit(0);
 

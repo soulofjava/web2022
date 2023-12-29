@@ -8,11 +8,18 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use CyrildeWit\EloquentViewable\InteractsWithViews;
 use CyrildeWit\EloquentViewable\Contracts\Viewable;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Mews\Purifier\Casts\CleanHtmlOutput;
 
 class News extends Model implements Viewable
 {
     use HasFactory, SoftDeletes, InteractsWithViews, Sluggable;
     protected $guarded = [];
+
+    protected $casts = [
+        // 'bio'            => CleanHtml::class, // cleans both when getting and setting the value
+        // 'description'    => CleanHtmlInput::class, // cleans when setting the value
+        'description'        => CleanHtmlOutput::class, // cleans when getting the value
+    ];
 
     public function sluggable(): array
     {

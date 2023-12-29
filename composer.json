@@ -22,6 +22,7 @@
         "laravelcollective/html": "^6.3",
         "livewire/livewire": "^2.5",
         "mews/captcha": "^3.2",
+        "mews/purifier": "^3.4",
         "novay/laravel-word-template": "^1.1",
         "phpoffice/phpword": "^0.18.3",
         "realrashid/sweet-alert": "^7.0",
