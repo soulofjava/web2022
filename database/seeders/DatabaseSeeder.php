@@ -6,9 +6,6 @@ use App\Models\GuestBook;
 use App\Models\RelatedLink;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use App\Models\Role;
-use App\Models\Themes;
-use App\Models\User;
 use Faker\Factory as Faker;
 
 class DatabaseSeeder extends Seeder
@@ -23,7 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RoleSeeder::class,
             UserSeeder::class,
-            FrontMenuSeeder::class,
+            // FrontMenuSeeder::class,
             ThemesSeeder::class,
             ComCodes::class,
             PermissionSeeder::class,
@@ -32,19 +29,19 @@ class DatabaseSeeder extends Seeder
 
         // \App\Models\User::factory(10)->create();
         DB::table('websites')->insert([
-            'web_name' => 'Web2022',
+            'web_name' => 'Puskesmas Kaliwiro',
             'web_description' => '"Hello World!"',
-            'email' => 'diskominfo@wonosobokab.go.id',
-            'address' => 'Wonosobo - The Soul Of Java',
-            'phone' => '085643710007',
-            'instagram' => 'https://www.instagram.com/diskominfo_wonosobo/?hl=id',
+            'email' => 'pkmxwiro@gmail.com',
+            'address' => 'Jln. Selomanik No.02 Kaliwiro Wonosobo',
+            'phone' => '081390087602 / 088229758069',
+            'instagram' => 'https://www.instagram.com/puskesmaskaliwiro/',
             'twitter' => 'https://twitter.com/diskominfo_wsb',
-            'facebook' => 'https://www.facebook.com/wonosobohebat/',
-            'youtube' => 'https://www.youtube.com/c/OfficialWonosoboTV',
+            'facebook' => 'https://www.facebook.com/p/Puskesmas-Kaliwiro-100066666039544/',
+            'youtube' => 'https://www.youtube.com/@puskesmaskaliwirotv',
             'url_stream' => '#',
             'themes_front' => 'flexstart',
             'themes_back' => 'back.a',
-            'open_hours' => 'Monday - Thursday (07:00AM - 04:00PM) Friday (07:00AM - 11:00AM)',
+            'open_hours' => "Senin - Kamis (08:00 - 12:00 WIB) Jum'at - Sabtu (08:00 - 10:00 WIB)",
         ]);
 
         $related = [

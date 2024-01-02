@@ -9,11 +9,16 @@ use CyrildeWit\EloquentViewable\InteractsWithViews;
 use CyrildeWit\EloquentViewable\Contracts\Viewable;
 use Cviebrock\EloquentSluggable\Sluggable;
 use \Conner\Tagging\Taggable;
+use Mews\Purifier\Casts\CleanHtmlOutput;
 
 class News extends Model implements Viewable
 {
     use HasFactory, SoftDeletes, InteractsWithViews, Sluggable, Taggable;
     protected $guarded = [];
+
+    protected $casts = [
+        'description'        => CleanHtmlOutput::class, // cleans when getting the value
+    ];
 
     public function sluggable(): array
     {

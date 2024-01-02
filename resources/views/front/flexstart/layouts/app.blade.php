@@ -6,6 +6,7 @@
     @stack('before-style')
     @include('front.flexstart.includes.style')
     @stack('after-style')
+    @vite([])
 </head>
 
 <body id="main">

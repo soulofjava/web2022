@@ -16,7 +16,14 @@
                 <article class="entry">
 
                     <div class="entry-img">
-                        <x-carousel :jjj='$n' />
+                        @if($n->attachment)
+                        <img src="{{ $n->attachment }}" alt="thumbnail" class="img-fluid">
+                        @elseif($n->gambarmuka)
+                        <img src="{{ asset('storage/') }}/{{  $n->gambarmuka->path }}" class="img-fluid"
+                            alt="{{ $n->gambarmuka->file_name }}">
+                        @else
+                        <img src="{{ asset('img/soulofjava.jpg') }}" alt="soul of java" class="img-fluid">
+                        @endif
                     </div>
 
                     <h2 class="entry-title">

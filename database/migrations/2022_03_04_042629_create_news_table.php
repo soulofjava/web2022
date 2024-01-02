@@ -22,8 +22,8 @@ class CreateNewsTable extends Migration
             $table->date('date');
             $table->string('upload_by');
             $table->text('description', 4294967295);
-            $table->bigInteger('attachment')->nullable();
-            $table->string('kategori')->default('KATEGORI_NEWS_4');
+            $table->text('attachment')->nullable();
+            $table->string('kategori')->default('INFORMASI_ST_02');
             $table->boolean('highlight')->default(false);
             $table->softDeletes();
             $table->timestamps();

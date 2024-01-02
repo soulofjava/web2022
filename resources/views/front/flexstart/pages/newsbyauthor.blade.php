@@ -27,7 +27,13 @@
                     <article class="entry">
 
                         <div class="entry-img">
+                            @if($author->attachment)
+                            <img src="{{ $author->attachment }}" alt="thumbnail" class="img-fluid">
+                            @elseif($author->gambarmuka)
                             <x-carousel :jjj='$author' />
+                            @else
+                            <img src="{{ asset('img/soulofjava.jpg') }}" alt="soul of java" class="img-fluid">
+                            @endif
                         </div>
 
                         <h2 class="entry-title">
@@ -48,7 +54,7 @@
 
                         <div class="entry-content">
                             <p>
-                                {{ \Illuminate\Support\Str::limit($author->description, 350, '...') }}
+                                {!! \Illuminate\Support\Str::limit($author->description, 250, '...') !!}
                             </p>
                             <div class="read-more">
                                 <a href="{{ url('/news-detail', $author->slug) }}">Read More</a>
@@ -97,10 +103,13 @@
                         <div class="sidebar-item recent-posts">
                             @foreach($news as $n)
                             <div class="post-item clearfix">
-                                @if(file_exists(public_path('storage/'.$n->path)))
-                                <img src="{{ asset('storage/') }}/{{ $n->path}}">
+                                @if($n->attachment)
+                                <img src="{{ $n->attachment }}" alt="thumbnail" class="img-fluid">
+                                @elseif($n->gambarmuka)
+                                <img src="{{ asset('storage/') }}/{{  $n->gambarmuka->path }}" class="img-fluid"
+                                    alt="{{ $n->gambarmuka->file_name }}">
                                 @else
-                                <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                                <img src="{{ asset('img/soulofjava.jpg') }}" alt="soul of java" class="img-fluid">
                                 @endif
                                 <h4><a href="{{ url('/news-detail', $n->slug) }}">
                                         {{ \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}

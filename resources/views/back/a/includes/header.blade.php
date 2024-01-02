@@ -98,10 +98,12 @@
                                     <i class="material-icons">settings</i>
                                     Peraturan</a>
                             </li>
+                            @role('superadmin')
                             <li class="{{ (Str::contains(Request::url(), 'themes')) ? 'active' : '' }}">
                                 <a href="{{ route('themes.index') }}"><i class="material-icons">brush</i>
                                     Tema</a>
                             </li>
+                            @endrole
                             <li class="{{ (Str::contains(Request::url(), ['user', 'bidang'])) ? 'active' : '' }}">
                                 <a href="{{ route('user.index') }}">
                                     <i class="material-icons">person</i>
