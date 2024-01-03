@@ -22,7 +22,6 @@
         "laravel/tinker": "^2.8",
         "laravelcollective/html": "^6.3",
         "livewire/livewire": "^2.5",
-        "macsidigital/laravel-zoom": "^8.0",
         "mews/captcha": "^3.2",
         "novay/laravel-word-template": "^1.1",
         "phpoffice/phpword": "^0.18.3",

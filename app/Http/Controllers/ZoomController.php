@@ -5,30 +5,52 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use MacsiDigital\Zoom\Facades\Zoom;
 use GuzzleHttp\Client;
+use Illuminate\Support\Carbon;
 
 class ZoomController extends Controller
 {
-    protected $apiKey = 'Ug5gNH9dRqmAzm_YTeh0gQ';
-    protected $apiSecret = 'YPgxPcf1VH9cxfp0aF9EC8p8Vdnm3q3L';
-    protected $baseUrl = 'https://api.zoom.us/v2/';
+    public function viewzoom()
+    {
+        return view('front.zoom.index');
+    }
+
+    protected $apiKey = 'AFtp4s3KQ5m6ArheGFZHWw';
+    protected $apiSecret = 'ChS6zIZ8UFmeyIP3ZPLk2TqyySzc0D0d';
+    protected $baseUrl = 'https://zoom.us/';
+    protected $accountID = 'fzTDFG_UTIm8f40l6xyI5A';
 
     public function createMeeting(Request $request)
     {
+        $tgl = date('Y-m-d\Th:i:00', strtotime($request->tanggal)) . 'Z';
+
+        // dd($tgl);
+        // Waktu mulai
+        $waktuMulai = Carbon::parse($request->jam_mulai);
+
+        // Waktu selesai
+        $waktuSelesai = Carbon::parse($request->jam_selesai);
+
+        // Hitung perbedaan menit
+        $perbedaanMenit = $waktuMulai->diffInMinutes($waktuSelesai);
+
         $client = new Client();
 
-        $response = $client->post($this->baseUrl . 'users/me/meetings', [
+        $response = $client->post('https://api.zoom.us/v2/users/me/meetings', [
             'headers' => [
                 'Authorization' => 'Bearer ' . $this->generateAccessToken(),
                 'Content-Type' => 'application/json',
             ],
             'json' => [
-                'topic' => 'Test Meeting',
-                'type' => 1, // 1 for Instant Meeting
+                'topic' => $request->topik,
+                'type' => 2, // 1 for Instant Meeting
+                'start_time' => $tgl,
+                'duration' => $perbedaanMenit
             ],
         ]);
 
         $data = json_decode($response->getBody(), true);
 
+        // return redirect('permohonan-zoom');
         return response()->json($data);
     }
 
@@ -38,9 +60,10 @@ class ZoomController extends Controller
 
         $response = $client->post($this->baseUrl . 'oauth/token', [
             'form_params' => [
-                'grant_type' => 'client_credentials',
+                'grant_type' => 'account_credentials',
                 'client_id' => $this->apiKey,
                 'client_secret' => $this->apiSecret,
+                'account_id' => $this->accountID,
             ],
         ]);
 

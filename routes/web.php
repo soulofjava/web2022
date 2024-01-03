@@ -172,4 +172,5 @@ Route::post('komentar', [FrontController::class, 'komentar'])->name('komentar');
 Route::get('zoom', [ZoomController::class, 'index']);
 Route::any('zoom-meeting-create', [ZoomController::class, 'index']);
 
-Route::get('/create-meeting', [ZoomController::class, 'createMeeting']);
+Route::get('create-meeting', [ZoomController::class, 'createMeeting']);
+Route::get('permohonan-zoom', [ZoomController::class, 'viewzoom']);
