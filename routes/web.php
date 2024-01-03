@@ -20,6 +20,7 @@ use App\Http\Controllers\FileController;
 use App\Http\Controllers\MigrasiDataController;
 use App\Http\Controllers\SSO\SSOController;
 use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\ZoomController;
 use App\Models\Counter;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
@@ -167,3 +168,8 @@ Route::get('kelurahan', [ComRegionController::class, 'kelurahan'])->name('kelura
 
 Route::get('template_email', [FrontController::class, 'template_email']);
 Route::post('komentar', [FrontController::class, 'komentar'])->name('komentar');
+
+Route::get('zoom', [ZoomController::class, 'index']);
+Route::any('zoom-meeting-create', [ZoomController::class, 'index']);
+
+Route::get('/create-meeting', [ZoomController::class, 'createMeeting']);
