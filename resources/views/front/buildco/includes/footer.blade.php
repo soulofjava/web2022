@@ -6,7 +6,7 @@
             <div class="f-items">
 
                 <!-- Single Item -->
-                <div class="col-md-3 col-sm-6 equal-height item">
+                <div class="col-md-6 col-sm-6 equal-height item">
                     <div class="f-item about">
                         <h4>Tentang Kami</h4>
                         <ul>
@@ -29,9 +29,9 @@
                 </div>
                 <!-- End Single Item -->
                 <!-- Single Item -->
-                <div class="col-md-3 col-sm-6 equal-height item">
-                    <div class="f-item link">
-                        <!-- <h4>Services</h4>
+                <!-- <div class="col-md-2 col-sm-6 equal-height item">
+                    <div class="f-item link"> -->
+                <!-- <h4>Services</h4>
                         <ul>
                             <li>
                                 <a href="#">Oil & Gas Engineering</a>
@@ -52,8 +52,8 @@
                                 <a href="#">Mechanical</a>
                             </li>
                         </ul> -->
-                    </div>
-                </div>
+                <!-- </div>
+                </div> -->
                 <!-- End Single Item -->
                 <!-- Single Item -->
                 <div class="col-md-3 col-sm-6 equal-height item">
