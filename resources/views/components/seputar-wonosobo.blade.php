@@ -7,7 +7,7 @@
         </header>
         <div class="row mt-4">
             @foreach($message as $art)
-            <div class="col-lg-4 col-md-6 mb-3" style="display: flex">
+            <div class="col-lg-4 col-md-6 mb-3" style="display: flex; margin-bottom: 22px;">
                 <div class="card">
                     <div class="">
                         <img src="https://diskominfo.wonosobokab.go.id/{{ $art['gambar_muka']['path'] }}{{ $art['gambar_muka']['file_name'] }}"
