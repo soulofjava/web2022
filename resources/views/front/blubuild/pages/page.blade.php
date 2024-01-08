@@ -37,13 +37,7 @@
         <div class="container">
             <div class="post-detail-wrap w-100">
                 <div class="row">
-                    @if($data->menu_name == 'Permohonan Informasi Publik')
-                    <x-formpermohonaninformasipublik />
-                    @elseif($data->menu_name == 'Pengajuan Keberatan Informasi Publik')
-                    <x-formpengajuankeberataninformasipublik />
-                    @else
                     {!! $data->content !!}
-                    @endif
                 </div>
             </div>
             <!-- Blog Detail Wrap -->
