@@ -139,6 +139,7 @@
     <!-- End Recent Blog Posts Section -->
 
     <!-- ======= Testimonials Section ======= -->
+    @if(App\Models\Testimonial::count() >= 1)
     <section id="testimonials" class="testimonials section-bg">
         <div class="container" data-aos="fade-up">
 
@@ -185,6 +186,7 @@
         </div>
     </section>
     <!-- End Testimonials Section -->
+    @endif
 
     <!-- ======= Get Started Section ======= -->
     <!-- <section id="get-started" class="get-started section-bg">
