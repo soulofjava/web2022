@@ -251,7 +251,7 @@
     <!-- End Get Started Section -->
 
     <!-- ======= Constructions Section ======= -->
-    <section id="constructions" class="constructions">
+    <!-- <section id="constructions" class="constructions">
         <div class="container" data-aos="fade-up">
 
             <div class="section-header">
@@ -282,7 +282,7 @@
                             </div>
                         </div>
                     </div>
-                </div><!-- End Card Item -->
+                </div>
 
                 <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="card-item">
@@ -304,7 +304,7 @@
                             </div>
                         </div>
                     </div>
-                </div><!-- End Card Item -->
+                </div>
 
                 <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
                     <div class="card-item">
@@ -326,7 +326,7 @@
                             </div>
                         </div>
                     </div>
-                </div><!-- End Card Item -->
+                </div>
 
                 <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
                     <div class="card-item">
@@ -348,16 +348,16 @@
                             </div>
                         </div>
                     </div>
-                </div><!-- End Card Item -->
+                </div>
 
             </div>
 
         </div>
-    </section>
+    </section> -->
     <!-- End Constructions Section -->
 
     <!-- ======= Alt Services Section ======= -->
-    <section id="alt-services" class="alt-services">
+    <!-- <section id="alt-services" class="alt-services">
         <div class="container" data-aos="fade-up">
 
             <div class="row justify-content-around gy-4">
@@ -378,7 +378,7 @@
                                 occaecati cupiditate
                                 non provident</p>
                         </div>
-                    </div><!-- End Icon Box -->
+                    </div>
 
                     <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="200">
                         <i class="bi bi-patch-check flex-shrink-0"></i>
@@ -388,7 +388,7 @@
                                 voluptatum
                                 deleniti atque</p>
                         </div>
-                    </div><!-- End Icon Box -->
+                    </div>
 
                     <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
                         <i class="bi bi-brightness-high flex-shrink-0"></i>
@@ -398,7 +398,7 @@
                                 deserunt minus
                                 aut eligendi omnis</p>
                         </div>
-                    </div><!-- End Icon Box -->
+                    </div>
 
                     <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="400">
                         <i class="bi bi-brightness-high flex-shrink-0"></i>
@@ -408,17 +408,17 @@
                                 aspernatur odit amet.
                                 Et eligendi</p>
                         </div>
-                    </div><!-- End Icon Box -->
+                    </div>
 
                 </div>
             </div>
 
         </div>
-    </section>
+    </section> -->
     <!-- End Alt Services Section -->
 
     <!-- ======= Features Section ======= -->
-    <section id="features" class="features section-bg">
+    <!-- <section id="features" class="features section-bg">
         <div class="container" data-aos="fade-up">
 
             <ul class="nav nav-tabs row  g-2 d-flex">
@@ -427,24 +427,24 @@
                     <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#tab-1">
                         <h4>Modisit</h4>
                     </a>
-                </li><!-- End tab nav item -->
+                </li>
 
                 <li class="nav-item col-3">
                     <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-2">
                         <h4>Praesenti</h4>
-                    </a><!-- End tab nav item -->
+                    </a>
 
                 <li class="nav-item col-3">
                     <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-3">
                         <h4>Explica</h4>
                     </a>
-                </li><!-- End tab nav item -->
+                </li>
 
                 <li class="nav-item col-3">
                     <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-4">
                         <h4>Nostrum</h4>
                     </a>
-                </li><!-- End tab nav item -->
+                </li>
 
             </ul>
 
@@ -477,7 +477,7 @@
                             <img src="{{ asset('assets/front/assets/img/features-1.jpg') }}" alt="" class="img-fluid">
                         </div>
                     </div>
-                </div><!-- End tab content item -->
+                </div>
 
                 <div class="tab-pane" id="tab-2">
                     <div class="row">
@@ -508,7 +508,7 @@
                             <img src="{{ asset('assets/front/assets/img/features-2.jpg') }}" alt="" class="img-fluid">
                         </div>
                     </div>
-                </div><!-- End tab content item -->
+                </div>
 
                 <div class="tab-pane" id="tab-3">
                     <div class="row">
@@ -534,7 +534,7 @@
                             <img src="{{ asset('assets/front/assets/img/features-3.jpg') }}" alt="" class="img-fluid">
                         </div>
                     </div>
-                </div><!-- End tab content item -->
+                </div>
 
                 <div class="tab-pane" id="tab-4">
                     <div class="row">
@@ -562,16 +562,16 @@
                             <img src="{{ asset('assets/front/assets/img/features-4.jpg') }}" alt="" class="img-fluid">
                         </div>
                     </div>
-                </div><!-- End tab content item -->
+                </div>
 
             </div>
 
         </div>
-    </section>
+    </section> -->
     <!-- End Features Section -->
 
     <!-- ======= Our Projects Section ======= -->
-    <section id="projects" class="projects">
+    <!-- <section id="projects" class="projects">
         <div class="container" data-aos="fade-up">
 
             <div class="section-header">
@@ -590,7 +590,7 @@
                     <li data-filter=".filter-construction">Construction</li>
                     <li data-filter=".filter-repairs">Repairs</li>
                     <li data-filter=".filter-design">Design</li>
-                </ul><!-- End Projects Filters -->
+                </ul>
 
                 <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
@@ -608,7 +608,7 @@
                                         class="bi bi-link-45deg"></i></a>
                             </div>
                         </div>
-                    </div><!-- End Projects Item -->
+                    </div>
 
                     <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
                         <div class="portfolio-content h-100">
@@ -624,7 +624,7 @@
                                         class="bi bi-link-45deg"></i></a>
                             </div>
                         </div>
-                    </div><!-- End Projects Item -->
+                    </div>
 
                     <div class="col-lg-4 col-md-6 portfolio-item filter-repairs">
                         <div class="portfolio-content h-100">
@@ -640,7 +640,7 @@
                                         class="bi bi-link-45deg"></i></a>
                             </div>
                         </div>
-                    </div><!-- End Projects Item -->
+                    </div>
 
                     <div class="col-lg-4 col-md-6 portfolio-item filter-design">
                         <div class="portfolio-content h-100">
@@ -656,7 +656,7 @@
                                         class="bi bi-link-45deg"></i></a>
                             </div>
                         </div>
-                    </div><!-- End Projects Item -->
+                    </div>
 
                     <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
                         <div class="portfolio-content h-100">
@@ -672,7 +672,7 @@
                                         class="bi bi-link-45deg"></i></a>
                             </div>
                         </div>
-                    </div><!-- End Projects Item -->
+                    </div>
 
                     <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
                         <div class="portfolio-content h-100">
@@ -688,7 +688,7 @@
                                         class="bi bi-link-45deg"></i></a>
                             </div>
                         </div>
-                    </div><!-- End Projects Item -->
+                    </div>
 
                     <div class="col-lg-4 col-md-6 portfolio-item filter-repairs">
                         <div class="portfolio-content h-100">
@@ -704,7 +704,7 @@
                                         class="bi bi-link-45deg"></i></a>
                             </div>
                         </div>
-                    </div><!-- End Projects Item -->
+                    </div>
 
                     <div class="col-lg-4 col-md-6 portfolio-item filter-design">
                         <div class="portfolio-content h-100">
@@ -720,7 +720,7 @@
                                         class="bi bi-link-45deg"></i></a>
                             </div>
                         </div>
-                    </div><!-- End Projects Item -->
+                    </div>
 
                     <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
                         <div class="portfolio-content h-100">
@@ -736,7 +736,7 @@
                                         class="bi bi-link-45deg"></i></a>
                             </div>
                         </div>
-                    </div><!-- End Projects Item -->
+                    </div>
 
                     <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
                         <div class="portfolio-content h-100">
@@ -752,7 +752,7 @@
                                         class="bi bi-link-45deg"></i></a>
                             </div>
                         </div>
-                    </div><!-- End Projects Item -->
+                    </div>
 
                     <div class="col-lg-4 col-md-6 portfolio-item filter-repairs">
                         <div class="portfolio-content h-100">
@@ -768,7 +768,7 @@
                                         class="bi bi-link-45deg"></i></a>
                             </div>
                         </div>
-                    </div><!-- End Projects Item -->
+                    </div>
 
                     <div class="col-lg-4 col-md-6 portfolio-item filter-design">
                         <div class="portfolio-content h-100">
@@ -784,14 +784,14 @@
                                         class="bi bi-link-45deg"></i></a>
                             </div>
                         </div>
-                    </div><!-- End Projects Item -->
+                    </div>
 
-                </div><!-- End Projects Container -->
+                </div>
 
             </div>
 
         </div>
-    </section>
+    </section> -->
     <!-- End Our Projects Section -->
 
     <!-- ======= Services Section ======= -->
