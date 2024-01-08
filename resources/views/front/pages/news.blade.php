@@ -79,8 +79,9 @@
                 </div>
                 <!-- End post list item -->
                 @endforeach
-
-                {!! $news->withQueryString()->links('vendor.pagination.boxass') !!}
+                <center>
+                    {!! $news->withQueryString()->links('vendor.pagination.boxass') !!}
+                </center>
                 <!-- End blog pagination -->
             </div>
             <!-- End blog posts list -->

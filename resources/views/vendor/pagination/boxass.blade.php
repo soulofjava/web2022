@@ -1,20 +1,20 @@
 @if ($paginator->hasPages())
 <div class="blog-pagination">
-    <ul class="justify-content-center">
+    <ul class="justify-content-center" style="width: max-content;">
         {{-- Previous Page Link --}}
         @if ($paginator->onFirstPage())
         <!-- pojok kiri -->
-        <li class="">
+        <!-- <li class="">
             <a class="" href="#" aria-label="Previous">
                 Previous
             </a>
-        </li>
+        </li> -->
         @else
         <!-- pojok kiri ketika tidak di first page -->
-        <li class="">
+        <!-- <li class="">
             <a class="" href="{{ $paginator->previousPageUrl() }}" rel="prev"
                 aria-label="@lang('pagination.previous')">Previous</a>
-        </li>
+        </li> -->
         @endif
 
         {{-- Pagination Elements --}}
@@ -41,16 +41,16 @@
         {{-- Next Page Link --}}
         @if ($paginator->hasMorePages())
         <!-- pojok kanan ketika tidak di last page -->
-        <li class="">
+        <!-- <li class="">
             <a class="" href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')">Next</a>
-        </li>
+        </li> -->
         @else
         <!-- pojok kanan -->
-        <li class="">
+        <!-- <li class="">
             <a class="" href="#" aria-label="Next">
                 Next
             </a>
-        </li>
+        </li> -->
         @endif
     </ul>
 </div>
