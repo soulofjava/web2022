@@ -111,7 +111,7 @@
                     <!-- Single Item -->
                     <div class="item">
                         <div class="thumbs overlay">
-                            <img src="https://bappeda.wonosobokab.go.id/wp-content/uploads/2023/09/Logo-sipd-scaled.jpg"
+                            <img src="https://bappeda.wonosobokab.go.id/storage/wp-content/uploads/2023/09/Logo-sipd-scaled.jpg"
                                 alt="Thumb">
                             <div class="info">
                                 <!-- <h4>Oil and Gass Energy</h4>
@@ -137,7 +137,7 @@
                     <!-- Single Item -->
                     <div class="item">
                         <div class="thumbs overlay">
-                            <img src="https://bappeda.wonosobokab.go.id/wp-content/uploads/2023/09/Logo-gardu-scaled.jpg"
+                            <img src="https://bappeda.wonosobokab.go.id/storage/wp-content/uploads/2023/09/Logo-gardu-scaled.jpg"
                                 alt="Thumb">
                             <div class="info">
                                 <!-- <h4>Agriculture Automation</h4>
@@ -163,7 +163,7 @@
                     <!-- Single Item -->
                     <div class="item">
                         <div class="thumbs overlay">
-                            <img src="https://bappeda.wonosobokab.go.id/wp-content/uploads/2023/09/Logo-simake-scaled.jpg"
+                            <img src="https://bappeda.wonosobokab.go.id/storage/wp-content/uploads/2023/09/Logo-simake-scaled.jpg"
                                 alt="Thumb">
                             <div class="info">
                                 <!-- <h4>Civil Engineering</h4>
@@ -189,7 +189,7 @@
                     <!-- Single Item -->
                     <div class="item">
                         <div class="thumbs overlay">
-                            <img src="https://bappeda.wonosobokab.go.id/wp-content/uploads/2023/09/Logo-SKM-scaled.jpg"
+                            <img src="https://bappeda.wonosobokab.go.id/storage/wp-content/uploads/2023/09/Logo-SKM-scaled.jpg"
                                 alt="Thumb">
                             <div class="info">
                                 <!-- <h4>Bridge Construction</h4>
