@@ -156,13 +156,40 @@ class FrontController extends Controller
         return view('front.pages.beritadetail', compact('berita', 'news'));
     }
 
-    public function transparansi($id)
+    public function transparansi(Request $request, $id)
     {
         Seo::seO();
         $cari = $id;
         $hasil = 'Hasil Pencarian : ' . $cari;
-        $data = News::with('gambar')->Where('title', 'like', '%' . $cari . '%')->latest("date")->paginate(10);
-        return view('front.pages.newsbyauthor', compact('hasil', 'data'));
+        $data = News::Where('title', 'like', '%' . $cari . '%')->latest("date")->get();
+        $data2 = DB::table('front_menus')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like', $cari . '%')->get();
+        $combinedData = $data->concat($data2);
+
+        if ($request->ajax()) {
+            return DataTables::of($combinedData)
+                ->addIndexColumn()
+                ->addColumn(
+                    'action',
+                    function ($combinedData) {
+                        if ($combinedData->menu_url) {
+                            $actionBtn = '<td class="text-center">
+                            <a target="_blank" href="' . url('page', $combinedData->menu_url) . '" class="btn btn-sm btn-warning">LIHAT
+                            DATA</a>
+                            </td>';
+                        } else {
+                            $actionBtn = '<td class="text-center">
+                                <a target="_blank" href="' . url('news-detail', $combinedData->slug) . '" class="btn btn-sm btn-warning">LIHAT
+                                    DATA</a>
+                            </td>';
+                        }
+                        return $actionBtn;
+                    }
+                )
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+
+        return view('front.pages.globalsearch', compact('hasil', 'combinedData'));
     }
 
     public function newsByAuthor($id)
