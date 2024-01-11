@@ -26,9 +26,9 @@
 
         @endif
         @empty
-        <div class="carousel-item active">
+        <!-- <div class="carousel-item active">
             <img src="{{ asset('img/soulofjava.jpg') }}" class="d-block w-100" alt="soul of java">
-        </div>
+        </div> -->
         @endforelse
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
