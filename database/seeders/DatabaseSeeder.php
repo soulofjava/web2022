@@ -19,8 +19,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            NewsSeeder::class,
-            GallerySeeder::class,
+            // NewsSeeder::class,
+            // GallerySeeder::class,
         ]);
 
         $themes = [

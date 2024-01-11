@@ -10,9 +10,10 @@
                 <h1>{{ $data_website->web_name }}</h1>
                 <h2>{{ $data_website->web_description }}</h2>
                 <div class="d-flex justify-content-center justify-content-lg-start">
-                    <a href="#about" class="btn-get-started scrollto">Get Started</a>
-                    <a href="{{ $data_website->heroes_video }}" class="glightbox btn-watch-video"><i
-                            class="bi bi-play-circle"></i><span>Watch Video</span></a>
+                    <button class="btn-get-started scrollto btn-playstream">Play
+                    </button>
+                    <!-- <a href="{{ $data_website->heroes_video }}" class="glightbox btn-watch-video"><i
+                            class="bi bi-play-circle"></i><span>Watch Video</span></a> -->
                 </div>
             </div>
             <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
@@ -186,6 +187,9 @@
 
 </main>
 <!-- End #main -->
+<audio id="audio_1">
+    <source src="http://i.klikhost.com:8210/stream" type="audio/mpeg">
+</audio>
 @endsection
 @push('after-script')
 <script>
@@ -195,18 +199,13 @@
             document.getElementById('audio_1').pause();
             document.getElementById("audio_1").value = "off";
             console.log("off!");
+            $(".btn-playstream").html('Play');
         } else {
             document.getElementById('audio_1').play();
             document.getElementById("audio_1").value = "on";
             console.log("on!");
+            $(".btn-playstream").html('Pause');
         }
-        // function playmusik() {
-        //     var song = new Audio();
-        //     song.src = "http://i.klikhost.com:8234/stream";
-        //     // song.autoplay = true;
-        //     song.play;
-        // }
-        // window.addEventListener("load", playmusik);
     });
 </script>
 @endpush
