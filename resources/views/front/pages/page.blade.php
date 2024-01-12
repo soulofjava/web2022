@@ -10,7 +10,7 @@
             <h2>{{ $data->menu_name }}</h2>
             <ol>
                 <li><a href="{{ url('/') }}">Beranda</a></li>
-                <li>Blog Details</li>
+                <li>Postingan</li>
             </ol>
 
         </div>

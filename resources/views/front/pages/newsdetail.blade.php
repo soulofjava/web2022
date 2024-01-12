@@ -7,10 +7,10 @@
         style="background-image: url('assets/front/assets/img/breadcrumbs-bg.jpg');">
         <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
 
-            <h2>Blog Details</h2>
+            <!-- <h2>Blog Details</h2> -->
             <ol>
                 <li><a href="{{ url('/') }}">Beranda</a></li>
-                <li>Blog Details</li>
+                <li>Postingan</li>
             </ol>
 
         </div>

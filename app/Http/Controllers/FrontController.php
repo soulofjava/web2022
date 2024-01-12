@@ -161,7 +161,7 @@ class FrontController extends Controller
         Seo::seO();
         $cari = $id;
         $hasil = 'Hasil Pencarian : ' . $cari;
-        $data = News::where('title', 'like', $cari . '%')->latest("date")->get();
+        $data = News::Where('title', 'like', $cari . '%')->latest("date")->get();
         $data2 = DB::table('front_menus')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like', $cari . '%')->get();
         $combinedData = $data->concat($data2);
 
