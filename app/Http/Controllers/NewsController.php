@@ -82,39 +82,33 @@ class NewsController extends Controller
 
         $id = News::create($validated + ['upload_by' => auth()->user()->id]);
 
-        $path = $request->document->store('spbe', 'gcs');
-
-        return $path;
-        // if ($request->document) {
-        //     foreach ($request->document as $image) {
-        //         // if (isset($image['file'])) {
-        //         $z = $image->storeAs('spbe', 'gcs');
-        //         Files::create([
-        //             'id_news' => $id->id,
-        //             'path' => 'news/' . $z,
-        //             'file_name' => $z
-        //         ]);
-        //         // }
-        //     }
-        // }
+        $files = $request->document;
 
         // dd($request->document);
-        // if ($request->document) {
-        //     foreach ($request->document as $df) {
-        //         $path = storage_path('app/public/news');
+        if ($request->document) {
+            foreach ($request->document as $df) {
+                // Move the file to GCS
+                $storagePath = 'tmp/uploads/' . $df;
+                $gcsPath = 'spbe' . $df;
 
-        //         if (!file_exists($path)) {
-        //             mkdir($path, 0777, true);
-        //         }
+                Storage::cloud()->put($gcsPath, file_get_contents(storage_path($storagePath)));
 
-        //         File::move(storage_path('tmp/uploads/') . $df, storage_path('app/public/news/') . $df);
-        //         Files::create([
-        //             'id_news' => $id->id,
-        //             'path' => 'news/' . $df,
-        //             'file_name' => $df
-        //         ]);
-        //     }
-        // }
+                // Delete the file from the local filesystem
+                unlink(storage_path($storagePath));
+                // $path = storage_path('app/public/news');
+
+                // if (!file_exists($path)) {
+                //     mkdir($path, 0777, true);
+                // }
+
+                // File::move(storage_path('tmp/uploads/') . $df, storage_path('app/public/news/') . $df);
+                Files::create([
+                    'id_news' => $id->id,
+                    'path' => 'news/' . $df,
+                    'file_name' => $df
+                ]);
+            }
+        }
         return redirect(route('news.index'))->with(['success' => 'Data added successfully!']);
     }
 

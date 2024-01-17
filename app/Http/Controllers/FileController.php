@@ -43,12 +43,14 @@ class FileController extends Controller
             mkdir($path, 0777, true);
         }
 
-        $file = $request->file('file');
+        $file = $request->file('file')->store('spbe', 'gcs');
 
+        dd($file);
         $name = uniqid() . '_' . trim($file->getClientOriginalName());
 
-        $file->move($path, $name);
+        // $file->store('spbe', 'gcs');
 
+        $file->move($path, $name);
         return response()->json([
             'name'          => $name,
             'original_name' => $file->getClientOriginalName(),
