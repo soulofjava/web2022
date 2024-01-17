@@ -84,7 +84,7 @@ class NewsController extends Controller
             foreach ($request->document as $df) {
                 Files::create([
                     'id_news' => $id->id,
-                    'path' => env('LOKASI_FILE') . '/news' . $df,
+                    'path' => env('LOKASI_FILE') . '/news/' . $df,
                     'file_name' => $df
                 ]);
             }
@@ -140,16 +140,9 @@ class NewsController extends Controller
 
         if ($request->document) {
             foreach ($request->document as $df) {
-                // $path = storage_path('app/public/news');
-
-                // if (!file_exists($path)) {
-                //     mkdir($path, 0777, true);
-                // }
-
-                // File::move(storage_path('tmp/uploads/') . $df, storage_path('app/public/gallery/') . $df);
                 Files::create([
-                    'id_news' => $id,
-                    'path' => 'gallery/' . $df,
+                    'id_news' => $id->id,
+                    'path' => env('LOKASI_FILE') . '/news/' . $df,
                     'file_name' => $df
                 ]);
             }
@@ -167,11 +160,11 @@ class NewsController extends Controller
     public function destroy($id)
     {
         $gambar = News::with('gambar')->where('id', $id)->get();
+
         foreach ($gambar as $key) {
             foreach ($key->gambar as $value) {
-                if (Storage::exists($value->path)) {
-                    Storage::delete($value->path);
-                }
+                // Delete the file
+                Storage::disk('gcs')->delete(env('LOKASI_FILE') . '/news/' . $value->file_name);
             }
         }
 

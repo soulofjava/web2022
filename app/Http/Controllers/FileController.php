@@ -41,7 +41,7 @@ class FileController extends Controller
 
         $name = uniqid() . '_' . trim($file->getClientOriginalName());
 
-        $path = $file->storeAs(env('LOKASI_FILE') . '/news', $name, 'gcs');
+        $path = $file->storeAs(env('LOKASI_FILE') . '/news/', $name, 'gcs');
 
         return response()->json([
             'name'          => $name,
