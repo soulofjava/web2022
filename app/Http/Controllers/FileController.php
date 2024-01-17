@@ -37,24 +37,16 @@ class FileController extends Controller
      */
     public function store(Request $request)
     {
-        $path = storage_path('tmp/uploads');
+        $file = $request->file('file');
 
-        if (!file_exists($path)) {
-            mkdir($path, 0777, true);
-        }
-
-        $file = $request->file('file')->store('spbe', 'gcs');
-
-        dd($file);
         $name = uniqid() . '_' . trim($file->getClientOriginalName());
 
-        // $file->store('spbe', 'gcs');
+        $path = $file->storeAs(env('LOKASI_FILE') . '/news', $name, 'gcs');
 
-        $file->move($path, $name);
         return response()->json([
             'name'          => $name,
             'original_name' => $file->getClientOriginalName(),
-            'path' => $path . $name
+            'path' => $path
         ]);
     }
 
@@ -70,8 +62,8 @@ class FileController extends Controller
         foreach ($data->gambar as $d) {
             $fileList[] = [
                 'name'          => $d->file_name,
-                'size'          => Storage::size(($d->path)),
-                'path'          => config('app.url') . '/storage/' . $d->path
+                'size'          => Storage::disk('gcs')->url($d->path),
+                'path'          => $d->path
             ];
         }
         return json_encode($fileList ?? []);
@@ -108,21 +100,14 @@ class FileController extends Controller
      */
     public function destroy($id)
     {
+        $data = File::where('file_name', $id)->first();
+        $data->delete();
 
-        $loc = storage_path('tmp/uploads/') . $id;
+        // Delete the file
+        Storage::disk('gcs')->delete(env('LOKASI_FILE') . '/news/' . $id);
 
-        if (file_exists($loc)) {
-            unlink(storage_path('tmp/uploads/' . $id));
-            return response()->json([
-                'lokasi'          => $loc,
-            ]);
-        } else {
-            $data = File::where('file_name', $id)->first();
-            $data->delete();
-            unlink(storage_path('app/public/gallery/') . $id);
-            return response()->json([
-                'lokasi' => 'File terhapus'
-            ]);
-        }
+        return response()->json([
+            'response' => 'File terhapus'
+        ]);
     }
 }

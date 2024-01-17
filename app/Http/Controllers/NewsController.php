@@ -76,39 +76,20 @@ class NewsController extends Controller
             'title' => 'required',
             'date' => 'required',
             'description' => 'required',
-            // 'highlight' => 'required',
-            // 'kategori' => 'required',
         ]);
 
         $id = News::create($validated + ['upload_by' => auth()->user()->id]);
 
-        $files = $request->document;
-
-        // dd($request->document);
         if ($request->document) {
             foreach ($request->document as $df) {
-                // Move the file to GCS
-                $storagePath = 'tmp/uploads/' . $df;
-                $gcsPath = 'spbe' . $df;
-
-                Storage::cloud()->put($gcsPath, file_get_contents(storage_path($storagePath)));
-
-                // Delete the file from the local filesystem
-                unlink(storage_path($storagePath));
-                // $path = storage_path('app/public/news');
-
-                // if (!file_exists($path)) {
-                //     mkdir($path, 0777, true);
-                // }
-
-                // File::move(storage_path('tmp/uploads/') . $df, storage_path('app/public/news/') . $df);
                 Files::create([
                     'id_news' => $id->id,
-                    'path' => 'news/' . $df,
+                    'path' => env('LOKASI_FILE') . '/news' . $df,
                     'file_name' => $df
                 ]);
             }
         }
+
         return redirect(route('news.index'))->with(['success' => 'Data added successfully!']);
     }
 
@@ -159,13 +140,13 @@ class NewsController extends Controller
 
         if ($request->document) {
             foreach ($request->document as $df) {
-                $path = storage_path('app/public/news');
+                // $path = storage_path('app/public/news');
 
-                if (!file_exists($path)) {
-                    mkdir($path, 0777, true);
-                }
+                // if (!file_exists($path)) {
+                //     mkdir($path, 0777, true);
+                // }
 
-                File::move(storage_path('tmp/uploads/') . $df, storage_path('app/public/gallery/') . $df);
+                // File::move(storage_path('tmp/uploads/') . $df, storage_path('app/public/gallery/') . $df);
                 Files::create([
                     'id_news' => $id,
                     'path' => 'gallery/' . $df,
@@ -199,36 +180,5 @@ class NewsController extends Controller
         $data->gambar()->delete();
 
         return $data->delete();
-    }
-
-    // pindah dari wonosobokab
-    public function insert()
-    {
-        set_time_limit(0);
-        $tables = DB::select('SHOW TABLES');
-        $data = DB::table('postingan')->where('domain', 'arpusda.wonosobokab.go.id')->get();
-        foreach ($data as $dt) {
-            $file = DB::table('attachment')
-                ->where('id_tabel', $dt->id_posting)
-                ->get();
-            foreach ($file as $f) {
-                $fi = [
-                    'id_news' => $f->id_tabel,
-                    'file_name' => $f->file_name,
-                    'path' => 'gallery/' . $f->file_name,
-                ];
-                Files::insert($fi);
-            }
-            $pk = [
-                'title' => $dt->judul_posting,
-                'date' => $dt->created_time,
-                'upload_by' => auth()->user()->name,
-                'description' => $dt->isi_posting,
-                'attachment' => $dt->id_posting,
-                'slug' => SlugService::createSlug(News::class, 'slug', $dt->judul_posting),
-            ];
-            News::insert($pk);
-        }
-        return 'selesai';
     }
 }
