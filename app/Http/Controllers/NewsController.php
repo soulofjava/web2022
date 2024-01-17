@@ -6,12 +6,8 @@ use App\Models\ComCodes;
 use App\Models\News;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
-use Cviebrock\EloquentSluggable\Services\SlugService;
-use Illuminate\Support\Facades\DB;
 use App\Models\File as Files;
 use Illuminate\Support\Facades\Storage;
-use File;
-use Google\Cloud\Storage\StorageClient;
 
 class NewsController extends Controller
 {

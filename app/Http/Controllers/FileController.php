@@ -101,7 +101,10 @@ class FileController extends Controller
     public function destroy($id)
     {
         $data = File::where('file_name', $id)->first();
-        $data->delete();
+
+        if ($data) {
+            $data->delete();
+        }
 
         // Delete the file
         Storage::disk('gcs')->delete(env('LOKASI_FILE') . '/news/' . $id);
