@@ -6,11 +6,12 @@ use App\Models\ComCodes;
 use App\Models\News;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
-use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\DB;
 use App\Models\File as Files;
+use Illuminate\Support\Facades\Storage;
 use File;
+use Google\Cloud\Storage\StorageClient;
 
 class NewsController extends Controller
 {
@@ -81,22 +82,39 @@ class NewsController extends Controller
 
         $id = News::create($validated + ['upload_by' => auth()->user()->id]);
 
-        if ($request->document) {
-            foreach ($request->document as $df) {
-                $path = storage_path('app/public/news');
+        $path = $request->document->store('spbe', 'gcs');
 
-                if (!file_exists($path)) {
-                    mkdir($path, 0777, true);
-                }
+        return $path;
+        // if ($request->document) {
+        //     foreach ($request->document as $image) {
+        //         // if (isset($image['file'])) {
+        //         $z = $image->storeAs('spbe', 'gcs');
+        //         Files::create([
+        //             'id_news' => $id->id,
+        //             'path' => 'news/' . $z,
+        //             'file_name' => $z
+        //         ]);
+        //         // }
+        //     }
+        // }
 
-                File::move(storage_path('tmp/uploads/') . $df, storage_path('app/public/news/') . $df);
-                Files::create([
-                    'id_news' => $id->id,
-                    'path' => 'news/' . $df,
-                    'file_name' => $df
-                ]);
-            }
-        }
+        // dd($request->document);
+        // if ($request->document) {
+        //     foreach ($request->document as $df) {
+        //         $path = storage_path('app/public/news');
+
+        //         if (!file_exists($path)) {
+        //             mkdir($path, 0777, true);
+        //         }
+
+        //         File::move(storage_path('tmp/uploads/') . $df, storage_path('app/public/news/') . $df);
+        //         Files::create([
+        //             'id_news' => $id->id,
+        //             'path' => 'news/' . $df,
+        //             'file_name' => $df
+        //         ]);
+        //     }
+        // }
         return redirect(route('news.index'))->with(['success' => 'Data added successfully!']);
     }
 
