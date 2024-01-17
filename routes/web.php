@@ -6,7 +6,6 @@ use App\Http\Controllers\CredentialController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\NewsController;
-use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ThemesController;
 use App\Http\Controllers\FrontMenuController;
@@ -14,17 +13,12 @@ use App\Http\Controllers\GuestBookController;
 use App\Http\Controllers\InboxController;
 use App\Http\Controllers\RelatedLinkController;
 use App\Http\Controllers\AgendaController;
-use App\Http\Controllers\BidangController;
-use App\Http\Controllers\ComplaintController;
 use App\Http\Controllers\ComRegionController;
-use App\Http\Controllers\DailyReportController;
 use App\Http\Controllers\DownloadAreaController;
 use App\Http\Controllers\DownloadAreaFileController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\MigrasiDataController;
-use App\Http\Controllers\PermohonanInformasiController;
 use App\Http\Controllers\SSOController;
-use App\Http\Controllers\SurveilansMalariaController;
 use App\Models\Counter;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
@@ -44,12 +38,12 @@ use Illuminate\Support\Facades\Redirect;
 |
 */
 
-Route::group(
-    ['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']],
-    function () {
-        \UniSharp\LaravelFilemanager\Lfm::routes();
-    }
-);
+// Route::group(
+//     ['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']],
+//     function () {
+//         \UniSharp\LaravelFilemanager\Lfm::routes();
+//     }
+// );
 
 Route::any('/register', function () {
     return Redirect::to(route('login'));
@@ -124,7 +118,6 @@ Route::group(['middleware' => 'data_web'], function () {
     Route::get('download-area', [FrontController::class, 'downloadarea']);
     Route::get('berita', [FrontController::class, 'newsall']);
     Route::get('/reload-captcha', [FrontController::class, 'reloadCaptcha']);
-    Route::post('permohonaninformasi', [PermohonanInformasiController::class, 'store']);
 });
 
 Route::middleware(['auth:sanctum', 'verified', 'data_web'])->get('/dashboard', function () {
@@ -140,22 +133,13 @@ Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], functi
         Route::resource('frontmenu', FrontMenuController::class);
         Route::resource('relatedlink', RelatedLinkController::class);
         Route::resource('component', ComponentController::class);
-        Route::resource('bidang', BidangController::class);
     });
-    Route::resource('surveilans_malaria', SurveilansMalariaController::class);
-    Route::resource('gallery', GalleryController::class);
     Route::resource('news', NewsController::class);
     Route::resource('myprofile', CredentialController::class);
     Route::resource('event', AgendaController::class);
     Route::resource('inbox', InboxController::class);
-    Route::resource('daily', DailyReportController::class);
-    Route::resource('complaint', ComplaintController::class);
-    Route::resource('permohonaninformasi', PermohonanInformasiController::class);
     Route::post('sendCentang', [ComponentController::class, 'changeAccess'])->name('centang');
     Route::get('getAlamat', [WebsiteController::class, 'location']);
-    Route::post('frameworks', [ComplaintController::class, 'getFrameworks'])->name('frameworks');
-    Route::post('upstate/{id}', [ComplaintController::class, 'finish']);
-    Route::get('phpword/{id}', [ComplaintController::class, 'phpword']);
     Route::resource('file_image', FileController::class);
     Route::resource('download_area', DownloadAreaController::class);
     Route::resource('download_area_file', DownloadAreaFileController::class);
