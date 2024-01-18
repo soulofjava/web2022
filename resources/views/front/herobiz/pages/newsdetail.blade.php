@@ -76,7 +76,7 @@
                             @foreach($news as $n)
                             <div class="post-item clearfix mt-3">
                                 @if($n->gambarmuka)
-                                <img src="{{ asset('storage/') }}/{{ $n->gambarmuka->path}}"
+                                <img src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
                                     style="min-width: 80px !important; min-height: 60px !important; max-width: 80px !important; max-height: 60px !important; object-fit: cover;">
                                 @else
                                 <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid"

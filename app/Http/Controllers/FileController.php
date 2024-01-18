@@ -7,6 +7,7 @@ use App\Models\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Google\Cloud\Storage\StorageClient;
+use Illuminate\Support\Facades\Config;
 
 class FileController extends Controller
 {
@@ -42,8 +43,7 @@ class FileController extends Controller
 
         $name = uniqid() . '_' . trim($file->getClientOriginalName());
 
-        $path = $file->storeAs(env('LOKASI_FILE') . '/news/', $name, 'gcs');
-
+        $path = $file->storeAs(config('app.lokasi_file') . '/news/', $name, 'gcs');
         return response()->json([
             'name'          => $name,
             'original_name' => $file->getClientOriginalName(),

@@ -41,7 +41,7 @@ class DownloadAreaFileController extends Controller
 
         $name = uniqid() . '_' . trim($file->getClientOriginalName());
 
-        $path = $file->storeAs(env('LOKASI_FILE') . '/download-area/', $name, 'gcs');
+        $path = $file->storeAs(config('app.lokasi_file') . '/download-area/', $name, 'gcs');
 
         return response()->json([
             'name'          => $name,

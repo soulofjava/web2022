@@ -14,6 +14,15 @@
     <div class="container-fluid">
         {{ Breadcrumbs::render('news') }}
         <div class="row">
+            @if($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
             <div class="card">
                 <div class="card-header card-header-icon" data-background-color="green">
                     <i class="material-icons">event_note</i>
@@ -41,7 +50,7 @@
                     </div>
                     <div class="form-group label-floating">
                         <label class="control-label">Description</label>
-                        {{Form::textarea('content', null,['class' => 'my-editor form-control','id'=>'my-editor'])}}
+                        {{Form::textarea('description', null,['class' => 'my-editor form-control','id'=>'my-editor'])}}
                     </div>
                     <div class="d-flex text-right">
                         <a href="{{ route('news.index') }}" class="btn btn-default btn-fill">Cancel</a>

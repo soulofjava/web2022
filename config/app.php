@@ -14,6 +14,7 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
+    'lokasi_file' => env('LOKASI_FILE', 'spbe'),
 
     /*
     |--------------------------------------------------------------------------

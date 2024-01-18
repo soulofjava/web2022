@@ -34,7 +34,7 @@
                     </div>
                     <div class="form-group label-floating">
                         <label class="control-label">Description</label>
-                        {{Form::textarea('content', null,['class' => 'my-editor form-control','id'=>'my-editor'])}}
+                        {{Form::textarea('description', null,['class' => 'my-editor form-control','id'=>'my-editor'])}}
                     </div>
                     <div class="d-flex text-right">
                         <a href="{{ route('news.index') }}" class="btn btn-default btn-fill">Cancel</a>
