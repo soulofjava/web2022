@@ -107,7 +107,7 @@ class DownloadAreaFileController extends Controller
         }
 
         // Delete the file
-        Storage::disk('gcs')->delete(env('LOKASI_FILE') . '/download-area/' . $id);
+        Storage::disk('gcs')->delete(config('app.lokasi_file') . '/download-area/' . $id);
 
         return response()->json([
             'response' => 'File terhapus'

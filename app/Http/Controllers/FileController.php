@@ -108,7 +108,7 @@ class FileController extends Controller
         }
 
         // Delete the file
-        Storage::disk('gcs')->delete(env('LOKASI_FILE') . '/news/' . $id);
+        Storage::disk('gcs')->delete(config('app.lokasi_file') . '/news/' . $id);
 
         return response()->json([
             'response' => 'File terhapus'

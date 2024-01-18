@@ -80,7 +80,7 @@ class NewsController extends Controller
             foreach ($request->document as $df) {
                 Files::create([
                     'id_news' => $id->id,
-                    'path' => env('LOKASI_FILE') . '/news/' . $df,
+                    'path' => config('app.lokasi_file') . '/news/' . $df,
                     'file_name' => $df
                 ]);
             }
@@ -138,7 +138,7 @@ class NewsController extends Controller
             foreach ($request->document as $df) {
                 Files::create([
                     'id_news' => $id,
-                    'path' => env('LOKASI_FILE') . '/news/' . $df,
+                    'path' => config('app.lokasi_file') . '/news/' . $df,
                     'file_name' => $df
                 ]);
             }
@@ -160,7 +160,7 @@ class NewsController extends Controller
         foreach ($gambar as $key) {
             foreach ($key->gambar as $value) {
                 // Delete the file
-                Storage::disk('gcs')->delete(env('LOKASI_FILE') . '/news/' . $value->file_name);
+                Storage::disk('gcs')->delete(config('app.lokasi_file') . '/news/' . $value->file_name);
             }
         }
 
