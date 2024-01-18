@@ -18,7 +18,6 @@ use App\Http\Controllers\DownloadAreaController;
 use App\Http\Controllers\DownloadAreaFileController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\HelperController;
-use App\Http\Controllers\MigrasiDataController;
 use App\Http\Controllers\SSOController;
 use App\Models\Counter;
 use Illuminate\Support\Facades\Route;

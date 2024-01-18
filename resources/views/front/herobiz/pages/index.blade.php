@@ -66,8 +66,8 @@ background-position: center;" data-aos="zoom-out">
                         <div class="post-img"
                             style="width: 500px; height: 500px; justify-content: center; align-items: center; display: flex; overflow: hidden;">
                             @if($n->gambarmuka)
-                            <img src="{{ asset('storage/') }}/{{  $n->gambarmuka->path }}" class="img-thumbnail"
-                                alt="{{ $n->gambarmuka->file_name }}"
+                            <img src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
+                                class="img-thumbnail" alt="{{ $n->gambarmuka->file_name }}"
                                 style="flex-shrink: 0; min-width: 100%; min-height: 100%">
                             @else
                             <img src="{{ asset('img/soulofjava.jpg') }}" class="img-thumbnail" alt="soul of java"

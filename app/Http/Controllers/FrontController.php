@@ -208,8 +208,9 @@ class FrontController extends Controller
                         $nama = "";
 
                         foreach ($data->files as $value) {
+                        $download = route('helper.show-picture', array('path' => $value->file_path));
                             $nama .= '<li>
-                                             <a  class="dropdown-item" target="_blank" href="' . Storage::url($value->file_path) . '">' . $value->file_name . '</a>
+                                             <a  class="dropdown-item" target="_blank" href="' . $download . '">' . $value->file_name . '</a>
                                         </li>
                                              <li class="divider"></li>';
                         }
