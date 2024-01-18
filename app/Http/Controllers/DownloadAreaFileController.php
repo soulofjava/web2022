@@ -37,22 +37,16 @@ class DownloadAreaFileController extends Controller
      */
     public function store(Request $request)
     {
-        $path = storage_path('tmp/uploads');
-
-        if (!file_exists($path)) {
-            mkdir($path, 0777, true);
-        }
-
         $file = $request->file('file');
 
         $name = uniqid() . '_' . trim($file->getClientOriginalName());
 
-        $file->move($path, $name);
+        $path = $file->storeAs(env('LOKASI_FILE') . '/download-area/', $name, 'gcs');
 
         return response()->json([
             'name'          => $name,
             'original_name' => $file->getClientOriginalName(),
-            'path' => $path . $name
+            'path' => $path
         ]);
     }
 
@@ -68,8 +62,8 @@ class DownloadAreaFileController extends Controller
         foreach ($data->files as $d) {
             $fileList[] = [
                 'name'          => $d->file_name,
-                'size'          => Storage::size(($d->file_path)),
-                'path'          => config('app.url') . '/storage/' . $d->file_path
+                'size'          => Storage::size($d->file_path),
+                'path'          => route('helper.show-picture', array('path' => $d->file_path))
             ];
         }
         return json_encode($fileList ?? []);
@@ -106,20 +100,17 @@ class DownloadAreaFileController extends Controller
      */
     public function destroy($id)
     {
-        $loc = storage_path('tmp/uploads/') . $id;
+        $data = DownloadAreaFile::where('file_name', $id)->first();
 
-        if (file_exists($loc)) {
-            unlink(storage_path('tmp/uploads/' . $id));
-            return response()->json([
-                'lokasi'          => $loc,
-            ]);
-        } else {
-            $data = DownloadAreaFile::where('file_name', $id)->first();
+        if ($data) {
             $data->delete();
-            unlink(storage_path('app/public/download-area/') . $id);
-            return response()->json([
-                'lokasi' => 'File terhapus'
-            ]);
         }
+
+        // Delete the file
+        Storage::disk('gcs')->delete(env('LOKASI_FILE') . '/download-area/' . $id);
+
+        return response()->json([
+            'response' => 'File terhapus'
+        ]);
     }
 }

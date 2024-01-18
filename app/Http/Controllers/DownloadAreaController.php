@@ -49,8 +49,9 @@ class DownloadAreaController extends Controller
                         $nama = "";
 
                         foreach ($data->files as $value) {
+                            $download = route('helper.show-picture', array('path' => $value->file_path));
                             $nama .= '<li>
-                                         <a target="_blank" href="' . Storage::url($value->file_path) . '">' . $value->file_name . '</a>
+                                         <a target="_blank" href="' . $download . '">' . $value->file_name . '</a>
                                     </li>
                                          <li class="divider"></li>';
                         }
@@ -98,20 +99,14 @@ class DownloadAreaController extends Controller
 
         if ($request->document) {
             foreach ($request->document as $df) {
-                $path = storage_path('app/public/download-area');
-
-                if (!file_exists($path)) {
-                    mkdir($path, 0777, true);
-                }
-
-                File::move(storage_path('tmp/uploads/') . $df, storage_path('app/public/download-area/') . $df);
                 DownloadAreaFile::create([
                     'download_area_id' => $id->id,
-                    'file_path' => 'download-area/' . $df,
+                    'file_path' => env('LOKASI_FILE') . '/download-area/' . $df,
                     'file_name' => $df
                 ]);
             }
         }
+
         return redirect(route('download_area.index'))->with(['success' => 'Data berhasil ditambahkan!']);
     }
 
@@ -156,10 +151,9 @@ class DownloadAreaController extends Controller
 
         if ($request->document) {
             foreach ($request->document as $df) {
-                File::move(storage_path('tmp/uploads/') . $df, storage_path('app/public/download-area/') . $df);
                 DownloadAreaFile::create([
                     'download_area_id' => $id,
-                    'file_path' => 'download-area/' . $df,
+                    'file_path' => env('LOKASI_FILE') . '/download-area/' . $df,
                     'file_name' => $df
                 ]);
             }
@@ -180,7 +174,7 @@ class DownloadAreaController extends Controller
 
         // delete files
         foreach ($gambar->files as $value) {
-            Storage::delete($value->file_path);
+            Storage::disk('gcs')->delete(env('LOKASI_FILE') . '/download-area/' . $value->file_name);
         }
 
         // delete related

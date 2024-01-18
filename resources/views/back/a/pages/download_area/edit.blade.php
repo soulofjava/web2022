@@ -2,6 +2,12 @@
 @push('after-style')
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dropzone@5.9.2/dist/dropzone.css"
     integrity="sha256-6X2vamB3vs1zAJefAme/aHhUeJl13mYKs3VKpIGmcV4=" crossorigin="anonymous">
+<style>
+    .dz-image img {
+        width: 100%;
+        height: 100%;
+    }
+</style>
 @endpush
 @section('content')
 <div class="content">

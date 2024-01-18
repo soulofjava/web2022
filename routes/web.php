@@ -145,17 +145,10 @@ Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], functi
     Route::resource('file_image', FileController::class);
     Route::resource('download_area', DownloadAreaController::class);
     Route::resource('download_area_file', DownloadAreaFileController::class);
-
-    // pindah data dari database wonsobokab
-    Route::get('insert', [NewsController::class, 'insert']);
-
-    // Route::get('/menu/checkSlug', [FrontMenuController::class, 'checkSlug']);
 });
 
 // get data for front menu parent
 Route::get('/cari', [FrontMenuController::class, 'loadData'])->name('carimenu');
-
-Route::get('migrate', [MigrasiDataController::class, 'insert']);
 
 Route::get('kabupaten', [ComRegionController::class, 'kabupaten'])->name('kabupaten');
 Route::get('kecamatan', [ComRegionController::class, 'kecamatan'])->name('kecamatan');
