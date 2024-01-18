@@ -6,6 +6,7 @@ use App\Models\File;
 use App\Models\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Google\Cloud\Storage\StorageClient;
 
 class FileController extends Controller
 {
@@ -62,8 +63,8 @@ class FileController extends Controller
         foreach ($data->gambar as $d) {
             $fileList[] = [
                 'name'          => $d->file_name,
-                'size'          => Storage::disk('gcs')->url($d->path),
-                'path'          => $d->path
+                'size'          => Storage::size($d->path),
+                'path'          => route('helper.show-picture', array('path' => $d->path))
             ];
         }
         return json_encode($fileList ?? []);

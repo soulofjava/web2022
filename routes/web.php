@@ -17,6 +17,7 @@ use App\Http\Controllers\ComRegionController;
 use App\Http\Controllers\DownloadAreaController;
 use App\Http\Controllers\DownloadAreaFileController;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\HelperController;
 use App\Http\Controllers\MigrasiDataController;
 use App\Http\Controllers\SSOController;
 use App\Models\Counter;
@@ -126,6 +127,7 @@ Route::middleware(['auth:sanctum', 'verified', 'data_web'])->get('/dashboard', f
 })->name('dashboard');
 
 Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], function () {
+    Route::get('show-picture}', [HelperController::class, 'showPicture'])->name('helper.show-picture');
     Route::group(['middleware' => ['role:superadmin|admin']], function () {
         Route::resource('settings', WebsiteController::class);
         Route::resource('user', UserController::class);

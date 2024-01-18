@@ -137,7 +137,7 @@ class NewsController extends Controller
         if ($request->document) {
             foreach ($request->document as $df) {
                 Files::create([
-                    'id_news' => $id->id,
+                    'id_news' => $id,
                     'path' => env('LOKASI_FILE') . '/news/' . $df,
                     'file_name' => $df
                 ]);
