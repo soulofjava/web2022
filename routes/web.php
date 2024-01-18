@@ -126,7 +126,6 @@ Route::middleware(['auth:sanctum', 'verified', 'data_web'])->get('/dashboard', f
 })->name('dashboard');
 
 Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], function () {
-    Route::get('show-picture}', [HelperController::class, 'showPicture'])->name('helper.show-picture');
     Route::group(['middleware' => ['role:superadmin|admin']], function () {
         Route::resource('settings', WebsiteController::class);
         Route::resource('user', UserController::class);
@@ -148,6 +147,8 @@ Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], functi
 
 // get data for front menu parent
 Route::get('/cari', [FrontMenuController::class, 'loadData'])->name('carimenu');
+
+Route::get('show-picture}', [HelperController::class, 'showPicture'])->name('helper.show-picture');
 
 Route::get('kabupaten', [ComRegionController::class, 'kabupaten'])->name('kabupaten');
 Route::get('kecamatan', [ComRegionController::class, 'kecamatan'])->name('kecamatan');
