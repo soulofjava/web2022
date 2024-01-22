@@ -148,7 +148,7 @@ Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], functi
 // get data for front menu parent
 Route::get('/cari', [FrontMenuController::class, 'loadData'])->name('carimenu');
 
-Route::get('show-picture}', [HelperController::class, 'showPicture'])->name('helper.show-picture');
+Route::get('show-picture', [HelperController::class, 'showPicture'])->name('helper.show-picture');
 
 Route::get('kabupaten', [ComRegionController::class, 'kabupaten'])->name('kabupaten');
 Route::get('kecamatan', [ComRegionController::class, 'kecamatan'])->name('kecamatan');
