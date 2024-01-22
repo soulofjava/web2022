@@ -21,8 +21,8 @@ background-position: center;" data-aos="zoom-out">
 
     <div class="media d-flex align-items-between mb-10">
         <div class="avatar avatar-sm avatar-circle mr-3">
-            <img class="img-fluid animated" src="https://diskominfo.kedirikab.go.id/asset/foto_berita/spbe.png"
-                alt="Image Description" style="width:800px">
+            <img class="img-fluid animated" src="https://sumutprov.go.id/images/spbe.png" alt="Image Description"
+                style="width:800px">
         </div>
         <div class="avatar avatar-sm avatar-circle mr-3">
             <img class="img-fluid animated" src="https://diskominfo.wonosobokab.go.id/front/assets/images/pemkab.png"
