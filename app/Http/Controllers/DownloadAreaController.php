@@ -101,7 +101,7 @@ class DownloadAreaController extends Controller
             foreach ($request->document as $df) {
                 DownloadAreaFile::create([
                     'download_area_id' => $id->id,
-                    'file_path' => config('app.lokasi_file') . '/download-area/' . $df,
+                    'file_path' =>  '/download-area/' . $df,
                     'file_name' => $df
                 ]);
             }
@@ -153,7 +153,7 @@ class DownloadAreaController extends Controller
             foreach ($request->document as $df) {
                 DownloadAreaFile::create([
                     'download_area_id' => $id,
-                    'file_path' => config('app.lokasi_file') . '/download-area/' . $df,
+                    'file_path' =>  '/download-area/' . $df,
                     'file_name' => $df
                 ]);
             }
@@ -174,7 +174,7 @@ class DownloadAreaController extends Controller
 
         // delete files
         foreach ($gambar->files as $value) {
-            Storage::disk('gcs')->delete(config('app.lokasi_file') . '/download-area/' . $value->file_name);
+            Storage::disk('gcs')->delete('/download-area/' . $value->file_name);
         }
 
         // delete related

@@ -41,7 +41,7 @@ class DownloadAreaFileController extends Controller
 
         $name = uniqid() . '_' . trim($file->getClientOriginalName());
 
-        $path = $file->storeAs(config('app.lokasi_file') . '/download-area/', $name, 'gcs');
+        $path = $file->storeAs('/download-area/', $name, 'gcs');
 
         return response()->json([
             'name'          => $name,
@@ -107,7 +107,7 @@ class DownloadAreaFileController extends Controller
         }
 
         // Delete the file
-        Storage::disk('gcs')->delete(config('app.lokasi_file') . '/download-area/' . $id);
+        Storage::disk('gcs')->delete('/download-area/' . $id);
 
         return response()->json([
             'response' => 'File terhapus'

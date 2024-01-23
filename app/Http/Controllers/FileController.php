@@ -43,7 +43,7 @@ class FileController extends Controller
 
         $name = uniqid() . '_' . trim($file->getClientOriginalName());
 
-        $path = $file->storeAs(config('app.lokasi_file') . '/news/', $name, 'gcs');
+        $path = $file->storeAs('/news/', $name, 'gcs');
         return response()->json([
             'name'          => $name,
             'original_name' => $file->getClientOriginalName(),
@@ -108,7 +108,7 @@ class FileController extends Controller
         }
 
         // Delete the file
-        Storage::disk('gcs')->delete(config('app.lokasi_file') . '/news/' . $id);
+        Storage::disk('gcs')->delete('/news/' . $id);
 
         return response()->json([
             'response' => 'File terhapus'

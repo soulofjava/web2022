@@ -40,7 +40,7 @@
                                 <x-carousel :jjj='$n' />
                             </div>
                             <h2 class="title">
-                                <a href="#">{{ $n->title }}</a>
+                                <a href="{{ url('/news-detail', $n->slug) }}">{{ $n->title }}</a>
                             </h2>
                             <div class="meta-top">
                                 <i class="bi bi-person"></i>
