@@ -123,8 +123,8 @@
                             <div class="post-item clearfix">
                                 @forelse($n->gambar as $gambar)
                                 @if($loop->iteration == 1)
-                                <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
-                                    alt="{{ $gambar->file_name }}">
+                                <img src="{{ route('helper.show-picture', ['path' => $gambar->path]) }}"
+                                    class="img-fluid" alt="{{ $gambar->file_name }}">
                                 @endif
                                 @empty
                                 <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">

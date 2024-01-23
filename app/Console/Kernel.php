@@ -19,9 +19,8 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')->hourly();
         $schedule->command('telescope:prune')->daily();
         // $schedule->call(function () {
-
-        //     //Pengecekan apakah cronjob berhasil atau tidak
-        //     //Mencatat info log 
+        //Pengecekan apakah cronjob berhasil atau tidak
+        //Mencatat info log 
         //     Log::info('Cronjob berhasil dijalankan');
         // })->everyTenSeconds();
     }

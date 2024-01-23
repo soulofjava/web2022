@@ -85,7 +85,7 @@
                             <div class="row g-0">
                                 <div class="col-md-4 d-flex justify-content-center p-1">
                                     @if($n->gambarmuka)
-                                    <img src="{{ asset('storage/') }}/{{ $n->gambarmuka->path}}"
+                                    <img src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
                                         class="img-fluid rounded-start rounded-end" style="min-width: 110px !important; min-height: 90px !important; max-width: 110px !important; max-height: 90px
                                         !important;
                                         object-fit: cover;">

@@ -23,7 +23,7 @@
             </div>
             <div class="col-lg-6 hero-img aos-init aos-animate" data-aos="zoom-out" data-aos-delay="200">
                 @if($data_website->image_hero)
-                <img src="{{ asset('storage') }}/{{ $data_website->image_hero }}" class="img-fluid"
+                <img src="{{ route('helper.show-picture', ['path' => $data_website->image_hero]) }}" class="img-fluid"
                     alt="{{ $data_website->image_hero_name }}">
                 @else
                 <img src="{{ asset('assets/front/flexstart/assets/img/hero-img.png') }}" class="img-fluid"
@@ -54,7 +54,7 @@
                         <div class="post-img text-center">
                             @forelse($n->gambar as $gambar)
                             @if($loop->iteration == 1)
-                            <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
+                            <img src="{{ route('helper.show-picture', ['path' => $gambar->path]) }}" class="img-fluid"
                                 alt="{{ $gambar->file_name }}">
                             @endif
                             @empty

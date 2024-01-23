@@ -26,8 +26,8 @@
                             <div class="entry-img" style="text-align: center;">
                                 @forelse($author->gambar as $gambar)
                                 @if($loop->iteration == 1)
-                                <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
-                                    alt="{{ $gambar->file_name }}">
+                                <img src="{{ route('helper.show-picture', ['path' => $gambar->path]) }}"
+                                    class="img-fluid" alt="{{ $gambar->file_name }}">
                                 @endif
                                 @empty
                                 <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
@@ -90,7 +90,7 @@
                             <div class="row g-0">
                                 <div class="col-md-4 d-flex justify-content-center p-1">
                                     @if($n->gambarmuka)
-                                    <img src="{{ asset('storage/') }}/{{ $n->gambarmuka->path}}"
+                                    <img src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
                                         class="img-fluid rounded-start rounded-end" style="min-width: 110px !important; min-height: 90px !important; max-width: 110px !important; max-height: 90px !important;
                                         object-fit: cover;">
                                     @else
