@@ -48,6 +48,18 @@
         demo.initFormExtendedDatetimepickers();
     });
 </script>
+<!-- ck editor -->
+<script src="{{asset('assets/back/assets/ckeditor/ckeditor.js')}}"></script>
+<script>
+    var konten = document.getElementById("my-editor");
+    var options = {
+        filebrowserImageBrowseUrl: '/file-manager/ckeditor',
+
+    };
+    CKEDITOR.replace(konten, options);
+    CKEDITOR.config.allowedContent = true;
+</script>
+<!-- end ck editor -->
 <script>
     var uploadedDocumentMap = {}
     let token = $("meta[name='csrf-token']").attr("content");

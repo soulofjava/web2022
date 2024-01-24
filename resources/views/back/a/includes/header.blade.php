@@ -98,10 +98,10 @@
                                     <i class="material-icons">settings</i>
                                     Peraturan</a>
                             </li>
-                            <li class="{{ (Str::contains(Request::url(), 'themes')) ? 'active' : '' }}">
+                            <!-- <li class="{{ (Str::contains(Request::url(), 'themes')) ? 'active' : '' }}">
                                 <a href="{{ route('themes.index') }}"><i class="material-icons">brush</i>
                                     Tema</a>
-                            </li>
+                            </li> -->
                             <li class="{{ (Str::contains(Request::url(), ['user', 'bidang'])) ? 'active' : '' }}">
                                 <a href="{{ route('user.index') }}">
                                     <i class="material-icons">person</i>

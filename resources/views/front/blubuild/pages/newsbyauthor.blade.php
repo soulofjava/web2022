@@ -27,8 +27,9 @@
                             <div class="post-img overflow-hidden w-100">
                                 @forelse($n->gambar as $gambar)
                                 @if($loop->iteration == 1)
-                                <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
-                                    style="height: 246px; width: 370px;" alt="{{ $gambar->file_name }}">
+                                <img src="{{ route('helper.show-picture', ['path' => $gambar->path]) }}"
+                                    class="img-fluid" style="height: 246px; width: 370px;"
+                                    alt="{{ $gambar->file_name }}">
                                 @endif
                                 @empty
                                 <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid"

@@ -205,7 +205,7 @@
                                         <a href="{{ url('/news-detail', $n->slug) }}">
                                             @if($n->gambarmuka)
                                             <img class="img-fluid"
-                                                src="{{ asset('storage/') }}/{{ $n->gambarmuka->path}}"
+                                                src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
                                                 alt="{{ $n->title}}">
                                             @else
                                             <img class="img-fluid" src="{{ asset('img/soulofjava.jpg') }}"

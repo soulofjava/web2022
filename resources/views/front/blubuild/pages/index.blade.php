@@ -10,7 +10,7 @@
                 <div class="feat-item">
                     @if($hl->gambarmuka)
                     <div class="feat-img position-absolute"
-                        style="background-image: url('storage/{{ $hl->gambarmuka->path }}');">
+                        style="background-image: url('{{ route('helper.show-picture', ['path' => $hl->gambarmuka->path]) }}');">
                         @else
                         <div class="feat-img position-absolute" style="background-image: url('img/soulofjava.jpg');">
                             @endif
@@ -50,7 +50,7 @@
                             <div class="post-img overflow-hidden w-100">
                                 <a href="{{ url('/news-detail', $n->slug) }}">
                                     @if($n->gambarmuka)
-                                    <img src="{{ asset('storage/') }}/{{  $n->gambarmuka->path }}" class="img-fluid"
+                                    <img src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}" class="img-fluid"
                                         alt="{{ $n->gambarmuka->file_name }}" style="height: 246px; width: 370px;">
                                     @else
                                     <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java"

@@ -41,7 +41,7 @@
                 <h2>Latest Post</h2>
             </div>
 
-            
+
             <x-head-category_news bc='#47b2e4' tc='white' />
 
             <div class="row mt-3">
@@ -51,7 +51,7 @@
                         <div class="post-img">
                             @forelse($n->gambar as $gambar)
                             @if($loop->iteration == 1)
-                            <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
+                            <img src="{{ route('helper.show-picture', ['path' => $gambar->path]) }}" class="img-fluid"
                                 alt="{{ $gambar->file_name }}">
                             @endif
                             @empty

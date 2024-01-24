@@ -44,7 +44,7 @@
                         <i class="material-icons">event_note</i>
                     </div>
                     <div class="card-content">
-                        <p class="category">Total Berita</p>
+                        <p class="category">Total Postingan</p>
                         <h3 class="card-title">{{ $news_all }}</h3>
                     </div>
                     <div class="card-footer">

@@ -26,8 +26,9 @@
                         <div class="post-box w-100 text-center">
                             <div class="post-img overflow-hidden w-100">
                                 @if($n->gambarmuka)
-                                <img src="{{ asset('storage/') }}/{{  $n->gambarmuka->path }}" class="img-fluid"
-                                    alt="{{ $n->gambarmuka->file_name }}" style="height: 246px; width: 370px;">
+                                <img src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
+                                    class="img-fluid" alt="{{ $n->gambarmuka->file_name }}"
+                                    style="height: 246px; width: 370px;">
                                 @else
                                 <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java"
                                     style="height: 246px; width: 370px;">

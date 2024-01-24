@@ -30,9 +30,10 @@
                             <label class="control-label">Menu Name</label>
                             {{Form::text('menu_name', null,['class' => 'form-control', 'id' => 'title'])}}
                         </div>
-                        <div class="form-group label-floating">
+                        <div class="form-group label-floating is-focused">
                             <label class="control-label">Content</label>
-                            {{Form::textarea('content', null,['class' => 'my-editor form-control'])}}
+                            {{Form::textarea('description', null,['class' => 'my-editor
+                            form-control','id'=>'my-editor'])}}
                         </div>
                         <div class="d-flex text-right">
                             <a href="{{ route('frontmenu.index') }}" class="btn btn-default btn-fill">Cancel</a>
@@ -47,6 +48,18 @@
 </div>
 @endsection
 @push('after-script')
+<!-- ck editor -->
+<script src="{{asset('assets/back/assets/ckeditor/ckeditor.js')}}"></script>
+<script>
+    var konten = document.getElementById("my-editor");
+    var options = {
+        filebrowserImageBrowseUrl: '/file-manager/ckeditor',
+
+    };
+    CKEDITOR.replace(konten, options);
+    CKEDITOR.config.allowedContent = true;
+</script>
+<!-- end ck editor -->
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script type="text/javascript">
     var url = "{{ route('carimenu') }}";
@@ -70,46 +83,5 @@
         }
     });
 </script>
-<script src="https://cdn.tiny.cloud/1/ntnf44xuwietuzyond0qbg8p2e6eqo90pzbi04o4j1jzeiqk/tinymce/5/tinymce.min.js"
-    referrerpolicy="origin"></script>
-<script>
-    var editor_config = {
-        path_absolute: "/",
-        selector: 'textarea.my-editor',
-        relative_urls: false,
-        height: '500px',
-        plugins: [
-            "advlist autolink autosave lists link image charmap print preview hr anchor pagebreak",
-            "searchreplace wordcount visualblocks visualchars code fullscreen",
-            "insertdatetime media nonbreaking save table directionality",
-            "emoticons template paste textpattern"
-        ],
-        toolbar: "restoredraft insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media",
-        file_picker_callback: function (callback, value, meta) {
-            var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
-            var y = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
 
-            var cmsURL = editor_config.path_absolute + 'laravel-filemanager?editor=' + meta.fieldname;
-            if (meta.filetype == 'image') {
-                cmsURL = cmsURL + "&type=Images";
-            } else {
-                cmsURL = cmsURL + "&type=Files";
-            }
-
-            tinyMCE.activeEditor.windowManager.openUrl({
-                url: cmsURL,
-                title: 'Filemanager',
-                width: x * 0.8,
-                height: y * 0.8,
-                resizable: "yes",
-                close_previous: "no",
-                onMessage: (api, message) => {
-                    callback(message.content);
-                }
-            });
-        }
-    };
-
-    tinymce.init(editor_config);
-</script>
 @endpush
