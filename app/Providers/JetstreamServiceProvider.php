@@ -26,9 +26,9 @@ class JetstreamServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Fortify::registerView(function () {
-            return redirect(url('/'));
-        });
+        // Fortify::registerView(function () {
+        //     return redirect(url('/'));
+        // });
 
         $this->configurePermissions();
 
