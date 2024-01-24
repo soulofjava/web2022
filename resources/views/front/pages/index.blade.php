@@ -15,7 +15,8 @@
             @if(Str::contains($hl->gambarmuka, 'https'))
             <div class="carousel-item active" style="background-image: url('{{ $hl->gambarmuka->path }}')">
                 @else
-                <div class="carousel-item active" style="background-image: url('storage/{{ $hl->gambarmuka->path }}')">
+                <div class="carousel-item active"
+                    style="background-image: url('{{ route('helper.show-picture', ['path' => $hl->gambarmuka->path]) }}')">
                     @endif
                     @else
                     <div class="carousel-item active"
@@ -40,7 +41,8 @@
                     @if(Str::contains($hl->gambarmuka, 'https'))
                     <div class="carousel-item" style="background-image: url('{{ $hl->gambarmuka->path }}')">
                         @else
-                        <div class="carousel-item" style="background-image: url('storage/{{ $hl->gambarmuka->path }}')">
+                        <div class="carousel-item"
+                            style="background-image: url('{{ route('helper.show-picture', ['path' => $hl->gambarmuka->path]) }}')">
                             @endif
                             @else
                             <div class="carousel-item"
@@ -95,8 +97,8 @@
                             <img src="{{  $n->gambarmuka->path }}" class="img-fluid"
                                 alt="{{ $n->gambarmuka->file_name }}">
                             @else
-                            <img src="{{ asset('storage') }}/{{  $n->gambarmuka->path }}" class="img-fluid"
-                                alt="{{ $n->gambarmuka->file_name }}">
+                            <img src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
+                                class="img-fluid" alt="{{ $n->gambarmuka->file_name }}">
                             @endif
                             @else
                             <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
@@ -156,8 +158,8 @@
                             <div class="testimonial-item">
                                 @if($testimonial->lokasi_foto)
                                 <img class="testimonial-img"
-                                    src="{{ asset('storage') }}/{{ $testimonial->lokasi_foto }}" alt="profile picture"
-                                    style="height: 90px; width: 90px;">
+                                    src="{{ route('helper.show-picture', ['path' => $testimonial->lokasi_foto]) }}"
+                                    alt="profile picture" style="height: 90px; width: 90px;">
                                 @else
                                 <img src="{{ asset('assets/back/sneat/assets/img/avatars/1.png') }}" alt="user-avatar"
                                     class="testimonial-img" style="height: 90px; width: 90px;">

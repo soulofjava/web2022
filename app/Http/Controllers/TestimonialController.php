@@ -56,14 +56,14 @@ class TestimonialController extends Controller
         ]);
 
         $myimage = $request->profile_photo_path->getClientOriginalName();
-        $request->profile_photo_path->storeAs('gallery', $myimage);
+        $path = $request->profile_photo_path->storeAs('/news/', $myimage, 'gcs');
 
         Testimonial::insert([
             'nama' => $request->nama,
             'pesan' => $request->pesan,
             'jabatan' => $request->jabatan,
             'nama_foto' => $myimage,
-            'lokasi_foto' => 'gallery/' . $myimage,
+            'lokasi_foto' => $path,
         ]);
 
         return redirect(route('testimoni.index'))->with(['success' => 'Data added successfully!']);
@@ -99,17 +99,17 @@ class TestimonialController extends Controller
                 'jabatan' => 'required',
             ]);
             $gambar = Testimonial::find($id);
-            if (Storage::exists($gambar->lokasi_foto)) {
-                Storage::delete($gambar->lokasi_foto);
+            if (Storage::disk('gcs')->exists($gambar->lokasi_foto)) {
+                Storage::disk('gcs')->delete($gambar->lokasi_foto);
             }
             $myimage = $request->profile_photo_path->getClientOriginalName();
-            $request->profile_photo_path->storeAs('gallery', $myimage);
+            $path = $request->profile_photo_path->storeAs('/news/', $myimage, 'gcs');
             $data = ([
                 'nama' => $request->nama,
                 'pesan' => $request->pesan,
                 'jabatan' => $request->jabatan,
                 'nama_foto' => $myimage,
-                'lokasi_foto' => 'gallery/' . $myimage,
+                'lokasi_foto' => $path,
             ]);
         } else {
             $request->validate([
@@ -130,8 +130,8 @@ class TestimonialController extends Controller
     {
         $data = Testimonial::find($id);
 
-        if (Storage::exists($data->lokasi_foto)) {
-            Storage::delete($data->lokasi_foto);
+        if (Storage::disk('gcs')->exists($data->lokasi_foto)) {
+            Storage::disk('gcs')->delete($data->lokasi_foto);
         }
 
         return $data->delete();

@@ -25,8 +25,8 @@
                         <div class="card-body">
                             <div class="d-flex align-items-start align-items-sm-center gap-4">
                                 @if($data->lokasi_foto)
-                                <img src="{{ asset('storage') }}/{{ $data->lokasi_foto }}" alt="profile picture"
-                                    style="max-width: 250px; height: 250px;" id="uploadedAvatar"
+                                <img src="{{ route('helper.show-picture', ['path' => $data->lokasi_foto]) }}"
+                                    alt="profile picture" style="max-width: 250px; height: 250px;" id="uploadedAvatar"
                                     class="d-block rounded">
                                 @else
                                 <img src="{{ asset('assets/back/sneat/assets/img/avatars/1.png') }}" alt="user-avatar"
@@ -112,10 +112,7 @@
 <script>
     var konten = document.getElementById("my-editor");
     var options = {
-        filebrowserImageBrowseUrl: '/filemanager?type=Images',
-        filebrowserImageUploadUrl: '/filemanager/upload?type=Images&_token=',
-        filebrowserBrowseUrl: '/filemanager?type=Files',
-        filebrowserUploadUrl: '/filemanager/upload?type=Files&_token='
+        filebrowserImageBrowseUrl: '/file-manager/ckeditor',
     };
     CKEDITOR.replace(konten, options);
     CKEDITOR.config.allowedContent = true;

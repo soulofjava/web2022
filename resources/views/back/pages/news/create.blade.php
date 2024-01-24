@@ -2,6 +2,12 @@
 @push('after-style')
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dropzone@5.9.2/dist/dropzone.css"
     integrity="sha256-6X2vamB3vs1zAJefAme/aHhUeJl13mYKs3VKpIGmcV4=" crossorigin="anonymous">
+    <style>
+        .dz-image img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 @endpush
 @section('content')
 <!-- Content -->
@@ -248,10 +254,7 @@
 <script>
     var konten = document.getElementById("my-editor");
     var options = {
-        filebrowserImageBrowseUrl: '/filemanager?type=Images',
-        filebrowserImageUploadUrl: '/filemanager/upload?type=Images&_token=',
-        filebrowserBrowseUrl: '/filemanager?type=Files',
-        filebrowserUploadUrl: '/filemanager/upload?type=Files&_token='
+        filebrowserImageBrowseUrl: '/file-manager/ckeditor',
     };
     CKEDITOR.replace(konten, options);
     CKEDITOR.config.allowedContent = true;

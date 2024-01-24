@@ -17,6 +17,7 @@ use App\Http\Controllers\RelatedLinkController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\ComRegionController;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\HelperController;
 use App\Http\Controllers\MigrasiDataController;
 use App\Http\Controllers\SSO\SSOController;
 use App\Http\Controllers\TestimonialController;
@@ -171,6 +172,8 @@ Route::post('komentar', [FrontController::class, 'komentar'])->name('komentar');
 
 Route::get('zoom', [ZoomController::class, 'index']);
 Route::any('zoom-meeting-create', [ZoomController::class, 'index']);
+
+Route::get('show-picture', [HelperController::class, 'showPicture'])->name('helper.show-picture');
 
 Route::get('create-meeting', [ZoomController::class, 'createMeeting']);
 Route::get('permohonan-zoom', [ZoomController::class, 'viewzoom']);

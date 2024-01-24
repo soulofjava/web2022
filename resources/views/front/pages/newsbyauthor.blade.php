@@ -34,8 +34,8 @@
                             <img src="{{  $author->gambarmuka->path }}" class="img-fluid"
                                 alt="{{ $author->gambarmuka->file_name }}">
                             @else
-                            <img src="{{ asset('storage/') }}/{{  $author->gambarmuka->path }}" class="img-fluid"
-                                alt="{{ $author->gambarmuka->file_name }}">
+                            <img src="{{ route('helper.show-picture', ['path' => $author->gambarmuka->path]) }}"
+                                class="img-fluid" alt="{{ $author->gambarmuka->file_name }}">
                             @endif
                             @else
                             <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">

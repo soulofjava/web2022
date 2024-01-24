@@ -32,6 +32,7 @@
                 <div class="row">
                     <div class="togglebutton" style="margin-bottom: 15px;">
                         <label>
+                            <input type="text" value="{{ $data->id }}" id="malika" hidden>
                             <input type="text" value="{{ $data->dip }}" id="bbb" hidden>
                             Data DIP? <input name="datadip" type="checkbox" id="hideButton" {{ $data->dip ? 'checked' :
                             '' }}>
@@ -235,7 +236,8 @@
         },
         init: function () {
             myDropzone = this;
-
+            let id_ku = document.getElementById('malika').value;
+            
             this.on("removedfile", function (file) {
                 alert("Delete this file?");
                 $.ajax({
@@ -285,10 +287,7 @@
 <script>
     var konten = document.getElementById("my-editor");
     var options = {
-        filebrowserImageBrowseUrl: '/filemanager?type=Images',
-        filebrowserImageUploadUrl: '/filemanager/upload?type=Images&_token=',
-        filebrowserBrowseUrl: '/filemanager?type=Files',
-        filebrowserUploadUrl: '/filemanager/upload?type=Files&_token='
+        filebrowserImageBrowseUrl: '/file-manager/ckeditor',
     };
     CKEDITOR.replace(konten, options);
     CKEDITOR.config.allowedContent = true;
