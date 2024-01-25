@@ -25,7 +25,8 @@
                                 <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                                     <div class="fileinput-new thumbnail">
                                         @if($data->image_hero)
-                                        <img src="{{ asset('storage') }}/{{ $data->image_hero }}" alt="...">
+                                        <img src="{{ route('helper.show-picture', ['path' => $data->image_hero]) }}"
+                                            alt="...">
                                         @else
                                         <img src="{{ asset('assets/back/assets/img/image_placeholder.jpg') }}"
                                             alt="...">
@@ -50,7 +51,8 @@
                                         @if($data->favicon == 'assets/pemda.ico')
                                         <img src="{{ asset('') }}{{ $data->favicon }}" alt="...">
                                         @elseif($data->favicon)
-                                        <img src="{{ asset('storage') }}/{{ $data->favicon }}" alt="...">
+                                        <img src="{{ route('helper.show-picture', ['path' => $data->favicon]) }}"
+                                            alt="...">
                                         @else
                                         <img src="{{ asset('assets/back/assets/img/image_placeholder.jpg') }}"
                                             alt="...">

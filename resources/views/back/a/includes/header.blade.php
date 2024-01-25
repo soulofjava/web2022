@@ -22,7 +22,7 @@
             <div class="user">
                 <div class="photo">
                     @if(auth()->user()->profile_photo_path)
-                    <img src="{{ asset('storage') }}/{{ auth()->user()->profile_photo_path }}" />
+                    <img src="{{ route('helper.show-picture', ['path' => auth()->user()->profile_photo_path]) }}" />
                     @else
                     <img src="https://ui-avatars.com/api/?name={{ auth()->user()->name }}">
                     @endif
@@ -99,27 +99,6 @@
                         </ul>
                     </div>
                 </li>
-                <!-- <li class="{{ (Str::contains(Request::url(), ['gallery', 'news'])) ? 'active' : '' }}">
-                    <a data-toggle="collapse" href="#pagesExamplesss"
-                        aria-expanded="{{ (Str::contains(Request::url(), ['gallery', 'news'])) ? 'true' : '' }}">
-                        <i class="material-icons">
-                            receipt
-                        </i>
-                        <p>Layanan
-                            <b class="caret"></b>
-                        </p>
-                    </a>
-                    <div class="collapse {{ (Str::contains(Request::url(), ['permohonaninformasi'])) ? 'in' : '' }}"
-                        id="pagesExamplesss">
-                        <ul class="nav">
-                            <li class="{{ (Str::contains(Request::url(), 'permohonaninformasi')) ? 'active' : '' }}">
-                                <a href="{{ route('permohonaninformasi.index') }}"> <i
-                                        class="material-icons">view_list</i>
-                                    Permohonan Informasi</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li> -->
                 @role('superadmin|admin')
                 <li
                     class="{{ (Str::contains(Request::url(), ['component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user', 'bidang'])) ? 'active' : '' }}">

@@ -24,7 +24,7 @@
                                 <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                                     <div class="fileinput-new thumbnail">
                                         @if($data->profile_photo_path)
-                                        <img src="{{ asset('storage') }}/{{ $data->profile_photo_path }}"
+                                        <img src="{{ route('helper.show-picture', ['path' => $data->profile_photo_path]) }}"
                                             alt="profile picture">
                                         @else
                                         <img src="{{ asset('assets/back/assets/img/image_placeholder.jpg') }}"

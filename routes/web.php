@@ -95,12 +95,12 @@ Route::group(['middleware' => 'data_web'], function () {
     Route::get('/reload-captcha', [FrontController::class, 'reloadCaptcha']);
 });
 
-Route::middleware(['auth:sanctum', 'verified', 'data_web'])->get('/dashboard', function () {
+Route::middleware(['auth:sanctum', 'verified', 'data_web', 'cek_inbox'])->get('/dashboard', function () {
     $themes = Website::all()->first();
     return view($themes->themes_back . '.pages.dashboard');
 })->name('dashboard');
 
-Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], function () {
+Route::group(['middleware' => ['auth', 'data_web', 'cek_inbox'], 'prefix' => 'admin'], function () {
     Route::group(['middleware' => ['role:superadmin|admin']], function () {
         Route::resource('settings', WebsiteController::class);
         Route::resource('user', UserController::class);
