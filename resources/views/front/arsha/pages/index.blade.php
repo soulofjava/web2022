@@ -20,7 +20,8 @@
             </div>
             <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
                 @if($data_website->image_hero)
-                <img src="{{ route('helper.show-picture', ['path' => $data_website->image_hero]) }}" class="img-fluid animated">
+                <img src="{{ route('helper.show-picture', ['path' => $data_website->image_hero]) }}"
+                    class="img-fluid animated">
                 @else
                 <img src="{{ asset('assets/front/arsha/assets/img/hero-img.png') }}" class="img-fluid animated">
                 @endif
@@ -101,9 +102,9 @@
                         <h4>{{ $g->description }}</h4>
                         <!-- <p>Web</p> -->
                         @if(file_exists(public_path('storage/'.$g->path)))
-                        <a href="{{ route('helper.show-picture', ['path' => $g->path]) }}" data-gallery="portfolioGallery"
-                            class="portfolio-lightbox preview-link" title="{{ $g->description }}"><i
-                                class="bx bx-plus"></i></a>
+                        <a href="{{ route('helper.show-picture', ['path' => $g->path]) }}"
+                            data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"
+                            title="{{ $g->description }}"><i class="bx bx-plus"></i></a>
                         @else
                         <a href="{{ asset('img/soulofjava.jpg') }}" data-gallery="portfolioGallery"
                             class="portfolio-lightbox preview-link" title="{{ $g->description }}"><i
@@ -179,20 +180,20 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             {{Form::text('name', null,['class' => 'form-control', 'placeholder' => 'Your Name',
-                            'required'])}}
+                            'aaaaaarequired'])}}
                         </div>
                         <div class="form-group col-md-6">
                             {{Form::email('email', null,['class' => 'form-control', 'placeholder' => 'Email',
-                            'required'])}}
+                            'aaaaaarequired'])}}
                         </div>
                     </div>
                     <div class="form-group">
                         {{Form::number('phone', null,['class' => 'form-control', 'placeholder' => 'Phone Number',
-                        'required'])}}
+                        'aaaaaarequired'])}}
                     </div>
                     <div class="form-group">
                         {{Form::textarea('message', null,['class' => 'form-control', 'placeholder' => 'Message',
-                        'required'])}}
+                        'aaaaaarequired'])}}
                     </div>
                     <div class="form-group">
                         <div class="row">
@@ -205,7 +206,7 @@
                             <div class="col-sm-12 col-md-12 mb-3">
                                 {{Form::number('captcha', null,['class' => 'form-control',
                                 'placeholder' => 'Enter Captcha Result',
-                                'required'])}}
+                                'aaaaaarequired'])}}
                             </div>
                         </div>
                     </div>

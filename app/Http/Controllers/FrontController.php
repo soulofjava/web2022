@@ -178,29 +178,29 @@ class FrontController extends Controller
 
     public function inbox(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
-            'message' => 'required',
-            'captcha' => 'required|captcha',
-        ]);
+        // $validator = Validator::make($request->all(), [
+        //     'name' => 'required',
+        //     'email' => 'required',
+        //     'phone' => 'required',
+        //     'message' => 'required',
+        //     'captcha' => 'required|captcha',
+        // ]);
 
-        if ($validator->fails()) {
-            Alert::error('Failed', 'You Have Enter The Wrong Captcha');
-            return redirect()->back()->withInput();
-        } else {
-            $data = [
-                'email' => 'isamaulanatantra@gmail.com',
-                'name' => 'saya ini',
-                // 'email' => $request->email,
-                // 'name' => $request->name,
-            ];
-            Inbox::create($request->except('_token', 'captcha'));
-            KirimEmail::dispatch($data);
-            Alert::success('Success', 'Your Message Has Been Sent');
-            return redirect(url('/'));
-        }
+        // if ($validator->fails()) {
+        //     Alert::error('Failed', 'You Have Enter The Wrong Captcha');
+        //     return redirect()->back()->withInput();
+        // } else {
+        $data = [
+            'email' => 'isamaulanatantra@gmail.com',
+            'name' => 'saya ini',
+            // 'email' => $request->email,
+            // 'name' => $request->name,
+        ];
+        // Inbox::create($request->except('_token', 'captcha'));
+        KirimEmail::dispatch($data);
+        Alert::success('Success', 'Your Message Has Been Sent');
+        return redirect(url('/'));
+        // }
     }
 
     // kampung pancasila
