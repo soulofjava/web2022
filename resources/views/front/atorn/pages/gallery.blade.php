@@ -26,8 +26,8 @@
             <div class="col-lg-4 col-sm-6" style="display: flex">
                 <div class="attorney-card">
                     @if(file_exists(public_path('storage/'.$g->path)))
-                    <a data-fancybox="gallery" href="{{ asset('storage/') }}/{{ $g->path}}"><img
-                            src="{{ asset('storage/') }}/{{ $g->path}}" class="img-fluid"></a>
+                    <a data-fancybox="gallery" href="{{ route('helper.show-picture', ['path' => $g->path]) }}"><img
+                            src="{{ route('helper.show-picture', ['path' => $g->path]) }}" class="img-fluid"></a>
                     @else
                     <a data-fancybox="gallery" href="{{ asset('img/soulofjava.jpg') }}"><img
                             src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soulofjava"></a>

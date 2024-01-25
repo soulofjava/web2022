@@ -16,7 +16,7 @@
             <div class="col-lg-6 col-md-12 col-sm-12 image-column">
                 <div class="image-box float-bob-y clearfix">
                     <!-- @if($data_website->image_hero)
-                    <img src="{{ asset('storage') }}/{{ $data_website->image_hero }}" alt="{{ $data_website->web_name }}">
+                    <img src="{{ route('helper.show-picture', ['path' => $data_website->image_hero]) }}" alt="{{ $data_website->web_name }}">
                     @else
                     <figure class="image image-2 wow fadeInUp" data-wow-delay="1500ms" data-wow-duration="1500ms">
                         <img src="{{ asset('assets/front/appway/images/resource/phone-2.png') }}" alt="{{ $data_website->web_name }}">
@@ -53,7 +53,7 @@
                         <figure class="image-box">
                             <a href="{{ url('/news-detail', $n->slug) }}">
                                 @if(file_exists(public_path('storage/'.$n->path)))
-                                <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid"
+                                <img src="{{ route('helper.show-picture', ['path' => $n->path]) }}" class="img-fluid"
                                     alt="{{ $n->title }}">
                                 @else
                                 <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soulofjava">
@@ -101,8 +101,8 @@
                         <figure class="image-box">
                             <a href="{{ url('/news-detail', $n->slug) }}">
                                 @if(file_exists(public_path('storage/'.$n->path)))
-                                <a data-fancybox="gallery" href="{{ asset('storage/') }}/{{ $n->path}}"><img
-                                        src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid"></a>
+                                <a data-fancybox="gallery" href="{{ route('helper.show-picture', ['path' => $n->path]) }}"><img
+                                        src="{{ route('helper.show-picture', ['path' => $n->path]) }}" class="img-fluid"></a>
                                 @else
                                 <a data-fancybox="gallery" href="{{ asset('img/soulofjava.jpg') }}"><img
                                         src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soulofjava"></a>

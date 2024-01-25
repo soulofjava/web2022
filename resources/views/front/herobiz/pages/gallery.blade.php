@@ -13,14 +13,14 @@
                     @foreach($gallery as $g)
                     <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-app">
                         @if(file_exists(public_path('storage/'.$g->path)))
-                        <img src="{{ asset('storage/') }}/{{ $g->path}}" class="img-fluid">
+                        <img src="{{ route('helper.show-picture', ['path' => $g->path]) }}" class="img-fluid">
                         @else
                         <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
                         @endif
                         <div class="portfolio-info">
                             <h4>{{ $g->description }}</h4>
                             @if(file_exists(public_path('storage/'.$g->path)))
-                            <a href="{{ asset('storage/') }}/{{ $g->path}}" title="{{ $g->description }}"
+                            <a href="{{ route('helper.show-picture', ['path' => $g->path]) }}" title="{{ $g->description }}"
                                 data-gallery="portfolio-gallery" class="glightbox preview-link"><i
                                     class="bi bi-zoom-in"></i></a>
                             @else

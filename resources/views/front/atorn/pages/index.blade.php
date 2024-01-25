@@ -40,8 +40,8 @@
                 <div class="col-lg-4 col-sm-6" style="display: flex">
                     <div class="service-card">
                         @if(file_exists(public_path('storage/'.$n->path)))
-                        <a data-fancybox="gallery" href="{{ asset('storage/') }}/{{ $n->path}}"><img
-                                src="{{ asset('storage/') }}/{{ $g->path}}" class="img-fluid"></a>
+                        <a data-fancybox="gallery" href="{{ route('helper.show-picture', ['path' => $n->path]) }}"><img
+                                src="{{ route('helper.show-picture', ['path' => $g->path]) }}" class="img-fluid"></a>
                         @else
                         <a data-fancybox="gallery" href="{{ asset('img/soulofjava.jpg') }}"><img
                                 src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soulofjava"></a>
@@ -77,7 +77,7 @@
                     <div class="blog-card">
                         <a href="{{ url('/news-detail', $n->slug) }}">
                             @if(file_exists(public_path('storage/'.$n->path)))
-                            <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid" alt="{{ $n->photo }}">
+                            <img src="{{ route('helper.show-picture', ['path' => $n->path]) }}" class="img-fluid" alt="{{ $n->photo }}">
                             @else
                             <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
                         </a>

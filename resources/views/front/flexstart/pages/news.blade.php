@@ -13,7 +13,7 @@
                 <div class="post-box">
                     <div class="post-img">
                         @if(file_exists(public_path('storage/'.$n->path)))
-                        <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid">
+                        <img src="{{ route('helper.show-picture', ['path' => $n->path]) }}" class="img-fluid">
                         @else
                         <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
                         @endif

@@ -24,7 +24,7 @@
             </div>
             <div class="col-lg-6 hero-img aos-init aos-animate" data-aos="zoom-out" data-aos-delay="200">
                 @if($data_website->image_hero)
-                <img src="{{ asset('storage') }}/{{ $data_website->image_hero }}" class="img-fluid"
+                <img src="{{ route('helper.show-picture', ['path' => $data_website->image_hero]) }}" class="img-fluid"
                     alt="{{ $data_website->image_hero_name }}">
                 @else
                 <img src="{{ asset('assets/front/flexstart/assets/img/hero-img.png') }}" class="img-fluid"
@@ -59,7 +59,7 @@
                     <div class="post-box">
                         <div class="post-img">
                             @if(file_exists(public_path('storage/'.$n->path)))
-                            <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid" alt="{{ $n->photo }}">
+                            <img src="{{ route('helper.show-picture', ['path' => $n->path]) }}" class="img-fluid" alt="{{ $n->photo }}">
                             @else
                             <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
                             @endif
@@ -110,7 +110,7 @@
                 <div class="col-lg-3 col-md-4 portfolio-item filter-app">
                     <div class="portfolio-wrap d-flex justify-content-center">
                         @if(file_exists(public_path('storage/'.$g->path)))
-                        <img src="{{ asset('storage/') }}/{{ $g->path}}" class="img-fluid" alt="{{ $g->name }}">
+                        <img src="{{ route('helper.show-picture', ['path' => $g->path]) }}" class="img-fluid" alt="{{ $g->name }}">
                         @else
                         <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
                         @endif
@@ -119,7 +119,7 @@
                             <!-- <p>App</p> -->
                             <div class="portfolio-links">
                                 @if(file_exists(public_path('storage/'.$g->path)))
-                                <a href="{{ asset('storage/') }}/{{ $g->path}}" data-gallery="portfolioGallery"
+                                <a href="{{ route('helper.show-picture', ['path' => $g->path]) }}" data-gallery="portfolioGallery"
                                     class="portfokio-lightbox" title="{{ $g->description }}"><i
                                         class="bi bi-plus"></i></a>
                                 @else

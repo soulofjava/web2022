@@ -4,7 +4,7 @@
     <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative"
         data-aos="zoom-out">
         @if($data_website->image_hero)
-        <img src="{{ asset('storage') }}/{{ $data_website->image_hero }}" class="img-fluid animated"
+        <img src="{{ route('helper.show-picture', ['path' => $data_website->image_hero]) }}" class="img-fluid animated"
             alt="{{ $data_website->image_hero_name }}">
         @else
         <img src="{{ asset('assets/front/herobiz/assets/img/hero-carousel/hero-carousel-3.svg') }}"
@@ -42,14 +42,14 @@
                     @foreach($gallery as $g)
                     <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-app">
                         @if(file_exists(public_path('storage/'.$g->path)))
-                        <img src="{{ asset('storage/') }}/{{ $g->path}}" class="img-fluid">
+                        <img src="{{ route('helper.show-picture', ['path' => $g->path]) }}" class="img-fluid">
                         @else
                         <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
                         @endif
                         <div class="portfolio-info">
                             <h4>{{ $g->description }}</h4>
                             @if(file_exists(public_path('storage/'.$g->path)))
-                            <a href="{{ asset('storage/') }}/{{ $g->path}}" title="{{ $g->description }}"
+                            <a href="{{ route('helper.show-picture', ['path' => $g->path]) }}" title="{{ $g->description }}"
                                 data-gallery="portfolio-gallery" class="glightbox preview-link"><i
                                     class="bi bi-zoom-in"></i></a>
                             @else
@@ -89,7 +89,7 @@
                     <div class="post-box">
                         <div class="post-img">
                             @if(file_exists(public_path('storage/'.$n->path)))
-                            <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid">
+                            <img src="{{ route('helper.show-picture', ['path' => $n->path]) }}" class="img-fluid">
                             @else
                             <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
                             @endif

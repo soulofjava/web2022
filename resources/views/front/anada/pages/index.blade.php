@@ -17,7 +17,7 @@
                             </div>
                             <div class="col-lg-6 thumb wow fadeInRight" data-wow-duration="1s">
                                 @if($data_website->image_hero)
-                                <img src="{{ asset('storage') }}/{{ $data_website->image_hero }}">
+                                <img src="{{ route('helper.show-picture', ['path' => $data_website->image_hero]) }}">
                                 @else
                                 <img src="{{ asset('assets/front/anada/assets/img/illustration/1.png') }}" alt="Thumb">
                                 @endif
@@ -58,7 +58,7 @@
                         <div class="thumb">
                             <a href="#">
                                 @if(file_exists(public_path('storage/'.$n->path)))
-                                <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid">
+                                <img src="{{ route('helper.show-picture', ['path' => $n->path]) }}" class="img-fluid">
                                 @else
                                 <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
                                 @endif
@@ -116,8 +116,8 @@
                         <div class="item">
                             <div class="thumb">
                                 @if(file_exists(public_path('storage/'.$g->path)))
-                                <a data-fancybox="gallery" href="{{ asset('storage/') }}/{{ $g->path}}"><img
-                                        src="{{ asset('storage/') }}/{{ $g->path}}" class="img-fluid"></a>
+                                <a data-fancybox="gallery" href="{{ route('helper.show-picture', ['path' => $g->path]) }}"><img
+                                        src="{{ route('helper.show-picture', ['path' => $g->path]) }}" class="img-fluid"></a>
                                 @else
                                 <a data-fancybox="gallery" href="{{ asset('img/soulofjava.jpg') }}"><img
                                         src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid"></a>

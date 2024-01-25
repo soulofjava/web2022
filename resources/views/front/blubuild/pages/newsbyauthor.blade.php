@@ -25,7 +25,7 @@
                             <div class="post-img overflow-hidden w-100">
                                 @if(file_exists(public_path('storage/'.$n->path)))
                                 <a href="{{ url('/news-detail', $n->slug) }}"><img class="img-fluid w-100"
-                                        src="{{ asset('storage/') }}/{{ $n->path}}" alt="{{ $n->photo }}"
+                                        src="{{ route('helper.show-picture', ['path' => $n->path]) }}" alt="{{ $n->photo }}"
                                         style="height: 250px;"></a>
                                 @else
                                 <a href="{{ url('/news-detail', $n->slug) }}"><img class="img-fluid w-100"

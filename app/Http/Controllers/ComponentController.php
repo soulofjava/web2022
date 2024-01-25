@@ -17,7 +17,7 @@ class ComponentController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Component::orderBy('name', 'ASC')->get();
+            $data = Component::orderBy('name', 'ASC');
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(

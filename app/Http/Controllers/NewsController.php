@@ -5,14 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\ComCodes;
 use App\Models\News;
 use App\Models\File;
-use App\Models\GuestBook;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\DB;
-use Faker\Factory as Faker;
-
 
 class NewsController extends Controller
 {
@@ -24,7 +21,7 @@ class NewsController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = News::orderBy('date', 'DESC')->get();
+            $data = News::latest('date');
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(
@@ -73,15 +70,20 @@ class NewsController extends Controller
     public function store(Request $request)
     {
         if ($request->hasFile('photo')) {
-            $validated = $request->validate([
+            $request->validate([
                 'photo' => 'image|max:12048',
                 'title' => 'required',
                 'date' => 'required',
                 'description' => 'required',
                 'highlight' => 'required',
             ]);
-            $name = $request->file('photo')->getClientOriginalName();
-            $path = $request->file('photo')->store('news');
+
+            $file = $request->file('photo');
+
+            $name = uniqid() . '_' . trim($file->getClientOriginalName());
+
+            $path = $file->storeAs('/news/', $name, 'gcs');
+
             $data = [
                 'photo' => $name,
                 'path' => $path,
@@ -93,7 +95,7 @@ class NewsController extends Controller
                 'slug' => SlugService::createSlug(News::class, 'slug', $request->title),
             ];
         } else {
-            $validated = $request->validate([
+            $request->validate([
                 'title' => 'required',
                 'date' => 'required',
                 'description' => 'required',
@@ -146,7 +148,7 @@ class NewsController extends Controller
     public function update(Request $request, $id)
     {
         if ($request->hasFile('photo')) {
-            $validated = $request->validate([
+            $request->validate([
                 'photo' => 'required|image|max:12048',
                 'title' => 'required',
                 'description' => 'required',
@@ -155,9 +157,14 @@ class NewsController extends Controller
             ]);
             $gambar = News::where('id', $id)->first();
             if ($request->file('photo')->getClientOriginalName() != $gambar->photo) {
-                Storage::delete($gambar->path);
-                $name = $request->file('photo')->getClientOriginalName();
-                $path = $request->file('photo')->store('news');
+                Storage::disk('gcs')->delete($gambar->path);
+
+                $file = $request->file('photo');
+
+                $name = uniqid() . '_' . trim($file->getClientOriginalName());
+
+                $path = $file->storeAs('/news/', $name, 'gcs');
+
                 $data = [
                     'photo' => $name,
                     'path' => $path,
@@ -169,7 +176,7 @@ class NewsController extends Controller
                 ];
             }
         } else {
-            $validated = $request->validate([
+            $request->validate([
                 'title' => 'required',
                 'description' => 'required',
                 'highlight' => 'required',
@@ -195,11 +202,15 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        $gambar = News::where('id', $id)->first();
-        if (Storage::exists($gambar->path)) {
-            Storage::delete($gambar->path);
+        $gambar = News::where('id', $id)->get();
+
+        if (Storage::disk('gcs')->exists($gambar->path)) {
+            // Delete the file
+            Storage::disk('gcs')->delete($gambar->path);
         }
+
         $data = News::find($id);
+
         return $data->delete();
     }
 

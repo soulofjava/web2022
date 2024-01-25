@@ -71,7 +71,7 @@
             searchPlaceholder: "Search records",
         },
         columns: [
-            { data: 'DT_RowIndex' },
+            { data: 'DT_RowIndex', orderable: false, searchable: false },
             { data: 'description', name: 'description' },
             { data: 'tgl', name: 'upload_date' },
             { data: 'action', },

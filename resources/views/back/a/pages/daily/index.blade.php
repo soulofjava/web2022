@@ -67,7 +67,7 @@
             searchPlaceholder: "Search records",
         },
         columns: [
-            { data: 'DT_RowIndex' },
+            { data: 'DT_RowIndex', orderable: false, searchable: false },
             { data: 'tgl', className: "text-center" },
             { data: 'jam', className: "text-center" },
             { data: 'personnel', className: "text-center" },

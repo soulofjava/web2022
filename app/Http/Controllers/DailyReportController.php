@@ -17,7 +17,7 @@ class DailyReportController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = DailyReport::orderBy('date', 'DESC')->get();
+            $data = DailyReport::latest('date');
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(
@@ -73,7 +73,7 @@ class DailyReportController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        $request->validate([
             'date' => 'required',
             't_start' => 'required',
             't_end' => 'required',
@@ -83,11 +83,16 @@ class DailyReportController extends Controller
         ]);
 
         if ($request->hasFile('photo')) {
-            $validated = $request->validate([
+            $request->validate([
                 'photo' => 'required|image|max:12048',
             ]);
-            $name = $request->file('photo')->getClientOriginalName();
-            $path = $request->file('photo')->store('gallery');
+
+            $file = $request->file('photo');
+
+            $name = uniqid() . '_' . trim($file->getClientOriginalName());
+
+            $path = $file->storeAs('/gallery/', $name, 'gcs');
+
             $data = [
                 'pic_name' => $name,
                 'path' => $path,
@@ -146,7 +151,7 @@ class DailyReportController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validated = $request->validate([
+        $request->validate([
             'date' => 'required',
             't_start' => 'required',
             't_end' => 'required',
@@ -156,14 +161,18 @@ class DailyReportController extends Controller
         ]);
 
         if ($request->hasFile('photo')) {
-            $validated = $request->validate([
+            $request->validate([
                 'photo' => 'required|image|max:12048',
             ]);
             $gambar = DailyReport::where('id', $id)->first();
             if ($request->file('photo')->getClientOriginalName() != $gambar->pic_name) {
-                Storage::delete($gambar->path);
-                $name = $request->file('photo')->getClientOriginalName();
-                $path = $request->file('photo')->store('gallery');
+                Storage::disk('gcs')->delete($gambar->path);
+
+                $file = $request->file('photo');
+
+                $name = uniqid() . '_' . trim($file->getClientOriginalName());
+
+                $path = $file->storeAs('/gallery/', $name, 'gcs');
                 $data = [
                     'pic_name' => $name,
                     'path' => $path,
@@ -198,7 +207,15 @@ class DailyReportController extends Controller
      */
     public function destroy($id)
     {
+        $gambar = DailyReport::where('id', $id)->get();
+
+        if (Storage::disk('gcs')->exists($gambar->path)) {
+            // Delete the file
+            Storage::disk('gcs')->delete($gambar->path);
+        }
+
         $data = DailyReport::find($id);
+
         return $data->delete();
     }
 }

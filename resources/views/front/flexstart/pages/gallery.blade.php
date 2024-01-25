@@ -21,7 +21,7 @@
             <div class="col-lg-4 col-md-6 portfolio-item filter-app">
                 <div class="portfolio-wrap d-flex justify-content-center">
                     @if(file_exists(public_path('storage/'.$g->path)))
-                    <img src="{{ asset('storage/') }}/{{ $g->path}}" class="img-fluid">
+                    <img src="{{ route('helper.show-picture', ['path' => $g->path]) }}" class="img-fluid">
                     @else
                     <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
                     @endif
@@ -30,7 +30,7 @@
                         <!-- <p>App</p> -->
                         <div class="portfolio-links">
                             @if(file_exists(public_path('storage/'.$g->path)))
-                            <a href="{{ asset('storage/') }}/{{ $g->path}}" data-gallery="portfolioGallery"
+                            <a href="{{ route('helper.show-picture', ['path' => $g->path]) }}" data-gallery="portfolioGallery"
                                 class="portfokio-lightbox" title="{{ $g->description }}"><i class="bi bi-plus"></i></a>
                             @else
                             <a href="{{ asset('img/soulofjava.jpg') }}" data-gallery="portfolioGallery"

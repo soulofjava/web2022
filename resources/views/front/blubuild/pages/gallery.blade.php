@@ -25,9 +25,9 @@
                         <div class="shop-box w-100">
                             <div class="shop-img w-100 position-relative overflow-hidden">
                                 @if(file_exists(public_path('storage/'.$g->path)))
-                                <img class="img-fluid w-100" src="{{ asset('storage/') }}/{{ $g->path}}"
+                                <img class="img-fluid w-100" src="{{ route('helper.show-picture', ['path' => $g->path]) }}"
                                     alt="{{ $g->name }}" style="height: 200px;">
-                                <a data-fancybox="gallery" href="{{ asset('storage/') }}/{{ $g->path}}" title="">View
+                                <a data-fancybox="gallery" href="{{ route('helper.show-picture', ['path' => $g->path]) }}" title="">View
                                     Photo<i class="fas fa-eye"></i></a>
                                 @else
                                 <img class="img-fluid w-100" src="{{ asset('img/soulofjava.jpg') }}" alt="soulofjava"

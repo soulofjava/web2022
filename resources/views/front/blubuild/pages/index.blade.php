@@ -55,8 +55,8 @@
                         <div class="proj-box position-relative w-100">
                             <div class="proj-thumb overflow-hidden w-100">
                                 @if(file_exists(public_path('storage/'.$n->path)))
-                                <a data-fancybox="gallery" href="{{ asset('storage/') }}/{{ $n->path}}"><img
-                                        src="{{ asset('storage/') }}/{{ $n->path}}" style="height: 200px;"
+                                <a data-fancybox="gallery" href="{{ route('helper.show-picture', ['path' => $n->path]) }}"><img
+                                        src="{{ route('helper.show-picture', ['path' => $n->path]) }}" style="height: 200px;"
                                         class="img-fluid w-100"></a>
                                 @else
                                 <a data-fancybox="gallery" href="{{ asset('img/soulofjava.jpg') }}"><img
@@ -105,7 +105,7 @@
                             <div class="post-img overflow-hidden w-100">
                                 <a href="{{ url('/news-detail', $n->slug) }}">
                                     @if(file_exists(public_path('storage/'.$n->path)))
-                                    <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid w-100"
+                                    <img src="{{ route('helper.show-picture', ['path' => $n->path]) }}" class="img-fluid w-100"
                                         alt="{{ $n->photo }}" style="height: 200px;">
                                     @else
                                     <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid w-100"

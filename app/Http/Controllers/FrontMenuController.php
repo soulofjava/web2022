@@ -19,7 +19,7 @@ class FrontMenuController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = FrontMenu::with('menu_induk')->get()->skip(1);
+            $data = FrontMenu::with('menu_induk')->where('id', '>', 1);
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(

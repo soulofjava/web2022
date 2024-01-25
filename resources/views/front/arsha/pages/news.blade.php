@@ -15,7 +15,7 @@
                 <div class="card" style="border-radius: 15px">
                     <div>
                         @if(file_exists(public_path('storage/'.$n->path)))
-                        <img src="{{ asset('storage/') }}/{{ $n->path}}" style="border-radius: 15px" class="img-fluid">
+                        <img src="{{ route('helper.show-picture', ['path' => $n->path]) }}" style="border-radius: 15px" class="img-fluid">
                         @else
                         <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
                         @endif

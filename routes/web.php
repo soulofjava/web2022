@@ -4,12 +4,9 @@ use App\Helpers\Seo;
 use App\Http\Controllers\ComponentController;
 use App\Http\Controllers\CredentialController;
 use App\Http\Controllers\FrontController;
-use App\Http\Controllers\MenuController;
-use App\Http\Controllers\SubmenuController;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\GalleryController;
-use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ThemesController;
 use App\Http\Controllers\FrontMenuController;
@@ -21,12 +18,11 @@ use App\Http\Controllers\BidangController;
 use App\Http\Controllers\ComplaintController;
 use App\Http\Controllers\DailyReportController;
 use App\Http\Controllers\MigrasiDataController;
-use App\Http\Controllers\PermohonanInformasiController;
+use App\Http\Controllers\HelperController;
 use App\Models\Counter;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
 use App\Models\Gallery;
-use App\Models\PermohonanInformasi;
 use App\Models\Website;
 use App\Models\Themes;
 use Illuminate\Support\Facades\Http;
@@ -41,13 +37,6 @@ use Illuminate\Support\Facades\Http;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::group(
-    ['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']],
-    function () {
-        \UniSharp\LaravelFilemanager\Lfm::routes();
-    }
-);
 
 Route::get('/', function () {
     $themes = Website::all()->first();
@@ -104,7 +93,6 @@ Route::group(['middleware' => 'data_web'], function () {
     Route::get('agenda', [FrontController::class, 'event']);
     Route::get('berita', [FrontController::class, 'newsall']);
     Route::get('/reload-captcha', [FrontController::class, 'reloadCaptcha']);
-    Route::post('permohonaninformasi', [PermohonanInformasiController::class, 'store']);
 });
 
 Route::middleware(['auth:sanctum', 'verified', 'data_web'])->get('/dashboard', function () {
@@ -129,7 +117,6 @@ Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], functi
     Route::resource('inbox', InboxController::class);
     Route::resource('daily', DailyReportController::class);
     Route::resource('complaint', ComplaintController::class);
-    Route::resource('permohonaninformasi', PermohonanInformasiController::class);
     Route::post('sendCentang', [ComponentController::class, 'changeAccess'])->name('centang');
     Route::get('getAlamat', [WebsiteController::class, 'location']);
     Route::post('frameworks', [ComplaintController::class, 'getFrameworks'])->name('frameworks');
@@ -142,6 +129,8 @@ Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], functi
     // Route::get('/menu/checkSlug', [FrontMenuController::class, 'checkSlug']);
 
 });
+
+Route::get('show-picture', [HelperController::class, 'showPicture'])->name('helper.show-picture');
 
 // get data for front menu parent
 Route::get('/cari', [FrontMenuController::class, 'loadData'])->name('carimenu');

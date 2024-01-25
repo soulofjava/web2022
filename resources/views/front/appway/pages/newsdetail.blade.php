@@ -44,7 +44,7 @@
                     <div class="post-details">
                         <figure class="image-box">
                             @if(file_exists(public_path('storage/'.$data->path)))
-                            <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid" alt="{{ $n->title }}">
+                            <img src="{{ route('helper.show-picture', ['path' => $n->path]) }}" class="img-fluid" alt="{{ $n->title }}">
                             @else
                             <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soulofjava">
                             @endif
@@ -229,7 +229,7 @@
                                 <figure class="image">
                                     <a href="{{ url('/news-detail', $n->slug) }}">
                                         @if(file_exists(public_path('storage/'.$n->path)))
-                                        <img src="{{ asset('storage/') }}/{{ $n->path}}"
+                                        <img src="{{ route('helper.show-picture', ['path' => $n->path]) }}"
                                             class="img-fluid rounded-start rounded-end" alt="{{ $n->title }}">
                                         @else
                                         <img src="{{ asset('img/soulofjava.jpg') }}" alt="soulofjava">

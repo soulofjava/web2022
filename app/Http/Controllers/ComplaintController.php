@@ -7,14 +7,10 @@ use App\Models\Complaint;
 use App\Models\LogComplaint;
 use App\Models\User;
 use App\Models\Tusi;
-// use PhpOffice\PhpWord\TemplateProcessor as TemplateProcessor;
-// use App\Http\Controllers\TemplateProcessor as TemplateProcessor;
 use Illuminate\Http\Request;
 use Novay\WordTemplate\Facade as WordTemplate;
 use Yajra\DataTables\Facades\DataTables;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
-
 
 class ComplaintController extends Controller
 {
@@ -110,7 +106,7 @@ class ComplaintController extends Controller
             'location' => 'required',
             'description' => 'required',
         ]);
-        $path = $request->file('photo')->store('public_complaints');
+        $path = $request->file('photo')->store('/public_complaints/', 'gcs');
         $id = Complaint::create(request()->except('_method', '_token', 'photo') + [
             'user_id' => auth()->user()->id,
             'attachment' => $path
@@ -212,11 +208,14 @@ class ComplaintController extends Controller
      */
     public function destroy($id)
     {
-        $data = Complaint::find($id)->first();
-        if (Storage::exists($data->attachment)) {
-            Storage::delete($data->attachment);
+        $gambar = Complaint::find($id)->first();
+
+        if (Storage::disk('gcs')->exists($gambar->attachment)) {
+            // Delete the file
+            Storage::disk('gcs')->delete($gambar->attachment);
         }
-        return $data->delete();
+
+        return $gambar->delete();
     }
 
     public function getFrameworks(Request $request)

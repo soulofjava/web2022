@@ -17,7 +17,7 @@
                         <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                             <div class="fileinput-new thumbnail">
                                 @if(file_exists(public_path('storage/'.$data->path)))
-                                <img src="{{ asset('storage') }}/{{ $data->path }}">
+                                <img src="{{ route('helper.show-picture', ['path' => $data->path]) }}">
                                 @else
                                 <img src="{{ asset('assets/back/assets/img/image_placeholder.jpg') }}">
                                 @endif
@@ -58,7 +58,7 @@
                     </div>
                     <div class="form-group label-floating">
                         <label class="control-label">Description</label>
-                        {{Form::textarea('description', null,['class' => 'my-editor form-control'])}}
+                        {{Form::textarea('description', null,['class' => 'my-editor form-control','id'=>'my-editor'])}}
                     </div>
                     <div class="d-flex text-right">
                         <a href="{{ route('news.index') }}" class="btn btn-default btn-fill">Cancel</a>

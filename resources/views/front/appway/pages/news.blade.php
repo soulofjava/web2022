@@ -46,7 +46,7 @@
                             <figure class="image-box">
                                 <a href="{{ url('/news-detail', $n->slug) }}">
                                     @if(file_exists(public_path('storage/'.$n->path)))
-                                    <img src="{{ asset('storage/') }}/{{ $n->path}}" alt="{{ $n->title
+                                    <img src="{{ route('helper.show-picture', ['path' => $n->path]) }}" alt="{{ $n->title
                                     }}">
                                     @else
                                     <img src="{{ asset('img/soulofjava.jpg') }}" alt="soulofjava">
@@ -132,7 +132,7 @@
                                 <figure class="image">
                                     <a href="{{ url('/news-detail', $n->slug) }}">
                                         @if(file_exists(public_path('storage/'.$n->path)))
-                                        <img src="{{ asset('storage/') }}/{{ $n->path}}"
+                                        <img src="{{ route('helper.show-picture', ['path' => $n->path]) }}"
                                             class="img-fluid rounded-start rounded-end" alt="{{ $n->title }}">
                                         @else
                                         <img src="{{ asset('img/soulofjava.jpg') }}" alt="soulofjava">
