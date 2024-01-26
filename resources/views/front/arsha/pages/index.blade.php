@@ -175,9 +175,6 @@
                 </div>
 
                 <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-                    <!-- Google Recaptcha -->
-                    <div class="g-recaptcha mt-4" data-sitekey={{config('services.recaptcha.key')}}></div>
-
                     {{Form::open(['url' => 'kotakmasuk','method' => 'post', 'files' => 'true', '', 'class' =>
                     'php-email-form'])}}
                     <div class="row">
