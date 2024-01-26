@@ -6,6 +6,7 @@
     @stack('before-style')
     @include('front.arsha.includes.style')
     @stack('after-style')
+    {!! htmlScriptTagJsApi() !!}
 </head>
 
 <body>
