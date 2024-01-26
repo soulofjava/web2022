@@ -378,7 +378,7 @@
                                                 dari Admin Website.</p>
                                             <p>Salam sejahtera dan sehat selalu.</p>
                                             <center>
-                                                <p>Ini adalah pesan otomatis dari website <a href="#">{{
+                                                <p>Ini adalah pesan otomatis dari website <a href="{{ url('') }}">{{
                                                         $websitenya }}</a>.</p>
                                             </center>
                                         </td>
