@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\BalasanEmail;
 use App\Models\Inbox;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
@@ -91,8 +92,8 @@ class InboxController extends Controller
      */
     public function edit($id)
     {
-        Inbox::find($id)->update(['status' => 1]);
-        return redirect(route('inbox.index'))->with(['success' => 'Data has been successfully changed!']);
+        $data = Inbox::find($id);
+        return view('back.a.pages.inbox.edit', compact('data'));
     }
 
     /**
@@ -104,6 +105,14 @@ class InboxController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validated = $request->validate([
+            'balasan' => 'required',
+        ]);
+
+        $data = Inbox::find($id);
+        $data->update($validated + ['status' => 1]);
+        BalasanEmail::dispatch($data);
+        return redirect(route('inbox.index'))->with(['success' => 'Balasan sudah berhasil dikirim!']);
     }
 
     /**

@@ -374,12 +374,12 @@
                                     <tr>
                                         <td>
                                             <p>Hi {{ $namanya }},</p>
-                                            <p>Terimakasih, sudah menghubungi kami. Untuk info lebih lanjut tunggu
-                                                balasan
-                                                dari Admin Website.</p>
-                                            <p>Salam sejahtera dan sehat selalu.</p>
+                                            <!-- <p>Pada tanggal {{ $tanggalnya }} anda mengirin kami pesan. Lalu untuk
+                                                jawaban atas pertanyaan terkait adalah sebagai berikut.</p> -->
+                                            <p>{{ $balasannya }}</p>
+                                            <!-- <p>Salam sejahtera dan sehat selalu.</p> -->
                                             <center>
-                                                <p>Ini adalah pesan otomatis dari website <a href="{{ url('') }}">{{
+                                                <p>Ini adalah pesan dari website <a href="{{ url('') }}">{{
                                                         $websitenya }}</a>.</p>
                                             </center>
                                         </td>
