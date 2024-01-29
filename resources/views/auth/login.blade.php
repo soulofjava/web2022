@@ -48,8 +48,8 @@
                                         </span>
                                         <div class="form-group label-floating">
                                             <label class="control-label">Email Address</label>
-                                            <input type="email" name="email" :value="old('email')" class="form-control"
-                                                required autofocus>
+                                            {{Form::email('email', null,['class' =>
+                                            'form-control','required','autofocus'])}}
                                         </div>
                                     </div>
                                     <div class="input-group">
