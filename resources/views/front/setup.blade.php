@@ -292,7 +292,7 @@
                 document.write(new Date().getFullYear())
             </script> -->
             2022
-            <a href="https://diskominnfo.wonosobokab.go.id/">Diskominfo Kab. Wonosobo</a>, Isa Maulana Tantra
+            <a href="https://soulofjava.github.io/myportofolio/">Diskominfo Kab. Wonosobo</a>, Isa Maulana Tantra
         </p>
         </div>
     </footer>

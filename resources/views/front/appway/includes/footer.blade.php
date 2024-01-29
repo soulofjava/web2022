@@ -118,7 +118,7 @@
             </ul> -->
         </div>
     </div>
-    <div class="copyright">&copy; 2023. Diskominfo Kab. Wonosobo by <a href="#"> Isa Maulana Tantra</a></div>
+    <div class="copyright">&copy; 2023. Diskominfo Kab. Wonosobo by <a href="https://soulofjava.github.io/myportofolio/"> Isa Maulana Tantra</a></div>
 
 </footer>
 <!-- main-footer end -->
@@ -261,7 +261,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <div class="copyright">&copy; 2023. Diskominfo Kab. Wonosobo by <a href="#"> Isa Maulana Tantra</a></div>
+            <div class="copyright">&copy; 2023. Diskominfo Kab. Wonosobo by <a href="https://soulofjava.github.io/myportofolio/"> Isa Maulana Tantra</a></div>
         </div>
     </div>
 </footer>

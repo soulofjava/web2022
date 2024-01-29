@@ -72,7 +72,7 @@
         <div class="footer-bottom">
             <div class="row">
                 <div class="col-lg-6">
-                    <p>&copy; Copyright 2022. Diskominfo Kab. Wonosobo by <a href="#"> Isa Maulana Tantra
+                    <p>&copy; Copyright 2022. Diskominfo Kab. Wonosobo by <a href="https://soulofjava.github.io/myportofolio/"> Isa Maulana Tantra
                         </a></p>
                 </div>
                 <div class="col-lg-6 text-right link">
