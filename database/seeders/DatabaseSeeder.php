@@ -34,13 +34,13 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'superadmin',
                 'email' => 'superadmin@app.com',
-                'password' => bcrypt('password'),
+                'password' => bcrypt('@P4ssw0rd'),
                 'role_id' => 1
             ],
             [
                 'name' => 'admin',
                 'email' => 'pesona@app.com',
-                'password' => bcrypt('password'),
+                'password' => bcrypt('@P4ssw0rd'),
                 'role_id' => 2
             ]
         ];

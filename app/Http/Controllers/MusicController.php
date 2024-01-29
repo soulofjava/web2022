@@ -55,10 +55,7 @@ class MusicController extends Controller
      */
     public function create()
     {
-        return view('back.a.pages.music.create', [
-            'music' => Music::orderBy('ranking', 'asc')->take(11)->get()
-
-        ]);
+        return view('back.a.pages.music.create');
     }
 
     /**
@@ -69,7 +66,12 @@ class MusicController extends Controller
      */
     public function store(Request $request)
     {
-
+        $request->validate([
+            'ranking' => 'required',
+            'song' => 'required',
+            'years' => 'required',
+            'artist' => 'required',
+        ]);
         $data = [
             'ranking' => $request->ranking,
             'song' => $request->song,
@@ -114,7 +116,12 @@ class MusicController extends Controller
      */
     public function update(Request $request, $id)
     {
-
+        $request->validate([
+            'ranking' => 'required',
+            'song' => 'required',
+            'years' => 'required',
+            'artist' => 'required',
+        ]);
         $data = [
             'ranking' => $request->ranking,
             'song' => $request->song,

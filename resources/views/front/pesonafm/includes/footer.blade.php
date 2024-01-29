@@ -29,7 +29,7 @@
             </a>
         </div>
         <div class="text-center">Total Pengunjung : {{ $counter_web }}</div>
-        <div class="text-center">© 2023 DISKOMINFO by Isa Maulana Tantra</div>
+        <div class="text-center">© 2023 DISKOMINFO by <a href="https://soulofjava.github.io/myportofolio/" target="_blank">Isa Maulana Tantra</a></div>
     </div>
 </footer>
 </div>

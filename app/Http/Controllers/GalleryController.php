@@ -56,12 +56,12 @@ class GalleryController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        $request->validate([
             'photo' => 'required|image|max:12048',
             'description' => 'required',
         ]);
         $name = $request->file('photo')->getClientOriginalName();
-        $path = $request->file('photo')->store('gallery');
+        $path = $request->file('photo')->storeAs('/gallery/', $name, 'gcs');
         $data = [
             'name' => $name,
             'path' => $path,
@@ -104,15 +104,15 @@ class GalleryController extends Controller
     public function update(Request $request, $id)
     {
         if ($request->hasFile('photo')) {
-            $validated = $request->validate([
+            $request->validate([
                 'photo' => 'required|image|max:12048',
                 'description' => 'required',
             ]);
             $gambar = Gallery::where('id', $id)->first();
             if ($request->file('photo')->getClientOriginalName() != $gambar->name) {
-                Storage::delete($gambar->path);
+                Storage::disk('gcs')->delete($gambar->path);
                 $name = $request->file('photo')->getClientOriginalName();
-                $path = $request->file('photo')->store('gallery');
+                $path = $request->file('photo')->storeAs('/gallery/', $name, 'gcs');
                 $data = [
                     'name' => $name,
                     'path' => $path,
@@ -120,7 +120,7 @@ class GalleryController extends Controller
                 ];
             }
         } else {
-            $validated = $request->validate([
+            $request->validate([
                 'description' => 'required',
             ]);
             $data = [
@@ -140,8 +140,8 @@ class GalleryController extends Controller
     public function destroy($id)
     {
         $gambar = Gallery::where('id', $id)->first();
-        if (Storage::exists($gambar->path)) {
-            Storage::delete($gambar->path);
+        if (Storage::disk('gcs')->exists($gambar->path)) {
+            Storage::disk('gcs')->delete($gambar->path);
         }
         $data = Gallery::destroy($id);
         return $data;

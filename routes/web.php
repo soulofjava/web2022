@@ -18,6 +18,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ThemesController;
 use App\Http\Controllers\FrontMenuController;
 use App\Http\Controllers\GuestBookController;
+use App\Http\Controllers\HelperController;
 use App\Http\Controllers\InboxController;
 use App\Http\Controllers\RelatedLinkController;
 use App\Models\Counter;
@@ -37,13 +38,6 @@ use App\Models\Themes;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::group(
-    ['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']],
-    function () {
-        \UniSharp\LaravelFilemanager\Lfm::routes();
-    }
-);
 
 Route::get('/', function () {
     $themes = Website::all()->first();
@@ -131,3 +125,5 @@ Route::group(['middleware' => ['auth', 'data_web']], function () {
     // get data for front menu parent
     Route::get('/cari', [FrontMenuController::class, 'loadData']);
 });
+
+Route::get('show-picture', [HelperController::class, 'showPicture'])->name('helper.show-picture');

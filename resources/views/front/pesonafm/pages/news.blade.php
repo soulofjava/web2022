@@ -47,12 +47,12 @@
                                         style="background-position: 50%;" data-mdb-ripple="true"
                                         data-mdb-ripple-color="light">
                                         <a href="{{ url('/news-detail', $n->slug) }}">
-                                            @if(file_exists(public_path('storage/'.$n->path)))
-                                            <img src="{{ asset('storage') }}/{{ $n->path}}"
+                                            @if(Storage::get($n->path))
+                                            <img src="{{ route('helper.show-picture', ['path' => $n->path]) }}"
                                                 class=" bg-blend-normal rounded-lg" alt="image" />
                                             @else
-                                            <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid rounded-lg"
-                                                alt="image" />
+                                            <img src="{{ asset('assets/front/pesonafm/Radio Pesona 2 white bg (1).jpg') }}"
+                                                class="img-fluid rounded-lg" alt="image" />
                                             @endif
                                             <div class="px-4 py-2 rounded-lg space-y-3">
                                                 <p class="text-center text-white z-10" style="top: 50%; left: 50%;">

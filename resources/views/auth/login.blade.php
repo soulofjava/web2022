@@ -37,7 +37,7 @@
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="card card-login card-hidden">
-                                <div class="card-header text-center" data-background-color="rose">
+                                <div class="card-header text-center" data-background-color="red">
                                     <h4 class="card-title">Login</h4>
                                 </div>
                                 <x-jet-validation-errors />
@@ -51,8 +51,8 @@
                                         </span>
                                         <div class="form-group label-floating">
                                             <label class="control-label">Email Address</label>
-                                            <input type="email" name="email" :value="old('email')" class="form-control"
-                                                required autofocus>
+                                            {{Form::email('email', null,['class' =>
+                                            'form-control','required','autofocus'])}}
                                         </div>
                                     </div>
                                     <div class="input-group">

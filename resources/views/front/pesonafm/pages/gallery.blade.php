@@ -38,18 +38,20 @@
                                     <div class="relative overflow-hidden bg-no-repeat bg-black bg-cover shadow-lg rounded-lg"
                                         style="background-position: 50%;" data-mdb-ripple="true"
                                         data-mdb-ripple-color="light">
-                                        @if(file_exists(public_path('storage/'.$g->path)))
-                                        <a data-fancybox="gallery" href="{{ asset('storage') }}/{{ $g->path}}">
-                                            <img src="{{ asset('storage') }}/{{ $g->path}}" class="img-fluid"
-                                                alt="image">
+                                        @if(Storage::get($g->path))
+                                        <a data-fancybox="gallery"
+                                            href="{{ route('helper.show-picture', ['path' => $g->path]) }}">
+                                            <img src="{{ route('helper.show-picture', ['path' => $g->path]) }}"
+                                                class="img-fluid" alt="image">
                                         </a>
                                         @else
-                                        <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="image">
+                                        <img src="{{ asset('assets/front/pesonafm/Radio Pesona 2 white bg (1).jpg') }}"
+                                            class="img-fluid" alt="image">
                                         @endif
                                         <div class="portfolio-info">
                                             <h4 class="text-center" style="color: #ffffff;">{{ $g->description }}</h4>
                                             <div class="portfolio-links ">
-                                                <a href="{{ asset('storage') }}/{{ $g->path}}"
+                                                <a href="{{ route('helper.show-picture', ['path' => $g->path]) }}"
                                                     data-gallery="portfolioGallery" class="portfokio-lightbox"
                                                     title="{{ $g->description }}"><i class="bi bi-plus"></i></a>
                                             </div>

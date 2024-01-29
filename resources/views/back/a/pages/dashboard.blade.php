@@ -10,7 +10,7 @@
                         <i class="material-icons">collections</i>
                     </div>
                     <div class="card-content">
-                        <p class="category">Gallery</p>
+                        <p class="category">Tips & Trick</p>
                         <h3 class="card-title">{{ $gallery_all }}</h3>
                     </div>
                     <div class="card-footer">

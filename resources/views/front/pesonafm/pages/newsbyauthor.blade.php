@@ -46,7 +46,7 @@
                                         <a href="{{ url('/news-detail', $n->slug) }}">
                                             <div class="rounded-lg shadow-lg  max-w-sm">
                                                 @if(file_exists(public_path('storage/'.$n->path)))
-                                                <img src="{{ asset('storage') }}/{{ $n->path}}"
+                                                <img src="{{ route('helper.show-picture', ['path' => $n->path]) }}"
                                                     class=" bg-blend-normal rounded-lg" alt="image" />
                                                 @else
                                                 <img src="{{ asset('img/soulofjava.jpg') }}"
