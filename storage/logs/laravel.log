@@ -2817,3 +2817,7 @@
 #58 /Users/isamaulana/Sites/webku/web2022/public/index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #59 {main}
 "} 
+[2024-01-29 04:49:13] local.ERROR: Trait "App\Models\HasRoles" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"App\\Models\\HasRoles\" not found at /Users/isamaulana/Sites/webku/web2022/app/Models/User.php:13)
+[stacktrace]
+#0 {main}
+"} 
