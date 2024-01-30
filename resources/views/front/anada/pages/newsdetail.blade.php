@@ -33,7 +33,8 @@
                             <div class="thumb">
                                 <a href="#">
                                     @if(Storage::get($data->path))
-                                    <img src="{{ asset('storage/') }}/{{ $data->path}}" class="card-img-top">
+                                    <img src="{{ route('helper.show-picture', ['path' => $data->path]) }}"
+                                        class="card-img-top">
                                     @else
                                     <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
                                     @endif

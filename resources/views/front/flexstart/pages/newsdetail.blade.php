@@ -22,7 +22,8 @@
                         <div class="d-flex justify-content-center">
                             <div class="entry-img">
                                 @if(Storage::get($data->path))
-                                <img src="{{ asset('storage/') }}/{{ $data->path}}" class="img-fluid">
+                                <img src="{{ route('helper.show-picture', ['path' => $data->path]) }}"
+                                    class="img-fluid">
                                 @else
                                 <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
                                 @endif
