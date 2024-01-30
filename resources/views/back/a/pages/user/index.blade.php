@@ -15,12 +15,6 @@
                     <div class="card-content">
                         <!-- <h4 class="card-title">DataTables.net</h4> -->
                         <div class="text-right">
-                            @can ('satpolpp')
-                            <a href="{{ route('bidang.index') }}" class="btn btn-rose btn-round">Data Bidang <i
-                                    class="material-icons">add_circle_outline</i>
-                                <div class="ripple-container"></div>
-                            </a>
-                            @endcan
                             <a href="{{ route('user.create') }}" class="btn btn-info btn-round">Tambah Data <i
                                     class="material-icons">add_circle_outline</i>
                                 <div class="ripple-container"></div>

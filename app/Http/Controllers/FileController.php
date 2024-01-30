@@ -37,22 +37,15 @@ class FileController extends Controller
      */
     public function store(Request $request)
     {
-        $path = storage_path('tmp/uploads');
-
-        if (!file_exists($path)) {
-            mkdir($path, 0777, true);
-        }
-
         $file = $request->file('file');
 
         $name = uniqid() . '_' . trim($file->getClientOriginalName());
 
-        $file->move($path, $name);
-
+        $path = $file->storeAs('/news/', $name, 'gcs');
         return response()->json([
             'name'          => $name,
             'original_name' => $file->getClientOriginalName(),
-            'path' => $path . $name
+            'path' => $path
         ]);
     }
 
@@ -68,8 +61,8 @@ class FileController extends Controller
         foreach ($data->gambar as $d) {
             $fileList[] = [
                 'name'          => $d->file_name,
-                'size'          => Storage::size(($d->path)),
-                'path'          => config('app.url') . '/storage/' . $d->path
+                'size'          => Storage::size($d->path),
+                'path'          => route('helper.show-picture', array('path' => $d->path))
             ];
         }
         return json_encode($fileList ?? []);
@@ -106,21 +99,17 @@ class FileController extends Controller
      */
     public function destroy($id)
     {
+        $data = File::where('file_name', $id)->first();
 
-        $loc = storage_path('tmp/uploads/') . $id;
-
-        if (file_exists($loc)) {
-            unlink(storage_path('tmp/uploads/' . $id));
-            return response()->json([
-                'lokasi'          => $loc,
-            ]);
-        } else {
-            $data = File::where('file_name', $id)->first();
+        if ($data) {
             $data->delete();
-            unlink(storage_path('app/public/gallery/') . $id);
-            return response()->json([
-                'lokasi' => 'File terhapus'
-            ]);
         }
+
+        // Delete the file
+        Storage::disk('gcs')->delete('/news/' . $id);
+
+        return response()->json([
+            'response' => 'File terhapus'
+        ]);
     }
 }

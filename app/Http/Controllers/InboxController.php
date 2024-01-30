@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Jobs\BalasEmailInbox;
-use App\Jobs\KirimEmailInbox;
 use App\Models\Inbox;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
@@ -18,7 +17,7 @@ class InboxController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Inbox::orderBy('created_at', 'DESC');
+            $data = Inbox::latest('created_at');
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(

@@ -8,6 +8,15 @@
     <div class="container-fluid">
         {{ Breadcrumbs::render('news') }}
         <div class="row">
+            @if($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
             <div class="card">
                 <div class="card-header card-header-icon" data-background-color="green">
                     <i class="material-icons">event_note</i>
@@ -25,9 +34,9 @@
                         <label class="control-label">Date</label>
                         {{Form::text('date', null,['class' => 'form-control datepicker'])}}
                     </div>
-                    <div class="form-group label-floating">
+                    <div class="form-group label-floating is-focused">
                         <label class="control-label">Description</label>
-                        {{Form::textarea('description', null,['class' => 'form-control', 'id' => 'my-editor'])}}
+                        {{Form::textarea('description', null,['class' => 'my-editor form-control','id'=>'my-editor'])}}
                     </div>
                     <div class="d-flex text-right">
                         <a href="{{ route('news.index') }}" class="btn btn-default btn-fill">Cancel</a>
@@ -55,10 +64,8 @@
 <script>
     var konten = document.getElementById("my-editor");
     var options = {
-        filebrowserImageBrowseUrl: '/filemanager?type=Images',
-        filebrowserImageUploadUrl: '/filemanager/upload?type=Images&_token=',
-        filebrowserBrowseUrl: '/filemanager?type=Files',
-        filebrowserUploadUrl: '/filemanager/upload?type=Files&_token='
+        filebrowserImageBrowseUrl: '/file-manager/ckeditor',
+
     };
     CKEDITOR.replace(konten, options);
     CKEDITOR.config.allowedContent = true;

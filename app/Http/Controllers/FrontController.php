@@ -10,7 +10,6 @@ use App\Models\Component;
 use App\Models\FrontMenu;
 use Illuminate\Http\Request;
 use App\Models\News;
-use App\Models\Gallery;
 use App\Models\GuestBook;
 use App\Models\Inbox;
 use App\Models\User;
@@ -142,13 +141,6 @@ class FrontController extends Controller
         $news = News::where('kategori', $id)->latest('date')->paginate(12);
         $sideposts = News::latest('date')->take(5)->get();
         return view('front.' . $this->themes->themes_front . '.pages.news', compact('news', 'sideposts'));
-    }
-
-    public function galleryall(Request $request)
-    {
-        Seo::seO();
-        $gallery = Gallery::with('gambar')->orderBy('upload_date', 'desc')->paginate(12);
-        return view('front.' . $this->themes->themes_front . '.pages.gallery', compact('gallery'));
     }
 
     public function page($id)

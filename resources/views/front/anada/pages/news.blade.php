@@ -20,8 +20,8 @@
                                     <a href="#">
                                         @forelse($n->gambar as $gambar)
                                         @if($loop->iteration == 1)
-                                        <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
-                                            width="100%" alt="{{ $gambar->file_name }}">
+                                        <img src="{{ route('helper.show-picture', ['path' => $gambar->path]) }}"
+                                            class="img-fluid" width="100%" alt="{{ $gambar->file_name }}">
                                         @endif
                                         @empty
                                         <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid"
