@@ -23,7 +23,7 @@
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-lg-8">
                         <div class="post-detail w-100">
-                            @if(file_exists(public_path('storage/'.$data->path)))
+                            @if(Storage::get($data->path))
                             <img src="{{ asset('storage/') }}/{{ $data->path}}" class="img-fluid w-100"
                                 alt="{{ $data->name}}">
                             @else

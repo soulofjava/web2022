@@ -43,7 +43,7 @@
                 <div class="blog-single-content">
                     <div class="post-details">
                         <figure class="image-box">
-                            @if(file_exists(public_path('storage/'.$data->path)))
+                            @if(Storage::get($data->path))
                             <img src="{{ route('helper.show-picture', ['path' => $n->path]) }}" class="img-fluid"
                                 alt="{{ $n->title }}">
                             @else

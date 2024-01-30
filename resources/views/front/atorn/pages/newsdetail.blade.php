@@ -25,7 +25,7 @@
             <div class="col-lg-8 col-md-7 col-sm-12">
                 <div class="services-details">
                     <div class="img">
-                        @if(file_exists(public_path('storage/'.$data->path)))
+                        @if(Storage::get($data->path))
                         <img src="{{ asset('storage/') }}/{{ $data->path}}" class="card-img-top">
                         @else
                         <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">

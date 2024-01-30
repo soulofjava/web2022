@@ -17,7 +17,7 @@
                 <div class="col-lg-8 entries">
                     <article class="entry entry-single">
                         <div class="entry-img">
-                            @if(file_exists(public_path('storage/'.$data->path)))
+                            @if(Storage::get($data->path))
                             <img src="{{ asset('storage/') }}/{{ $data->path}}" class="img-fluid">
                             @else
                             <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
