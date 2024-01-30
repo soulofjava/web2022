@@ -23,10 +23,10 @@
                     <div class="col-md-6 col-sm-6 col-lg-4" style="display: flex;">
                         <div class="post-box w-100 text-center">
                             <div class="post-img overflow-hidden w-100">
-                                @if(file_exists(public_path('storage/'.$n->path)))
+                                @if(Storage::get($n->path))
                                 <a href="{{ url('/news-detail', $n->slug) }}"><img class="img-fluid w-100"
-                                        src="{{ route('helper.show-picture', ['path' => $n->path]) }}" alt="{{ $n->photo }}"
-                                        style="height: 250px;"></a>
+                                        src="{{ route('helper.show-picture', ['path' => $n->path]) }}"
+                                        alt="{{ $n->photo }}" style="height: 250px;"></a>
                                 @else
                                 <a href="{{ url('/news-detail', $n->slug) }}"><img class="img-fluid w-100"
                                         src="{{ asset('img/soulofjava.jpg') }}" alt="soul of java"

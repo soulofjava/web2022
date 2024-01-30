@@ -47,7 +47,7 @@
                 <div class="col-xl-3 col-md-6 d-flex align-items-stretch mb-3" data-aos="zoom-in" data-aos-delay="100">
                     <div class="icon-box">
                         <div class="post-img">
-                            @if(file_exists(public_path('storage/'.$n->path)))
+                            @if(Storage::get($n->path))
                             <img src="{{ route('helper.show-picture', ['path' => $n->path]) }}" class="img-fluid">
                             @else
                             <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
@@ -92,7 +92,7 @@
                 @foreach($gallery as $g)
                 <div class="col-lg-3 col-md-6 portfolio-item filter-web">
                     <div class="portfolio-img">
-                        @if(file_exists(public_path('storage/'.$g->path)))
+                        @if(Storage::get($g->path))
                         <img src="{{ route('helper.show-picture', ['path' => $g->path]) }}" class="img-fluid">
                         @else
                         <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
@@ -101,7 +101,7 @@
                     <div class="portfolio-info">
                         <h4>{{ $g->description }}</h4>
                         <!-- <p>Web</p> -->
-                        @if(file_exists(public_path('storage/'.$g->path)))
+                        @if(Storage::get($g->path))
                         <a href="{{ route('helper.show-picture', ['path' => $g->path]) }}"
                             data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"
                             title="{{ $g->description }}"><i class="bx bx-plus"></i></a>

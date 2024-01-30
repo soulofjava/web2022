@@ -82,7 +82,7 @@
                         <div class="card mb-3" style="max-width: 540px;">
                             <div class="row g-0">
                                 <div class="col-md-4 d-flex justify-content-center p-1">
-                                    @if(file_exists(public_path('storage/'.$n->path)))
+                                    @if(Storage::get($n->path))
                                     <img src="{{ route('helper.show-picture', ['path' => $n->path]) }}"
                                         class="img-fluid rounded-start rounded-end">
                                     @else

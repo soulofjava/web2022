@@ -25,7 +25,7 @@
             @foreach($gallery as $g)
             <div class="col-lg-4 col-sm-6" style="display: flex">
                 <div class="attorney-card">
-                    @if(file_exists(public_path('storage/'.$g->path)))
+                    @if(Storage::get($g->path))
                     <a data-fancybox="gallery" href="{{ route('helper.show-picture', ['path' => $g->path]) }}"><img
                             src="{{ route('helper.show-picture', ['path' => $g->path]) }}" class="img-fluid"></a>
                     @else

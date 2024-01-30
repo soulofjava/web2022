@@ -32,7 +32,7 @@
                     <div class="col-lg-4">
                         <article class="d-flex flex-column">
                             <div class="post-img">
-                                @if(file_exists(public_path('storage/'.$n->path)))
+                                @if(Storage::get($n->path))
                                 <img src="{{ route('helper.show-picture', ['path' => $n->path]) }}" class="img-fluid">
                                 @else
                                 <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">

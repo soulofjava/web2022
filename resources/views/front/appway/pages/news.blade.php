@@ -45,7 +45,7 @@
                         <div class="inner-box">
                             <figure class="image-box">
                                 <a href="{{ url('/news-detail', $n->slug) }}">
-                                    @if(file_exists(public_path('storage/'.$n->path)))
+                                    @if(Storage::get($n->path))
                                     <img src="{{ route('helper.show-picture', ['path' => $n->path]) }}" alt="{{ $n->title
                                     }}">
                                     @else
@@ -131,7 +131,7 @@
                             <div class="post">
                                 <figure class="image">
                                     <a href="{{ url('/news-detail', $n->slug) }}">
-                                        @if(file_exists(public_path('storage/'.$n->path)))
+                                        @if(Storage::get($n->path))
                                         <img src="{{ route('helper.show-picture', ['path' => $n->path]) }}"
                                             class="img-fluid rounded-start rounded-end" alt="{{ $n->title }}">
                                         @else

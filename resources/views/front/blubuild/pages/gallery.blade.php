@@ -24,10 +24,12 @@
                     <div class="col-md-4 col-sm-6 col-lg-3" style="display: flex;">
                         <div class="shop-box w-100">
                             <div class="shop-img w-100 position-relative overflow-hidden">
-                                @if(file_exists(public_path('storage/'.$g->path)))
-                                <img class="img-fluid w-100" src="{{ route('helper.show-picture', ['path' => $g->path]) }}"
-                                    alt="{{ $g->name }}" style="height: 200px;">
-                                <a data-fancybox="gallery" href="{{ route('helper.show-picture', ['path' => $g->path]) }}" title="">View
+                                @if(Storage::get($g->path))
+                                <img class="img-fluid w-100"
+                                    src="{{ route('helper.show-picture', ['path' => $g->path]) }}" alt="{{ $g->name }}"
+                                    style="height: 200px;">
+                                <a data-fancybox="gallery"
+                                    href="{{ route('helper.show-picture', ['path' => $g->path]) }}" title="">View
                                     Photo<i class="fas fa-eye"></i></a>
                                 @else
                                 <img class="img-fluid w-100" src="{{ asset('img/soulofjava.jpg') }}" alt="soulofjava"

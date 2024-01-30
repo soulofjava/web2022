@@ -106,7 +106,7 @@
                                 <li>
                                     <div class="thumb">
                                         <a href="#">
-                                            @if(file_exists(public_path('storage/'.$n->path)))
+                                            @if(Storage::get($n->path))
                                             <img src="{{ route('helper.show-picture', ['path' => $n->path]) }}"
                                                 class="img-fluid rounded-start rounded-end">
                                             @else

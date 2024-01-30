@@ -57,7 +57,7 @@
                     <div class="item">
                         <div class="thumb">
                             <a href="#">
-                                @if(file_exists(public_path('storage/'.$n->path)))
+                                @if(Storage::get($n->path))
                                 <img src="{{ route('helper.show-picture', ['path' => $n->path]) }}" class="img-fluid">
                                 @else
                                 <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
@@ -115,9 +115,11 @@
                     <div class="single-item col-lg-4 col-md-6">
                         <div class="item">
                             <div class="thumb">
-                                @if(file_exists(public_path('storage/'.$g->path)))
-                                <a data-fancybox="gallery" href="{{ route('helper.show-picture', ['path' => $g->path]) }}"><img
-                                        src="{{ route('helper.show-picture', ['path' => $g->path]) }}" class="img-fluid"></a>
+                                @if(Storage::get($g->path))
+                                <a data-fancybox="gallery"
+                                    href="{{ route('helper.show-picture', ['path' => $g->path]) }}"><img
+                                        src="{{ route('helper.show-picture', ['path' => $g->path]) }}"
+                                        class="img-fluid"></a>
                                 @else
                                 <a data-fancybox="gallery" href="{{ asset('img/soulofjava.jpg') }}"><img
                                         src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid"></a>

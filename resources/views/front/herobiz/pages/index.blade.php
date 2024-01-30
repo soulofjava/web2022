@@ -41,17 +41,17 @@
                 <div class="row g-0 portfolio-container">
                     @foreach($gallery as $g)
                     <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-app">
-                        @if(file_exists(public_path('storage/'.$g->path)))
+                        @if(Storage::get($g->path))
                         <img src="{{ route('helper.show-picture', ['path' => $g->path]) }}" class="img-fluid">
                         @else
                         <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
                         @endif
                         <div class="portfolio-info">
                             <h4>{{ $g->description }}</h4>
-                            @if(file_exists(public_path('storage/'.$g->path)))
-                            <a href="{{ route('helper.show-picture', ['path' => $g->path]) }}" title="{{ $g->description }}"
-                                data-gallery="portfolio-gallery" class="glightbox preview-link"><i
-                                    class="bi bi-zoom-in"></i></a>
+                            @if(Storage::get($g->path))
+                            <a href="{{ route('helper.show-picture', ['path' => $g->path]) }}"
+                                title="{{ $g->description }}" data-gallery="portfolio-gallery"
+                                class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                             @else
                             <a href="{{ asset('img/soulofjava.jpg') }}" title="{{ $g->description }}"
                                 data-gallery="portfolio-gallery" class="glightbox preview-link"><i
@@ -88,7 +88,7 @@
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="post-box">
                         <div class="post-img">
-                            @if(file_exists(public_path('storage/'.$n->path)))
+                            @if(Storage::get($n->path))
                             <img src="{{ route('helper.show-picture', ['path' => $n->path]) }}" class="img-fluid">
                             @else
                             <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">

@@ -52,7 +52,7 @@
                     <div class="inner-box">
                         <figure class="image-box">
                             <a href="{{ url('/news-detail', $n->slug) }}">
-                                @if(file_exists(public_path('storage/'.$n->path)))
+                                @if(Storage::get($n->path))
                                 <img src="{{ route('helper.show-picture', ['path' => $n->path]) }}" class="img-fluid"
                                     alt="{{ $n->title }}">
                                 @else
@@ -100,9 +100,11 @@
                     <div class="inner-box">
                         <figure class="image-box">
                             <a href="{{ url('/news-detail', $n->slug) }}">
-                                @if(file_exists(public_path('storage/'.$n->path)))
-                                <a data-fancybox="gallery" href="{{ route('helper.show-picture', ['path' => $n->path]) }}"><img
-                                        src="{{ route('helper.show-picture', ['path' => $n->path]) }}" class="img-fluid"></a>
+                                @if(Storage::get($n->path))
+                                <a data-fancybox="gallery"
+                                    href="{{ route('helper.show-picture', ['path' => $n->path]) }}"><img
+                                        src="{{ route('helper.show-picture', ['path' => $n->path]) }}"
+                                        class="img-fluid"></a>
                                 @else
                                 <a data-fancybox="gallery" href="{{ asset('img/soulofjava.jpg') }}"><img
                                         src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soulofjava"></a>

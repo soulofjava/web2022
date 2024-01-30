@@ -27,7 +27,7 @@
                 @foreach($gallery as $g)
                 <div class="col-lg-4 col-md-6 portfolio-item filter-web">
                     <div class="portfolio-img">
-                        @if(file_exists(public_path('storage/'.$g->path)))
+                        @if(Storage::get($g->path))
                         <img src="{{ route('helper.show-picture', ['path' => $g->path]) }}" class="img-fluid">
                         @else
                         <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
@@ -36,10 +36,10 @@
                     <div class="portfolio-info">
                         <h4>{{ $g->description }}</h4>
                         <!-- <p>App</p> -->
-                        @if(file_exists(public_path('storage/'.$g->path)))
-                        <a href="{{ route('helper.show-picture', ['path' => $g->path]) }}" data-gallery="portfolioGallery"
-                            class="portfolio-lightbox preview-link" title="{{ $g->description }}"><i
-                                class="bx bx-plus"></i></a>
+                        @if(Storage::get($g->path))
+                        <a href="{{ route('helper.show-picture', ['path' => $g->path]) }}"
+                            data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"
+                            title="{{ $g->description }}"><i class="bx bx-plus"></i></a>
                         @else
                         <a href="{{ asset('img/soulofjava.jpg') }}" data-gallery="portfolioGallery"
                             class="portfolio-lightbox preview-link" title="{{ $g->description }}"><i

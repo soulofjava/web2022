@@ -44,9 +44,11 @@
                     @foreach($gallery as $g)
                     <div class="col-lg-4 col-md-6 portfolio-item filter-web">
                         <div class="portfolio-img">
-                            @if(file_exists(public_path('storage/'.$g->path)))
-                            <a data-fancybox="gallery" href="{{ route('helper.show-picture', ['path' => $g->path]) }}"><img
-                                    src="{{ route('helper.show-picture', ['path' => $g->path]) }}" class="img-fluid" alt="$g->name"></a>
+                            @if(Storage::get($g->path))
+                            <a data-fancybox="gallery"
+                                href="{{ route('helper.show-picture', ['path' => $g->path]) }}"><img
+                                    src="{{ route('helper.show-picture', ['path' => $g->path]) }}" class="img-fluid"
+                                    alt="$g->name"></a>
                             @else
                             <a data-fancybox="gallery" href="{{ asset('img/soulofjava.jpg') }}"><img
                                     src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soulofjava"></a>

@@ -12,7 +12,7 @@
             <div class="col-xl-3 col-lg-4 col-md-6 mb-3">
                 <div class="post-box">
                     <div class="post-img">
-                        @if(file_exists(public_path('storage/'.$n->path)))
+                        @if(Storage::get($n->path))
                         <img src="{{ route('helper.show-picture', ['path' => $n->path]) }}" class="img-fluid">
                         @else
                         <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
