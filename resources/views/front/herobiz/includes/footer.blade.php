@@ -65,7 +65,8 @@
                     <!-- You can delete the links only if you purchased the pro version. -->
                     <!-- Licensing information: https://bootstrapmade.com/license/ -->
                     <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/herobiz-bootstrap-business-template/ -->
-                    Develop by <a href="#">Isa Maulana Tantra</a>
+                    Develop by <a target="_blank" href="https://soulofjava.github.io/myportofolio/">Isa Maulana
+                        Tantra</a>
                 </div>
             </div>
 

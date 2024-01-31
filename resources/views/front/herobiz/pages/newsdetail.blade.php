@@ -75,8 +75,8 @@
                         <div class="sidebar-item recent-posts">
                             @foreach($news as $n)
                             <div class="post-item clearfix mt-3">
-                                @if(file_exists(public_path('storage/'.$n->path)))
-                                <img src="{{ asset('storage/') }}/{{ $n->path}}">
+                                @if(Storage::get($n->gambarmuka->path ?? ''))
+                                <img src="{{ route('helper.show-picture', ['path' => $n->path]) }}">
                                 @else
                                 <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
                                 @endif

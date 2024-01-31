@@ -86,7 +86,7 @@ class FrontController extends Controller
         Seo::seO();
         $data = News::with('gambar', 'uploader')->where('slug', $slug)->first();
         views($data)->cooldown(5)->record();
-        $news = News::with('gambar')->orderBy('date', 'desc')->paginate(5);
+        $news = News::with('gambarmuka')->latest('date')->paginate(5);
         $file = File::where('id_news', $data->attachment)->get();
 
         $prev = $data->id - 1;

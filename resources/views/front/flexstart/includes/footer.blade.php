@@ -61,7 +61,7 @@
             <!-- You can delete the links only if you purchased the pro version. -->
             <!-- Licensing information: https://bootstrapmade.com/license/ -->
             <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/flexstart-bootstrap-startup-template/ -->
-            <a href="#">Isa Maulana Tantra</a>
+            <a target="_blank" href="https://soulofjava.github.io/myportofolio/">Isa Maulana Tantra</a>
         </div>
     </div>
 </footer><!-- End Footer -->
