@@ -10,7 +10,7 @@
         </div>
         @else
         <div class="carousel-item active">
-            <img src="{{ route('helper.show-picture', ['path' => $n->gambar->path]) }}" class="d-block w-100"
+            <img src="{{ route('helper.show-picture', ['path' => $gambar->path]) }}" class="d-block w-100"
                 alt="{{ $gambar->file_name }}">
         </div>
         @endif
