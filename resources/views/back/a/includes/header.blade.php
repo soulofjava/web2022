@@ -1,211 +1,349 @@
-<div class="wrapper">
-    <div class="sidebar" data-active-color="green" data-background-color="black"
-        data-image="{{ asset('assets/back/assets/img/sidebar-3.jpg') }}">
-        <!--
-        Tip 1: You can change the color of active element of the sidebar using: data-active-color="purple | blue | green | orange | red | rose"
-        Tip 2: you can also add an image using data-image tag
-        Tip 3: you can change the color of the sidebar with data-background-color="white | black"
-    -->
-        <div class="logo">
-            <a href="{{ url('/') }}" target="_blank" class="simple-text">
-                {{ $data_website->web_name }}
-            </a>
+<!-- partial:partials/_sidebar.html -->
+<aside class="mdc-drawer mdc-drawer--dismissible mdc-drawer--open">
+    <div class="mdc-drawer__header">
+        <a target="_blank" href="{{ url('/') }}" class="brand-logo">
+            <img src="{{ asset('assets/back/md/assets/images/logo.svg') }}" alt="logo">
+        </a>
+    </div>
+    <div class="mdc-drawer__content">
+        <div class="user-info">
+            <p class="name">Clyde Miles</p>
+            <p class="email">clydemiles@elenor.us</p>
         </div>
-        <div class="logo logo-mini">
-            <a href="{{ url('/') }}" class="simple-text">
-                <span class="material-icons">
-                    language
-                </span>
-            </a>
-        </div>
-        <div class="sidebar-wrapper">
-            <div class="user">
-                <div class="photo">
-                    @if(auth()->user()->profile_photo_path)
-                    <img src="{{ asset('storage') }}/{{ auth()->user()->profile_photo_path }}" />
-                    @else
-                    <img src="https://ui-avatars.com/api/?name={{ auth()->user()->name }}">
-                    @endif
-                </div>
-                <div class="info">
-                    <a data-toggle="collapse" href="#collapseExample" class="collapsed">
-                        {{auth()->user()->name}}
-                        <b class="caret"></b>
+        <div class="mdc-list-group">
+            <nav class="mdc-list mdc-drawer-menu">
+                <div class="mdc-list-item mdc-drawer-item">
+                    <a class="mdc-drawer-link" href="{{ route('dashboard') }}">
+                        <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon"
+                            aria-hidden="true">home</i>
+                        Dashboard
                     </a>
-                    <div class="collapse" id="collapseExample">
-                        <ul class="nav">
-                            <li>
-                                <a href="{{ route('myprofile.edit', auth()->user()->id) }}">Edit Profile</a>
-                            </li>
-                        </ul>
+                </div>
+                <div class="mdc-list-item mdc-drawer-item">
+                    <a class="mdc-drawer-link {{ (Str::contains(Request::url(), 'news')) ? 'active' : '' }}"
+                        href="{{ route('news.index') }}">
+                        <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon"
+                            aria-hidden="true">event_note</i>
+                        Postingan
+                    </a>
+                </div>
+                <div class="mdc-list-item mdc-drawer-item">
+                    <a class="mdc-drawer-link" href="pages/forms/basic-forms.html">
+                        <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon"
+                            aria-hidden="true">track_changes</i>
+                        Forms
+                    </a>
+                </div>
+                <div class="mdc-list-item mdc-drawer-item">
+                    <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel" data-target="ui-sub-menu">
+                        <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon"
+                            aria-hidden="true">dashboard</i>
+                        UI Features
+                        <i class="mdc-drawer-arrow material-icons">chevron_right</i>
+                    </a>
+                    <div class="mdc-expansion-panel" id="ui-sub-menu">
+                        <nav class="mdc-list mdc-drawer-submenu">
+                            <div class="mdc-list-item mdc-drawer-item">
+                                <a class="mdc-drawer-link" href="pages/ui-features/buttons.html">
+                                    Buttons
+                                </a>
+                            </div>
+                            <div class="mdc-list-item mdc-drawer-item">
+                                <a class="mdc-drawer-link" href="pages/ui-features/typography.html">
+                                    Typography
+                                </a>
+                            </div>
+                        </nav>
                     </div>
+                </div>
+                <div class="mdc-list-item mdc-drawer-item">
+                    <a class="mdc-drawer-link" href="pages/tables/basic-tables.html">
+                        <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon"
+                            aria-hidden="true">grid_on</i>
+                        Tables
+                    </a>
+                </div>
+                <div class="mdc-list-item mdc-drawer-item">
+                    <a class="mdc-drawer-link" href="pages/charts/chartjs.html">
+                        <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon"
+                            aria-hidden="true">pie_chart_outlined</i>
+                        Charts
+                    </a>
+                </div>
+                <div class="mdc-list-item mdc-drawer-item">
+                    <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel"
+                        data-target="sample-page-submenu">
+                        <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon"
+                            aria-hidden="true">pages</i>
+                        Sample Pages
+                        <i class="mdc-drawer-arrow material-icons">chevron_right</i>
+                    </a>
+                    <div class="mdc-expansion-panel" id="sample-page-submenu">
+                        <nav class="mdc-list mdc-drawer-submenu">
+                            <div class="mdc-list-item mdc-drawer-item">
+                                <a class="mdc-drawer-link" href="pages/samples/blank-page.html">
+                                    Blank Page
+                                </a>
+                            </div>
+                            <div class="mdc-list-item mdc-drawer-item">
+                                <a class="mdc-drawer-link" href="pages/samples/403.html">
+                                    403
+                                </a>
+                            </div>
+                            <div class="mdc-list-item mdc-drawer-item">
+                                <a class="mdc-drawer-link" href="pages/samples/404.html">
+                                    404
+                                </a>
+                            </div>
+                            <div class="mdc-list-item mdc-drawer-item">
+                                <a class="mdc-drawer-link" href="pages/samples/500.html">
+                                    500
+                                </a>
+                            </div>
+                            <div class="mdc-list-item mdc-drawer-item">
+                                <a class="mdc-drawer-link" href="pages/samples/505.html">
+                                    505
+                                </a>
+                            </div>
+                            <div class="mdc-list-item mdc-drawer-item">
+                                <a class="mdc-drawer-link" href="pages/samples/login.html">
+                                    Login
+                                </a>
+                            </div>
+                            <div class="mdc-list-item mdc-drawer-item">
+                                <a class="mdc-drawer-link" href="pages/samples/register.html">
+                                    Register
+                                </a>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+                <div class="mdc-list-item mdc-drawer-item">
+                    <a class="mdc-drawer-link"
+                        href="https://www.bootstrapdash.com/demo/material-admin-free/jquery/documentation/documentation.html"
+                        target="_blank">
+                        <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon"
+                            aria-hidden="true">description</i>
+                        Documentation
+                    </a>
+                </div>
+            </nav>
+        </div>
+        <div class="profile-actions">
+            <a href="javascript:;">Settings</a>
+            <span class="divider"></span>
+            <a href="javascript:;">Logout</a>
+        </div>
+        <div class="mdc-card premium-card">
+            <div class="d-flex align-items-center">
+                <div class="mdc-card icon-card box-shadow-0">
+                    <i class="mdi mdi-shield-outline"></i>
+                </div>
+                <div>
+                    <p class="mt-0 mb-1 ml-2 font-weight-bold tx-12">Material Dash</p>
+                    <p class="mt-0 mb-0 ml-2 tx-10">Pro available</p>
                 </div>
             </div>
-            <ul class="nav">
-                <li class="{{ (request()->is('dashboard')) ? 'active' : '' }}">
-                    <a href="{{ route('dashboard') }}">
-                        <i class="material-icons">dashboard</i>
-                        <p>Dashboard</p>
-                    </a>
-                </li>
-                @foreach(App\Models\Component::where('active', '1')->where('id', 1)->get() as $component)
-                <li class="{{ (Str::contains(Request::url(), 'event')) ? 'active' : '' }}">
-                    <a href="{{ route('event.index') }}">
-                        <i class="material-icons">date_range</i>
-                        <p>{{ $component->name }}</p>
-                    </a>
-                </li>
-                @endforeach
-                <li class="{{ (Str::contains(Request::url(), 'inbox')) ? 'active' : '' }}">
-                    <a href="{{ route('inbox.index') }}">
-                        <i class="material-icons">mail</i>
-                        <p>Kotak Masuk</p>
-                    </a>
-                </li>
-                <li class="{{ (Str::contains(Request::url(), 'news')) ? 'active' : '' }}">
-                    <a href="{{ route('news.index') }}">
-                        <i class="material-icons">event_note</i>
-                        <p>Postingan</p>
-                    </a>
-                </li>
-                @role('superadmin|admin')
-                <li
-                    class="{{ (Str::contains(Request::url(), ['component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user', 'bidang'])) ? 'active' : '' }}">
-                    <a data-toggle="collapse" href="#pagesExamples2"
-                        aria-expanded="{{ (Str::contains(Request::url(), ['component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user', 'bidang'])) ? 'true' : '' }}">
-                        <i class="material-icons">public</i>
-                        <p>Website
-                            <b class="caret"></b>
-                        </p>
-                    </a>
-                    <div class="collapse {{ (Str::contains(Request::url(), ['component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user', 'bidang'])) ? 'in' : '' }}"
-                        id="pagesExamples2">
-                        <ul class="nav">
-                            <li class="{{ (Str::contains(Request::url(), 'component')) ? 'active' : '' }}">
-                                <a href="{{ route('component.index') }}"><i class="material-icons">apps</i>
-                                    Komponen</a>
-                            </li>
-                            <li class="{{ (Str::contains(Request::url(), 'frontmenu')) ? 'active' : '' }}">
-                                <a href="{{ route('frontmenu.index') }}"> <i class="material-icons">menu</i>
-                                    Menu</a>
-                            </li>
-                            <li class="{{ (Str::contains(Request::url(), 'relatedlink')) ? 'active' : '' }}">
-                                <a href="{{ route('relatedlink.index') }}"><i class="material-icons">link</i>
-                                    Link Terkait</a>
-                            </li>
-                            <li class="{{ (Str::contains(Request::url(), 'settings')) ? 'active' : '' }}">
-                                <a href="{{ route('settings.index') }}">
-                                    <i class="material-icons">settings</i>
-                                    Peraturan</a>
-                            </li>
-                            @role('superadmin')
-                            <li class="{{ (Str::contains(Request::url(), 'themes')) ? 'active' : '' }}">
-                                <a href="{{ route('themes.index') }}"><i class="material-icons">brush</i>
-                                    Tema</a>
-                            </li>
-                            @endrole
-                            <li class="{{ (Str::contains(Request::url(), ['user', 'bidang'])) ? 'active' : '' }}">
-                                <a href="{{ route('user.index') }}">
-                                    <i class="material-icons">person</i>
-                                    Users</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                @endrole
-            </ul>
+            <p class="tx-8 mt-3 mb-1">More elements. More Pages.</p>
+            <p class="tx-8 mb-3">Starting from $25.</p>
+            <a href="https://www.bootstrapdash.com/product/material-design-admin-template/" target="_blank">
+                <span class="mdc-button mdc-button--raised mdc-button--white">Upgrade to Pro</span>
+            </a>
         </div>
     </div>
-    <div class="main-panel">
-        <nav class="navbar navbar-transparent navbar-absolute">
-            <div class="container-fluid">
-                <div class="navbar-minimize">
-                    <button id="minimizeSidebar" class="btn btn-round btn-white btn-fill btn-just-icon">
-                        <i class="material-icons visible-on-sidebar-regular">more_vert</i>
-                        <i class="material-icons visible-on-sidebar-mini">view_list</i>
-                    </button>
-                </div>
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <!-- <a class="navbar-brand" href="#"> Dashboard </a> -->
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- <li>
-                            <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="material-icons">dashboard</i>
-                                <p class="hidden-lg hidden-md">Dashboard</p>
-                            </a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="material-icons">notifications</i>
-                                <span class="notification">5</span>
-                                <p class="hidden-lg hidden-md">
-                                    Notifications
-                                    <b class="caret"></b>
-                                </p>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="#">Mike John responded to your email</a>
-                                </li>
-                                <li>
-                                    <a href="#">You have 5 new tasks</a>
-                                </li>
-                                <li>
-                                    <a href="#">You're now friend with Andrew</a>
-                                </li>
-                                <li>
-                                    <a href="#">Another Notification</a>
-                                </li>
-                                <li>
-                                    <a href="#">Another One</a>
-                                </li>
-                            </ul>
-                        </li> -->
-                        <li>
-                            <form id="myForm" method="POST" action="{{ route('logout') }}" hidden>
-                                @csrf
-                            </form>
-                            <a href="#" onclick="logout()" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-sign-out"></i>
-                                <p class="hidden-lg hidden-md">Logout</p>
-                            </a>
-                        </li>
-                        <li class="separator hidden-lg hidden-md"></li>
-                    </ul>
-                    <!-- <form class="navbar-form navbar-right" role="search">
-                        <div class="form-group form-search is-empty">
-                            <input type="text" class="form-control" placeholder="Search">
-                            <span class="material-input"></span>
+</aside>
+<!-- partial -->
+<div class="main-wrapper mdc-drawer-app-content">
+    <!-- partial:../../partials/_navbar.html -->
+    <header class="mdc-top-app-bar">
+        <div class="mdc-top-app-bar__row">
+            <div class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+                <button
+                    class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button sidebar-toggler">menu</button>
+                <span class="mdc-top-app-bar__title">Greetings Clyde!</span>
+                <div
+                    class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon search-text-field d-none d-md-flex">
+                    <i class="material-icons mdc-text-field__icon">search</i>
+                    <input class="mdc-text-field__input" id="text-field-hero-input">
+                    <div class="mdc-notched-outline mdc-notched-outline--upgraded">
+                        <div class="mdc-notched-outline__leading"></div>
+                        <div class="mdc-notched-outline__notch">
+                            <label for="text-field-hero-input" class="mdc-floating-label" style="">Search..</label>
                         </div>
-                        <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                            <i class="material-icons">search</i>
-                            <div class="ripple-container"></div>
-                        </button>
-                    </form> -->
+                        <div class="mdc-notched-outline__trailing"></div>
+                    </div>
                 </div>
             </div>
-        </nav>
-        <script>
-            function logout() {
-                swal({
-                    title: 'Are you sure?',
-                    text: "want to logout!",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonClass: 'btn btn-success',
-                    cancelButtonClass: 'btn btn-danger',
-                    confirmButtonText: 'Yes',
-                    buttonsStyling: false
-                }).then(function () {
-                    document.getElementById("myForm").submit();
-                });
-            };
-        </script>
+            <div class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__section-right">
+                <div class="menu-button-container menu-profile d-none d-md-block">
+                    <button class="mdc-button mdc-menu-button mdc-ripple-upgraded">
+                        <span class="d-flex align-items-center">
+                            <span class="figure">
+                                <img src="{{ asset('assets/back/md/assets/images/faces/face1.jpg') }}" alt="user" class="user">
+                            </span>
+                            <span class="user-name">Clyde Miles</span>
+                        </span>
+                    </button>
+                    <div class="mdc-menu mdc-menu-surface" tabindex="-1">
+                        <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical">
+                            <li class="mdc-list-item" role="menuitem" tabindex="-1">
+                                <div class="item-thumbnail item-thumbnail-icon-only">
+                                    <i class="mdi mdi-account-edit-outline text-primary"></i>
+                                </div>
+                                <div class="item-content d-flex align-items-start flex-column justify-content-center">
+                                    <h6 class="item-subject font-weight-normal">Edit profile</h6>
+                                </div>
+                            </li>
+                            <li class="mdc-list-item" role="menuitem" tabindex="-1">
+                                <div class="item-thumbnail item-thumbnail-icon-only">
+                                    <i class="mdi mdi-settings-outline text-primary"></i>
+                                </div>
+                                <div class="item-content d-flex align-items-start flex-column justify-content-center">
+                                    <h6 class="item-subject font-weight-normal">Logout</h6>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="divider d-none d-md-block"></div>
+                <div class="menu-button-container d-none d-md-block">
+                    <button class="mdc-button mdc-menu-button mdc-ripple-upgraded">
+                        <i class="mdi mdi-settings"></i>
+                    </button>
+                    <div class="mdc-menu mdc-menu-surface" tabindex="-1">
+                        <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical">
+                            <li class="mdc-list-item" role="menuitem" tabindex="-1">
+                                <div class="item-thumbnail item-thumbnail-icon-only">
+                                    <i class="mdi mdi-alert-circle-outline text-primary"></i>
+                                </div>
+                                <div class="item-content d-flex align-items-start flex-column justify-content-center">
+                                    <h6 class="item-subject font-weight-normal">Settings</h6>
+                                </div>
+                            </li>
+                            <li class="mdc-list-item" role="menuitem" tabindex="-1">
+                                <div class="item-thumbnail item-thumbnail-icon-only">
+                                    <i class="mdi mdi-progress-download text-primary"></i>
+                                </div>
+                                <div class="item-content d-flex align-items-start flex-column justify-content-center">
+                                    <h6 class="item-subject font-weight-normal">Update</h6>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu-button-container">
+                    <button class="mdc-button mdc-menu-button mdc-ripple-upgraded">
+                        <i class="mdi mdi-bell"></i>
+                    </button>
+                    <div class="mdc-menu mdc-menu-surface" tabindex="-1">
+                        <h6 class="title"> <i class="mdi mdi-bell-outline mr-2 tx-16"></i> Notifications</h6>
+                        <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical">
+                            <li class="mdc-list-item" role="menuitem" tabindex="-1">
+                                <div class="item-thumbnail item-thumbnail-icon">
+                                    <i class="mdi mdi-email-outline"></i>
+                                </div>
+                                <div class="item-content d-flex align-items-start flex-column justify-content-center">
+                                    <h6 class="item-subject font-weight-normal">You received a new message</h6>
+                                    <small class="text-muted"> 6 min ago </small>
+                                </div>
+                            </li>
+                            <li class="mdc-list-item" role="menuitem" tabindex="-1">
+                                <div class="item-thumbnail item-thumbnail-icon">
+                                    <i class="mdi mdi-account-outline"></i>
+                                </div>
+                                <div class="item-content d-flex align-items-start flex-column justify-content-center">
+                                    <h6 class="item-subject font-weight-normal">New user registered</h6>
+                                    <small class="text-muted"> 15 min ago </small>
+                                </div>
+                            </li>
+                            <li class="mdc-list-item" role="menuitem" tabindex="-1">
+                                <div class="item-thumbnail item-thumbnail-icon">
+                                    <i class="mdi mdi-alert-circle-outline"></i>
+                                </div>
+                                <div class="item-content d-flex align-items-start flex-column justify-content-center">
+                                    <h6 class="item-subject font-weight-normal">System Alert</h6>
+                                    <small class="text-muted"> 2 days ago </small>
+                                </div>
+                            </li>
+                            <li class="mdc-list-item" role="menuitem" tabindex="-1">
+                                <div class="item-thumbnail item-thumbnail-icon">
+                                    <i class="mdi mdi-update"></i>
+                                </div>
+                                <div class="item-content d-flex align-items-start flex-column justify-content-center">
+                                    <h6 class="item-subject font-weight-normal">You have a new update</h6>
+                                    <small class="text-muted"> 3 days ago </small>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu-button-container">
+                    <button class="mdc-button mdc-menu-button mdc-ripple-upgraded">
+                        <i class="mdi mdi-email"></i>
+                        <span class="count-indicator">
+                            <span class="count">3</span>
+                        </span>
+                    </button>
+                    <div class="mdc-menu mdc-menu-surface" tabindex="-1">
+                        <h6 class="title"><i class="mdi mdi-email-outline mr-2 tx-16"></i> Messages</h6>
+                        <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical">
+                            <li class="mdc-list-item" role="menuitem" tabindex="-1">
+                                <div class="item-thumbnail">
+                                    <img src="{{ asset('assets/back/md/assets/images/faces/face4.jpg') }}" alt="user">
+                                </div>
+                                <div class="item-content d-flex align-items-start flex-column justify-content-center">
+                                    <h6 class="item-subject font-weight-normal">Mark send you a message</h6>
+                                    <small class="text-muted"> 1 Minutes ago </small>
+                                </div>
+                            </li>
+                            <li class="mdc-list-item" role="menuitem" tabindex="-1">
+                                <div class="item-thumbnail">
+                                    <img src="{{ asset('assets/back/md/assets/images/faces/face2.jpg') }}" alt="user">
+                                </div>
+                                <div class="item-content d-flex align-items-start flex-column justify-content-center">
+                                    <h6 class="item-subject font-weight-normal">Cregh send you a message</h6>
+                                    <small class="text-muted"> 15 Minutes ago </small>
+                                </div>
+                            </li>
+                            <li class="mdc-list-item" role="menuitem" tabindex="-1">
+                                <div class="item-thumbnail">
+                                    <img src="{{ asset('assets/back/md/assets/images/faces/face3.jpg') }}" alt="user">
+                                </div>
+                                <div class="item-content d-flex align-items-start flex-column justify-content-center">
+                                    <h6 class="item-subject font-weight-normal">Profile picture updated</h6>
+                                    <small class="text-muted"> 18 Minutes ago </small>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu-button-container d-none d-md-block">
+                    <button class="mdc-button mdc-menu-button mdc-ripple-upgraded">
+                        <i class="mdi mdi-arrow-down-bold-box"></i>
+                    </button>
+                    <div class="mdc-menu mdc-menu-surface" tabindex="-1">
+                        <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical">
+                            <li class="mdc-list-item" role="menuitem" tabindex="-1">
+                                <div class="item-thumbnail item-thumbnail-icon-only">
+                                    <i class="mdi mdi-lock-outline text-primary"></i>
+                                </div>
+                                <div class="item-content d-flex align-items-start flex-column justify-content-center">
+                                    <h6 class="item-subject font-weight-normal">Lock screen</h6>
+                                </div>
+                            </li>
+                            <li class="mdc-list-item" role="menuitem" tabindex="-1">
+                                <div class="item-thumbnail item-thumbnail-icon-only">
+                                    <i class="mdi mdi-logout-variant text-primary"></i>
+                                </div>
+                                <div class="item-content d-flex align-items-start flex-column justify-content-center">
+                                    <h6 class="item-subject font-weight-normal">Logout</h6>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- partial -->
+    <div class="page-wrapper mdc-toolbar-fixed-adjust">

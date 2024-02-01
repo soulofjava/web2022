@@ -6,11 +6,11 @@ use App\Models\ComCodes;
 use App\Models\News;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
-use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\DB;
 use App\Models\File as Files;
 use File;
+use Illuminate\Support\Facades\Storage;
 
 class NewsController extends Controller
 {
@@ -29,10 +29,9 @@ class NewsController extends Controller
                     'action',
                     function ($data) {
                         $actionBtn = '
-                    <div class="list-icons d-flex justify-content-center text-center">
-                        <a href="' . route('news.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> Edit</a>
-                        <a href="' . route('news.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> Delete</a>
-                    </div>';
+                        <a href="' . route('news.edit', $data->id) . ' " class="mdc-button mdc-button--outlined shaped-button outlined-button--primary mdc-ripple-upgraded">Edit</a>
+                        <a href="' . route('news.destroy', $data->id) . ' " class="mdc-button mdc-button--outlined shaped-button outlined-button--primary mdc-ripple-upgraded delete-data-table">Delete</a>
+                    ';
                         return $actionBtn;
                     }
                 )
@@ -48,6 +47,9 @@ class NewsController extends Controller
                 ->rawColumns(['action', 'tgl'])
                 ->make(true);
         }
+        $title = 'Delete User!';
+        $text = "Are you sure you want to delete?";
+        confirmDelete($title, $text);
         return view('back.a.pages.news.index');
     }
 
@@ -100,7 +102,7 @@ class NewsController extends Controller
      * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function show(News $news)
+    public function show($id)
     {
         //
     }
@@ -183,7 +185,7 @@ class NewsController extends Controller
         $data = News::find($id);
         // delete related   
         $data->gambar()->delete();
-
+        $data->delete();
         return $data->delete();
     }
 
