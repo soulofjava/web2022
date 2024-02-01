@@ -4,7 +4,7 @@
     integrity="sha256-6X2vamB3vs1zAJefAme/aHhUeJl13mYKs3VKpIGmcV4=" crossorigin="anonymous">
 @endpush
 @section('content')
-<div class="content">
+<main class="content-wrapper">
     <div class="container-fluid">
         {{ Breadcrumbs::render('news') }}
         <div class="row">
@@ -47,7 +47,7 @@
             </div>
         </div>
     </div>
-</div>
+</main>
 @endsection
 @push('after-script')
 <script src="https://cdn.jsdelivr.net/npm/dropzone@5.9.2/dist/dropzone.js"

@@ -10,51 +10,69 @@
 </style>
 @endpush
 @section('content')
-<div class="content">
-    <div class="container-fluid">
-        {{ Breadcrumbs::render('news') }}
-        <div class="row">
-            @if($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-            @endif
-            <div class="card">
-                <div class="card-header card-header-icon" data-background-color="green">
-                    <i class="material-icons">event_note</i>
+<main class="content-wrapper">
+    <div class="mdc-card">
+        <h6 class="card-title">Form Edit</h6>
+        <div class="template-demo">
+            <div class="row">
+                @if($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
                 </div>
-                <div class="card-content">
-                    <h4 class="card-title">Form Edit News</h4>
-                    {{Form::model($data, ['route' => ['news.update', $data->id],'method' => 'put', 'files' =>
-                    'true', ''])}}
-                    <input type="text" value="{{ $data->id }}" id="malika" hidden>
-                    <div class="dropzone" id="my-awesome-dropzone"></div>
-                    <div class="form-group label-floating">
-                        <label class="control-label">Title</label>
-                        {{Form::text('title', null,['class' => 'form-control'])}}
+                @endif
+                <div class="card">
+                    <div class="card-content">
+                        {{Form::model($data, ['route' => ['news.update', $data->id],'method' => 'put', 'files' =>
+                        'true', ''])}}
+
+                        <input type="text" value="{{ $data->id }}" id="malika" hidden>
+
+                        <div class="dropzone" id="my-awesome-dropzone"></div>
+
+                        <div class="mdc-text-field mdc-text-field--outlined">
+                            {{Form::text('title', null,['class' => 'mdc-text-field__input'])}}
+                            <div class="mdc-notched-outline mdc-notched-outline--upgraded">
+                                <div class="mdc-notched-outline__leading"></div>
+                                <div class="mdc-notched-outline__notch" style="">
+                                    <label for="text-field-hero-input" class="mdc-floating-label" style="">Judul</label>
+                                </div>
+                                <div class="mdc-notched-outline__trailing"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mdc-text-field mdc-text-field--outlined mb-3">
+                            {{Form::date('date', null,['class' => 'mdc-text-field__input'])}}
+                            <div class="mdc-notched-outline mdc-notched-outline--upgraded">
+                                <div class="mdc-notched-outline__leading"></div>
+                                <div class="mdc-notched-outline__notch" style="">
+                                    <label for="text-field-hero-input" class="mdc-floating-label" style="">Tanggal</label>
+                                </div>
+                                <div class="mdc-notched-outline__trailing"></div>
+                            </div>
+                        </div>
+                        {{Form::textarea('description', null,['class' => 'my-editor
+                        form-control','id'=>'my-editor'])}}
+                        <div class="mt-3">
+                            <a href="{{ route('news.index') }}"
+                                style="--mdc-ripple-fg-size: 41px; --mdc-ripple-fg-scale: 2.158690755272023; --mdc-ripple-fg-translate-start: 8.3828125px, -0.375px; --mdc-ripple-fg-translate-end: 14.3828125px, -2.5px;"
+                                class="mdc-button mdc-button--unelevated shaped-button filled-button--light mdc-ripple-upgraded">Batal</a>
+                            <button type="submit"
+                                class="mdc-button mdc-button--unelevated shaped-button mdc-ripple-upgraded"
+                                style="--mdc-ripple-fg-size: 57px; --mdc-ripple-fg-scale: 1.9677611127891828; --mdc-ripple-fg-translate-start: 22.6953125px, -16.828125px; --mdc-ripple-fg-translate-end: 19.3046875px, -10.5px;">
+                                Ubah
+                            </button>
+                        </div>
+                        {{Form::close()}}
                     </div>
-                    <div class="form-group">
-                        <label class="control-label">Date</label>
-                        {{Form::text('date', null,['class' => 'form-control datepicker'])}}
-                    </div>
-                    <div class="form-group label-floating">
-                        <label class="control-label">Description</label>
-                        {{Form::textarea('description', null,['class' => 'my-editor form-control','id'=>'my-editor'])}}
-                    </div>
-                    <div class="d-flex text-right">
-                        <a href="{{ route('news.index') }}" class="btn btn-default btn-fill">Cancel</a>
-                        <button type="submit" class="btn btn-success btn-fill">Update</button>
-                    </div>
-                    {{Form::close()}}
                 </div>
             </div>
         </div>
     </div>
-</div>
+</main>
 @endsection
 @push('after-script')
 <script src="https://cdn.jsdelivr.net/npm/dropzone@5.9.2/dist/dropzone.js"
