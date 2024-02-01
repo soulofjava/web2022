@@ -5,44 +5,60 @@
 @endpush
 @section('content')
 <main class="content-wrapper">
-    <div class="container-fluid">
-        {{ Breadcrumbs::render('news') }}
-        <div class="row">
-            @if($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-            @endif
-            <div class="card">
-                <div class="card-header card-header-icon" data-background-color="green">
-                    <i class="material-icons">event_note</i>
-                </div>
-                <div class="card-content">
-                    <h4 class="card-title">Form Tambah Data</h4>
-                    {{Form::open(['route' => 'news.store','method' => 'post', 'files' => 'true', ''])}}
-                    <!-- Example of a form that Dropzone can take over -->
-                    <div class="dropzone" id="my-awesome-dropzone"></div>
-                    <div class="form-group label-floating">
-                        <label class="control-label">Title</label>
-                        {{Form::text('title', null,['class' => 'form-control'])}}
+    <div class="mdc-card">
+        <h6 class="card-title">Edit Postingan</h6>
+        <div class="template-demo">
+            <div class="row">
+                <div class="card">
+                    <div class="card-content">
+                        {{Form::open(['route' => 'news.store','method' => 'post', 'files' => 'true', ''])}}
+
+                        <div class="dropzone" id="my-awesome-dropzone"></div>
+
+                        <div class="mdc-text-field mdc-text-field--outlined">
+                            {{Form::text('title', null,['class' => 'mdc-text-field__input'])}}
+                            <div class="mdc-notched-outline mdc-notched-outline--upgraded">
+                                <div class="mdc-notched-outline__leading"></div>
+                                <div class="mdc-notched-outline__notch">
+                                    <label for="text-field-hero-input" class="mdc-floating-label">Judul</label>
+                                </div>
+                                <div class="mdc-notched-outline__trailing"></div>
+                            </div>
+                        </div>
+                        @if($errors->has('title'))
+                        <p class="mdc-typography mdc-theme--secondary">Kolom harus diisi.</p>
+                        @endif
+
+                        <div class="mdc-text-field mdc-text-field--outlined mb-3">
+                            {{Form::date('date', null,['class' => 'mdc-text-field__input'])}}
+                            <div class="mdc-notched-outline mdc-notched-outline--upgraded">
+                                <div class="mdc-notched-outline__leading"></div>
+                                <div class="mdc-notched-outline__notch">
+                                    <label for="text-field-hero-input" class="mdc-floating-label">Tanggal</label>
+                                </div>
+                                <div class="mdc-notched-outline__trailing"></div>
+                            </div>
+                        </div>
+                        @if($errors->has('date'))
+                        <p class="mdc-typography mdc-theme--secondary">Kolom harus diisi.</p>
+                        @endif
+
+                        {{Form::textarea('description', null,['class' => 'my-editor
+                        form-control','id'=>'my-editor'])}}
+                        @if($errors->has('description'))
+                        <p class="mdc-typography mdc-theme--secondary">Kolom harus diisi.</p>
+                        @endif
+
+                        <div class="text-right mt-3">
+                            <a href="{{ route('news.index') }}"
+                                class="mdc-button mdc-button--unelevated shaped-button filled-button--light mdc-ripple-upgraded">Batal</a>
+                            <button type="submit"
+                                class="mdc-button mdc-button--unelevated shaped-button mdc-ripple-upgraded">
+                                Ubah
+                            </button>
+                        </div>
+                        {{Form::close()}}
                     </div>
-                    <div class="form-group">
-                        <label class="control-label">Date</label>
-                        {{Form::text('date', null,['class' => 'form-control datepicker'])}}
-                    </div>
-                    <div class="form-group label-floating is-focused">
-                        <label class="control-label">Description</label>
-                        {{Form::textarea('description', null,['class' => 'my-editor form-control','id'=>'my-editor'])}}
-                    </div>
-                    <div class="d-flex text-right">
-                        <a href="{{ route('news.index') }}" class="btn btn-default btn-fill">Cancel</a>
-                        <button type="submit" class="btn btn-success btn-fill">Insert</button>
-                    </div>
-                    {{Form::close()}}
                 </div>
             </div>
         </div>

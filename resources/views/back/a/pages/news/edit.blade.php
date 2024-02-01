@@ -12,7 +12,7 @@
 @section('content')
 <main class="content-wrapper">
     <div class="mdc-card">
-        <h6 class="card-title">Form Edit</h6>
+        <h6 class="card-title">Edit Postingan</h6>
         <div class="template-demo">
             <div class="row">
                 @if($errors->any())
@@ -37,32 +37,30 @@
                             {{Form::text('title', null,['class' => 'mdc-text-field__input'])}}
                             <div class="mdc-notched-outline mdc-notched-outline--upgraded">
                                 <div class="mdc-notched-outline__leading"></div>
-                                <div class="mdc-notched-outline__notch" style="">
-                                    <label for="text-field-hero-input" class="mdc-floating-label" style="">Judul</label>
+                                <div class="mdc-notched-outline__notch">
+                                    <label for="text-field-hero-input" class="mdc-floating-label">Judul</label>
                                 </div>
                                 <div class="mdc-notched-outline__trailing"></div>
                             </div>
                         </div>
-                        
+
                         <div class="mdc-text-field mdc-text-field--outlined mb-3">
                             {{Form::date('date', null,['class' => 'mdc-text-field__input'])}}
                             <div class="mdc-notched-outline mdc-notched-outline--upgraded">
                                 <div class="mdc-notched-outline__leading"></div>
-                                <div class="mdc-notched-outline__notch" style="">
-                                    <label for="text-field-hero-input" class="mdc-floating-label" style="">Tanggal</label>
+                                <div class="mdc-notched-outline__notch">
+                                    <label for="text-field-hero-input" class="mdc-floating-label">Tanggal</label>
                                 </div>
                                 <div class="mdc-notched-outline__trailing"></div>
                             </div>
                         </div>
                         {{Form::textarea('description', null,['class' => 'my-editor
                         form-control','id'=>'my-editor'])}}
-                        <div class="mt-3">
+                        <div class="text-right mt-3">
                             <a href="{{ route('news.index') }}"
-                                style="--mdc-ripple-fg-size: 41px; --mdc-ripple-fg-scale: 2.158690755272023; --mdc-ripple-fg-translate-start: 8.3828125px, -0.375px; --mdc-ripple-fg-translate-end: 14.3828125px, -2.5px;"
                                 class="mdc-button mdc-button--unelevated shaped-button filled-button--light mdc-ripple-upgraded">Batal</a>
                             <button type="submit"
-                                class="mdc-button mdc-button--unelevated shaped-button mdc-ripple-upgraded"
-                                style="--mdc-ripple-fg-size: 57px; --mdc-ripple-fg-scale: 1.9677611127891828; --mdc-ripple-fg-translate-start: 22.6953125px, -16.828125px; --mdc-ripple-fg-translate-end: 19.3046875px, -10.5px;">
+                                class="mdc-button mdc-button--unelevated shaped-button mdc-ripple-upgraded">
                                 Ubah
                             </button>
                         </div>

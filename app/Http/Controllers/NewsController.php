@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\File as Files;
 use File;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class NewsController extends Controller
 {
@@ -161,7 +162,7 @@ class NewsController extends Controller
                 ]);
             }
         }
-
+        Alert::success('Sukses', 'Data berhasil diubah.');
         return redirect(route('news.index'))->with(['success' => 'Data has been successfully changed!']);
     }
 

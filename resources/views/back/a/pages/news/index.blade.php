@@ -9,7 +9,10 @@
         <div class="mdc-layout-grid__inner">
             <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
                 <div class="mdc-card">
-                    <h6 class="card-title card-padding pb-0">Data Table</h6>
+                    <h6 class="card-title card-padding pb-0">Data Postingan</h6>
+                    <div class="text-right mb-3">
+                        <a href="{{ route('news.create') }}" class="mdc-button mdc-button--unelevated shaped-button mdc-ripple-upgraded">Tambah Data</a>
+                    </div>
                     <div class="table-responsive">
                         <table id="tabelku" class="table">
                             <thead>
