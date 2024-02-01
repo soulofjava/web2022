@@ -13,7 +13,33 @@
                     <div class="card-content">
                         {{Form::open(['route' => 'news.store','method' => 'post', 'files' => 'true', ''])}}
 
+                        <div class="my-3">
+                            Data DIP?
+                            <div class="mdc-switch" data-mdc-auto-init="MDCSwitch">
+                                <div class="mdc-switch__track"></div>
+                                <div class="mdc-switch__thumb-underlay">
+                                    <div class="mdc-switch__thumb">
+                                        <input type="checkbox" id="hideButton" class="mdc-switch__native-control"
+                                            role="switch">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="dropzone" id="my-awesome-dropzone"></div>
+
+                        <div class="mdc-select demo-width-class jip" style="display: none;">
+                            <!-- <input type="hidden" name="enhanced-select"> -->
+                            <i class="mdc-select__dropdown-icon"></i>
+                            <div class="mdc-select__selected-text"></div>
+                            {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' => 'mdc-select
+                            demo-width-class','placeholder' => ''])}}
+                            <span class="mdc-floating-label">Jenis Informasi Publik</span>
+                            <div class="mdc-line-ripple"></div>
+                        </div>
+                        @if($errors->has('kategori'))
+                        <p class="mdc-typography mdc-theme--secondary">Kolom harus diisi.</p>
+                        @endif
 
                         <div class="mdc-text-field mdc-text-field--outlined">
                             {{Form::text('title', null,['class' => 'mdc-text-field__input'])}}
@@ -29,7 +55,7 @@
                         <p class="mdc-typography mdc-theme--secondary">Kolom harus diisi.</p>
                         @endif
 
-                        <div class="mdc-text-field mdc-text-field--outlined mb-3">
+                        <div class="mdc-text-field mdc-text-field--outlined">
                             {{Form::date('date', null,['class' => 'mdc-text-field__input'])}}
                             <div class="mdc-notched-outline mdc-notched-outline--upgraded">
                                 <div class="mdc-notched-outline__leading"></div>
@@ -43,8 +69,25 @@
                         <p class="mdc-typography mdc-theme--secondary">Kolom harus diisi.</p>
                         @endif
 
-                        {{Form::textarea('description', null,['class' => 'my-editor
-                        form-control','id'=>'my-editor'])}}
+                        <div class="mdc-text-field mdc-text-field--outlined jip" style="display: none;">
+                            {{Form::number('dip_tahun', null,['class' => 'mdc-text-field__input'])}}
+                            <div class="mdc-notched-outline mdc-notched-outline--upgraded">
+                                <div class="mdc-notched-outline__leading"></div>
+                                <div class="mdc-notched-outline__notch">
+                                    <label for="text-field-hero-input" class="mdc-floating-label">Tahun Daftar Informasi
+                                        Publik</label>
+                                </div>
+                                <div class="mdc-notched-outline__trailing"></div>
+                            </div>
+                        </div>
+                        @if($errors->has('dip_tahun'))
+                        <p class="mdc-typography mdc-theme--secondary">Kolom harus diisi.</p>
+                        @endif
+
+                        <div class="row mt-3">
+                            {{Form::textarea('description', null,['class' => 'my-editor
+                            form-control','id'=>'my-editor'])}}
+                        </div>
                         @if($errors->has('description'))
                         <p class="mdc-typography mdc-theme--secondary">Kolom harus diisi.</p>
                         @endif
@@ -71,7 +114,17 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        demo.initFormExtendedDatetimepickers();
+        $("#hideButton").click(function () {
+            if ($(this).is(":checked")) {
+                $(".dropzone").hide();
+                $(".jip").show();
+                $(".dip").show();
+            } else {
+                $(".dropzone").show();
+                $(".jip").hide();
+                $(".dip").hide();
+            }
+        });
     });
 </script>
 
