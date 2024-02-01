@@ -19,12 +19,12 @@ class ComponentSeeder extends Seeder
         $component = [
             [
                 'name' => 'Agenda',
-                'active' => 0,
+                'active' => 1,
                 'slug' => Str::slug('Agenda', '-'),
             ],
             [
                 'name' => 'Buku Tamu',
-                'active' => 0,
+                'active' => 1,
                 'slug' => Str::slug('Buku Tamu', '-'),
             ],
             [
@@ -32,25 +32,15 @@ class ComponentSeeder extends Seeder
                 'active' => 0,
                 'slug' => Str::slug('Seputar Wonosobo', '-'),
             ],
-            [
-                'name' => 'Download Area',
-                'active' => 0,
-                'slug' => Str::slug('Download Area', '-'),
-            ],
-            // [
-            //     'name' => 'Layanan',
-            //     'active' => 1,
-            //     'slug' => Str::slug('Layanan', '-'),
-            // ],
             // satpolpp
             [
-                'name' => 'Aduan Masyarakat',
+                'name' => 'Public Complaints',
                 'active' => 0,
                 'slug' => Str::slug('Complaints', '-'),
             ],
             [
                 'name' => 'Berita',
-                'active' => 0,
+                'active' => 1,
                 'slug' => Str::slug('Berita', '-'),
             ],
         ];

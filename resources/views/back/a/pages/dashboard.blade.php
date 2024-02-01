@@ -4,10 +4,6 @@
     <div class="container-fluid">
         {{ Breadcrumbs::render('dashboard') }}
         <div class="row">
-            @php
-            $_agenda = App\Models\Component::where('id','1')->where('active','1')->count();
-            @endphp
-            @if($_agenda)
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="card card-stats">
                     <div class="card-header" data-background-color="blue">
@@ -19,14 +15,13 @@
                     </div>
                     <div class="card-footer">
                         <!-- <div class="stats">
-                            <i class="material-icons text-danger">warning</i>
-                            <a href="#pablo">Get More Space...</a>
-                        </div> -->
+                                        <i class="material-icons text-danger">warning</i>
+                                        <a href="#pablo">Get More Space...</a>
+                                    </div> -->
                     </div>
                 </div>
             </div>
-            @endif
-            <!-- <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="card card-stats">
                     <div class="card-header" data-background-color="purple">
                         <i class="material-icons">mail</i>
@@ -35,14 +30,14 @@
                         <p class="category">Total Kotak Masuk</p>
                         <h3 class="card-title">{{ $inbox }}</h3>
                     </div>
-                    <div class="card-footer"> -->
-            <!-- <div class="stats">
+                    <div class="card-footer">
+                        <!-- <div class="stats">
                                         <i class="material-icons text-danger">warning</i>
                                         <a href="#pablo">Get More Space...</a>
                                     </div> -->
-            <!-- </div>
+                    </div>
                 </div>
-            </div> -->
+            </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="card card-stats">
                     <div class="card-header" data-background-color="rose">
@@ -81,3 +76,5 @@
     </div>
 </div>
 @endsection
+@push('after-script')
+@endpush

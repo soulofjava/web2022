@@ -41,15 +41,15 @@
             <div class="col-lg-8 col-md-12 col-sm-12 content-side">
                 <h2 class="mb-5">{{ $hasil }}</h2>
                 <div class="blog-content">
-                    @forelse($data as $author)
+                    @foreach($data as $author)
                     <div class="single-blog-content">
                         <div class="inner-box">
                             <figure class="image-box">
                                 <a href="{{ url('/news-detail', $author->slug) }}">
                                     @forelse($author->gambar as $gambar)
                                     @if($loop->iteration == 1)
-                                    <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
-                                        alt="{{ $gambar->file_name }}">
+                                    <img src="{{ route('helper.show-picture', ['path' => $gambar->path]) }}"
+                                        class="img-fluid" alt="{{ $gambar->file_name }}">
                                     @endif
                                     @empty
                                     <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
@@ -97,25 +97,19 @@
                             </div>
                         </div>
                     </div>
-                    @empty
-                    <div class="text-center">
-                        Data Tidak Ditemukan
-                    </div>
-                    @endforelse
+                    @endforeach
 
-                    <div class="pagination-wrapper centred">
+                    <!-- <div class="pagination-wrapper centred">
                         <ul class="pagination">
-                            {{ $data->withQueryString()->links('vendor.pagination.appway') }}
-
-                            <!-- <li><a href="#"><i class="fas fa-angle-left"></i></a></li>
-                                                <li><a href="#">1</a></li>
-                                                <li><a href="#">2</a></li>
-                                                <li><a href="#" class="active">3</a></li>
-                                                <li><a href="#">4</a></li>
-                                                <li><a href="#">5</a></li>
-                                                <li><a href="#"><i class="fas fa-angle-right"></i></a></li> -->
+                            <li><a href="#"><i class="fas fa-angle-left"></i></a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#" class="active">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#"><i class="fas fa-angle-right"></i></a></li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
@@ -138,8 +132,8 @@
                             <div class="post">
                                 <figure class="image">
                                     <a href="{{ url('/news-detail', $n->slug) }}">
-                                        @if(file_exists(public_path('storage/'.$n->path)))
-                                        <img src="{{ asset('storage/') }}/{{ $n->path}}"
+                                        @if(Storage::get($n->gambarmuka->path ?? ''))
+                                        <img src="{{ route('helper.show-picture', ['path' => $n->path]) }}"
                                             class="img-fluid rounded-start rounded-end" alt="{{ $n->title }}">
                                         @else
                                         <img src="{{ asset('img/soulofjava.jpg') }}" alt="soulofjava">

@@ -12,12 +12,12 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasApiTokens;
-    use HasFactory;
-    use HasProfilePhoto;
-    use Notifiable;
-    use TwoFactorAuthenticatable;
-    use HasRoles;
+    use HasApiTokens,
+        HasFactory,
+        HasProfilePhoto,
+        Notifiable,
+        TwoFactorAuthenticatable,
+        HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -64,9 +64,4 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
-
-    public function bidang()
-    {
-        return $this->belongsTo(Bidang::class);
-    }
 }

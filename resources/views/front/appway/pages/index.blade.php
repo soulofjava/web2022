@@ -16,7 +16,7 @@
             <div class="col-lg-6 col-md-12 col-sm-12 image-column">
                 <div class="image-box float-bob-y clearfix">
                     <!-- @if($data_website->image_hero)
-                    <img src="{{ asset('storage') }}/{{ $data_website->image_hero }}" alt="{{ $data_website->web_name }}">
+                    <img src="{{ route('helper.show-picture', ['path' => $data_website->image_hero]) }}" alt="{{ $data_website->web_name }}">
                     @else
                     <figure class="image image-2 wow fadeInUp" data-wow-delay="1500ms" data-wow-duration="1500ms">
                         <img src="{{ asset('assets/front/appway/images/resource/phone-2.png') }}" alt="{{ $data_website->web_name }}">
@@ -54,8 +54,8 @@
                             <a href="{{ url('/news-detail', $n->slug) }}">
                                 @forelse($n->gambar as $gambar)
                                 @if($loop->iteration == 1)
-                                <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
-                                    alt="{{ $gambar->file_name }}">
+                                <img src="{{ route('helper.show-picture', ['path' => $gambar->path]) }}"
+                                    class="img-fluid" alt="{{ $gambar->file_name }}">
                                 @endif
                                 @empty
                                 <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
@@ -83,6 +83,62 @@
     </div>
 </section>
 <!-- news-section end -->
+@endif
+
+@if($gallery->count() != 0)
+<!-- gallery-section -->
+<section class="news-section">
+    <div class="container">
+        <div class="sec-title center">
+            <h2>Latest Photos</h2>
+            <a href="{{ url('/photos') }}">
+                <p>Show All</p>
+            </a>
+        </div>
+        <div class="row">
+            @foreach($gallery as $g)
+            <div class="col-lg-4 col-md-6 col-sm-12 news-column" style="display: flex">
+                <div class="news-block-one wow flipInY animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                    <div class="inner-box">
+                        <figure class="image-box">
+                            @foreach($g->gambar as $pic)
+                            @if($loop->iteration == 1)
+                            <a data-fancybox="gallery-group-{{ $pic->id_news }}"
+                                href="{{ asset('storage/') }}/{{ $pic->path }}" data-caption="{{ $g->description }}">
+                                <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid"
+                                    style="height: 250px;">
+                            </a>
+                            @else
+                            <div style="display:none;">
+                                <a data-fancybox="gallery-group-{{ $pic->id_news }}"
+                                    href="{{ asset('storage/') }}/{{ $pic->path }}"
+                                    data-caption="{{ $g->description }}">
+                                    <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid">
+                                </a>
+                            </div>
+                            @endif
+                            @endforeach
+                        </figure>
+                        <div class="lower-content">
+                            <div class="post-date"><i class="fas fa-calendar-alt"></i>{{
+                                \Carbon\Carbon::parse($g->upload_date)->format('l') }}</strong> {{
+                                \Carbon\Carbon::parse( $g->upload_date
+                                )->toFormattedDateString() }}</div>
+                            <h3>
+                                <a href="#">{{ $g->description }}</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @if($loop->iteration == 3)
+            @break
+            @endif
+            @endforeach
+        </div>
+    </div>
+</section>
+<!-- gallery-section end -->
 @endif
 
 <x-seputar-wonosobo :message='$berita' />

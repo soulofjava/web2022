@@ -56,16 +56,10 @@
                     </a>
                 </li>
                 @endforeach
-                <!-- <li class="{{ (Str::contains(Request::url(), 'inbox')) ? 'active' : '' }}">
+                <li class="{{ (Str::contains(Request::url(), 'inbox')) ? 'active' : '' }}">
                     <a href="{{ route('inbox.index') }}">
                         <i class="material-icons">mail</i>
                         <p>Kotak Masuk</p>
-                    </a>
-                </li> -->
-                <li class="{{ (Str::contains(Request::url(), 'download')) ? 'active' : '' }}">
-                    <a href="{{ route('download.index') }}">
-                        <i class="material-icons">file_download</i>
-                        <p>Download Area</p>
                     </a>
                 </li>
                 <li class="{{ (Str::contains(Request::url(), 'news')) ? 'active' : '' }}">

@@ -19,7 +19,13 @@
             <div class="row">
                 <div class="col-lg-8 entries">
                     <article class="entry entry-single">
+                        @if($data->attachment)
+                        <img src="{{ $data->attachment }}" alt="thumbnail" class="img-fluid">
+                        @elseif($data->gambarmuka)
                         <x-carousel :jjj='$data' />
+                        @else
+                        <img src="{{ asset('img/soulofjava.jpg') }}" alt="soul of java" class="img-fluid">
+                        @endif
                         <div class="d-flex justify-content-center">
                             <div class="entry-img">
                             </div>
@@ -115,20 +121,18 @@
                         </div>
                         <!-- End sidebar search formn-->
 
-                        <x-category h3='sidebar-title' div='sidebar-item categories' />
-
                         <h3 class="sidebar-title">Recent Posts</h3>
                         <div class="sidebar-item recent-posts">
                             @foreach($news as $n)
                             <div class="post-item clearfix">
-                                @forelse($n->gambar as $gambar)
-                                @if($loop->iteration == 1)
-                                <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
-                                    alt="{{ $gambar->file_name }}">
+                                @if($n->attachment)
+                                <img src="{{ $n->attachment }}" alt="thumbnail" class="img-fluid">
+                                @elseif($n->gambarmuka)
+                                <img src="{{ asset('storage/') }}/{{  $n->gambarmuka->path }}" class="img-fluid"
+                                    alt="{{ $n->gambarmuka->file_name }}">
+                                @else
+                                <img src="{{ asset('img/soulofjava.jpg') }}" alt="soul of java" class="img-fluid">
                                 @endif
-                                @empty
-                                <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
-                                @endforelse
                                 <h4><a href="{{ url('/news-detail', $n->slug) }}">
                                         {{ \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}
                                     </a></h4>

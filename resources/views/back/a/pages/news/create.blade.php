@@ -8,6 +8,15 @@
     <div class="container-fluid">
         {{ Breadcrumbs::render('news') }}
         <div class="row">
+            @if($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
             <div class="card">
                 <div class="card-header card-header-icon" data-background-color="green">
                     <i class="material-icons">event_note</i>
@@ -15,59 +24,23 @@
                 <div class="card-content">
                     <h4 class="card-title">Form Tambah Data</h4>
                     {{Form::open(['route' => 'news.store','method' => 'post', 'files' => 'true', ''])}}
-
-                    <div class="togglebutton" style="margin-bottom: 15px;">
-                        <label>
-                            Data DIP? <input name="datadip" type="checkbox" id="hideButton">
-                        </label>
-                    </div>
-
                     <!-- Example of a form that Dropzone can take over -->
                     <div class="dropzone" id="my-awesome-dropzone"></div>
-                    <!-- <div class="form-group label-floating">
-                        <label class="control-label">Highlight</label>
-                        {{Form::select('highlight', $highlight, null, ['class' => 'form-control'])}}
-                    </div> -->
-
-                    <div class="form-group jip" style="display: none;">
-                        <label class="control-label">Jenis Informasi Publik</label>
-                        {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
-                        'form-control','placeholder' => ''])}}
-                    </div>
-
-                    <div class="form-group">
-                        <label class="control-label">Tanggal</label>
-                        {{Form::text('date', null,['class' => 'form-control datepicker'])}}
-                    </div>
-                    @error('date')
-                    <div class="error text-danger">Tidak Boleh Kosong</div>
-                    @enderror
-
-                    <div class="form-group dip" style="display: none;">
-                        <label class="control-label">Tahun Daftar Informasi Publik</label>
-                        {{Form::number('dip_tahun', null, ['class' =>
-                        'form-control','placeholder' => ''])}}
-                    </div>
-
-                    <div class="form-group">
-                        <label class="control-label">Judul Postingan</label>
+                    <div class="form-group label-floating">
+                        <label class="control-label">Title</label>
                         {{Form::text('title', null,['class' => 'form-control'])}}
                     </div>
-                    @error('title')
-                    <div class="error text-danger">Tidak Boleh Kosong</div>
-                    @enderror
-
-                    <div class="form-group label">
-                        <label class="control-label">Deskripsi</label>
+                    <div class="form-group">
+                        <label class="control-label">Date</label>
+                        {{Form::text('date', null,['class' => 'form-control datepicker'])}}
+                    </div>
+                    <div class="form-group label-floating is-focused">
+                        <label class="control-label">Description</label>
                         {{Form::textarea('description', null,['class' => 'my-editor form-control','id'=>'my-editor'])}}
                     </div>
-                    @error('description')
-                    <div class="error text-danger">Tidak Boleh Kosong</div>
-                    @enderror
-
                     <div class="d-flex text-right">
-                        <a href="{{ route('news.index') }}" class="btn btn-default btn-fill">Kembali</a>
-                        <button type="submit" class="btn btn-success btn-fill">Simpan</button>
+                        <a href="{{ route('news.index') }}" class="btn btn-default btn-fill">Cancel</a>
+                        <button type="submit" class="btn btn-success btn-fill">Insert</button>
                     </div>
                     {{Form::close()}}
                 </div>
@@ -83,18 +56,6 @@
 <script type="text/javascript">
     $(document).ready(function () {
         demo.initFormExtendedDatetimepickers();
-
-        $("#hideButton").click(function () {
-            if ($(this).is(":checked")) {
-                $(".dropzone").hide();
-                $(".jip").show();
-                $(".dip").show();
-            } else {
-                $(".dropzone").show();
-                $(".jip").hide();
-                $(".dip").hide();
-            }
-        });
     });
 </script>
 
@@ -103,10 +64,8 @@
 <script>
     var konten = document.getElementById("my-editor");
     var options = {
-        filebrowserImageBrowseUrl: '/filemanager?type=Images',
-        filebrowserImageUploadUrl: '/filemanager/upload?type=Images&_token=',
-        filebrowserBrowseUrl: '/filemanager?type=Files',
-        filebrowserUploadUrl: '/filemanager/upload?type=Files&_token='
+        filebrowserImageBrowseUrl: '/file-manager/ckeditor',
+
     };
     CKEDITOR.replace(konten, options);
     CKEDITOR.config.allowedContent = true;

@@ -23,7 +23,7 @@
             </div>
             <div class="col-lg-6 hero-img aos-init aos-animate" data-aos="zoom-out" data-aos-delay="200">
                 @if($data_website->image_hero)
-                <img src="{{ asset('storage') }}/{{ $data_website->image_hero }}" class="img-fluid"
+                <img src="{{ route('helper.show-picture', ['path' => $data_website->image_hero]) }}" class="img-fluid"
                     alt="{{ $data_website->image_hero_name }}">
                 @else
                 <img src="{{ asset('assets/front/flexstart/assets/img/hero-img.png') }}" class="img-fluid"
@@ -45,21 +45,19 @@
                 <p>Recent posts form our Blog</p>
             </header>
 
-            <x-head-category_news bc='#4154f1' tc='white' />
-
             <div class="row mt-4">
                 @foreach($news as $n)
                 <div class="col-lg-4 col-md-6 mb-3">
                     <div class="post-box">
                         <div class="post-img text-center">
-                            @forelse($n->gambar as $gambar)
-                            @if($loop->iteration == 1)
-                            <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
-                                alt="{{ $gambar->file_name }}">
+                            @if($n->attachment)
+                            <img src="{{ $n->attachment }}" alt="thumbnail" class="img-fluid">
+                            @elseif($n->gambarmuka)
+                            <img src="{{ asset('storage/') }}/{{  $n->gambarmuka->path }}" class="img-fluid"
+                                alt="{{ $n->gambarmuka->file_name }}">
+                            @else
+                            <img src="{{ asset('img/soulofjava.jpg') }}" alt="soul of java" class="img-fluid">
                             @endif
-                            @empty
-                            <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
-                            @endforelse
                         </div>
                         <span class="post-date">{{ \Carbon\Carbon::parse($n->date)->format('l') }}, {{
                             \Carbon\Carbon::parse( $n->date

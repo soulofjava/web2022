@@ -31,7 +31,6 @@ class FrontMenuSeeder extends Seeder
             [
                 'menu_parent' => '2',
                 'menu_name' => 'Profil OPD',
-                'kategori' => 'INFORMASI_ST_02',
                 'menu_url' => Str::slug('Profil OPD', '-')
             ],
             [
@@ -42,13 +41,11 @@ class FrontMenuSeeder extends Seeder
             [
                 'menu_parent' => '2',
                 'menu_name' => 'Visi Misi',
-                'kategori' => 'INFORMASI_ST_01',
                 'menu_url' => Str::slug('Visi Misi', '-')
             ],
             [
                 'menu_parent' => '2',
                 'menu_name' => 'Tupoksi',
-                'kategori' => 'INFORMASI_ST_01',
                 'menu_url' => Str::slug('Tupoksi', '-')
             ],
             [
@@ -65,7 +62,6 @@ class FrontMenuSeeder extends Seeder
             [
                 'menu_parent' => '4',
                 'menu_name' => 'Profil Pimpinan',
-                'kategori' => 'INFORMASI_ST_01',
                 'menu_url' => Str::slug('Profil Pimpinan', '-')
             ],
             [
@@ -76,7 +72,6 @@ class FrontMenuSeeder extends Seeder
             [
                 'menu_parent' => '4',
                 'menu_name' => 'Agenda Pimpinan',
-                'kategori' => 'INFORMASI_ST_01',
                 'menu_url' => Str::slug('Agenda Pimpinan', '-')
             ],
             // menu ppid
@@ -98,7 +93,6 @@ class FrontMenuSeeder extends Seeder
             [
                 'menu_parent' => '12',
                 'menu_name' => 'SK PPID',
-                'kategori' => 'INFORMASI_ST_02',
                 'menu_url' => Str::slug('SK PPID', '-')
             ],
             [
@@ -125,7 +119,6 @@ class FrontMenuSeeder extends Seeder
             [
                 'menu_parent' => '13',
                 'menu_name' => 'Profil Singkat',
-                'kategori' => 'INFORMASI_ST_01',
                 'menu_url' => Str::slug('Profil Singkat', '-')
             ],
             [
@@ -243,7 +236,7 @@ class FrontMenuSeeder extends Seeder
             ],
             // layanan menu
             [
-                'menu_parent' => '12',
+                'menu_parent' => '1',
                 'menu_name' => 'Layanan',
                 'menu_url' => Str::slug('Layanan', '-')
             ],

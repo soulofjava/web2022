@@ -125,8 +125,8 @@
                                         <!-- <a class="thm-bg rounded-circle" href="javascript:void(0);" title=""><i
                                                 class="fab fa-facebook-f"></i></a> -->
                                         <img class="img-fluid rounded-circle"
-                                            src="https://ui-avatars.com/api/?name={{ $data->upload_by }}"
-                                            alt="{{ $data->upload_by }}">
+                                            src="https://ui-avatars.com/api/?name={{ $data->uploader->name }}"
+                                            alt="{{ $data->uploader->name }}">
                                         <!-- <img class="img-fluid rounded-circle"
                                             src="assets/images/resources/about-widget-img.jpg" alt="About Image"> -->
                                     </div>
@@ -135,7 +135,7 @@
                                         volutpat nisl, sit amet convallis nun”</p>
                                     <span class="d-block"><a href="{{ url('/news-author', $data->upload_by) }}">
                                             {{
-                                            $data->upload_by }}
+                                            $data->uploader->name }}
                                         </a></span>
                                 </div>
                             </div>
@@ -203,8 +203,9 @@
                                     @foreach($news as $n)
                                     <div class="blog-mini-post w-100">
                                         <a href="{{ url('/news-detail', $n->slug) }}">
-                                            @if(file_exists(public_path('storage/'.$n->path)))
-                                            <img class="img-fluid" src="{{ asset('storage/') }}/{{ $n->path}}"
+                                            @if($n->gambarmuka)
+                                            <img class="img-fluid"
+                                                src="{{ asset('storage/') }}/{{ $n->gambarmuka->path}}"
                                                 alt="{{ $n->title}}">
                                             @else
                                             <img class="img-fluid" src="{{ asset('img/soulofjava.jpg') }}"

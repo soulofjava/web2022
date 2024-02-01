@@ -10,7 +10,7 @@
                         <i class="material-icons">person</i>
                     </div>
                     <div class="card-content">
-                        <h4 class="card-title">Form Tambah Pengguna</h4>
+                        <h4 class="card-title">Form Create User</h4>
                         @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>

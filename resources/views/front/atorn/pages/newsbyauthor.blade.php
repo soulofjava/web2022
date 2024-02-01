@@ -23,13 +23,13 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-7 col-sm-12">
-                @forelse($data as $author)
+                @foreach($data as $author)
                 <div class="services-details">
                     <div class="img">
                         <a href="{{ url('/news-detail', $author->slug) }}">
                             @forelse($author->gambar as $gambar)
                             @if($loop->iteration == 1)
-                            <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
+                            <img src="{{ route('helper.show-picture', ['path' => $gambar->path]) }}" class="img-fluid"
                                 alt="{{ $gambar->file_name }}">
                             @endif
                             @empty
@@ -81,13 +81,7 @@
                         </div>
                     </div>
                 </div>
-                @empty
-                <div class="text-center">
-                    Data Tidak Ditemukan
-                </div>
-                @endforelse
-                <!-- Pagination -->
-                {{ $data->withQueryString()->links('vendor.pagination.atorn') }}
+                @endforeach
             </div>
             <div class="col-lg-4 col-md-5 col-sm-12">
                 <div class="side-bar">
@@ -104,8 +98,8 @@
                         <div class="single-recent-post">
                             <div class="recent-post-img">
                                 <a href="{{ url('/news-detail', $n->slug) }}">
-                                    @if(file_exists(public_path('storage/'.$n->path)))
-                                    <img src="{{ asset('storage/') }}/{{ $n->path}}">
+                                    @if(Storage::get($n->gambarmuka->path ?? ''))
+                                    <img src="{{ route('helper.show-picture', ['path' => $n->path]) }}">
                                     @else
                                     <img src="{{ asset('img/soulofjava.jpg') }}">
                                     @endif

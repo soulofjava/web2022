@@ -14,8 +14,8 @@ use App\Http\Controllers\InboxController;
 use App\Http\Controllers\RelatedLinkController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\ComRegionController;
-use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\HelperController;
 use App\Http\Controllers\MigrasiDataController;
 use App\Http\Controllers\SSO\SSOController;
 use App\Models\Counter;
@@ -36,13 +36,6 @@ use Illuminate\Support\Facades\Redirect;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-// Route::group(
-//     ['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']],
-//     function () {
-//         \UniSharp\LaravelFilemanager\Lfm::routes();
-//     }
-// );
 
 Route::any('/register', function () {
     return Redirect::to(route('login'));
@@ -81,12 +74,12 @@ Route::get('/', function () {
             $response = $response->collect();
             $berita =   array_slice($response['data']['data'], 0, 3);
         } catch (\Exception $e) {
+            // hndle the exception
             $berita = [];
         }
 
-        $news = News::with('gambar', 'gambarmuka', 'uploader')->orderBy('date', 'desc')->paginate(9);
+        $news = News::with('gambar')->orderBy('date', 'desc')->paginate(9);
         return view('front.' . $themes->themes_front . '.pages.index', compact('news', 'berita'));
-        // return view('front.index', compact('news', 'berita'));
     } else {
         $data = Themes::all();
         return view('front.setup', compact('data'));
@@ -94,14 +87,12 @@ Route::get('/', function () {
 })->name('root')->middleware('data_web');
 
 Route::group(['middleware' => 'data_web'], function () {
-    Route::get('global-search', [FrontController::class, 'globalsearch'])->name('global.search');
     Route::get('newscategory/{id}', [FrontController::class, 'newsByCategory']);
     Route::get('/detail-berita/{id}', [FrontController::class, 'detailberita'])->name('detail-berita');
     Route::get('/news-detail/{slug}', [FrontController::class, 'newsdetail'])->name('news.detail');
     Route::get('news-author/{id}', [FrontController::class, 'newsbyauthor'])->name('news.author');
     Route::get('/news-search', [FrontController::class, 'newsbysearch'])->name('news.search');
     Route::get('newsall', [FrontController::class, 'newsall'])->name('news.all');
-    Route::get('/photos', [FrontController::class, 'galleryall'])->name('photo.all');
     Route::post('/setup', [FrontController::class, 'setup'])->name('setup-first');
     Route::get('/tentang-kami', [FrontController::class, 'tentangkami'])->name('tentang-kami');
     Route::get('/latar-belakang', [FrontController::class, 'latarbelakang'])->name('latar-belakang');
@@ -115,7 +106,6 @@ Route::group(['middleware' => 'data_web'], function () {
     Route::post('guest', [FrontController::class, 'addguest']);
     Route::resource('buku-tamu', GuestBookController::class);
     Route::get('agenda', [FrontController::class, 'event']);
-    Route::get('download-area', [FrontController::class, 'downloadarea']);
     Route::get('berita', [FrontController::class, 'newsall']);
     Route::get('/reload-captcha', [FrontController::class, 'reloadCaptcha']);
 });
@@ -126,23 +116,19 @@ Route::middleware(['auth:sanctum', 'verified', 'data_web', 'cek_inbox'])->get('/
 })->name('dashboard');
 
 Route::group(['middleware' => ['auth', 'data_web', 'cek_inbox'], 'prefix' => 'admin'], function () {
-    Route::group(['middleware' => ['role:superadmin']], function () {
-        Route::resource('themes', ThemesController::class);
-    });
     Route::group(['middleware' => ['role:superadmin|admin']], function () {
         Route::resource('settings', WebsiteController::class);
         Route::resource('user', UserController::class);
+        Route::resource('themes', ThemesController::class);
         Route::resource('frontmenu', FrontMenuController::class);
         Route::resource('relatedlink', RelatedLinkController::class);
         Route::resource('component', ComponentController::class);
     });
     Route::resource('news', NewsController::class);
-    Route::resource('download', DownloadController::class);
     Route::resource('myprofile', CredentialController::class);
     Route::resource('event', AgendaController::class);
     Route::resource('inbox', InboxController::class);
     Route::post('sendCentang', [ComponentController::class, 'changeAccess'])->name('centang');
-    Route::post('sendCentangFM', [FrontMenuController::class, 'changeAccess'])->name('centangfm');
     Route::get('getAlamat', [WebsiteController::class, 'location']);
     Route::resource('file_image', FileController::class);
 
@@ -155,9 +141,6 @@ Route::group(['middleware' => ['auth', 'data_web', 'cek_inbox'], 'prefix' => 'ad
 
 // get data for front menu parent
 Route::get('/cari', [FrontMenuController::class, 'loadData'])->name('carimenu');
-Route::get('/copydatapostingfromwonosobokab', [FrontController::class, 'copydatapostingfromwonosobokab']);
-Route::get('/datappid', [FrontController::class, 'datappid'])->name('datappid');
-Route::get('/datappid2', [FrontController::class, 'datappid2'])->name('datappid2');
 
 Route::get('migrate', [MigrasiDataController::class, 'insert']);
 
@@ -168,3 +151,4 @@ Route::get('kelurahan', [ComRegionController::class, 'kelurahan'])->name('kelura
 Route::get('template_email', [FrontController::class, 'template_email']);
 
 // Route::get('delete_image/{id?}', [FileController::class, 'destroy']);
+Route::get('show-picture', [HelperController::class, 'showPicture'])->name('helper.show-picture');

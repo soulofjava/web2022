@@ -7,9 +7,6 @@
             <h2>Blog</h2>
             <p>Recent posts from our Blog</p>
         </header>
-        <div class="py-3">
-            <x-head-category_news bc='#47b2e4' tc='white' />
-        </div>
         <x-cari-news />
         <div class="row mt-3">
             @foreach($news as $n)
@@ -19,7 +16,7 @@
                     <div>
                         @forelse($n->gambar as $gambar)
                         @if($loop->iteration == 1)
-                        <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
+                        <img src="{{ route('helper.show-picture', ['path' => $gambar->path]) }}" class="img-fluid"
                             alt="{{ $gambar->file_name }}">
                         @endif
                         @empty

@@ -7,11 +7,9 @@ use App\Jobs\KirimEmailInbox;
 use App\Models\Agenda;
 use App\Models\File;
 use App\Models\Component;
-use App\Models\Download;
 use App\Models\FrontMenu;
 use Illuminate\Http\Request;
 use App\Models\News;
-use App\Models\Gallery;
 use App\Models\GuestBook;
 use App\Models\Inbox;
 use App\Models\User;
@@ -22,7 +20,6 @@ use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Storage;
 
 class FrontController extends Controller
 {
@@ -44,12 +41,12 @@ class FrontController extends Controller
                 function ($combinedData) {
                     if ($combinedData->slug) {
                         $actionBtn = '<td class="text-center">
-                                <a target="_blank" href="' . url('news-detail', $combinedData->menu_url ?? $combinedData->slug) . '" class="btn" style="color: white; background-color: #FF5E14;">LIHAT
+                                <a target="_blank" href="' . url('news-detail', $combinedData->menu_url ?? $combinedData->slug) . '" class="btn btn-primary">LIHAT
                                     DATA</a>
                             </td>';
                     } else {
                         $actionBtn = '<td class="text-center">
-                                <a target="_blank" href="' . url('page', $combinedData->menu_url ?? $combinedData->slug) . '" class="btn" style="color: white; background-color: #FF5E14;">LIHAT
+                                <a target="_blank" href="' . url('page', $combinedData->menu_url ?? $combinedData->slug) . '" class="btn btn-primary">LIHAT
                                     DATA</a>
                             </td>';
                     }
@@ -89,7 +86,7 @@ class FrontController extends Controller
         Seo::seO();
         $data = News::with('gambar', 'uploader')->where('slug', $slug)->first();
         views($data)->cooldown(5)->record();
-        $news = News::with('gambar')->orderBy('date', 'desc')->paginate(5);
+        $news = News::with('gambarmuka')->latest('date')->paginate(5);
         $file = File::where('id_news', $data->attachment)->get();
 
         $prev = $data->id - 1;
@@ -114,10 +111,10 @@ class FrontController extends Controller
     public function newsByAuthor($id)
     {
         Seo::seO();
-        $hasil = 'All post by : ' . $id;
-        $data = News::with('gambar')->where('upload_by', '=', $id)->orderBy("date", "desc")->paginate(5);
-        $news = News::latest('date')->take(5)->get();
-        return view('front.' . $this->themes->themes_front . '.pages.newsbyauthor', compact('data', 'news', 'hasil'));
+        $usere = User::find($id);
+        $hasil = 'All post by : ' . $usere->name;
+        $data = News::with('gambar', 'uploader')->where('upload_by', '=', $id)->orderBy("date", "desc")->paginate(5);
+        return view('front.' . $this->themes->themes_front . '.pages.newsbyauthor', compact('data', 'hasil'));
     }
 
     public function newsBySearch(Request $request)
@@ -138,39 +135,12 @@ class FrontController extends Controller
         return view('front.' . $this->themes->themes_front . '.pages.news', compact('news', 'sideposts'));
     }
 
-    public function downloadarea(Request $request)
-    {
-        Seo::seO();
-        if ($request->ajax()) {
-            $data = Download::latest();
-            return DataTables::of($data)
-                ->addIndexColumn()
-                ->addColumn(
-                    'download',
-                    function ($data) {
-                        $actionBtn = '<a href="' . Storage::url($data->path) . '" target="_blank" class="btn" style="color: white; background-color: #FF5E14;">Download</a>';
-                        return $actionBtn;
-                    }
-                )
-                ->rawColumns(['download'])
-                ->make(true);
-        }
-        return view('front.' . $this->themes->themes_front . '.component.download-area');
-    }
-
     public function newsByCategory($id)
     {
         Seo::seO();
         $news = News::where('kategori', $id)->latest('date')->paginate(12);
         $sideposts = News::latest('date')->take(5)->get();
         return view('front.' . $this->themes->themes_front . '.pages.news', compact('news', 'sideposts'));
-    }
-
-    public function galleryall(Request $request)
-    {
-        Seo::seO();
-        $gallery = Gallery::with('gambar')->orderBy('upload_date', 'desc')->paginate(12);
-        return view('front.' . $this->themes->themes_front . '.pages.gallery', compact('gallery'));
     }
 
     public function page($id)
@@ -249,44 +219,6 @@ class FrontController extends Controller
         }
     }
 
-    public function globalSearch(Request $request)
-    {
-        Seo::seO();
-        $cari = $request->kolomcari;
-        $hasil = 'Hasil Pencarian : ' . $cari;
-        $data = News::with('kategorinya')->whereDate('date', 'like', '%' . $cari . '%')->orWhere('title', 'like', '%' . $cari . '%')->orderBy("date", "desc")->get();
-        $data2 = FrontMenu::with('kategorinya')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like', '%' . $cari . '%')->get();
-
-        $combinedData = $data->concat($data2);
-        // return $combinedData;
-
-        if ($request->ajax()) {
-            return DataTables::of($combinedData)
-                ->addIndexColumn()
-                ->addColumn(
-                    'action',
-                    function ($combinedData) {
-                        if ($combinedData->menu_url) {
-                            $actionBtn = '<td class="text-center">
-                            <a target="_blank" href="' . url('page', $combinedData->menu_url) . '" class="btn btn-sm" style="color: white; background-color: #FF5E14;">LIHAT
-                            DATA</a>
-                            </td>';
-                        } else {
-                            $actionBtn = '<td class="text-center">
-                                <a target="_blank" href="' . url('news-detail', $combinedData->slug) . '" class="btn btn-sm" style="color: white; background-color: #FF5E14;">LIHAT
-                                    DATA</a>
-                            </td>';
-                        }
-                        return $actionBtn;
-                    }
-                )
-                ->rawColumns(['action'])
-                ->make(true);
-        }
-
-        return view('front.' . $this->themes->themes_front . '.pages.globalsearch', compact('hasil', 'combinedData'));
-    }
-
     public function event(Request $request)
     {
         Seo::seO();
@@ -334,6 +266,26 @@ class FrontController extends Controller
         }
     }
 
+    // kampung pancasila
+    public function tentangkami()
+    {
+        return view('front.kampungpancasila.tentang-kami');
+    }
+
+    public function latarbelakang()
+    {
+        return view('front.kampungpancasila.latar-belakang');
+    }
+
+    public function tujuan()
+    {
+        return view('front.kampungpancasila.tujuan');
+    }
+
+    public function kampungpancasila()
+    {
+        return view('front.kampungpancasila.kampung-pancasila');
+    }
 
     // sql ppid setda
     public function loadsql()

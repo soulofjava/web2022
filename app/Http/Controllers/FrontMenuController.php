@@ -25,15 +25,10 @@ class FrontMenuController extends Controller
                 ->addColumn(
                     'action',
                     function ($data) {
-                        if ($data->id <= 45) {
-                            $actionBtn = '<div class="list-icons d-flex justify-content-center text-center">
-                        <a href="' . route('frontmenu.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> edit</a>';
-                        } else {
-                            $actionBtn = '<div class="list-icons d-flex justify-content-center text-center">
+                        $actionBtn = '<div class="list-icons d-flex justify-content-center text-center">
                         <a href="' . route('frontmenu.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> edit</a>
                            <a href="' . route('frontmenu.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> delete</a>
                     </div>';
-                        }
                         return $actionBtn;
                     }
                 )
@@ -99,25 +94,14 @@ class FrontMenuController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->acb) {
-            $data = [
-                'menu_parent' => $request->menu_parent,
-                'menu_name' => $request->menu_name,
-                'menu_url' => $request->menu_url,
-                'link' => 1
-            ];
-        } else {
-            $data = [
-                'menu_parent' => $request->menu_parent,
-                'menu_name' => $request->menu_name,
-                'menu_url' => Str::slug($request->menu_name),
-                'content' => $request->content,
-                'link' => 0
-            ];
-        }
-
-        FrontMenu::insert($data);
-
+        $validated = $request->validate(
+            [
+                'menu_name' => 'required',
+            ],
+        );
+        FrontMenu::create($request->except('_token') + [
+            'menu_url' => Str::slug($request->menu_name)
+        ]);
         return redirect(route('frontmenu.index'))->with(['success' => 'Data added successfully!']);
     }
 
@@ -154,28 +138,9 @@ class FrontMenuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $o = FrontMenu::find($id);
-
-        if ($request->acb) {
-            $o->content = null;
-            $data = [
-                'menu_parent' => $request->menu_parent,
-                'menu_name' => $request->menu_name,
-                'menu_url' => $request->menu_url,
-                'link' => 1
-            ];
-        } else {
-            $data = [
-                'menu_parent' => $request->menu_parent,
-                'menu_name' => $request->menu_name,
-                'menu_url' => Str::slug($request->menu_name),
-                'content' => $request->content,
-                'link' => 0
-            ];
-        }
-
-        $o->update($data);
-
+        FrontMenu::find($id)->update(
+            $request->except(['_token']),
+        );
         return redirect(route('frontmenu.index'))->with(['success' => 'Data has been successfully changed!']);
     }
 

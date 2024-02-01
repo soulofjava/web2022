@@ -26,6 +26,51 @@
     </div>
     <!-- End Hero Slider Area -->
 
+    @if($gallery->count() != 0)
+    <!-- Service Area -->
+    <div class="service-area pt-100 pb-70">
+        <div class="container">
+            <div class="section-title">
+                <!-- <span>Gallery</span> -->
+                <h2>Latest Photo From Our Blog</h2>
+                <a href="{{ url('photos') }}">Show All Photos</a>
+            </div>
+
+            <div class="row">
+                @foreach($gallery as $g)
+                <div class="col-lg-4 col-sm-6" style="display: flex">
+                    <div class="service-card">
+                        @foreach($g->gambar as $pic)
+                        @if($loop->iteration == 1)
+                        <a data-fancybox="gallery-group-{{ $pic->id_news }}"
+                            href="{{ asset('storage/') }}/{{ $pic->path }}" data-caption="{{ $g->description }}">
+                            <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid"
+                                style="height: 250px;">
+                        </a>
+                        @else
+                        <div style="display:none;">
+                            <a data-fancybox="gallery-group-{{ $pic->id_news }}"
+                                href="{{ asset('storage/') }}/{{ $pic->path }}" data-caption="{{ $g->description }}">
+                                <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid">
+                            </a>
+                        </div>
+                        @endif
+                        @endforeach
+                        <div class="service-text">
+                            <p>{{ $g->description }}</p>
+                        </div>
+                    </div>
+                </div>
+                @if($loop->iteration == 6)
+                @break
+                @endif
+                @endforeach
+            </div>
+        </div>
+    </div>
+    <!-- End Service Area -->
+    @endif
+
     <!-- Blog Area -->
     @if($news->count() != 0)
     <div class="blog-area pt-100 pb-70">
@@ -45,7 +90,7 @@
                         <a href="{{ url('/news-detail', $n->slug) }}">
                             @forelse($n->gambar as $gambar)
                             @if($loop->iteration == 1)
-                            <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
+                            <img src="{{ route('helper.show-picture', ['path' => $gambar->path]) }}" class="img-fluid"
                                 alt="{{ $gambar->file_name }}">
                             @endif
                             @empty

@@ -20,14 +20,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-8 entries">
-                    @forelse($data as $author)
+                    @foreach($data as $author)
                     <article class="entry">
                         <div class="card mb-3">
                             <div class="entry-img" style="text-align: center;">
                                 @forelse($author->gambar as $gambar)
                                 @if($loop->iteration == 1)
-                                <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
-                                    alt="{{ $gambar->file_name }}">
+                                <img src="{{ route('helper.show-picture', ['path' => $gambar->path]) }}"
+                                    class="img-fluid" alt="{{ $gambar->file_name }}">
                                 @endif
                                 @empty
                                 <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
@@ -59,15 +59,11 @@
                         </div>
 
                     </article>
-                    @empty
-                    <div class="text-center">
-                        Data Tidak Ditemukan
-                    </div>
-                    @endforelse
+                    @endforeach
 
                     <div class="row" data-aos="fade-up" data-aos-delay="100">
                         <div class="col-lg-12 d-flex justify-content-center">
-                            {!! $data->withQueryString()->links() !!}
+                            {!! $data->links() !!}
                         </div>
                     </div>
 
@@ -89,8 +85,8 @@
                         <div class="card mb-3" style="max-width: 540px;">
                             <div class="row g-0">
                                 <div class="col-md-4 d-flex justify-content-center p-1">
-                                    @if(file_exists(public_path('storage/'.$n->path)))
-                                    <img src="{{ asset('storage/') }}/{{ $n->path}}"
+                                    @if(Storage::get($n->gambarmuka->path ?? ''))
+                                    <img src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
                                         class="img-fluid rounded-start rounded-end">
                                     @else
                                     <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">

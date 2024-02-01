@@ -71,30 +71,22 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        $val = $request->validate([
+        $request->validate([
             'title' => 'required',
             'date' => 'required',
             'description' => 'required',
         ]);
 
-        if ($request->datadip) {
-            $id = News::create($request->except(['_token', 'datadip']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
-        } else {
-            $id = News::create($val + ['kategori' => 'INFORMASI_ST_02', 'upload_by' => auth()->user()->id]);
-        }
+        $id = News::create($request->except(['_token', 'document', 'tag']) + ['upload_by' => auth()->user()->id]);
+
+        // tagging postingan
+        $id->tag($request->tag);
 
         if ($request->document) {
             foreach ($request->document as $df) {
-                $path = storage_path('app/public/gallery');
-
-                if (!file_exists($path)) {
-                    mkdir($path, 0777, true);
-                }
-
-                File::move(storage_path('tmp/uploads/') . $df, storage_path('app/public/gallery/') . $df);
                 Files::create([
                     'id_news' => $id->id,
-                    'path' => 'gallery/' . $df,
+                    'path' =>  '/news/' . $df,
                     'file_name' => $df
                 ]);
             }
@@ -122,9 +114,17 @@ class NewsController extends Controller
     public function edit($id)
     {
         $data = News::find($id);
-        $highlight = ComCodes::where('code_group', 'highlight_news')->pluck('code_nm');
-        $categori = ComCodes::where('code_group', 'kategori_news')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
-        return view('back.a.pages.news.edit', compact('data', 'highlight', 'categori'));
+        $terpilih = [];
+
+        $highlight = ComCodes::where('code_group', 'HIGHLIGHT_NEWS')->pluck('code_nm');
+        $categori = ComCodes::where('code_group', 'KATEGORI_NEWS')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
+
+        // untuk list yang terpilih
+        foreach ($data->tagged as $key => $value) {
+            array_push($terpilih, strtoupper($value->tag_name));
+        }
+
+        return view('back.a.pages.news.edit', compact('data', 'highlight', 'categori', 'terpilih'));
     }
 
     /**
@@ -136,34 +136,25 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validated = $request->validate([
+        $request->validate([
             'title' => 'required',
             'description' => 'required',
             'date' => 'required',
         ]);
 
-        $isa =  News::with('gambar')->get()->find($id);
-        $isa->slug =  null;
+        $data = News::find($id);
+        $data->slug = null;
 
-        if ($request->datadip) {
-            foreach ($isa->gambar as $key) {
-                if (Storage::exists($key->path)) {
-                    Storage::delete($key->path);
-                }
-                Files::destroy($key->id);
-            }
+        $data->update($request->except(['_token', 'document', 'tag']) + ['upload_by' => auth()->user()->id]);
 
-            $isa->update($request->except(['_token', 'datadip']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
-        } else {
-            $isa->update($validated + ['kategori' => 'INFORMASI_ST_02', 'dip' => false, 'dip_tahun' => null, 'upload_by' => auth()->user()->id]);
-        }
+        // tag ulang postingan
+        $data->retag($request->tag);
 
         if ($request->document) {
             foreach ($request->document as $df) {
-                File::move(storage_path('tmp/uploads/') . $df, storage_path('app/public/gallery/') . $df);
                 Files::create([
                     'id_news' => $id,
-                    'path' => 'gallery/' . $df,
+                    'path' =>  '/news/' . $df,
                     'file_name' => $df
                 ]);
             }
@@ -181,27 +172,24 @@ class NewsController extends Controller
     public function destroy($id)
     {
         $gambar = News::with('gambar')->where('id', $id)->get();
+
         foreach ($gambar as $key) {
             foreach ($key->gambar as $value) {
-                if (Storage::exists($value->path)) {
-                    Storage::delete($value->path);
-                }
+                // Delete the file
+                Storage::disk('gcs')->delete('/news/' . $value->file_name);
             }
         }
 
         $data = News::find($id);
-        // delete related
+        // delete related   
         $data->gambar()->delete();
 
         return $data->delete();
     }
 
-    // pindah dari wonosobokab
-    public function insert()
+    public function insert(Request $request)
     {
-        set_time_limit(0);
-        $tables = DB::select('SHOW TABLES');
-        $data = DB::table('postingan')->where('domain', 'arpusda.wonosobokab.go.id')->get();
+        $data = DB::table('posting')->get();
         foreach ($data as $dt) {
             $file = DB::table('attachment')
                 ->where('id_tabel', $dt->id_posting)
@@ -210,9 +198,8 @@ class NewsController extends Controller
                 $fi = [
                     'id_news' => $f->id_tabel,
                     'file_name' => $f->file_name,
-                    'path' => 'gallery/' . $f->file_name,
                 ];
-                Files::insert($fi);
+                File::create($fi);
             }
             $pk = [
                 'title' => $dt->judul_posting,
@@ -222,7 +209,7 @@ class NewsController extends Controller
                 'attachment' => $dt->id_posting,
                 'slug' => SlugService::createSlug(News::class, 'slug', $dt->judul_posting),
             ];
-            News::insert($pk);
+            News::create($pk);
         }
         return 'selesai';
     }

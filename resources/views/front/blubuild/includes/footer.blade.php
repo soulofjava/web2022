@@ -86,7 +86,9 @@
 </footer>
 <div class="copyright w-100 text-center bg-color6 position-relative">
     <div class="container">
-        <p>&copy; Copyright 2022. Diskominfo Kab. Wonosobo by <a href="#"> Isa Maulana Tantra
+        <p>&copy; Copyright 2022. Diskominfo Kab. Wonosobo by <a target="_blank"
+                href="https://soulofjava.github.io/myportofolio/"> Isa
+                Maulana Tantra
             </a></p>
     </div>
 </div>

@@ -30,7 +30,7 @@
             <div class="row g-5">
                 <div class="col">
                     <div class="row gy-4 posts-list">
-                        @forelse($data as $n)
+                        @foreach($data as $n)
                         <div class="col-lg-4">
                             <article class="d-flex flex-column">
                                 <div class="post-img">
@@ -60,15 +60,11 @@
                                 </div>
                             </article>
                         </div>
-                        @empty
-                        <div class="text-center">
-                            Data Tidak Ditemukan
-                        </div>
-                        @endforelse
+                        @endforeach
                     </div>
                     <div class="row mt-3" data-aos="fade-up" data-aos-delay="100">
                         <div class="col-lg-12 d-flex justify-content-center">
-                            {!! $data->withQueryString()->links() !!}
+                            {!! $data->links() !!}
                         </div>
                     </div>
                 </div>

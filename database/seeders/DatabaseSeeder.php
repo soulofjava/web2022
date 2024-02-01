@@ -6,9 +6,6 @@ use App\Models\GuestBook;
 use App\Models\RelatedLink;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use App\Models\Role;
-use App\Models\Themes;
-use App\Models\User;
 use Faker\Factory as Faker;
 
 class DatabaseSeeder extends Seeder
@@ -23,52 +20,43 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RoleSeeder::class,
             UserSeeder::class,
-            FrontMenuSeeder::class,
+            // FrontMenuSeeder::class,
             ThemesSeeder::class,
             ComCodes::class,
             PermissionSeeder::class,
             ComponentSeeder::class,
-            // RegionSeeder::class,
         ]);
 
         // \App\Models\User::factory(10)->create();
         DB::table('websites')->insert([
-            'web_name' => 'Bappeda Kabupaten Wonosobo',
-            'web_description' => 'Website Resmi Bappeda Kabupaten Wonosobo',
-            'email' => 'bappeda@wonosobokab.go.id',
-            'address' => 'Jl. Pangeran Diponegoro No. 8 Wonosobo Timur Kecamatan Wonosobo Kabupaten Wonosobo',
-            'phone' => '(0286) 321050',
-            'instagram' => 'https://www.instagram.com/diskominfo_wonosobo/?hl=id',
+            'web_name' => 'Puskesmas Kaliwiro',
+            'web_description' => '"Hello World!"',
+            'email' => 'pkmxwiro@gmail.com',
+            'address' => 'Jln. Selomanik No.02 Kaliwiro Wonosobo',
+            'phone' => '081390087602 / 088229758069',
+            'instagram' => 'https://www.instagram.com/puskesmaskaliwiro/',
             'twitter' => 'https://twitter.com/diskominfo_wsb',
-            'facebook' => 'https://www.facebook.com/wonosobohebat/',
-            'youtube' => 'https://www.youtube.com/@bappedawonosobo7742',
+            'facebook' => 'https://www.facebook.com/p/Puskesmas-Kaliwiro-100066666039544/',
+            'youtube' => 'https://www.youtube.com/@puskesmaskaliwirotv',
             'url_stream' => '#',
-            'themes_front' => 'buildco',
+            'themes_front' => 'flexstart',
             'themes_back' => 'back.a',
-            'open_hours' => "Senin - Kamis (07:00 - 16:00 WIB) Jum'at (07:00 - 11:00 WIB)",
+            'open_hours' => "Senin - Kamis (08:00 - 12:00 WIB) Jum'at - Sabtu (08:00 - 10:00 WIB)",
         ]);
 
         $related = [
             [
-                'name' => 'SIPD',
-                'url' => 'https://wonosobokab.sipd.kemendagri.go.id/daerah',
+                'name' => 'Website Pemkab Wonosobo',
+                'url' => 'https://website.wonosobokab.go.id/',
             ],
             [
-                'name' => 'Bappenas',
-                'url' => 'https://www.bappenas.go.id/',
+                'name' => 'Dashboard Smartcity',
+                'url' => 'https://smartcity.wonosobokab.go.id/',
             ],
             [
-                'name' => 'Bappeda Jateng',
-                'url' => 'https://bappeda.jatengprov.go.id/',
-            ],
-            [
-                'name' => 'Evaluasi Kinerja',
-                'url' => 'https://gardu.wonosobokab.go.id/',
-            ],
-            [
-                'name' => 'Agendane Bappeda',
-                'url' => 'https://bappedawonosobo.online/agenda_bappeda/v_agenda',
-            ],
+                'name' => 'Website Diskominfo Wonosobo',
+                'url' => 'https://diskominnfo.wonosobokab.go.id/',
+            ]
         ];
 
         foreach ($related as $rr) {

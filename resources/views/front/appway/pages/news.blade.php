@@ -50,8 +50,8 @@
                                 <a href="{{ url('/news-detail', $n->slug) }}">
                                     @forelse($n->gambar as $gambar)
                                     @if($loop->iteration == 1)
-                                    <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
-                                        alt="{{ $gambar->file_name }}">
+                                    <img src="{{ route('helper.show-picture', ['path' => $gambar->path]) }}"
+                                        class="img-fluid" alt="{{ $gambar->file_name }}">
                                     @endif
                                     @empty
                                     <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
@@ -136,8 +136,8 @@
                             <div class="post">
                                 <figure class="image">
                                     <a href="{{ url('/news-detail', $n->slug) }}">
-                                        @if(file_exists(public_path('storage/'.$n->path)))
-                                        <img src="{{ asset('storage/') }}/{{ $n->path}}"
+                                        @if(Storage::get($n->gambarmuka->path ?? ''))
+                                        <img src="{{ route('helper.show-picture', ['path' => $n->path]) }}"
                                             class="img-fluid rounded-start rounded-end" alt="{{ $n->title }}">
                                         @else
                                         <img src="{{ asset('img/soulofjava.jpg') }}" alt="soulofjava">

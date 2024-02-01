@@ -196,8 +196,9 @@
                                     @foreach($news as $n)
                                     <div class="blog-mini-post w-100">
                                         <a href="{{ url('/news-detail', $n->slug) }}">
-                                            @if(file_exists(public_path('storage/'.$n->path)))
-                                            <img class="img-fluid" src="{{ asset('storage/') }}/{{ $n->path}}"
+                                            @if(Storage::get($n->gambarmuka->path ?? ''))
+                                            <img class="img-fluid"
+                                                src="{{ route('helper.show-picture', ['path' => $n->path]) }}"
                                                 alt="{{ $n->title}}">
                                             @else
                                             <img class="img-fluid" src="{{ asset('img/soulofjava.jpg') }}"

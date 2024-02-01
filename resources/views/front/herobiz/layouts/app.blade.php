@@ -12,7 +12,6 @@
     <a href="#" id="websitename" hidden>{{ $data_website->web_name }}</a>
     @include('sweetalert::alert')
     @include('front.herobiz.includes.header')
-
     @yield('content')
     @include('front.herobiz.includes.footer')
     @stack('before-script')

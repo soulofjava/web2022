@@ -7,31 +7,29 @@ use App\Models\User;
 use Corcel\Model\Post;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
 class MigrasiDataController extends Controller
 {
     public function index()
     {
-        set_time_limit(0);
         // all post
         $posts = Post::whereNot('post_title', '')->get();
         return response()->json($posts, 200);
     }
 
-    public function insert()
+    public function post_id()
     {
         // post by id
-        $posts = Post::find(6590);
+        $posts = Post::find(2641);
         return response()->json($posts, 200);
     }
 
-    public function insert2()
+    public function insert()
     {
         set_time_limit(0);
 
         // insert into database laravel
-        $posts = Post::where('post_title', '!=', '')->where('post_content', '!=', '')->whereYear('post_date', 2023)->published()->get();
+        $posts = Post::where('post_title', '!=', '')->where('post_content', '!=', '')->published()->get();
 
         foreach ($posts as $key) {
             $data = ([

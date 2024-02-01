@@ -4,7 +4,7 @@
     <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative"
         data-aos="zoom-out">
         @if($data_website->image_hero)
-        <img src="{{ asset('storage') }}/{{ $data_website->image_hero }}" class="img-fluid animated"
+        <img src="{{ route('helper.show-picture', ['path' => $data_website->image_hero]) }}" class="img-fluid animated"
             alt="{{ $data_website->image_hero_name }}">
         @else
         <img src="{{ asset('assets/front/herobiz/assets/img/hero-carousel/hero-carousel-3.svg') }}"
@@ -29,8 +29,6 @@
                 <p>Recent posts form our Blog</p>
             </div>
 
-            <x-head-category_news bc='var(--color-primary)' tc='white' />
-
             <div class="row mt-3">
                 @foreach($news as $n)
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200" style="display: flex">
@@ -38,7 +36,7 @@
                         <div class="post-img">
                             @forelse($n->gambar as $gambar)
                             @if($loop->iteration == 1)
-                            <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
+                            <img src="{{ route('helper.show-picture', ['path' => $gambar->path]) }}" class="img-fluid"
                                 alt="{{ $gambar->file_name }}">
                             @endif
                             @empty

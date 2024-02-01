@@ -17,7 +17,7 @@
                             </div>
                             <div class="col-lg-6 thumb wow fadeInRight" data-wow-duration="1s">
                                 @if($data_website->image_hero)
-                                <img src="{{ asset('storage') }}/{{ $data_website->image_hero }}">
+                                <img src="{{ route('helper.show-picture', ['path' => $data_website->image_hero]) }}">
                                 @else
                                 <img src="{{ asset('assets/front/anada/assets/img/illustration/1.png') }}" alt="Thumb">
                                 @endif
@@ -59,8 +59,8 @@
                             <a href="#">
                                 @forelse($n->gambar as $gambar)
                                 @if($loop->iteration == 1)
-                                <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
-                                    alt="{{ $gambar->file_name }}">
+                                <img src="{{ route('helper.show-picture', ['path' => $gambar->path]) }}"
+                                    class="img-fluid" alt="{{ $gambar->file_name }}">
                                 @endif
                                 @empty
                                 <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
@@ -92,6 +92,66 @@
     </div>
 </div>
 <!-- End Blog Area -->
+@endif
+
+@if($gallery->count() != 0)
+<div class="blog-area bg-gray left-border default-padding bottom-less">
+    <div class="container">
+        <div class="heading-left">
+            <div class="row">
+                <div class="col-lg-5">
+                    <h2>
+                        Latest Gallery
+                    </h2>
+                </div>
+                <div class="col-lg-6 offset-lg-1">
+                    <a class="btn circle btn-md btn-gradient wow fadeInUp" href="{{ url('/photos') }}">View All <i
+                            class="fas fa-plus"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="team-items text-center">
+                <div class="row">
+                    @foreach($gallery as $g)
+                    <!-- Single Item -->
+                    <div class="single-item col-lg-4 col-md-6" style="display: flex">
+                        <div class="item">
+                            <div class="thumb">
+                                @foreach($g->gambar as $pic)
+                                @if($loop->iteration == 1)
+                                <a data-fancybox="gallery-group-{{ $pic->id_news }}"
+                                    href="{{ asset('storage/') }}/{{ $pic->path }}"
+                                    data-caption="{{ $g->description }}">
+                                    <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid"
+                                        style="height: 250px;">
+                                </a>
+                                @else
+                                <div style="display:none;">
+                                    <a data-fancybox="gallery-group-{{ $pic->id_news }}"
+                                        href="{{ asset('storage/') }}/{{ $pic->path }}"
+                                        data-caption="{{ $g->description }}">
+                                        <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid">
+                                    </a>
+                                </div>
+                                @endif
+                                @endforeach
+                            </div>
+                            <div class="info">
+                                <h4>{{ $g->description }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Item -->
+                    @if($loop->iteration == 3)
+                    @break
+                    @endif
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endif
 
 <div class="blog-area bg-gray left-border default-padding bottom-less">

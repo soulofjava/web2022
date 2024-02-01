@@ -127,7 +127,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $data = User::find($id);
-        $role = ModelsRole::all()->pluck('name', 'id'); 
+        $role = ModelsRole::all()->pluck('name', 'id');
         $user_role = $data->roles->pluck('id');
         $permission = Permission::all()->pluck('name', 'id');
         $permis = $data->getAllPermissions();
