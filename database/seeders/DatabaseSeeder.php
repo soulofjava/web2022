@@ -33,11 +33,11 @@ class DatabaseSeeder extends Seeder
 
         // \App\Models\User::factory(10)->create();
         DB::table('websites')->insert([
-            'web_name' => 'Bappeda Kabupaten Wonosobo',
-            'web_description' => 'Website Resmi Bappeda Kabupaten Wonosobo',
-            'email' => 'bappeda@wonosobokab.go.id',
-            'address' => 'Jl. Pangeran Diponegoro No. 8 Wonosobo Timur Kecamatan Wonosobo Kabupaten Wonosobo',
-            'phone' => '(0286) 321050',
+            'web_name' => 'CASN Kabupaten Wonosobo',
+            'web_description' => 'Seleksi Penerimaan CASN Pemerintah Kab. Wonosobo',
+            'email' => 'casn.bkdwonosobo@gmail.com',
+            'address' => 'Jln. Soekarno-Hatta No. 3 56311',
+            'phone' => '0821-4072-9933 / (0286) 321221',
             'instagram' => 'https://www.instagram.com/diskominfo_wonosobo/?hl=id',
             'twitter' => 'https://twitter.com/diskominfo_wsb',
             'facebook' => 'https://www.facebook.com/wonosobohebat/',
