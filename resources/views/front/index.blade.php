@@ -1,1562 +1,8105 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <!-- ========== Meta Tags ========== -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Buildco - Factory, Industrial & Construction Template">
 
-    <!-- ========== Page Title ========== -->
-    <title>Buildco - Factory, Industrial & Construction Template</title>
+    <!-- SEARCH POPUP -->
+    <div class="search-popup">
+        <!-- CROSS ICON -->
+        <svg class="cross-icon big close-button search-popup-close">
+            <use xlink:href="#svg-cross-big"></use>
+        </svg>
+        <!-- /CROSS ICON -->
 
-    <!-- ========== Favicon Icon ========== -->
-    <link rel="shortcut icon" href="{{ asset('assets/front/buildco/img/favicon.png') }}" type="image/x-icon">
-
-    <!-- ========== Start Stylesheet ========== -->
-    <link href="{{ asset('assets/front/buildco/css/bootstrap.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/front/buildco/css/font-awesome.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/front/buildco/css/flaticon-set.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/front/buildco/css/magnific-popup.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/front/buildco/css/owl.carousel.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/front/buildco/css/owl.theme.default.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/front/buildco/css/animate.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/front/buildco/css/bootsnav.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/front/buildco/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/front/buildco/css/responsive.css') }}" rel="stylesheet" />
-    <!-- ========== End Stylesheet ========== -->
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="assets/js/html5/html5shiv.min.js"></script>
-      <script src="assets/js/html5/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- ========== Google Fonts ========== -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-
-</head>
-
-<body>
-
-    <!-- Preloader Start -->
-    <div class="se-pre-con"></div>
-    <!-- Preloader Ends -->
-
-    <!-- Start Header Top 
-    ============================================= -->
-    <div class="top-bar-area inc-border bg-dark">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-9 address-info text-left">
-                    <div class="info box">
-                        <ul>
-                            <li>
-                                <div class="icon">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </div>
-                                <div class="info">
-                                    <span>Address</span> California, TX 70240
-                                </div>
-                            </li>
-                            <li>
-                                <div class="icon">
-                                    <i class="fas fa-envelope-open"></i>
-                                </div>
-                                <div class="info">
-                                    <span>Email</span> Info@gmail.com
-                                </div>
-                            </li>
-                            <li>
-                                <div class="icon">
-                                    <i class="fas fa-phone"></i>
-                                </div>
-                                <div class="info">
-                                    <span>Phone</span> +123 456 7890
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-3 social text-right">
-                    <ul>
-                        <li>
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fab fa-dribbble"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fab fa-pinterest"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <form method="GET" class="search-popup-form">
+            <input type="text" id="search" class="input-line" name="search" placeholder="What are you looking for...?">
+        </form>
+        <p class="search-popup-text">Write what you are looking for and press enter to begin your search!</p>
     </div>
-    <!-- End Header Top -->
+    <!-- /SEARCH POPUP -->
 
-    <!-- Header 
-    ============================================= -->
-    <header id="home">
+    <!-- INVENTORY BAG PREVIEW -->
+    <div class="inventory-bag-preview">
+        <!-- INVENTORY CLOSE BUTTON -->
+        <svg class="inventory-close-button cross-icon big">
+            <use xlink:href="#svg-cross-big"></use>
+        </svg>
+        <!-- /INVENTORY CLOSE BUTTON -->
+        <p class="items-in-inventory"><span class="quantity">8</span> items in inventory</p>
+        <div class="line-separator"></div>
 
-        <!-- Start Navigation -->
-        <nav class="navbar navbar-default active-border attr-border navbar-sticky bootsnav">
-
-            <!-- Start Top Search -->
-            <div class="container">
-                <div class="row">
-                    <div class="top-search">
-                        <div class="input-group">
-                            <form action="#">
-                                <input type="text" name="text" class="form-control" placeholder="Search">
-                                <button type="submit">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                            </form>
-                        </div>
+        <!-- INVENTORY ITEMS PREVIEW -->
+        <div class="inventory-items-preview">
+            <!-- INVENTORY ITEM PREVIEW -->
+            <div class="inventory-item-preview">
+                <!-- PRODUCT PREVIEW -->
+                <div class="product-preview small">
+                    <!-- PRODUCT PREVIEW IMG WRAP -->
+                    <div class="product-preview-img-wrap">
+                        <!-- PRODUCT PREVIEW IMG -->
+                        <a href="product-page.html">
+                            <figure class="product-preview-img liquid">
+                                <img src="{{ asset('assets/front/img/products/01.jpg') }}" alt="product-01">
+                            </figure>
+                        </a>
+                        <!-- /PRODUCT PREVIEW IMG -->
                     </div>
+                    <!-- /PRODUCT PREVIEW IMG WRAP -->
+
+                    <!-- REMOVE -->
+                    <div class="bubble-ornament small red remove">
+                        <!-- CROSS ICON -->
+                        <svg class="cross-cb-icon small">
+                            <use xlink:href="#svg-cross-cb-small"></use>
+                        </svg>
+                        <!-- /CROSS ICON -->
+                    </div>
+                    <!-- /REMOVE -->
+
+                    <!-- TAG QUANTITY -->
+                    <div class="tag-quantity">
+                        <p class="tag-quantity-text">x <span class="value">2</span></p>
+                    </div>
+                    <!-- TAG QUANTITY -->
+
+                    <!-- PRODUCT PREVIEW TITLE -->
+                    <a href="product-page.html" class="product-preview-title">New Funtendo 3XSD - black</a>
+                    <!-- PRODUCT PREVIEW INFO -->
+                    <div class="product-preview-info">
+                        <!-- RATING ORNAMENT -->
+                        <div class="rating-ornament small void yellow">
+                            <!-- RATING ORNAMENT ITEM -->
+                            <div class="rating-ornament-item">
+                                <!-- RATING ORNAMENT ICON -->
+                                <svg class="rating-ornament-icon">
+                                    <use xlink:href="#svg-star"></use>
+                                </svg>
+                            </div>
+                            <!-- /RATING ORNAMENT ITEM -->
+
+                            <!-- RATING ORNAMENT ITEM -->
+                            <div class="rating-ornament-item">
+                                <!-- RATING ORNAMENT ICON -->
+                                <svg class="rating-ornament-icon">
+                                    <use xlink:href="#svg-star"></use>
+                                </svg>
+                            </div>
+                            <!-- /RATING ORNAMENT ITEM -->
+
+                            <!-- RATING ORNAMENT ITEM -->
+                            <div class="rating-ornament-item">
+                                <!-- RATING ORNAMENT ICON -->
+                                <svg class="rating-ornament-icon">
+                                    <use xlink:href="#svg-star"></use>
+                                </svg>
+                            </div>
+                            <!-- /RATING ORNAMENT ITEM -->
+
+                            <!-- RATING ORNAMENT ITEM -->
+                            <div class="rating-ornament-item">
+                                <!-- RATING ORNAMENT ICON -->
+                                <svg class="rating-ornament-icon">
+                                    <use xlink:href="#svg-star"></use>
+                                </svg>
+                            </div>
+                            <!-- /RATING ORNAMENT ITEM -->
+
+                            <!-- RATING ORNAMENT ITEM -->
+                            <div class="rating-ornament-item">
+                                <!-- RATING ORNAMENT ICON -->
+                                <svg class="rating-ornament-icon">
+                                    <use xlink:href="#svg-star"></use>
+                                </svg>
+                            </div>
+                            <!-- /RATING ORNAMENT ITEM -->
+                        </div>
+                        <!-- /RATING ORNAMENT -->
+                    </div>
+                    <!-- /PRODUCT PREVIEW INFO -->
+
+                    <!-- PRODUCT PRICE WRAP -->
+                    <div class="product-price-wrap">
+                        <p class="product-preview-price current"><span class="currency">$</span>199.00</p>
+                    </div>
+                    <!-- /PRODUCT PRICE WRAP -->
                 </div>
+                <!-- /PRODUCT PREVIEW -->
             </div>
-            <!-- End Top Search -->
+            <!-- /INVENTORY ITEM PREVIEW -->
 
-            <div class="container">
+            <!-- INVENTORY ITEM PREVIEW -->
+            <div class="inventory-item-preview">
+                <!-- PRODUCT PREVIEW -->
+                <div class="product-preview small">
+                    <!-- PRODUCT PREVIEW IMG WRAP -->
+                    <div class="product-preview-img-wrap">
+                        <!-- PRODUCT PREVIEW IMG -->
+                        <a href="product-page.html">
+                            <figure class="product-preview-img liquid">
+                                <img src="{{ asset('assets/front/img/products/06.jpg') }}" alt="product-06">
+                            </figure>
+                        </a>
+                        <!-- /PRODUCT PREVIEW IMG -->
+                    </div>
+                    <!-- /PRODUCT PREVIEW IMG WRAP -->
 
-                <!-- Start Atribute Navigation -->
-                <div class="attr-nav">
-                    <ul>
-                        <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
-                        <li class="btn"><a href="#">free quote</a></li>
-                    </ul>
+                    <!-- REMOVE -->
+                    <div class="bubble-ornament small red remove">
+                        <!-- CROSS ICON -->
+                        <svg class="cross-cb-icon small">
+                            <use xlink:href="#svg-cross-cb-small"></use>
+                        </svg>
+                        <!-- /CROSS ICON -->
+                    </div>
+                    <!-- /REMOVE -->
+
+                    <!-- TAG QUANTITY -->
+                    <div class="tag-quantity">
+                        <p class="tag-quantity-text">x <span class="value">1</span></p>
+                    </div>
+                    <!-- TAG QUANTITY -->
+
+                    <!-- PRODUCT PREVIEW TITLE -->
+                    <a href="product-page.html" class="product-preview-title">Crimson red joystick</a>
+                    <!-- PRODUCT PREVIEW INFO -->
+                    <div class="product-preview-info">
+                        <!-- RATING ORNAMENT -->
+                        <div class="rating-ornament small void yellow">
+                            <!-- RATING ORNAMENT ITEM -->
+                            <div class="rating-ornament-item">
+                                <!-- RATING ORNAMENT ICON -->
+                                <svg class="rating-ornament-icon">
+                                    <use xlink:href="#svg-star"></use>
+                                </svg>
+                            </div>
+                            <!-- /RATING ORNAMENT ITEM -->
+
+                            <!-- RATING ORNAMENT ITEM -->
+                            <div class="rating-ornament-item">
+                                <!-- RATING ORNAMENT ICON -->
+                                <svg class="rating-ornament-icon">
+                                    <use xlink:href="#svg-star"></use>
+                                </svg>
+                            </div>
+                            <!-- /RATING ORNAMENT ITEM -->
+
+                            <!-- RATING ORNAMENT ITEM -->
+                            <div class="rating-ornament-item">
+                                <!-- RATING ORNAMENT ICON -->
+                                <svg class="rating-ornament-icon">
+                                    <use xlink:href="#svg-star"></use>
+                                </svg>
+                            </div>
+                            <!-- /RATING ORNAMENT ITEM -->
+
+                            <!-- RATING ORNAMENT ITEM -->
+                            <div class="rating-ornament-item">
+                                <!-- RATING ORNAMENT ICON -->
+                                <svg class="rating-ornament-icon empty">
+                                    <use xlink:href="#svg-star"></use>
+                                </svg>
+                            </div>
+                            <!-- /RATING ORNAMENT ITEM -->
+
+                            <!-- RATING ORNAMENT ITEM -->
+                            <div class="rating-ornament-item">
+                                <!-- RATING ORNAMENT ICON -->
+                                <svg class="rating-ornament-icon empty">
+                                    <use xlink:href="#svg-star"></use>
+                                </svg>
+                            </div>
+                            <!-- /RATING ORNAMENT ITEM -->
+                        </div>
+                        <!-- /RATING ORNAMENT -->
+                    </div>
+                    <!-- /PRODUCT PREVIEW INFO -->
+
+                    <!-- PRODUCT PRICE WRAP -->
+                    <div class="product-price-wrap">
+                        <p class="product-preview-price current"><span class="currency">$</span>32.50</p>
+                    </div>
+                    <!-- /PRODUCT PRICE WRAP -->
                 </div>
-                <!-- End Atribute Navigation -->
+                <!-- /PRODUCT PREVIEW -->
+            </div>
+            <!-- /INVENTORY ITEM PREVIEW -->
 
-                <!-- Start Header Navigation -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-                        <i class="fa fa-bars"></i>
-                    </button>
-                    <a class="navbar-brand" href="index.html">
-                        <img src="{{ asset('assets/front/buildco/img/logo.png') }}" class="logo" alt="Logo">
+            <!-- INVENTORY ITEM PREVIEW -->
+            <div class="inventory-item-preview">
+                <!-- PRODUCT PREVIEW -->
+                <div class="product-preview small">
+                    <!-- PRODUCT PREVIEW IMG WRAP -->
+                    <div class="product-preview-img-wrap">
+                        <!-- PRODUCT PREVIEW IMG -->
+                        <a href="product-page.html">
+                            <figure class="product-preview-img liquid">
+                                <img src="{{ asset('assets/front/img/products/05.jpg') }}" alt="product-05">
+                            </figure>
+                        </a>
+                        <!-- /PRODUCT PREVIEW IMG -->
+                    </div>
+                    <!-- /PRODUCT PREVIEW IMG WRAP -->
+
+                    <!-- REMOVE -->
+                    <div class="bubble-ornament small red remove">
+                        <!-- CROSS ICON -->
+                        <svg class="cross-cb-icon small">
+                            <use xlink:href="#svg-cross-cb-small"></use>
+                        </svg>
+                        <!-- /CROSS ICON -->
+                    </div>
+                    <!-- /REMOVE -->
+
+                    <!-- TAG QUANTITY -->
+                    <div class="tag-quantity">
+                        <p class="tag-quantity-text">x <span class="value">4</span></p>
+                    </div>
+                    <!-- TAG QUANTITY -->
+
+                    <!-- PRODUCT PREVIEW TITLE -->
+                    <a href="product-page.html" class="product-preview-title">Carbon black joystick</a>
+                    <!-- PRODUCT PREVIEW INFO -->
+                    <div class="product-preview-info">
+                        <!-- RATING ORNAMENT -->
+                        <div class="rating-ornament small void yellow">
+                            <!-- RATING ORNAMENT ITEM -->
+                            <div class="rating-ornament-item">
+                                <!-- RATING ORNAMENT ICON -->
+                                <svg class="rating-ornament-icon">
+                                    <use xlink:href="#svg-star"></use>
+                                </svg>
+                            </div>
+                            <!-- /RATING ORNAMENT ITEM -->
+
+                            <!-- RATING ORNAMENT ITEM -->
+                            <div class="rating-ornament-item">
+                                <!-- RATING ORNAMENT ICON -->
+                                <svg class="rating-ornament-icon">
+                                    <use xlink:href="#svg-star"></use>
+                                </svg>
+                            </div>
+                            <!-- /RATING ORNAMENT ITEM -->
+
+                            <!-- RATING ORNAMENT ITEM -->
+                            <div class="rating-ornament-item">
+                                <!-- RATING ORNAMENT ICON -->
+                                <svg class="rating-ornament-icon">
+                                    <use xlink:href="#svg-star"></use>
+                                </svg>
+                            </div>
+                            <!-- /RATING ORNAMENT ITEM -->
+
+                            <!-- RATING ORNAMENT ITEM -->
+                            <div class="rating-ornament-item">
+                                <!-- RATING ORNAMENT ICON -->
+                                <svg class="rating-ornament-icon">
+                                    <use xlink:href="#svg-star"></use>
+                                </svg>
+                            </div>
+                            <!-- /RATING ORNAMENT ITEM -->
+
+                            <!-- RATING ORNAMENT ITEM -->
+                            <div class="rating-ornament-item">
+                                <!-- RATING ORNAMENT ICON -->
+                                <svg class="rating-ornament-icon empty">
+                                    <use xlink:href="#svg-star"></use>
+                                </svg>
+                            </div>
+                            <!-- /RATING ORNAMENT ITEM -->
+                        </div>
+                        <!-- /RATING ORNAMENT -->
+                    </div>
+                    <!-- /PRODUCT PREVIEW INFO -->
+
+                    <!-- PRODUCT PRICE WRAP -->
+                    <div class="product-price-wrap">
+                        <p class="product-preview-price current"><span class="currency">$</span>55.00</p>
+                    </div>
+                    <!-- /PRODUCT PRICE WRAP -->
+                </div>
+                <!-- /PRODUCT PREVIEW -->
+            </div>
+            <!-- /INVENTORY ITEM PREVIEW -->
+
+            <!-- INVENTORY ITEM PREVIEW -->
+            <div class="inventory-item-preview">
+                <!-- PRODUCT PREVIEW -->
+                <div class="product-preview small">
+                    <!-- PRODUCT PREVIEW IMG WRAP -->
+                    <div class="product-preview-img-wrap">
+                        <!-- PRODUCT PREVIEW IMG -->
+                        <a href="product-page.html">
+                            <figure class="product-preview-img liquid">
+                                <img src="{{ asset('assets/front/img/products/14.jpg') }}" alt="product-14">
+                            </figure>
+                        </a>
+                        <!-- /PRODUCT PREVIEW IMG -->
+                    </div>
+                    <!-- /PRODUCT PREVIEW IMG WRAP -->
+
+                    <!-- REMOVE -->
+                    <div class="bubble-ornament small red remove">
+                        <!-- CROSS ICON -->
+                        <svg class="cross-cb-icon small">
+                            <use xlink:href="#svg-cross-cb-small"></use>
+                        </svg>
+                        <!-- /CROSS ICON -->
+                    </div>
+                    <!-- /REMOVE -->
+
+                    <!-- TAG QUANTITY -->
+                    <div class="tag-quantity">
+                        <p class="tag-quantity-text">x <span class="value">1</span></p>
+                    </div>
+                    <!-- TAG QUANTITY -->
+
+                    <!-- PRODUCT PREVIEW TITLE -->
+                    <a href="product-page.html" class="product-preview-title">Magimons black framed print</a>
+                    <!-- PRODUCT PREVIEW INFO -->
+                    <div class="product-preview-info">
+                        <!-- RATING ORNAMENT -->
+                        <div class="rating-ornament small void yellow">
+                            <!-- RATING ORNAMENT ITEM -->
+                            <div class="rating-ornament-item">
+                                <!-- RATING ORNAMENT ICON -->
+                                <svg class="rating-ornament-icon">
+                                    <use xlink:href="#svg-star"></use>
+                                </svg>
+                            </div>
+                            <!-- /RATING ORNAMENT ITEM -->
+
+                            <!-- RATING ORNAMENT ITEM -->
+                            <div class="rating-ornament-item">
+                                <!-- RATING ORNAMENT ICON -->
+                                <svg class="rating-ornament-icon">
+                                    <use xlink:href="#svg-star"></use>
+                                </svg>
+                            </div>
+                            <!-- /RATING ORNAMENT ITEM -->
+
+                            <!-- RATING ORNAMENT ITEM -->
+                            <div class="rating-ornament-item">
+                                <!-- RATING ORNAMENT ICON -->
+                                <svg class="rating-ornament-icon">
+                                    <use xlink:href="#svg-star"></use>
+                                </svg>
+                            </div>
+                            <!-- /RATING ORNAMENT ITEM -->
+
+                            <!-- RATING ORNAMENT ITEM -->
+                            <div class="rating-ornament-item">
+                                <!-- RATING ORNAMENT ICON -->
+                                <svg class="rating-ornament-icon">
+                                    <use xlink:href="#svg-star"></use>
+                                </svg>
+                            </div>
+                            <!-- /RATING ORNAMENT ITEM -->
+
+                            <!-- RATING ORNAMENT ITEM -->
+                            <div class="rating-ornament-item">
+                                <!-- RATING ORNAMENT ICON -->
+                                <svg class="rating-ornament-icon">
+                                    <use xlink:href="#svg-star"></use>
+                                </svg>
+                            </div>
+                            <!-- /RATING ORNAMENT ITEM -->
+                        </div>
+                        <!-- /RATING ORNAMENT -->
+                    </div>
+                    <!-- /PRODUCT PREVIEW INFO -->
+
+                    <!-- PRODUCT PRICE WRAP -->
+                    <div class="product-price-wrap">
+                        <p class="product-preview-price current"><span class="currency">$</span>20.00</p>
+                    </div>
+                    <!-- /PRODUCT PRICE WRAP -->
+                </div>
+                <!-- /PRODUCT PREVIEW -->
+            </div>
+            <!-- /INVENTORY ITEM PREVIEW -->
+
+            <!-- INVENTORY ITEM PREVIEW -->
+            <div class="inventory-item-preview empty">
+                <!-- INVENTORY ICON -->
+                <svg class="inventory-icon">
+                    <use xlink:href="#svg-inventory-light"></use>
+                </svg>
+                <!-- /INVENTORY ICON -->
+            </div>
+            <!-- /INVENTORY ITEM PREVIEW -->
+
+            <!-- INVENTORY ITEM PREVIEW -->
+            <div class="inventory-item-preview empty">
+                <!-- INVENTORY ICON -->
+                <svg class="inventory-icon">
+                    <use xlink:href="#svg-inventory-light"></use>
+                </svg>
+                <!-- /INVENTORY ICON -->
+            </div>
+            <!-- /INVENTORY ITEM PREVIEW -->
+
+            <!-- INVENTORY ITEM PREVIEW -->
+            <div class="inventory-item-preview empty">
+                <!-- INVENTORY ICON -->
+                <svg class="inventory-icon">
+                    <use xlink:href="#svg-inventory-light"></use>
+                </svg>
+                <!-- /INVENTORY ICON -->
+            </div>
+            <!-- /INVENTORY ITEM PREVIEW -->
+
+            <!-- INVENTORY ITEM PREVIEW -->
+            <div class="inventory-item-preview empty">
+                <!-- INVENTORY ICON -->
+                <svg class="inventory-icon">
+                    <use xlink:href="#svg-inventory-light"></use>
+                </svg>
+                <!-- /INVENTORY ICON -->
+            </div>
+            <!-- /INVENTORY ITEM PREVIEW -->
+
+            <!-- INVENTORY ITEM PREVIEW -->
+            <div class="inventory-item-preview empty">
+                <!-- INVENTORY ICON -->
+                <svg class="inventory-icon">
+                    <use xlink:href="#svg-inventory-light"></use>
+                </svg>
+                <!-- /INVENTORY ICON -->
+            </div>
+            <!-- /INVENTORY ITEM PREVIEW -->
+
+            <!-- INVENTORY ITEM PREVIEW -->
+            <div class="inventory-item-preview empty">
+                <!-- INVENTORY ICON -->
+                <svg class="inventory-icon">
+                    <use xlink:href="#svg-inventory-light"></use>
+                </svg>
+                <!-- /INVENTORY ICON -->
+            </div>
+            <!-- /INVENTORY ITEM PREVIEW -->
+
+            <!-- INVENTORY ITEM PREVIEW -->
+            <div class="inventory-item-preview empty">
+                <!-- INVENTORY ICON -->
+                <svg class="inventory-icon">
+                    <use xlink:href="#svg-inventory-light"></use>
+                </svg>
+                <!-- /INVENTORY ICON -->
+            </div>
+            <!-- /INVENTORY ITEM PREVIEW -->
+
+            <!-- INVENTORY ITEM PREVIEW -->
+            <div class="inventory-item-preview empty">
+                <!-- INVENTORY ICON -->
+                <svg class="inventory-icon">
+                    <use xlink:href="#svg-inventory-light"></use>
+                </svg>
+                <!-- /INVENTORY ICON -->
+            </div>
+            <!-- /INVENTORY ITEM PREVIEW -->
+        </div>
+        <!-- /INVENTORY ITEMS PREVIEW -->
+
+        <div class="line-separator"></div>
+        <p class="inventory-subtotal"><span class="subtotal-text">Inventory subtotal:</span> <span
+                class="subtotal-value"><span class="currency">$</span><span class="value">670.50</span></span></p>
+        <div class="line-separator"></div>
+        <!-- INVENTORY ACTIONS -->
+        <div class="inventory-actions">
+            <a href="inventory-bag.html" class="button full blue">Go to the inventory bag</a>
+            <a href="checkout.html" class="button full violet">Proceed to checkout</a>
+        </div>
+        <!-- /INVENTORY ACTIONS -->
+    </div>
+    <!-- /INVENTORY BAG PREVIEW -->
+
+    <!-- MOBILE MENU WRAP -->
+    <div class="mobile-menu-wrap">
+        <!-- CROSS ICON -->
+        <svg class="cross-icon big mobile-menu-close">
+            <use xlink:href="#svg-cross-big"></use>
+        </svg>
+        <!-- /CROSS ICON -->
+
+        <!-- SEARCH POPUP OPEN -->
+        <svg class="search-popup-open search-icon">
+            <use xlink:href="#svg-search"></use>
+        </svg>
+        <!-- /SEARCH POPUP OPEN -->
+
+        <!-- LOGO IMG -->
+        <figure class="logo-img">
+            <img src="{{ asset('assets/front/img/brand/logo.png') }}" alt="Logo">
+        </figure>
+        <!-- /LOGO IMG -->
+
+        <!-- MOBILE MENU -->
+        <ul class="mobile-menu">
+            <!-- MOBILE MENU ITEM -->
+            <li class="mobile-menu-item">
+                <a href="index.html" class="mobile-menu-item-link">Home</a>
+            </li>
+            <!-- /MOBILE MENU ITEM -->
+
+            <!-- MOBILE MENU ITEM -->
+            <li class="mobile-menu-item">
+                <p class="mobile-menu-item-link pd-dropdown-handler">eSports</p>
+                <!-- ARROW ICON -->
+                <svg class="arrow-icon medium">
+                    <use xlink:href="#svg-arrow-medium"></use>
+                </svg>
+                <!-- /ARROW ICON -->
+
+                <!-- MOBILE DROPDOWN -->
+                <ul class="mobile-dropdown pd-dropdown">
+                    <!-- MOBILE DROPDOWN ITEM -->
+                    <li class="mobile-dropdown-item">
+                        <p class="mobile-dropdown-item-link pd-dropdown-handler">Main Pages</p>
+                        <!-- ARROW ICON -->
+                        <svg class="arrow-icon medium">
+                            <use xlink:href="#svg-arrow-medium"></use>
+                        </svg>
+                        <!-- /ARROW ICON -->
+
+                        <!-- MOBILE DROPDOWN -->
+                        <ul class="mobile-dropdown pd-dropdown">
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="esports-home.html" class="mobile-dropdown-item-link">eSports Home</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="esports-news.html" class="mobile-dropdown-item-link">eSports News</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="esports-post.html" class="mobile-dropdown-item-link">eSports Post Page</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="esports-tournament.html" class="mobile-dropdown-item-link">Tournament Page</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+                        </ul>
+                        <!-- /MOBILE DROPDOWN -->
+                    </li>
+                    <!-- /MOBILE DROPDOWN ITEM -->
+
+                    <!-- MOBILE DROPDOWN ITEM -->
+                    <li class="mobile-dropdown-item">
+                        <p class="mobile-dropdown-item-link pd-dropdown-handler">Match Overviews</p>
+                        <!-- ARROW ICON -->
+                        <svg class="arrow-icon medium">
+                            <use xlink:href="#svg-arrow-medium"></use>
+                        </svg>
+                        <!-- /ARROW ICON -->
+
+                        <!-- MOBILE DROPDOWN -->
+                        <ul class="mobile-dropdown pd-dropdown">
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="esports-match-overview-v1.html" class="mobile-dropdown-item-link">Match
+                                    Overview V1</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="esports-match-overview-v2.html" class="mobile-dropdown-item-link">Match
+                                    Overview V2</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="esports-match-overview-v3.html" class="mobile-dropdown-item-link">Match
+                                    Overview V3</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="esports-match-overview-v4.html" class="mobile-dropdown-item-link">Match
+                                    Overview V4</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+                        </ul>
+                        <!-- /MOBILE DROPDOWN -->
+                    </li>
+                    <!-- /MOBILE DROPDOWN ITEM -->
+
+                    <!-- MOBILE DROPDOWN ITEM -->
+                    <li class="mobile-dropdown-item">
+                        <p class="mobile-dropdown-item-link pd-dropdown-handler">Teams &amp; Players</p>
+                        <!-- ARROW ICON -->
+                        <svg class="arrow-icon medium">
+                            <use xlink:href="#svg-arrow-medium"></use>
+                        </svg>
+                        <!-- /ARROW ICON -->
+
+                        <!-- MOBILE DROPDOWN -->
+                        <ul class="mobile-dropdown pd-dropdown">
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="esports-team.html" class="mobile-dropdown-item-link">eSports Team Page</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="esports-player.html" class="mobile-dropdown-item-link">eSports Player Page</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="esports-streamers.html" class="mobile-dropdown-item-link">Streamers Page</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="esports-calendar.html" class="mobile-dropdown-item-link">Scores with
+                                    Calendar</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+                        </ul>
+                        <!-- /MOBILE DROPDOWN -->
+                    </li>
+                    <!-- /MOBILE DROPDOWN ITEM -->
+
+                    <!-- MOBILE DROPDOWN ITEM -->
+                    <li class="mobile-dropdown-item">
+                        <p class="mobile-dropdown-item-link pd-dropdown-handler">eSports Widgets</p>
+                        <!-- ARROW ICON -->
+                        <svg class="arrow-icon medium">
+                            <use xlink:href="#svg-arrow-medium"></use>
+                        </svg>
+                        <!-- /ARROW ICON -->
+
+                        <!-- MOBILE DROPDOWN -->
+                        <ul class="mobile-dropdown pd-dropdown">
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="esports-widgets-v1.html" class="mobile-dropdown-item-link">Widgets Page 01</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="esports-widgets-v2.html" class="mobile-dropdown-item-link">Widgets Page 02</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="esports-widgets-v3.html" class="mobile-dropdown-item-link">Widgets Page 03</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+                        </ul>
+                        <!-- /MOBILE DROPDOWN -->
+                    </li>
+                    <!-- /MOBILE DROPDOWN ITEM -->
+                </ul>
+                <!-- /MOBILE DROPDOWN -->
+            </li>
+            <!-- /MOBILE MENU ITEM -->
+
+            <!-- MOBILE MENU ITEM -->
+            <li class="mobile-menu-item">
+                <a href="news-v1.html" class="mobile-menu-item-link">News</a>
+            </li>
+            <!-- /MOBILE MENU ITEM -->
+
+            <!-- MOBILE MENU ITEM -->
+            <li class="mobile-menu-item">
+                <a href="news-v2.html" class="mobile-menu-item-link">Reviews</a>
+            </li>
+            <!-- /MOBILE MENU ITEM -->
+
+            <!-- MOBILE MENU ITEM -->
+            <li class="mobile-menu-item">
+                <p class="mobile-menu-item-link pd-dropdown-handler">Features</p>
+                <!-- ARROW ICON -->
+                <svg class="arrow-icon medium">
+                    <use xlink:href="#svg-arrow-medium"></use>
+                </svg>
+                <!-- /ARROW ICON -->
+
+                <!-- MOBILE DROPDOWN -->
+                <ul class="mobile-dropdown pd-dropdown">
+                    <!-- MOBILE DROPDOWN ITEM -->
+                    <li class="mobile-dropdown-item">
+                        <p class="mobile-dropdown-item-link pd-dropdown-handler">Pixel Main Features</p>
+                        <!-- ARROW ICON -->
+                        <svg class="arrow-icon medium">
+                            <use xlink:href="#svg-arrow-medium"></use>
+                        </svg>
+                        <!-- /ARROW ICON -->
+
+                        <!-- MOBILE DROPDOWN -->
+                        <ul class="mobile-dropdown pd-dropdown">
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="index.html" class="mobile-dropdown-item-link">Main Homepage</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="home-v2.html" class="mobile-dropdown-item-link">Homepage V2</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="home-v3.html" class="mobile-dropdown-item-link">Homepage V3</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="news-v1.html" class="mobile-dropdown-item-link">News Page V1</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="news-v2.html" class="mobile-dropdown-item-link">News Page V2</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="news-v3.html" class="mobile-dropdown-item-link">News Page V3</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="news-v4.html" class="mobile-dropdown-item-link">News Page V4</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="post-v1.html" class="mobile-dropdown-item-link">Post Page V1</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="post-v2.html" class="mobile-dropdown-item-link">Post Page V2</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="post-v3.html" class="mobile-dropdown-item-link">Post Page V3</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="post-v4.html" class="mobile-dropdown-item-link">Post Page V4</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="browse-videos.html" class="mobile-dropdown-item-link">Browse Videos</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="post-video.html" class="mobile-dropdown-item-link">Video Post Page</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="search-results.html" class="mobile-dropdown-item-link">Search Results</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="calendar.html" class="mobile-dropdown-item-link">Events Calendar</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="event.html" class="mobile-dropdown-item-link">Open Event</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="404.html" class="mobile-dropdown-item-link">404 Error Page</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="shortcodes.html" class="mobile-dropdown-item-link">Shortcodes</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="menu-dropdowns.html" class="mobile-dropdown-item-link">Menu &amp; Dropdowns</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="headers-dividers.html" class="mobile-dropdown-item-link">Headers &amp;
+                                    Dividers</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="pixel-popups.html" class="mobile-dropdown-item-link">Pixel Popups</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+                        </ul>
+                        <!-- /MOBILE DROPDOWN -->
+                    </li>
+                    <!-- /MOBILE DROPDOWN ITEM -->
+
+                    <!-- MOBILE DROPDOWN ITEM -->
+                    <li class="mobile-dropdown-item">
+                        <p class="mobile-dropdown-item-link pd-dropdown-handler">Account &amp; Company</p>
+                        <!-- ARROW ICON -->
+                        <svg class="arrow-icon medium">
+                            <use xlink:href="#svg-arrow-medium"></use>
+                        </svg>
+                        <!-- /ARROW ICON -->
+
+                        <!-- MOBILE DROPDOWN -->
+                        <ul class="mobile-dropdown pd-dropdown">
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="login-register.html" class="mobile-dropdown-item-link">Login &amp; Register</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="login-register-popups.html" class="mobile-dropdown-item-link">Login &amp;
+                                    Register Popups</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="account-settings.html" class="mobile-dropdown-item-link">Account Settings</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="orders-history.html" class="mobile-dropdown-item-link">Account Orders</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="faq.html" class="mobile-dropdown-item-link">FAQs Page</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="contact.html" class="mobile-dropdown-item-link">Contact Page</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="sponsors.html" class="mobile-dropdown-item-link">Sponsors Page</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+                        </ul>
+                        <!-- /MOBILE DROPDOWN -->
+                    </li>
+                    <!-- /MOBILE DROPDOWN ITEM -->
+
+                    <!-- MOBILE DROPDOWN ITEM -->
+                    <li class="mobile-dropdown-item">
+                        <p class="mobile-dropdown-item-link pd-dropdown-handler">Pixel Forums</p>
+                        <!-- ARROW ICON -->
+                        <svg class="arrow-icon medium">
+                            <use xlink:href="#svg-arrow-medium"></use>
+                        </svg>
+                        <!-- /ARROW ICON -->
+
+                        <!-- MOBILE DROPDOWN -->
+                        <ul class="mobile-dropdown pd-dropdown">
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="forum.html" class="mobile-dropdown-item-link">Main Page</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="forum-categories.html" class="mobile-dropdown-item-link">Category Page</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="topic.html" class="mobile-dropdown-item-link">Main Topic</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="forum-badges.html" class="mobile-dropdown-item-link">Badges Big &amp; Small</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="profile-summary.html" class="mobile-dropdown-item-link">Profile Summary</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="profile-activity.html" class="mobile-dropdown-item-link">Profile Activity</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="profile-notifications.html" class="mobile-dropdown-item-link">Profile
+                                    Notifications</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="profile-messages.html" class="mobile-dropdown-item-link">Profile Messages</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="profile-badges.html" class="mobile-dropdown-item-link">Profile Badges</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="profile-settings.html" class="mobile-dropdown-item-link">Profile Settings</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="forum-search-results.html" class="mobile-dropdown-item-link">Forum Results</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+                        </ul>
+                        <!-- /MOBILE DROPDOWN -->
+                    </li>
+                    <!-- /MOBILE DROPDOWN ITEM -->
+                </ul>
+                <!-- /MOBILE DROPDOWN -->
+            </li>
+            <!-- /MOBILE MENU ITEM -->
+
+            <!-- MOBILE MENU ITEM -->
+            <li class="mobile-menu-item">
+                <p class="mobile-menu-item-link pd-dropdown-handler">Shop</p>
+                <!-- ARROW ICON -->
+                <svg class="arrow-icon medium">
+                    <use xlink:href="#svg-arrow-medium"></use>
+                </svg>
+                <!-- /ARROW ICON -->
+
+                <!-- MOBILE DROPDOWN -->
+                <ul class="mobile-dropdown pd-dropdown">
+                    <!-- MOBILE DROPDOWN ITEM -->
+                    <li class="mobile-dropdown-item">
+                        <p class="mobile-dropdown-item-link pd-dropdown-handler">New Releases</p>
+                        <!-- ARROW ICON -->
+                        <svg class="arrow-icon medium">
+                            <use xlink:href="#svg-arrow-medium"></use>
+                        </svg>
+                        <!-- /ARROW ICON -->
+
+                        <!-- MOBILE DROPDOWN -->
+                        <ul class="mobile-dropdown pd-dropdown">
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="shop-v1-grid.html" class="mobile-dropdown-item-link">Shop 3 Columns Grid</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="shop-v1-list.html" class="mobile-dropdown-item-link">Shop 3 Columns List</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="shop-v2.html" class="mobile-dropdown-item-link">Shop 4 Columns</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="product-page.html" class="mobile-dropdown-item-link">Product Description</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="product-page.html" class="mobile-dropdown-item-link">Product Reviews</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="product-page.html" class="mobile-dropdown-item-link">Product Specifications</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="inventory-bag.html" class="mobile-dropdown-item-link">Inventory Bag (Cart)</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="checkout.html" class="mobile-dropdown-item-link">Checkout Page</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="order-confirmation.html" class="mobile-dropdown-item-link">Order
+                                    Confirmation</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="wishlist.html" class="mobile-dropdown-item-link">Wishlist</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="product-compare.html" class="mobile-dropdown-item-link">Product Compare</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+                        </ul>
+                        <!-- /MOBILE DROPDOWN -->
+                    </li>
+                    <!-- /MOBILE DROPDOWN ITEM -->
+
+                    <!-- MOBILE DROPDOWN ITEM -->
+                    <li class="mobile-dropdown-item">
+                        <p class="mobile-dropdown-item-link pd-dropdown-handler">Shop Features</p>
+                        <!-- ARROW ICON -->
+                        <svg class="arrow-icon medium">
+                            <use xlink:href="#svg-arrow-medium"></use>
+                        </svg>
+                        <!-- /ARROW ICON -->
+
+                        <!-- MOBILE DROPDOWN -->
+                        <ul class="mobile-dropdown pd-dropdown">
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="shop-v1-grid.html" class="mobile-dropdown-item-link">Shop 3 Columns Grid</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="shop-v1-list.html" class="mobile-dropdown-item-link">Shop 3 Columns List</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="shop-v2.html" class="mobile-dropdown-item-link">Shop 4 Columns</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="product-page.html" class="mobile-dropdown-item-link">Product Description</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="product-page.html" class="mobile-dropdown-item-link">Product Reviews</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="product-page.html" class="mobile-dropdown-item-link">Product Specifications</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="inventory-bag.html" class="mobile-dropdown-item-link">Inventory Bag (Cart)</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="checkout.html" class="mobile-dropdown-item-link">Checkout Page</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="order-confirmation.html" class="mobile-dropdown-item-link">Order
+                                    Confirmation</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="wishlist.html" class="mobile-dropdown-item-link">Wishlist</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="product-compare.html" class="mobile-dropdown-item-link">Product Compare</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+                        </ul>
+                        <!-- /MOBILE DROPDOWN -->
+                    </li>
+                    <!-- /MOBILE DROPDOWN ITEM -->
+
+                    <!-- MOBILE DROPDOWN ITEM -->
+                    <li class="mobile-dropdown-item">
+                        <p class="mobile-dropdown-item-link pd-dropdown-handler">Powerstation</p>
+                        <!-- ARROW ICON -->
+                        <svg class="arrow-icon medium">
+                            <use xlink:href="#svg-arrow-medium"></use>
+                        </svg>
+                        <!-- /ARROW ICON -->
+
+                        <!-- MOBILE DROPDOWN -->
+                        <ul class="mobile-dropdown pd-dropdown">
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="shop-v1-grid.html" class="mobile-dropdown-item-link">Shop 3 Columns Grid</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="shop-v1-list.html" class="mobile-dropdown-item-link">Shop 3 Columns List</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="shop-v2.html" class="mobile-dropdown-item-link">Shop 4 Columns</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="product-page.html" class="mobile-dropdown-item-link">Product Description</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="product-page.html" class="mobile-dropdown-item-link">Product Reviews</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="product-page.html" class="mobile-dropdown-item-link">Product Specifications</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="inventory-bag.html" class="mobile-dropdown-item-link">Inventory Bag (Cart)</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="checkout.html" class="mobile-dropdown-item-link">Checkout Page</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="order-confirmation.html" class="mobile-dropdown-item-link">Order
+                                    Confirmation</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="wishlist.html" class="mobile-dropdown-item-link">Wishlist</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="product-compare.html" class="mobile-dropdown-item-link">Product Compare</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+                        </ul>
+                        <!-- /MOBILE DROPDOWN -->
+                    </li>
+                    <!-- /MOBILE DROPDOWN ITEM -->
+
+                    <!-- MOBILE DROPDOWN ITEM -->
+                    <li class="mobile-dropdown-item">
+                        <p class="mobile-dropdown-item-link pd-dropdown-handler">X-Rock</p>
+                        <!-- ARROW ICON -->
+                        <svg class="arrow-icon medium">
+                            <use xlink:href="#svg-arrow-medium"></use>
+                        </svg>
+                        <!-- /ARROW ICON -->
+
+                        <!-- MOBILE DROPDOWN -->
+                        <ul class="mobile-dropdown pd-dropdown">
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="shop-v1-grid.html" class="mobile-dropdown-item-link">Shop 3 Columns Grid</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="shop-v1-list.html" class="mobile-dropdown-item-link">Shop 3 Columns List</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="shop-v2.html" class="mobile-dropdown-item-link">Shop 4 Columns</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="product-page.html" class="mobile-dropdown-item-link">Product Description</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="product-page.html" class="mobile-dropdown-item-link">Product Reviews</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="product-page.html" class="mobile-dropdown-item-link">Product Specifications</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="inventory-bag.html" class="mobile-dropdown-item-link">Inventory Bag (Cart)</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="checkout.html" class="mobile-dropdown-item-link">Checkout Page</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="order-confirmation.html" class="mobile-dropdown-item-link">Order
+                                    Confirmation</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="wishlist.html" class="mobile-dropdown-item-link">Wishlist</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="product-compare.html" class="mobile-dropdown-item-link">Product Compare</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+                        </ul>
+                        <!-- /MOBILE DROPDOWN -->
+                    </li>
+                    <!-- /MOBILE DROPDOWN ITEM -->
+
+                    <!-- MOBILE DROPDOWN ITEM -->
+                    <li class="mobile-dropdown-item">
+                        <p class="mobile-dropdown-item-link pd-dropdown-handler">Funtendo</p>
+                        <!-- ARROW ICON -->
+                        <svg class="arrow-icon medium">
+                            <use xlink:href="#svg-arrow-medium"></use>
+                        </svg>
+                        <!-- /ARROW ICON -->
+
+                        <!-- MOBILE DROPDOWN -->
+                        <ul class="mobile-dropdown pd-dropdown">
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="shop-v1-grid.html" class="mobile-dropdown-item-link">Shop 3 Columns Grid</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="shop-v1-list.html" class="mobile-dropdown-item-link">Shop 3 Columns List</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="shop-v2.html" class="mobile-dropdown-item-link">Shop 4 Columns</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="product-page.html" class="mobile-dropdown-item-link">Product Description</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="product-page.html" class="mobile-dropdown-item-link">Product Reviews</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="product-page.html" class="mobile-dropdown-item-link">Product Specifications</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="inventory-bag.html" class="mobile-dropdown-item-link">Inventory Bag (Cart)</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="checkout.html" class="mobile-dropdown-item-link">Checkout Page</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="order-confirmation.html" class="mobile-dropdown-item-link">Order
+                                    Confirmation</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="wishlist.html" class="mobile-dropdown-item-link">Wishlist</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="product-compare.html" class="mobile-dropdown-item-link">Product Compare</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+                        </ul>
+                        <!-- /MOBILE DROPDOWN -->
+                    </li>
+                    <!-- /MOBILE DROPDOWN ITEM -->
+                </ul>
+                <!-- /MOBILE DROPDOWN -->
+            </li>
+            <!-- /MOBILE MENU ITEM -->
+
+            <!-- MOBILE MENU ITEM -->
+            <li class="mobile-menu-item">
+                <p class="mobile-menu-item-link pd-dropdown-handler">
+                    <img class="widget-option-img user-avatar micro" src="{{ asset('assets/front/img/users/05.jpg') }}"
+                        alt="avatar-01">
+                    James_Spiegel
+                </p>
+                <!-- ARROW ICON -->
+                <svg class="arrow-icon medium">
+                    <use xlink:href="#svg-arrow-medium"></use>
+                </svg>
+                <!-- /ARROW ICON -->
+
+                <!-- MOBILE DROPDOWN -->
+                <ul class="mobile-dropdown pd-dropdown">
+                    <!-- MOBILE DROPDOWN ITEM -->
+                    <li class="mobile-dropdown-item">
+                        <p class="mobile-dropdown-item-link pd-dropdown-handler">Main Account</p>
+                        <!-- ARROW ICON -->
+                        <svg class="arrow-icon medium">
+                            <use xlink:href="#svg-arrow-medium"></use>
+                        </svg>
+                        <!-- /ARROW ICON -->
+
+                        <!-- MOBILE DROPDOWN -->
+                        <ul class="mobile-dropdown pd-dropdown">
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="account-settings.html" class="mobile-dropdown-item-link">Account Settings</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="#" class="mobile-dropdown-item-link">Shipping Details</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="#" class="mobile-dropdown-item-link">Billing Details</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="orders-history.html" class="mobile-dropdown-item-link">Orders History</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+                        </ul>
+                        <!-- /MOBILE DROPDOWN -->
+                    </li>
+                    <!-- /MOBILE DROPDOWN ITEM -->
+
+                    <!-- MOBILE DROPDOWN ITEM -->
+                    <li class="mobile-dropdown-item">
+                        <p class="mobile-dropdown-item-link pd-dropdown-handler">Pixel Forums</p>
+                        <!-- ARROW ICON -->
+                        <svg class="arrow-icon medium">
+                            <use xlink:href="#svg-arrow-medium"></use>
+                        </svg>
+                        <!-- /ARROW ICON -->
+
+                        <!-- MOBILE DROPDOWN -->
+                        <ul class="mobile-dropdown pd-dropdown">
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="profile-summary.html" class="mobile-dropdown-item-link">Summary</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="profile-activity.html" class="mobile-dropdown-item-link">Activity</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="profile-notifications.html" class="mobile-dropdown-item-link">Notifications</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="profile-messages.html" class="mobile-dropdown-item-link">Messages</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="profile-badges.html" class="mobile-dropdown-item-link">Profile Badges</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+
+                            <!-- MOBILE DROPDOWN ITEM -->
+                            <li class="mobile-dropdown-item">
+                                <a href="profile-settings.html" class="mobile-dropdown-item-link">Settings</a>
+                            </li>
+                            <!-- /MOBILE DROPDOWN ITEM -->
+                        </ul>
+                        <!-- /MOBILE DROPDOWN -->
+                    </li>
+                    <!-- /MOBILE DROPDOWN ITEM -->
+                </ul>
+                <!-- /MOBILE DROPDOWN -->
+            </li>
+            <!-- /MOBILE MENU ITEM -->
+
+            <!-- MOBILE MENU ITEM -->
+            <li class="mobile-menu-item">
+                <a href="wishlist.html" class="mobile-menu-item-link">Wishlist (<span class="quantity">5</span>)</a>
+            </li>
+            <!-- /MOBILE MENU ITEM -->
+
+            <!-- MOBILE MENU ITEM -->
+            <li class="mobile-menu-item">
+                <a href="product-compare.html" class="mobile-menu-item-link">Compare (<span
+                        class="quantity">4</span>)</a>
+            </li>
+            <!-- /MOBILE MENU ITEM -->
+        </ul>
+        <!-- /MOBILE MENU -->
+    </div>
+    <!-- /MOBILE MENU WRAP -->
+
+    <!-- HEADER WRAP -->
+    <div class="header-wrap">
+        <!-- HEADER -->
+        <div class="header grid-limit">
+            <!-- WIDGET SELECTABLES -->
+            <div class="widget-selectables">
+                <!-- WIDGET OPTIONS WRAP -->
+                <div class="widget-options-wrap">
+                    <!-- CURRENT OPTION -->
+                    <div id="lang-dropdown-trigger" class="current-option">
+                        <!-- CURRENT OPTION VALUE -->
+                        <div id="lang-dropdown-option-value" class="current-option-value">
+                            <img class="widget-option-img" src="{{ asset('assets/front/img/flags/flag-us.png') }}"
+                                alt="flag-us">
+                            <p class="widget-option-text">English</p>
+                        </div>
+                        <!-- /CURRENT OPTION VALUE -->
+
+                        <!-- ARROW ICON -->
+                        <svg class="arrow-icon">
+                            <use xlink:href="#svg-arrow"></use>
+                        </svg>
+                        <!-- /ARROW ICON -->
+                    </div>
+                    <!-- /CURRENT OPTION -->
+
+                    <!-- WIDGET OPTIONS -->
+                    <div id="lang-dropdown" class="widget-options small">
+                        <!-- WIDGET OPTION -->
+                        <div class="widget-option">
+                            <img class="widget-option-img" src="{{ asset('assets/front/img/flags/flag-us.png') }}"
+                                alt="flag-us">
+                            <p class="widget-option-text">English</p>
+                        </div>
+                        <!-- /WIDGET OPTION -->
+
+                        <!-- WIDGET OPTION -->
+                        <div class="widget-option">
+                            <img class="widget-option-img" src="{{ asset('assets/front/img/flags/flag-es.png') }}"
+                                alt="flag-es">
+                            <p class="widget-option-text">Spanish</p>
+                        </div>
+                        <!-- /WIDGET OPTION -->
+
+                        <!-- WIDGET OPTION -->
+                        <div class="widget-option">
+                            <img class="widget-option-img" src="{{ asset('assets/front/img/flags/flag-fr.png') }}"
+                                alt="flag-fr">
+                            <p class="widget-option-text">French</p>
+                        </div>
+                        <!-- /WIDGET OPTION -->
+
+                        <!-- WIDGET OPTION -->
+                        <div class="widget-option">
+                            <img class="widget-option-img" src="{{ asset('assets/front/img/flags/flag-jp.png') }}"
+                                alt="flag-jp">
+                            <p class="widget-option-text">Japanese</p>
+                        </div>
+                        <!-- /WIDGET OPTION -->
+                    </div>
+                    <!-- /WIDGET OPTIONS -->
+                </div>
+                <!-- /WIDGET OPTIONS WRAP -->
+
+                <!-- WIDGET OPTIONS WRAP -->
+                <div class="widget-options-wrap">
+                    <!-- CURRENT OPTION -->
+                    <div id="curr-dropdown-trigger" class="current-option">
+                        <p class="widget-option-text currency-text-info">Currency:</p>
+                        <!-- CURRENT OPTION VALUE -->
+                        <div id="curr-dropdown-option-value" class="current-option-value highlighted">
+                            <p class="widget-option-text">U$D</p>
+                        </div>
+                        <!-- /CURRENT OPTION VALUE -->
+
+                        <!-- ARROW ICON -->
+                        <svg class="arrow-icon">
+                            <use xlink:href="#svg-arrow"></use>
+                        </svg>
+                        <!-- /ARROW ICON -->
+                    </div>
+                    <!-- /CURRENT OPTION -->
+
+                    <!-- WIDGET OPTIONS -->
+                    <div id="curr-dropdown" class="widget-options small short">
+                        <!-- WIDGET OPTION -->
+                        <div class="widget-option">
+                            <p class="widget-option-text">U$D</p>
+                        </div>
+                        <!-- /WIDGET OPTION -->
+
+                        <!-- WIDGET OPTION -->
+                        <div class="widget-option">
+                            <p class="widget-option-text">Euros</p>
+                        </div>
+                        <!-- /WIDGET OPTION -->
+
+                        <!-- WIDGET OPTION -->
+                        <div class="widget-option">
+                            <p class="widget-option-text">Pesos</p>
+                        </div>
+                        <!-- /WIDGET OPTION -->
+                    </div>
+                    <!-- /WIDGET OPTIONS -->
+                </div>
+                <!-- /WIDGET OPTIONS WRAP -->
+            </div>
+            <!-- /WIDGET SELECTABLES -->
+
+            <!-- WIDGET SELECTABLES -->
+            <div class="widget-selectables">
+                <!-- WIDGET OPTIONS WRAP -->
+                <div class="widget-options-wrap">
+                    <!-- CURRENT OPTION -->
+                    <div id="account-dropdown-trigger" class="current-option">
+                        <!-- CURRENT OPTION VALUE -->
+                        <div class="current-option-value">
+                            <img class="widget-option-img user-avatar micro"
+                                src="{{ asset('assets/front/img/users/05.jpg') }}" alt="avatar-01">
+                            <p class="widget-option-text">James_Spiegel</p>
+                        </div>
+                        <!-- /CURRENT OPTION VALUE -->
+
+                        <!-- ARROW ICON -->
+                        <svg class="arrow-icon">
+                            <use xlink:href="#svg-arrow"></use>
+                        </svg>
+                        <!-- /ARROW ICON -->
+                    </div>
+                    <!-- /CURRENT OPTION -->
+
+                    <!-- WIDGET OPTIONS -->
+                    <div id="account-dropdown" class="widget-options short linkable">
+                        <!-- WIDGET OPTION HEADING -->
+                        <div class="widget-option-heading blue">
+                            <p class="widget-option-text">Main Account</p>
+                        </div>
+                        <!-- /WIDGET OPTION HEADING -->
+
+                        <!-- WIDGET OPTION -->
+                        <a href="account-settings.html" class="widget-option">
+                            <p class="widget-option-text">Account Settings</p>
+                        </a>
+                        <!-- /WIDGET OPTION -->
+
+                        <!-- WIDGET OPTION -->
+                        <a href="#" class="widget-option">
+                            <p class="widget-option-text">Shipping Details</p>
+                        </a>
+                        <!-- /WIDGET OPTION -->
+
+                        <!-- WIDGET OPTION -->
+                        <a href="#" class="widget-option">
+                            <p class="widget-option-text">Billing Details</p>
+                        </a>
+                        <!-- /WIDGET OPTION -->
+
+                        <!-- WIDGET OPTION -->
+                        <a href="orders-history.html" class="widget-option">
+                            <p class="widget-option-text">Orders History</p>
+                        </a>
+                        <!-- /WIDGET OPTION -->
+
+                        <!-- WIDGET OPTION HEADING -->
+                        <div class="widget-option-heading red">
+                            <p class="widget-option-text">Pixel Forums</p>
+                        </div>
+                        <!-- /WIDGET OPTION HEADING -->
+
+                        <!-- WIDGET OPTION -->
+                        <a href="profile-summary.html" class="widget-option">
+                            <p class="widget-option-text">Summary</p>
+                        </a>
+                        <!-- /WIDGET OPTION -->
+
+                        <!-- WIDGET OPTION -->
+                        <a href="profile-activity.html" class="widget-option">
+                            <p class="widget-option-text">Activity</p>
+                        </a>
+                        <!-- /WIDGET OPTION -->
+
+                        <!-- WIDGET OPTION -->
+                        <a href="profile-notifications.html" class="widget-option">
+                            <p class="widget-option-text">Notifications</p>
+                        </a>
+                        <!-- /WIDGET OPTION -->
+
+                        <!-- WIDGET OPTION -->
+                        <a href="profile-messages.html" class="widget-option">
+                            <p class="widget-option-text">Messages</p>
+                        </a>
+                        <!-- /WIDGET OPTION -->
+
+                        <!-- WIDGET OPTION -->
+                        <a href="profile-badges.html" class="widget-option">
+                            <p class="widget-option-text">Profile Badges</p>
+                        </a>
+                        <!-- /WIDGET OPTION -->
+
+                        <!-- WIDGET OPTION -->
+                        <a href="profile-settings.html" class="widget-option">
+                            <p class="widget-option-text">Settings</p>
+                        </a>
+                        <!-- /WIDGET OPTION -->
+                    </div>
+                    <!-- /WIDGET OPTIONS -->
+                </div>
+                <!-- /WIDGET OPTIONS WRAP -->
+
+                <!-- WIDGET OPTIONS WRAP -->
+                <div class="widget-options-wrap">
+                    <!-- CURRENT OPTION -->
+                    <a href="wishlist.html">
+                        <div class="current-option">
+                            <!-- CURRENT OPTION VALUE -->
+                            <div class="current-option-value">
+                                <i class="icon-heart widget-option-icon"></i>
+                                <p class="widget-option-text">Wishlist <span class="quantity">(5)</span></p>
+                            </div>
+                            <!-- /CURRENT OPTION VALUE -->
+                        </div>
                     </a>
+                    <!-- /CURRENT OPTION -->
                 </div>
-                <!-- End Header Navigation -->
+                <!-- /WIDGET OPTIONS WRAP -->
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="navbar-menu">
-                    <ul class="nav navbar-nav navbar-right" data-in="#" data-out="#">
-                        <li class="dropdown active">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Home</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="index.html">Home Version One</a></li>
-                                <li><a href="index-2.html">Home Version Two</a></li>
-                                <li><a href="index-3.html">Home Version Three</a></li>
-                                <li><a href="index-4.html">Home Version Four</a></li>
-                                <li><a href="index-5.html">Home Version Five</a></li>
-                                <li><a href="index-6.html">Home Version Six</a></li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Home Onepage</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="index-op.html">Version One</a></li>
-                                        <li><a href="index-op-2.html">Version Two</a></li>
-                                        <li><a href="index-op-3.html">Version Three</a></li>
-                                        <li><a href="index-op-4.html">Version Four</a></li>
-                                        <li><a href="index-op-5.html">Version Five</a></li>
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Home Onepage</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="index-op.html">Version One</a></li>
-                                                <li><a href="index-op-2.html">Version Two</a></li>
-                                                <li><a href="index-op-3.html">Version Three</a></li>
-                                                <li><a href="index-op-4.html">Version Four</a></li>
-                                                <li><a href="index-op-5.html">Version Five</a></li>
-                                                <li class="dropdown">
-                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Home
-                                                        Onepage</a>
-                                                    <ul class="dropdown-menu">
-                                                        <li><a href="index-op.html">Version One</a></li>
-                                                        <li><a href="index-op-2.html">Version Two</a></li>
-                                                        <li><a href="index-op-3.html">Version Three</a></li>
-                                                        <li><a href="index-op-4.html">Version Four</a></li>
-                                                        <li><a href="index-op-5.html">Version Five</a></li>
+                <!-- WIDGET OPTIONS WRAP -->
+                <div class="widget-options-wrap">
+                    <!-- CURRENT OPTION -->
+                    <a href="product-compare.html">
+                        <div class="current-option">
+                            <!-- CURRENT OPTION VALUE -->
+                            <div class="current-option-value">
+                                <i class="icon-tag widget-option-icon"></i>
+                                <p class="widget-option-text">Compare <span class="quantity">(2)</span></p>
+                            </div>
+                            <!-- /CURRENT OPTION VALUE -->
+                        </div>
+                    </a>
+                    <!-- /CURRENT OPTION -->
+                </div>
+                <!-- /WIDGET OPTIONS WRAP -->
+
+                <!-- BUTTON -->
+                <a href="#" class="button tiny red log-button">
+                    Logout
+                    <!-- BUTTON ORNAMENT -->
+                    <div class="button-ornament">
+                        <!-- ARROW ICON -->
+                        <svg class="arrow-icon">
+                            <use xlink:href="#svg-arrow"></use>
+                        </svg>
+                        <!-- /ARROW ICON -->
+                    </div>
+                    <!-- /BUTTON ORNAMENT -->
+                </a>
+                <!-- /BUTTON -->
+            </div>
+            <!-- /WIDGET SELECTABLES -->
+        </div>
+        <!-- /HEADER -->
+    </div>
+    <!-- /HEADER WRAP -->
+
+    <!-- NAVIGATION WRAP -->
+    <nav class="navigation-wrap void stick-on-top">
+        <!-- NAVIGATION -->
+        <div class="navigation grid-limit">
+            <!-- LOGO -->
+            <div class="logo">
+                <!-- LOGO IMG -->
+                <figure class="logo-img">
+                    <img src="{{ asset('assets/front/img/brand/logo.png') }}" alt="Logo">
+                </figure>
+                <!-- /LOGO IMG -->
+
+                <!-- LOGO TEXT -->
+                <div class="logo-text">
+                    <h2 class="logo-title">Pixel<span class="highlight">Diamond</span></h2>
+                    <p class="logo-info">The Latest Gaming News</p>
+                </div>
+                <!-- /LOGO TEXT -->
+            </div>
+            <!-- /LOGO -->
+
+            <!-- INVENTORY BUTTON -->
+            <div class="inventory-button">
+                <!-- INVENTORY ICON -->
+                <svg class="inventory-icon">
+                    <use xlink:href="#svg-inventory"></use>
+                </svg>
+                <!-- /INVENTORY ICON -->
+
+                <!-- INVENTORY ITEM QUANTITY WRAP -->
+                <div class="inventory-item-quantity-wrap">
+                    <p class="inventory-item-quantity">2</p>
+                </div>
+                <!-- /INVENTORY ITEM QUANTITY WRAP -->
+            </div>
+            <!-- /INVENTORY BUTTON -->
+
+            <!-- SEARCH BUTTON -->
+            <div class="search-button search-popup-open">
+                <!-- SEARCH ICON -->
+                <svg class="search-icon">
+                    <use xlink:href="#svg-search"></use>
+                </svg>
+                <!-- /SEARCH ICON -->
+            </div>
+            <!-- /SEARCH BUTTON -->
+
+            <!-- MAIN MENU -->
+            <ul class="main-menu">
+                <!-- MAIN MENU ITEM -->
+                <li class="main-menu-item">
+                    <a href="index.html" class="main-menu-item-link">Home</a>
+                </li>
+                <!-- /MAIN MENU ITEM -->
+
+                <!-- MAIN MENU ITEM -->
+                <li class="main-menu-item">
+                    <a href="esports-home.html" class="main-menu-item-link">
+                        eSports
+                        <!-- SVG ARROW -->
+                        <svg class="arrow-icon">
+                            <use xlink:href="#svg-arrow"></use>
+                        </svg>
+                        <!-- /SVG ARROW -->
+                    </a>
+
+                    <!-- SUBMENU -->
+                    <ul class="submenu">
+                        <!-- SUBMENU ITEM -->
+                        <li class="submenu-item grid-limit">
+                            <!-- LINK SECTIONS WRAP -->
+                            <div class="link-sections-wrap">
+                                <!-- LINK SECTIONS -->
+                                <div class="link-sections">
+                                    <!-- LINK SECTION -->
+                                    <div class="link-section">
+                                        <!-- SECTION TITLE WRAP -->
+                                        <div class="section-title-wrap violet">
+                                            <h2 class="section-title small">Main Pages</h2>
+                                            <div class="section-title-separator"></div>
+                                        </div>
+                                        <!-- /SECTION TITLE WRAP -->
+
+                                        <!-- LINK LIST -->
+                                        <ul class="link-list medium">
+                                            <!-- LINK LIST ITEM -->
+                                            <li class="link-list-item">
+                                                <a href="esports-home.html">eSports Home</a>
+                                            </li>
+                                            <!-- /LINK LIST ITEM -->
+
+                                            <!-- LINK LIST ITEM -->
+                                            <li class="link-list-item">
+                                                <a href="esports-news.html">eSports News</a>
+                                            </li>
+                                            <!-- /LINK LIST ITEM -->
+
+                                            <!-- LINK LIST ITEM -->
+                                            <li class="link-list-item">
+                                                <a href="esports-post.html">eSports Post Page</a>
+                                            </li>
+                                            <!-- /LINK LIST ITEM -->
+
+                                            <!-- LINK LIST ITEM -->
+                                            <li class="link-list-item">
+                                                <a href="esports-tournament.html">Tournament Page</a>
+                                            </li>
+                                            <!-- /LINK LIST ITEM -->
+                                        </ul>
+                                        <!-- /LINK LIST -->
+                                    </div>
+                                    <!-- /LINK SECTION -->
+
+                                    <!-- LINK SECTION -->
+                                    <div class="link-section">
+                                        <!-- SECTION TITLE WRAP -->
+                                        <div class="section-title-wrap violet">
+                                            <h2 class="section-title small">Match Overviews</h2>
+                                            <div class="section-title-separator"></div>
+                                        </div>
+                                        <!-- /SECTION TITLE WRAP -->
+
+                                        <!-- LINK LIST -->
+                                        <ul class="link-list medium">
+                                            <!-- LINK LIST ITEM -->
+                                            <li class="link-list-item">
+                                                <a href="esports-match-overview-v1.html">Match Overview V1</a>
+                                            </li>
+                                            <!-- /LINK LIST ITEM -->
+
+                                            <!-- LINK LIST ITEM -->
+                                            <li class="link-list-item">
+                                                <a href="esports-match-overview-v2.html">Match Overview V2</a>
+                                            </li>
+                                            <!-- /LINK LIST ITEM -->
+
+                                            <!-- LINK LIST ITEM -->
+                                            <li class="link-list-item">
+                                                <a href="esports-match-overview-v3.html">Match Overview V3</a>
+                                            </li>
+                                            <!-- /LINK LIST ITEM -->
+
+                                            <!-- LINK LIST ITEM -->
+                                            <li class="link-list-item">
+                                                <a href="esports-match-overview-v4.html">Match Overview V4</a>
+                                            </li>
+                                            <!-- /LINK LIST ITEM -->
+                                        </ul>
+                                        <!-- /LINK LIST -->
+                                    </div>
+                                    <!-- /LINK SECTION -->
+
+                                    <!-- LINK SECTION -->
+                                    <div class="link-section">
+                                        <!-- SECTION TITLE WRAP -->
+                                        <div class="section-title-wrap violet">
+                                            <h2 class="section-title small">Teams &amp; Players</h2>
+                                            <div class="section-title-separator"></div>
+                                        </div>
+                                        <!-- /SECTION TITLE WRAP -->
+
+                                        <!-- LINK LIST -->
+                                        <ul class="link-list medium">
+                                            <!-- LINK LIST ITEM -->
+                                            <li class="link-list-item">
+                                                <a href="esports-team.html">eSports Team Page</a>
+                                            </li>
+                                            <!-- /LINK LIST ITEM -->
+
+                                            <!-- LINK LIST ITEM -->
+                                            <li class="link-list-item">
+                                                <a href="esports-player.html">eSports Player Page</a>
+                                            </li>
+                                            <!-- /LINK LIST ITEM -->
+
+                                            <!-- LINK LIST ITEM -->
+                                            <li class="link-list-item">
+                                                <a href="esports-streamers.html">Streamers Page</a>
+                                            </li>
+                                            <!-- /LINK LIST ITEM -->
+
+                                            <!-- LINK LIST ITEM -->
+                                            <li class="link-list-item">
+                                                <a href="esports-calendar.html">Scores with Calendar</a>
+                                            </li>
+                                            <!-- /LINK LIST ITEM -->
+                                        </ul>
+                                        <!-- /LINK LIST -->
+                                    </div>
+                                    <!-- /LINK SECTION -->
+                                </div>
+                                <!-- /LINK SECTIONS -->
+
+                                <!-- LINK SECTIONS -->
+                                <div class="link-sections">
+                                    <!-- LINK SECTION -->
+                                    <div class="link-section">
+                                        <!-- SECTION TITLE WRAP -->
+                                        <div class="section-title-wrap violet">
+                                            <h2 class="section-title small">Esports Widgets</h2>
+                                            <div class="section-title-separator"></div>
+                                        </div>
+                                        <!-- /SECTION TITLE WRAP -->
+
+                                        <!-- LINK LIST -->
+                                        <ul class="link-list medium">
+                                            <!-- LINK LIST ITEM -->
+                                            <li class="link-list-item">
+                                                <a href="esports-widgets-v1.html">Widgets Page 01</a>
+                                            </li>
+                                            <!-- /LINK LIST ITEM -->
+                                        </ul>
+                                        <!-- /LINK LIST -->
+
+                                        <!-- LINK LIST -->
+                                        <ul class="link-list medium">
+                                            <!-- LINK LIST ITEM -->
+                                            <li class="link-list-item">
+                                                <a href="esports-widgets-v2.html">Widgets Page 02</a>
+                                            </li>
+                                            <!-- /LINK LIST ITEM -->
+                                        </ul>
+                                        <!-- /LINK LIST -->
+
+                                        <!-- LINK LIST -->
+                                        <ul class="link-list medium">
+                                            <!-- LINK LIST ITEM -->
+                                            <li class="link-list-item">
+                                                <a href="esports-widgets-v3.html">Widgets Page 03</a>
+                                            </li>
+                                            <!-- /LINK LIST ITEM -->
+                                        </ul>
+                                        <!-- /LINK LIST -->
+                                    </div>
+                                    <!-- /LINK SECTION -->
+                                </div>
+                                <!-- /LINK SECTIONS -->
+
+                                <!-- LINK SECTIONS -->
+                                <div class="link-sections">
+                                    <!-- LINK SECTION -->
+                                    <div class="link-section full">
+                                        <!-- SECTION TITLE WRAP -->
+                                        <div class="section-title-wrap violet">
+                                            <h2 class="section-title small">Pixel Streamers</h2>
+                                            <div class="section-title-separator"></div>
+                                        </div>
+                                        <!-- /SECTION TITLE WRAP -->
+
+                                        <!-- STREAMER AVATARS -->
+                                        <div class="streamer-avatars">
+                                            <!-- STREAMER AVATAR -->
+                                            <div class="streamer-avatar">
+                                                <a href="esports-streamers.html">
+                                                    <!-- PP HEXAGON -->
+                                                    <div class="pp-hexagon">
+                                                        <!-- HEXAGON ICON -->
+                                                        <svg class="hexagon-icon hexagon-border">
+                                                            <use xlink:href="#svg-hexagon"></use>
+                                                        </svg>
+                                                        <!-- /HEXAGON ICON -->
+
+                                                        <!-- HEXAGON ICON -->
+                                                        <svg class="hexagon-icon hexagon-fill">
+                                                            <use xlink:href="#svg-hexagon"></use>
+                                                        </svg>
+                                                        <!-- /HEXAGON ICON -->
+                                                    </div>
+                                                    <!-- /PP HEXAGON -->
+
+                                                    <!-- STREAMER AVATAR IMG WRAP -->
+                                                    <div class="streamer-avatar-img-wrap">
+                                                        <!-- STREAMER AVATAR IMG -->
+                                                        <img class="streamer-avatar-img"
+                                                            src="{{ asset('assets/front/img/streamers/streamer-hex-01.png') }}"
+                                                            alt="st-avatar-01">
+                                                    </div>
+                                                    <!-- /STREAMER AVATAR IMG WRAP -->
+                                                </a>
+                                            </div>
+                                            <!-- /STREAMER AVATAR -->
+
+                                            <!-- STREAMER AVATAR -->
+                                            <div class="streamer-avatar">
+                                                <a href="esports-streamers.html">
+                                                    <!-- PP HEXAGON -->
+                                                    <div class="pp-hexagon">
+                                                        <!-- HEXAGON ICON -->
+                                                        <svg class="hexagon-icon hexagon-border">
+                                                            <use xlink:href="#svg-hexagon"></use>
+                                                        </svg>
+                                                        <!-- /HEXAGON ICON -->
+
+                                                        <!-- HEXAGON ICON -->
+                                                        <svg class="hexagon-icon hexagon-fill">
+                                                            <use xlink:href="#svg-hexagon"></use>
+                                                        </svg>
+                                                        <!-- /HEXAGON ICON -->
+                                                    </div>
+                                                    <!-- /PP HEXAGON -->
+
+                                                    <!-- STREAMER AVATAR IMG WRAP -->
+                                                    <div class="streamer-avatar-img-wrap">
+                                                        <!-- STREAMER AVATAR IMG -->
+                                                        <img class="streamer-avatar-img"
+                                                            src="{{ asset('assets/front/img/streamers/streamer-hex-02.png') }}"
+                                                            alt="st-avatar-02">
+                                                    </div>
+                                                    <!-- /STREAMER AVATAR IMG WRAP -->
+                                                </a>
+                                            </div>
+                                            <!-- /STREAMER AVATAR -->
+
+                                            <!-- STREAMER AVATAR -->
+                                            <div class="streamer-avatar">
+                                                <a href="esports-streamers.html">
+                                                    <!-- PP HEXAGON -->
+                                                    <div class="pp-hexagon">
+                                                        <!-- HEXAGON ICON -->
+                                                        <svg class="hexagon-icon hexagon-border">
+                                                            <use xlink:href="#svg-hexagon"></use>
+                                                        </svg>
+                                                        <!-- /HEXAGON ICON -->
+
+                                                        <!-- HEXAGON ICON -->
+                                                        <svg class="hexagon-icon hexagon-fill">
+                                                            <use xlink:href="#svg-hexagon"></use>
+                                                        </svg>
+                                                        <!-- /HEXAGON ICON -->
+                                                    </div>
+                                                    <!-- /PP HEXAGON -->
+
+                                                    <!-- STREAMER AVATAR IMG WRAP -->
+                                                    <div class="streamer-avatar-img-wrap">
+                                                        <!-- STREAMER AVATAR IMG -->
+                                                        <img class="streamer-avatar-img"
+                                                            src="{{ asset('assets/front/img/streamers/streamer-hex-03.png') }}"
+                                                            alt="st-avatar-03">
+                                                    </div>
+                                                    <!-- /STREAMER AVATAR IMG WRAP -->
+                                                </a>
+                                            </div>
+                                            <!-- /STREAMER AVATAR -->
+
+                                            <!-- STREAMER AVATAR -->
+                                            <div class="streamer-avatar">
+                                                <a href="esports-streamers.html">
+                                                    <!-- PP HEXAGON -->
+                                                    <div class="pp-hexagon">
+                                                        <!-- HEXAGON ICON -->
+                                                        <svg class="hexagon-icon hexagon-border">
+                                                            <use xlink:href="#svg-hexagon"></use>
+                                                        </svg>
+                                                        <!-- /HEXAGON ICON -->
+
+                                                        <!-- HEXAGON ICON -->
+                                                        <svg class="hexagon-icon hexagon-fill">
+                                                            <use xlink:href="#svg-hexagon"></use>
+                                                        </svg>
+                                                        <!-- /HEXAGON ICON -->
+                                                    </div>
+                                                    <!-- /PP HEXAGON -->
+
+                                                    <!-- STREAMER AVATAR IMG WRAP -->
+                                                    <div class="streamer-avatar-img-wrap">
+                                                        <!-- STREAMER AVATAR IMG -->
+                                                        <img class="streamer-avatar-img"
+                                                            src="{{ asset('assets/front/img/streamers/streamer-hex-04.png') }}"
+                                                            alt="st-avatar-04">
+                                                    </div>
+                                                    <!-- /STREAMER AVATAR IMG WRAP -->
+                                                </a>
+                                            </div>
+                                            <!-- /STREAMER AVATAR -->
+
+                                            <!-- STREAMER AVATAR -->
+                                            <div class="streamer-avatar">
+                                                <a href="esports-streamers.html">
+                                                    <!-- PP HEXAGON -->
+                                                    <div class="pp-hexagon">
+                                                        <!-- HEXAGON ICON -->
+                                                        <svg class="hexagon-icon hexagon-border">
+                                                            <use xlink:href="#svg-hexagon"></use>
+                                                        </svg>
+                                                        <!-- /HEXAGON ICON -->
+
+                                                        <!-- HEXAGON ICON -->
+                                                        <svg class="hexagon-icon hexagon-fill">
+                                                            <use xlink:href="#svg-hexagon"></use>
+                                                        </svg>
+                                                        <!-- /HEXAGON ICON -->
+                                                    </div>
+                                                    <!-- /PP HEXAGON -->
+
+                                                    <!-- STREAMER AVATAR IMG WRAP -->
+                                                    <div class="streamer-avatar-img-wrap">
+                                                        <!-- STREAMER AVATAR IMG -->
+                                                        <img class="streamer-avatar-img"
+                                                            src="{{ asset('assets/front/img/streamers/streamer-hex-05.png') }}"
+                                                            alt="st-avatar-05">
+                                                    </div>
+                                                    <!-- /STREAMER AVATAR IMG WRAP -->
+                                                </a>
+                                            </div>
+                                            <!-- /STREAMER AVATAR -->
+                                        </div>
+                                        <!-- /STREAMER AVATARS -->
+                                    </div>
+                                    <!-- /LINK SECTION -->
+                                </div>
+                                <!-- /LINK SECTIONS -->
+                            </div>
+                            <!-- /LINK SECTIONS WRAP -->
+
+                            <!-- LINK SECTIONS WRAP -->
+                            <div class="link-sections-wrap">
+                                <!-- LINK SECTIONS -->
+                                <div class="link-sections">
+                                    <!-- LINK SECTION -->
+                                    <div class="link-section">
+                                        <!-- SECTION TITLE WRAP -->
+                                        <div class="section-title-wrap violet">
+                                            <h2 class="section-title small">Featured Match</h2>
+                                            <div class="section-title-separator"></div>
+                                        </div>
+                                        <!-- /SECTION TITLE WRAP -->
+
+                                        <!-- WIDGET MATCH BOX -->
+                                        <div class="widget-match-box">
+                                            <!-- WIDGET TITLE WRAP -->
+                                            <div class="widget-title-wrap">
+                                                <h6 class="widget-title">Xenowatch league finals</h6>
+                                                <p class="widget-text">August 28th, 2018</p>
+                                            </div>
+                                            <!-- /WIDGET TITLE WRAP -->
+
+                                            <!-- WIDGET TEAM VS -->
+                                            <div class="widget-team-vs">
+                                                <!-- WIDGET TEAM VS ITEM -->
+                                                <div class="widget-team-vs-item">
+                                                    <!-- TEAM INFO WRAP -->
+                                                    <div class="team-info-wrap medium">
+                                                        <!-- TEAM LOGO -->
+                                                        <img class="team-logo"
+                                                            src="{{ asset('assets/front/img/teams/logos/01.png') }}"
+                                                            alt="logo-01">
+                                                        <!-- /TEAM LOGO -->
+
+                                                        <!-- TEAM INFO -->
+                                                        <div class="team-info">
+                                                            <!-- TEAM NAME -->
+                                                            <p class="team-name">The Lone Wolves</p>
+                                                            <!-- /TEAM NAME -->
+
+                                                            <!-- TEAM COUNTRY -->
+                                                            <p class="team-country">United States</p>
+                                                            <!-- /TEAM COUNTRY -->
+                                                        </div>
+                                                        <!-- /TEAM INFO -->
+                                                    </div>
+                                                    <!-- /TEAM INFO WRAP -->
+
+                                                    <!-- TEAM SCORE -->
+                                                    <p class="team-score">12</p>
+                                                    <!-- /TEAM SCORE -->
+                                                </div>
+                                                <!-- /WIDGET TEAM VS ITEM -->
+
+                                                <!-- WIDGET TEAM VS ITEM -->
+                                                <div class="widget-team-vs-item">
+                                                    <!-- TEAM INFO WRAP -->
+                                                    <div class="team-info-wrap medium">
+                                                        <!-- TEAM LOGO -->
+                                                        <img class="team-logo"
+                                                            src="{{ asset('assets/front/img/teams/logos/02.png') }}"
+                                                            alt="logo-02">
+                                                        <!-- /TEAM LOGO -->
+
+                                                        <!-- TEAM INFO -->
+                                                        <div class="team-info">
+                                                            <!-- TEAM NAME -->
+                                                            <p class="team-name">Raging Rhinos</p>
+                                                            <!-- /TEAM NAME -->
+
+                                                            <!-- TEAM COUNTRY -->
+                                                            <p class="team-country">South Africa</p>
+                                                            <!-- /TEAM COUNTRY -->
+                                                        </div>
+                                                        <!-- /TEAM INFO -->
+                                                    </div>
+                                                    <!-- /TEAM INFO WRAP -->
+
+                                                    <!-- TEAM SCORE -->
+                                                    <p class="team-score">10</p>
+                                                    <!-- /TEAM SCORE -->
+                                                </div>
+                                                <!-- /WIDGET TEAM VS ITEM -->
+                                            </div>
+                                            <!-- /WIDGET TEAM VS -->
+                                        </div>
+                                        <!-- /WIDGET MATCH BOX -->
+
+                                        <!-- WIDGET MATCH BOX -->
+                                        <div class="widget-match-box">
+                                            <!-- WIDGET TITLE WRAP -->
+                                            <div class="widget-title-wrap">
+                                                <!-- WIDGET TITLE -->
+                                                <h6 class="widget-title">Match Stats</h6>
+                                                <!-- /WIDGET TITLE -->
+
+                                                <!-- STATS REFERENCE -->
+                                                <div class="stats-reference">
+                                                    <!-- STAT REFERENCE -->
+                                                    <div class="stat-reference blue">
+                                                        <!-- STAT REFERENCE TEXT -->
+                                                        <p class="stat-reference-text">TLW</p>
+                                                        <!-- /STAT REFERENCE TEXT -->
+                                                    </div>
+                                                    <!-- /STAT REFERENCE -->
+
+                                                    <!-- STAT REFERENCE -->
+                                                    <div class="stat-reference yellow">
+                                                        <!-- STAT REFERENCE TEXT -->
+                                                        <p class="stat-reference-text">RRH</p>
+                                                        <!-- /STAT REFERENCE TEXT -->
+                                                    </div>
+                                                    <!-- /STAT REFERENCE -->
+                                                </div>
+                                                <!-- /STATS REFERENCE -->
+                                            </div>
+                                            <!-- /WIDGET TITLE WRAP -->
+
+                                            <!-- WIDGET TEAM STATS -->
+                                            <div class="widget-team-stats">
+                                                <!-- PROGRESS STAT WRAP -->
+                                                <div class="progress-stat-wrap">
+                                                    <!-- BAR PROGRESS INFO -->
+                                                    <p class="bar-progress-info">Total Kills</p>
+                                                    <!-- PROGRESS BAR WRAP -->
+                                                    <div id="mn-pg-1" class="progress-bar-wrap">
+                                                        <div class="bar-progress-wrap left">
+                                                            <p id="tlw-kills-stat" class="bar-progress-text"></p>
+                                                        </div>
+                                                        <div class="bar-progress-wrap right">
+                                                            <p id="rrh-kills-stat" class="bar-progress-text"></p>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /PROGRESS BAR WRAP -->
+                                                </div>
+                                                <!-- /PROGRESS STAT WRAP -->
+
+                                                <!-- PROGRESS STAT WRAP -->
+                                                <div class="progress-stat-wrap">
+                                                    <!-- BAR PROGRESS INFO -->
+                                                    <p class="bar-progress-info">Total Deaths</p>
+                                                    <!-- PROGRESS BAR WRAP -->
+                                                    <div id="mn-pg-2" class="progress-bar-wrap">
+                                                        <div class="bar-progress-wrap left">
+                                                            <p id="tlw-deaths-stat" class="bar-progress-text"></p>
+                                                        </div>
+                                                        <div class="bar-progress-wrap right">
+                                                            <p id="rrh-deaths-stat" class="bar-progress-text"></p>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /PROGRESS BAR WRAP -->
+                                                </div>
+                                                <!-- /PROGRESS STAT WRAP -->
+
+                                                <!-- PROGRESS STAT WRAP -->
+                                                <div class="progress-stat-wrap">
+                                                    <!-- BAR PROGRESS INFO -->
+                                                    <p class="bar-progress-info">Total Assists</p>
+                                                    <!-- PROGRESS BAR WRAP -->
+                                                    <div id="mn-pg-3" class="progress-bar-wrap">
+                                                        <div class="bar-progress-wrap left">
+                                                            <p id="tlw-assists-stat" class="bar-progress-text"></p>
+                                                        </div>
+                                                        <div class="bar-progress-wrap right">
+                                                            <p id="rrh-assists-stat" class="bar-progress-text"></p>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /PROGRESS BAR WRAP -->
+                                                </div>
+                                                <!-- /PROGRESS STAT WRAP -->
+                                            </div>
+                                            <!-- /WIDGET TEAM STATS -->
+                                        </div>
+                                        <!-- /WIDGET MATCH BOX -->
+                                    </div>
+                                    <!-- /LINK SECTION -->
+                                </div>
+                                <!-- /LINK SECTIONS -->
+                            </div>
+                            <!-- /LINK SECTIONS WRAP -->
+
+                            <!-- LINK SECTIONS WRAP -->
+                            <div class="link-sections-wrap">
+                                <!-- LINK SECTIONS -->
+                                <div class="link-sections">
+                                    <!-- LINK SECTION -->
+                                    <div class="link-section">
+                                        <!-- SECTION TITLE WRAP -->
+                                        <div class="section-title-wrap violet">
+                                            <h2 class="section-title small">Featured Articles</h2>
+                                            <div class="section-title-separator"></div>
+                                        </div>
+                                        <!-- /SECTION TITLE WRAP -->
+
+                                        <!-- POST PREVIEW SHOWCASE -->
+                                        <div class="post-preview-showcase grid-1col gutter-small">
+                                            <!-- POST PREVIEW -->
+                                            <div class="post-preview tiny e-sport">
+                                                <!-- POST PREVIEW IMG WRAP -->
+                                                <a href="esports-post.html">
+                                                    <div class="post-preview-img-wrap">
+                                                        <!-- POST PREVIEW IMG -->
+                                                        <figure class="post-preview-img liquid">
+                                                            <img src="{{ asset('assets/front/img/posts/36.jpg') }}"
+                                                                alt="post-36">
+                                                        </figure>
+                                                        <!-- /POST PREVIEW IMG -->
+                                                    </div>
+                                                </a>
+                                                <!-- /POST PREVIEW IMG WRAP -->
+
+                                                <!-- POST PREVIEW TITLE -->
+                                                <a href="esports-post.html" class="post-preview-title">Gwen Parker is
+                                                    leading her team to the semifinals</a>
+                                                <!-- POST AUTHOR INFO -->
+                                                <div class="post-author-info-wrap">
+                                                    <p class="post-author-info small light">By <a
+                                                            href="search-results.html"
+                                                            class="post-author">Dexter</a><span
+                                                            class="separator">|</span>Dec 15th, 2018</p>
+                                                </div>
+                                                <!-- /POST AUTHOR INFO -->
+                                            </div>
+                                            <!-- /POST PREVIEW -->
+
+                                            <!-- POST PREVIEW -->
+                                            <div class="post-preview tiny e-sport">
+                                                <!-- POST PREVIEW IMG WRAP -->
+                                                <a href="esports-post.html">
+                                                    <div class="post-preview-img-wrap">
+                                                        <!-- POST PREVIEW IMG -->
+                                                        <figure class="post-preview-img liquid">
+                                                            <img src="{{ asset('assets/front/img/posts/38.jpg') }}"
+                                                                alt="post-38">
+                                                        </figure>
+                                                        <!-- /POST PREVIEW IMG -->
+                                                    </div>
+                                                </a>
+                                                <!-- /POST PREVIEW IMG WRAP -->
+
+                                                <!-- POST PREVIEW TITLE -->
+                                                <a href="esports-post.html" class="post-preview-title">Pro Soccer 2018
+                                                    world league kicked off today!</a>
+                                                <!-- POST AUTHOR INFO -->
+                                                <div class="post-author-info-wrap">
+                                                    <p class="post-author-info small light">By <a
+                                                            href="search-results.html" class="post-author">Faye
+                                                            V.</a><span class="separator">|</span>Dec 15th, 2018</p>
+                                                </div>
+                                                <!-- /POST AUTHOR INFO -->
+                                            </div>
+                                            <!-- /POST PREVIEW -->
+
+                                            <!-- POST PREVIEW -->
+                                            <div class="post-preview tiny e-sport">
+                                                <!-- POST PREVIEW IMG WRAP -->
+                                                <a href="esports-post.html">
+                                                    <div class="post-preview-img-wrap">
+                                                        <!-- POST PREVIEW IMG -->
+                                                        <figure class="post-preview-img liquid">
+                                                            <img src="{{ asset('assets/front/img/posts/37.jpg') }}"
+                                                                alt="post-37">
+                                                        </figure>
+                                                        <!-- /POST PREVIEW IMG -->
+                                                    </div>
+                                                </a>
+                                                <!-- /POST PREVIEW IMG WRAP -->
+
+                                                <!-- POST PREVIEW TITLE -->
+                                                <a href="esports-post.html" class="post-preview-title">Last night the
+                                                    wolves beat the rhinos 12-10</a>
+                                                <!-- POST AUTHOR INFO -->
+                                                <div class="post-author-info-wrap">
+                                                    <p class="post-author-info small light">By <a
+                                                            href="search-results.html" class="post-author">Faye
+                                                            V.</a><span class="separator">|</span>Dec 15th, 2018</p>
+                                                </div>
+                                                <!-- /POST AUTHOR INFO -->
+                                            </div>
+                                            <!-- /POST PREVIEW -->
+
+                                            <!-- POST PREVIEW -->
+                                            <div class="post-preview tiny e-sport">
+                                                <!-- POST PREVIEW IMG WRAP -->
+                                                <a href="esports-post.html">
+                                                    <div class="post-preview-img-wrap">
+                                                        <!-- POST PREVIEW IMG -->
+                                                        <figure class="post-preview-img liquid">
+                                                            <img src="{{ asset('assets/front/img/posts/39.jpg') }}"
+                                                                alt="post-39">
+                                                        </figure>
+                                                        <!-- /POST PREVIEW IMG -->
+                                                    </div>
+                                                </a>
+                                                <!-- /POST PREVIEW IMG WRAP -->
+
+                                                <!-- POST PREVIEW TITLE -->
+                                                <a href="esports-post.html" class="post-preview-title">We had an
+                                                    interview with the great Emily Danniels</a>
+                                                <!-- POST AUTHOR INFO -->
+                                                <div class="post-author-info-wrap">
+                                                    <p class="post-author-info small light">By <a
+                                                            href="search-results.html"
+                                                            class="post-author">Vellatrix</a><span
+                                                            class="separator">|</span>Dec 15th, 2018</p>
+                                                </div>
+                                                <!-- /POST AUTHOR INFO -->
+                                            </div>
+                                            <!-- /POST PREVIEW -->
+
+                                            <!-- POST PREVIEW -->
+                                            <div class="post-preview tiny e-sport">
+                                                <!-- POST PREVIEW IMG WRAP -->
+                                                <a href="esports-post.html">
+                                                    <div class="post-preview-img-wrap">
+                                                        <!-- POST PREVIEW IMG -->
+                                                        <figure class="post-preview-img liquid">
+                                                            <img src="{{ asset('assets/front/img/posts/40.jpg') }}"
+                                                                alt="post-40">
+                                                        </figure>
+                                                        <!-- /POST PREVIEW IMG -->
+                                                    </div>
+                                                </a>
+                                                <!-- /POST PREVIEW IMG WRAP -->
+
+                                                <!-- POST PREVIEW TITLE -->
+                                                <a href="esports-post.html" class="post-preview-title">The Siberian
+                                                    Tigers arrived at New York for the finals</a>
+                                                <!-- POST AUTHOR INFO -->
+                                                <div class="post-author-info-wrap">
+                                                    <p class="post-author-info small light">By <a
+                                                            href="search-results.html"
+                                                            class="post-author">Vellatrix</a><span
+                                                            class="separator">|</span>Dec 15th, 2018</p>
+                                                </div>
+                                                <!-- /POST AUTHOR INFO -->
+                                            </div>
+                                            <!-- /POST PREVIEW -->
+                                        </div>
+                                        <!-- /POST PREVIEW SHOWCASE -->
+                                    </div>
+                                    <!-- /LINK SECTION -->
+                                </div>
+                                <!-- /LINK SECTIONS -->
+                            </div>
+                            <!-- /LINK SECTIONS WRAP -->
+                        </li>
+                        <!-- /SUBMENU ITEM -->
+                    </ul>
+                    <!-- /SUBMENU -->
+                </li>
+                <!-- /MAIN MENU ITEM -->
+
+                <!-- MAIN MENU ITEM -->
+                <li class="main-menu-item">
+                    <a href="news-v1.html" class="main-menu-item-link">News</a>
+                </li>
+                <!-- /MAIN MENU ITEM -->
+
+                <!-- MAIN MENU ITEM -->
+                <li class="main-menu-item">
+                    <a href="news-v2.html" class="main-menu-item-link">Reviews</a>
+                </li>
+                <!-- /MAIN MENU ITEM -->
+
+                <!-- MAIN MENU ITEM -->
+                <li class="main-menu-item">
+                    <a href="#" class="main-menu-item-link">
+                        Features
+                        <!-- SVG ARROW -->
+                        <svg class="arrow-icon">
+                            <use xlink:href="#svg-arrow"></use>
+                        </svg>
+                        <!-- /SVG ARROW -->
+                    </a>
+
+                    <!-- SUBMENU -->
+                    <ul class="submenu void">
+                        <!-- SUBMENU ITEM -->
+                        <li class="submenu-item padded">
+                            <!-- LINK SECTIONS -->
+                            <div class="link-sections">
+                                <!-- LINK SECTION -->
+                                <div class="link-section">
+                                    <!-- SECTION TITLE WRAP -->
+                                    <div class="section-title-wrap blue">
+                                        <h2 class="section-title small">Pixel Main Features</h2>
+                                        <div class="section-title-separator"></div>
+                                    </div>
+                                    <!-- /SECTION TITLE WRAP -->
+
+                                    <!-- LINK LIST -->
+                                    <ul class="link-list">
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="index.html">Main Homepage</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="home-v2.html">Homepage V2</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="home-v3.html">Homepage V3</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="news-v1.html">News Page V1</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="news-v2.html">News Page V2</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="news-v3.html">News Page V3</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="news-v4.html">News Page V4</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+                                    </ul>
+                                    <!-- /LINK LIST -->
+
+                                    <!-- LINK LIST -->
+                                    <ul class="link-list">
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="post-v1.html">Post Page V1</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="post-v2.html">Post Page V2</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="post-v3.html">Post Page V3</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="post-v4.html">Post Page V4</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="browse-videos.html">Browse Videos</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="post-video.html">Video Post Page</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="search-results.html">Search Results</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+                                    </ul>
+                                    <!-- /LINK LIST -->
+
+                                    <!-- LINK LIST -->
+                                    <ul class="link-list">
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="calendar.html">Events Calendar</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="event.html">Open Event</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="404.html">404 Error Page</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="shortcodes.html">Shortcodes</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="menu-dropdowns.html">Menu &amp; Dropdowns</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="headers-dividers.html">Headers &amp; Dividers</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="pixel-popups.html">Pixel Popups</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+                                    </ul>
+                                    <!-- /LINK LIST -->
+                                </div>
+                                <!-- /LINK SECTION -->
+
+                                <!-- LINK SECTION -->
+                                <div class="link-section">
+                                    <!-- SECTION TITLE WRAP -->
+                                    <div class="section-title-wrap blue">
+                                        <h2 class="section-title small">Account &amp; Company</h2>
+                                        <div class="section-title-separator"></div>
+                                    </div>
+                                    <!-- /SECTION TITLE WRAP -->
+
+                                    <!-- LINK LIST -->
+                                    <ul class="link-list">
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="login-register.html">Login &amp; Register</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="login-register-popups.html">Login &amp; Register Popups</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="account-settings.html">Account Settings</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="orders-history.html">Account Orders</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="faq.html">FAQs Page</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="contact.html">Contact Page</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="sponsors.html">Sponsors Page</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+                                    </ul>
+                                    <!-- /LINK LIST -->
+                                </div>
+                                <!-- /LINK SECTION -->
+
+                                <!-- LINK SECTION -->
+                                <div class="link-section">
+                                    <!-- SECTION TITLE WRAP -->
+                                    <div class="section-title-wrap red">
+                                        <h2 class="section-title small">Pixel Forums</h2>
+                                        <div class="section-title-separator"></div>
+                                    </div>
+                                    <!-- /SECTION TITLE WRAP -->
+
+                                    <!-- LINK LIST -->
+                                    <ul class="link-list">
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="forum.html">Main Page</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="forum-categories.html">Category Page</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="topic.html">Main Topic</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="forum-badges.html">Badges Big &amp; Small</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="profile-summary.html">Profile Summary</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="profile-activity.html">Profile Activity</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="profile-notifications.html">Profile Notifications</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+                                    </ul>
+                                    <!-- /LINK LIST -->
+
+                                    <!-- LINK LIST -->
+                                    <ul class="link-list">
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="profile-messages.html">Profile Messages</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="profile-badges.html">Profile Badges</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="profile-settings.html">Profile Settings</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+
+                                        <!-- LINK LIST ITEM -->
+                                        <li class="link-list-item">
+                                            <a href="forum-search-results.html">Forum Results</a>
+                                        </li>
+                                        <!-- /LINK LIST ITEM -->
+                                    </ul>
+                                    <!-- /LINK LIST -->
+                                </div>
+                                <!-- /LINK SECTION -->
+                            </div>
+                            <!-- /LINK SECTIONS -->
+
+                            <!-- LINE SEPARATOR -->
+                            <div class="line-separator"></div>
+
+                            <!-- NEWS ITEMS PREVIEW -->
+                            <div class="news-items-preview">
+                                <!-- POST PREVIEW -->
+                                <div class="post-preview gaming-news">
+                                    <!-- POST PREVIEW IMG WRAP -->
+                                    <a href="post-v1.html">
+                                        <div class="post-preview-img-wrap">
+                                            <!-- POST PREVIEW IMG -->
+                                            <figure class="post-preview-img liquid">
+                                                <img src="{{ asset('assets/front/img/posts/09.jpg') }}" alt="post-09">
+                                            </figure>
+                                            <!-- /POST PREVIEW IMG -->
+                                        </div>
+                                    </a>
+                                    <!-- /POST PREVIEW IMG WRAP -->
+
+                                    <!-- TAG ORNAMENT -->
+                                    <a href="news-v1.html" class="tag-ornament">Gaming News</a>
+                                    <!-- /TAG ORNAMENT -->
+
+                                    <!-- POST PREVIEW TITLE -->
+                                    <a href="post-v1.html" class="post-preview-title">New "Rizen" game is gonna be
+                                        released in summer 2019</a>
+                                    <!-- POST AUTHOR INFO -->
+                                    <div class="post-author-info-wrap">
+                                        <p class="post-author-info small light">By <a href="search-results.html"
+                                                class="post-author">Vellatrix</a><span
+                                                class="separator">|</span>December 15th, 2018</p>
+                                    </div>
+                                    <!-- /POST AUTHOR INFO -->
+                                    <!-- POST PREVIEW TEXT -->
+                                    <p class="post-preview-text">Lorem ipsum dolor sit amet, consectetur bere
+                                        adipisicing elit, sed do eiusmod por lorem incididunt ut labore.</p>
+                                </div>
+                                <!-- /POST PREVIEW -->
+
+                                <!-- POST PREVIEW -->
+                                <div class="post-preview game-review">
+                                    <!-- POST PREVIEW IMG WRAP -->
+                                    <a href="post-v2.html">
+                                        <div class="post-preview-img-wrap">
+                                            <!-- POST PREVIEW IMG -->
+                                            <figure class="post-preview-img liquid">
+                                                <img src="{{ asset('assets/front/img/posts/08.jpg') }}" alt="post-08">
+                                            </figure>
+                                            <!-- /POST PREVIEW IMG -->
+
+                                            <!-- REVIEW RATING -->
+                                            <div class="review-rating">
+                                                <div id="menu-rate-08-1" class="arc small"></div>
+                                            </div>
+                                            <!-- /REVIEW RATING -->
+                                        </div>
+                                    </a>
+                                    <!-- /POST PREVIEW IMG WRAP -->
+
+                                    <!-- TAG ORNAMENT -->
+                                    <a href="news-v2.html" class="tag-ornament">Game Reviews</a>
+                                    <!-- /TAG ORNAMENT -->
+
+                                    <!-- POST PREVIEW TITLE -->
+                                    <a href="post-v2.html" class="post-preview-title">The new mecha cyborg game is
+                                        breaking barriers</a>
+                                    <!-- POST AUTHOR INFO -->
+                                    <div class="post-author-info-wrap">
+                                        <p class="post-author-info small light">By <a href="search-results.html"
+                                                class="post-author">Vellatrix</a><span
+                                                class="separator">|</span>December 15th, 2018</p>
+                                    </div>
+                                    <!-- /POST AUTHOR INFO -->
+                                    <!-- POST PREVIEW TEXT -->
+                                    <p class="post-preview-text">Lorem ipsum dolor sit amet, consectetur bere
+                                        adipisicing elit, sed do eiusmod por lorem incididunt ut labore.</p>
+                                </div>
+                                <!-- /POST PREVIEW -->
+
+                                <!-- POST PREVIEW -->
+                                <div class="post-preview e-sport">
+                                    <!-- POST PREVIEW IMG WRAP -->
+                                    <a href="esports-post.html">
+                                        <div class="post-preview-img-wrap">
+                                            <!-- POST PREVIEW IMG -->
+                                            <figure class="post-preview-img liquid">
+                                                <img src="{{ asset('assets/front/img/posts/38.jpg') }}" alt="post-38">
+                                            </figure>
+                                            <!-- /POST PREVIEW IMG -->
+                                        </div>
+                                    </a>
+                                    <!-- /POST PREVIEW IMG WRAP -->
+
+                                    <!-- TAG ORNAMENT -->
+                                    <a href="esports-news.html" class="tag-ornament">Esports</a>
+                                    <!-- /TAG ORNAMENT -->
+
+                                    <!-- POST PREVIEW TITLE -->
+                                    <a href="esports-post.html" class="post-preview-title">Pro Soccer 2017 world league
+                                        kicked off today!</a>
+                                    <!-- POST AUTHOR INFO -->
+                                    <div class="post-author-info-wrap">
+                                        <p class="post-author-info small light">By <a href="search-results.html"
+                                                class="post-author">Faye V.</a><span class="separator">|</span>December
+                                            15th, 2018</p>
+                                    </div>
+                                    <!-- /POST AUTHOR INFO -->
+                                    <!-- POST PREVIEW TEXT -->
+                                    <p class="post-preview-text">Lorem ipsum dolor sit amet, consectetur bere
+                                        adipisicing elit, sed do eiusmod por lorem incididunt ut labore.</p>
+                                </div>
+                                <!-- /POST PREVIEW -->
+
+                                <!-- POST PREVIEW -->
+                                <div class="post-preview geeky-news">
+                                    <!-- POST PREVIEW IMG WRAP -->
+                                    <a href="post-v4.html">
+                                        <div class="post-preview-img-wrap">
+                                            <!-- POST PREVIEW IMG -->
+                                            <figure class="post-preview-img liquid">
+                                                <img src="{{ asset('assets/front/img/posts/02.jpg') }}" alt="post-02">
+                                            </figure>
+                                            <!-- /POST PREVIEW IMG -->
+                                        </div>
+                                    </a>
+                                    <!-- /POST PREVIEW IMG WRAP -->
+
+                                    <!-- TAG ORNAMENT -->
+                                    <a href="news-v4.html" class="tag-ornament">Geeky news</a>
+                                    <!-- /TAG ORNAMENT -->
+
+                                    <!-- POST PREVIEW TITLE -->
+                                    <a href="post-v4.html" class="post-preview-title">Jessica Tam to star in the new
+                                        "Charlotte" series</a>
+                                    <!-- POST AUTHOR INFO -->
+                                    <div class="post-author-info-wrap">
+                                        <p class="post-author-info small light">By <a href="search-results.html"
+                                                class="post-author">Vellatrix</a><span
+                                                class="separator">|</span>December 15th, 2018</p>
+                                    </div>
+                                    <!-- /POST AUTHOR INFO -->
+                                    <!-- POST PREVIEW TEXT -->
+                                    <p class="post-preview-text">Lorem ipsum dolor sit amet, consectetur bere
+                                        adipisicing elit, sed do eiusmod por lorem incididunt ut labore.</p>
+                                </div>
+                                <!-- /POST PREVIEW -->
+                            </div>
+                            <!-- /NEWS ITEMS PREVIEW -->
+                        </li>
+                        <!-- /SUBMENU ITEM -->
+                    </ul>
+                    <!-- /SUBMENU -->
+                </li>
+                <!-- /MAIN MENU ITEM -->
+
+                <!-- MAIN MENU ITEM -->
+                <li class="main-menu-item">
+                    <a href="shop-v1-grid.html" class="main-menu-item-link">
+                        Shop
+                        <!-- SVG ARROW -->
+                        <svg class="arrow-icon">
+                            <use xlink:href="#svg-arrow"></use>
+                        </svg>
+                        <!-- /SVG ARROW -->
+                    </a>
+
+                    <!-- SUBMENU -->
+                    <ul class="submenu void">
+                        <!-- SUBMENU ITEM -->
+                        <li class="submenu-item v2">
+                            <!-- SUBMENU ITEM SLIDER -->
+                            <div id="submenu-slider-1" class="submenu-slider">
+                                <!-- DROPDOWN LIST -->
+                                <ul class="dropdown-list submenu-slider-options">
+                                    <!-- DROPDOWN LIST ITEM -->
+                                    <li class="dropdown-list-item">
+                                        <p class="dropdown-list-item-link">New Releases</p>
+                                        <!-- ARROW ICON -->
+                                        <svg class="arrow-icon medium">
+                                            <use xlink:href="#svg-arrow-medium"></use>
+                                        </svg>
+                                        <!-- /ARROW ICON -->
+                                    </li>
+                                    <!-- /DROPDOWN LIST ITEM -->
+
+                                    <!-- DROPDOWN LIST ITEM -->
+                                    <li class="dropdown-list-item">
+                                        <p class="dropdown-list-item-link">Shop Features</p>
+                                        <!-- ARROW ICON -->
+                                        <svg class="arrow-icon medium">
+                                            <use xlink:href="#svg-arrow-medium"></use>
+                                        </svg>
+                                        <!-- /ARROW ICON -->
+                                    </li>
+                                    <!-- /DROPDOWN LIST ITEM -->
+
+                                    <!-- DROPDOWN LIST ITEM -->
+                                    <li class="dropdown-list-item">
+                                        <p class="dropdown-list-item-link">Powerstation</p>
+                                        <!-- ARROW ICON -->
+                                        <svg class="arrow-icon medium">
+                                            <use xlink:href="#svg-arrow-medium"></use>
+                                        </svg>
+                                        <!-- /ARROW ICON -->
+                                    </li>
+                                    <!-- /DROPDOWN LIST ITEM -->
+
+                                    <!-- DROPDOWN LIST ITEM -->
+                                    <li class="dropdown-list-item">
+                                        <p class="dropdown-list-item-link">Funtendo</p>
+                                        <!-- ARROW ICON -->
+                                        <svg class="arrow-icon medium">
+                                            <use xlink:href="#svg-arrow-medium"></use>
+                                        </svg>
+                                        <!-- /ARROW ICON -->
+                                    </li>
+                                    <!-- /DROPDOWN LIST ITEM -->
+
+                                    <!-- DROPDOWN LIST ITEM -->
+                                    <li class="dropdown-list-item">
+                                        <p class="dropdown-list-item-link">X-Rock</p>
+                                        <!-- ARROW ICON -->
+                                        <svg class="arrow-icon medium">
+                                            <use xlink:href="#svg-arrow-medium"></use>
+                                        </svg>
+                                        <!-- /ARROW ICON -->
+                                    </li>
+                                    <!-- /DROPDOWN LIST ITEM -->
+
+                                    <!-- DROPDOWN LIST ITEM -->
+                                    <li class="dropdown-list-item">
+                                        <p class="dropdown-list-item-link">Clothing &amp; Hats</p>
+                                        <!-- ARROW ICON -->
+                                        <svg class="arrow-icon medium">
+                                            <use xlink:href="#svg-arrow-medium"></use>
+                                        </svg>
+                                        <!-- /ARROW ICON -->
+                                    </li>
+                                    <!-- /DROPDOWN LIST ITEM -->
+
+                                    <!-- DROPDOWN LIST ITEM -->
+                                    <li class="dropdown-list-item">
+                                        <p class="dropdown-list-item-link">Merchandise</p>
+                                        <!-- ARROW ICON -->
+                                        <svg class="arrow-icon medium">
+                                            <use xlink:href="#svg-arrow-medium"></use>
+                                        </svg>
+                                        <!-- /ARROW ICON -->
+                                    </li>
+                                    <!-- /DROPDOWN LIST ITEM -->
+                                </ul>
+                                <!-- /DROPDOWN LIST -->
+
+                                <!-- SUBMENU SLIDER ITEMS WRAP -->
+                                <div class="submenu-slider-items-wrap">
+                                    <!-- SUBMENU SLIDER ITEMS -->
+                                    <div class="submenu-slider-items">
+                                        <!-- SUBMENU SLIDER ITEM -->
+                                        <div class="submenu-slider-item submenu-slider-item-1">
+                                            <!-- PRODUCT PREVIEW -->
+                                            <div class="product-preview short">
+                                                <!-- PRODUCT PREVIEW IMG WRAP -->
+                                                <div class="product-preview-img-wrap">
+                                                    <!-- PRODUCT PREVIEW IMG -->
+                                                    <a href="product-page.html">
+                                                        <figure class="product-preview-img liquid">
+                                                            <img src="{{ asset('assets/front/img/products/04.jpg') }}"
+                                                                alt="product-04">
+                                                        </figure>
+                                                    </a>
+                                                    <!-- /PRODUCT PREVIEW IMG -->
+                                                </div>
+                                                <!-- /PRODUCT PREVIEW IMG WRAP -->
+
+                                                <!-- PRODUCT PREVIEW TITLE -->
+                                                <a href="product-page.html" class="product-preview-title">Mee U - kawai
+                                                    8 bundle</a>
+                                                <!-- PRODUCT PREVIEW INFO -->
+                                                <div class="product-preview-info">
+                                                    <!-- PRODUCT PREVIEW CATEGORY -->
+                                                    <a href="shop-v1-grid.html"
+                                                        class="product-preview-category">Funtendo</a>
+                                                    <!-- RATING ORNAMENT -->
+                                                    <div class="rating-ornament small void yellow">
+                                                        <!-- RATING ORNAMENT ITEM -->
+                                                        <div class="rating-ornament-item">
+                                                            <!-- RATING ORNAMENT ICON -->
+                                                            <svg class="rating-ornament-icon">
+                                                                <use xlink:href="#svg-star"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <!-- /RATING ORNAMENT ITEM -->
+
+                                                        <!-- RATING ORNAMENT ITEM -->
+                                                        <div class="rating-ornament-item">
+                                                            <!-- RATING ORNAMENT ICON -->
+                                                            <svg class="rating-ornament-icon">
+                                                                <use xlink:href="#svg-star"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <!-- /RATING ORNAMENT ITEM -->
+
+                                                        <!-- RATING ORNAMENT ITEM -->
+                                                        <div class="rating-ornament-item">
+                                                            <!-- RATING ORNAMENT ICON -->
+                                                            <svg class="rating-ornament-icon">
+                                                                <use xlink:href="#svg-star"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <!-- /RATING ORNAMENT ITEM -->
+
+                                                        <!-- RATING ORNAMENT ITEM -->
+                                                        <div class="rating-ornament-item">
+                                                            <!-- RATING ORNAMENT ICON -->
+                                                            <svg class="rating-ornament-icon empty">
+                                                                <use xlink:href="#svg-star"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <!-- /RATING ORNAMENT ITEM -->
+
+                                                        <!-- RATING ORNAMENT ITEM -->
+                                                        <div class="rating-ornament-item">
+                                                            <!-- RATING ORNAMENT ICON -->
+                                                            <svg class="rating-ornament-icon empty">
+                                                                <use xlink:href="#svg-star"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <!-- /RATING ORNAMENT ITEM -->
+                                                    </div>
+                                                    <!-- /RATING ORNAMENT -->
+                                                </div>
+                                                <!-- /PRODUCT PREVIEW INFO -->
+
+                                                <!-- PRODUCT PRICE WRAP -->
+                                                <div class="product-price-wrap">
+                                                    <p class="product-preview-price before"><span
+                                                            class="currency">$</span>310.00</p>
+                                                    <p class="product-preview-price current"><span
+                                                            class="currency">$</span>280.00</p>
+                                                </div>
+                                                <!-- /PRODUCT PRICE WRAP -->
+
+                                                <!-- ADD TO BAG -->
+                                                <div class="button small violet add-to-bag">Add to bag</div>
+                                            </div>
+                                            <!-- /PRODUCT PREVIEW -->
+
+                                            <!-- LINK SECTIONS -->
+                                            <div class="link-sections">
+                                                <!-- LINK SECTION -->
+                                                <div class="link-section">
+                                                    <!-- SECTION TITLE WRAP -->
+                                                    <div class="section-title-wrap violet">
+                                                        <h2 class="section-title small">New Releases</h2>
+                                                        <div class="section-title-separator"></div>
+                                                    </div>
+                                                    <!-- /SECTION TITLE WRAP -->
+
+                                                    <!-- LINK LIST -->
+                                                    <ul class="link-list">
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="shop-v1-grid.html">Shop 3 Columns Grid</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="shop-v1-list.html">Shop 3 Columns List</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="shop-v2.html">Shop 4 Columns</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="product-page.html">Product Description</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="product-page.html">Product Reviews</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="product-page.html">Product Specifications</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="inventory-bag.html">Inventory Bag (Cart)</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="checkout.html">Checkout Page</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="order-confirmation.html">Order Confirmation</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
                                                     </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle smooth-menu" data-toggle="dropdown">Pages</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="about-us.html">About Us</a></li>
-                                <li><a href="contact.html">Contact Us</a></li>
-                                <li><a href="faq.html">Faq</a></li>
-                                <li><a href="404.html">Error Page</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown megamenu-fw">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gallery</a>
-                            <ul class="dropdown-menu megamenu-content" role="menu">
-                                <li>
-                                    <div class="row">
-                                        <div class="col-menu col-md-3">
-                                            <h6 class="title">Grid Colum</h6>
-                                            <div class="content">
-                                                <ul class="menu-col">
-                                                    <li><a href="gallery-grid-2-colum.html">Gallery Two Colum</a></li>
-                                                    <li><a href="gallery-grid-3-colum.html">Gallery Three Colum</a></li>
-                                                    <li><a href="gallery-grid-4-colum.html">Gallery Four Colum</a></li>
-                                                </ul>
+                                                    <!-- /LINK LIST -->
+
+                                                    <!-- LINK LIST -->
+                                                    <ul class="link-list">
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="wishlist.html">Wishlist</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="product-compare.html">Product Compare</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+                                                    </ul>
+                                                    <!-- /LINK LIST -->
+                                                </div>
+                                                <!-- /LINK SECTION -->
                                             </div>
-                                        </div><!-- end col-3 -->
-                                        <div class="col-menu col-md-3">
-                                            <h6 class="title">Masonary Colum</h6>
-                                            <div class="content">
-                                                <ul class="menu-col">
-                                                    <li><a href="gallery-2-colum.html">Gallery Two Colum</a></li>
-                                                    <li><a href="gallery-3-colum.html">Gallery Three Colum</a></li>
-                                                    <li><a href="gallery-4-colum.html">Gallery Four Colum</a></li>
-                                                </ul>
+                                            <!-- /LINK SECTIONS -->
+                                        </div>
+                                        <!-- /SUBMENU SLIDER ITEM -->
+
+                                        <!-- SUBMENU SLIDER ITEM -->
+                                        <div class="submenu-slider-item submenu-slider-item-2">
+                                            <!-- PRODUCT PREVIEW -->
+                                            <div class="product-preview short">
+                                                <!-- PRODUCT PREVIEW IMG WRAP -->
+                                                <div class="product-preview-img-wrap">
+                                                    <!-- PRODUCT PREVIEW IMG -->
+                                                    <a href="product-page.html">
+                                                        <figure class="product-preview-img liquid">
+                                                            <img src="{{ asset('assets/front/img/products/11.jpg') }}"
+                                                                alt="product-11">
+                                                        </figure>
+                                                    </a>
+                                                    <!-- /PRODUCT PREVIEW IMG -->
+                                                </div>
+                                                <!-- /PRODUCT PREVIEW IMG WRAP -->
+
+                                                <!-- PRODUCT PREVIEW TITLE -->
+                                                <a href="product-page.html" class="product-preview-title">Diamond men's
+                                                    black...</a>
+                                                <!-- PRODUCT PREVIEW INFO -->
+                                                <div class="product-preview-info">
+                                                    <!-- PRODUCT PREVIEW CATEGORY -->
+                                                    <a href="shop-v1-grid.html"
+                                                        class="product-preview-category">Clothing &amp; Hats</a>
+                                                    <!-- RATING ORNAMENT -->
+                                                    <div class="rating-ornament small void yellow">
+                                                        <!-- RATING ORNAMENT ITEM -->
+                                                        <div class="rating-ornament-item">
+                                                            <!-- RATING ORNAMENT ICON -->
+                                                            <svg class="rating-ornament-icon">
+                                                                <use xlink:href="#svg-star"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <!-- /RATING ORNAMENT ITEM -->
+
+                                                        <!-- RATING ORNAMENT ITEM -->
+                                                        <div class="rating-ornament-item">
+                                                            <!-- RATING ORNAMENT ICON -->
+                                                            <svg class="rating-ornament-icon">
+                                                                <use xlink:href="#svg-star"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <!-- /RATING ORNAMENT ITEM -->
+
+                                                        <!-- RATING ORNAMENT ITEM -->
+                                                        <div class="rating-ornament-item">
+                                                            <!-- RATING ORNAMENT ICON -->
+                                                            <svg class="rating-ornament-icon">
+                                                                <use xlink:href="#svg-star"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <!-- /RATING ORNAMENT ITEM -->
+
+                                                        <!-- RATING ORNAMENT ITEM -->
+                                                        <div class="rating-ornament-item">
+                                                            <!-- RATING ORNAMENT ICON -->
+                                                            <svg class="rating-ornament-icon">
+                                                                <use xlink:href="#svg-star"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <!-- /RATING ORNAMENT ITEM -->
+
+                                                        <!-- RATING ORNAMENT ITEM -->
+                                                        <div class="rating-ornament-item">
+                                                            <!-- RATING ORNAMENT ICON -->
+                                                            <svg class="rating-ornament-icon">
+                                                                <use xlink:href="#svg-star"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <!-- /RATING ORNAMENT ITEM -->
+                                                    </div>
+                                                    <!-- /RATING ORNAMENT -->
+                                                </div>
+                                                <!-- /PRODUCT PREVIEW INFO -->
+
+                                                <!-- PRODUCT PRICE WRAP -->
+                                                <div class="product-price-wrap">
+                                                    <p class="product-preview-price current"><span
+                                                            class="currency">$</span>16.00</p>
+                                                </div>
+                                                <!-- /PRODUCT PRICE WRAP -->
+
+                                                <!-- ADD TO BAG -->
+                                                <div class="button small violet add-to-bag">Add to bag</div>
                                             </div>
-                                        </div><!-- end col-3 -->
-                                        <div class="col-menu col-md-3">
-                                            <h6 class="title">With Title</h6>
-                                            <div class="content">
-                                                <ul class="menu-col">
-                                                    <li><a href="gallery-title-2-colum.html">Gallery Title 2 Colum</a>
-                                                    </li>
-                                                    <li><a href="gallery-title-3-colum.html">Gallery Title 3 Colum</a>
-                                                    </li>
-                                                    <li><a href="gallery-title-4-colum.html">Gallery Title 4 Colum</a>
-                                                    </li>
-                                                </ul>
+                                            <!-- /PRODUCT PREVIEW -->
+
+                                            <!-- LINK SECTIONS -->
+                                            <div class="link-sections">
+                                                <!-- LINK SECTION -->
+                                                <div class="link-section">
+                                                    <!-- SECTION TITLE WRAP -->
+                                                    <div class="section-title-wrap violet">
+                                                        <h2 class="section-title small">Shop Features</h2>
+                                                        <div class="section-title-separator"></div>
+                                                    </div>
+                                                    <!-- /SECTION TITLE WRAP -->
+
+                                                    <!-- LINK LIST -->
+                                                    <ul class="link-list">
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="shop-v1-grid.html">Shop 3 Columns Grid</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="shop-v1-list.html">Shop 3 Columns List</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="shop-v2.html">Shop 4 Columns</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="product-page.html">Product Description</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="product-page.html">Product Reviews</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="product-page.html">Product Specifications</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="inventory-bag.html">Inventory Bag (Cart)</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="checkout.html">Checkout Page</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="order-confirmation.html">Order Confirmation</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+                                                    </ul>
+                                                    <!-- /LINK LIST -->
+
+                                                    <!-- LINK LIST -->
+                                                    <ul class="link-list">
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="wishlist.html">Wishlist</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="product-compare.html">Product Compare</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+                                                    </ul>
+                                                    <!-- /LINK LIST -->
+                                                </div>
+                                                <!-- /LINK SECTION -->
                                             </div>
-                                        </div><!-- end col-3 -->
-                                        <div class="col-menu col-md-3">
-                                            <h6 class="title">Gallery Others</h6>
-                                            <div class="content">
-                                                <ul class="menu-col">
-                                                    <li><a href="gallery-slider.html">Gallery Slider</a></li>
-                                                    <li><a href="gallery-single.html">Gallery Single</a></li>
-                                                </ul>
+                                            <!-- /LINK SECTIONS -->
+                                        </div>
+                                        <!-- /SUBMENU SLIDER ITEM -->
+
+                                        <!-- SUBMENU SLIDER ITEM -->
+                                        <div class="submenu-slider-item submenu-slider-item-3">
+                                            <!-- PRODUCT PREVIEW -->
+                                            <div class="product-preview short">
+                                                <!-- PRODUCT PREVIEW IMG WRAP -->
+                                                <div class="product-preview-img-wrap">
+                                                    <!-- PRODUCT PREVIEW IMG -->
+                                                    <a href="product-page.html">
+                                                        <figure class="product-preview-img liquid">
+                                                            <img src="{{ asset('assets/front/img/products/09.jpg') }}"
+                                                                alt="product-09">
+                                                        </figure>
+                                                    </a>
+                                                    <!-- /PRODUCT PREVIEW IMG -->
+                                                </div>
+                                                <!-- /PRODUCT PREVIEW IMG WRAP -->
+
+                                                <!-- PRODUCT PREVIEW TITLE -->
+                                                <a href="product-page.html" class="product-preview-title">Galaxy
+                                                    Adventure RX...</a>
+                                                <!-- PRODUCT PREVIEW INFO -->
+                                                <div class="product-preview-info">
+                                                    <!-- PRODUCT PREVIEW CATEGORY -->
+                                                    <a href="shop-v1-grid.html"
+                                                        class="product-preview-category">Powerstation</a>
+                                                    <!-- RATING ORNAMENT -->
+                                                    <div class="rating-ornament small void yellow">
+                                                        <!-- RATING ORNAMENT ITEM -->
+                                                        <div class="rating-ornament-item">
+                                                            <!-- RATING ORNAMENT ICON -->
+                                                            <svg class="rating-ornament-icon">
+                                                                <use xlink:href="#svg-star"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <!-- /RATING ORNAMENT ITEM -->
+
+                                                        <!-- RATING ORNAMENT ITEM -->
+                                                        <div class="rating-ornament-item">
+                                                            <!-- RATING ORNAMENT ICON -->
+                                                            <svg class="rating-ornament-icon">
+                                                                <use xlink:href="#svg-star"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <!-- /RATING ORNAMENT ITEM -->
+
+                                                        <!-- RATING ORNAMENT ITEM -->
+                                                        <div class="rating-ornament-item">
+                                                            <!-- RATING ORNAMENT ICON -->
+                                                            <svg class="rating-ornament-icon">
+                                                                <use xlink:href="#svg-star"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <!-- /RATING ORNAMENT ITEM -->
+
+                                                        <!-- RATING ORNAMENT ITEM -->
+                                                        <div class="rating-ornament-item">
+                                                            <!-- RATING ORNAMENT ICON -->
+                                                            <svg class="rating-ornament-icon">
+                                                                <use xlink:href="#svg-star"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <!-- /RATING ORNAMENT ITEM -->
+
+                                                        <!-- RATING ORNAMENT ITEM -->
+                                                        <div class="rating-ornament-item">
+                                                            <!-- RATING ORNAMENT ICON -->
+                                                            <svg class="rating-ornament-icon">
+                                                                <use xlink:href="#svg-star"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <!-- /RATING ORNAMENT ITEM -->
+                                                    </div>
+                                                    <!-- /RATING ORNAMENT -->
+                                                </div>
+                                                <!-- /PRODUCT PREVIEW INFO -->
+
+                                                <!-- PRODUCT PRICE WRAP -->
+                                                <div class="product-price-wrap">
+                                                    <p class="product-preview-price current"><span
+                                                            class="currency">$</span>59.99</p>
+                                                </div>
+                                                <!-- /PRODUCT PRICE WRAP -->
+
+                                                <!-- ADD TO BAG -->
+                                                <div class="button small violet add-to-bag">Add to bag</div>
                                             </div>
-                                        </div><!-- end col-3 -->
-                                    </div><!-- end row -->
-                                </li>
-                            </ul>
+                                            <!-- /PRODUCT PREVIEW -->
+
+                                            <!-- LINK SECTIONS -->
+                                            <div class="link-sections">
+                                                <!-- LINK SECTION -->
+                                                <div class="link-section">
+                                                    <!-- SECTION TITLE WRAP -->
+                                                    <div class="section-title-wrap violet">
+                                                        <h2 class="section-title small">Powerstation</h2>
+                                                        <div class="section-title-separator"></div>
+                                                    </div>
+                                                    <!-- /SECTION TITLE WRAP -->
+
+                                                    <!-- LINK LIST -->
+                                                    <ul class="link-list">
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="shop-v1-grid.html">Shop 3 Columns Grid</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="shop-v1-list.html">Shop 3 Columns List</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="shop-v2.html">Shop 4 Columns</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="product-page.html">Product Description</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="product-page.html">Product Reviews</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="product-page.html">Product Specifications</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="inventory-bag.html">Inventory Bag (Cart)</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="checkout.html">Checkout Page</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="order-confirmation.html">Order Confirmation</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+                                                    </ul>
+                                                    <!-- /LINK LIST -->
+
+                                                    <!-- LINK LIST -->
+                                                    <ul class="link-list">
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="wishlist.html">Wishlist</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="product-compare.html">Product Compare</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+                                                    </ul>
+                                                    <!-- /LINK LIST -->
+                                                </div>
+                                                <!-- /LINK SECTION -->
+                                            </div>
+                                            <!-- /LINK SECTIONS -->
+                                        </div>
+                                        <!-- /SUBMENU SLIDER ITEM -->
+
+                                        <!-- SUBMENU SLIDER ITEM -->
+                                        <div class="submenu-slider-item submenu-slider-item-4">
+                                            <!-- PRODUCT PREVIEW -->
+                                            <div class="product-preview short">
+                                                <!-- PRODUCT PREVIEW IMG WRAP -->
+                                                <div class="product-preview-img-wrap">
+                                                    <!-- PRODUCT PREVIEW IMG -->
+                                                    <a href="product-page.html">
+                                                        <figure class="product-preview-img liquid">
+                                                            <img src="{{ asset('assets/front/img/products/08.jpg') }}"
+                                                                alt="product-08">
+                                                        </figure>
+                                                    </a>
+                                                    <!-- /PRODUCT PREVIEW IMG -->
+                                                </div>
+                                                <!-- /PRODUCT PREVIEW IMG WRAP -->
+
+                                                <!-- PRODUCT PREVIEW TITLE -->
+                                                <a href="product-page.html" class="product-preview-title">Tales of Odd
+                                                    Dimensions</a>
+                                                <!-- PRODUCT PREVIEW INFO -->
+                                                <div class="product-preview-info">
+                                                    <!-- PRODUCT PREVIEW CATEGORY -->
+                                                    <a href="shop-v1-grid.html"
+                                                        class="product-preview-category">Funtendo</a>
+                                                    <!-- RATING ORNAMENT -->
+                                                    <div class="rating-ornament small void yellow">
+                                                        <!-- RATING ORNAMENT ITEM -->
+                                                        <div class="rating-ornament-item">
+                                                            <!-- RATING ORNAMENT ICON -->
+                                                            <svg class="rating-ornament-icon">
+                                                                <use xlink:href="#svg-star"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <!-- /RATING ORNAMENT ITEM -->
+
+                                                        <!-- RATING ORNAMENT ITEM -->
+                                                        <div class="rating-ornament-item">
+                                                            <!-- RATING ORNAMENT ICON -->
+                                                            <svg class="rating-ornament-icon">
+                                                                <use xlink:href="#svg-star"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <!-- /RATING ORNAMENT ITEM -->
+
+                                                        <!-- RATING ORNAMENT ITEM -->
+                                                        <div class="rating-ornament-item">
+                                                            <!-- RATING ORNAMENT ICON -->
+                                                            <svg class="rating-ornament-icon">
+                                                                <use xlink:href="#svg-star"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <!-- /RATING ORNAMENT ITEM -->
+
+                                                        <!-- RATING ORNAMENT ITEM -->
+                                                        <div class="rating-ornament-item">
+                                                            <!-- RATING ORNAMENT ICON -->
+                                                            <svg class="rating-ornament-icon empty">
+                                                                <use xlink:href="#svg-star"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <!-- /RATING ORNAMENT ITEM -->
+
+                                                        <!-- RATING ORNAMENT ITEM -->
+                                                        <div class="rating-ornament-item">
+                                                            <!-- RATING ORNAMENT ICON -->
+                                                            <svg class="rating-ornament-icon empty">
+                                                                <use xlink:href="#svg-star"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <!-- /RATING ORNAMENT ITEM -->
+                                                    </div>
+                                                    <!-- /RATING ORNAMENT -->
+                                                </div>
+                                                <!-- /PRODUCT PREVIEW INFO -->
+
+                                                <!-- PRODUCT PRICE WRAP -->
+                                                <div class="product-price-wrap">
+                                                    <p class="product-preview-price current"><span
+                                                            class="currency">$</span>59.99</p>
+                                                </div>
+                                                <!-- /PRODUCT PRICE WRAP -->
+
+                                                <!-- ADD TO BAG -->
+                                                <div class="button small violet add-to-bag">Add to bag</div>
+                                            </div>
+                                            <!-- /PRODUCT PREVIEW -->
+
+                                            <!-- LINK SECTIONS -->
+                                            <div class="link-sections">
+                                                <!-- LINK SECTION -->
+                                                <div class="link-section">
+                                                    <!-- SECTION TITLE WRAP -->
+                                                    <div class="section-title-wrap violet">
+                                                        <h2 class="section-title small">Funtendo</h2>
+                                                        <div class="section-title-separator"></div>
+                                                    </div>
+                                                    <!-- /SECTION TITLE WRAP -->
+
+                                                    <!-- LINK LIST -->
+                                                    <ul class="link-list">
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="shop-v1-grid.html">Shop 3 Columns Grid</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="shop-v1-list.html">Shop 3 Columns List</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="shop-v2.html">Shop 4 Columns</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="product-page.html">Product Description</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="product-page.html">Product Reviews</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="product-page.html">Product Specifications</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="inventory-bag.html">Inventory Bag (Cart)</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="checkout.html">Checkout Page</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="order-confirmation.html">Order Confirmation</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+                                                    </ul>
+                                                    <!-- /LINK LIST -->
+
+                                                    <!-- LINK LIST -->
+                                                    <ul class="link-list">
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="wishlist.html">Wishlist</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="product-compare.html">Product Compare</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+                                                    </ul>
+                                                    <!-- /LINK LIST -->
+                                                </div>
+                                                <!-- /LINK SECTION -->
+                                            </div>
+                                            <!-- /LINK SECTIONS -->
+                                        </div>
+                                        <!-- /SUBMENU SLIDER ITEM -->
+
+                                        <!-- SUBMENU SLIDER ITEM -->
+                                        <div class="submenu-slider-item submenu-slider-item-5">
+                                            <!-- PRODUCT PREVIEW -->
+                                            <div class="product-preview short">
+                                                <!-- PRODUCT PREVIEW IMG WRAP -->
+                                                <div class="product-preview-img-wrap">
+                                                    <!-- PRODUCT PREVIEW IMG -->
+                                                    <a href="product-page.html">
+                                                        <figure class="product-preview-img liquid">
+                                                            <img src="{{ asset('assets/front/img/products/07.jpg') }}"
+                                                                alt="product-07">
+                                                        </figure>
+                                                    </a>
+                                                    <!-- /PRODUCT PREVIEW IMG -->
+                                                </div>
+                                                <!-- /PRODUCT PREVIEW IMG WRAP -->
+
+                                                <!-- PRODUCT PREVIEW TITLE -->
+                                                <a href="product-page.html" class="product-preview-title">XRock One
+                                                    Bundle + Cam</a>
+                                                <!-- PRODUCT PREVIEW INFO -->
+                                                <div class="product-preview-info">
+                                                    <!-- PRODUCT PREVIEW CATEGORY -->
+                                                    <a href="shop-v1-grid.html"
+                                                        class="product-preview-category">Funtendo</a>
+                                                    <!-- RATING ORNAMENT -->
+                                                    <div class="rating-ornament small void yellow">
+                                                        <!-- RATING ORNAMENT ITEM -->
+                                                        <div class="rating-ornament-item">
+                                                            <!-- RATING ORNAMENT ICON -->
+                                                            <svg class="rating-ornament-icon">
+                                                                <use xlink:href="#svg-star"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <!-- /RATING ORNAMENT ITEM -->
+
+                                                        <!-- RATING ORNAMENT ITEM -->
+                                                        <div class="rating-ornament-item">
+                                                            <!-- RATING ORNAMENT ICON -->
+                                                            <svg class="rating-ornament-icon">
+                                                                <use xlink:href="#svg-star"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <!-- /RATING ORNAMENT ITEM -->
+
+                                                        <!-- RATING ORNAMENT ITEM -->
+                                                        <div class="rating-ornament-item">
+                                                            <!-- RATING ORNAMENT ICON -->
+                                                            <svg class="rating-ornament-icon">
+                                                                <use xlink:href="#svg-star"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <!-- /RATING ORNAMENT ITEM -->
+
+                                                        <!-- RATING ORNAMENT ITEM -->
+                                                        <div class="rating-ornament-item">
+                                                            <!-- RATING ORNAMENT ICON -->
+                                                            <svg class="rating-ornament-icon">
+                                                                <use xlink:href="#svg-star"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <!-- /RATING ORNAMENT ITEM -->
+
+                                                        <!-- RATING ORNAMENT ITEM -->
+                                                        <div class="rating-ornament-item">
+                                                            <!-- RATING ORNAMENT ICON -->
+                                                            <svg class="rating-ornament-icon empty">
+                                                                <use xlink:href="#svg-star"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <!-- /RATING ORNAMENT ITEM -->
+                                                    </div>
+                                                    <!-- /RATING ORNAMENT -->
+                                                </div>
+                                                <!-- /PRODUCT PREVIEW INFO -->
+
+                                                <!-- PRODUCT PRICE WRAP -->
+                                                <div class="product-price-wrap">
+                                                    <p class="product-preview-price current"><span
+                                                            class="currency">$</span>399.00</p>
+                                                </div>
+                                                <!-- /PRODUCT PRICE WRAP -->
+
+                                                <!-- ADD TO BAG -->
+                                                <div class="button small violet add-to-bag">Add to bag</div>
+                                            </div>
+                                            <!-- /PRODUCT PREVIEW -->
+
+                                            <!-- LINK SECTIONS -->
+                                            <div class="link-sections">
+                                                <!-- LINK SECTION -->
+                                                <div class="link-section">
+                                                    <!-- SECTION TITLE WRAP -->
+                                                    <div class="section-title-wrap violet">
+                                                        <h2 class="section-title small">X-Rock</h2>
+                                                        <div class="section-title-separator"></div>
+                                                    </div>
+                                                    <!-- /SECTION TITLE WRAP -->
+
+                                                    <!-- LINK LIST -->
+                                                    <ul class="link-list">
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="shop-v1-grid.html">Shop 3 Columns Grid</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="shop-v1-list.html">Shop 3 Columns List</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="shop-v2.html">Shop 4 Columns</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="product-page.html">Product Description</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="product-page.html">Product Reviews</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="product-page.html">Product Specifications</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="inventory-bag.html">Inventory Bag (Cart)</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="checkout.html">Checkout Page</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="order-confirmation.html">Order Confirmation</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+                                                    </ul>
+                                                    <!-- /LINK LIST -->
+
+                                                    <!-- LINK LIST -->
+                                                    <ul class="link-list">
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="wishlist.html">Wishlist</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="product-compare.html">Product Compare</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+                                                    </ul>
+                                                    <!-- /LINK LIST -->
+                                                </div>
+                                                <!-- /LINK SECTION -->
+                                            </div>
+                                            <!-- /LINK SECTIONS -->
+                                        </div>
+                                        <!-- /SUBMENU SLIDER ITEM -->
+
+                                        <!-- SUBMENU SLIDER ITEM -->
+                                        <div class="submenu-slider-item submenu-slider-item-6">
+                                            <!-- PRODUCT PREVIEW -->
+                                            <div class="product-preview short">
+                                                <!-- PRODUCT PREVIEW IMG WRAP -->
+                                                <div class="product-preview-img-wrap">
+                                                    <!-- PRODUCT PREVIEW IMG -->
+                                                    <a href="product-page.html">
+                                                        <figure class="product-preview-img liquid">
+                                                            <img src="{{ asset('assets/front/img/products/12.jpg') }}"
+                                                                alt="product-12">
+                                                        </figure>
+                                                    </a>
+                                                    <!-- /PRODUCT PREVIEW IMG -->
+                                                </div>
+                                                <!-- /PRODUCT PREVIEW IMG WRAP -->
+
+                                                <!-- PRODUCT PREVIEW TITLE -->
+                                                <a href="product-page.html" class="product-preview-title">Diamond men's
+                                                    white...</a>
+                                                <!-- PRODUCT PREVIEW INFO -->
+                                                <div class="product-preview-info">
+                                                    <!-- PRODUCT PREVIEW CATEGORY -->
+                                                    <a href="shop-v1-grid.html"
+                                                        class="product-preview-category">Clothing &amp; Hats</a>
+                                                    <!-- RATING ORNAMENT -->
+                                                    <div class="rating-ornament small void yellow">
+                                                        <!-- RATING ORNAMENT ITEM -->
+                                                        <div class="rating-ornament-item">
+                                                            <!-- RATING ORNAMENT ICON -->
+                                                            <svg class="rating-ornament-icon">
+                                                                <use xlink:href="#svg-star"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <!-- /RATING ORNAMENT ITEM -->
+
+                                                        <!-- RATING ORNAMENT ITEM -->
+                                                        <div class="rating-ornament-item">
+                                                            <!-- RATING ORNAMENT ICON -->
+                                                            <svg class="rating-ornament-icon">
+                                                                <use xlink:href="#svg-star"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <!-- /RATING ORNAMENT ITEM -->
+
+                                                        <!-- RATING ORNAMENT ITEM -->
+                                                        <div class="rating-ornament-item">
+                                                            <!-- RATING ORNAMENT ICON -->
+                                                            <svg class="rating-ornament-icon">
+                                                                <use xlink:href="#svg-star"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <!-- /RATING ORNAMENT ITEM -->
+
+                                                        <!-- RATING ORNAMENT ITEM -->
+                                                        <div class="rating-ornament-item">
+                                                            <!-- RATING ORNAMENT ICON -->
+                                                            <svg class="rating-ornament-icon">
+                                                                <use xlink:href="#svg-star"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <!-- /RATING ORNAMENT ITEM -->
+
+                                                        <!-- RATING ORNAMENT ITEM -->
+                                                        <div class="rating-ornament-item">
+                                                            <!-- RATING ORNAMENT ICON -->
+                                                            <svg class="rating-ornament-icon">
+                                                                <use xlink:href="#svg-star"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <!-- /RATING ORNAMENT ITEM -->
+                                                    </div>
+                                                    <!-- /RATING ORNAMENT -->
+                                                </div>
+                                                <!-- /PRODUCT PREVIEW INFO -->
+
+                                                <!-- PRODUCT PRICE WRAP -->
+                                                <div class="product-price-wrap">
+                                                    <p class="product-preview-price current"><span
+                                                            class="currency">$</span>16.00</p>
+                                                </div>
+                                                <!-- /PRODUCT PRICE WRAP -->
+
+                                                <!-- ADD TO BAG -->
+                                                <div class="button small violet add-to-bag">Add to bag</div>
+                                            </div>
+                                            <!-- /PRODUCT PREVIEW -->
+
+                                            <!-- LINK SECTIONS -->
+                                            <div class="link-sections">
+                                                <!-- LINK SECTION -->
+                                                <div class="link-section">
+                                                    <!-- SECTION TITLE WRAP -->
+                                                    <div class="section-title-wrap violet">
+                                                        <h2 class="section-title small">Clothing &amp; Hats</h2>
+                                                        <div class="section-title-separator"></div>
+                                                    </div>
+                                                    <!-- /SECTION TITLE WRAP -->
+
+                                                    <!-- LINK LIST -->
+                                                    <ul class="link-list">
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="shop-v1-grid.html">Shop 3 Columns Grid</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="shop-v1-list.html">Shop 3 Columns List</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="shop-v2.html">Shop 4 Columns</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="product-page.html">Product Description</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="product-page.html">Product Reviews</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="product-page.html">Product Specifications</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="inventory-bag.html">Inventory Bag (Cart)</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="checkout.html">Checkout Page</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="order-confirmation.html">Order Confirmation</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+                                                    </ul>
+                                                    <!-- /LINK LIST -->
+
+                                                    <!-- LINK LIST -->
+                                                    <ul class="link-list">
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="wishlist.html">Wishlist</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="product-compare.html">Product Compare</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+                                                    </ul>
+                                                    <!-- /LINK LIST -->
+                                                </div>
+                                                <!-- /LINK SECTION -->
+                                            </div>
+                                            <!-- /LINK SECTIONS -->
+                                        </div>
+                                        <!-- /SUBMENU SLIDER ITEM -->
+
+                                        <!-- SUBMENU SLIDER ITEM -->
+                                        <div class="submenu-slider-item submenu-slider-item-7">
+                                            <!-- PRODUCT PREVIEW -->
+                                            <div class="product-preview short">
+                                                <!-- PRODUCT PREVIEW IMG WRAP -->
+                                                <div class="product-preview-img-wrap">
+                                                    <!-- PRODUCT PREVIEW IMG -->
+                                                    <a href="product-page.html">
+                                                        <figure class="product-preview-img liquid">
+                                                            <img src="{{ asset('assets/front/img/products/13.jpg') }}"
+                                                                alt="product-13">
+                                                        </figure>
+                                                    </a>
+                                                    <!-- /PRODUCT PREVIEW IMG -->
+                                                </div>
+                                                <!-- /PRODUCT PREVIEW IMG WRAP -->
+
+                                                <!-- PRODUCT PREVIEW TITLE -->
+                                                <a href="product-page.html" class="product-preview-title">Diamond white
+                                                    enamel...</a>
+                                                <!-- PRODUCT PREVIEW INFO -->
+                                                <div class="product-preview-info">
+                                                    <!-- PRODUCT PREVIEW CATEGORY -->
+                                                    <a href="shop-v1-grid.html"
+                                                        class="product-preview-category">Merchandise</a>
+                                                    <!-- RATING ORNAMENT -->
+                                                    <div class="rating-ornament small void yellow">
+                                                        <!-- RATING ORNAMENT ITEM -->
+                                                        <div class="rating-ornament-item">
+                                                            <!-- RATING ORNAMENT ICON -->
+                                                            <svg class="rating-ornament-icon">
+                                                                <use xlink:href="#svg-star"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <!-- /RATING ORNAMENT ITEM -->
+
+                                                        <!-- RATING ORNAMENT ITEM -->
+                                                        <div class="rating-ornament-item">
+                                                            <!-- RATING ORNAMENT ICON -->
+                                                            <svg class="rating-ornament-icon">
+                                                                <use xlink:href="#svg-star"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <!-- /RATING ORNAMENT ITEM -->
+
+                                                        <!-- RATING ORNAMENT ITEM -->
+                                                        <div class="rating-ornament-item">
+                                                            <!-- RATING ORNAMENT ICON -->
+                                                            <svg class="rating-ornament-icon">
+                                                                <use xlink:href="#svg-star"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <!-- /RATING ORNAMENT ITEM -->
+
+                                                        <!-- RATING ORNAMENT ITEM -->
+                                                        <div class="rating-ornament-item">
+                                                            <!-- RATING ORNAMENT ICON -->
+                                                            <svg class="rating-ornament-icon">
+                                                                <use xlink:href="#svg-star"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <!-- /RATING ORNAMENT ITEM -->
+
+                                                        <!-- RATING ORNAMENT ITEM -->
+                                                        <div class="rating-ornament-item">
+                                                            <!-- RATING ORNAMENT ICON -->
+                                                            <svg class="rating-ornament-icon empty">
+                                                                <use xlink:href="#svg-star"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <!-- /RATING ORNAMENT ITEM -->
+                                                    </div>
+                                                    <!-- /RATING ORNAMENT -->
+                                                </div>
+                                                <!-- /PRODUCT PREVIEW INFO -->
+
+                                                <!-- PRODUCT PRICE WRAP -->
+                                                <div class="product-price-wrap">
+                                                    <p class="product-preview-price current"><span
+                                                            class="currency">$</span>10.99</p>
+                                                </div>
+                                                <!-- /PRODUCT PRICE WRAP -->
+
+                                                <!-- ADD TO BAG -->
+                                                <div class="button small violet add-to-bag">Add to bag</div>
+                                            </div>
+                                            <!-- /PRODUCT PREVIEW -->
+
+                                            <!-- LINK SECTIONS -->
+                                            <div class="link-sections">
+                                                <!-- LINK SECTION -->
+                                                <div class="link-section">
+                                                    <!-- SECTION TITLE WRAP -->
+                                                    <div class="section-title-wrap violet">
+                                                        <h2 class="section-title small">Merchandise</h2>
+                                                        <div class="section-title-separator"></div>
+                                                    </div>
+                                                    <!-- /SECTION TITLE WRAP -->
+
+                                                    <!-- LINK LIST -->
+                                                    <ul class="link-list">
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="shop-v1-grid.html">Shop 3 Columns Grid</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="shop-v1-list.html">Shop 3 Columns List</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="shop-v2.html">Shop 4 Columns</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="product-page.html">Product Description</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="product-page.html">Product Reviews</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="product-page.html">Product Specifications</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="inventory-bag.html">Inventory Bag (Cart)</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="checkout.html">Checkout Page</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="order-confirmation.html">Order Confirmation</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+                                                    </ul>
+                                                    <!-- /LINK LIST -->
+
+                                                    <!-- LINK LIST -->
+                                                    <ul class="link-list">
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="wishlist.html">Wishlist</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+
+                                                        <!-- LINK LIST ITEM -->
+                                                        <li class="link-list-item">
+                                                            <a href="product-compare.html">Product Compare</a>
+                                                        </li>
+                                                        <!-- /LINK LIST ITEM -->
+                                                    </ul>
+                                                    <!-- /LINK LIST -->
+                                                </div>
+                                                <!-- /LINK SECTION -->
+                                            </div>
+                                            <!-- /LINK SECTIONS -->
+                                        </div>
+                                        <!-- /SUBMENU SLIDER ITEM -->
+                                    </div>
+                                    <!-- /SUBMENU SLIDER ITEMS -->
+                                </div>
+                                <!-- SUBMENU SLIDER ITEMS WRAP -->
+                            </div>
+                            <!-- /SUBMENU ITEM SLIDER -->
                         </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle active" data-toggle="dropdown">Services</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="services.html">Services Version One</a></li>
-                                <li><a href="services-2.html">Services Version Two</a></li>
-                                <li><a href="services-3.html">Services Version Three</a></li>
-                                <li><a href="services-4.html">Services Version Four</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle active" data-toggle="dropdown">Team</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="team.html">Team Version One</a></li>
-                                <li><a href="team-2.html">Team Version Two</a></li>
-                                <li><a href="team-3.html">Team Version Three</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="blog-standard.html">Blog Standard</a></li>
-                                <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                                <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                                <li><a href="blog-single.html">Blog Single Standard</a></li>
-                                <li><a href="blog-single-left-sidebar.html">Single Left Sidebar</a></li>
-                                <li><a href="blog-single-right-sidebar.html">Single Right Sidebar</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="contact.html">contact</a>
-                        </li>
+                        <!-- /SUBMENU ITEM -->
                     </ul>
-                </div><!-- /.navbar-collapse -->
-            </div>
-
-        </nav>
-        <!-- End Navigation -->
-
-    </header>
-    <!-- End Header -->
-
-    <!-- Start Banner 
-    ============================================= -->
-    <div class="banner-area inc-top-heading">
-        <div id="bootcarousel" class="carousel slide carousel-fade animate_text" data-ride="carousel">
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner text-light carousel-zoom">
-                <div class="item active">
-                    <div class="slider-thumb bg-cover"
-                        style="background-image: url({{ asset('assets/front/buildco/img/2440x1578.png') }});"></div>
-                    <div class="box-table shadow dark">
-                        <div class="box-cell">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <div class="content">
-                                            <h3 data-animation="animated slideInRight">Let's grow together</h3>
-                                            <h1 data-animation="animated slideInLeft">Build <span>innovative</span>
-                                                industrial solutions</h1>
-                                            <a data-animation="animated slideInUp" class="btn btn-light border btn-md"
-                                                href="#">Our Services</a>
-                                            <a data-animation="animated slideInUp" class="btn btn-theme effect btn-md"
-                                                href="#">Learn more</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="slider-thumb bg-cover"
-                        style="background-image: url({{ asset('assets/front/buildco/img/2440x1578.png') }});"></div>
-                    <div class="box-table shadow dark">
-                        <div class="box-cell">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <div class="content">
-                                            <h3 data-animation="animated slideInUp">Since 1985</h3>
-                                            <h1 data-animation="animated slideInDown">Expert knowledge in
-                                                <span>Technical</span> Solutions
-                                            </h1>
-                                            <a data-animation="animated slideInUp" class="btn btn-light border btn-md"
-                                                href="#">Our Services</a>
-                                            <a data-animation="animated slideInUp" class="btn btn-theme effect btn-md"
-                                                href="#">Learn more</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="slider-thumb bg-cover"
-                        style="background-image: url({{ asset('assets/front/buildco/img/2440x1578.png') }});"></div>
-                    <div class="box-table shadow dark">
-                        <div class="box-cell">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <div class="content">
-                                            <h3 data-animation="animated slideInLeft">Expert in</h3>
-                                            <h1 data-animation="animated slideInRight">Empowering oil Refiling &
-                                                <span>Processing</span> plants
-                                            </h1>
-                                            <a data-animation="animated slideInUp" class="btn btn-light border btn-md"
-                                                href="#">Our Services</a>
-                                            <a data-animation="animated slideInUp" class="btn btn-theme effect btn-md"
-                                                href="#">Learn more</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Wrapper for slides -->
-
-            <!-- Left and right controls -->
-            <a class="left carousel-control shadow fixed" href="#bootcarousel" data-slide="prev">
-                <i class="fa fa-angle-left"></i>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control shadow fixed" href="#bootcarousel" data-slide="next">
-                <i class="fa fa-angle-right"></i>
-                <span class="sr-only">Next</span>
-            </a>
+                    <!-- /SUBMENU -->
+                </li>
+                <!-- /MAIN MENU ITEM -->
+            </ul>
+            <!-- /MAIN MENU -->
         </div>
-    </div>
-    <!-- End Banner -->
+        <!-- NAVIGATION -->
+    </nav>
+    <!-- /NAVIGATION WRAP -->
 
-    <!-- Start Our About
-    ============================================= -->
-    <div class="about-area default-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 info-content">
-                    <h1>We offer product design, <strong>manufacturing and engineering</strong> management services.
-                    </h1>
-                    <p>
-                        Seven world think timed while her. Spoil large oh he rooms on since an. Am up unwilling
-                        eagerness perceived incommode. Perceived end knowledge certainly day sweetness why cordially.
-                        Ask quick six seven offer see among. Handsome met debating sir dwelling age material. As style
-                        lived he worse dried. Offered related so visitor we private removed. Moderate do subjects to
-                        distance. Conviction up partiality as delightful is discovered. Yet jennings resolved disposed.
+    <!-- MOBILE MENU PULL -->
+    <div class="mobile-menu-pull mobile-menu-open">
+        <!-- MENU PULL ICON -->
+        <svg class="menu-pull-icon">
+            <use xlink:href="#svg-menu-pull"></use>
+        </svg>
+        <!-- /MENU PULL ICON -->
+    </div>
+    <!-- /MOBILE MENU PULL -->
+
+    <!-- BANNER SLIDER -->
+    <div id="banner-slider-1" class="banner-slider">
+        <!-- SLIDER ITEMS -->
+        <div class="slider-items">
+            <!-- SLIDER ITEM -->
+            <div class="slider-item slider-item-1">
+                <div class="slider-item-wrap">
+                    <!-- POST PREVIEW -->
+                    <div class="post-preview huge gaming-news">
+                        <!-- TAG ORNAMENT -->
+                        <a href="news-v1.html" class="tag-ornament">Gaming news</a>
+                        <!-- /TAG ORNAMENT -->
+
+                        <!-- POST PREVIEW TITLE -->
+                        <a href="post-v1.html" class="post-preview-title">The "Clash of Eternity" new game was just
+                            released</a>
+                        <!-- POST PREVIEW TEXT -->
+                        <p class="post-preview-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                            eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <!-- BUTTON -->
+                        <a href="post-v1.html" class="button big blue">
+                            Go to the article
+                            <!-- BUTTON ORNAMENT -->
+                            <div class="button-ornament">
+                                <!-- ARROW ICON -->
+                                <svg class="arrow-icon big">
+                                    <use xlink:href="#svg-arrow-big"></use>
+                                </svg>
+                                <!-- /ARROW ICON -->
+
+                                <!-- CROSS ICON -->
+                                <svg class="cross-icon big">
+                                    <use xlink:href="#svg-cross-big"></use>
+                                </svg>
+                                <!-- /CROSS ICON -->
+                            </div>
+                            <!-- /BUTTON ORNAMENT -->
+                        </a>
+                        <!-- /BUTTON -->
+                    </div>
+                    <!-- /POST PREVIEW -->
+                </div>
+            </div>
+            <!-- /SLIDER ITEM -->
+
+            <!-- SLIDER ITEM -->
+            <div class="slider-item slider-item-2">
+                <div class="slider-item-wrap">
+                    <!-- POST PREVIEW -->
+                    <div class="post-preview huge game-review">
+                        <!-- TAG ORNAMENT -->
+                        <a href="news-v2.html" class="tag-ornament">Game Reviews</a>
+                        <!-- /TAG ORNAMENT -->
+
+                        <!-- POST PREVIEW TITLE -->
+                        <a href="post-v2.html" class="post-preview-title">We reviewed the new Magimons game</a>
+                        <!-- POST PREVIEW TEXT -->
+                        <p class="post-preview-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                            eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <!-- BUTTON -->
+                        <a href="post-v2.html" class="button big red">
+                            Go to the article
+                            <!-- BUTTON ORNAMENT -->
+                            <div class="button-ornament">
+                                <!-- ARROW ICON -->
+                                <svg class="arrow-icon big">
+                                    <use xlink:href="#svg-arrow-big"></use>
+                                </svg>
+                                <!-- /ARROW ICON -->
+
+                                <!-- CROSS ICON -->
+                                <svg class="cross-icon big">
+                                    <use xlink:href="#svg-cross-big"></use>
+                                </svg>
+                                <!-- /CROSS ICON -->
+                            </div>
+                            <!-- /BUTTON ORNAMENT -->
+                        </a>
+                        <!-- /BUTTON -->
+                    </div>
+                    <!-- /POST PREVIEW -->
+                </div>
+            </div>
+            <!-- /SLIDER ITEM -->
+
+            <!-- SLIDER ITEM -->
+            <div class="slider-item slider-item-3">
+                <div class="slider-item-wrap">
+                    <!-- POST PREVIEW -->
+                    <div class="post-preview huge gaming-news">
+                        <!-- TAG ORNAMENT -->
+                        <a href="news-v1.html" class="tag-ornament">Gaming News</a>
+                        <!-- /TAG ORNAMENT -->
+
+                        <!-- POST PREVIEW TITLE -->
+                        <a href="post-v1.html" class="post-preview-title">New expansion pack coming to "Rise of
+                            Depredators"</a>
+                        <!-- POST PREVIEW TEXT -->
+                        <p class="post-preview-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                            eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <!-- BUTTON -->
+                        <a href="post-v1.html" class="button big blue">
+                            Go to the article
+                            <!-- BUTTON ORNAMENT -->
+                            <div class="button-ornament">
+                                <!-- ARROW ICON -->
+                                <svg class="arrow-icon big">
+                                    <use xlink:href="#svg-arrow-big"></use>
+                                </svg>
+                                <!-- /ARROW ICON -->
+
+                                <!-- CROSS ICON -->
+                                <svg class="cross-icon big">
+                                    <use xlink:href="#svg-cross-big"></use>
+                                </svg>
+                                <!-- /CROSS ICON -->
+                            </div>
+                            <!-- /BUTTON ORNAMENT -->
+                        </a>
+                        <!-- /BUTTON -->
+                    </div>
+                    <!-- /POST PREVIEW -->
+                </div>
+            </div>
+            <!-- /SLIDER ITEM -->
+
+            <!-- SLIDER ITEM -->
+            <div class="slider-item slider-item-4">
+                <div class="slider-item-wrap">
+                    <!-- POST PREVIEW -->
+                    <div class="post-preview huge e-sport">
+                        <!-- TAG ORNAMENT -->
+                        <a href="esports-news.html" class="tag-ornament">Esports</a>
+                        <!-- /TAG ORNAMENT -->
+
+                        <!-- POST PREVIEW TITLE -->
+                        <a href="esports-post.html" class="post-preview-title">Last night the Wolves beat the Rhinos
+                            12-10</a>
+                        <!-- POST PREVIEW TEXT -->
+                        <p class="post-preview-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                            eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <!-- BUTTON -->
+                        <a href="esports-post.html" class="button big violet">
+                            Go to the article
+                            <!-- BUTTON ORNAMENT -->
+                            <div class="button-ornament">
+                                <!-- ARROW ICON -->
+                                <svg class="arrow-icon big">
+                                    <use xlink:href="#svg-arrow-big"></use>
+                                </svg>
+                                <!-- /ARROW ICON -->
+
+                                <!-- CROSS ICON -->
+                                <svg class="cross-icon big">
+                                    <use xlink:href="#svg-cross-big"></use>
+                                </svg>
+                                <!-- /CROSS ICON -->
+                            </div>
+                            <!-- /BUTTON ORNAMENT -->
+                        </a>
+                        <!-- /BUTTON -->
+                    </div>
+                    <!-- /POST PREVIEW -->
+                </div>
+            </div>
+            <!-- /SLIDER ITEM -->
+        </div>
+        <!-- /SLIDER ITEMS -->
+
+        <!-- BANNER SLIDER ROSTER -->
+        <div class="banner-slider-roster">
+            <div class="banner-slider-roster-item"></div>
+            <div class="banner-slider-roster-item"></div>
+            <div class="banner-slider-roster-item"></div>
+            <div class="banner-slider-roster-item"></div>
+        </div>
+        <!-- /BANNER SLIDER ROSTER -->
+    </div>
+    <!-- /BANNER SLIDER -->
+
+    <!-- LIVE NEWS WIDGET WRAP -->
+    <div class="live-news-widget-wrap">
+        <!-- LIVE NEWS WIDGET -->
+        <div class="live-news-widget grid-limit">
+            <!-- LIVE NEWS WIDGET STAIRS -->
+            <div class="live-news-widget-stairs left red">
+                <div class="live-news-widget-stair"></div>
+                <div class="live-news-widget-stair"></div>
+                <div class="live-news-widget-stair"></div>
+                <div class="live-news-widget-stair"></div>
+                <div class="live-news-widget-stair"></div>
+                <div class="live-news-widget-stair"></div>
+                <div class="live-news-widget-stair"></div>
+                <div class="live-news-widget-stair"></div>
+            </div>
+            <!-- /LIVE NEWS WIDGET STAIRS -->
+
+            <!-- LIVE NEWS WIDGET STAIRS -->
+            <div class="live-news-widget-stairs right blue">
+                <div class="live-news-widget-stair"></div>
+                <div class="live-news-widget-stair"></div>
+                <div class="live-news-widget-stair"></div>
+                <div class="live-news-widget-stair"></div>
+                <div class="live-news-widget-stair"></div>
+                <div class="live-news-widget-stair"></div>
+                <div class="live-news-widget-stair"></div>
+                <div class="live-news-widget-stair"></div>
+            </div>
+            <!-- /LIVE NEWS WIDGET STAIRS -->
+
+            <!-- LIVE NEWS WIDGET TITLE WRAP -->
+            <div class="live-news-widget-title-wrap">
+                <img class="live-news-widget-icon" src="{{ asset('assets/front/img/icons/live-news-icon.png') }}"
+                    alt="live-news-icon">
+                <p class="live-news-widget-title">Live News</p>
+            </div>
+            <!-- /LIVE NEWS WIDGET TITLE WRAP -->
+
+            <!-- LIVE NEWS WIDGET TEXT WRAP -->
+            <div id="lineslide-wrap1" class="live-news-widget-text-wrap">
+                <p class="live-news-widget-text"></p>
+            </div>
+            <!-- /LIVE NEWS WIDGET TEXT WRAP -->
+        </div>
+        <!-- /LIVE NEWS WIDGET -->
+    </div>
+    <!-- /LIVE NEWS WIDGET WRAP -->
+
+    <!-- LAYOUT CONTENT 1 -->
+    <div class="layout-content-1 layout-item-3-1 search-pad grid-limit">
+        <!-- LAYOUT BODY -->
+        <div class="layout-body layout-item centered">
+            <!-- LAYOUT ITEM -->
+            <div class="layout-item">
+                <!-- POST PREVIEW SET -->
+                <div class="post-preview-set">
+                    <!-- POST PREVIEW SET LEFT -->
+                    <div class="post-preview-set-left">
+                        <!-- POST PREVIEW -->
+                        <div class="post-preview picture big game-review">
+                            <!-- POST PREVIEW IMG WRAP -->
+                            <a href="post-v2.html">
+                                <div class="post-preview-img-wrap">
+                                    <!-- POST PREVIEW IMG -->
+                                    <figure class="post-preview-img liquid">
+                                        <img src="{{ asset('assets/front/img/posts/16.jpg') }}" alt="post-16">
+                                    </figure>
+                                    <!-- /POST PREVIEW IMG -->
+
+                                    <!-- POST PREVIEW OVERLAY -->
+                                    <div class="post-preview-overlay">
+                                        <!-- TAG ORNAMENT -->
+                                        <span class="tag-ornament">Game Reviews</span>
+                                        <!-- /TAG ORNAMENT -->
+
+                                        <!-- POST PREVIEW TITLE -->
+                                        <p class="post-preview-title">We reviewed the new Magimons game</p>
+                                        <!-- POST PREVIEW TEXT -->
+                                        <p class="post-preview-text">Lorem ipsum dolor sit amet, consectetur adipisicing
+                                            elit, sed do eiusmod tempor incididunt.</p>
+                                    </div>
+                                    <!-- /POST PREVIEW OVERLAY -->
+
+                                    <!-- REVIEW RATING -->
+                                    <div class="review-rating">
+                                        <div id="content-news-rate-1" class="arc medium"></div>
+                                    </div>
+                                    <!-- /REVIEW RATING -->
+                                </div>
+                            </a>
+                            <!-- /POST PREVIEW IMG WRAP -->
+                        </div>
+                        <!-- /POST PREVIEW -->
+                    </div>
+                    <!-- /POST PREVIEW SET LEFT -->
+
+                    <!-- POST PREVIEW SET RIGHT -->
+                    <div class="post-preview-set-right">
+                        <!-- POST PREVIEW -->
+                        <div class="post-preview picture gaming-news">
+                            <!-- POST PREVIEW IMG WRAP -->
+                            <a href="post-v1.html">
+                                <div class="post-preview-img-wrap">
+                                    <!-- POST PREVIEW IMG -->
+                                    <figure class="post-preview-img liquid">
+                                        <img src="{{ asset('assets/front/img/posts/07.jpg') }}" alt="post-07">
+                                    </figure>
+                                    <!-- /POST PREVIEW IMG -->
+
+                                    <!-- POST PREVIEW OVERLAY -->
+                                    <div class="post-preview-overlay">
+                                        <!-- POST PREVIEW TITLE -->
+                                        <p class="post-preview-title">New expansion pack coming to "Rise of Depredators"
+                                        </p>
+                                    </div>
+                                    <!-- /POST PREVIEW OVERLAY -->
+
+                                    <!-- TAG ORNAMENT -->
+                                    <span class="tag-ornament">Gaming news</span>
+                                    <!-- /TAG ORNAMENT -->
+                                </div>
+                            </a>
+                            <!-- /POST PREVIEW IMG WRAP -->
+                        </div>
+                        <!-- /POST PREVIEW -->
+
+                        <!-- POST PREVIEW -->
+                        <div class="post-preview picture game-review">
+                            <!-- POST PREVIEW IMG WRAP -->
+                            <a href="post-v2.html">
+                                <div class="post-preview-img-wrap">
+                                    <!-- POST PREVIEW IMG -->
+                                    <figure class="post-preview-img liquid">
+                                        <img src="{{ asset('assets/front/img/posts/25.jpg') }}" alt="post-25">
+                                    </figure>
+                                    <!-- /POST PREVIEW IMG -->
+
+                                    <!-- POST PREVIEW OVERLAY -->
+                                    <div class="post-preview-overlay">
+                                        <!-- POST PREVIEW TITLE -->
+                                        <p class="post-preview-title">"Legend of Kenshi II" is a bit green for now</p>
+                                    </div>
+                                    <!-- /POST PREVIEW OVERLAY -->
+
+                                    <!-- TAG ORNAMENT -->
+                                    <span class="tag-ornament">Game reviews</span>
+                                    <!-- /TAG ORNAMENT -->
+
+                                    <!-- REVIEW RATING -->
+                                    <div class="review-rating">
+                                        <div id="content-news-rate-2" class="arc small"></div>
+                                    </div>
+                                    <!-- /REVIEW RATING -->
+                                </div>
+                            </a>
+                            <!-- /POST PREVIEW IMG WRAP -->
+                        </div>
+                        <!-- /POST PREVIEW -->
+
+                        <!-- POST PREVIEW -->
+                        <div class="post-preview picture geeky-news">
+                            <!-- POST PREVIEW IMG WRAP -->
+                            <a href="post-v4.html">
+                                <div class="post-preview-img-wrap">
+                                    <!-- POST PREVIEW IMG -->
+                                    <figure class="post-preview-img liquid">
+                                        <img src="{{ asset('assets/front/img/posts/18.jpg') }}" alt="post-18">
+                                    </figure>
+                                    <!-- /POST PREVIEW IMG -->
+
+                                    <!-- POST PREVIEW OVERLAY -->
+                                    <div class="post-preview-overlay">
+                                        <!-- POST PREVIEW TITLE -->
+                                        <p class="post-preview-title">"Ichigo Idol" anime will have a new season in
+                                            April</p>
+                                    </div>
+                                    <!-- /POST PREVIEW OVERLAY -->
+
+                                    <!-- TAG ORNAMENT -->
+                                    <span class="tag-ornament">Geeky news</span>
+                                    <!-- /TAG ORNAMENT -->
+                                </div>
+                            </a>
+                            <!-- /POST PREVIEW IMG WRAP -->
+                        </div>
+                        <!-- /POST PREVIEW -->
+                    </div>
+                    <!-- /POST PREVIEW SET RIGHT -->
+                </div>
+                <!-- /POST PREVIEW SET -->
+            </div>
+            <!-- /LAYOUT ITEM -->
+
+            <!-- LAYOUT ITEM 2-1 -->
+            <div class="layout-item-2-1">
+                <!-- LAYOUT ITEM -->
+                <div class="layout-item">
+                    <!-- POST PREVIEW -->
+                    <div class="post-preview big gaming-news">
+                        <!-- POST PREVIEW IMG WRAP -->
+                        <a href="post-v1.html">
+                            <div class="post-preview-img-wrap">
+                                <!-- POST PREVIEW IMG -->
+                                <figure class="post-preview-img liquid">
+                                    <img src="{{ asset('assets/front/img/posts/01.jpg') }}" alt="post-01">
+                                </figure>
+                                <!-- POST PREVIEW IMG -->
+                            </div>
+                        </a>
+                        <!-- /POST PREVIEW IMG WRAP -->
+
+                        <!-- TAG ORNAMENT -->
+                        <a href="news-v1.html" class="tag-ornament">Gaming news</a>
+                        <!-- /TAG ORNAMENT -->
+
+                        <!-- POST PREVIEW TITLE -->
+                        <a href="post-v1.html" class="post-preview-title">The Clash of Dragons is breaking record sales
+                            in USA and Japan</a>
+                        <!-- POST AUTHOR INFO -->
+                        <div class="post-author-info-wrap">
+                            <!-- USER AVATAR -->
+                            <a href="search-results.html">
+                                <figure class="user-avatar tiny liquid">
+                                    <img src="{{ asset('assets/front/img/users/01.jpg') }}" alt="user-01">
+                                </figure>
+                            </a>
+                            <!-- /USER AVATAR -->
+                            <p class="post-author-info small light">By <a href="search-results.html"
+                                    class="post-author">Dexter</a><span class="separator">|</span>December 15th,
+                                2018<span class="separator">|</span><a href="post-v1.html#op-comments"
+                                    class="post-comment-count">174 Comments</a></p>
+                        </div>
+                        <!-- /POST AUTHOR INFO -->
+                        <!-- POST PREVIEW TEXT -->
+                        <p class="post-preview-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                            eiusmod tempor incididunt dutor et dolore magna aliqua. Ut enim ad minim veniam, quis
+                            nostrud exercitation loso laboris tempora aliquip ex ea commodo consequat. Duis aute irure
+                            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
+                            excepteur sint occaecat pidatat.</p>
+                    </div>
+                    <!-- /POST PREVIEW -->
+
+                    <!-- POST PREVIEW -->
+                    <div class="post-preview big game-review">
+                        <!-- POST PREVIEW IMG WRAP -->
+                        <a href="post-v2.html">
+                            <div class="post-preview-img-wrap">
+                                <!-- POST PREVIEW IMG -->
+                                <figure class="post-preview-img liquid">
+                                    <img src="{{ asset('assets/front/img/posts/05.jpg') }}" alt="post-05">
+                                </figure>
+                                <!-- POST PREVIEW IMG -->
+
+                                <!-- REVIEW RATING -->
+                                <div class="review-rating">
+                                    <div id="content-news-rate-3" class="arc"></div>
+                                </div>
+                                <!-- /REVIEW RATING -->
+                            </div>
+                        </a>
+                        <!-- /POST PREVIEW IMG WRAP -->
+
+                        <!-- TAG ORNAMENT -->
+                        <a href="news-v2.html" class="tag-ornament">Game Reviews</a>
+                        <!-- /TAG ORNAMENT -->
+
+                        <!-- POST PREVIEW TITLE -->
+                        <a href="post-v2.html" class="post-preview-title">We reviewed the new and exciting Fantasy game
+                            "Olympus"</a>
+                        <!-- POST AUTHOR INFO -->
+                        <div class="post-author-info-wrap">
+                            <!-- USER AVATAR -->
+                            <a href="search-results.html">
+                                <figure class="user-avatar tiny liquid">
+                                    <img src="{{ asset('assets/front/img/users/04.jpg') }}" alt="user-04">
+                                </figure>
+                            </a>
+                            <!-- /USER AVATAR -->
+                            <p class="post-author-info small light">By <a href="search-results.html"
+                                    class="post-author">Vellatrix</a><span class="separator">|</span>December 15th,
+                                2018<span class="separator">|</span><a href="post-v2.html#op-comments"
+                                    class="post-comment-count">258 Comments</a></p>
+                        </div>
+                        <!-- /POST AUTHOR INFO -->
+                        <!-- POST PREVIEW TEXT -->
+                        <p class="post-preview-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                            eiusmod tempor incididunt dutor et dolore magna aliqua. Ut enim ad minim veniam, quis
+                            nostrud exercitation loso laboris tempora aliquip ex ea commodo consequat. Duis aute irure
+                            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
+                            excepteur sint occaecat pidatat.</p>
+                    </div>
+                    <!-- /POST PREVIEW -->
+
+                    <!-- POST PREVIEW -->
+                    <div class="post-preview big gaming-news">
+                        <!-- POST PREVIEW IMG WRAP -->
+                        <a href="post-v1.html">
+                            <div class="post-preview-img-wrap">
+                                <!-- POST PREVIEW IMG -->
+                                <figure class="post-preview-img liquid">
+                                    <img src="{{ asset('assets/front/img/posts/27.jpg') }}" alt="post-27">
+                                </figure>
+                                <!-- POST PREVIEW IMG -->
+                            </div>
+                        </a>
+                        <!-- /POST PREVIEW IMG WRAP -->
+
+                        <!-- TAG ORNAMENT -->
+                        <a href="news-v1.html" class="tag-ornament">Gaming news</a>
+                        <!-- /TAG ORNAMENT -->
+
+                        <!-- POST PREVIEW TITLE -->
+                        <a href="post-v1.html" class="post-preview-title">Everything about Kawai Party 8!</a>
+                        <!-- POST AUTHOR INFO -->
+                        <div class="post-author-info-wrap">
+                            <!-- USER AVATAR -->
+                            <a href="search-results.html">
+                                <figure class="user-avatar tiny liquid">
+                                    <img src="{{ asset('assets/front/img/users/01.jpg') }}" alt="user-01">
+                                </figure>
+                            </a>
+                            <!-- /USER AVATAR -->
+                            <p class="post-author-info small light">By <a href="search-results.html"
+                                    class="post-author">Dexter</a><span class="separator">|</span>December 15th,
+                                2018<span class="separator">|</span><a href="post-v1.html#op-comments"
+                                    class="post-comment-count">174 Comments</a></p>
+                        </div>
+                        <!-- /POST AUTHOR INFO -->
+                        <!-- POST PREVIEW TEXT -->
+                        <p class="post-preview-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                            eiusmod tempor incididunt dutor et dolore magna aliqua. Ut enim ad minim veniam, quis
+                            nostrud exercitation loso laboris tempora aliquip ex ea commodo consequat. Duis aute irure
+                            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
+                            excepteur sint occaecat pidatat.</p>
+                    </div>
+                    <!-- /POST PREVIEW -->
+                </div>
+                <!-- /LAYOUT ITEM -->
+
+                <!-- LAYOUT ITEM -->
+                <div class="layout-item">
+                    <!-- POST PREVIEW -->
+                    <div class="post-preview gaming-news img-toggle">
+                        <!-- POST PREVIEW IMG WRAP -->
+                        <a href="post-v1.html">
+                            <div class="post-preview-img-wrap">
+                                <!-- POST PREVIEW IMG -->
+                                <figure class="post-preview-img liquid">
+                                    <img src="{{ asset('assets/front/img/posts/17.jpg') }}" alt="post-17">
+                                </figure>
+                                <!-- /POST PREVIEW IMG -->
+                            </div>
+                        </a>
+                        <!-- /POST PREVIEW IMG WRAP -->
+
+                        <!-- TAG ORNAMENT -->
+                        <a href="news-v1.html" class="tag-ornament">Gaming news</a>
+                        <!-- /TAG ORNAMENT -->
+
+                        <!-- POST PREVIEW TITLE -->
+                        <a href="post-v1.html" class="post-preview-title">Jazzstar announced that the GTE5 for PC is
+                            delayed</a>
+                        <!-- POST AUTHOR INFO -->
+                        <div class="post-author-info-wrap">
+                            <p class="post-author-info small light">By <a href="search-results.html"
+                                    class="post-author">Vellatrix</a><span class="separator">|</span>December 15th, 2018
+                            </p>
+                        </div>
+                        <!-- /POST AUTHOR INFO -->
+                        <!-- POST PREVIEW TEXT -->
+                        <p class="post-preview-text">Lorem ipsum dolor sit amet, consectetur bere adipisicing elit, sed
+                            do eiusmod tempor lorem incididunt ut labore et dolore magna.</p>
+                    </div>
+                    <!-- /POST PREVIEW -->
+
+                    <!-- POST PREVIEW -->
+                    <div class="post-preview geeky-news img-toggle">
+                        <!-- POST PREVIEW IMG WRAP -->
+                        <a href="post-v4.html">
+                            <div class="post-preview-img-wrap">
+                                <!-- POST PREVIEW IMG -->
+                                <figure class="post-preview-img liquid">
+                                    <img src="{{ asset('assets/front/img/posts/02.jpg') }}" alt="post-02">
+                                </figure>
+                                <!-- /POST PREVIEW IMG -->
+                            </div>
+                        </a>
+                        <!-- /POST PREVIEW IMG WRAP -->
+
+                        <!-- TAG ORNAMENT -->
+                        <a href="news-v4.html" class="tag-ornament">Geeky news</a>
+                        <!-- /TAG ORNAMENT -->
+
+                        <!-- POST PREVIEW TITLE -->
+                        <a href="post-v4.html" class="post-preview-title">Jessica Tam to star in the new "Charlotte"
+                            series</a>
+                        <!-- POST AUTHOR INFO -->
+                        <div class="post-author-info-wrap">
+                            <p class="post-author-info small light">By <a href="search-results.html"
+                                    class="post-author">Vellatrix</a><span class="separator">|</span>December 15th, 2018
+                            </p>
+                        </div>
+                        <!-- /POST AUTHOR INFO -->
+                        <!-- POST PREVIEW TEXT -->
+                        <p class="post-preview-text">Lorem ipsum dolor sit amet, consectetur bere adipisicing elit, sed
+                            do eiusmod tempor lorem incididunt ut labore et dolore magna.</p>
+                    </div>
+                    <!-- /POST PREVIEW -->
+
+                    <!-- POST PREVIEW -->
+                    <div class="post-preview gaming-news img-toggle">
+                        <!-- POST PREVIEW IMG WRAP -->
+                        <a href="post-v1.html">
+                            <div class="post-preview-img-wrap">
+                                <!-- POST PREVIEW IMG -->
+                                <figure class="post-preview-img liquid">
+                                    <img src="{{ asset('assets/front/img/posts/09.jpg') }}" alt="post-09">
+                                </figure>
+                                <!-- /POST PREVIEW IMG -->
+                            </div>
+                        </a>
+                        <!-- /POST PREVIEW IMG WRAP -->
+
+                        <!-- TAG ORNAMENT -->
+                        <a href="news-v1.html" class="tag-ornament">Gaming news</a>
+                        <!-- /TAG ORNAMENT -->
+
+                        <!-- POST PREVIEW TITLE -->
+                        <a href="post-v1.html" class="post-preview-title">New "Rizen" game is gonna be released in
+                            summer 2019</a>
+                        <!-- POST AUTHOR INFO -->
+                        <div class="post-author-info-wrap">
+                            <p class="post-author-info small light">By <a href="search-results.html"
+                                    class="post-author">Vellatrix</a><span class="separator">|</span>December 15th, 2018
+                            </p>
+                        </div>
+                        <!-- /POST AUTHOR INFO -->
+                        <!-- POST PREVIEW TEXT -->
+                        <p class="post-preview-text">Lorem ipsum dolor sit amet, consectetur bere adipisicing elit, sed
+                            do eiusmod tempor lorem incididunt ut labore et dolore magna.</p>
+                    </div>
+                    <!-- /POST PREVIEW -->
+
+                    <!-- POST PREVIEW -->
+                    <div class="post-preview game-review img-toggle">
+                        <!-- POST PREVIEW IMG WRAP -->
+                        <a href="post-v2.html">
+                            <div class="post-preview-img-wrap">
+                                <!-- POST PREVIEW IMG -->
+                                <figure class="post-preview-img liquid">
+                                    <img src="{{ asset('assets/front/img/posts/08.jpg') }}" alt="post-08">
+                                </figure>
+                                <!-- /POST PREVIEW IMG -->
+
+                                <!-- REVIEW RATING -->
+                                <div class="review-rating">
+                                    <div id="content-news-rate-4" class="arc small"></div>
+                                </div>
+                                <!-- /REVIEW RATING -->
+                            </div>
+                        </a>
+                        <!-- /POST PREVIEW IMG WRAP -->
+
+                        <!-- TAG ORNAMENT -->
+                        <a href="news-v2.html" class="tag-ornament">Game reviews</a>
+                        <!-- /TAG ORNAMENT -->
+
+                        <!-- POST PREVIEW TITLE -->
+                        <a href="post-v2.html" class="post-preview-title">The new mecha cyborg game is breaking
+                            barriers</a>
+                        <!-- POST AUTHOR INFO -->
+                        <div class="post-author-info-wrap">
+                            <p class="post-author-info small light">By <a href="search-results.html"
+                                    class="post-author">Vellatrix</a><span class="separator">|</span>December 15th, 2018
+                            </p>
+                        </div>
+                        <!-- /POST AUTHOR INFO -->
+                        <!-- POST PREVIEW TEXT -->
+                        <p class="post-preview-text">Lorem ipsum dolor sit amet, consectetur bere adipisicing elit, sed
+                            do eiusmod tempor lorem incididunt ut labore et dolore magna.</p>
+                    </div>
+                    <!-- /POST PREVIEW -->
+
+                    <!-- POST PREVIEW -->
+                    <div class="post-preview movie-news img-toggle">
+                        <!-- POST PREVIEW IMG WRAP -->
+                        <a href="post-v3.html">
+                            <div class="post-preview-img-wrap">
+                                <!-- POST PREVIEW IMG -->
+                                <figure class="post-preview-img liquid">
+                                    <img src="{{ asset('assets/front/img/posts/12.jpg') }}" alt="post-12">
+                                </figure>
+                                <!-- /POST PREVIEW IMG -->
+
+                                <!-- RATING ORNAMENT -->
+                                <div class="rating-ornament">
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon empty">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon empty">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+                                </div>
+                                <!-- /RATING ORNAMENT -->
+                            </div>
+                        </a>
+                        <!-- /POST PREVIEW IMG WRAP -->
+
+                        <!-- TAG ORNAMENT -->
+                        <a href="news-v3.html" class="tag-ornament">Movie news</a>
+                        <!-- /TAG ORNAMENT -->
+
+                        <!-- POST PREVIEW TITLE -->
+                        <a href="post-v3.html" class="post-preview-title">We reviewed the "Guardians of the Universe"
+                            movie</a>
+                        <!-- POST AUTHOR INFO -->
+                        <div class="post-author-info-wrap">
+                            <p class="post-author-info small light">By <a href="search-results.html"
+                                    class="post-author">Faye V.</a><span class="separator">|</span>December 15th, 2018
+                            </p>
+                        </div>
+                        <!-- /POST AUTHOR INFO -->
+                        <!-- POST PREVIEW TEXT -->
+                        <p class="post-preview-text">Lorem ipsum dolor sit amet, consectetur bere adipisicing elit, sed
+                            do eiusmod tempor lorem incididunt ut labore et dolore magna.</p>
+                    </div>
+                    <!-- /POST PREVIEW -->
+                </div>
+                <!-- /LAYOUT ITEM -->
+            </div>
+            <!-- /LAYOUT ITEM 2-1 -->
+
+            <!-- LAYOUT ITEM 1-1-1 -->
+            <div class="layout-item layout-item-1-1-1 padded">
+                <!-- POST PREVIEW SHOWCASE -->
+                <div class="post-preview-showcase">
+                    <!-- SECTION TITLE WRAP -->
+                    <div class="section-title-wrap blue">
+                        <h2 class="section-title medium">Gaming News</h2>
+                        <div class="section-title-separator"></div>
+                    </div>
+                    <!-- /SECTION TITLE WRAP -->
+
+                    <!-- POST PREVIEW SHOWCASE -->
+                    <div class="post-preview-showcase">
+                        <!-- POST PREVIEW -->
+                        <div class="post-preview gaming-news">
+                            <!-- POST PREVIEW IMG WRAP -->
+                            <a href="post-v1.html">
+                                <div class="post-preview-img-wrap">
+                                    <!-- POST PREVIEW IMG -->
+                                    <figure class="post-preview-img liquid">
+                                        <img src="{{ asset('assets/front/img/posts/20.jpg') }}" alt="post-20">
+                                    </figure>
+                                    <!-- /POST PREVIEW IMG -->
+                                </div>
+                            </a>
+                            <!-- /POST PREVIEW IMG WRAP -->
+
+                            <!-- TAG ORNAMENT -->
+                            <a href="news-v1.html" class="tag-ornament">Gaming news</a>
+                            <!-- /TAG ORNAMENT -->
+
+                            <!-- POST PREVIEW TITLE -->
+                            <a href="post-v1.html" class="post-preview-title">Legend of the Temple is coming to all
+                                consoles</a>
+                            <!-- POST AUTHOR INFO -->
+                            <div class="post-author-info-wrap">
+                                <p class="post-author-info small light">By <a href="search-results.html"
+                                        class="post-author">Vellatrix</a><span class="separator">|</span>December 15th,
+                                    2018</p>
+                            </div>
+                            <!-- /POST AUTHOR INFO -->
+                        </div>
+                        <!-- /POST PREVIEW -->
+
+                        <!-- LINE SEPARATOR -->
+                        <div class="line-separator"></div>
+                        <!-- /LINE SEPARATOR -->
+
+                        <!-- POST PREVIEW -->
+                        <div class="post-preview small gaming-news">
+                            <!-- POST PREVIEW TITLE -->
+                            <a href="post-v1.html" class="post-preview-title">Pro Soccer 2017 is gonna run with a new
+                                graphics engine</a>
+                            <!-- POST AUTHOR INFO -->
+                            <div class="post-author-info-wrap">
+                                <p class="post-author-info small light">By <a href="search-results.html"
+                                        class="post-author">Dexter</a><span class="separator">|</span>December 15th,
+                                    2018</p>
+                            </div>
+                            <!-- /POST AUTHOR INFO -->
+                        </div>
+                        <!-- /POST PREVIEW -->
+
+                        <!-- LINE SEPARATOR -->
+                        <div class="line-separator"></div>
+                        <!-- /LINE SEPARATOR -->
+
+                        <!-- POST PREVIEW -->
+                        <div class="post-preview small gaming-news">
+                            <!-- POST PREVIEW TITLE -->
+                            <a href="post-v1.html" class="post-preview-title">Thomas Barker joins the team of "The
+                                Amazing Knight"</a>
+                            <!-- POST AUTHOR INFO -->
+                            <div class="post-author-info-wrap">
+                                <p class="post-author-info small light">By <a href="search-results.html"
+                                        class="post-author">Dexter</a><span class="separator">|</span>December 15th,
+                                    2018</p>
+                            </div>
+                            <!-- /POST AUTHOR INFO -->
+                        </div>
+                        <!-- /POST PREVIEW -->
+                    </div>
+                    <!-- /POST PREVIEW SHOWCASE -->
+                </div>
+                <!-- /POST PREVIEW SHOWCASE -->
+
+                <!-- POST PREVIEW SHOWCASE -->
+                <div class="post-preview-showcase">
+                    <!-- SECTION TITLE WRAP -->
+                    <div class="section-title-wrap red">
+                        <h2 class="section-title medium">Game Reviews</h2>
+                        <div class="section-title-separator"></div>
+                    </div>
+                    <!-- /SECTION TITLE WRAP -->
+
+                    <!-- POST PREVIEW SHOWCASE -->
+                    <div class="post-preview-showcase">
+                        <!-- POST PREVIEW -->
+                        <div class="post-preview game-review">
+                            <!-- POST PREVIEW IMG WRAP -->
+                            <a href="post-v2.html">
+                                <div class="post-preview-img-wrap">
+                                    <!-- POST PREVIEW IMG -->
+                                    <figure class="post-preview-img liquid">
+                                        <img src="{{ asset('assets/front/img/posts/10.jpg') }}" alt="post-10">
+                                    </figure>
+                                    <!-- /POST PREVIEW IMG -->
+
+                                    <!-- REVIEW RATING -->
+                                    <div class="review-rating">
+                                        <div id="content-news-rate-5" class="arc small"></div>
+                                    </div>
+                                    <!-- /REVIEW RATING -->
+                                </div>
+                            </a>
+                            <!-- /POST PREVIEW IMG WRAP -->
+
+                            <!-- TAG ORNAMENT -->
+                            <a hreF="news-v2.html" class="tag-ornament">Game Reviews</a>
+                            <!-- /TAG ORNAMENT -->
+
+                            <!-- POST PREVIEW TITLE -->
+                            <a href="post-v2.html" class="post-preview-title">Dragons and Knights arrived with a big
+                                impression</a>
+                            <!-- POST AUTHOR INFO -->
+                            <div class="post-author-info-wrap">
+                                <p class="post-author-info small light">By <a href="search-results.html"
+                                        class="post-author">Vellatrix</a><span class="separator">|</span>December 15th,
+                                    2018</p>
+                            </div>
+                            <!-- /POST AUTHOR INFO -->
+                        </div>
+                        <!-- /POST PREVIEW -->
+
+                        <!-- LINE SEPARATOR -->
+                        <div class="line-separator"></div>
+                        <!-- /LINE SEPARATOR -->
+
+                        <!-- POST PREVIEW -->
+                        <div class="post-preview small game-review">
+                            <!-- POST PREVIEW TITLE -->
+                            <a href="post-v2.html" class="post-preview-title">The new Mary World lacks the fun and charm
+                                of older versions</a>
+                            <!-- POST AUTHOR INFO -->
+                            <div class="post-author-info-wrap">
+                                <p class="post-author-info small light">By <a href="search-results.html"
+                                        class="post-author">Morgana</a><span class="separator">|</span>December 15th,
+                                    2018</p>
+                            </div>
+                            <!-- /POST AUTHOR INFO -->
+                        </div>
+                        <!-- /POST PREVIEW -->
+
+                        <!-- LINE SEPARATOR -->
+                        <div class="line-separator"></div>
+                        <!-- /LINE SEPARATOR -->
+
+                        <!-- POST PREVIEW -->
+                        <div class="post-preview small game-review">
+                            <!-- POST PREVIEW TITLE -->
+                            <a href="post-v2.html" class="post-preview-title">We played Pirates Greed Japan and has the
+                                potential to be GOTY</a>
+                            <!-- POST AUTHOR INFO -->
+                            <div class="post-author-info-wrap">
+                                <p class="post-author-info small light">By <a href="search-results.html"
+                                        class="post-author">Vellatrix</a><span class="separator">|</span>December 15th,
+                                    2018</p>
+                            </div>
+                            <!-- /POST AUTHOR INFO -->
+                        </div>
+                        <!-- /POST PREVIEW -->
+                    </div>
+                    <!-- /POST PREVIEW SHOWCASE -->
+                </div>
+                <!-- /POST PREVIEW SHOWCASE -->
+
+                <!-- POST PREVIEW SHOWCASE -->
+                <div class="post-preview-showcase">
+                    <!-- SECTION TITLE WRAP -->
+                    <div class="section-title-wrap yellow">
+                        <h2 class="section-title medium">Geeky News</h2>
+                        <div class="section-title-separator"></div>
+                    </div>
+                    <!-- /SECTION TITLE WRAP -->
+
+                    <!-- POST PREVIEW SHOWCASE -->
+                    <div class="post-preview-showcase">
+                        <!-- POST PREVIEW -->
+                        <div class="post-preview geeky-news">
+                            <!-- POST PREVIEW IMG WRAP -->
+                            <a href="post-v4.html">
+                                <div class="post-preview-img-wrap">
+                                    <!-- POST PREVIEW IMG -->
+                                    <figure class="post-preview-img liquid">
+                                        <img src="{{ asset('assets/front/img/posts/21.jpg') }}" alt="post-21">
+                                    </figure>
+                                    <!-- /POST PREVIEW IMG -->
+                                </div>
+                            </a>
+                            <!-- /POST PREVIEW IMG WRAP -->
+
+                            <!-- TAG ORNAMENT -->
+                            <a href="news-v4.html" class="tag-ornament">Geeky News</a>
+                            <!-- /TAG ORNAMENT -->
+
+                            <!-- POST PREVIEW TITLE -->
+                            <a href="post-v4.html" class="post-preview-title">"Steamboat" anime will have a preview
+                                event on May</a>
+                            <!-- POST AUTHOR INFO -->
+                            <div class="post-author-info-wrap">
+                                <p class="post-author-info small light">By <a href="search-results.html"
+                                        class="post-author">Morgana</a><span class="separator">|</span>December 15th,
+                                    2018</p>
+                            </div>
+                            <!-- /POST AUTHOR INFO -->
+                        </div>
+                        <!-- /POST PREVIEW -->
+
+                        <!-- LINE SEPARATOR -->
+                        <div class="line-separator"></div>
+                        <!-- /LINE SEPARATOR -->
+
+                        <!-- POST PREVIEW -->
+                        <div class="post-preview small geeky-news">
+                            <!-- POST PREVIEW TITLE -->
+                            <a href="post-v4.html" class="post-preview-title">Plans for a new AC theme park in
+                                California studios</a>
+                            <!-- POST AUTHOR INFO -->
+                            <div class="post-author-info-wrap">
+                                <p class="post-author-info small light">By <a href="search-results.html"
+                                        class="post-author">Morgana</a><span class="separator">|</span>December 15th,
+                                    2018</p>
+                            </div>
+                            <!-- /POST AUTHOR INFO -->
+                        </div>
+                        <!-- /POST PREVIEW -->
+
+                        <!-- LINE SEPARATOR -->
+                        <div class="line-separator"></div>
+                        <!-- /LINE SEPARATOR -->
+
+                        <!-- POST PREVIEW -->
+                        <div class="post-preview small geeky-news">
+                            <!-- POST PREVIEW TITLE -->
+                            <a href="post-v4.html" class="post-preview-title">Jessica Tam to appear at this year Bebop
+                                convention</a>
+                            <!-- POST AUTHOR INFO -->
+                            <div class="post-author-info-wrap">
+                                <p class="post-author-info small light">By <a href="search-results.html"
+                                        class="post-author">Vellatrix</a><span class="separator">|</span>December 15th,
+                                    2018</p>
+                            </div>
+                            <!-- /POST AUTHOR INFO -->
+                        </div>
+                        <!-- /POST PREVIEW -->
+                    </div>
+                    <!-- /POST PREVIEW SHOWCASE -->
+                </div>
+                <!-- /POST PREVIEW SHOWCASE -->
+            </div>
+            <!-- /LAYOUT ITEM 1-1-1 -->
+
+            <!-- LAYOUT ITEM -->
+            <div class="layout-item padded">
+                <a href="#">
+                    <!-- PROMO BANNER -->
+                    <div class="promo-banner">
+                        <!-- PROMO BANNER IMG -->
+                        <img src="{{ asset('assets/front/img/banners/live-play-banner-logo.png') }}"
+                            alt="promo-banner-img" class="promo-banner-img">
+                        <!-- /PROMO BANNER IMG -->
+
+                        <!-- TAG ORNAMENT -->
+                        <p class="tag-ornament bold violet">Jan 18 - 10PM PCT</p>
+                        <!-- /TAG ORNAMENT -->
+
+                        <!-- PROMO BANNER INFO -->
+                        <div class="promo-banner-info">
+                            <p class="promo-banner-pre-title">Watch us play<span class="live-icon"></span>live</p>
+                            <p class="promo-banner-title">The last of them</p>
+                            <p class="promo-banner-text">With SakuraBliss99 and James-Spiegel</p>
+                        </div>
+                        <!-- /PROMO BANNER INFO -->
+
+                        <!-- COUNTDOWN ARC -->
+                        <div id="countdown-arc" class="countdown-arc">
+                            <!-- COUNTER WRAP -->
+                            <div class="counter-wrap">
+                                <div class="timer-days"></div>
+                                <p class="text-heading counter-text">Days</p>
+                            </div>
+                            <!-- /COUNTER WRAP -->
+
+                            <!-- COUNTER WRAP -->
+                            <div class="counter-wrap">
+                                <div class="timer-hours"></div>
+                                <p class="text-heading counter-text">Hours</p>
+                            </div>
+                            <!-- /COUNTER WRAP -->
+
+                            <!-- COUNTER WRAP -->
+                            <div class="counter-wrap">
+                                <div class="timer-minutes"></div>
+                                <p class="text-heading counter-text">Minutes</p>
+                            </div>
+                            <!-- /COUNTER WRAP -->
+
+                            <!-- COUNTER WRAP -->
+                            <div class="counter-wrap">
+                                <div class="timer-seconds"></div>
+                                <p class="text-heading counter-text">Seconds</p>
+                            </div>
+                            <!-- /COUNTER WRAP -->
+                        </div>
+                        <!-- /COUNTDOWN ARC -->
+                    </div>
+                    <!-- /PROMO BANNER -->
+                </a>
+            </div>
+            <!-- /LAYOUT ITEM -->
+
+            <!-- LAYOUT ITEM -->
+            <div class="layout-item padded own-grid">
+                <!-- SECTION TITLE WRAP -->
+                <div class="section-title-wrap cyan">
+                    <h2 class="section-title medium">Latest Videos</h2>
+                    <div class="section-title-separator"></div>
+
+                    <!-- SLIDER CONTROLS -->
+                    <div id="lvideos-slider1-controls" class="carousel-controls slider-controls cyan">
+                        <div class="slider-control control-previous">
+                            <!-- ARROW ICON -->
+                            <svg class="arrow-icon medium">
+                                <use xlink:href="#svg-arrow-medium"></use>
+                            </svg>
+                            <!-- /ARROW ICON -->
+                        </div>
+                        <div class="slider-control control-next">
+                            <!-- ARROW ICON -->
+                            <svg class="arrow-icon medium">
+                                <use xlink:href="#svg-arrow-medium"></use>
+                            </svg>
+                            <!-- /ARROW ICON -->
+                        </div>
+                    </div>
+                    <!-- /SLIDER CONTROLS -->
+                </div>
+                <!-- /SECTION TITLE WRAP -->
+
+                <!-- CAROUSEL -->
+                <div id="lvideos-slider1" class="carousel video">
+                    <!-- CAROUSEL ITEMS -->
+                    <div class="carousel-items">
+                        <!-- CAROUSEL ITEM -->
+                        <div class="carousel-item">
+                            <!-- POST PREVIEW -->
+                            <div class="post-preview video">
+                                <!-- POST PREVIEW IMG WRAP -->
+                                <a href="post-video.html">
+                                    <div class="post-preview-img-wrap">
+                                        <!-- POST PREVIEW IMG -->
+                                        <figure class="post-preview-img liquid">
+                                            <img src="{{ asset('assets/front/img/posts/31.jpg') }}" alt="post-31">
+                                        </figure>
+                                        <!-- /POST PREVIEW IMG -->
+
+                                        <!-- POST PREVIEW OVERLAY -->
+                                        <div class="post-preview-overlay">
+                                            <!-- PLAY BUTTON -->
+                                            <div class="play-button">
+                                                <!-- PLAY BUTTON ICON -->
+                                                <svg class="play-button-icon">
+                                                    <use xlink:href="#svg-play"></use>
+                                                </svg>
+                                                <!-- /PLAY BUTTON ICON -->
+                                            </div>
+                                            <!-- /PLAY BUTTON -->
+
+                                            <!-- POST PREVIEW OVERLAY INFO -->
+                                            <div class="post-preview-overlay-info">
+                                                <!-- POST PREVIEW TITLE -->
+                                                <p class="post-preview-title">Galaxy Adventure RX is a boring remake of
+                                                    a classic</p>
+                                                <!-- POST PREVIEW TEXT -->
+                                                <p class="post-preview-text">Lorem ipsum dolor sit amet, consectetur
+                                                    adipisicing elit, sed do eiusmod.</p>
+                                            </div>
+                                            <!-- /POST PREVIEW OVERLAY INFO -->
+                                        </div>
+                                        <!-- /POST PREVIEW OVERLAY -->
+                                    </div>
+                                </a>
+                                <!-- /POST PREVIEW IMG WRAP -->
+                            </div>
+                            <!-- /POST PREVIEW -->
+
+                            <!-- POST PREVIEW -->
+                            <div class="post-preview video">
+                                <!-- POST PREVIEW IMG WRAP -->
+                                <a href="post-video.html">
+                                    <div class="post-preview-img-wrap">
+                                        <!-- POST PREVIEW IMG -->
+                                        <figure class="post-preview-img liquid">
+                                            <img src="{{ asset('assets/front/img/posts/25.jpg') }}" alt="post-25">
+                                        </figure>
+                                        <!-- /POST PREVIEW IMG -->
+
+                                        <!-- POST PREVIEW OVERLAY -->
+                                        <div class="post-preview-overlay">
+                                            <!-- PLAY BUTTON -->
+                                            <div class="play-button">
+                                                <!-- PLAY BUTTON ICON -->
+                                                <svg class="play-button-icon">
+                                                    <use xlink:href="#svg-play"></use>
+                                                </svg>
+                                                <!-- /PLAY BUTTON ICON -->
+                                            </div>
+                                            <!-- /PLAY BUTTON -->
+
+                                            <!-- POST PREVIEW OVERLAY INFO -->
+                                            <div class="post-preview-overlay-info">
+                                                <!-- POST PREVIEW TITLE -->
+                                                <p class="post-preview-title">Gameplay trailer for the new Legend of
+                                                    Kenji game</p>
+                                                <!-- POST PREVIEW TEXT -->
+                                                <p class="post-preview-text">Lorem ipsum dolor sit amet, consectetur
+                                                    adipisicing elit, sed do eiusmod.</p>
+                                            </div>
+                                            <!-- /POST PREVIEW OVERLAY INFO -->
+                                        </div>
+                                        <!-- /POST PREVIEW OVERLAY -->
+                                    </div>
+                                </a>
+                                <!-- /POST PREVIEW IMG WRAP -->
+                            </div>
+                            <!-- /POST PREVIEW -->
+                        </div>
+                        <!-- /CAROUSEL ITEM -->
+
+                        <!-- CAROUSEL ITEM -->
+                        <div class="carousel-item">
+                            <!-- POST PREVIEW -->
+                            <div class="post-preview video">
+                                <!-- POST PREVIEW IMG WRAP -->
+                                <a href="post-video.html">
+                                    <div class="post-preview-img-wrap">
+                                        <!-- POST PREVIEW IMG -->
+                                        <figure class="post-preview-img liquid">
+                                            <img src="{{ asset('assets/front/img/posts/17.jpg') }}" alt="post-17">
+                                        </figure>
+                                        <!-- /POST PREVIEW IMG -->
+
+                                        <!-- POST PREVIEW OVERLAY -->
+                                        <div class="post-preview-overlay">
+                                            <!-- PLAY BUTTON -->
+                                            <div class="play-button">
+                                                <!-- PLAY BUTTON ICON -->
+                                                <svg class="play-button-icon">
+                                                    <use xlink:href="#svg-play"></use>
+                                                </svg>
+                                                <!-- /PLAY BUTTON ICON -->
+                                            </div>
+                                            <!-- /PLAY BUTTON -->
+
+                                            <!-- POST PREVIEW OVERLAY INFO -->
+                                            <div class="post-preview-overlay-info">
+                                                <!-- POST PREVIEW TITLE -->
+                                                <p class="post-preview-title">Jazzstar announced that the GTE5 for PC is
+                                                    delayed</p>
+                                                <!-- POST PREVIEW TEXT -->
+                                                <p class="post-preview-text">Lorem ipsum dolor sit amet, consectetur
+                                                    adipisicing elit, sed do eiusmod.</p>
+                                            </div>
+                                            <!-- /POST PREVIEW OVERLAY INFO -->
+                                        </div>
+                                        <!-- /POST PREVIEW OVERLAY -->
+                                    </div>
+                                </a>
+                                <!-- /POST PREVIEW IMG WRAP -->
+                            </div>
+                            <!-- /POST PREVIEW -->
+
+                            <!-- POST PREVIEW -->
+                            <div class="post-preview video">
+                                <!-- POST PREVIEW IMG WRAP -->
+                                <a href="post-video.html">
+                                    <div class="post-preview-img-wrap">
+                                        <!-- POST PREVIEW IMG -->
+                                        <figure class="post-preview-img liquid">
+                                            <img src="{{ asset('assets/front/img/posts/01.jpg') }}" alt="post-01">
+                                        </figure>
+                                        <!-- /POST PREVIEW IMG -->
+
+                                        <!-- POST PREVIEW OVERLAY -->
+                                        <div class="post-preview-overlay">
+                                            <!-- PLAY BUTTON -->
+                                            <div class="play-button">
+                                                <!-- PLAY BUTTON ICON -->
+                                                <svg class="play-button-icon">
+                                                    <use xlink:href="#svg-play"></use>
+                                                </svg>
+                                                <!-- /PLAY BUTTON ICON -->
+                                            </div>
+                                            <!-- /PLAY BUTTON -->
+
+                                            <!-- POST PREVIEW OVERLAY INFO -->
+                                            <div class="post-preview-overlay-info">
+                                                <!-- POST PREVIEW TITLE -->
+                                                <p class="post-preview-title">The Clash of Dragons is breaking record
+                                                    sales in...</p>
+                                                <!-- POST PREVIEW TEXT -->
+                                                <p class="post-preview-text">Lorem ipsum dolor sit amet, consectetur
+                                                    adipisicing elit, sed do eiusmod.</p>
+                                            </div>
+                                            <!-- /POST PREVIEW OVERLAY INFO -->
+                                        </div>
+                                        <!-- /POST PREVIEW OVERLAY -->
+                                    </div>
+                                </a>
+                                <!-- /POST PREVIEW IMG WRAP -->
+                            </div>
+                            <!-- /POST PREVIEW -->
+                        </div>
+                        <!-- /CAROUSEL ITEM -->
+
+                        <!-- CAROUSEL ITEM -->
+                        <div class="carousel-item">
+                            <!-- POST PREVIEW -->
+                            <div class="post-preview video">
+                                <!-- POST PREVIEW IMG WRAP -->
+                                <a href="post-video.html">
+                                    <div class="post-preview-img-wrap">
+                                        <!-- POST PREVIEW IMG -->
+                                        <figure class="post-preview-img liquid">
+                                            <img src="{{ asset('assets/front/img/posts/07.jpg') }}" alt="post-07">
+                                        </figure>
+                                        <!-- /POST PREVIEW IMG -->
+
+                                        <!-- POST PREVIEW OVERLAY -->
+                                        <div class="post-preview-overlay">
+                                            <!-- PLAY BUTTON -->
+                                            <div class="play-button">
+                                                <!-- PLAY BUTTON ICON -->
+                                                <svg class="play-button-icon">
+                                                    <use xlink:href="#svg-play"></use>
+                                                </svg>
+                                                <!-- /PLAY BUTTON ICON -->
+                                            </div>
+                                            <!-- /PLAY BUTTON -->
+
+                                            <!-- POST PREVIEW OVERLAY INFO -->
+                                            <div class="post-preview-overlay-info">
+                                                <!-- POST PREVIEW TITLE -->
+                                                <p class="post-preview-title">New expansion pack coming to "Rise of
+                                                    Depredators"</p>
+                                                <!-- POST PREVIEW TEXT -->
+                                                <p class="post-preview-text">Lorem ipsum dolor sit amet, consectetur
+                                                    adipisicing elit, sed do eiusmod.</p>
+                                            </div>
+                                            <!-- /POST PREVIEW OVERLAY INFO -->
+                                        </div>
+                                        <!-- /POST PREVIEW OVERLAY -->
+                                    </div>
+                                </a>
+                                <!-- /POST PREVIEW IMG WRAP -->
+                            </div>
+                            <!-- /POST PREVIEW -->
+
+                            <!-- POST PREVIEW -->
+                            <div class="post-preview video">
+                                <!-- POST PREVIEW IMG WRAP -->
+                                <a href="post-video.html">
+                                    <div class="post-preview-img-wrap">
+                                        <!-- POST PREVIEW IMG -->
+                                        <figure class="post-preview-img liquid">
+                                            <img src="{{ asset('assets/front/img/posts/16.jpg') }}" alt="post-16">
+                                        </figure>
+                                        <!-- /POST PREVIEW IMG -->
+
+                                        <!-- POST PREVIEW OVERLAY -->
+                                        <div class="post-preview-overlay">
+                                            <!-- PLAY BUTTON -->
+                                            <div class="play-button">
+                                                <!-- PLAY BUTTON ICON -->
+                                                <svg class="play-button-icon">
+                                                    <use xlink:href="#svg-play"></use>
+                                                </svg>
+                                                <!-- /PLAY BUTTON ICON -->
+                                            </div>
+                                            <!-- /PLAY BUTTON -->
+
+                                            <!-- POST PREVIEW OVERLAY INFO -->
+                                            <div class="post-preview-overlay-info">
+                                                <!-- POST PREVIEW TITLE -->
+                                                <p class="post-preview-title">We reviewed the new Magimons game</p>
+                                                <!-- POST PREVIEW TEXT -->
+                                                <p class="post-preview-text">Lorem ipsum dolor sit amet, consectetur
+                                                    adipisicing elit, sed do eiusmod.</p>
+                                            </div>
+                                            <!-- /POST PREVIEW OVERLAY INFO -->
+                                        </div>
+                                        <!-- /POST PREVIEW OVERLAY -->
+                                    </div>
+                                </a>
+                                <!-- /POST PREVIEW IMG WRAP -->
+                            </div>
+                            <!-- /POST PREVIEW -->
+                        </div>
+                        <!-- /CAROUSEL ITEM -->
+
+                        <!-- CAROUSEL ITEM -->
+                        <div class="carousel-item">
+                            <!-- POST PREVIEW -->
+                            <div class="post-preview video">
+                                <!-- POST PREVIEW IMG WRAP -->
+                                <a href="post-video.html">
+                                    <div class="post-preview-img-wrap">
+                                        <!-- POST PREVIEW IMG -->
+                                        <figure class="post-preview-img liquid">
+                                            <img src="{{ asset('assets/front/img/posts/12.jpg') }}" alt="post-12">
+                                        </figure>
+                                        <!-- /POST PREVIEW IMG -->
+
+                                        <!-- POST PREVIEW OVERLAY -->
+                                        <div class="post-preview-overlay">
+                                            <!-- PLAY BUTTON -->
+                                            <div class="play-button">
+                                                <!-- PLAY BUTTON ICON -->
+                                                <svg class="play-button-icon">
+                                                    <use xlink:href="#svg-play"></use>
+                                                </svg>
+                                                <!-- /PLAY BUTTON ICON -->
+                                            </div>
+                                            <!-- /PLAY BUTTON -->
+
+                                            <!-- POST PREVIEW OVERLAY INFO -->
+                                            <div class="post-preview-overlay-info">
+                                                <!-- POST PREVIEW TITLE -->
+                                                <p class="post-preview-title">We reviewed the "Guardians of the
+                                                    Universe" movie</p>
+                                                <!-- POST PREVIEW TEXT -->
+                                                <p class="post-preview-text">Lorem ipsum dolor sit amet, consectetur
+                                                    adipisicing elit, sed do eiusmod.</p>
+                                            </div>
+                                            <!-- /POST PREVIEW OVERLAY INFO -->
+                                        </div>
+                                        <!-- /POST PREVIEW OVERLAY -->
+                                    </div>
+                                </a>
+                                <!-- /POST PREVIEW IMG WRAP -->
+                            </div>
+                            <!-- /POST PREVIEW -->
+
+                            <!-- POST PREVIEW -->
+                            <div class="post-preview video">
+                                <!-- POST PREVIEW IMG WRAP -->
+                                <a href="post-video.html">
+                                    <div class="post-preview-img-wrap">
+                                        <!-- POST PREVIEW IMG -->
+                                        <figure class="post-preview-img liquid">
+                                            <img src="{{ asset('assets/front/img/posts/13.jpg') }}" alt="post-13">
+                                        </figure>
+                                        <!-- /POST PREVIEW IMG -->
+
+                                        <!-- POST PREVIEW OVERLAY -->
+                                        <div class="post-preview-overlay">
+                                            <!-- PLAY BUTTON -->
+                                            <div class="play-button">
+                                                <!-- PLAY BUTTON ICON -->
+                                                <svg class="play-button-icon">
+                                                    <use xlink:href="#svg-play"></use>
+                                                </svg>
+                                                <!-- /PLAY BUTTON ICON -->
+                                            </div>
+                                            <!-- /PLAY BUTTON -->
+
+                                            <!-- POST PREVIEW OVERLAY INFO -->
+                                            <div class="post-preview-overlay-info">
+                                                <!-- POST PREVIEW TITLE -->
+                                                <p class="post-preview-title">The "Clash of Eternity" new game was just
+                                                    released</p>
+                                                <!-- POST PREVIEW TEXT -->
+                                                <p class="post-preview-text">Lorem ipsum dolor sit amet, consectetur
+                                                    adipisicing elit, sed do eiusmod.</p>
+                                            </div>
+                                            <!-- /POST PREVIEW OVERLAY INFO -->
+                                        </div>
+                                        <!-- /POST PREVIEW OVERLAY -->
+                                    </div>
+                                </a>
+                                <!-- /POST PREVIEW IMG WRAP -->
+                            </div>
+                            <!-- /POST PREVIEW -->
+                        </div>
+                        <!-- /CAROUSEL ITEM -->
+                    </div>
+                    <!-- /CAROUSEL ITEMS -->
+                </div>
+                <!-- /CAROUSEL -->
+            </div>
+            <!-- /LAYOUT ITEM -->
+        </div>
+        <!-- /LAYOUT BODY -->
+
+        <!-- LAYOUT SIDEBAR -->
+        <div class="layout-sidebar layout-item gutter-medium">
+            <!-- WIDGET SIDEBAR -->
+            <div class="widget-sidebar">
+                <!-- SIDEBAR SEARCH FORM -->
+                <form class="sidebar-search-form">
+                    <!-- SUBMIT INPUT -->
+                    <div class="submit-input full blue">
+                        <input type="text" id="sidebar-search1" name="sidebar-search1"
+                            placeholder="Search articles here...">
+                        <button class="submit-input-button">
+                            <!-- SEARCH ICON -->
+                            <svg class="search-icon small">
+                                <use xlink:href="#svg-search"></use>
+                            </svg>
+                            <!-- /SEARCH ICON -->
+                        </button>
+                    </div>
+                    <!-- /SUBMIT INPUT -->
+                </form>
+                <!-- /SIDEBAR SEARCH FORM -->
+            </div>
+            <!-- /WIDGET SIDEBAR -->
+
+            <!-- WIDGET SIDEBAR -->
+            <div class="widget-sidebar">
+                <!-- SECTION TITLE WRAP -->
+                <div class="section-title-wrap blue">
+                    <h2 class="section-title medium">Social Pixel</h2>
+                    <div class="section-title-separator"></div>
+                </div>
+                <!-- /SECTION TITLE WRAP -->
+
+                <!-- SOCIAL LINKS -->
+                <div class="social-links medium centered">
+                    <!-- BUBBLE ORNAMENT -->
+                    <a href="#" class="bubble-ornament big fb">
+                        <!-- FACEBOOK ICON -->
+                        <svg class="facebook-icon big">
+                            <use xlink:href="#svg-facebook"></use>
+                        </svg>
+                        <!-- /FACEBOOK ICON -->
+                        <p class="bubble-ornament-text">2560</p>
+                    </a>
+                    <!-- /BUBBLE ORNAMENT -->
+
+                    <!-- BUBBLE ORNAMENT -->
+                    <a href="#" class="bubble-ornament big twt">
+                        <!-- TWITTER ICON -->
+                        <svg class="twitter-icon big">
+                            <use xlink:href="#svg-twitter"></use>
+                        </svg>
+                        <!-- /TWITTER ICON -->
+                        <p class="bubble-ornament-text">1945</p>
+                    </a>
+                    <!-- /BUBBLE ORNAMENT -->
+
+                    <!-- BUBBLE ORNAMENT -->
+                    <a href="#" class="bubble-ornament big insta">
+                        <!-- INSTAGRAM ICON -->
+                        <svg class="instagram-icon big">
+                            <use xlink:href="#svg-instagram"></use>
+                        </svg>
+                        <!-- /INSTAGRAM ICON -->
+                        <p class="bubble-ornament-text">835</p>
+                    </a>
+                    <!-- /BUBBLE ORNAMENT -->
+
+                    <!-- BUBBLE ORNAMENT -->
+                    <a href="#" class="bubble-ornament big twitch">
+                        <!-- TWITCH ICON -->
+                        <svg class="twitch-icon big">
+                            <use xlink:href="#svg-twitch"></use>
+                        </svg>
+                        <!-- /TWITCH ICON -->
+                        <p class="bubble-ornament-text">9632</p>
+                    </a>
+                    <!-- /BUBBLE ORNAMENT -->
+                </div>
+                <!-- /SOCIAL LINKS -->
+            </div>
+            <!-- /WIDGET SIDEBAR -->
+
+            <!-- WIDGET SIDEBAR -->
+            <div class="widget-sidebar">
+                <!-- SECTION TITLE WRAP -->
+                <div class="section-title-wrap blue">
+                    <h2 class="section-title medium">Popular Posts</h2>
+                    <div class="section-title-separator"></div>
+                </div>
+                <!-- /SECTION TITLE WRAP -->
+
+                <!-- POST PREVIEW SHOWCASE -->
+                <div class="post-preview-showcase grid-1col centered gutter-small">
+                    <!-- POST PREVIEW -->
+                    <div class="post-preview tiny gaming-news">
+                        <!-- POST PREVIEW IMG WRAP -->
+                        <a href="post-v1.html">
+                            <div class="post-preview-img-wrap">
+                                <!-- POST PREVIEW IMG -->
+                                <figure class="post-preview-img liquid">
+                                    <img src="{{ asset('assets/front/img/posts/01.jpg') }}" alt="post-01">
+                                </figure>
+                                <!-- /POST PREVIEW IMG -->
+                            </div>
+                        </a>
+                        <!-- /POST PREVIEW IMG WRAP -->
+
+                        <!-- POST PREVIEW TITLE -->
+                        <a href="post-v1.html" class="post-preview-title">The Clash of Dragons is breaking record sales
+                            in USA and Japan</a>
+                        <!-- POST AUTHOR INFO -->
+                        <div class="post-author-info-wrap">
+                            <p class="post-author-info small light">By <a href="search-results.html"
+                                    class="post-author">Dexter</a><span class="separator">|</span>Dec 15th, 2018</p>
+                        </div>
+                        <!-- /POST AUTHOR INFO -->
+                    </div>
+                    <!-- /POST PREVIEW -->
+
+                    <!-- POST PREVIEW -->
+                    <div class="post-preview tiny game-review">
+                        <!-- POST PREVIEW IMG WRAP -->
+                        <a href="post-v2.html">
+                            <div class="post-preview-img-wrap">
+                                <!-- POST PREVIEW IMG -->
+                                <figure class="post-preview-img liquid">
+                                    <img src="{{ asset('assets/front/img/posts/25.jpg') }}" alt="post-25">
+                                </figure>
+                                <!-- /POST PREVIEW IMG -->
+
+                                <!-- REVIEW RATING -->
+                                <div class="review-rating">
+                                    <div id="sidebar-rate-1" class="arc tiny"></div>
+                                </div>
+                                <!-- /REVIEW RATING -->
+                            </div>
+                        </a>
+                        <!-- /POST PREVIEW IMG WRAP -->
+
+                        <!-- POST PREVIEW TITLE -->
+                        <a href="post-v2.html" class="post-preview-title">"Legend of Kenshii II" is a bit green for
+                            now</a>
+                        <!-- POST AUTHOR INFO -->
+                        <div class="post-author-info-wrap">
+                            <p class="post-author-info small light">By <a href="search-results.html"
+                                    class="post-author">Vellatrix</a><span class="separator">|</span>Dec 15th, 2018</p>
+                        </div>
+                        <!-- /POST AUTHOR INFO -->
+                    </div>
+                    <!-- /POST PREVIEW -->
+
+                    <!-- POST PREVIEW -->
+                    <div class="post-preview tiny movie-news">
+                        <!-- POST PREVIEW IMG WRAP -->
+                        <a href="post-v3.html">
+                            <div class="post-preview-img-wrap">
+                                <!-- POST PREVIEW IMG -->
+                                <figure class="post-preview-img liquid">
+                                    <img src="{{ asset('assets/front/img/posts/12.jpg') }}" alt="post-12">
+                                </figure>
+                                <!-- /POST PREVIEW IMG -->
+
+                                <!-- RATING ORNAMENT -->
+                                <div class="rating-ornament">
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon empty">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon empty">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+                                </div>
+                                <!-- /RATING ORNAMENT -->
+                            </div>
+                        </a>
+                        <!-- /POST PREVIEW IMG WRAP -->
+
+                        <!-- POST PREVIEW TITLE -->
+                        <a href="post-v3.html" class="post-preview-title">We reviewed the "Guardians of the Universe"
+                            movie</a>
+                        <!-- POST AUTHOR INFO -->
+                        <div class="post-author-info-wrap">
+                            <p class="post-author-info small light">By <a href="search-results.html"
+                                    class="post-author">Faye V.</a><span class="separator">|</span>Dec 15th, 2018</p>
+                        </div>
+                        <!-- /POST AUTHOR INFO -->
+                    </div>
+                    <!-- /POST PREVIEW -->
+
+                    <!-- POST PREVIEW -->
+                    <div class="post-preview tiny gaming-news">
+                        <!-- POST PREVIEW IMG WRAP -->
+                        <a href="post-v1.html">
+                            <div class="post-preview-img-wrap">
+                                <!-- POST PREVIEW IMG -->
+                                <figure class="post-preview-img liquid">
+                                    <img src="{{ asset('assets/front/img/posts/17.jpg') }}" alt="post-17">
+                                </figure>
+                                <!-- /POST PREVIEW IMG -->
+                            </div>
+                        </a>
+                        <!-- /POST PREVIEW IMG WRAP -->
+
+                        <!-- POST PREVIEW TITLE -->
+                        <a href="post-v1.html" class="post-preview-title">Jazzstar announced that the GTE5 for PC is
+                            delayed</a>
+                        <!-- POST AUTHOR INFO -->
+                        <div class="post-author-info-wrap">
+                            <p class="post-author-info small light">By <a href="search-results.html"
+                                    class="post-author">Dexter</a><span class="separator">|</span>Dec 15th, 2018</p>
+                        </div>
+                        <!-- /POST AUTHOR INFO -->
+                    </div>
+                    <!-- /POST PREVIEW -->
+                </div>
+                <!-- /POST PREVIEW SHOWCASE -->
+            </div>
+            <!-- /WIDGET SIDEBAR -->
+
+            <!-- WIDGET SIDEBAR -->
+            <div class="widget-sidebar">
+                <!-- SECTION TITLE WRAP -->
+                <div class="section-title-wrap red">
+                    <h2 class="section-title medium">Latest Reviews</h2>
+                    <div class="section-title-separator"></div>
+                </div>
+                <!-- /SECTION TITLE WRAP -->
+
+                <!-- POST PREVIEW SHOWCASE -->
+                <div class="post-preview-showcase grid-1col centered gutter-small">
+                    <!-- POST PREVIEW -->
+                    <div class="post-preview tiny game-review">
+                        <!-- POST PREVIEW IMG WRAP -->
+                        <a href="post-v2.html">
+                            <div class="post-preview-img-wrap">
+                                <!-- POST PREVIEW IMG -->
+                                <figure class="post-preview-img liquid">
+                                    <img src="{{ asset('assets/front/img/posts/16.jpg') }}" alt="post-16">
+                                </figure>
+                                <!-- /POST PREVIEW IMG -->
+
+                                <!-- REVIEW RATING -->
+                                <div class="review-rating">
+                                    <div id="sidebar-rate-2" class="arc tiny"></div>
+                                </div>
+                                <!-- /REVIEW RATING -->
+                            </div>
+                        </a>
+                        <!-- /POST PREVIEW IMG WRAP -->
+
+                        <!-- POST PREVIEW TITLE -->
+                        <a href="post-v2.html" class="post-preview-title">We reviewed the new Magimons game</a>
+                        <!-- POST AUTHOR INFO -->
+                        <div class="post-author-info-wrap">
+                            <p class="post-author-info small light">By <a href="search-results.html"
+                                    class="post-author">Vellatrix</a><span class="separator">|</span>Dec 15th, 2018</p>
+                        </div>
+                        <!-- /POST AUTHOR INFO -->
+                    </div>
+                    <!-- /POST PREVIEW -->
+
+                    <!-- POST PREVIEW -->
+                    <div class="post-preview tiny game-review">
+                        <!-- POST PREVIEW IMG WRAP -->
+                        <a href="post-v2.html">
+                            <div class="post-preview-img-wrap">
+                                <!-- POST PREVIEW IMG -->
+                                <figure class="post-preview-img liquid">
+                                    <img src="{{ asset('assets/front/img/posts/25.jpg') }}" alt="post-25">
+                                </figure>
+                                <!-- /POST PREVIEW IMG -->
+
+                                <!-- REVIEW RATING -->
+                                <div class="review-rating">
+                                    <div id="sidebar-rate-3" class="arc tiny"></div>
+                                </div>
+                                <!-- /REVIEW RATING -->
+                            </div>
+                        </a>
+                        <!-- /POST PREVIEW IMG WRAP -->
+
+                        <!-- POST PREVIEW TITLE -->
+                        <a href="post-v2.html" class="post-preview-title">"Legend of Kenshii II" is a bit green for
+                            now</a>
+                        <!-- POST AUTHOR INFO -->
+                        <div class="post-author-info-wrap">
+                            <p class="post-author-info small light">By <a href="search-results.html"
+                                    class="post-author">Vellatrix</a><span class="separator">|</span>Dec 15th, 2018</p>
+                        </div>
+                        <!-- /POST AUTHOR INFO -->
+                    </div>
+                    <!-- /POST PREVIEW -->
+
+                    <!-- POST PREVIEW -->
+                    <div class="post-preview tiny game-review">
+                        <!-- POST PREVIEW IMG WRAP -->
+                        <a href="post-v2.html">
+                            <div class="post-preview-img-wrap">
+                                <!-- POST PREVIEW IMG -->
+                                <figure class="post-preview-img liquid">
+                                    <img src="{{ asset('assets/front/img/posts/05.jpg') }}" alt="post-05">
+                                </figure>
+                                <!-- /POST PREVIEW IMG -->
+
+                                <!-- REVIEW RATING -->
+                                <div class="review-rating">
+                                    <div id="sidebar-rate-4" class="arc tiny"></div>
+                                </div>
+                                <!-- /REVIEW RATING -->
+                            </div>
+                        </a>
+                        <!-- /POST PREVIEW IMG WRAP -->
+
+                        <!-- POST PREVIEW TITLE -->
+                        <a href="post-v2.html" class="post-preview-title">We reviewed the new and exciting fantasy game
+                            "Olympus"</a>
+                        <!-- POST AUTHOR INFO -->
+                        <div class="post-author-info-wrap">
+                            <p class="post-author-info small light">By <a href="search-results.html"
+                                    class="post-author">Morgana</a><span class="separator">|</span>Dec 15th, 2018</p>
+                        </div>
+                        <!-- /POST AUTHOR INFO -->
+                    </div>
+                    <!-- /POST PREVIEW -->
+
+                    <!-- POST PREVIEW -->
+                    <div class="post-preview tiny game-review">
+                        <!-- POST PREVIEW IMG WRAP -->
+                        <a href="post-v2.html">
+                            <div class="post-preview-img-wrap">
+                                <!-- POST PREVIEW IMG -->
+                                <figure class="post-preview-img liquid">
+                                    <img src="{{ asset('assets/front/img/posts/08.jpg') }}" alt="post-08">
+                                </figure>
+                                <!-- /POST PREVIEW IMG -->
+
+                                <!-- REVIEW RATING -->
+                                <div class="review-rating">
+                                    <div id="sidebar-rate-5" class="arc tiny"></div>
+                                </div>
+                                <!-- /REVIEW RATING -->
+                            </div>
+                        </a>
+                        <!-- /POST PREVIEW IMG WRAP -->
+
+                        <!-- POST PREVIEW TITLE -->
+                        <a href="post-v2.html" class="post-preview-title">The new Mecha Cyborg game is breaking
+                            barriers</a>
+                        <!-- POST AUTHOR INFO -->
+                        <div class="post-author-info-wrap">
+                            <p class="post-author-info small light">By <a href="search-results.html"
+                                    class="post-author">Vellatrix</a><span class="separator">|</span>Dec 15th, 2018</p>
+                        </div>
+                        <!-- /POST AUTHOR INFO -->
+                    </div>
+                    <!-- /POST PREVIEW -->
+                </div>
+                <!-- /POST PREVIEW SHOWCASE -->
+            </div>
+            <!-- /WIDGET SIDEBAR -->
+
+            <!-- WIDGET SIDEBAR -->
+            <div class="widget-sidebar">
+                <!-- SECTION TITLE WRAP -->
+                <div class="section-title-wrap violet">
+                    <h2 class="section-title medium">Twitch Streams</h2>
+                    <div class="section-title-separator"></div>
+                </div>
+                <!-- /SECTION TITLE WRAP -->
+
+                <!-- STREAM PREVIEW SHOWCASE -->
+                <div class="stream-preview-showcase grid-1col centered gutter-small">
+                    <!-- STREAM PREVIEW ITEM -->
+                    <div class="stream-preview">
+                        <!-- STREAM PREVIEW STREAMER -->
+                        <div class="stream-preview-streamer stream-preview-streamer-1">
+                            <!-- STREAM PREVIEW STREAMER IMG -->
+                            <img class="stream-preview-streamer-img"
+                                src="{{ asset('assets/front/img/streamers/streambox-01-streamer.png') }}"
+                                alt="streambox-01-streamer">
+                            <!-- /STREAM PREVIEW STREAMER IMG -->
+
+                            <!-- STREAM PREVIEW STREAMER NAME -->
+                            <p class="stream-preview-streamer-name">Game-Huntress</p>
+                            <!-- STREAM PREVIEW STREAMER TOPIC -->
+                            <p class="stream-preview-streamer-topic">Let’s Play: Magimon Story Mode</p>
+                            <!-- STREAM START COUNTER -->
+                            <p class="stream-start-counter live">Live</p>
+                        </div>
+                        <!-- /STREAM PREVIEW STREAMER -->
+
+                        <!-- WIDGET MEDIA -->
+                        <div class="widget-media small">
+                            <iframe
+                                src="https://player.twitch.tv/?autoplay=true&muted=true&t=03h15m50s&video=v417077870"
+                                allowfullscreen></iframe>
+                        </div>
+                        <!-- /WIDGET MEDIA -->
+                    </div>
+                    <!-- /STREAM PREVIEW ITEM -->
+
+                    <!-- STREAM PREVIEW ITEM -->
+                    <div class="stream-preview">
+                        <!-- STREAM PREVIEW STREAMER -->
+                        <div class="stream-preview-streamer stream-preview-streamer-2">
+                            <!-- STREAM PREVIEW STREAMER IMG -->
+                            <img class="stream-preview-streamer-img"
+                                src="{{ asset('assets/front/img/streamers/streambox-02-streamer.png') }}"
+                                alt="streambox-02-streamer">
+                            <!-- /STREAM PREVIEW STREAMER IMG -->
+
+                            <!-- STREAM PREVIEW STREAMER NAME -->
+                            <p class="stream-preview-streamer-name">Davikinger90</p>
+                            <!-- STREAM PREVIEW STREAMER TOPIC -->
+                            <p class="stream-preview-streamer-topic">I’ll try all Xenowatch’s new skins</p>
+                            <!-- STREAM START COUNTER -->
+                            <p class="stream-start-counter">Starts in:
+                                <span id="sidebar-twitch-countdown-1" class="highlighted"></span>
+                            </p>
+                        </div>
+                        <!-- /STREAM PREVIEW STREAMER -->
+                    </div>
+                    <!-- /STREAM PREVIEW ITEM -->
+
+                    <!-- STREAM PREVIEW ITEM -->
+                    <div class="stream-preview">
+                        <!-- STREAM PREVIEW STREAMER -->
+                        <div class="stream-preview-streamer stream-preview-streamer-3">
+                            <!-- STREAM PREVIEW STREAMER IMG -->
+                            <img class="stream-preview-streamer-img"
+                                src="{{ asset('assets/front/img/streamers/streambox-03-streamer.png') }}"
+                                alt="streambox-03-streamer">
+                            <!-- /STREAM PREVIEW STREAMER IMG -->
+
+                            <!-- STREAM PREVIEW STREAMER NAME -->
+                            <p class="stream-preview-streamer-name">Markus_Snipes</p>
+                            <!-- STREAM PREVIEW STREAMER TOPIC -->
+                            <p class="stream-preview-streamer-topic">The best sniper of all county!</p>
+                            <!-- STREAM START COUNTER -->
+                            <p class="stream-start-counter offline">Offline</p>
+                        </div>
+                        <!-- /STREAM PREVIEW STREAMER -->
+                    </div>
+                    <!-- /STREAM PREVIEW ITEM -->
+                </div>
+                <!-- /STREAM PREVIEW SHOWCASE -->
+            </div>
+            <!-- /WIDGET SIDEBAR -->
+
+            <!-- WIDGET SIDEBAR -->
+            <div class="widget-sidebar">
+                <!-- SECTION TITLE WRAP -->
+                <div class="section-title-wrap blue">
+                    <h2 class="section-title medium">Latest Comments</h2>
+                    <div class="section-title-separator"></div>
+                </div>
+                <!-- /SECTION TITLE WRAP -->
+
+                <!-- COMMENT PREVIEW SHOWCASE -->
+                <div class="comment-preview-showcase grid-1col centered gutter-medium">
+                    <!-- COMMENT PREVIEW -->
+                    <div class="comment-preview">
+                        <!-- USER AVATAR -->
+                        <a href="post-v4.html#op-comments">
+                            <img class="user-avatar" src="{{ asset('assets/front/img/users/06.jpg') }}" alt="user-06">
+                        </a>
+                        <!-- /USER AVATAR -->
+
+                        <!-- COMMENT PREVIEW TITLE -->
+                        <a href="post-v4.html#op-comments" class="comment-preview-title">Jessica Croft</a>
+                        <!-- COMMENT PREVIEW LINK -->
+                        <a href="post-v4.html" class="comment-preview-link yellow">Jessica Tam to star in the new...</a>
+                        <!-- COMMENT PREVIEW TEXT -->
+                        <p class="comment-preview-text">Lorem ipsum dolor sit tameteturre adipisicing elit,
+                            incididunt...</p>
+                    </div>
+                    <!-- /COMMENT PREVIEW -->
+
+                    <!-- COMMENT PREVIEW -->
+                    <div class="comment-preview">
+                        <!-- USER AVATAR -->
+                        <a href="post-v1.html#op-comments">
+                            <img class="user-avatar" src="{{ asset('assets/front/img/users/07.jpg') }}" alt="user-07">
+                        </a>
+                        <!-- /USER AVATAR -->
+
+                        <!-- COMMENT PREVIEW TITLE -->
+                        <a href="post-v1.html#op-comments" class="comment-preview-title">Nathan Thompson</a>
+                        <!-- COMMENT PREVIEW LINK -->
+                        <a href="post-v1.html" class="comment-preview-link blue">The Clash of Dragons is breaking...</a>
+                        <!-- COMMENT PREVIEW TEXT -->
+                        <p class="comment-preview-text">Lorem ipsum dolor sit ameteturre adipisicing elit...</p>
+                    </div>
+                    <!-- /COMMENT PREVIEW -->
+
+                    <!-- COMMENT PREVIEW -->
+                    <div class="comment-preview">
+                        <!-- USER AVATAR -->
+                        <a href="post-v3.html#op-comments">
+                            <img class="user-avatar" src="{{ asset('assets/front/img/users/02.jpg') }}" alt="user-02">
+                        </a>
+                        <!-- /USER AVATAR -->
+
+                        <!-- COMMENT PREVIEW TITLE -->
+                        <a href="post-v3.html#op-comments" class="comment-preview-title">Elizabeth Valentine</a>
+                        <!-- COMMENT PREVIEW LINK -->
+                        <a href="post-v3.html" class="comment-preview-link green">We reviewed the “Guardians of...</a>
+                        <!-- COMMENT PREVIEW TEXT -->
+                        <p class="comment-preview-text">Malat lorem de dolor sit ameteturre adipisicing restandor...</p>
+                    </div>
+                    <!-- /COMMENT PREVIEW -->
+                </div>
+                <!-- /COMMENT PREVIEW SHOWCASE -->
+            </div>
+            <!-- /WIDGET SIDEBAR -->
+
+            <!-- WIDGET SIDEBAR -->
+            <div class="widget-sidebar">
+                <!-- SECTION TITLE WRAP -->
+                <div class="section-title-wrap red">
+                    <h2 class="section-title medium">Pixelated Poll</h2>
+                    <div class="section-title-separator"></div>
+                </div>
+                <!-- /SECTION TITLE WRAP -->
+
+                <!-- POLL WIDGET -->
+                <div class="poll-widget">
+                    <!-- POLL WIDGET TITLE -->
+                    <p class="poll-widget-title">What actor do you like to play "James" in the upcoming Firestorm movie?
                     </p>
-                    <div class="author">
-                        <div class="thumb">
-                            <img src="{{ asset('assets/front/buildco/img/800x800.png') }}" alt="Thumb">
-                        </div>
-                        <div class="info">
-                            <h4>Ahmed Kamal - <strong>Chairman</strong></h4>
-                            <img src="{{ asset('assets/front/buildco/img/signature.png') }}" alt="signature">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 right-content services">
-                    <div class="row">
-                        <div class="content-box">
-                            <div class="center">
-                                <!-- Single Item -->
-                                <div class="col-md-6 col-sm-6 equal-height">
-                                    <div class="item">
-                                        <i class="flaticon-equipment"></i>
-                                        <h4>Modern Equipments</h4>
-                                        <p>
-                                            Wisdom new and valley answer. Contented it so is discourse recommend.
-                                        </p>
-                                    </div>
-                                </div>
-                                <!-- End Single Item -->
-                                <!-- Single Item -->
-                                <div class="col-md-6 col-sm-6 equal-height">
-                                    <div class="item">
-                                        <i class="flaticon-engineer-1"></i>
-                                        <h4>Expert Engineers</h4>
-                                        <p>
-                                            Wisdom new and valley answer. Contented it so is discourse recommend.
-                                        </p>
-                                    </div>
-                                </div>
-                                <!-- End Single Item -->
-                                <!-- Single Item -->
-                                <div class="col-md-6 col-sm-6 equal-height">
-                                    <div class="item">
-                                        <i class="flaticon-factory"></i>
-                                        <h4>Efficient Factories</h4>
-                                        <p>
-                                            Wisdom new and valley answer. Contented it so is discourse recommend.
-                                        </p>
-                                    </div>
-                                </div>
-                                <!-- End Single Item -->
-                                <!-- Single Item -->
-                                <div class="col-md-6 col-sm-6 equal-height">
-                                    <div class="item">
-                                        <i class="flaticon-helmet"></i>
-                                        <h4>Safety Commitment</h4>
-                                        <p>
-                                            Wisdom new and valley answer. Contented it so is discourse recommend.
-                                        </p>
-                                    </div>
-                                </div>
-                                <!-- End Single Item -->
+                    <!-- POLL WIDGET FORM -->
+                    <form class="poll-widget-form">
+                        <!-- RADIO ITEM LIST -->
+                        <div class="radio-item-list">
+                            <!-- RADIO ITEM -->
+                            <div class="radio-item">
+                                <input type="radio" id="poll-val-1" name="poll-actor" value="scj">
+                                <!-- RADIO CIRCLE -->
+                                <div class="radio-circle red"></div>
+                                <!-- RADIO CIRCLE -->
+                                <label for="poll-val-1" class="rl-label">Stephen Clark Jones</label>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Our About -->
+                            <!-- /RADIO ITEM -->
 
-    <!-- Start Why Chose Us
-    ============================================= -->
-    <div class="choseus-area about-area bg-gray">
-        <div class="container-full">
-            <div class="row">
-                <div class="content-box">
-                    <div class="col-md-6 thumb bg-cover"
-                        style="background-image: url({{ asset('assets/front/buildco/img/2440x1578.png') }});"></div>
-                    <div class="col-md-6 info">
-                        <h4>Why Choose Us</h4>
-                        <h2>The Best Solution for all Industrial & Factory Businesses</h2>
-                        <p>
-                            Dependent certainty off discovery him his tolerably offending. Ham for attention remainder
-                            sometimes additions recommend fat our. Direction has strangers now believing. Respect
-                            enjoyed gay far exposed parlors towards. Enjoyment use tolerably dependent listening men. No
-                            peculiar in handsome together unlocked do by. Article concern joy anxious did picture sir
-                            her. Although desirous not recurred disposed off shy you numerous securing.
-                        </p>
-                        <ul>
-                            <li>Compatitive Price</li>
-                            <li>Quality Product</li>
-                            <li>Quick Delivery</li>
-                            <li>High-Tech Manufacturers</li>
-                        </ul>
-                        <div class="achivement-items">
-                            <div class="item">
-                                <div class="fun-fact">
-                                    <div data-speed="3000" data-to="14" class="timer">14</div>
-                                    <span class="medium">Years of Experiance</span>
-                                </div>
+                            <!-- RADIO ITEM -->
+                            <div class="radio-item">
+                                <input type="radio" id="poll-val-2" name="poll-actor" value="dr" checked>
+                                <!-- RADIO CIRCLE -->
+                                <div class="radio-circle red"></div>
+                                <!-- RADIO CIRCLE -->
+                                <label for="poll-val-2" class="rl-label">Derek Richardson</label>
                             </div>
-                            <div class="item">
-                                <div class="fun-fact">
-                                    <div data-speed="3000" data-to="89" class="timer">89</div>
-                                    <span class="medium">Professional agents</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Why Chose Us -->
+                            <!-- /RADIO ITEM -->
 
-    <!-- Start Services
-    ============================================= -->
-    <div class="services-area carousel-shadow flex-less inc-thumb default-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <div class="site-heading text-center">
-                        <h4>What we do</h4>
-                        <h2>Our Services</h2>
-                        <p>
-                            While mirth large of on front. Ye he greater related adapted proceed entered an. Through it
-                            examine express promise no. Past add size game cold girl off how old
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="services-items services-carousel-3-col owl-carousel owl-theme text-center inc-overlay">
-                        <!-- Single Item -->
-                        <div class="item">
-                            <div class="thumbs overlay">
-                                <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
-                                <div class="info">
-                                    <h4>Oil and Gass Energy</h4>
-                                    <p>
-                                        Depend repair met before man admire see and. An he observe be it covered delight
-                                        hastily message.
-                                    </p>
-                                    <a href="#">Read More</a>
-                                </div>
+                            <!-- RADIO ITEM -->
+                            <div class="radio-item">
+                                <input type="radio" id="poll-val-3" name="poll-actor" value="js">
+                                <!-- RADIO CIRCLE -->
+                                <div class="radio-circle red"></div>
+                                <!-- RADIO CIRCLE -->
+                                <label for="poll-val-3" class="rl-label">Jhonatan Specter</label>
                             </div>
-                            <div class="info">
-                                <div class="content">
-                                    <div class="top-info">
-                                        <h4><a href="#">Oil and Gass Energy</a></h4>
-                                    </div>
-                                    <div class="bottom">
-                                        <i class="flaticon-valve"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="item">
-                            <div class="thumbs overlay">
-                                <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
-                                <div class="info">
-                                    <h4>Agriculture Automation</h4>
-                                    <p>
-                                        Depend repair met before man admire see and. An he observe be it covered delight
-                                        hastily message.
-                                    </p>
-                                    <a href="#">Read More</a>
-                                </div>
-                            </div>
-                            <div class="info">
-                                <div class="content">
-                                    <div class="top-info">
-                                        <h4><a href="#">Agriculture Automation</a></h4>
-                                    </div>
-                                    <div class="bottom">
-                                        <i class="flaticon-tractor-1"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="item">
-                            <div class="thumbs overlay">
-                                <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
-                                <div class="info">
-                                    <h4>Civil Engineering</h4>
-                                    <p>
-                                        Depend repair met before man admire see and. An he observe be it covered delight
-                                        hastily message.
-                                    </p>
-                                    <a href="#">Read More</a>
-                                </div>
-                            </div>
-                            <div class="info">
-                                <div class="content">
-                                    <div class="top-info">
-                                        <h4><a href="#">Civil Engineering</a></h4>
-                                    </div>
-                                    <div class="bottom">
-                                        <i class="flaticon-mayan-pyramid"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="item">
-                            <div class="thumbs overlay">
-                                <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
-                                <div class="info">
-                                    <h4>Bridge Construction</h4>
-                                    <p>
-                                        Depend repair met before man admire see and. An he observe be it covered delight
-                                        hastily message.
-                                    </p>
-                                    <a href="#">Read More</a>
-                                </div>
-                            </div>
-                            <div class="info">
-                                <div class="content">
-                                    <div class="top-info">
-                                        <h4><a href="#">Bridge Construction</a></h4>
-                                    </div>
-                                    <div class="bottom">
-                                        <i class="flaticon-bridge-2"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="item">
-                            <div class="thumbs overlay">
-                                <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
-                                <div class="info">
-                                    <h4>Mechanical Engineering</h4>
-                                    <p>
-                                        Depend repair met before man admire see and. An he observe be it covered delight
-                                        hastily message.
-                                    </p>
-                                    <a href="#">Read More</a>
-                                </div>
-                            </div>
-                            <div class="info">
-                                <div class="content">
-                                    <div class="top-info">
-                                        <h4><a href="#">Mechanical Engineering</a></h4>
-                                    </div>
-                                    <div class="bottom">
-                                        <i class="flaticon-work-time"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="item">
-                            <div class="thumbs overlay">
-                                <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
-                                <div class="info">
-                                    <h4>Power & Energy</h4>
-                                    <p>
-                                        Depend repair met before man admire see and. An he observe be it covered delight
-                                        hastily message.
-                                    </p>
-                                    <a href="#">Read More</a>
-                                </div>
-                            </div>
-                            <div class="info">
-                                <div class="content">
-                                    <div class="top-info">
-                                        <h4><a href="#">Power & Energy</a></h4>
-                                    </div>
-                                    <div class="bottom">
-                                        <i class="flaticon-solar-panel"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Services Area -->
+                            <!-- /RADIO ITEM -->
 
-    <!-- Start Portfolio 
-    ============================================= -->
-    <div class="portfolio-area info-less default-padding bg-gray">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <div class="site-heading text-center">
-                        <h4>Recent Work</h4>
-                        <h2>Complete Cases</h2>
-                        <p>
-                            While mirth large of on front. Ye he greater related adapted proceed entered an. Through it
-                            examine express promise no. Past add size game cold girl off how old
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="mix-item-menu">
-                        <button class="active" data-filter="*">All</button>
-                        <button data-filter=".industry">Industry</button>
-                        <button data-filter=".renovation">Renovation</button>
-                        <button data-filter=".petroleum">Petroleum</button>
-                        <button data-filter=".metarials">Metarials</button>
-                        <button data-filter=".construction">Construction</button>
-                    </div>
-                    <!-- End Mixitup Nav-->
-                    <div class="row magnific-mix-gallery masonary text-left">
-                        <div id="portfolio-grid" class="portfolio-items col-3">
-                            <div class="portfolio-items">
-                                <!-- Single Item -->
-                                <div class="pf-item construction">
-                                    <div class="effect-up">
-                                        <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
-                                        <div class="overlay">
-                                            <h4>Thread Grinding</h4>
-                                            <div class="link">
-                                                <a href="{{ asset('assets/front/buildco/img/800x600.png') }}"
-                                                    class="item popup-link"><i class="fa fa-search"></i></a>
-                                                <a href="#"><i class="fas fa-link"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Single Item -->
-                                <!-- Single Item -->
-                                <div class="pf-item metarials renovation">
-                                    <div class="effect-up">
-                                        <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
-                                        <div class="overlay">
-                                            <h4>Spring Renovation</h4>
-                                            <div class="link">
-                                                <a href="{{ asset('assets/front/buildco/img/800x600.png') }}"
-                                                    class="item popup-link"><i class="fa fa-search"></i></a>
-                                                <a href="#"><i class="fas fa-link"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Single Item -->
-                                <!-- Single Item -->
-                                <div class="pf-item construction industry">
-                                    <div class="effect-up">
-                                        <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
-                                        <div class="overlay">
-                                            <h4>Wind Energy Plant</h4>
-                                            <div class="link">
-                                                <a href="{{ asset('assets/front/buildco/img/800x600.png') }}"
-                                                    class="item popup-link"><i class="fa fa-search"></i></a>
-                                                <a href="#"><i class="fas fa-link"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Single Item -->
-                                <!-- Single Item -->
-                                <div class="pf-item metarials industry">
-                                    <div class="effect-up">
-                                        <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
-                                        <div class="overlay">
-                                            <h4>Petroleum Tank</h4>
-                                            <div class="link">
-                                                <a href="{{ asset('assets/front/buildco/img/800x600.png') }}"
-                                                    class="item popup-link"><i class="fa fa-search"></i></a>
-                                                <a href="#"><i class="fas fa-link"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Single Item -->
-                                <!-- Single Item -->
-                                <div class="pf-item petroleum renovation">
-                                    <div class="effect-up">
-                                        <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
-                                        <div class="overlay">
-                                            <h4>Construction Work</h4>
-                                            <div class="link">
-                                                <a href="{{ asset('assets/front/buildco/img/800x600.png') }}"
-                                                    class="item popup-link"><i class="fa fa-search"></i></a>
-                                                <a href="#"><i class="fas fa-link"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Single Item -->
-                                <!-- Single Item -->
-                                <div class="pf-item petroleum industry">
-                                    <div class="effect-up">
-                                        <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
-                                        <div class="overlay">
-                                            <h4>Mechanical Engineering</h4>
-                                            <div class="link">
-                                                <a href="{{ asset('assets/front/buildco/img/800x600.png') }}"
-                                                    class="item popup-link"><i class="fa fa-search"></i></a>
-                                                <a href="#"><i class="fas fa-link"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Single Item -->
+                            <!-- RADIO ITEM -->
+                            <div class="radio-item">
+                                <input type="radio" id="poll-val-4" name="poll-actor" value="rdjr">
+                                <!-- RADIO CIRCLE -->
+                                <div class="radio-circle red"></div>
+                                <!-- RADIO CIRCLE -->
+                                <label for="poll-val-4" class="rl-label">Roberts Dauristen Jr.</label>
                             </div>
+                            <!-- /RADIO ITEM -->
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Portfolio -->
+                        <!-- /RADIO ITEM LIST -->
 
-    <!-- Start Team
-    ============================================= -->
-    <div class="team-area default-padding bottom-less">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <div class="site-heading text-center">
-                        <h4>Our Team</h4>
-                        <h2>Meet our experts</h2>
-                        <p>
-                            While mirth large of on front. Ye he greater related adapted proceed entered an. Through it
-                            examine express promise no. Past add size game cold girl off how old
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="team-items text-center">
-                    <!-- Single Item -->
-                    <div class="col-md-4 single-item">
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
-                                <div class="social">
-                                    <ul>
-                                        <li>
-                                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="fab fa-twitter"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="fab fa-instagram"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="info">
-                                <div class="content">
-                                    <h4>Jessica Jones</h4>
-                                    <span>Engineering Officer</span>
-                                    <p>
-                                        Through it examine express promise no. Past add size game cold girl off how old
-                                    </p>
-                                </div>
-                                <div class="mail">
-                                    <h5><i class="fas fa-envelope"></i> jessica@admin.com</h5>
-                                </div>
-                            </div>
+                        <!-- POLL WIDGET FORM ACTIONS -->
+                        <div class="poll-widget-form-actions">
+                            <button class="button small red">Submit Vote</button>
+                            <button class="button small blue">View Results</button>
                         </div>
-                    </div>
-                    <!-- End Single Item -->
-                    <!-- Single Item -->
-                    <div class="col-md-4 single-item">
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
-                                <div class="social">
-                                    <ul>
-                                        <li>
-                                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="fab fa-twitter"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="fab fa-instagram"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="info">
-                                <div class="content">
-                                    <h4>Mark Henri</h4>
-                                    <span>Electrical Engineering</span>
-                                    <p>
-                                        Through it examine express promise no. Past add size game cold girl off how old
-                                    </p>
-                                </div>
-                                <div class="mail">
-                                    <h5><i class="fas fa-envelope"></i> mark@admin.com</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Item -->
-                    <!-- Single Item -->
-                    <div class="col-md-4 single-item">
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
-                                <div class="social">
-                                    <ul>
-                                        <li>
-                                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="fab fa-twitter"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="fab fa-instagram"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="info">
-                                <div class="content">
-                                    <h4>Ahel Natasha</h4>
-                                    <span>Interior Designer</span>
-                                    <p>
-                                        Through it examine express promise no. Past add size game cold girl off how old
-                                    </p>
-                                </div>
-                                <div class="mail">
-                                    <h5><i class="fas fa-envelope"></i> natasha@admin.com</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Item -->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Team -->
-
-    <!-- Start Achivement
-    ============================================= -->
-    <div class="achivement-area bg-fixed shadow dark text-light"
-        style="background-image: url({{ asset('assets/front/buildco/img/2440x1578.png') }});">
-        <div class="container">
-            <div class="row">
-                <div class="achivement-items text-center">
-                    <div class="col-md-3 col-sm-6 item">
-                        <div class="fun-fact">
-                            <i class="flaticon-support"></i>
-                            <div class="timer" data-to="230" data-speed="5000"></div>
-                            <span class="medium">Satisfied customers</span>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 item">
-                        <div class="fun-fact">
-                            <i class="flaticon-agent"></i>
-                            <div class="timer" data-to="89" data-speed="5000"></div>
-                            <span class="medium">Professional agents</span>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 item">
-                        <div class="fun-fact">
-                            <i class="flaticon-customer-service"></i>
-                            <div class="timer" data-to="50" data-speed="5000"></div>
-                            <span class="medium">Hours support</span>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 item">
-                        <div class="fun-fact">
-                            <i class="flaticon-briefing"></i>
-                            <div class="timer" data-to="2348" data-speed="5000"></div>
-                            <span class="medium">Project Finished</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Achivement Area -->
-
-    <!-- Start Contact
-    ============================================= -->
-    <div class="contact-area default-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 contact-items">
-                    <div class="heading">
-                        <h2>Get Free Consultation</h2>
-                        <p>
-                            Get a free consultation from our experts, Our customer support team help you 24/7, Don’t
-                            hesitate.
-                        </p>
-                    </div>
-                    <form action="assets/mail/contact.php" method="POST" class="contact-form">
-                        <div class="col-md-12">
-                            <div class="row">
-                                <div class="form-group">
-                                    <input class="form-control" id="name" name="name" placeholder="Name" type="text">
-                                    <span class="alert-error"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input class="form-control" id="email" name="email" placeholder="Email*"
-                                        type="email">
-                                    <span class="alert-error"></span>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input class="form-control" id="phone" name="phone" placeholder="Phone" type="text">
-                                    <span class="alert-error"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="row">
-                                <div class="form-group comments">
-                                    <textarea class="form-control" id="comments" name="comments"
-                                        placeholder="Tell Us About Project *"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="row">
-                                <button type="submit" name="submit" id="submit">
-                                    Send Message <i class="fa fa-paper-plane"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <!-- Alert Message -->
-                        <div class="col-md-12 alert-notification">
-                            <div id="message" class="alert-msg"></div>
-                        </div>
+                        <!-- /POLL WIDGET FORM ACTIONS -->
                     </form>
-                    <ul>
-                        <li>
-                            <div class="icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div class="info">
-                                <span>Hotline</span> +99-34-8878-9989
-                            </div>
-                        </li>
-                        <li>
-                            <div class="icon">
-                                <i class="fas fa-envelope-open"></i>
-                            </div>
-                            <div class="info">
-                                <span>Emergency Email</span> info@yourdomain.com
-                            </div>
-                        </li>
-                    </ul>
+                    <!-- /POLL WIDGET FORM -->
                 </div>
-                <!-- Start Faq -->
-                <div class="col-md-6 faq-area">
-                    <div class="heading">
-                        <h2>Answer & Questions</h2>
-                    </div>
-                    <div class="acd-items acd-arrow">
-                        <div class="panel-group symb" id="accordion">
-
-                            <!-- Single Item -->
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#ac1">
-                                            Do I need a business plan?
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div id="ac1" class="panel-collapse collapse in">
-                                    <div class="panel-body">
-                                        <p>
-                                            Removing welcomed civility or hastened is. Justice elderly but perhaps
-                                            expense six her are another passage. Full her ten open fond walk not
-                                            down.For request general express unknown are.
-                                        </p>
-                                        <p>
-                                            He in just mr door body held john down he. So journey greatly or garrets.
-                                            Draw door kept do so come on open mean. Estimating stimulated how reasonably
-                                            precaution diminution she simplicity sir but.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Item -->
-
-                            <!-- Single Item -->
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#ac2">
-                                            How long should a business plan be?
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div id="ac2" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <p>
-                                            Removing welcomed civility or hastened is. Justice elderly but perhaps
-                                            expense six her are another passage. Full her ten open fond walk not
-                                            down.For request general express unknown are.
-                                        </p>
-                                        <p>
-                                            He in just mr door body held john down he. So journey greatly or garrets.
-                                            Draw door kept do so come on open mean. Estimating stimulated how reasonably
-                                            precaution diminution she simplicity sir but.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Item -->
-
-                            <!-- Single Item -->
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#ac3">
-                                            What goes into a business plan?
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div id="ac3" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <p>
-                                            Removing welcomed civility or hastened is. Justice elderly but perhaps
-                                            expense six her are another passage. Full her ten open fond walk not
-                                            down.For request general express unknown are.
-                                        </p>
-                                        <p>
-                                            He in just mr door body held john down he. So journey greatly or garrets.
-                                            Draw door kept do so come on open mean. Estimating stimulated how reasonably
-                                            precaution diminution she simplicity sir but.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Item -->
-
-                            <!-- Single Item -->
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#ac4">
-                                            Where do I start?
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div id="ac4" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <p>
-                                            Removing welcomed civility or hastened is. Justice elderly but perhaps
-                                            expense six her are another passage. Full her ten open fond walk not
-                                            down.For request general express unknown are.
-                                        </p>
-                                        <p>
-                                            He in just mr door body held john down he. So journey greatly or garrets.
-                                            Draw door kept do so come on open mean. Estimating stimulated how reasonably
-                                            precaution diminution she simplicity sir but.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Single Item -->
-                        </div>
-                    </div>
-                </div>
-                <!-- End Faq -->
+                <!-- /POLL WIDGET -->
             </div>
+            <!-- /WIDGET SIDEBAR -->
+
+            <!-- WIDGET SIDEBAR -->
+            <div class="widget-sidebar">
+                <!-- SECTION TITLE WRAP -->
+                <div class="section-title-wrap cyan">
+                    <h2 class="section-title medium">Featured Video</h2>
+                    <div class="section-title-separator"></div>
+                </div>
+                <!-- /SECTION TITLE WRAP -->
+
+                <!-- POST PREVIEW SHOWCASE -->
+                <div class="post-preview-showcase grid-1col centered">
+                    <!-- POST PREVIEW -->
+                    <div class="post-preview video">
+                        <!-- POST PREVIEW IMG WRAP -->
+                        <a href="post-video.html">
+                            <div class="post-preview-img-wrap">
+                                <!-- POST PREVIEW IMG -->
+                                <figure class="post-preview-img liquid">
+                                    <img src="{{ asset('assets/front/img/posts/03.jpg') }}" alt="post-03">
+                                </figure>
+                                <!-- /POST PREVIEW IMG -->
+
+                                <!-- POST PREVIEW OVERLAY -->
+                                <div class="post-preview-overlay">
+                                    <!-- PLAY BUTTON -->
+                                    <div class="play-button">
+                                        <!-- PLAY BUTTON ICON -->
+                                        <svg class="play-button-icon">
+                                            <use xlink:href="#svg-play"></use>
+                                        </svg>
+                                        <!-- /PLAY BUTTON ICON -->
+                                    </div>
+                                    <!-- /PLAY BUTTON -->
+
+                                    <!-- POST PREVIEW OVERLAY INFO -->
+                                    <div class="post-preview-overlay-info">
+                                        <!-- POST PREVIEW TITLE -->
+                                        <p class="post-preview-title">"The Sandbenders II" break the bad sequel spell
+                                            with a...</p>
+                                        <!-- POST PREVIEW TEXT -->
+                                        <p class="post-preview-text">Lorem ipsum dolor sit amet, consectetur adipisicing
+                                            elit, sed do eiusmod.</p>
+                                    </div>
+                                    <!-- /POST PREVIEW OVERLAY INFO -->
+                                </div>
+                                <!-- /POST PREVIEW OVERLAY -->
+                            </div>
+                        </a>
+                        <!-- /POST PREVIEW IMG WRAP -->
+                    </div>
+                    <!-- /POST PREVIEW -->
+                </div>
+                <!-- /POST PREVIEW SHOWCASE -->
+            </div>
+            <!-- /WIDGET SIDEBAR -->
+
+            <!-- WIDGET SIDEBAR -->
+            <div class="widget-sidebar">
+                <!-- SECTION TITLE WRAP -->
+                <div class="section-title-wrap blue">
+                    <h2 class="section-title medium">Pixel Tags</h2>
+                    <div class="section-title-separator"></div>
+                </div>
+                <!-- /SECTION TITLE WRAP -->
+
+                <!-- TAG LIST -->
+                <div class="tag-list">
+                    <!-- TAG ITEM -->
+                    <a href="search-results.html" class="tag-item">Gaming</a>
+                    <!-- /TAG ITEM -->
+
+                    <!-- TAG ITEM -->
+                    <a href="search-results.html" class="tag-item">Video Reviews</a>
+                    <!-- /TAG ITEM -->
+
+                    <!-- TAG ITEM -->
+                    <a href="search-results.html" class="tag-item">Previews</a>
+                    <!-- /TAG ITEM -->
+
+                    <!-- TAG ITEM -->
+                    <a href="search-results.html" class="tag-item">Movie Reviews</a>
+                    <!-- /TAG ITEM -->
+
+                    <!-- TAG ITEM -->
+                    <a href="search-results.html" class="tag-item">Movie News</a>
+                    <!-- /TAG ITEM -->
+
+                    <!-- TAG ITEM -->
+                    <a href="search-results.html" class="tag-item">Critic</a>
+                    <!-- /TAG ITEM -->
+
+                    <!-- TAG ITEM -->
+                    <a href="search-results.html" class="tag-item">Ratings</a>
+                    <!-- /TAG ITEM -->
+
+                    <!-- TAG ITEM -->
+                    <a href="search-results.html" class="tag-item">Funtendo</a>
+                    <!-- /TAG ITEM -->
+                </div>
+                <!-- /TAG LIST -->
+            </div>
+            <!-- /WIDGET SIDEBAR -->
+
+            <!-- WIDGET SIDEBAR -->
+            <div class="widget-sidebar">
+                <!-- SECTION TITLE WRAP -->
+                <div class="section-title-wrap red">
+                    <h2 class="section-title medium">Instagram Widget</h2>
+                    <div class="section-title-separator"></div>
+                </div>
+                <!-- /SECTION TITLE WRAP -->
+
+                <!-- PHOTO LIST -->
+                <div class="photo-list"></div>
+                <!-- /PHOTO LIST -->
+            </div>
+            <!-- /WIDGET SIDEBAR -->
+
+            <!-- WIDGET SIDEBAR -->
+            <div class="widget-sidebar">
+                <!-- SECTION TITLE WRAP -->
+                <div class="section-title-wrap blue">
+                    <h2 class="section-title medium">Calendar</h2>
+                    <div class="section-title-separator"></div>
+                </div>
+                <!-- /SECTION TITLE WRAP -->
+
+                <!-- CALENDAR -->
+                <div id="calendar-sidebar" class="calendar small blue">
+                    <!-- CALENDAR HEADER -->
+                    <div class="calendar-header">
+                        <!-- CALENDAR HEADER TOP -->
+                        <div class="calendar-header-top">
+                            <!-- CALENDAR CONTROLS -->
+                            <div id="calendar1-controls" class="calendar-controls slider-controls blue">
+                                <div class="slider-control control-previous">
+                                    <!-- ARROW ICON -->
+                                    <svg class="arrow-icon medium">
+                                        <use xlink:href="#svg-arrow-medium"></use>
+                                    </svg>
+                                    <!-- /ARROW ICON -->
+                                </div>
+                                <div class="slider-control control-next">
+                                    <!-- ARROW ICON -->
+                                    <svg class="arrow-icon medium">
+                                        <use xlink:href="#svg-arrow-medium"></use>
+                                    </svg>
+                                    <!-- /ARROW ICON -->
+                                </div>
+                            </div>
+                            <!-- /CALENDAR CONTROLS -->
+                            <p class="calendar-month-year"><span class="calendar-month"></span><span
+                                    class="calendar-year"></span></p>
+                        </div>
+                        <!-- /CALENDAR HEADER TOP -->
+
+                        <!-- CALENDAR HEADER BOTTOM -->
+                        <div class="calendar-header-bottom"></div>
+                        <!-- /CALENDAR HEADER BOTTOM -->
+                    </div>
+                    <!-- /CALENDAR HEADER -->
+
+                    <!-- CALENDAR BODY -->
+                    <div class="calendar-body"></div>
+                    <!-- /CALENDAR BODY -->
+                </div>
+                <!-- /CALENDAR -->
+            </div>
+            <!-- /WIDGET SIDEBAR -->
         </div>
+        <!-- /LAYOUT SIDEBAR -->
     </div>
-    <!-- End Contact Area -->
+    <!-- /LAYOUT CONTENT 1 -->
 
-    <!-- Start Testimonials
-    ============================================= -->
-    <div class="testimonials-area bg-gray default-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <div class="site-heading less-info text-center">
-                        <h4>Customer Review</h4>
-                        <h2>What People Say</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="testimonial-items testimonial-carousel owl-carousel owl-theme">
-                        <!-- Single Item -->
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="{{ asset('assets/front/buildco/img/800x800.png') }}" alt="Thumb">
-                            </div>
-                            <div class="info">
-                                <p>
-                                    Awesome so many in hung easy find well up. So of exquisite my an explained
-                                    remainder. Dashwood denoting securing be on perceive my laughing so.
-                                </p>
-                                <h4>Ahel Natasha</h4>
-                                <div class="rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half-alt"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="{{ asset('assets/front/buildco/img/800x800.png') }}" alt="Thumb">
-                            </div>
-                            <div class="info">
-                                <p>
-                                    Limits marked led silent dining her she far. Sir but elegance marriage dwelling
-                                    likewise position old pleasure men. Dissimilar themselves simplicity.
-                                </p>
-                                <h4>Jessica Jones</h4>
-                                <div class="rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half-alt"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="{{ asset('assets/front/buildco/img/800x800.png') }}" alt="Thumb">
-                            </div>
-                            <div class="info">
-                                <p>
-                                    Awesome so many in hung easy find well up. So of exquisite my an explained
-                                    remainder. Dashwood denoting securing be on perceive my laughing so.
-                                </p>
-                                <h4>Mark Henri</h4>
-                                <div class="rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half-alt"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Testimonials -->
+    <!-- FOOTER TOP WRAP -->
+    <div class="footer-top-wrap">
+        <!-- FOOTER TOP -->
+        <div class="footer-top grid-limit">
+            <!-- FOOTER TOP BRAND -->
+            <div class="footer-top-brand">
+                <!-- LOGO -->
+                <div class="logo negative">
+                    <!-- LOGO IMG -->
+                    <figure class="logo-img">
+                        <img src="{{ asset('assets/front/img/brand/logo.png') }}" alt="Logo">
+                    </figure>
+                    <!-- /LOGO IMG -->
 
-    <!-- Start Blog
-    ============================================= -->
-    <div class="blog-area default-padding bottom-less">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <div class="site-heading text-center">
-                        <h4>Our Blog</h4>
-                        <h2>Latest News</h2>
-                        <p>
-                            While mirth large of on front. Ye he greater related adapted proceed entered an. Through it
-                            examine express promise no. Past add size game cold girl off how old
+                    <!-- LOGO TEXT -->
+                    <div class="logo-text">
+                        <h2 class="logo-title">Pixel<span class="highlight">Diamond</span></h2>
+                        <p class="logo-info">The Latest Gaming News</p>
+                    </div>
+                    <!-- /LOGO TEXT -->
+                </div>
+                <!-- /LOGO -->
+
+                <!-- SPONSORS SLIDER WRAP -->
+                <div class="sponsors-slider-wrap">
+                    <!-- SPONSORS SLIDER CONTROLS -->
+                    <div id="footer-sponsor-slider-controls" class="sponsors-slider-controls">
+                        <div class="sponsors-slider-control control-previous">
+                            <!-- ARROW ICON -->
+                            <svg class="arrow-icon medium">
+                                <use xlink:href="#svg-arrow-medium"></use>
+                            </svg>
+                            <!-- /ARROW ICON -->
+                        </div>
+                        <div class="sponsors-slider-control control-next">
+                            <!-- ARROW ICON -->
+                            <svg class="arrow-icon medium">
+                                <use xlink:href="#svg-arrow-medium"></use>
+                            </svg>
+                            <!-- /ARROW ICON -->
+                        </div>
+                    </div>
+                    <!-- /SPONSORS SLIDER CONTROLS -->
+
+                    <!-- SPONSORS SLIDER -->
+                    <div id="footer-sponsor-slider" class="sponsors-slider">
+                        <!-- SPONSORS SLIDER ITEMS -->
+                        <div class="sponsors-slider-items">
+                            <!-- SPONSORS SLIDER ITEM -->
+                            <div class="sponsors-slider-item">
+                                <img class="sponsor-img" src="{{ asset('assets/front/img/sponsors/sponsor01.png') }}"
+                                    alt="sponsor01">
+                            </div>
+                            <!-- /SPONSORS SLIDER ITEM -->
+
+                            <!-- SPONSORS SLIDER ITEM -->
+                            <div class="sponsors-slider-item">
+                                <img class="sponsor-img" src="{{ asset('assets/front/img/sponsors/sponsor02.png') }}"
+                                    alt="sponsor02">
+                            </div>
+                            <!-- /SPONSORS SLIDER ITEM -->
+
+                            <!-- SPONSORS SLIDER ITEM -->
+                            <div class="sponsors-slider-item">
+                                <img class="sponsor-img" src="{{ asset('assets/front/img/sponsors/sponsor03.png') }}"
+                                    alt="sponsor03">
+                            </div>
+                            <!-- /SPONSORS SLIDER ITEM -->
+
+                            <!-- SPONSORS SLIDER ITEM -->
+                            <div class="sponsors-slider-item">
+                                <img class="sponsor-img" src="{{ asset('assets/front/img/sponsors/sponsor04.png') }}"
+                                    alt="sponsor04">
+                            </div>
+                            <!-- /SPONSORS SLIDER ITEM -->
+
+                            <!-- SPONSORS SLIDER ITEM -->
+                            <div class="sponsors-slider-item">
+                                <img class="sponsor-img" src="{{ asset('assets/front/img/sponsors/sponsor05.png') }}"
+                                    alt="sponsor05">
+                            </div>
+                            <!-- /SPONSORS SLIDER ITEM -->
+
+                            <!-- SPONSORS SLIDER ITEM -->
+                            <div class="sponsors-slider-item">
+                                <img class="sponsor-img" src="{{ asset('assets/front/img/sponsors/sponsor06.png') }}"
+                                    alt="sponsor06">
+                            </div>
+                            <!-- /SPONSORS SLIDER ITEM -->
+                        </div>
+                        <!-- /SPONSORS SLIDER ITEMS -->
+                    </div>
+                    <!-- /SPONSORS SLIDER -->
+                </div>
+                <!-- /SPONSORS SLIDER WRAP -->
+
+                <!-- SOCIAL LINKS -->
+                <div class="social-links">
+                    <!-- BUBBLE ORNAMENT -->
+                    <a href="#" class="bubble-ornament fb">
+                        <!-- FACEBOOK ICON -->
+                        <svg class="facebook-icon">
+                            <use xlink:href="#svg-facebook"></use>
+                        </svg>
+                        <!-- /FACEBOOK ICON -->
+                    </a>
+                    <!-- /BUBBLE ORNAMENT -->
+
+                    <!-- BUBBLE ORNAMENT -->
+                    <a href="#" class="bubble-ornament twt">
+                        <!-- TWITTER ICON -->
+                        <svg class="twitter-icon">
+                            <use xlink:href="#svg-twitter"></use>
+                        </svg>
+                        <!-- /TWITTER ICON -->
+                    </a>
+                    <!-- /BUBBLE ORNAMENT -->
+
+                    <!-- BUBBLE ORNAMENT -->
+                    <a href="#" class="bubble-ornament insta">
+                        <!-- INSTAGRAM ICON -->
+                        <svg class="instagram-icon">
+                            <use xlink:href="#svg-instagram"></use>
+                        </svg>
+                        <!-- /INSTAGRAM ICON -->
+                    </a>
+                    <!-- /BUBBLE ORNAMENT -->
+
+                    <!-- BUBBLE ORNAMENT -->
+                    <a href="#" class="bubble-ornament twitch">
+                        <!-- TWITCH ICON -->
+                        <svg class="twitch-icon">
+                            <use xlink:href="#svg-twitch"></use>
+                        </svg>
+                        <!-- /TWITCH ICON -->
+                    </a>
+                    <!-- /BUBBLE ORNAMENT -->
+
+                    <!-- BUBBLE ORNAMENT -->
+                    <a href="#" class="bubble-ornament gplus">
+                        <!-- GPLUS ICON -->
+                        <svg class="gplus-icon">
+                            <use xlink:href="#svg-gplus"></use>
+                        </svg>
+                        <!-- /GPLUS ICON -->
+                    </a>
+                    <!-- /BUBBLE ORNAMENT -->
+
+                    <!-- BUBBLE ORNAMENT -->
+                    <a href="#" class="bubble-ornament youtube">
+                        <!-- YOUTUBE ICON -->
+                        <svg class="youtube-icon">
+                            <use xlink:href="#svg-youtube"></use>
+                        </svg>
+                        <!-- /YOUTUBE ICON -->
+                    </a>
+                    <!-- /BUBBLE ORNAMENT -->
+                </div>
+                <!-- /SOCIAL LINKS -->
+            </div>
+            <!-- /FOOTER TOP BRAND -->
+
+            <!-- LINE SEPARATOR -->
+            <div class="line-separator negative"></div>
+
+            <!-- FOOTER TOP WIDGETS -->
+            <div class="footer-top-widgets grid-4col centered gutter-big">
+                <!-- FOOTER TOP WIDGET -->
+                <div class="footer-top-widget">
+                    <!-- SECTION TITLE WRAP -->
+                    <div class="section-title-wrap blue negative">
+                        <h2 class="section-title">Pixel Diamond</h2>
+                        <div class="section-title-separator"></div>
+                    </div>
+                    <!-- /SECTION TITLE WRAP -->
+
+                    <!-- LINK SECTION -->
+                    <div class="link-section">
+                        <!-- LINK LIST -->
+                        <ul class="link-list small v2 negative">
+                            <!-- LINK LIST ITEM -->
+                            <li class="link-list-item">
+                                <a href="index.html">
+                                    <!-- ARROW ICON -->
+                                    <svg class="arrow-icon medium">
+                                        <use xlink:href="#svg-arrow-medium"></use>
+                                    </svg>
+                                    <!-- /ARROW ICON -->
+                                    Home
+                                </a>
+                            </li>
+                            <!-- /LINK LIST ITEM -->
+
+                            <!-- LINK LIST ITEM -->
+                            <li class="link-list-item">
+                                <a href="home-v2.html">
+                                    <!-- ARROW ICON -->
+                                    <svg class="arrow-icon medium">
+                                        <use xlink:href="#svg-arrow-medium"></use>
+                                    </svg>
+                                    <!-- /ARROW ICON -->
+                                    Home V2
+                                </a>
+                            </li>
+                            <!-- /LINK LIST ITEM -->
+
+                            <!-- LINK LIST ITEM -->
+                            <li class="link-list-item">
+                                <a href="home-v3.html">
+                                    <!-- ARROW ICON -->
+                                    <svg class="arrow-icon medium">
+                                        <use xlink:href="#svg-arrow-medium"></use>
+                                    </svg>
+                                    <!-- /ARROW ICON -->
+                                    Home V3
+                                </a>
+                            </li>
+                            <!-- /LINK LIST ITEM -->
+
+                            <!-- LINK LIST ITEM -->
+                            <li class="link-list-item">
+                                <a href="news-v1.html">
+                                    <!-- ARROW ICON -->
+                                    <svg class="arrow-icon medium">
+                                        <use xlink:href="#svg-arrow-medium"></use>
+                                    </svg>
+                                    <!-- /ARROW ICON -->
+                                    News V1
+                                </a>
+                            </li>
+                            <!-- /LINK LIST ITEM -->
+
+                            <!-- LINK LIST ITEM -->
+                            <li class="link-list-item">
+                                <a href="news-v2.html">
+                                    <!-- ARROW ICON -->
+                                    <svg class="arrow-icon medium">
+                                        <use xlink:href="#svg-arrow-medium"></use>
+                                    </svg>
+                                    <!-- /ARROW ICON -->
+                                    News V2
+                                </a>
+                            </li>
+                            <!-- /LINK LIST ITEM -->
+
+                            <!-- LINK LIST ITEM -->
+                            <li class="link-list-item">
+                                <a href="news-v3.html">
+                                    <!-- ARROW ICON -->
+                                    <svg class="arrow-icon medium">
+                                        <use xlink:href="#svg-arrow-medium"></use>
+                                    </svg>
+                                    <!-- /ARROW ICON -->
+                                    News V3
+                                </a>
+                            </li>
+                            <!-- /LINK LIST ITEM -->
+
+                            <!-- LINK LIST ITEM -->
+                            <li class="link-list-item">
+                                <a href="news-v4.html">
+                                    <!-- ARROW ICON -->
+                                    <svg class="arrow-icon medium">
+                                        <use xlink:href="#svg-arrow-medium"></use>
+                                    </svg>
+                                    <!-- /ARROW ICON -->
+                                    News V4
+                                </a>
+                            </li>
+                            <!-- /LINK LIST ITEM -->
+
+                            <!-- LINK LIST ITEM -->
+                            <li class="link-list-item">
+                                <a href="post-v1.html">
+                                    <!-- ARROW ICON -->
+                                    <svg class="arrow-icon medium">
+                                        <use xlink:href="#svg-arrow-medium"></use>
+                                    </svg>
+                                    <!-- /ARROW ICON -->
+                                    Post Page V1
+                                </a>
+                            </li>
+                            <!-- /LINK LIST ITEM -->
+
+                            <!-- LINK LIST ITEM -->
+                            <li class="link-list-item">
+                                <a href="post-v2.html">
+                                    <!-- ARROW ICON -->
+                                    <svg class="arrow-icon medium">
+                                        <use xlink:href="#svg-arrow-medium"></use>
+                                    </svg>
+                                    <!-- /ARROW ICON -->
+                                    Post Page V2
+                                </a>
+                            </li>
+                            <!-- /LINK LIST ITEM -->
+                        </ul>
+                        <!-- /LINK LIST -->
+
+                        <!-- LINK LIST -->
+                        <ul class="link-list small v2 negative">
+                            <!-- LINK LIST ITEM -->
+                            <li class="link-list-item">
+                                <a href="post-v3.html">
+                                    <!-- ARROW ICON -->
+                                    <svg class="arrow-icon medium">
+                                        <use xlink:href="#svg-arrow-medium"></use>
+                                    </svg>
+                                    <!-- /ARROW ICON -->
+                                    Post Page V3
+                                </a>
+                            </li>
+                            <!-- /LINK LIST ITEM -->
+
+                            <!-- LINK LIST ITEM -->
+                            <li class="link-list-item">
+                                <a href="post-v4.html">
+                                    <!-- ARROW ICON -->
+                                    <svg class="arrow-icon medium">
+                                        <use xlink:href="#svg-arrow-medium"></use>
+                                    </svg>
+                                    <!-- /ARROW ICON -->
+                                    Post Page V4
+                                </a>
+                            </li>
+                            <!-- /LINK LIST ITEM -->
+
+                            <!-- LINK LIST ITEM -->
+                            <li class="link-list-item">
+                                <a href="forum.html">
+                                    <!-- ARROW ICON -->
+                                    <svg class="arrow-icon medium">
+                                        <use xlink:href="#svg-arrow-medium"></use>
+                                    </svg>
+                                    <!-- /ARROW ICON -->
+                                    Forums
+                                </a>
+                            </li>
+                            <!-- /LINK LIST ITEM -->
+
+                            <!-- LINK LIST ITEM -->
+                            <li class="link-list-item">
+                                <a href="shop-v1-grid.html">
+                                    <!-- ARROW ICON -->
+                                    <svg class="arrow-icon medium">
+                                        <use xlink:href="#svg-arrow-medium"></use>
+                                    </svg>
+                                    <!-- /ARROW ICON -->
+                                    Shop Page V1
+                                </a>
+                            </li>
+                            <!-- /LINK LIST ITEM -->
+
+                            <!-- LINK LIST ITEM -->
+                            <li class="link-list-item">
+                                <a href="shop-v2.html">
+                                    <!-- ARROW ICON -->
+                                    <svg class="arrow-icon medium">
+                                        <use xlink:href="#svg-arrow-medium"></use>
+                                    </svg>
+                                    <!-- /ARROW ICON -->
+                                    Shop Page V2
+                                </a>
+                            </li>
+                            <!-- /LINK LIST ITEM -->
+
+                            <!-- LINK LIST ITEM -->
+                            <li class="link-list-item">
+                                <a href="product-page.html">
+                                    <!-- ARROW ICON -->
+                                    <svg class="arrow-icon medium">
+                                        <use xlink:href="#svg-arrow-medium"></use>
+                                    </svg>
+                                    <!-- /ARROW ICON -->
+                                    Shop Product
+                                </a>
+                            </li>
+                            <!-- /LINK LIST ITEM -->
+
+                            <!-- LINK LIST ITEM -->
+                            <li class="link-list-item">
+                                <a href="esports-streamers.html">
+                                    <!-- ARROW ICON -->
+                                    <svg class="arrow-icon medium">
+                                        <use xlink:href="#svg-arrow-medium"></use>
+                                    </svg>
+                                    <!-- /ARROW ICON -->
+                                    Streamers
+                                </a>
+                            </li>
+                            <!-- /LINK LIST ITEM -->
+
+                            <!-- LINK LIST ITEM -->
+                            <li class="link-list-item">
+                                <a href="esports-home.html">
+                                    <!-- ARROW ICON -->
+                                    <svg class="arrow-icon medium">
+                                        <use xlink:href="#svg-arrow-medium"></use>
+                                    </svg>
+                                    <!-- /ARROW ICON -->
+                                    eSports
+                                </a>
+                            </li>
+                            <!-- /LINK LIST ITEM -->
+
+                            <!-- LINK LIST ITEM -->
+                            <li class="link-list-item">
+                                <a href="esports-widgets-v1.html">
+                                    <!-- ARROW ICON -->
+                                    <svg class="arrow-icon medium">
+                                        <use xlink:href="#svg-arrow-medium"></use>
+                                    </svg>
+                                    <!-- /ARROW ICON -->
+                                    Widgets
+                                </a>
+                            </li>
+                            <!-- /LINK LIST ITEM -->
+                        </ul>
+                        <!-- /LINK LIST -->
+                    </div>
+                    <!-- /LINK SECTION -->
+                </div>
+                <!-- FOOTER TOP WIDGET -->
+
+                <!-- FOOTER TOP WIDGET -->
+                <div class="footer-top-widget">
+                    <!-- SECTION TITLE WRAP -->
+                    <div class="section-title-wrap red negative">
+                        <h2 class="section-title">Latest Reviews</h2>
+                        <div class="section-title-separator"></div>
+                    </div>
+                    <!-- /SECTION TITLE WRAP -->
+
+                    <!-- POST PREVIEW SHOWCASE -->
+                    <div class="post-preview-showcase grid-1col gutter-small">
+                        <!-- POST PREVIEW -->
+                        <div class="post-preview tiny negative game-review">
+                            <!-- POST PREVIEW IMG WRAP -->
+                            <a href="post-v2.html">
+                                <div class="post-preview-img-wrap">
+                                    <!-- POST PREVIEW IMG -->
+                                    <figure class="post-preview-img liquid">
+                                        <img src="{{ asset('assets/front/img/posts/16.jpg') }}" alt="post-16">
+                                    </figure>
+                                    <!-- /POST PREVIEW IMG -->
+
+                                    <!-- REVIEW RATING -->
+                                    <div class="review-rating">
+                                        <div id="footer-rate-1" class="arc tiny"></div>
+                                    </div>
+                                    <!-- /REVIEW RATING -->
+                                </div>
+                            </a>
+                            <!-- /POST PREVIEW IMG WRAP -->
+
+                            <!-- POST PREVIEW TITLE -->
+                            <a href="post-v2.html" class="post-preview-title">We reviewed the new Magimons game</a>
+                            <!-- POST AUTHOR INFO -->
+                            <div class="post-author-info-wrap">
+                                <p class="post-author-info small light">By <a href="search-results.html"
+                                        class="post-author">Vellatrix</a><span class="separator">|</span>Dec 15th, 2018
+                                </p>
+                            </div>
+                            <!-- /POST AUTHOR INFO -->
+                        </div>
+                        <!-- /POST PREVIEW -->
+
+                        <!-- POST PREVIEW -->
+                        <div class="post-preview tiny negative game-review">
+                            <!-- POST PREVIEW IMG WRAP -->
+                            <a href="post-v2.html">
+                                <div class="post-preview-img-wrap">
+                                    <!-- POST PREVIEW IMG -->
+                                    <figure class="post-preview-img liquid">
+                                        <img src="{{ asset('assets/front/img/posts/25.jpg') }}" alt="post-25">
+                                    </figure>
+                                    <!-- /POST PREVIEW IMG -->
+
+                                    <!-- REVIEW RATING -->
+                                    <div class="review-rating">
+                                        <div id="footer-rate-2" class="arc tiny"></div>
+                                    </div>
+                                    <!-- /REVIEW RATING -->
+                                </div>
+                            </a>
+                            <!-- /POST PREVIEW IMG WRAP -->
+
+                            <!-- POST PREVIEW TITLE -->
+                            <a href="post-v2.html" class="post-preview-title">"Legend of Kenshii II" is a bit green for
+                                now</a>
+                            <!-- POST AUTHOR INFO -->
+                            <div class="post-author-info-wrap">
+                                <p class="post-author-info small light">By <a href="search-results.html"
+                                        class="post-author">Vellatrix</a><span class="separator">|</span>Dec 15th, 2018
+                                </p>
+                            </div>
+                            <!-- /POST AUTHOR INFO -->
+                        </div>
+                        <!-- /POST PREVIEW -->
+
+                        <!-- POST PREVIEW -->
+                        <div class="post-preview tiny negative game-review">
+                            <!-- POST PREVIEW IMG WRAP -->
+                            <a href="post-v2.html">
+                                <div class="post-preview-img-wrap">
+                                    <!-- POST PREVIEW IMG -->
+                                    <figure class="post-preview-img liquid">
+                                        <img src="{{ asset('assets/front/img/posts/05.jpg') }}" alt="post-05">
+                                    </figure>
+                                    <!-- /POST PREVIEW IMG -->
+
+                                    <!-- REVIEW RATING -->
+                                    <div class="review-rating">
+                                        <div id="footer-rate-3" class="arc tiny"></div>
+                                    </div>
+                                    <!-- /REVIEW RATING -->
+                                </div>
+                            </a>
+                            <!-- /POST PREVIEW IMG WRAP -->
+
+                            <!-- POST PREVIEW TITLE -->
+                            <a href="post-v2.html" class="post-preview-title">We reviewed the new and exciting fantasy
+                                game "Olympus"</a>
+                            <!-- POST AUTHOR INFO -->
+                            <div class="post-author-info-wrap">
+                                <p class="post-author-info small light">By <a href="search-results.html"
+                                        class="post-author">Morgana</a><span class="separator">|</span>Dec 15th, 2018
+                                </p>
+                            </div>
+                            <!-- /POST AUTHOR INFO -->
+                        </div>
+                        <!-- /POST PREVIEW -->
+                    </div>
+                    <!-- /POST PREVIEW SHOWCASE -->
+                </div>
+                <!-- FOOTER TOP WIDGET -->
+
+                <!-- FOOTER TOP WIDGET -->
+                <div class="footer-top-widget">
+                    <!-- SECTION TITLE WRAP -->
+                    <div class="section-title-wrap blue negative">
+                        <h2 class="section-title">Latest Posts</h2>
+                        <div class="section-title-separator"></div>
+                    </div>
+                    <!-- /SECTION TITLE WRAP -->
+
+                    <!-- POST PREVIEW SHOWCASE -->
+                    <div class="post-preview-showcase grid-1col gutter-small">
+                        <!-- POST PREVIEW -->
+                        <div class="post-preview tiny negative gaming-news">
+                            <!-- POST PREVIEW IMG WRAP -->
+                            <a href="post-v1.html">
+                                <div class="post-preview-img-wrap">
+                                    <!-- POST PREVIEW IMG -->
+                                    <figure class="post-preview-img liquid">
+                                        <img src="{{ asset('assets/front/img/posts/17.jpg') }}" alt="post-17">
+                                    </figure>
+                                    <!-- /POST PREVIEW IMG -->
+                                </div>
+                            </a>
+                            <!-- /POST PREVIEW IMG WRAP -->
+
+                            <!-- POST PREVIEW TITLE -->
+                            <a href="post-v1.html" class="post-preview-title">Jazzstar announced that the GTE5 for PC is
+                                delayed</a>
+                            <!-- POST AUTHOR INFO -->
+                            <div class="post-author-info-wrap">
+                                <p class="post-author-info small light">By <a href="search-results.html"
+                                        class="post-author">Dexter</a><span class="separator">|</span>Dec 15th, 2018</p>
+                            </div>
+                            <!-- /POST AUTHOR INFO -->
+                        </div>
+                        <!-- /POST PREVIEW -->
+
+                        <!-- POST PREVIEW -->
+                        <div class="post-preview tiny negative geeky-news">
+                            <!-- POST PREVIEW IMG WRAP -->
+                            <a href="post-v4.html">
+                                <div class="post-preview-img-wrap">
+                                    <!-- POST PREVIEW IMG -->
+                                    <figure class="post-preview-img liquid">
+                                        <img src="{{ asset('assets/front/img/posts/02.jpg') }}" alt="post-02">
+                                    </figure>
+                                    <!-- /POST PREVIEW IMG -->
+                                </div>
+                            </a>
+                            <!-- /POST PREVIEW IMG WRAP -->
+
+                            <!-- POST PREVIEW TITLE -->
+                            <a href="post-v4.html" class="post-preview-title">Jessica Tam to star in the new "Charlotte"
+                                series</a>
+                            <!-- POST AUTHOR INFO -->
+                            <div class="post-author-info-wrap">
+                                <p class="post-author-info small light">By <a href="search-results.html"
+                                        class="post-author">Vellatrix</a><span class="separator">|</span>Dec 15th, 2018
+                                </p>
+                            </div>
+                            <!-- /POST AUTHOR INFO -->
+                        </div>
+                        <!-- /POST PREVIEW -->
+
+                        <!-- POST PREVIEW -->
+                        <div class="post-preview tiny negative gaming-news">
+                            <!-- POST PREVIEW IMG WRAP -->
+                            <a href="post-v1.html">
+                                <div class="post-preview-img-wrap">
+                                    <!-- POST PREVIEW IMG -->
+                                    <figure class="post-preview-img liquid">
+                                        <img src="{{ asset('assets/front/img/posts/09.jpg') }}" alt="post-09">
+                                    </figure>
+                                    <!-- /POST PREVIEW IMG -->
+                                </div>
+                            </a>
+                            <!-- /POST PREVIEW IMG WRAP -->
+
+                            <!-- POST PREVIEW TITLE -->
+                            <a href="post-v1.html" class="post-preview-title">New "Rizen" game is gonna be released in
+                                summer 2019</a>
+                            <!-- POST AUTHOR INFO -->
+                            <div class="post-author-info-wrap">
+                                <p class="post-author-info small light">By <a href="search-results.html"
+                                        class="post-author">Dexter</a><span class="separator">|</span>Dec 15th, 2018</p>
+                            </div>
+                            <!-- /POST AUTHOR INFO -->
+                        </div>
+                        <!-- /POST PREVIEW -->
+                    </div>
+                    <!-- POST PREVIEW SHOWCASE -->
+                </div>
+                <!-- FOOTER TOP WIDGET -->
+
+                <!-- FOOTER TOP WIDGET -->
+                <div class="footer-top-widget">
+                    <!-- SECTION TITLE WRAP -->
+                    <div class="section-title-wrap blue negative">
+                        <h2 class="section-title">Popular Posts</h2>
+                        <div class="section-title-separator"></div>
+                    </div>
+                    <!-- /SECTION TITLE WRAP -->
+
+                    <!-- POST PREVIEW SHOWCASE -->
+                    <div class="post-preview-showcase grid-1col gutter-small">
+                        <!-- POST PREVIEW -->
+                        <div class="post-preview tiny negative gaming-news">
+                            <!-- POST PREVIEW IMG WRAP -->
+                            <a href="post-v1.html">
+                                <div class="post-preview-img-wrap">
+                                    <!-- POST PREVIEW IMG -->
+                                    <figure class="post-preview-img liquid">
+                                        <img src="{{ asset('assets/front/img/posts/01.jpg') }}" alt="post-01">
+                                    </figure>
+                                    <!-- /POST PREVIEW IMG -->
+                                </div>
+                            </a>
+                            <!-- /POST PREVIEW IMG WRAP -->
+
+                            <!-- POST PREVIEW TITLE -->
+                            <a href="post-v1.html" class="post-preview-title">The Clash of Dragons is breaking record
+                                sales in USA and Japan</a>
+                            <!-- POST AUTHOR INFO -->
+                            <div class="post-author-info-wrap">
+                                <p class="post-author-info small light">By <a href="search-results.html"
+                                        class="post-author">Dexter</a><span class="separator">|</span>Dec 15th, 2018</p>
+                            </div>
+                            <!-- /POST AUTHOR INFO -->
+                        </div>
+                        <!-- /POST PREVIEW -->
+
+                        <!-- POST PREVIEW -->
+                        <div class="post-preview tiny negative game-review">
+                            <!-- POST PREVIEW IMG WRAP -->
+                            <a href="post-v2.html">
+                                <div class="post-preview-img-wrap">
+                                    <!-- POST PREVIEW IMG -->
+                                    <figure class="post-preview-img liquid">
+                                        <img src="{{ asset('assets/front/img/posts/25.jpg') }}" alt="post-25">
+                                    </figure>
+                                    <!-- /POST PREVIEW IMG -->
+
+                                    <!-- REVIEW RATING -->
+                                    <div class="review-rating">
+                                        <div id="footer-rate-4" class="arc tiny"></div>
+                                    </div>
+                                    <!-- /REVIEW RATING -->
+                                </div>
+                            </a>
+                            <!-- /POST PREVIEW IMG WRAP -->
+
+                            <!-- POST PREVIEW TITLE -->
+                            <a href="post-v2.html" class="post-preview-title">"Legend of Kenshii II" is a bit green for
+                                now</a>
+                            <!-- POST AUTHOR INFO -->
+                            <div class="post-author-info-wrap">
+                                <p class="post-author-info small light">By <a href="search-results.html"
+                                        class="post-author">Vellatrix</a><span class="separator">|</span>Dec 15th, 2018
+                                </p>
+                            </div>
+                            <!-- /POST AUTHOR INFO -->
+                        </div>
+                        <!-- /POST PREVIEW -->
+
+                        <!-- POST PREVIEW -->
+                        <div class="post-preview tiny negative movie-news">
+                            <!-- POST PREVIEW IMG WRAP -->
+                            <a href="post-v3.html">
+                                <div class="post-preview-img-wrap">
+                                    <!-- POST PREVIEW IMG -->
+                                    <figure class="post-preview-img liquid">
+                                        <img src="{{ asset('assets/front/img/posts/12.jpg') }}" alt="post-12">
+                                    </figure>
+                                    <!-- /POST PREVIEW IMG -->
+
+                                    <!-- RATING ORNAMENT -->
+                                    <div class="rating-ornament">
+                                        <!-- RATING ORNAMENT ITEM -->
+                                        <div class="rating-ornament-item">
+                                            <!-- RATING ORNAMENT ICON -->
+                                            <svg class="rating-ornament-icon">
+                                                <use xlink:href="#svg-star"></use>
+                                            </svg>
+                                        </div>
+                                        <!-- /RATING ORNAMENT ITEM -->
+
+                                        <!-- RATING ORNAMENT ITEM -->
+                                        <div class="rating-ornament-item">
+                                            <!-- RATING ORNAMENT ICON -->
+                                            <svg class="rating-ornament-icon">
+                                                <use xlink:href="#svg-star"></use>
+                                            </svg>
+                                        </div>
+                                        <!-- /RATING ORNAMENT ITEM -->
+
+                                        <!-- RATING ORNAMENT ITEM -->
+                                        <div class="rating-ornament-item">
+                                            <!-- RATING ORNAMENT ICON -->
+                                            <svg class="rating-ornament-icon">
+                                                <use xlink:href="#svg-star"></use>
+                                            </svg>
+                                        </div>
+                                        <!-- /RATING ORNAMENT ITEM -->
+
+                                        <!-- RATING ORNAMENT ITEM -->
+                                        <div class="rating-ornament-item">
+                                            <!-- RATING ORNAMENT ICON -->
+                                            <svg class="rating-ornament-icon empty">
+                                                <use xlink:href="#svg-star"></use>
+                                            </svg>
+                                        </div>
+                                        <!-- /RATING ORNAMENT ITEM -->
+
+                                        <!-- RATING ORNAMENT ITEM -->
+                                        <div class="rating-ornament-item">
+                                            <!-- RATING ORNAMENT ICON -->
+                                            <svg class="rating-ornament-icon empty">
+                                                <use xlink:href="#svg-star"></use>
+                                            </svg>
+                                        </div>
+                                        <!-- /RATING ORNAMENT ITEM -->
+                                    </div>
+                                    <!-- /RATING ORNAMENT -->
+                                </div>
+                            </a>
+                            <!-- /POST PREVIEW IMG WRAP -->
+
+                            <!-- POST PREVIEW TITLE -->
+                            <a href="post-v3.html" class="post-preview-title">We reviewed the "Guardians of the
+                                Universe" movie</a>
+                            <!-- POST AUTHOR INFO -->
+                            <div class="post-author-info-wrap">
+                                <p class="post-author-info small light">By <a href="search-results.html"
+                                        class="post-author">Faye V.</a><span class="separator">|</span>Dec 15th, 2018
+                                </p>
+                            </div>
+                            <!-- /POST AUTHOR INFO -->
+                        </div>
+                        <!-- /POST PREVIEW -->
+                    </div>
+                    <!-- /POST PREVIEW SHOWCASE -->
+                </div>
+                <!-- FOOTER TOP WIDGET -->
+
+                <!-- FOOTER TOP WIDGET -->
+                <div class="footer-top-widget">
+                    <!-- SECTION TITLE WRAP -->
+                    <div class="section-title-wrap green negative">
+                        <h2 class="section-title">Contact Info</h2>
+                        <div class="section-title-separator"></div>
+                    </div>
+                    <!-- /SECTION TITLE WRAP -->
+
+                    <!-- CONTACT INFO PREVIEW -->
+                    <div class="contact-info-preview negative">
+                        <p class="contact-info-preview-text">Lorem ipsum dolor sit amet, consectetur dasede do eiusmod
+                            <span class="highlighted">tempor</span> unt ut labore et dolore mag lere adveniam, quis rud
+                            citation laboris.
                         </p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="blog-items">
-                    <!-- Single Item -->
-                    <div class="col-md-4">
-                        <div class="single-item">
-                            <div class="thumb">
-                                <a href="#">
-                                    <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
-                                </a>
-                                <div class="author">
-                                    <div class="thumb">
-                                        <img src="{{ asset('assets/front/buildco/img/100x100.png') }}" alt="Author">
-                                    </div>
-                                    <div class="meta">
-                                        <h5>Admin</h5>
-                                        <span>25 Mar, 2019</span>
-                                    </div>
-                                </div>
+                        <!-- CONTACT INFO PREVIEW SIGN -->
+                        <div class="contact-info-preview-sign">
+                            <!-- BUBBLE ORNAMENT -->
+                            <div class="bubble-ornament medium green">
+                                <i class="icon-bubbles bubbles-icon"></i>
                             </div>
-                            <div class="info">
-                                <h4>
-                                    <a href="#">Longer mrs sudden talent become</a>
-                                </h4>
-                                <p>
-                                    On assistance he cultivated considered frequently. Person how having tended direct
-                                    own day man. Saw sufficient indulgence one own you inquietude sympathize.
-                                </p>
-                                <a href="#">Read More <i class="fas fa-arrow-right"></i></a>
-                            </div>
+                            <!-- /BUBBLE ORNAMENT -->
+                            <p class="contact-info-preview-sign-text">Subscribe to our newsletter!</p>
                         </div>
-                    </div>
-                    <!-- Single Item -->
-                    <!-- Single Item -->
-                    <div class="col-md-4">
-                        <div class="single-item">
-                            <div class="thumb">
-                                <a href="#">
-                                    <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
-                                </a>
-                                <div class="author">
-                                    <div class="thumb">
-                                        <img src="{{ asset('assets/front/buildco/img/100x100.png') }}" alt="Author">
-                                    </div>
-                                    <div class="meta">
-                                        <h5>Admin</h5>
-                                        <span>12 Apr, 2019</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="info">
-                                <h4>
-                                    <a href="#">Conduct esteems cottage pasture we winding</a>
-                                </h4>
-                                <p>
-                                    On assistance he cultivated considered frequently. Person how having tended direct
-                                    own day man. Saw sufficient indulgence one own you inquietude sympathize.
-                                </p>
-                                <a href="#">Read More <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Item -->
-                    <!-- Single Item -->
-                    <div class="col-md-4">
-                        <div class="single-item">
-                            <div class="thumb">
-                                <a href="#">
-                                    <img src="{{ asset('assets/front/buildco/img/800x600.png') }}" alt="Thumb">
-                                </a>
-                                <div class="author">
-                                    <div class="thumb">
-                                        <img src="{{ asset('assets/front/buildco/img/100x100.png') }}" alt="Author">
-                                    </div>
-                                    <div class="meta">
-                                        <h5>Admin</h5>
-                                        <span>19 Nov, 2019</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="info">
-                                <h4>
-                                    <a href="#">Considered discovered projecting</a>
-                                </h4>
-                                <p>
-                                    On assistance he cultivated considered frequently. Person how having tended direct
-                                    own day man. Saw sufficient indulgence one own you inquietude sympathize.
-                                </p>
-                                <a href="#">Read More <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Item -->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Blog -->
+                        <!-- CONTACT INFO PREVIEW SIGN -->
 
-    <!-- Start Footer 
-    ============================================= -->
-    <footer class="bg-dark text-light border-right">
-        <div class="container">
-            <div class="row">
-                <div class="f-items">
-
-                    <!-- Single Item -->
-                    <div class="col-md-3 col-sm-6 equal-height item">
-                        <div class="f-item about">
-                            <h4>About</h4>
-                            <ul>
-                                <li>
-                                    <i class="fas fa-envelope"></i>
-                                    <p>Email <span><a
-                                                href="mailto:support@validtheme.com">support@validtheme.com</a></span>
-                                    </p>
-                                </li>
-                                <li>
-                                    <i class="fas fa-map"></i>
-                                    <p>Office <span>123 6th St. Melbourne, FL 32904</span></p>
-                                </li>
-                            </ul>
-                            <div class="bottom">
-                                <h4>Call Us Today</h4>
-                                <span>+123 456 7890 </span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Item -->
-                    <!-- Single Item -->
-                    <div class="col-md-3 col-sm-6 equal-height item">
-                        <div class="f-item link">
-                            <h4>Services</h4>
-                            <ul>
-                                <li>
-                                    <a href="#">Oil & Gas Engineering</a>
-                                </li>
-                                <li>
-                                    <a href="#">Chemical Research</a>
-                                </li>
-                                <li>
-                                    <a href="#">Industrial Equipments</a>
-                                </li>
-                                <li>
-                                    <a href="#">Building & Construction</a>
-                                </li>
-                                <li>
-                                    <a href="#">Energy Production</a>
-                                </li>
-                                <li>
-                                    <a href="#">Mechanical</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- End Single Item -->
-                    <!-- Single Item -->
-                    <div class="col-md-3 col-sm-6 equal-height item">
-                        <div class="f-item link">
-                            <h4>Useful Links</h4>
-                            <ul>
-                                <li>
-                                    <a href="#">Latest News</a>
-                                </li>
-                                <li>
-                                    <a href="#">Careers</a>
-                                </li>
-                                <li>
-                                    <a href="#">General Inquiries</a>
-                                </li>
-                                <li>
-                                    <a href="#">Case Studies</a>
-                                </li>
-                                <li>
-                                    <a href="#">Customers Feedback</a>
-                                </li>
-                                <li>
-                                    <a href="#">Contact Us</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- End Single Item -->
-                    <!-- Single Item -->
-                    <div class="col-md-3 col-sm-6 equal-height item">
-                        <div class="f-item address">
-                            <h4>Opening Hours</h4>
-                            <ul>
-                                <li> <span> Mon - Tues : </span>
-                                    <div class="pull-right"> 6.00 am - 10.00 pm </div>
-                                </li>
-                                <li> <span> Wednes - Thurs :</span>
-                                    <div class="pull-right"> 8.00 am - 6.00 pm </div>
-                                </li>
-                                <li> <span> Sun : </span>
-                                    <div class="pull-right closed"> Closed </div>
-                                </li>
-                            </ul>
-                            <div class="bottom">
-                                <h4>Subscribe Newsletter</h4>
-                                <form action="#">
-                                    <div class="input-group stylish-input-group">
-                                        <input type="email" name="email" class="form-control"
-                                            placeholder="Enter your e-mail here">
-                                        <button type="submit">
-                                            <i class="fa fa-paper-plane"></i>
+                        <!-- CONTACT INFO PREVIEW FORM -->
+                        <form method="GET" class="contact-info-preview-form">
+                            <!-- FORM ROW -->
+                            <div class="form-row">
+                                <!-- FORM ITEM -->
+                                <div class="form-item">
+                                    <!-- SUBMIT INPUT -->
+                                    <div class="submit-input green">
+                                        <input type="text" id="footer-subscribe-email" name="footer-subscribe-email"
+                                            placeholder="Enter your email here...">
+                                        <button class="submit-input-button">
+                                            <!-- ARROW ICON -->
+                                            <svg class="arrow-icon medium">
+                                                <use xlink:href="#svg-arrow-medium"></use>
+                                            </svg>
+                                            <!-- /ARROW ICON -->
                                         </button>
                                     </div>
-                                </form>
+                                    <!-- /SUBMIT INPUT -->
+                                </div>
+                                <!-- /FORM ITEM -->
                             </div>
+                            <!-- /FORM ROW -->
+                        </form>
+                        <!-- /CONTACT INFO PREVIEW FORM -->
+
+                        <!-- CONTACT INFO PREVIEW EMAIL WRAP -->
+                        <div class="contact-info-preview-email-wrap">
+                            <i class="email-icon icon-envelope"></i>
+                            <a href="mailto:info@pixeldiamond.com"
+                                class="contact-info-preview-email">info@pixeldiamond.com</a>
                         </div>
+                        <!-- CONTACT INFO PREVIEW EMAIL WRAP -->
                     </div>
-                    <!-- End Single Item -->
+                    <!-- /CONTACT INFO PREVIEW -->
                 </div>
-            </div>
-        </div>
-        <!-- Start Footer Bottom -->
-        <div class="footer-bottom bg-dark text-light">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <p>&copy; Copyright 2019. All Rights Reserved by <a href="#">validthemes</a></p>
+                <!-- FOOTER TOP WIDGET -->
+
+                <!-- FOOTER TOP WIDGET -->
+                <div class="footer-top-widget">
+                    <!-- SECTION TITLE WRAP -->
+                    <div class="section-title-wrap blue-light negative">
+                        <h2 class="section-title">Twitter Widget</h2>
+                        <div class="section-title-separator"></div>
                     </div>
-                    <div class="col-md-6 text-right link">
-                        <ul>
-                            <li>
-                                <a href="#">Terms of user</a>
-                            </li>
-                            <li>
-                                <a href="#">License</a>
-                            </li>
-                            <li>
-                                <a href="#">Support</a>
-                            </li>
-                        </ul>
+                    <!-- /SECTION TITLE WRAP -->
+
+                    <!-- TWEETS PREVIEW WIDGET -->
+                    <div class="tweets-preview-widget">
                     </div>
+                    <!-- TWEETS PREVIEW WIDGET -->
                 </div>
+                <!-- FOOTER TOP WIDGET -->
+
+                <!-- FOOTER TOP WIDGET -->
+                <div class="footer-top-widget">
+                    <!-- SECTION TITLE WRAP -->
+                    <div class="section-title-wrap violet negative">
+                        <h2 class="section-title">Latest Products</h2>
+                        <div class="section-title-separator"></div>
+                    </div>
+                    <!-- /SECTION TITLE WRAP -->
+
+                    <!-- PRODUCT PREVIEW SHOWCASE -->
+                    <div class="product-preview-showcase grid-1col gutter-small">
+                        <!-- PRODUCT PREVIEW -->
+                        <div class="product-preview tiny negative">
+                            <!-- PRODUCT PREVIEW IMG WRAP -->
+                            <div class="product-preview-img-wrap">
+                                <!-- PRODUCT PREVIEW IMG -->
+                                <a href="product-page.html">
+                                    <figure class="product-preview-img liquid">
+                                        <img src="{{ asset('assets/front/img/products/01.jpg') }}" alt="product-01">
+                                    </figure>
+                                </a>
+                                <!-- /PRODUCT PREVIEW IMG -->
+                            </div>
+                            <!-- /PRODUCT PREVIEW IMG WRAP -->
+
+                            <!-- PRODUCT PREVIEW TITLE -->
+                            <a href="product-page.html" class="product-preview-title">New Funtendo 3XSD - Black</a>
+                            <!-- PRODUCT PREVIEW INFO -->
+                            <div class="product-preview-info">
+                                <!-- PRODUCT PREVIEW CATEGORY -->
+                                <a href="shop-v1-grid.html" class="product-preview-category">Funtendo</a>
+                                <!-- RATING ORNAMENT -->
+                                <div class="rating-ornament small void yellow">
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon empty">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+                                </div>
+                                <!-- /RATING ORNAMENT -->
+                            </div>
+                            <!-- /PRODUCT PREVIEW INFO -->
+
+                            <!-- PRODUCT PRICE WRAP -->
+                            <div class="product-price-wrap">
+                                <p class="product-preview-price current"><span class="currency">$</span>199.00</p>
+                            </div>
+                            <!-- /PRODUCT PRICE WRAP -->
+                        </div>
+                        <!-- /PRODUCT PREVIEW -->
+
+                        <!-- PRODUCT PREVIEW -->
+                        <div class="product-preview tiny negative">
+                            <!-- PRODUCT PREVIEW IMG WRAP -->
+                            <div class="product-preview-img-wrap">
+                                <!-- PRODUCT PREVIEW IMG -->
+                                <a href="product-page.html">
+                                    <figure class="product-preview-img liquid">
+                                        <img src="{{ asset('assets/front/img/products/04.jpg') }}" alt="product-04">
+                                    </figure>
+                                </a>
+                                <!-- /PRODUCT PREVIEW IMG -->
+                            </div>
+                            <!-- /PRODUCT PREVIEW IMG WRAP -->
+
+                            <!-- PRODUCT PREVIEW TITLE -->
+                            <a href="product-page.html" class="product-preview-title">Mee U - kawai 8 bundle</a>
+                            <!-- PRODUCT PREVIEW INFO -->
+                            <div class="product-preview-info">
+                                <!-- PRODUCT PREVIEW CATEGORY -->
+                                <a href="shop-v1-grid.html" class="product-preview-category">Funtendo</a>
+                                <!-- RATING ORNAMENT -->
+                                <div class="rating-ornament small void yellow">
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon empty">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon empty">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+                                </div>
+                                <!-- /RATING ORNAMENT -->
+                            </div>
+                            <!-- /PRODUCT PREVIEW INFO -->
+
+                            <!-- PRODUCT PRICE WRAP -->
+                            <div class="product-price-wrap">
+                                <p class="product-preview-price before"><span class="currency">$</span>310.00</p>
+                                <p class="product-preview-price current"><span class="currency">$</span>280.00</p>
+                            </div>
+                            <!-- /PRODUCT PRICE WRAP -->
+                        </div>
+                        <!-- /PRODUCT PREVIEW -->
+
+                        <!-- PRODUCT PREVIEW -->
+                        <div class="product-preview tiny negative">
+                            <!-- PRODUCT PREVIEW IMG WRAP -->
+                            <div class="product-preview-img-wrap">
+                                <!-- PRODUCT PREVIEW IMG -->
+                                <a href="product-page.html">
+                                    <figure class="product-preview-img liquid">
+                                        <img src="{{ asset('assets/front/img/products/06.jpg') }}" alt="product-06">
+                                    </figure>
+                                </a>
+                                <!-- /PRODUCT PREVIEW IMG -->
+                            </div>
+                            <!-- /PRODUCT PREVIEW IMG WRAP -->
+
+                            <!-- PRODUCT PREVIEW TITLE -->
+                            <a href="product-page.html" class="product-preview-title">Crimson red joystick</a>
+                            <!-- PRODUCT PREVIEW INFO -->
+                            <div class="product-preview-info">
+                                <!-- PRODUCT PREVIEW CATEGORY -->
+                                <a href="shop-v1-grid.html" class="product-preview-category">Powerstation</a>
+                                <!-- RATING ORNAMENT -->
+                                <div class="rating-ornament small void yellow">
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+                                </div>
+                                <!-- /RATING ORNAMENT -->
+                            </div>
+                            <!-- /PRODUCT PREVIEW INFO -->
+
+                            <!-- PRODUCT PRICE WRAP -->
+                            <div class="product-price-wrap">
+                                <p class="product-preview-price current"><span class="currency">$</span>32.50</p>
+                            </div>
+                            <!-- /PRODUCT PRICE WRAP -->
+                        </div>
+                        <!-- /PRODUCT PREVIEW -->
+                    </div>
+                    <!-- /PRODUCT PREVIEW SHOWCASE -->
+                </div>
+                <!-- FOOTER TOP WIDGET -->
+
+                <!-- FOOTER TOP WIDGET -->
+                <div class="footer-top-widget">
+                    <!-- SECTION TITLE WRAP -->
+                    <div class="section-title-wrap yellow negative">
+                        <h2 class="section-title">New Item Deals</h2>
+                        <div class="section-title-separator"></div>
+                    </div>
+                    <!-- /SECTION TITLE WRAP -->
+
+                    <!-- PRODUCT PREVIEW SHOWCASE -->
+                    <div class="product-preview-showcase grid-1col gutter-small">
+                        <!-- PRODUCT PREVIEW -->
+                        <div class="product-preview tiny negative">
+                            <!-- PRODUCT PREVIEW IMG WRAP -->
+                            <div class="product-preview-img-wrap">
+                                <!-- PRODUCT PREVIEW IMG -->
+                                <a href="product-page.html">
+                                    <figure class="product-preview-img liquid">
+                                        <img src="{{ asset('assets/front/img/products/05.jpg') }}" alt="product-05">
+                                    </figure>
+                                </a>
+                                <!-- /PRODUCT PREVIEW IMG -->
+                            </div>
+                            <!-- /PRODUCT PREVIEW IMG WRAP -->
+
+                            <!-- PRODUCT PREVIEW TITLE -->
+                            <a href="product-page.html" class="product-preview-title">Carbon black joystick</a>
+                            <!-- PRODUCT PREVIEW INFO -->
+                            <div class="product-preview-info">
+                                <!-- PRODUCT PREVIEW CATEGORY -->
+                                <a href="shop-v1-grid.html" class="product-preview-category">XRock One</a>
+                                <!-- RATING ORNAMENT -->
+                                <div class="rating-ornament small void yellow">
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon empty">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+                                </div>
+                                <!-- /RATING ORNAMENT -->
+                            </div>
+                            <!-- /PRODUCT PREVIEW INFO -->
+
+                            <!-- PRODUCT PRICE WRAP -->
+                            <div class="product-price-wrap">
+                                <p class="product-preview-price before"><span class="currency">$</span>60.00</p>
+                                <p class="product-preview-price current"><span class="currency">$</span>55.00</p>
+                            </div>
+                            <!-- /PRODUCT PRICE WRAP -->
+                        </div>
+                        <!-- /PRODUCT PREVIEW -->
+
+                        <!-- PRODUCT PREVIEW -->
+                        <div class="product-preview tiny negative">
+                            <!-- PRODUCT PREVIEW IMG WRAP -->
+                            <div class="product-preview-img-wrap">
+                                <!-- PRODUCT PREVIEW IMG -->
+                                <a href="product-page.html">
+                                    <figure class="product-preview-img liquid">
+                                        <img src="{{ asset('assets/front/img/products/03.jpg') }}" alt="product-03">
+                                    </figure>
+                                </a>
+                                <!-- /PRODUCT PREVIEW IMG -->
+                            </div>
+                            <!-- /PRODUCT PREVIEW IMG WRAP -->
+
+                            <!-- PRODUCT PREVIEW TITLE -->
+                            <a href="product-page.html" class="product-preview-title">Powerstation 4 bundle</a>
+                            <!-- PRODUCT PREVIEW INFO -->
+                            <div class="product-preview-info">
+                                <!-- PRODUCT PREVIEW CATEGORY -->
+                                <a href="shop-v1-grid.html" class="product-preview-category">Powerstation</a>
+                                <!-- RATING ORNAMENT -->
+                                <div class="rating-ornament small void yellow">
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon empty">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+                                </div>
+                                <!-- /RATING ORNAMENT -->
+                            </div>
+                            <!-- /PRODUCT PREVIEW INFO -->
+
+                            <!-- PRODUCT PRICE WRAP -->
+                            <div class="product-price-wrap">
+                                <p class="product-preview-price current"><span class="currency">$</span>250.00</p>
+                            </div>
+                            <!-- /PRODUCT PRICE WRAP -->
+                        </div>
+                        <!-- /PRODUCT PREVIEW -->
+
+                        <!-- PRODUCT PREVIEW -->
+                        <div class="product-preview tiny negative">
+                            <!-- PRODUCT PREVIEW IMG WRAP -->
+                            <div class="product-preview-img-wrap">
+                                <!-- PRODUCT PREVIEW IMG -->
+                                <a href="product-page.html">
+                                    <figure class="product-preview-img liquid">
+                                        <img src="{{ asset('assets/front/img/products/08.jpg') }}" alt="product-08">
+                                    </figure>
+                                </a>
+                                <!-- /PRODUCT PREVIEW IMG -->
+                            </div>
+                            <!-- /PRODUCT PREVIEW IMG WRAP -->
+
+                            <!-- PRODUCT PREVIEW TITLE -->
+                            <a href="product-page.html" class="product-preview-title">Tales of Odd Dimensions</a>
+                            <!-- PRODUCT PREVIEW INFO -->
+                            <div class="product-preview-info">
+                                <!-- PRODUCT PREVIEW CATEGORY -->
+                                <a href="shop-v1-grid.html" class="product-preview-category">Funtendo Mee U</a>
+                                <!-- RATING ORNAMENT -->
+                                <div class="rating-ornament small void yellow">
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+
+                                    <!-- RATING ORNAMENT ITEM -->
+                                    <div class="rating-ornament-item">
+                                        <!-- RATING ORNAMENT ICON -->
+                                        <svg class="rating-ornament-icon">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                    </div>
+                                    <!-- /RATING ORNAMENT ITEM -->
+                                </div>
+                                <!-- /RATING ORNAMENT -->
+                            </div>
+                            <!-- /PRODUCT PREVIEW INFO -->
+
+                            <!-- PRODUCT PRICE WRAP -->
+                            <div class="product-price-wrap">
+                                <p class="product-preview-price current"><span class="currency">$</span>60.00</p>
+                            </div>
+                            <!-- /PRODUCT PRICE WRAP -->
+                        </div>
+                        <!-- /PRODUCT PREVIEW -->
+                    </div>
+                    <!-- /PRODUCT PREVIEW SHOWCASE -->
+                </div>
+                <!-- FOOTER TOP WIDGET -->
             </div>
+            <!-- /FOOTER TOP WIDGETS -->
         </div>
-        <!-- End Footer Bottom -->
-    </footer>
-    <!-- End Footer -->
+        <!-- /FOOTER TOP -->
+    </div>
+    <!-- /FOOTER TOP WRAP -->
 
-    <!-- jQuery Frameworks
-    ============================================= -->
-    <script src="{{ asset('assets/front/buildco/js/jquery-1.12.4.min.js') }}"></script>
-    <script src="{{ asset('assets/front/buildco/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('assets/front/buildco/js/equal-height.min.js') }}"></script>
-    <script src="{{ asset('assets/front/buildco/js/jquery.appear.js') }}"></script>
-    <script src="{{ asset('assets/front/buildco/js/jquery.easing.min.js') }}"></script>
-    <script src="{{ asset('assets/front/buildco/js/jquery.magnific-popup.min.js') }}"></script>
-    <script src="{{ asset('assets/front/buildco/js/modernizr.custom.13711.js') }}"></script>
-    <script src="{{ asset('assets/front/buildco/js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('assets/front/buildco/js/wow.min.js') }}"></script>
-    <script src="{{ asset('assets/front/buildco/js/progress-bar.min.js') }}"></script>
-    <script src="{{ asset('assets/front/buildco/js/isotope.pkgd.min.js') }}"></script>
-    <script src="{{ asset('assets/front/buildco/js/imagesloaded.pkgd.min.js') }}"></script>
-    <script src="{{ asset('assets/front/buildco/js/count-to.js') }}"></script>
-    <script src="{{ asset('assets/front/buildco/js/bootsnav.js') }}"></script>
-    <script src="{{ asset('assets/front/buildco/js/main.js') }}"></script>
+    <!-- FOOTER BOTTOM WRAP -->
+    <div class="footer-bottom-wrap">
+        <!-- FOOTER BOTTOM -->
+        <div class="footer-bottom grid-limit">
+            <p class="footer-bottom-text"><span class="brand"><span class="highlighted">Pixel Diamond</span>
+                    Theme</span><span class="separator">|</span>All Rights Reserved 2018</p>
+            <p class="footer-bottom-text"><a href="#">Terms and Conditions</a><span class="separator">|</span><a
+                    href="#">Privacy Policy</a></p>
+        </div>
+        <!-- /FOOTER BOTTOM -->
+    </div>
+    <!-- /FOOTER BOTTOM WRAP -->
 
-</body>
-
-</html>
+ 

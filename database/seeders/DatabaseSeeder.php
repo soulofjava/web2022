@@ -43,7 +43,9 @@ class DatabaseSeeder extends Seeder
             'facebook' => 'https://www.facebook.com/wonosobohebat/',
             'youtube' => 'https://www.youtube.com/@bappedawonosobo7742',
             'url_stream' => '#',
-            'themes_front' => 'buildco',
+            'latitude' => '-7.356736983762923',
+            'longitude' => '109.90523099899293',
+            'themes_front' => 'pixel',
             'themes_back' => 'back.a',
             'open_hours' => "Senin - Kamis (07:00 - 16:00 WIB) Jum'at (07:00 - 11:00 WIB)",
         ]);
