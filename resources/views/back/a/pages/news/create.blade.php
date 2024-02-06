@@ -2,6 +2,12 @@
 @push('after-style')
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dropzone@5.9.2/dist/dropzone.css"
     integrity="sha256-6X2vamB3vs1zAJefAme/aHhUeJl13mYKs3VKpIGmcV4=" crossorigin="anonymous">
+<style>
+    .dz-image img {
+        width: 100%;
+        height: 100%;
+    }
+</style>
 @endpush
 @section('content')
 <div class="content">
@@ -16,18 +22,8 @@
                     <h4 class="card-title">Form Tambah Data</h4>
                     {{Form::open(['route' => 'news.store','method' => 'post', 'files' => 'true', ''])}}
 
-                    <div class="togglebutton" style="margin-bottom: 15px;">
-                        <label>
-                            Data DIP? <input name="datadip" type="checkbox" id="hideButton">
-                        </label>
-                    </div>
-
                     <!-- Example of a form that Dropzone can take over -->
                     <div class="dropzone" id="my-awesome-dropzone"></div>
-                    <!-- <div class="form-group label-floating">
-                        <label class="control-label">Highlight</label>
-                        {{Form::select('highlight', $highlight, null, ['class' => 'form-control'])}}
-                    </div> -->
 
                     <div class="form-group jip" style="display: none;">
                         <label class="control-label">Jenis Informasi Publik</label>

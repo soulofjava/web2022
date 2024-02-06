@@ -16,6 +16,7 @@ use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\ComRegionController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\HelperController;
 use App\Http\Controllers\MigrasiDataController;
 use App\Http\Controllers\SSO\SSOController;
 use App\Models\Counter;
@@ -24,7 +25,6 @@ use App\Models\News;
 use App\Models\Website;
 use App\Models\Themes;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Redirect;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,18 +36,6 @@ use Illuminate\Support\Facades\Redirect;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-// Route::group(
-//     ['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']],
-//     function () {
-//         \UniSharp\LaravelFilemanager\Lfm::routes();
-//     }
-// );
-
-Route::any('/register', function () {
-    return Redirect::to(route('login'));
-});
-
 Route::get('sso', [SSOController::class, 'getLogin'])->name('sso.login');
 Route::get('callback', [SSOController::class, 'getCallback'])->name('sso.callback');
 Route::get('ssouser', [SSOController::class, 'connectUser'])->name('sso.authuser');
@@ -84,7 +72,7 @@ Route::get('/', function () {
             $berita = [];
         }
 
-        $news = News::with('gambar', 'gambarmuka', 'uploader')->orderBy('date', 'desc')->paginate(9);
+        $news = News::with('gambarmuka', 'uploader')->latest('date')->paginate(6);
         return view('front.pages.index', compact('news', 'berita'));
         // return view('front.index', compact('news', 'berita'));
     } else {
@@ -144,12 +132,6 @@ Route::group(['middleware' => ['auth', 'data_web', 'cek_inbox'], 'prefix' => 'ad
     Route::post('sendCentangFM', [FrontMenuController::class, 'changeAccess'])->name('centangfm');
     Route::get('getAlamat', [WebsiteController::class, 'location']);
     Route::resource('file_image', FileController::class);
-
-    // pindah data dari database wonsobokab
-    Route::get('insert', [NewsController::class, 'insert']);
-
-    // Route::get('/menu/checkSlug', [FrontMenuController::class, 'checkSlug']);
-
 });
 
 // get data for front menu parent
@@ -165,5 +147,4 @@ Route::get('kecamatan', [ComRegionController::class, 'kecamatan'])->name('kecama
 Route::get('kelurahan', [ComRegionController::class, 'kelurahan'])->name('kelurahan');
 
 Route::get('template_email', [FrontController::class, 'template_email']);
-
-// Route::get('delete_image/{id?}', [FileController::class, 'destroy']);
+Route::get('show-picture', [HelperController::class, 'showPicture'])->name('helper.show-picture');

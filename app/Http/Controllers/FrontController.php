@@ -98,7 +98,7 @@ class FrontController extends Controller
         $next = $data->id + 1;
         $next_data = News::with('gambar', 'uploader')->where('id', $next)->first();
 
-        return view('front.' . $this->themes->themes_front . '.pages.newsdetail', compact('data', 'news', 'file', 'prev_data', 'next_data'));
+        return view('front.pages.newsdetail', compact('data', 'news', 'file', 'prev_data', 'next_data'));
     }
 
     public function detailberita($id)

@@ -2,6 +2,12 @@
 @push('after-style')
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dropzone@5.9.2/dist/dropzone.css"
     integrity="sha256-6X2vamB3vs1zAJefAme/aHhUeJl13mYKs3VKpIGmcV4=" crossorigin="anonymous">
+<style>
+    .dz-image img {
+        width: 100%;
+        height: 100%;
+    }
+</style>
 @endpush
 @section('content')
 <div class="content">
@@ -19,13 +25,6 @@
 
                     <input type="text" value="{{ $data->id }}" id="malika" hidden>
                     <input type="text" value="{{ $data->dip }}" id="bbb" hidden>
-
-                    <div class="togglebutton" style="margin-bottom: 15px;">
-                        <label>
-                            Data DIP? <input name="datadip" type="checkbox" id="hideButton" {{ $data->dip ? 'checked' :
-                            '' }}>
-                        </label>
-                    </div>
 
                     <div class="dropzone" id="my-awesome-dropzone"></div>
 

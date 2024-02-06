@@ -1,69 +1,243 @@
 @extends('front.layouts.app')
 @section('content')
-<!-- Start Breadcrumb 
-    ============================================= -->
-<div class="breadcrumb-area shadow dark bg-fixed text-center text-light"
-    style="background-image: url(assets/img/2440x1578.png);">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-12">
-                <h1>{{ $data->title }}</h1>
-                <ul class="breadcrumb">
-                    <li><a href="{{ url('/') }}"><i class="fas fa-home"></i> Beranda</a></li>
-                    <li><a href="{{ url('newsall') }}">Postingan</a></li>
-                    <li class="active">Detail Postingan</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Breadcrumb -->
+<!-- LAYOUT CONTENT 1 -->
+<div class="layout-content-1 layout-item-3-1 grid-limit">
+    <!-- LAYOUT BODY -->
+    <div class="layout-body">
+        <!-- LAYOUT ITEM -->
+        <div class="layout-item gutter-big">
+            <!-- POST OPEN -->
+            <div class="post-open gaming-news">
+                
+                <img src="{{ route('helper.show-picture', ['path' => $data->gambarmuka->path ?? '']) }}" alt="post-13" style="width: 100%; height: 500px;">
 
-<!-- Start Blog
-    ============================================= -->
-<div class="blog-area single full-blog full-blog default-padding">
-    <div class="container">
-        <div class="row">
-            <div class="blog-items">
-                <div class="blog-content col-md-10 col-md-offset-1">
-                    <div class="single-item">
+                <!-- POST OPEN CONTENT -->
+                <div class="post-open-content">
+                    <!-- POST OPEN BODY  -->
+                    <div class="post-open-body">
+                        <!-- TAG LIST -->
+                        <!-- <div class="tag-list">
+                            <a href="news-v1.html" class="tag-ornament">Gaming News</a>
+                        </div> -->
+                        <!-- /TAG LIST -->
 
-                        <!-- Start Post Thumb -->
-                        <div class="thumb">
-                            @if(count($data->gambar))
-                            <x-looping-image :foto="$data" />
-                            @else
-                            <img src="{{ asset('img/soulofjava.jpg') }}" alt="soul of java">
-                            @endif
-                            <div class="author">
-                                <div class="thumb">
-                                    <img src="https://ui-avatars.com/api/?name= {{ $data->uploader->name ?? 'Admin' }}"
-                                        alt="Author">
-                                </div>
-                                <div class="meta">
-                                    <h5>{{ $data->uploader->name ?? 'Admin' }}</h5>
-                                    <span>{{ \Carbon\Carbon::parse($data->date)->format('l') }},
-                                        {{ \Carbon\Carbon::parse( $data->date)->toFormattedDateString() }}</span>
-                                </div>
-                            </div>
+                        <!-- POST OPEN TITLE -->
+                        <p class="post-open-title">{{ $data->title }}</p>
+                        <!-- /POST OPEN TITLE -->
+
+                        <!-- POST AUTHOR INFO -->
+                        <div class="post-author-info-wrap">
+                            <!-- USER AVATAR -->
+                            <a href="search-results.html">
+                                <figure class="user-avatar tiny liquid">
+                                    <img src="https://ui-avatars.com/api/?name={{ $data->uploader->name }}"
+                                        alt="user-01">
+                                </figure>
+                            </a>
+                            <!-- /USER AVATAR -->
+                            <p class="post-author-info small light">By <a href="search-results.html"
+                                    class="post-author">{{ $data->uploader->name
+                                    }}</a><span class="separator">|</span>{{
+                                \Carbon\Carbon::parse($data->date)->format('l') }}, {{
+                                \Carbon\Carbon::parse( $data->date
+                                )->toFormattedDateString() }}</p>
                         </div>
-                        <div class="info">
+                        <!-- /POST AUTHOR INFO -->
+                        <div style="margin-top: 20px;">
                             {!! $data->description !!}
-
-                            <!-- Start Post Pagination -->
-                            <div class="post-pagi-area">
-                                <a href="{{ ($prev_data == []) ? '#' : url('/news-detail', $prev_data->slug) }}"><i
-                                        class="fas fa-angle-double-left"></i> Previus Post</a>
-                                <a href="{{ ($next_data == []) ? '#' : url('/news-detail', $next_data->slug) }}">Next
-                                    Post <i class="fas fa-angle-double-right"></i></a>
-                            </div>
-                            <!-- End Post Pagination -->
                         </div>
                     </div>
+                    <!-- /POST OPEN BODY -->
+
                 </div>
+                <!-- /POST OPEN CONTENT -->
+
             </div>
+            <!-- /POST OPEN -->
+
         </div>
+        <!-- /LAYOUT ITEM -->
+
     </div>
+    <!-- /LAYOUT BODY -->
+
+    <!-- LAYOUT SIDEBAR -->
+    <div class="layout-sidebar layout-item gutter-medium" style="margin-top: 
+    60px;">
+        <!-- WIDGET SIDEBAR -->
+        <div class="widget-sidebar">
+            <!-- SECTION TITLE WRAP -->
+            <div class="section-title-wrap blue">
+                <h2 class="section-title medium">Popular Posts</h2>
+                <div class="section-title-separator"></div>
+            </div>
+            <!-- /SECTION TITLE WRAP -->
+
+            <!-- POST PREVIEW SHOWCASE -->
+            <div class="post-preview-showcase grid-1col centered gutter-small">
+                <!-- POST PREVIEW -->
+                <div class="post-preview tiny gaming-news">
+                    <!-- POST PREVIEW IMG WRAP -->
+                    <a href="post-v1.html">
+                        <div class="post-preview-img-wrap">
+                            <!-- POST PREVIEW IMG -->
+                            <figure class="post-preview-img liquid">
+                                <img src="img/posts/01.jpg" alt="post-01">
+                            </figure>
+                            <!-- /POST PREVIEW IMG -->
+                        </div>
+                    </a>
+                    <!-- /POST PREVIEW IMG WRAP -->
+
+                    <!-- POST PREVIEW TITLE -->
+                    <a href="post-v1.html" class="post-preview-title">The Clash of Dragons is breaking record sales in
+                        USA and Japan</a>
+                    <!-- POST AUTHOR INFO -->
+                    <div class="post-author-info-wrap">
+                        <p class="post-author-info small light">By <a href="search-results.html"
+                                class="post-author">Dexter</a><span class="separator">|</span>Dec 15th, 2018</p>
+                    </div>
+                    <!-- /POST AUTHOR INFO -->
+                </div>
+                <!-- /POST PREVIEW -->
+
+                <!-- POST PREVIEW -->
+                <div class="post-preview tiny game-review">
+                    <!-- POST PREVIEW IMG WRAP -->
+                    <a href="post-v2.html">
+                        <div class="post-preview-img-wrap">
+                            <!-- POST PREVIEW IMG -->
+                            <figure class="post-preview-img liquid">
+                                <img src="img/posts/25.jpg" alt="post-25">
+                            </figure>
+                            <!-- /POST PREVIEW IMG -->
+
+                            <!-- REVIEW RATING -->
+                            <div class="review-rating">
+                                <div id="sidebar-rate-1" class="arc tiny"></div>
+                            </div>
+                            <!-- /REVIEW RATING -->
+                        </div>
+                    </a>
+                    <!-- /POST PREVIEW IMG WRAP -->
+
+                    <!-- POST PREVIEW TITLE -->
+                    <a href="post-v2.html" class="post-preview-title">"Legend of Kenshii II" is a bit green for now</a>
+                    <!-- POST AUTHOR INFO -->
+                    <div class="post-author-info-wrap">
+                        <p class="post-author-info small light">By <a href="search-results.html"
+                                class="post-author">Vellatrix</a><span class="separator">|</span>Dec 15th, 2018</p>
+                    </div>
+                    <!-- /POST AUTHOR INFO -->
+                </div>
+                <!-- /POST PREVIEW -->
+
+                <!-- POST PREVIEW -->
+                <div class="post-preview tiny movie-news">
+                    <!-- POST PREVIEW IMG WRAP -->
+                    <a href="post-v3.html">
+                        <div class="post-preview-img-wrap">
+                            <!-- POST PREVIEW IMG -->
+                            <figure class="post-preview-img liquid">
+                                <img src="img/posts/12.jpg" alt="post-12">
+                            </figure>
+                            <!-- /POST PREVIEW IMG -->
+
+                            <!-- RATING ORNAMENT -->
+                            <div class="rating-ornament">
+                                <!-- RATING ORNAMENT ITEM -->
+                                <div class="rating-ornament-item">
+                                    <!-- RATING ORNAMENT ICON -->
+                                    <svg class="rating-ornament-icon">
+                                        <use xlink:href="#svg-star"></use>
+                                    </svg>
+                                </div>
+                                <!-- /RATING ORNAMENT ITEM -->
+
+                                <!-- RATING ORNAMENT ITEM -->
+                                <div class="rating-ornament-item">
+                                    <!-- RATING ORNAMENT ICON -->
+                                    <svg class="rating-ornament-icon">
+                                        <use xlink:href="#svg-star"></use>
+                                    </svg>
+                                </div>
+                                <!-- /RATING ORNAMENT ITEM -->
+
+                                <!-- RATING ORNAMENT ITEM -->
+                                <div class="rating-ornament-item">
+                                    <!-- RATING ORNAMENT ICON -->
+                                    <svg class="rating-ornament-icon">
+                                        <use xlink:href="#svg-star"></use>
+                                    </svg>
+                                </div>
+                                <!-- /RATING ORNAMENT ITEM -->
+
+                                <!-- RATING ORNAMENT ITEM -->
+                                <div class="rating-ornament-item">
+                                    <!-- RATING ORNAMENT ICON -->
+                                    <svg class="rating-ornament-icon empty">
+                                        <use xlink:href="#svg-star"></use>
+                                    </svg>
+                                </div>
+                                <!-- /RATING ORNAMENT ITEM -->
+
+                                <!-- RATING ORNAMENT ITEM -->
+                                <div class="rating-ornament-item">
+                                    <!-- RATING ORNAMENT ICON -->
+                                    <svg class="rating-ornament-icon empty">
+                                        <use xlink:href="#svg-star"></use>
+                                    </svg>
+                                </div>
+                                <!-- /RATING ORNAMENT ITEM -->
+                            </div>
+                            <!-- /RATING ORNAMENT -->
+                        </div>
+                    </a>
+                    <!-- /POST PREVIEW IMG WRAP -->
+
+                    <!-- POST PREVIEW TITLE -->
+                    <a href="post-v3.html" class="post-preview-title">We reviewed the "Guardians of the Universe"
+                        movie</a>
+                    <!-- POST AUTHOR INFO -->
+                    <div class="post-author-info-wrap">
+                        <p class="post-author-info small light">By <a href="search-results.html"
+                                class="post-author">Faye V.</a><span class="separator">|</span>Dec 15th, 2018</p>
+                    </div>
+                    <!-- /POST AUTHOR INFO -->
+                </div>
+                <!-- /POST PREVIEW -->
+
+                <!-- POST PREVIEW -->
+                <div class="post-preview tiny gaming-news">
+                    <!-- POST PREVIEW IMG WRAP -->
+                    <a href="post-v1.html">
+                        <div class="post-preview-img-wrap">
+                            <!-- POST PREVIEW IMG -->
+                            <figure class="post-preview-img liquid">
+                                <img src="img/posts/17.jpg" alt="post-17">
+                            </figure>
+                            <!-- /POST PREVIEW IMG -->
+                        </div>
+                    </a>
+                    <!-- /POST PREVIEW IMG WRAP -->
+
+                    <!-- POST PREVIEW TITLE -->
+                    <a href="post-v1.html" class="post-preview-title">Jazzstar announced that the GTE5 for PC is
+                        delayed</a>
+                    <!-- POST AUTHOR INFO -->
+                    <div class="post-author-info-wrap">
+                        <p class="post-author-info small light">By <a href="search-results.html"
+                                class="post-author">Dexter</a><span class="separator">|</span>Dec 15th, 2018</p>
+                    </div>
+                    <!-- /POST AUTHOR INFO -->
+                </div>
+                <!-- /POST PREVIEW -->
+            </div>
+            <!-- /POST PREVIEW SHOWCASE -->
+        </div>
+        <!-- /WIDGET SIDEBAR -->
+    </div>
+    <!-- /LAYOUT SIDEBAR -->
 </div>
-<!-- End Blog -->
+<!-- /LAYOUT CONTENT 1 -->
 @endsection
