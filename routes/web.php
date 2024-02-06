@@ -63,8 +63,8 @@ Route::get('/', function () {
 
         Seo::seO();
         Counter::create($data);
-        $popular = News::with('gambarmuka')->orderByViews()->take(5)->get();
-        $news = News::with('gambarmuka', 'uploader')->latest('date')->paginate(6);
+        $popular = News::with('gambarmuka')->where('publish', 1)->orderByViews()->take(5)->get();
+        $news = News::with('gambarmuka', 'uploader')->where('publish', 1)->latest('date')->paginate(6);
         return view('front.pages.index', compact('news', 'popular'));
         // return view('front.index', compact('news', 'berita'));
     } else {

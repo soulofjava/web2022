@@ -29,6 +29,7 @@
                                         <th>#</th>
                                         <th>Judul</th>
                                         <th>Tanggal</th>
+                                        <th>Publish</th>
                                         <th class="disabled-sorting text-center">
                                             Aksi</th>
                                     </tr>
@@ -62,6 +63,7 @@
             { data: 'DT_RowIndex', orderable: false, searchable: false },
             { data: 'title', name: 'title', className: "text-center" },
             { data: 'tgl', className: "text-center" },
+            { data: 'publish', className: "text-center" },
             { data: 'action', className: "text-center" },
         ]
 

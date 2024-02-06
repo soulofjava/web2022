@@ -61,6 +61,12 @@
                     <div class="error text-danger">Tidak Boleh Kosong</div>
                     @enderror
 
+                    <div class="togglebutton" style="margin-bottom: 15px;">
+                        <label>
+                            Publish? {{ Form::checkbox('publish', '1', null, ['class' => '']) }}
+                        </label>
+                    </div>
+
                     <div class="d-flex text-right">
                         <a href="{{ route('news.index') }}" class="btn btn-default btn-fill">Kembali</a>
                         <button type="submit" class="btn btn-success btn-fill">Simpan</button>

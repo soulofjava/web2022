@@ -45,7 +45,18 @@ class NewsController extends Controller
                         return $actionBtn;
                     }
                 )
-                ->rawColumns(['action', 'tgl'])
+                ->addColumn(
+                    'publish',
+                    function ($data) {
+                        if ($data->publish) {
+                            $actionBtn = '<center>Ya</center>';
+                        } else {
+                            $actionBtn = '<center>Tidak</center>';
+                        }
+                        return $actionBtn;
+                    }
+                )
+                ->rawColumns(['action', 'tgl', 'publish'])
                 ->make(true);
         }
         return view('back.a.pages.news.index');
@@ -80,7 +91,11 @@ class NewsController extends Controller
         if ($request->datadip) {
             $id = News::create($request->except(['_token', 'datadip']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
         } else {
-            $id = News::create($val + ['kategori' => 'INFORMASI_ST_02', 'upload_by' => auth()->user()->id]);
+            $id = News::create($val + [
+                'kategori' => 'INFORMASI_ST_02',
+                'upload_by' => auth()->user()->id,
+                'publish' => $request->publish ?? 0
+            ]);
         }
 
         if ($request->document) {
@@ -148,7 +163,13 @@ class NewsController extends Controller
 
             $isa->update($request->except(['_token', 'datadip']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
         } else {
-            $isa->update($validated + ['kategori' => 'INFORMASI_ST_02', 'dip' => false, 'dip_tahun' => null, 'upload_by' => auth()->user()->id]);
+            $isa->update($validated + [
+                'kategori' => 'INFORMASI_ST_02',
+                'dip' => false,
+                'dip_tahun' => null,
+                'upload_by' => auth()->user()->id,
+                'publish' => $request->publish ?? 0
+            ]);
         }
 
         if ($request->document) {

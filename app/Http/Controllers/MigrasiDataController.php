@@ -44,6 +44,7 @@ class MigrasiDataController extends Controller
             }
         }
 
+        $this->insert();
         // Output hasil pencarian
         return response()->json($results, 200);
     }
@@ -51,18 +52,17 @@ class MigrasiDataController extends Controller
     public function insert()
     {
         set_time_limit(0);
-
-        // insert into database laravel
-        $posts = Post::published()->get();
+        // Mendapatkan daftar tabel dalam database
+        $posts = DB::connection('joomla')->table('cpns_k2_items')->get();
 
         foreach ($posts as $key) {
             $data = ([
-                'title' => $key->post_title,
-                'slug' => SlugService::createSlug(News::class, 'slug', $key->post_title),
-                'date' => $key->post_date,
+                'title' => $key->title,
+                'slug' => $key->alias,
+                'description' => $key->introtext,
+                'publish' => $key->published,
+                'date' => $key->created,
                 'upload_by' => 2,
-                'attachment' => $key->thumbnail->attachment->url ?? null,
-                'description' => $key->post_content,
             ]);
             News::create($data);
         }
