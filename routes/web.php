@@ -24,7 +24,6 @@ use Illuminate\Support\Facades\Route;
 use App\Models\News;
 use App\Models\Website;
 use App\Models\Themes;
-use Illuminate\Support\Facades\Http;
 
 /*
 |--------------------------------------------------------------------------
@@ -133,7 +132,7 @@ Route::get('/copydatapostingfromwonosobokab', [FrontController::class, 'copydata
 Route::get('/datappid', [FrontController::class, 'datappid'])->name('datappid');
 Route::get('/datappid2', [FrontController::class, 'datappid2'])->name('datappid2');
 
-Route::get('migrate', [MigrasiDataController::class, 'insert']);
+Route::get('migrate', [MigrasiDataController::class, 'index']);
 
 Route::get('kabupaten', [ComRegionController::class, 'kabupaten'])->name('kabupaten');
 Route::get('kecamatan', [ComRegionController::class, 'kecamatan'])->name('kecamatan');

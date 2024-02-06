@@ -25,6 +25,7 @@ class CreateNewsTable extends Migration
             $table->string('kategori')->default('INFORMASI_ST_02');
             $table->boolean('dip')->default(false);
             $table->string('dip_tahun')->nullable();
+            $table->boolean('publish')->default(0);
             $table->softDeletes();
             $table->timestamps();
         });

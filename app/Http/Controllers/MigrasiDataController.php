@@ -7,23 +7,45 @@ use App\Models\User;
 use Corcel\Model\Post;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class MigrasiDataController extends Controller
 {
     public function index()
     {
-        set_time_limit(0);
-        // all post
-        $posts = Post::whereNot('post_title', '')->get();
-        return response()->json($posts, 200);
-    }
+        $searchTerm = 'Rentang Waktu Pendaftaran Seleksi PPPK Guru';
 
-    public function post_id()
-    {
-        // post by id
-        $posts = Post::find(6590);
-        return response()->json($posts, 200);
+        $results = collect([]);
+
+        // Mendapatkan daftar tabel dalam database
+        $tables = DB::connection('joomla')->select('SHOW TABLES');
+
+        foreach ($tables as $table) {
+            $tableName = reset($table);
+
+            // Mendapatkan daftar kolom dalam tabel
+            $columns = DB::connection('joomla')->getSchemaBuilder()->getColumnListing($tableName);
+
+            // Membuat kueri untuk mencari data
+            $query = DB::connection('joomla')->table($tableName);
+
+            foreach ($columns as $column) {
+                $query->orWhere($column, 'like', '%' . $searchTerm . '%');
+            }
+
+            // Menambahkan hasil pencarian ke dalam koleksi
+            $tableResults = $query->get();
+            if ($tableResults->count() > 0) {
+                $results->push([
+                    'table' => $tableName,
+                    'results' => $tableResults
+                ]);
+            }
+        }
+
+        // Output hasil pencarian
+        return response()->json($results, 200);
     }
 
     public function insert()
@@ -46,17 +68,5 @@ class MigrasiDataController extends Controller
         }
 
         return response()->json('Selesai!', 200);
-    }
-
-    public function clean()
-    {
-        // hapus postingan tanpa judul
-        $posts = News::where('title', 'NULL')->get();
-        // foreach ($posts as $key) {
-        //     $data = News::find($key->id);
-        //     $data->delete();
-        // }
-        // return response()->json('data News sudah dibersihkan', 200);
-        return response()->json($posts, 200);
     }
 }
