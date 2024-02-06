@@ -22,7 +22,7 @@
                     </div>
                 </div>
             </div>
-            <div class="footer-top-widget" style="margin-top: 30px;">
+            <div class="footer-top-widget" style="margin-top: 30px; width: 223px;">
                 <div class="section-title-wrap green negative">
                     <h2 class="section-title">Statistik Pengunjung</h2>
                     <div class="section-title-separator"></div>
