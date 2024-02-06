@@ -36,6 +36,7 @@ use Illuminate\Support\Facades\Http;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('sso', [SSOController::class, 'getLogin'])->name('sso.login');
 Route::get('callback', [SSOController::class, 'getCallback'])->name('sso.callback');
 Route::get('ssouser', [SSOController::class, 'connectUser'])->name('sso.authuser');
@@ -63,17 +64,9 @@ Route::get('/', function () {
 
         Seo::seO();
         Counter::create($data);
-
-        try {
-            $response = Http::connectTimeout(2)->withoutVerifying()->get('https://diskominfo.wonosobokab.go.id/api/news');
-            $response = $response->collect();
-            $berita =   array_slice($response['data']['data'], 0, 3);
-        } catch (\Exception $e) {
-            $berita = [];
-        }
-
+        $popular = News::with('gambarmuka')->orderByViews()->take(5)->get();
         $news = News::with('gambarmuka', 'uploader')->latest('date')->paginate(6);
-        return view('front.pages.index', compact('news', 'berita'));
+        return view('front.pages.index', compact('news', 'popular'));
         // return view('front.index', compact('news', 'berita'));
     } else {
         $data = Themes::all();

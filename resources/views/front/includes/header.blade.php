@@ -28,7 +28,9 @@
     <!-- /SEARCH POPUP OPEN -->
 
     <!-- LOGO IMG -->
-    <img src="{{ asset('img/CPNS.png') }}" alt="Logo" width="250px" height="50px" >
+    <a href="{{ url('/') }}">
+        <img src="{{ asset('img/CPNS.png') }}" alt="Logo" width="250px" height="50px">
+    </a>
     <!-- /LOGO IMG -->
 
     <!-- MOBILE MENU -->
@@ -50,18 +52,12 @@
         <!-- LOGO -->
         <div class="logo">
             <!-- LOGO IMG -->
-            <!-- <figure class="logo-img">
-                <img src="{{ asset('img/CPNS.png') }}" alt="Logo" width="500px" height="100px">
-            </figure> -->
-            <img src="{{ asset('img/CPNS.png') }}" alt="Logo" width="250px" height="50px">
+          
+            <a href="{{ url('/') }}">
+                <img src="{{ asset('img/CPNS.png') }}" alt="Logo" width="250px" height="50px">
+            </a>
             <!-- /LOGO IMG -->
-
-            <!-- LOGO TEXT -->
-            <!-- <div class="logo-text">
-                <h2 class="logo-title">Pixel<span class="highlight">Diamond</span></h2>
-                <p class="logo-info">The Latest Gaming News</p>
-            </div> -->
-            <!-- /LOGO TEXT -->
+           
         </div>
         <!-- /LOGO -->
 

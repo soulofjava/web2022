@@ -44,7 +44,10 @@
                                     }}</a><span class="separator">|</span>{{
                                 \Carbon\Carbon::parse($data->date)->format('l') }}, {{
                                 \Carbon\Carbon::parse( $data->date
-                                )->toFormattedDateString() }}</p>
+                                )->toFormattedDateString() }}
+                                <span class="separator">|</span>
+                                Dilihat {{ views($data)->count(); }} kali
+                            </p>
                         </div>
                         <!-- /POST AUTHOR INFO -->
                         <div style="margin-top: 20px;">
@@ -80,31 +83,41 @@
             <!-- POST PREVIEW SHOWCASE -->
             <div class="post-preview-showcase grid-1col centered gutter-small">
 
+                @foreach($popular as $item)
                 <!-- POST PREVIEW -->
                 <div class="post-preview tiny gaming-news">
                     <!-- POST PREVIEW IMG WRAP -->
-                    <a href="post-v1.html">
+                    <a href="{{ url('/news-detail', $item->slug) }}">
                         <div class="post-preview-img-wrap">
-                            <!-- POST PREVIEW IMG -->
-                            <figure class="post-preview-img liquid">
-                                <img src="img/posts/17.jpg" alt="post-17">
+                            @if($item->gambarmuka)
+                            <figure class="post-preview-img liquid imgLiquid_bgSize imgLiquid_ready"
+                                style="background-image: url('{{ route('helper.show-picture', ['path' => $item->gambarmuka->path]) }}'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
                             </figure>
-                            <!-- /POST PREVIEW IMG -->
+                            @else
+                            <figure class="post-preview-img liquid imgLiquid_bgSize imgLiquid_ready"
+                                style="background-image: url('https://diskominfo.wonosobokab.go.id/uploads/20180919023758_wsbPemKab.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
+                            </figure>
+                            @endif
                         </div>
                     </a>
                     <!-- /POST PREVIEW IMG WRAP -->
-
+                
                     <!-- POST PREVIEW TITLE -->
-                    <a href="post-v1.html" class="post-preview-title">Jazzstar announced that the GTE5 for PC is
-                        delayed</a>
+                    <a href="{{ url('/news-detail', $item->slug) }}" class="post-preview-title">{{
+                        \Illuminate\Support\Str::limit($item->title, 50, $end='...') }}</a>
                     <!-- POST AUTHOR INFO -->
                     <div class="post-author-info-wrap">
-                        <p class="post-author-info small light">By <a href="search-results.html"
-                                class="post-author">Dexter</a><span class="separator">|</span>Dec 15th, 2018</p>
+                        <p class="post-author-info small light">By <a href="{{ url('/news-detail', $item->slug) }}"
+                                class="post-author">{{ $item->uploader->name
+                                }}</a><span class="separator">|</span>{{
+                            \Carbon\Carbon::parse($item->date)->format('l') }}, {{
+                            \Carbon\Carbon::parse( $item->date
+                            )->toFormattedDateString() }}</p>
                     </div>
                     <!-- /POST AUTHOR INFO -->
                 </div>
                 <!-- /POST PREVIEW -->
+                @endforeach
             </div>
             <!-- /POST PREVIEW SHOWCASE -->
         </div>

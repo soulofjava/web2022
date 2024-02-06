@@ -91,6 +91,7 @@ class FrontController extends Controller
         views($data)->cooldown(5)->record();
         $news = News::with('gambar')->orderBy('date', 'desc')->paginate(5);
         $file = File::where('id_news', $data->attachment)->get();
+        $popular = News::with('gambarmuka')->orderByViews()->take(5)->get();
 
         $prev = $data->id - 1;
         $prev_data = News::with('gambar', 'uploader')->where('id', $prev)->first();
@@ -98,7 +99,7 @@ class FrontController extends Controller
         $next = $data->id + 1;
         $next_data = News::with('gambar', 'uploader')->where('id', $next)->first();
 
-        return view('front.pages.newsdetail', compact('data', 'news', 'file', 'prev_data', 'next_data'));
+        return view('front.pages.newsdetail', compact('data', 'news', 'file', 'prev_data', 'next_data', 'popular'));
     }
 
     public function detailberita($id)
