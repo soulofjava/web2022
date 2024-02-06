@@ -32,7 +32,7 @@ class WebHelper
         $counter = Counter::all()->count();
         $counterH = Counter::whereDate('created_at', Carbon::today())->count();
         $counterK = Counter::whereDate('created_at', Carbon::yesterday())->count();
-        $counterM = Counter::whereDate('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->count();
+        $counterM = Counter::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->count();
         $counterB = Counter::whereMonth('created_at', date('m'))->whereYear('created_at', date('Y'))->count();
         $inbox = Inbox::all()->count();
         $related = RelatedLink::all();
