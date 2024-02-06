@@ -1,7 +1,7 @@
 @extends('front.layouts.app')
 @section('content')
 <!-- LAYOUT CONTENT 1 -->
-<div class="layout-content-1 layout-item-3-1 grid-limit">
+<div class="layout-content-1 layout-item-3-1 grid-limit" style="margin-top: 50px;">
     <!-- LAYOUT BODY -->
     <div class="layout-body">
         <!-- LAYOUT ITEM -->
