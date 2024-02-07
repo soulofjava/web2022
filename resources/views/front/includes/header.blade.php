@@ -28,22 +28,38 @@
 
             <div class="header-inner d-flex align-items-center justify-content-between">
                 <div class="logo-outer d-lg-flex align-items-center">
+                    @if(Route::current()->getName() != 'root')
+                    <div class="logo" style="background: white !important;">
+                        <a href="{{ url('/') }}">
+                            <img src="{{ asset('assets/bkdwonosobo.png') }}" alt="Logo" title="Logo">
+                        </a>
+                    </div>
+                    @else
                     <div class="logo" style="background: none !important;">
                         <a href="{{ url('/') }}">
                             <img src="{{ asset('assets/bkdwonosobo.png') }}" alt="Logo" title="Logo">
                         </a>
                     </div>
+                    @endif
                 </div>
 
                 <div class="nav-outer clearfix">
                     <!-- Main Menu -->
                     <nav class="main-menu navbar-expand-lg">
                         <div class="navbar-header">
+                            @if(Route::current()->getName() != 'root')
+                            <div class="mobile-logo bg-white br-10 p-15">
+                                <a href="{{ url('/') }}">
+                                    <img src="{{ asset('assets/bkdwonosobo.png') }}" alt="Logo" title="Logo">
+                                </a>
+                            </div>
+                            @else
                             <div class="mobile-logo br-10 p-15">
                                 <a href="{{ url('/') }}">
                                     <img src="{{ asset('assets/bkdwonosobo.png') }}" alt="Logo" title="Logo">
                                 </a>
                             </div>
+                            @endif
 
                             <!-- Toggle Button -->
                             <button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -173,10 +189,11 @@
 
                 <!-- Menu Button -->
                 <div class="menu-btn-sidebar d-flex align-items-center">
-                    <form action="#">
-                        <input type="search" placeholder="Search" required>
-                        <button><i class="fas fa-search"></i></button>
-                    </form>
+                    {{Form::open(['route' => 'global.search','method' => 'get', ''])}}
+                    {{Form::text('kolomcari', null,['class' => '',
+                    'placeholder' => 'Kata Pencarian','id'=>'textareaID1'])}}
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                    {{Form::close()}}
                 </div>
             </div>
         </div>
