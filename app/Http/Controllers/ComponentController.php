@@ -29,19 +29,17 @@ class ComponentController extends Controller
                     'action',
                     function ($data) {
                         if ($data->active == 1) {
-                            $actionBtn = '<div class="togglebutton">
-                                                <label>
-                                                    <input type="checkbox" checked onclick="centang('  . $data->id . ')">
-                                                    <span class="toggle"></span>
-                                                </label>
-                                            </div>';
+                            $actionBtn = '<center><div class="togglebutton">
+                                <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" checked onclick="centang('  . $data->id . ')">
+                                </label>
+                                </div></center>';
                         } else {
-                            $actionBtn = '<div class="togglebutton">
-                                                <label>
-                                                    <input type="checkbox" onclick="centang('  . $data->id . ')">
-                                                    <span class="toggle"></span>
-                                                </label>
-                                            </div>';
+                            $actionBtn = '<center><div class="togglebutton">
+                                <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" onclick="centang('  . $data->id . ')">
+                                </label>
+                                </div></center>';
                         }
                         return $actionBtn;
                     }

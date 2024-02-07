@@ -46,14 +46,14 @@
                                 <div data-i18n="Komponen">Komponen</div>
                             </a>
                         </li>
+                        <li class="menu-item {{ (Str::contains(Request::url(), 'relatedlink')) ? 'active' : '' }}">
+                            <a class="menu-link" href="{{ route('relatedlink.index') }}">
+                                Link Terkait</a>
+                        </li>
                         <li class="menu-item {{ (Str::contains(Request::url(), 'frontmenu')) ? 'active' : '' }}">
                             <a class="menu-link" href="{{ route('frontmenu.index') }}">
                                 <div data-i18n="Menu">Menu</div>
                             </a>
-                        </li>
-                        <li class="menu-item {{ (Str::contains(Request::url(), 'relatedlink')) ? 'active' : '' }}">
-                            <a class="menu-link" href="{{ route('relatedlink.index') }}">
-                                Link Terkait</a>
                         </li>
                         <li class="menu-item {{ (Str::contains(Request::url(), 'settings')) ? 'active' : '' }}">
                             <a class="menu-link" href="{{ route('settings.index') }}">

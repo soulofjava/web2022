@@ -134,10 +134,9 @@ class UserController extends Controller
         $data = User::find($id);
         $role = ModelsRole::all()->pluck('name', 'id');
         $user_role = $data->roles->pluck('id');
-        $bidang = Bidang::orderBy('name', 'asc')->pluck('name', 'id');
         $permission = Permission::all()->pluck('name', 'id');
         $permis = $data->getAllPermissions();
-        return view('back.' . $this->themes->themes_back . '.pages.user.edit', compact('data', 'role', 'user_role', 'bidang', 'permission', 'permis'));
+        return view('back.' . $this->themes->themes_back . '.pages.user.edit', compact('data', 'role', 'user_role', 'permission', 'permis'));
     }
 
     /**
