@@ -34,7 +34,7 @@ class DatabaseSeeder extends Seeder
             'web_name' => 'BKD Wonosobo',
             'web_description' => '-',
             'email' => 'bkd@wonosobokab.go.id',
-            'address' => 'Jl. Soekarno - Hatta No.9, Wonosobo Timur, Wonosobo Tim., Kec. Wonosobo, Kabupaten Wonosobo, Jawa Tengah 56311',
+            'address' => 'Jln. Soekarno-Hatta No. 9 56311',
             'phone' => '(0286) 321221',
             'instagram' => 'https://www.instagram.com/bkdwonosobo/',
             'twitter' => 'https://twitter.com/bkd_wonosobo',

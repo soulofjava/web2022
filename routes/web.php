@@ -75,8 +75,8 @@ Route::get('/', function () {
         }
 
         $news = News::with('gambar', 'gambarmuka', 'uploader')->orderBy('date', 'desc')->paginate(9);
-        // return view('front.' . $themes->themes_front . '.pages.index', compact('news', 'berita'));
-        return view('front.index', compact('news', 'berita'));
+        return view('front.pages.index', compact('news', 'berita'));
+        // return view('front.index', compact('news', 'berita'));
     } else {
         $data = Themes::all();
         return view('front.setup', compact('data'));

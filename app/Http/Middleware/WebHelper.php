@@ -11,6 +11,7 @@ use App\Models\FrontMenu;
 use App\Models\Inbox;
 use App\Models\News;
 use App\Models\RelatedLink;
+use Carbon\Carbon;
 
 class WebHelper
 {
@@ -29,27 +30,25 @@ class WebHelper
         $agenda = Agenda::all()->count();
         $news = News::all()->count();
         $counter = Counter::all()->count();
+        $counterH = Counter::whereDate('created_at', Carbon::today())->count();
+        $counterK = Counter::whereDate('created_at', Carbon::yesterday())->count();
+        $counterM = Counter::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->count();
+        $counterB = Counter::whereMonth('created_at', date('m'))->whereYear('created_at', date('Y'))->count();
         $inbox = Inbox::all()->count();
         $related = RelatedLink::all();
-        $berita = News::where('kategori', 'KATEGORI_NEWS_4')->count();
-        $dokumentasi = News::where('kategori', 'KATEGORI_NEWS_1')->count();
-        $notulensi = News::where('kategori', 'KATEGORI_NEWS_3')->count();
-        $press = News::where('kategori', 'KATEGORI_NEWS_2')->count();
-        $sambutan = News::where('kategori', 'KATEGORI_NEWS_0')->count();
 
         // Sharing is caring
         view()->share('data_website', $data);
         view()->share('nav_menu', $menu);
         view()->share('news_all', $news);
         view()->share('counter_web', $counter);
+        view()->share('counter_webh', $counterH);
+        view()->share('counter_webk', $counterK);
+        view()->share('counter_webm', $counterM);
+        view()->share('counter_webb', $counterB);
         view()->share('related', $related);
         view()->share('inbox', $inbox);
         view()->share('agenda', $agenda);
-        view()->share('berita', $berita);
-        view()->share('dokumentasi', $dokumentasi);
-        view()->share('notulensi', $notulensi);
-        view()->share('press', $press);
-        view()->share('sambutan', $sambutan);
         return $next($request);
     }
 }

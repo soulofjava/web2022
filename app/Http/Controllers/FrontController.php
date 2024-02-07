@@ -10,25 +10,18 @@ use App\Models\Component;
 use App\Models\FrontMenu;
 use Illuminate\Http\Request;
 use App\Models\News;
-use App\Models\Gallery;
 use App\Models\GuestBook;
 use App\Models\Inbox;
 use App\Models\User;
 use App\Models\Website;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Http;
 
 class FrontController extends Controller
 {
-    public function __construct()
-    {
-        $this->themes = Website::all()->first();
-    }
-
     public function datappid()
     {
         $data1 = FrontMenu::whereNotNull('kategori')->get();
@@ -94,7 +87,7 @@ class FrontController extends Controller
         $next = $data->id + 1;
         $next_data = News::with('gambar', 'uploader')->where('id', $next)->first();
 
-        return view('front.' . $this->themes->themes_front . '.pages.newsdetail', compact('data', 'news', 'file', 'prev_data', 'next_data'));
+        return view('front.pages.newsdetail', compact('data', 'news', 'file', 'prev_data', 'next_data'));
     }
 
     public function detailberita($id)
@@ -104,7 +97,7 @@ class FrontController extends Controller
         $response = $response->collect();
         $berita =   $response['data'];
         $news = News::orderBy('date', 'desc')->paginate(5);
-        return view('front.' . $this->themes->themes_front . '.pages.beritadetail', compact('berita', 'news'));
+        return view('front.pages.beritadetail', compact('berita', 'news'));
     }
 
     public function newsByAuthor($id)
@@ -113,7 +106,7 @@ class FrontController extends Controller
         $hasil = 'All post by : ' . $id;
         $data = News::with('gambar')->where('upload_by', '=', $id)->orderBy("date", "desc")->paginate(5);
         $news = News::latest('date')->take(5)->get();
-        return view('front.' . $this->themes->themes_front . '.pages.newsbyauthor', compact('data', 'news', 'hasil'));
+        return view('front.pages.newsbyauthor', compact('data', 'news', 'hasil'));
     }
 
     public function globalSearch(Request $request)
@@ -150,7 +143,7 @@ class FrontController extends Controller
                 ->make(true);
         }
 
-        return view('front.' . $this->themes->themes_front . '.pages.globalsearch', compact('hasil', 'combinedData'));
+        return view('front.pages.globalsearch', compact('hasil', 'combinedData'));
     }
 
     public function newsBySearch(Request $request)
@@ -160,7 +153,7 @@ class FrontController extends Controller
         $hasil = 'Search result : ' . $cari;
         $data = News::with('gambar')->whereDate('date', 'like', '%' . $cari . '%')->orWhere('title', 'like', '%' . $cari . '%')->orderBy("date", "desc")->paginate();
         $news = News::latest('date')->take(5)->get();
-        return view('front.' . $this->themes->themes_front . '.pages.newsbyauthor', compact('data', 'news', 'hasil'));
+        return view('front.pages.newsbyauthor', compact('data', 'news', 'hasil'));
     }
 
     public function newsall(Request $request)
@@ -168,7 +161,7 @@ class FrontController extends Controller
         Seo::seO();
         $news = News::latest('date')->paginate(12);
         $sideposts = News::latest('date')->take(5)->get();
-        return view('front.' . $this->themes->themes_front . '.pages.news', compact('news', 'sideposts'));
+        return view('front.pages.news', compact('news', 'sideposts'));
     }
 
     public function newsByCategory($id)
@@ -176,14 +169,7 @@ class FrontController extends Controller
         Seo::seO();
         $news = News::where('kategori', $id)->latest('date')->paginate(12);
         $sideposts = News::latest('date')->take(5)->get();
-        return view('front.' . $this->themes->themes_front . '.pages.news', compact('news', 'sideposts'));
-    }
-
-    public function galleryall(Request $request)
-    {
-        Seo::seO();
-        $gallery = Gallery::with('gambar')->orderBy('upload_date', 'desc')->paginate(12);
-        return view('front.' . $this->themes->themes_front . '.pages.gallery', compact('gallery'));
+        return view('front.pages.news', compact('news', 'sideposts'));
     }
 
     public function page($id)
@@ -195,14 +181,14 @@ class FrontController extends Controller
             $data = News::where('id', $id)->first();
         }
 
-        return view('front.' . $this->themes->themes_front . '.pages.page', compact('data'));
+        return view('front.pages.page', compact('data'));
     }
 
     public function component($id)
     {
         Seo::seO();
         $data = Component::all();
-        return view('front.' . $this->themes->themes_front . '.component.guestbook', compact('data'));
+        return view('front.component.guestbook', compact('data'));
     }
 
     public function setup(Request $request)
@@ -281,7 +267,7 @@ class FrontController extends Controller
                 ->rawColumns(['tgl'])
                 ->make(true);
         }
-        return view('front.' . $this->themes->themes_front . '.component.event');
+        return view('front.component.event');
     }
 
     public function inbox(Request $request)
@@ -309,155 +295,4 @@ class FrontController extends Controller
         }
     }
 
-    // kampung pancasila
-    public function tentangkami()
-    {
-        return view('front.kampungpancasila.tentang-kami');
-    }
-
-    public function latarbelakang()
-    {
-        return view('front.kampungpancasila.latar-belakang');
-    }
-
-    public function tujuan()
-    {
-        return view('front.kampungpancasila.tujuan');
-    }
-
-    public function kampungpancasila()
-    {
-        return view('front.kampungpancasila.kampung-pancasila');
-    }
-
-    // sql ppid setda
-    public function loadsql()
-    {
-        set_time_limit(0);
-
-        // insert data dari table ppid_post ke tabel news
-        $variable = DB::table('ppid_posts')->get();
-        foreach ($variable as $us) {
-            $isi = str_replace("wp-image", "img-fluid ", $us->post_content);
-
-            $validated =
-                [
-                    'photo' => 'soulofjava',
-                    'path' => 'img/soulofjava.jpg',
-                    'date' => $us->post_date,
-                    'description' => $isi,
-                    'title' => $us->post_title,
-                    'upload_by' => 'Admin',
-                ];
-            News::create($validated);
-        }
-
-        // hapus data kolom content yang kosong
-        $users = DB::table('news')
-            ->where('description', '=', '')
-            ->get();
-        foreach ($users as $us) {
-            News::destroy($us->id);
-        }
-
-        // hapus data kolom title yang kosong
-        $users = DB::table('news')
-            ->where('title', '=', '')
-            ->get();
-        foreach ($users as $us) {
-            News::destroy($us->id);
-        }
-
-        // cek duplikasi dan hapus
-        $users = News::all();
-        $usersUnique = $users->unique('title');
-        $usersDupes = $users->diff($usersUnique);
-        foreach ($usersDupes as $dp) {
-            News::destroy($dp->id);
-        }
-
-        // // hitung data
-        // $data = News::all()->count();
-        // return response()->json($data);
-
-        return response()->json('Selesai');
-    }
-
-    public function check()
-    {
-        // ubah deskripsi yang ada pdf 1
-        // $data = News::where('description', 'like', '%[vc_row][vc_column][v_pfbk_flip_book%')->get();
-        // $width = '"100%"';
-        // $height = '"750"';
-        // foreach ($data as $dt) {
-        //     $pdfa = str_replace("[vc_row][vc_column][v_pfbk_flip_book", "<embed", $dt->description);
-        //     $slice = Str::after($pdfa, '.pdf"');
-        //     $pdfb = str_replace($slice, " width=" . $width . " height=" . $height . ">", $pdfa);
-        //     News::find($dt->id)->update([
-        //         'description' => $pdfb
-        //     ]);
-        // }
-
-        // ubah deskripsi yang ada pdf 2
-        // $data = News::where('description', 'like', '%[pfbk_pdf_flipbook%')->get();
-        // $width = '"100%"';
-        // $height = '"750"';
-        // foreach ($data as $dt) {
-        //     $pdfa = str_replace("[pfbk_pdf_flipbook", "<embed", $dt->description);
-        //     $slice = Str::after($pdfa, '.pdf"');
-        //     $pdfb = str_replace($slice, " width=" . $width . " height=" . $height . ">", $pdfa);
-        //     News::find($dt->id)->update([
-        //         'description' => $pdfb
-        //     ]);
-        // }
-
-        // $id = 5602;
-        // $data = News::find($id);
-        // $slice = Str::after($data->description, 'src="');
-        // $slice2 = Str::before($slice, '"');
-        // $pdfb = str_replace("][/vc_column][/vc_row]", "width=" . $width . " height=" . $height . ">", $data->description);
-        // $data = News::where('description', 'like', '%.pdf%')->get();
-        $data = News::all();
-        // News::find($b->id)->update([
-        // $data = News::where('description', 'like', '%.pdf%')->count();
-        foreach ($data as $dt) {
-            $slice = Str::after($dt->description, 'src="');
-            $slice2 = Str::before($slice, '"');
-            echo $slice2;
-        }
-        // return response()->json('selesai');
-        // return $slice2;
-    }
-
-    function copydatapostingfromwonosobokab()
-    {
-        $data = DB::table('posting')->where('domain', '=', 'arpusda.wonosobokab.go.id')->get();
-        foreach ($data as $index => $item) {
-            print_r($index . "\n");
-            $idnya = News::create([
-                'title' => $item->judul_posting,
-                'description' => $item->isi_posting,
-                'date' => $item->created_time,
-                'upload_by' =>  'Admin',
-            ])->id;
-            print_r($idnya);
-            $this->copydatafilefromwonosobokab($item->id_posting, $idnya);
-        }
-    }
-
-    function copydatafilefromwonosobokab($a, $b)
-    {
-        $isa = [];
-        $data = DB::table('attachment')->select('file_name')->where('id_tabel', '=', $a)->get();
-        foreach ($data as $ratna) {
-            array_push($isa, $ratna->file_name);
-            $fff = [
-                'id_news' => $b,
-                'file_name' => $ratna->file_name,
-                'path' => 'gallery/' . $ratna->file_name,
-            ];
-            DB::table('files')->insert($fff);
-        }
-        return json_encode($isa);
-    }
 }
