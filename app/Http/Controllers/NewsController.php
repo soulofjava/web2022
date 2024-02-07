@@ -48,7 +48,17 @@ class NewsController extends Controller
                         return $actionBtn;
                     }
                 )
-                ->rawColumns(['action', 'tgl'])
+                ->addColumn(
+                    'link',
+                    function ($data) {
+                        $actionBtn = '
+                    <div>
+                        <a target="_blank" href="' . url('news-detail', $data->slug) . ' " >' . $data->title . ' </a>
+                    </div>';
+                        return $actionBtn;
+                    }
+                )
+                ->rawColumns(['action', 'tgl', 'link'])
                 ->make(true);
         }
         return view('back.' . $this->themes->themes_back . '.pages.news.index');
@@ -229,5 +239,4 @@ class NewsController extends Controller
 
         return $data->delete();
     }
-
 }

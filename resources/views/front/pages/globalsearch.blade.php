@@ -1,17 +1,23 @@
 @extends('front.layouts.app')
 @section('content')
-<!-- Banner Area Starts -->
-<section class="banner-area other-page">
+<!-- Page Banner Start -->
+<section class="page-banner-area rel z-1 text-white text-center"
+    style="background-image: url({{ asset('assets/front/images/banner.jpg') }});">
     <div class="container">
-        <div class="row header-judul">
-            <div class="col-lg-12">
-                <h1>{{ $hasil }}</h1>
-                <a href="{{ url('/') }}">Beranda</a> <span>|</span> <a href="#">Postingan</a>
-            </div>
+        <div class="banner-inner rpt-10">
+            <h2 class="page-title wow fadeInUp delay-0-2s">{{ $hasil }}</h2>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb wow fadeInUp delay-0-4s">
+                    <li class="breadcrumb-item"><a href="{{ url('/') }}">beranda</a></li>
+                    <li class="breadcrumb-item active">Postingan</li>
+                </ol>
+            </nav>
         </div>
     </div>
+    <img class="circle-one" src="{{ asset('assets/front/images/shapes/circle-one.png') }}" alt="Circle">
+    <img class="circle-two" src="{{ asset('assets/front/images/shapes/circle-two.png') }}" alt="Circle">
 </section>
-<!-- Banner Area End -->
+<!-- Page Banner End -->
 
 <!--================Blog Area =================-->
 <section class="blog_area mt-3">

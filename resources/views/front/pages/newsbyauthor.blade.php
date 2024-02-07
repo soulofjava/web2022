@@ -1,78 +1,77 @@
 @extends('front.layouts.app')
 @section('content')
-<!-- Banner Area Starts -->
-<section class="banner-area other-page">
+<!-- Page Banner Start -->
+<section class="page-banner-area rel z-1 text-white text-center"
+    style="background-image: url({{ asset('assets/front/images/banner.jpg') }});">
     <div class="container">
-        <div class="row header-judul">
-            <div class="col-lg-12">
-                <h1>{{ $hasil }}</h1>
-                <a href="{{ url('/') }}">Beranda</a> <span>|</span> <a href="#">Postingan</a>
-            </div>
+        <div class="banner-inner rpt-10">
+            <h2 class="page-title wow fadeInUp delay-0-2s">{{ $hasil }}</h2>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb wow fadeInUp delay-0-4s">
+                    <li class="breadcrumb-item"><a href="{{ url('/') }}">beranda</a></li>
+                    <li class="breadcrumb-item active">Postingan</li>
+                </ol>
+            </nav>
         </div>
     </div>
+    <img class="circle-one" src="{{ asset('assets/front/images/shapes/circle-one.png') }}" alt="Circle">
+    <img class="circle-two" src="{{ asset('assets/front/images/shapes/circle-two.png') }}" alt="Circle">
 </section>
-<!-- Banner Area End -->
+<!-- Page Banner End -->
 
-<!--================Blog Area =================-->
-<section class="blog_area mt-3">
+<!-- Blog Standard Start -->
+<section class="blog-standard-area py-130 rpt-95 rpb-100">
     <div class="container">
         <div class="row">
             <div class="col">
-
                 <x-cari-news />
-
-                @foreach($data ?? [] as $author)
-                <article class="row blog_item mt-3">
-                    <div class="col-md-3">
-                        <div class="blog_info text-right">
-                            <!-- <div class="post_tag">
-                                    <a href="#">Food,</a>
-                                    <a class="active" href="#">Technology,</a>
-                                    <a href="#">Politics,</a>
-                                    <a href="#">Lifestyle</a>
-                                </div> -->
-                            <ul class="blog_meta list">
-                                <li><a href="#">{{ $author->uploader->name }}<i class="fa fa-user-o"></i></a>
-                                </li>
-                                <li><a href="#">{{ \Carbon\Carbon::parse($author->date)->isoFormat('dddd, D MMMM
-                                        Y')
-                                        }}<i class="fa fa-calendar-o"></i></a></li>
-                                <li><a href="#">{{
-                                        views($author)->count(); }} Views<i class="fa fa-eye"></i></a></li>
-                                <!-- <li><a href="#">06 Comments<i class="fa fa-comment-o"></i></a></li> -->
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-9">
-                        <div class="blog_post">
-                            @if($author->gambarmuka)
-                            <img src="{{ asset('storage/') }}/{{  $author->gambarmuka->path }}" class="img-fluid"
-                                alt="{{ $author->gambarmuka->file_name }}">
-                            @else
+                <div class="blog-standard-wrap">
+                    @foreach($data ?? [] as $author)
+                    <div class="blog-standard-item wow fadeInUp delay-0-2s">
+                        @if($author->gambarmuka)
+                        <img src="{{ route('helper.show-picture', ['path' => $author->gambarmuka->path]) }}"
+                            class="img-fluid" alt="{{ $author->gambarmuka->file_name }}">
+                        @else
+                        <div class="image">
                             <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
-                            @endif
-                            <div class="blog_details">
-                                <a href="{{ url('/news-detail', $author->slug) }}">
-                                    <h4>{{ \Illuminate\Support\Str::limit($author->title, 50,
-                                        $end='...') }}</h4>
-                                </a>
-                                <p>{!! \Illuminate\Support\Str::limit($author->description, 100,
+                        </div>
+                        @endif
+                        <div class="blog-standard-content mt-25">
+                            <div class="author">
+                                <img src="https://ui-avatars.com/api/?name={{ $author->uploader->name ??
+                                            'Admin' }}" alt="Author">
+                            </div>
+                            <div class="content">
+                                <ul class="blog-standard-header">
+                                    <li><span class="name">{{ $author->uploader->name ??
+                                            'Admin' }}</span></li>
+                                    <li><i class="far fa-calendar-alt"></i> <a
+                                            href="{{ url('/news-detail', $author->slug) }}">{{
+                                            \Carbon\Carbon::parse($author->date)->isoFormat('dddd, D MMMM
+                                            Y')
+                                            }}</a></li>
+                                    <li><i class="far fa-eye"></i> <a href="{{ url('/news-detail', $author->slug) }}">{{
+                                            views($author)->count(); }} Views</a>
+                                    </li>
+                                </ul>
+                                <h3><a href="{{ url('/news-detail', $author->slug) }}">{{
+                                        \Illuminate\Support\Str::limit($author->title, 50,
+                                        $end='...') }}</a></h3>
+                                <p>{!! \Illuminate\Support\Str::limit($author->content, 200,
                                     $end='...') !!}</p>
-                                <a href="{{ url('/news-detail', $author->slug) }}" class="template-btn">Baca
-                                    Lebih
-                                    Lanjut</a>
+                                <a href="{{ url('/news-detail', $author->slug) }}" class="theme-btn style-two">Baca
+                                    Selengkapnya<i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
-                </article>
-                @endforeach
-
-                {!! $data->withQueryString()->links() !!}
+                    @endforeach
+                    {!! $data->withQueryString()->links('vendor.pagination.boxass') !!}
+                </div>
             </div>
         </div>
     </div>
 </section>
-<!--================Blog Area =================-->
+<!-- Blog Standard End -->
 @endsection
 @push('after-script')
 @endpush

@@ -173,15 +173,11 @@
     $(".select2").select2();
 
     var flatpickrDate = document.querySelector(".flatpickr-date");
-    var flatpickrDate2 = document.querySelector(".flatpickr-date2");
 
     flatpickrDate.flatpickr({
         monthSelectorType: "static",
     });
 
-    flatpickrDate2.flatpickr({
-        monthSelectorType: "static",
-    });
 </script>
 
 <!-- Start DropZone -->

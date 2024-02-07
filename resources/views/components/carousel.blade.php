@@ -3,16 +3,18 @@
         @forelse($jjj->gambar as $gambar)
         @if($loop->iteration == 1)
         <div class="carousel-item active">
-            <img src="{{ route('helper.show-picture', ['path' => $gambar->path]) }}" class="d-block w-100" alt="{{ $gambar->file_name }}">
+            <img src="{{ route('helper.show-picture', ['path' => $gambar->path]) }}" class="d-block w-100"
+                alt="{{ $gambar->file_name }}">
         </div>
         @else
         <div class="carousel-item">
-            <img src="{{ route('helper.show-picture', ['path' => $gambar->path]) }}" class="d-block w-100" alt="{{ $gambar->file_name }}">
+            <img src="{{ route('helper.show-picture', ['path' => $gambar->path]) }}" class="d-block w-100"
+                alt="{{ $gambar->file_name }}">
         </div>
         @endif
         @empty
         <div class="carousel-item active">
-            <img src="{{ asset('img/soulofjava.jpg') }}" class="d-block w-100" alt="soul of java">
+            <img src="{{ asset('assets/bkdwonosobo.png') }}" class="d-block w-100" alt="soul of java">
         </div>
         @endforelse
     </div>

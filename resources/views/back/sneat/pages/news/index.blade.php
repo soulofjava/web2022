@@ -64,7 +64,7 @@
                 serverSide: true,
                 columns: [
                     { data: 'DT_RowIndex', orderable: false, searchable: false },
-                    { data: 'title', name: 'title' },
+                    { data: 'link', name: 'title' },
                     { data: 'tgl' },
                     { data: 'action' },
                 ],

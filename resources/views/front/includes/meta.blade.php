@@ -3,4 +3,3 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 {!! SEO::generate() !!}
 <link rel="canonical" hreflang="id" href="{{ url('/') }}">
-<meta name="description" content="BKD Wonosobo by Isa Maulana Tantra" />

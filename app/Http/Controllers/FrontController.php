@@ -14,11 +14,13 @@ use App\Models\GuestBook;
 use App\Models\Inbox;
 use App\Models\User;
 use App\Models\Website;
+use Artesaos\SEOTools\Facades\OpenGraph;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Str;
 
 class FrontController extends Controller
 {
@@ -75,10 +77,25 @@ class FrontController extends Controller
 
     public function newsdetail($slug)
     {
+        $data = News::with('gambarmuka')->where('slug', $slug)->first();
+
         Seo::seO();
+
+        OpenGraph::setDescription(strip_tags(Str::limit($data->content, 50, '...')));
+        OpenGraph::setTitle($data->title);
+        OpenGraph::setUrl(url()->current());
+        OpenGraph::addProperty('type', 'article');
+        OpenGraph::addProperty('locale', 'id');
+
+        if (!empty($data->gambarmuka->path)) {
+            OpenGraph::addImage(route('helper.show-picture', array('path' => $data->gambarmuka->path)));
+        }
+
         $data = News::with('gambar', 'uploader')->where('slug', $slug)->first();
         views($data)->cooldown(5)->record();
-        $news = News::with('gambar')->orderBy('date', 'desc')->paginate(5);
+
+        $news = News::with('gambarmuka')->where('terbit', 1)->orderByViews()->take(5)->get();
+
         $file = File::where('id_news', $data->attachment)->get();
 
         $prev = $data->id - 1;
@@ -159,7 +176,7 @@ class FrontController extends Controller
     public function newsall(Request $request)
     {
         Seo::seO();
-        $news = News::latest('date')->paginate(12);
+        $news = News::latest('date')->paginate(5);
         $sideposts = News::latest('date')->take(5)->get();
         return view('front.pages.news', compact('news', 'sideposts'));
     }
@@ -167,7 +184,7 @@ class FrontController extends Controller
     public function newsByCategory($id)
     {
         Seo::seO();
-        $news = News::where('kategori', $id)->latest('date')->paginate(12);
+        $news = News::where('kategori', $id)->latest('date')->paginate(5);
         $sideposts = News::latest('date')->take(5)->get();
         return view('front.pages.news', compact('news', 'sideposts'));
     }
@@ -294,5 +311,4 @@ class FrontController extends Controller
             return redirect(url('/'));
         }
     }
-
 }
