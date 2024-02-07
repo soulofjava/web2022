@@ -1,680 +1,1185 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
 
 <head>
-    <!-- Required Meta Tags -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--====== Required meta tags ======-->
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Page Title -->
-    <title>Medino</title>
+    <!--====== Title ======-->
+    <title>Wellearn - Education & LMS HTML Template || Home</title>
+    <!--====== Favicon Icon ======-->
+    <link rel="shortcut icon" href="{{ asset('assets/front/images/favicon.png') }}" type="image/x-icon">
+    <!--====== Google Fonts ======-->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600;700&family=Oswald:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('assets/front/medino/images/logo/favicon.png') }}" type="image/x-icon">
+    <!--====== Flaticon ======-->
+    <link rel="stylesheet" href="{{ asset('assets/front/css/flaticon.min.css') }}">
+    <!--====== Font Awesome ======-->
+    <link rel="stylesheet" href="{{ asset('assets/front/css/font-awesome-5.9.0.min.css') }}">
+    <!--====== Bootstrap ======-->
+    <link rel="stylesheet" href="{{ asset('assets/front/css/bootstrap-4.5.3.min.css') }}">
+    <!--====== Magnific Popup ======-->
+    <link rel="stylesheet" href="{{ asset('assets/front/css/magnific-popup.min.css') }}">
+    <!--====== Nice Select ======-->
+    <link rel="stylesheet" href="{{ asset('assets/front/css/nice-select.min.css') }}">
+    <!--====== jQuery UI ======-->
+    <link rel="stylesheet" href="{{ asset('assets/front/css/jquery-ui.min.css') }}">
+    <!--====== Animate ======-->
+    <link rel="stylesheet" href="{{ asset('assets/front/css/animate.min.css') }}">
+    <!--====== Slick ======-->
+    <link rel="stylesheet" href="{{ asset('assets/front/css/slick.min.css') }}">
+    <!--====== Main Style ======-->
+    <link rel="stylesheet" href="{{ asset('assets/front/css/style.css') }}">
 
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="{{ asset('assets/front/medino/css/animate-3.7.0.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/front/medino/css/font-awesome-4.7.0.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/front/medino/css/bootstrap-4.1.3.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/front/medino/css/owl-carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/front/medino/css/jquery.datetimepicker.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/front/medino/css/linearicons.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/front/medino/css/style.css') }}">
-    @vite([])
 </head>
 
-<body>
-    <!-- Preloader Starts -->
-    <div class="preloader">
-        <div class="spinner"></div>
-    </div>
-    <!-- Preloader End -->
+<body class="home-one">
+    <div class="page-wrapper">
 
-    <!-- Header Area Starts -->
-    <header class="header-area">
-        <div class="header-top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-9 d-md-flex">
-                        <h6 class="mr-3"><span class="mr-2"><i class="fa fa-mobile"></i></span> call us now! +1 305 708
-                            2563</h6>
-                        <h6 class="mr-3"><span class="mr-2"><i class="fa fa-envelope-o"></i></span> medical@example.com
-                        </h6>
-                        <h6><span class="mr-2"><i class="fa fa-map-marker"></i></span> Find our Location</h6>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="social-links">
-                            <ul>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fa fa-vimeo"></i></a></li>
+        <!-- Preloader -->
+        <div class="preloader"></div>
+
+        <!-- main header -->
+        <header class="main-header">
+            <!-- Header-Top -->
+            <div class="header-top bg-light-blue text-white">
+                <div class="container-fluid">
+                    <div class="top-inner">
+                        <div class="top-left">
+                            <p><i class="far fa-clock"></i> <b>Working Hours</b> : Manday - Friday, 08am - 05pm</p>
+                        </div>
+                        <div class="top-right d-flex align-items-center">
+                            <div class="social-style-two">
+                                <a href="contact.html"><i class="fab fa-twitter"></i></a>
+                                <a href="contact.html"><i class="fab fa-facebook-f"></i></a>
+                                <a href="contact.html"><i class="fab fa-instagram"></i></a>
+                                <a href="contact.html"><i class="fab fa-pinterest-p"></i></a>
+                            </div>
+                            <ul class="top-menu">
+                                <li><a href="about.html">Setting & Privacy</a></li>
+                                <li><a href="faqs.html">Faqs</a></li>
+                                <li><a href="about.html">About</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div id="header" id="home">
-            <div class="container">
-                <div class="row align-items-center justify-content-between d-flex">
-                    <div id="logo">
-                        <a href="index.html"><img src="{{ asset('assets/front/medino/images/logo/logo.png') }}" alt=""
-                                title="" /></a>
-                    </div>
-                    <nav id="nav-menu-container">
-                        <ul class="nav-menu">
-                            <li><a href="doctors.html">doctors</a></li>
-                            <li class="menu-has-children"><a href="">Pages</a>
-                                <ul>
-                                    <li><a href="about.html">about us</a></li>
-                                    <li><a href="elements.html">elements</a></li>
-                                </ul>
-                            </li>
-                            @php
-                            $queryMenu = DB::table('front_menus')
-                            ->where('menu_parent', '=', '1')
-                            ->where('deleted_at', '=', null)
-                            ->orderBy('id', 'ASC')
-                            ->get();
-                            @endphp
-                            @foreach ($queryMenu as $menu)
-                            @php
-                            $menuId = $menu->id;
-                            $subMenus = DB::table('front_menus')
-                            ->where('menu_parent', '=', $menuId)
-                            ->where('deleted_at', '=', null)
-                            ->orderBy('menu_parent', 'ASC')
-                            ->get();
-                            @endphp
-                            @if (count($subMenus) == 0)
-                            <li>
-                                <a href="{{ url('/page', $menu->menu_url) }}">{{ $menu->menu_name }}
-                                </a>
-                            </li>
-                            @else
-                            <li class="menu-has-children">
-                                <a href="#">{{ $menu->menu_name }}
-                                </a>
-                                <ul>
-                                    @foreach ($subMenus as $sm)
-                                    @php
-                                    $menuId2 = $sm->id;
-                                    $subMenus2 = DB::table('front_menus')
-                                    ->where('menu_parent', '=', $menuId2)
-                                    ->where('deleted_at', '=', null)
-                                    ->orderBy('menu_parent', 'ASC')
-                                    ->get();
-                                    @endphp
-                                    @if (count($subMenus2) == 0)
-                                    <li>
-                                        <a href="{{ url('page', $sm->menu_url) }}">{{ $sm->menu_name }}
+
+            <!-- Header-Upper -->
+            <div class="header-upper">
+                <div class="container-fluid clearfix">
+
+                    <div class="header-inner d-flex align-items-center justify-content-between">
+                        <div class="logo-outer d-lg-flex align-items-center">
+                            <div class="logo"><a href="index.html"><img src="{{ asset('assets/front/images/logos/logo.png') }}" alt="Logo"
+                                        title="Logo"></a></div>
+                            <select name="select-languages" id="select-languages">
+                                <option value="English">Eng</option>
+                                <option value="Spanish">Spa</option>
+                                <option value="Chinese">Chi</option>
+                                <option value="Arabic">Ara</option>
+                            </select>
+                        </div>
+
+                        <div class="nav-outer clearfix">
+                            <!-- Main Menu -->
+                            <nav class="main-menu navbar-expand-lg">
+                                <div class="navbar-header">
+                                    <div class="mobile-logo bg-green br-10 p-15">
+                                        <a href="index.html">
+                                            <img src="{{ asset('assets/front/images/logos/logo.png') }}" alt="Logo" title="Logo">
                                         </a>
-                                    </li>
-                                    @else
-                                    <li class="menu-has-children">
-                                        <a href="#">{{ $sm->menu_name
-                                            }}
-                                        </a>
-                                        <ul>
-                                            @foreach ($subMenus2 as $sub3)
-                                            @php
-                                            $menuId3 = $sub3->id;
-                                            $subMenus3 = DB::table('front_menus')
-                                            ->where('menu_parent', '=', $menuId3)
-                                            ->where('deleted_at', '=', null)
-                                            ->orderBy('menu_parent', 'ASC')
-                                            ->get();
-                                            @endphp
+                                    </div>
 
-                                            @if (count($subMenus3) == 0)
-                                            <li>
-                                                @if ($sub3->menu_name == 'Permohonan Informasi Publik')
-                                                <a href="https://website.wonosobokab.go.id/category/detail/Permohonan-Informasi-Publik"
-                                                    target="_blank">{{ $sub3->menu_name }}
-                                                </a>
-                                                @elseif ($sub3->menu_name == 'Pengajuan Keberatan Informasi Publik')
-                                                <a href="https://website.wonosobokab.go.id/category/detail/Formulir-Keberatan-atas-Permohonan-Informasi-Publik-pada-PPID-Kabupaten-Wonosobo"
-                                                    target="_blank">{{ $sub3->menu_name }}
-                                                </a>
-                                                @elseif ($sub3->menu_name == 'JDIH Wonosobo')
-                                                <a href="https://jdih.wonosobokab.go.id/" target="_blank">{{
-                                                    $sub3->menu_name }}
-                                                </a>
-                                                @else
-                                                <a href="{{ url('page', $sub3->menu_url) }}">{{ $sub3->menu_name }}
-                                                </a>
-                                                @endif
-                                            </li>
-                                            @else
-                                            <li class="menu-has-children">
-                                                <a href="#">{{ $sub3->menu_name }}
-                                                </a>
-                                                <ul>
-                                                    @foreach ($subMenus3 as $sub4)
-                                                    <li>
-                                                        <a href="{{ url('page', $sub4->menu_url) }}">{{ $sub4->menu_name
-                                                            }}</a>
-                                                    </li>
-                                                    @endforeach
-                                                </ul>
-                                            </li>
-                                            @endif
-                                            @endforeach
-                                        </ul>
-                                    </li>
-                                    @endif
-                                    @endforeach
-                                </ul>
-                            </li>
-                            @endif
-                            @endforeach
-                        </ul>
-                    </nav><!-- #nav-menu-container -->
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- Header Area End -->
-
-    <!-- Banner Area Starts -->
-    <section class="banner-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5">
-                    <h4>Caring for better life</h4>
-                    <h1>Leading the way in medical excellence</h1>
-                    <p>Earth greater grass for good. Place for divide evening yielding them that. Creeping beginning
-                        over gathered brought.</p>
-                    <a href="" class="template-btn mt-3">take appointment</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Banner Area End -->
-
-    <!-- Feature Area Starts -->
-    <section class="feature-area section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="single-feature text-center item-padding">
-                        <img src="{{ asset('assets/front/medino/images/feature1.png') }}" alt="">
-                        <h3>advance technology</h3>
-                        <p class="pt-3">Creeping for female light years that lesser can't evening heaven isn't bearing
-                            tree appear</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="single-feature text-center item-padding mt-4 mt-md-0">
-                        <img src="{{ asset('assets/front/medino/images/feature2.png') }}" alt="">
-                        <h3>comfortable place</h3>
-                        <p class="pt-3">Creeping for female light years that lesser can't evening heaven isn't bearing
-                            tree appear</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="single-feature text-center item-padding mt-4 mt-lg-0">
-                        <img src="{{ asset('assets/front/medino/images/feature3.png') }}" alt="">
-                        <h3>quality equipment</h3>
-                        <p class="pt-3">Creeping for female light years that lesser can't evening heaven isn't bearing
-                            tree appear</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="single-feature text-center item-padding mt-4 mt-lg-0">
-                        <img src="{{ asset('assets/front/medino/images/feature4.png') }}" alt="">
-                        <h3>friendly staff</h3>
-                        <p class="pt-3">Creeping for female light years that lesser can't evening heaven isn't bearing
-                            tree appear</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Feature Area End -->
-
-    <!-- Welcome Area Starts -->
-    <section class="welcome-area section-padding3">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5 align-self-center">
-                    <div class="welcome-img">
-                        <img src="{{ asset('assets/front/medino/images/welcome.png') }}" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-7">
-                    <div class="welcome-text mt-5 mt-lg-0">
-                        <h2>Welcome to our clinic</h2>
-                        <p class="pt-3">Subdue whales void god which living don't midst lesser yielding over lights
-                            whose. Cattle greater brought sixth fly den dry good tree isn't seed stars were.</p>
-                        <p>Subdue whales void god which living don't midst lesser yielding over lights whose. Cattle
-                            greater brought sixth fly den dry good tree isn't seed stars were the boring.</p>
-                        <a href="#" class="template-btn mt-3">learn more</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Welcome Area End -->
-
-    <!-- Department Area Starts -->
-    <section class="department-area section-padding4">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 offset-lg-3">
-                    <div class="section-top text-center">
-                        <h2>Popular department</h2>
-                        <p>Green above he cattle god saw day multiply under fill in the cattle fowl a all, living, tree
-                            word link available in the service for subdue fruit.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="department-slider owl-carousel">
-                        <div class="single-slide">
-                            <div class="slide-img">
-                                <img src="{{ asset('assets/front/medino/images/department1.jpg') }}" alt=""
-                                    class="img-fluid">
-                                <div class="hover-state">
-                                    <a href="#"><i class="fa fa-stethoscope"></i></a>
+                                    <!-- Toggle Button -->
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                        data-target=".navbar-collapse">
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
                                 </div>
-                            </div>
-                            <div class="single-department item-padding text-center">
-                                <h3>cardiac clinic</h3>
-                                <p>Hath creeping subdue he fish gred face whose spirit that seasons today multiply
-                                    female midst upon</p>
-                            </div>
-                        </div>
-                        <div class="single-slide">
-                            <div class="slide-img">
-                                <img src="{{ asset('assets/front/medino/images/department2.jpg') }}" alt=""
-                                    class="img-fluid">
-                                <div class="hover-state">
-                                    <a href="departments.html"><i class="fa fa-stethoscope"></i></a>
+
+                                <div class="navbar-collapse collapse clearfix">
+                                    <ul class="navigation clearfix">
+                                        <li class="dropdown current"><a href="#">home</a>
+                                            <ul>
+                                                <li class="current"><a href="index.html">Home One</a></li>
+                                                <li><a href="index2.html">Home Two</a></li>
+                                                <li><a href="index3.html">Home Three</a></li>
+                                                <li><a href="index4.html">Home Four</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="about.html">About</a></li>
+                                        <li class="dropdown"><a href="#">Courses</a>
+                                            <ul>
+                                                <li><a href="course-grid.html">course grid</a></li>
+                                                <li><a href="course-list.html">course list</a></li>
+                                                <li><a href="course-timeline.html">course timeline</a></li>
+                                                <li><a href="course-details.html">course details</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown"><a href="#">pages</a>
+                                            <ul>
+                                                <li><a href="faqs.html">FAQ's</a></li>
+                                                <li class="dropdown"><a href="#">shop</a>
+                                                    <ul>
+                                                        <li><a href="shop.html">product Page</a></li>
+                                                        <li><a href="product-details.html">product details</a></li>
+                                                        <li class="dropdown"><a href="#">shop</a>
+                                                            <ul>
+                                                                <li><a href="shop.html">product Page</a></li>
+                                                                <li><a href="product-details.html">product details</a></li>
+                                                                <li class="dropdown"><a href="#">shop</a>
+                                                                    <ul>
+                                                                        <li><a href="shop.html">product Page</a></li>
+                                                                        <li><a href="product-details.html">product details</a></li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="dropdown"><a href="#">instructors</a>
+                                                    <ul>
+                                                        <li><a href="instructors.html">all instructors</a></li>
+                                                        <li><a href="become-instructor.html">become instructor</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="gallery.html">gallery</a></li>
+                                                <li><a href="pricing.html">pricing plan</a></li>
+                                                <li><a href="contact.html">contact us</a></li>
+                                                <li><a href="404.html">error Page</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown"><a href="#">blog</a>
+                                            <ul>
+                                                <li><a href="blog.html">Blog Page</a></li>
+                                                <li><a href="blog-details.html">Blog Details</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
                                 </div>
-                            </div>
-                            <div class="single-department item-padding text-center">
-                                <h3>plastic surgery</h3>
-                                <p>Hath creeping subdue he fish gred face whose spirit that seasons today multiply
-                                    female midst upon</p>
-                            </div>
-                        </div>
-                        <div class="single-slide">
-                            <div class="slide-img">
-                                <img src="{{ asset('assets/front/medino/images/department3.jpg') }}" alt=""
-                                    class="img-fluid">
-                                <div class="hover-state">
-                                    <a href="departments.html"><i class="fa fa-stethoscope"></i></a>
-                                </div>
-                            </div>
-                            <div class="single-department item-padding text-center">
-                                <h3>dental clinic</h3>
-                                <p>Hath creeping subdue he fish gred face whose spirit that seasons today multiply
-                                    female midst upon</p>
-                            </div>
-                        </div>
-                        <div class="single-slide">
-                            <div class="slide-img">
-                                <img src="{{ asset('assets/front/medino/images/department1.jpg') }}" alt=""
-                                    class="img-fluid">
-                                <div class="hover-state">
-                                    <a href="departments.html"><i class="fa fa-stethoscope"></i></a>
-                                </div>
-                            </div>
-                            <div class="single-department item-padding text-center">
-                                <h3>cardiac clinic</h3>
-                                <p>Hath creeping subdue he fish gred face whose spirit that seasons today multiply
-                                    female midst upon</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Department Area Starts -->
 
-    <!-- Patient Area Starts -->
-    <section class="patient-area section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 offset-lg-3">
-                    <div class="section-top text-center">
-                        <h2>Patient are saying</h2>
-                        <p>Green above he cattle god saw day multiply under fill in the cattle fowl a all, living, tree
-                            word link available in the service for subdue fruit.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-5">
-                    <div class="single-patient mb-4">
-                        <img src="{{ asset('assets/front/medino/images/patient1.png') }}" alt="">
-                        <h3>daren jhonson</h3>
-                        <h5>hp specialist</h5>
-                        <p class="pt-3">Elementum libero hac leo integer. Risus hac road parturient feugiat. Litora
-                            cursus hendrerit bib elit Tempus inceptos posuere metus.</p>
-                    </div>
-                    <div class="single-patient">
-                        <img src="{{ asset('assets/front/medino/images/patient2.png') }}" alt="">
-                        <h3>black heiden</h3>
-                        <h5>hp specialist</h5>
-                        <p class="pt-3">Elementum libero hac leo integer. Risus hac road parturient feugiat. Litora
-                            cursus hendrerit bib elit Tempus inceptos posuere metus.</p>
-                    </div>
-                </div>
-                <div class="col-lg-5 offset-lg-1 align-self-center">
-                    <div class="appointment-form text-center mt-5 mt-lg-0">
-                        <h3 class="mb-5">appointment now</h3>
-                        <form action="#">
-                            <div class="form-group">
-                                <input type="text" placeholder="Your Name" onfocus="this.placeholder = ''"
-                                    onblur="this.placeholder = 'Your Name'" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" placeholder="Your Email" onfocus="this.placeholder = ''"
-                                    onblur="this.placeholder = 'Your Email'" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" id="datepicker" placeholder="Date" onfocus="this.placeholder = ''"
-                                    onblur="this.placeholder = 'Date'" required>
-                            </div>
-                            <div class="form-group">
-                                <textarea name="message" cols="20" rows="7" placeholder="Message"
-                                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Message'"
-                                    required></textarea>
-                            </div>
-                            <a href="#" class="template-btn">appointment now</a>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Patient Area Starts -->
+                            </nav>
+                            <!-- Main Menu End-->
+                        </div>
 
-    <!-- Specialist Area Starts -->
-    <section class="specialist-area section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 offset-lg-3">
-                    <div class="section-top text-center">
-                        <h2>Our specialish</h2>
-                        <p>Green above he cattle god saw day multiply under fill in the cattle fowl a all, living, tree
-                            word link available in the service for subdue fruit.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single-doctor mb-4 mb-lg-0">
-                        <div class="doctor-img">
-                            <img src="{{ asset('assets/front/medino/images/doctor1.jpg') }}" alt="" class="img-fluid">
-                        </div>
-                        <div class="content-area">
-                            <div class="doctor-name text-center">
-                                <h3>ethel davis</h3>
-                                <h6>sr. faculty data science</h6>
-                            </div>
-                            <div class="doctor-text text-center">
-                                <p>If you are looking at blank cassettes on the web, you may be very confused at the.
-                                </p>
-                                <ul class="doctor-icon">
-                                    <li><a href="#"><i class="fa fa-facebook"></i><a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i><a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i><a></li>
-                                    <li><a href="#"><i class="fa fa-pinterest"></i><a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single-doctor mb-4 mb-lg-0">
-                        <div class="doctor-img">
-                            <img src="{{ asset('assets/front/medino/images/doctor2.jpg') }}" alt="" class="img-fluid">
-                        </div>
-                        <div class="content-area">
-                            <div class="doctor-name text-center">
-                                <h3>dand mories</h3>
-                                <h6>sr. faculty plastic surgery</h6>
-                            </div>
-                            <div class="doctor-text text-center">
-                                <p>If you are looking at blank cassettes on the web, you may be very confused at the.
-                                </p>
-                                <ul class="doctor-icon">
-                                    <li><a href="#"><i class="fa fa-facebook"></i><a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i><a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i><a></li>
-                                    <li><a href="#"><i class="fa fa-pinterest"></i><a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single-doctor mb-4 mb-sm-0">
-                        <div class="doctor-img">
-                            <img src="{{ asset('assets/front/medino/images/doctor3.jpg') }}" alt="" class="img-fluid">
-                        </div>
-                        <div class="content-area">
-                            <div class="doctor-name text-center">
-                                <h3>align board</h3>
-                                <h6>sr. faculty data science</h6>
-                            </div>
-                            <div class="doctor-text text-center">
-                                <p>If you are looking at blank cassettes on the web, you may be very confused at the.
-                                </p>
-                                <ul class="doctor-icon">
-                                    <li><a href="#"><i class="fa fa-facebook"></i><a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i><a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i><a></li>
-                                    <li><a href="#"><i class="fa fa-pinterest"></i><a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single-doctor">
-                        <div class="doctor-img">
-                            <img src="{{ asset('assets/front/medino/images/doctor4.jpg') }}" alt="" class="img-fluid">
-                        </div>
-                        <div class="content-area">
-                            <div class="doctor-name text-center">
-                                <h3>jeson limit</h3>
-                                <h6>sr. faculty plastic surgery</h6>
-                            </div>
-                            <div class="doctor-text text-center">
-                                <p>If you are looking at blank cassettes on the web, you may be very confused at the.
-                                </p>
-                                <ul class="doctor-icon">
-                                    <li><a href="#"><i class="fa fa-facebook"></i><a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i><a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i><a></li>
-                                    <li><a href="#"><i class="fa fa-pinterest"></i><a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Specialist Area Starts -->
-
-    <!-- Hotline Area Starts -->
-    <section class="hotline-area text-center section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2>Emergency hotline</h2>
-                    <span>(+01) – 256 567 550</span>
-                    <p class="pt-3">We provide 24/7 customer support. Please feel free to contact us <br>for emergency
-                        case.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Hotline Area End -->
-
-    <!-- News Area Starts -->
-    <section class="news-area section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 offset-lg-3">
-                    <div class="section-top text-center">
-                        <h2>Recent medical news</h2>
-                        <p>Green above he cattle god saw day multiply under fill in the cattle fowl a all, living, tree
-                            word link available in the service for subdue fruit.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-news">
-                        <div class="news-img">
-                            <img src="{{ asset('assets/front/medino/images/news1.jpg') }}" alt="" class="img-fluid">
-                        </div>
-                        <div class="news-text">
-                            <div class="news-date">
-                                22 July 2018
-                            </div>
-                            <h3><a href="blog-details.html">chip to model coeliac disease</a></h3>
-                            <p>Elementum libero hac leo integer. Risus hac part duriw feugiat litora cursus hendrerit
-                                bibendum per person on elit.Tempus inceptos posuere me.</p>
-                            <a href="blog-details.html" class="news-btn">read more <i
-                                    class="fa fa-long-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-news mt-5 mt-md-0">
-                        <div class="news-img">
-                            <img src="{{ asset('assets/front/medino/images/news2.jpg') }}" alt="" class="img-fluid">
-                        </div>
-                        <div class="news-text">
-                            <div class="news-date">
-                                22 Oct 2018
-                            </div>
-                            <h3><a href="blog-details.html">Galectins An Ancient FaSi Future</a></h3>
-                            <p>Elementum libero hac leo integer. Risus hac part duriw feugiat litora cursus hendrerit
-                                bibendum per person on elit.Tempus inceptos posuere me.</p>
-                            <a href="blog-details.html" class="news-btn">read more <i
-                                    class="fa fa-long-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-news mt-5 mt-lg-0">
-                        <div class="news-img">
-                            <img src="{{ asset('assets/front/medino/images/news3.jpg') }}" alt="" class="img-fluid">
-                        </div>
-                        <div class="news-text">
-                            <div class="news-date">
-                                22 Sep 2018
-                            </div>
-                            <h3><a href="blog-details.html">Getting the Most Out of the CLARI</a></h3>
-                            <p>Elementum libero hac leo integer. Risus hac part duriw feugiat litora cursus hendrerit
-                                bibendum per person on elit.Tempus inceptos posuere me.</p>
-                            <a href="blog-details.html" class="news-btn">read more <i
-                                    class="fa fa-long-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- News Area Starts -->
-
-    <!-- Footer Area Starts -->
-    <footer class="footer-area section-padding">
-        <div class="footer-widget">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-2 col-lg-3">
-                        <div class="single-widget-home mb-5 mb-lg-0">
-                            <h3 class="mb-4">top products</h3>
-                            <ul>
-                                <li class="mb-2"><a href="#">managed website</a></li>
-                                <li class="mb-2"><a href="#">managed reputation</a></li>
-                                <li class="mb-2"><a href="#">power tools</a></li>
-                                <li><a href="#">marketing service</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-5 offset-xl-1 col-lg-6">
-                        <div class="single-widget-home mb-5 mb-lg-0">
-                            <h3 class="mb-4">newsletter</h3>
-                            <p class="mb-4">You can trust us. we only send promo offers, not a single.</p>
+                        <!-- Menu Button -->
+                        <div class="menu-btn-sidebar d-flex align-items-center">
                             <form action="#">
-                                <input type="email" placeholder="Your email here" onfocus="this.placeholder = ''"
-                                    onblur="this.placeholder = 'Your email here'" required>
-                                <button type="submit" class="template-btn">subscribe now</button>
+                                <input type="search" placeholder="Search" required>
+                                <button><i class="fas fa-search"></i></button>
+                            </form>
+                            <button class="cart"><i class="fas fa-shopping-bag"></i></button>
+                            <button><i class="far fa-user-circle"></i></button>
+
+                            <!-- menu sidbar -->
+                            <div class="menu-sidebar">
+                                <button>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End Header Upper-->
+        </header>
+
+
+        <!--Form Back Drop-->
+        <div class="form-back-drop"></div>
+
+        <!-- Hidden Sidebar -->
+        <section class="hidden-bar">
+            <div class="inner-box text-center">
+                <div class="cross-icon"><span class="fa fa-times"></span></div>
+                <div class="title">
+                    <h4>Get Appointment</h4>
+                </div>
+
+                <!--Appointment Form-->
+                <div class="appointment-form">
+                    <form method="post" action="#">
+                        <div class="form-group">
+                            <input type="text" name="text" value="" placeholder="Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" value="" placeholder="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Message" rows="5"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="theme-btn">Submit now</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!--Social Icons-->
+                <div class="social-style-one">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+        </section>
+        <!--End Hidden Sidebar -->
+
+
+        <!-- Hero Section Start -->
+        <section class="hero-section rel z-1 pt-150 rpt-135 pb-75 rpb-100">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <div class="hero-content rpt-25 rmb-75">
+                            <span class="sub-title style-two mb-20 wow fadeInUp delay-0-2s">Coaching & Speker</span>
+                            <h1 class="mb-20 wow fadeInUp delay-0-4s">Build Bright Life? Take Our Life Coach</h1>
+                            <p class="wow fadeInUp delay-0-6s">Sit amet consectetur adipiscing elit sed do eiusmod
+                                tempor incididunt labore dolore magna aliqua suspendisse ultrices gravida.</p>
+                            <div class="hero-btn mt-30 wow fadeInUp delay-0-8s">
+                                <a href="course-grid.html" class="theme-btn">Get Your Free Coach <i
+                                        class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="hero-right-images text-lg-right wow fadeInUp delay-0-2s">
+                            <img src="{{ asset('assets/front/images/hero/hero-right.png') }}" alt="Hero">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <span class="bg-text">coach</span>
+        </section>
+        <!-- Hero Section End -->
+
+
+        <!-- Features Section Start -->
+        <section class="features-section rel z-1 pt-80 pb-40 bg-blue text-white">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="feature-item wow fadeInUp delay-0-2s">
+                            <div class="image">
+                                <img src="{{ asset('assets/front/images/features/icon1.png') }}" alt="Icon">
+                            </div>
+                            <div class="content">
+                                <h4>Online Courses From Experts</h4>
+                                <p>Sit amet consectetur adipisc elit sed do eiusmod temporse incididunt labore dolore
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="feature-item wow fadeInUp delay-0-4s">
+                            <div class="image">
+                                <img src="{{ asset('assets/front/images/features/icon2.png') }}" alt="Icon">
+                            </div>
+                            <div class="content">
+                                <h4>Over 500+ High Quality Topics</h4>
+                                <p>Sit amet consectetur adipisc elit sed do eiusmod temporse incididunt labore dolore
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="feature-item wow fadeInUp delay-0-6s">
+                            <div class="image">
+                                <img src="{{ asset('assets/front/images/features/icon1.png') }}" alt="Icon">
+                            </div>
+                            <div class="content">
+                                <h4>Event & Program Video Update</h4>
+                                <p>Sit amet consectetur adipisc elit sed do eiusmod temporse incididunt labore dolore
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img class="rectangle-dots" src="{{ asset('assets/front/images/shapes/rectangle-dots.png') }}" alt="Shape">
+            <img class="circle-dots" src="{{ asset('assets/front/images/shapes/circle-dots.png') }}" alt="Shape">
+        </section>
+        <!-- Features Section End -->
+
+
+        <!-- About Section Start -->
+        <section class="about-section pt-130 rpt-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 align-self-end">
+                        <div class="about-man rmb-75 wow fadeInLeft delay-0-2s">
+                            <img src="{{ asset('assets/front/images/about/man.png') }}" alt="Man">
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="about-content rel z-2 pb-115 rpb-85 wow fadeInRight delay-0-2s">
+                            <div class="section-title mb-40">
+                                <span class="sub-title mb-25">about us</span>
+                                <h2>We Provide Life Coach From Expert Advisors</h2>
+                            </div>
+                            <div class="about-features">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="feature-item">
+                                            <div class="icon">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <div class="content">
+                                                <h5>Exclusive Coach</h5>
+                                                <p>Sit consectetur adipiscing eiuse tempor incides</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="feature-item">
+                                            <div class="icon">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <div class="content">
+                                                <h5>Creative Minds</h5>
+                                                <p>Sit consectetur adipiscing eiuse tempor incides</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="feature-item">
+                                            <div class="icon">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <div class="content">
+                                                <h5>Master Certified</h5>
+                                                <p>Sit consectetur adipiscing eiuse tempor incides</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="feature-item">
+                                            <div class="icon">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <div class="content">
+                                                <h5>Video Tutorials</h5>
+                                                <p>Sit consectetur adipiscing eiuse tempor incides</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="about-btns">
+                                <a href="about.html" class="theme-btn style-two my-15">Learn more us <i
+                                        class="fas fa-arrow-right"></i></a>
+                                <a href="faqs.html" class="read-more">How it works <i
+                                        class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About Section End -->
+
+
+        <!-- Coach Section Start -->
+        <section class="coach-section rel z-1 pt-120 rpt-90 pb-100 rpb-70 bg-lighter">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6 col-lg-7 col-md-8">
+                        <div class="section-title text-center mb-40">
+                            <h2>Best Solutions For Life Coach Solutions</h2>
+                        </div>
+                    </div>
+                </div>
+                <ul class="coach-filter mb-35">
+                    <li data-filter="*" class="current">Show All</li>
+                    <li data-filter=".design">Web Design</li>
+                    <li data-filter=".marketing">Marketing</li>
+                    <li data-filter=".development">Development</li>
+                    <li data-filter=".technology">IT & Technology</li>
+                    <li data-filter=".photography">Photography</li>
+                </ul>
+                <div class="row coach-active justify-content-center">
+                    <div class="col-lg-4 col-md-6 item marketing technology">
+                        <div class="coach-item wow fadeInUp delay-0-2s">
+                            <div class="coach-image">
+                                <a href="course-grid.html" class="category">Lifestyle</a>
+                                <img src="{{ asset('assets/front/images/coachs/coach1.jpg') }}" alt="Coach">
+                            </div>
+                            <div class="coach-content">
+                                <span class="label">Basic Coach</span>
+                                <h4><a href="course-details.html">Learn How to Manage Your Lifestyle</a></h4>
+                                <div class="ratting-price">
+                                    <div class="ratting">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <span>(3k)</span>
+                                    </div>
+                                    <span class="price">256.95</span>
+                                </div>
+                                <ul class="coach-footer">
+                                    <li><i class="far fa-file-alt"></i><span>12 Lessions</span></li>
+                                    <li><i class="far fa-user"></i><span>seats</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 item design photography">
+                        <div class="coach-item wow fadeInUp delay-0-4s">
+                            <div class="coach-image">
+                                <a href="course-grid.html" class="category">Web Design</a>
+                                <img src="{{ asset('assets/front/images/coachs/coach2.jpg') }}" alt="Coach">
+                            </div>
+                            <div class="coach-content">
+                                <span class="label">HTML CSS</span>
+                                <h4><a href="course-details.html">How to Learn Basic Web Design HTML</a></h4>
+                                <div class="ratting-price">
+                                    <div class="ratting">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <span>(3k)</span>
+                                    </div>
+                                    <span class="price">256.95</span>
+                                </div>
+                                <ul class="coach-footer">
+                                    <li><i class="far fa-file-alt"></i><span>12 Lessions</span></li>
+                                    <li><i class="far fa-user"></i><span>seats</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 item development photography">
+                        <div class="coach-item wow fadeInUp delay-0-6s">
+                            <div class="coach-image">
+                                <a href="course-grid.html" class="category">Development</a>
+                                <img src="{{ asset('assets/front/images/coachs/coach3.jpg') }}" alt="Coach">
+                            </div>
+                            <div class="coach-content">
+                                <span class="label">Advance</span>
+                                <h4><a href="course-details.html">Learn How to Manage Your Lifestyle</a></h4>
+                                <div class="ratting-price">
+                                    <div class="ratting">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <span>(3k)</span>
+                                    </div>
+                                    <span class="price">256.95</span>
+                                </div>
+                                <ul class="coach-footer">
+                                    <li><i class="far fa-file-alt"></i><span>12 Lessions</span></li>
+                                    <li><i class="far fa-user"></i><span>seats</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 item design technology">
+                        <div class="coach-item wow fadeInUp delay-0-2s">
+                            <div class="coach-image">
+                                <a href="course-grid.html" class="category">Technology</a>
+                                <img src="{{ asset('assets/front/images/coachs/coach4.jpg') }}" alt="Coach">
+                            </div>
+                            <div class="coach-content">
+                                <span class="label">Basic Coach</span>
+                                <h4><a href="course-details.html">Learn How to Manage Your Lifestyle</a></h4>
+                                <div class="ratting-price">
+                                    <div class="ratting">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <span>(3k)</span>
+                                    </div>
+                                    <span class="price">256.95</span>
+                                </div>
+                                <ul class="coach-footer">
+                                    <li><i class="far fa-file-alt"></i><span>12 Lessions</span></li>
+                                    <li><i class="far fa-user"></i><span>seats</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 item development photography">
+                        <div class="coach-item wow fadeInUp delay-0-4s">
+                            <div class="coach-image">
+                                <a href="course-grid.html" class="category">Photography</a>
+                                <img src="{{ asset('assets/front/images/coachs/coach5.jpg') }}" alt="Coach">
+                            </div>
+                            <div class="coach-content">
+                                <span class="label">Photography</span>
+                                <h4><a href="course-details.html">Learn Photography and Video Editing Basic</a></h4>
+                                <div class="ratting-price">
+                                    <div class="ratting">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <span>(3k)</span>
+                                    </div>
+                                    <span class="price">256.95</span>
+                                </div>
+                                <ul class="coach-footer">
+                                    <li><i class="far fa-file-alt"></i><span>12 Lessions</span></li>
+                                    <li><i class="far fa-user"></i><span>seats</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 item design technology">
+                        <div class="coach-item wow fadeInUp delay-0-6s">
+                            <div class="coach-image">
+                                <a href="course-grid.html" class="category">Marketing</a>
+                                <img src="{{ asset('assets/front/images/coachs/coach6.jpg') }}" alt="Coach">
+                            </div>
+                            <div class="coach-content">
+                                <span class="label">Basic Coach</span>
+                                <h4><a href="course-details.html">Learn How to Manage Marketing Strategy</a></h4>
+                                <div class="ratting-price">
+                                    <div class="ratting">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <span>(3k)</span>
+                                    </div>
+                                    <span class="price">256.95</span>
+                                </div>
+                                <ul class="coach-footer">
+                                    <li><i class="far fa-file-alt"></i><span>12 Lessions</span></li>
+                                    <li><i class="far fa-user"></i><span>seats</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Coach Section End -->
+
+
+        <!-- Work Process Section Start -->
+        <section class="work-process-section bg-white rel z-1 pt-130 rpt-100 pb-100 rpb-70">
+            <div class="container">
+                <div class="row justify-content-between align-items-center pb-30 wow fadeInUp delay-0-2s">
+                    <div class="col-xl-7 col-lg-8">
+                        <div class="section-title">
+                            <span class="sub-title mb-15">How It Works</span>
+                            <h2>Very Simple Steps to Success Golas</h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="slider-arrow-btns text-lg-right mt-10">
+                            <button class="work-prev"><i class="fas fa-angle-left"></i></button>
+                            <button class="work-next"><i class="fas fa-angle-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="work-step-wrap wow fadeInUp delay-0-4s">
+                    <div class="work-step-item">
+                        <span class="number">01</span>
+                        <div class="content">
+                            <h4>Transformation Completed</h4>
+                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium</p>
+                        </div>
+                    </div>
+                    <div class="work-step-item">
+                        <span class="number">02</span>
+                        <div class="content">
+                            <h4>Schedule a Meeting</h4>
+                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium</p>
+                        </div>
+                    </div>
+                    <div class="work-step-item">
+                        <span class="number">03</span>
+                        <div class="content">
+                            <h4>Make a Decision</h4>
+                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Work Process Section End -->
+
+
+        <!-- Newsletter Section Start -->
+        <section class="newsletter-section pb-130 rpb-100 wow fadeInUp delay-0-2s">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="newsletter-video overlay">
+                            <img src="{{ asset('assets/front/images/video/video-bg.jpg') }}" alt="Video">
+                            <a href="https://www.youtube.com/watch?v=9Y7ma241N8k" class="mfp-iframe video-play"><i
+                                    class="fas fa-play"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="newsletter-content bg-lighter">
+                            <div class="section-title mb-20">
+                                <span class="sub-title mb-25">Newsletters</span>
+                                <h2>Get Our Every Single Notifications</h2>
+                            </div>
+                            <p>Sit amet consectetur adipiscinelit eiusmod tempor incididunt ut labore et dolore magna
+                                aliqua suspendisse ultrices gravida. commodo viverra maecenas accumsan facilisis.</p>
+                            <form class="newsletter-form mt-25" action="#">
+                                <div class="newsletter-radios mb-25">
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" class="custom-control-input" id="hero-wekly" name="example1"
+                                            checked>
+                                        <label class="custom-control-label" for="hero-wekly">Regular Updates</label>
+                                    </div>
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" class="custom-control-input" id="hero-monthly"
+                                            name="example1">
+                                        <label class="custom-control-label" for="hero-monthly">Weekly Updates</label>
+                                    </div>
+                                </div>
+                                <div class="newsletter-email">
+                                    <label for="email"><i class="far fa-envelope"></i></label>
+                                    <input id="email" type="email" placeholder="Enter Email Address" required>
+                                    <button type="submit" class="theme-btn">Subscribe <i
+                                            class="fas fa-arrow-right"></i></button>
+                                </div>
                             </form>
                         </div>
                     </div>
-                    <div class="col-xl-3 offset-xl-1 col-lg-3">
-                        <div class="single-widge-home">
-                            <h3 class="mb-4">instagram feed</h3>
-                            <div class="feed">
-                                <img src="{{ asset('assets/front/medino/images/feed1.jpg') }}" alt="feed">
-                                <img src="{{ asset('assets/front/medino/images/feed2.jpg') }}" alt="feed">
-                                <img src="{{ asset('assets/front/medino/images/feed3.jpg') }}" alt="feed">
-                                <img src="{{ asset('assets/front/medino/images/feed4.jpg') }}" alt="feed">
-                                <img src="{{ asset('assets/front/medino/images/feed5.jpg') }}" alt="feed">
-                                <img src="{{ asset('assets/front/medino/images/feed6.jpg') }}" alt="feed">
-                                <img src="{{ asset('assets/front/medino/images/feed7.jpg') }}" alt="feed">
-                                <img src="{{ asset('assets/front/medino/images/feed8.jpg') }}" alt="feed">
+                </div>
+            </div>
+        </section>
+        <!-- Newsletter Section End -->
+
+
+        <!-- Events Section Start -->
+        <section class="events-section rel z-1 py-130 rpy-100 bg-blue text-white">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-7 col-lg-8 col-md-9">
+                        <div class="section-title text-center mb-55">
+                            <span class="sub-title mb-25">Events & Program</span>
+                            <h2>We’reArranged Yearly Cultural Events & Program</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-wrap">
+                    <div class="event-item wow fadeInUp delay-0-2s">
+                        <div class="image">
+                            <img src="{{ asset('assets/front/images/events/event1.jpg') }}" alt="Event">
+                            <span class="date">25 march 2022</span>
+                        </div>
+                        <div class="content">
+                            <h4>How Much Needs Life Coach For Human Beings</h4>
+                            <span class="location"><i class="fas fa-map-marker-alt"></i> 55 Main Street, New York</span>
+                        </div>
+                    </div>
+                    <div class="event-item wow fadeInUp delay-0-4s">
+                        <div class="image">
+                            <img src="{{ asset('assets/front/images/events/event2.jpg') }}" alt="Event">
+                            <span class="date">25 march 2022</span>
+                        </div>
+                        <div class="content">
+                            <h4>How Much Needs Life Coach For Human Beings</h4>
+                            <span class="location"><i class="fas fa-map-marker-alt"></i> 55 Main Street, New York</span>
+                        </div>
+                    </div>
+                    <div class="event-item wow fadeInUp delay-0-6s">
+                        <div class="image">
+                            <img src="{{ asset('assets/front/images/events/event3.jpg') }}" alt="Event">
+                            <span class="date">25 march 2022</span>
+                        </div>
+                        <div class="content">
+                            <h4>How Much Needs Life Coach For Human Beings</h4>
+                            <span class="location"><i class="fas fa-map-marker-alt"></i> 55 Main Street, New York</span>
+                        </div>
+                    </div>
+                    <div class="event-item wow fadeInUp delay-0-2s">
+                        <div class="image">
+                            <img src="{{ asset('assets/front/images/events/event1.jpg') }}" alt="Event">
+                            <span class="date">25 march 2022</span>
+                        </div>
+                        <div class="content">
+                            <h4>How Much Needs Life Coach For Human Beings</h4>
+                            <span class="location"><i class="fas fa-map-marker-alt"></i> 55 Main Street, New York</span>
+                        </div>
+                    </div>
+                    <div class="event-item wow fadeInUp delay-0-4s">
+                        <div class="image">
+                            <img src="{{ asset('assets/front/images/events/event2.jpg') }}" alt="Event">
+                            <span class="date">25 march 2022</span>
+                        </div>
+                        <div class="content">
+                            <h4>How Much Needs Life Coach For Human Beings</h4>
+                            <span class="location"><i class="fas fa-map-marker-alt"></i> 55 Main Street, New York</span>
+                        </div>
+                    </div>
+                    <div class="event-item wow fadeInUp delay-0-6s">
+                        <div class="image">
+                            <img src="{{ asset('assets/front/images/events/event3.jpg') }}" alt="Event">
+                            <span class="date">25 march 2022</span>
+                        </div>
+                        <div class="content">
+                            <h4>How Much Needs Life Coach For Human Beings</h4>
+                            <span class="location"><i class="fas fa-map-marker-alt"></i> 55 Main Street, New York</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <span class="bg-text">coach</span>
+            <img class="rectangle-dots" src="{{ asset('assets/front/images/shapes/rectangle-dots.png') }}" alt="Shape">
+            <img class="circle-dots" src="{{ asset('assets/front/images/shapes/circle-dots.png') }}" alt="Shape">
+        </section>
+        <!-- Events Section End -->
+
+
+        <!-- Testimonials Section Start -->
+        <section class="testimonials-section bg-white rel z-1 py-130 rpy-100">
+            <div class="container">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-lg-5">
+                        <div class="testimonial-left-content rmb-65 wow fadeInLeft delay-0-2s">
+                            <div class="section-title">
+                                <span class="sub-title mb-15">Testimonials</span>
+                                <h2>Happy Clients Say About Coach</h2>
+                            </div>
+                            <p>Quis autem veleum iure reprehenderit voluptate velit esse quam nihil molestiae
+                                consequatur vel illum dolore eum fugiat quo voluptas nulla pariatur</p>
+                            <h4 class="partner-title mt-25 mb-15">We Have <span>1356+</span> Global Partners</h4>
+                            <div class="partner-iamges-wrap">
+                                <img src="{{ asset('assets/front/images/testimonials/partner1.jpg') }}" alt="Partner">
+                                <img src="{{ asset('assets/front/images/testimonials/partner2.jpg') }}" alt="Partner">
+                                <img src="{{ asset('assets/front/images/testimonials/partner3.jpg') }}" alt="Partner">
+                                <img src="{{ asset('assets/front/images/testimonials/partner4.jpg') }}" alt="Partner">
+                                <img src="{{ asset('assets/front/images/testimonials/partner5.jpg') }}" alt="Partner">
+                                <img src="{{ asset('assets/front/images/testimonials/partner6.jpg') }}" alt="Partner">
+                                <span class="plus">+</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="testimonial-wrap wow fadeInRight delay-0-2s">
+                            <div class="testimonial-item">
+                                <div class="testimonial-author">
+                                    <img src="{{ asset('assets/front/images/testimonials/author.jpg') }}" alt="Author">
+                                </div>
+                                <div class="testimonial-content">
+                                    <div class="designation">
+                                        <h4>Justin C. Swanson</h4>
+                                        <span>Business Manager</span>
+                                    </div>
+                                    <p>Voluptatem accusantium doloremq udantium totam rem aperiam eaque quae abillo
+                                        inventore veritatis et quasi architecto beatae Sed ut perspiciatis unde omnis
+                                        iste natus error sit</p>
+                                    <div class="ratting">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-item">
+                                <div class="testimonial-author">
+                                    <img src="{{ asset('assets/front/images/testimonials/author.jpg') }}" alt="Author">
+                                </div>
+                                <div class="testimonial-content">
+                                    <div class="designation">
+                                        <h4>Gerardo M. Jordan</h4>
+                                        <span>Business Manager</span>
+                                    </div>
+                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+                                        doloremq udantium totam rem aperiam eaque quae abillo inventore veritatis et
+                                        quasi architecto beatae</p>
+                                    <div class="ratting">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-item">
+                                <div class="testimonial-author">
+                                    <img src="{{ asset('assets/front/images/testimonials/author.jpg') }}" alt="Author">
+                                </div>
+                                <div class="testimonial-content">
+                                    <div class="designation">
+                                        <h4>Justin C. Swanson</h4>
+                                        <span>Business Manager</span>
+                                    </div>
+                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+                                        doloremq udantium totam rem aperiam eaque quae abillo inventore veritatis et
+                                        quasi architecto beatae</p>
+                                    <div class="ratting">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-item">
+                                <div class="testimonial-author">
+                                    <img src="{{ asset('assets/front/images/testimonials/author.jpg') }}" alt="Author">
+                                </div>
+                                <div class="testimonial-content">
+                                    <div class="designation">
+                                        <h4>Gerardo M. Jordan</h4>
+                                        <span>Business Manager</span>
+                                    </div>
+                                    <p>Voluptatem accusantium doloremq udantium totam rem aperiam eaque quae abillo
+                                        inventore veritatis et quasi architecto beatae Sed ut perspiciatis unde omnis
+                                        iste natus error sit</p>
+                                    <div class="ratting">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Testimonials Section End -->
+
+
+        <!-- Blog Section Start -->
+        <section class="blog-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6 col-lg-7 col-md-8">
+                        <div class="section-title text-center mb-55">
+                            <span class="sub-title mb-20">News & Blog</span>
+                            <h2>Read Some Store About News & Blog</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="blog-item big-item wow fadeInUp delay-0-2s">
+                            <div class="blog-image">
+                                <img src="{{ asset('assets/front/images/blog/blog1.jpg') }}" alt="Blog">
+                            </div>
+                            <div class="blog-content">
+                                <span class="date"><span>25</span> March</span>
+                                <div class="content">
+                                    <h4><a href="blog-details.html">Building Web Layouts For Dual-Screen And Foldable
+                                            Devices Designing</a></h4>
+                                    <ul class="blog-meta">
+                                        <li><i class="far fa-user"></i> <a href="blog.html">By Somalia</a></li>
+                                        <li><i class="far fa-comments"></i> <a href="blog.html">Comments (5)</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="blog-item wow fadeInUp delay-0-4s">
+                            <div class="blog-image">
+                                <img src="{{ asset('assets/front/images/blog/blog2.jpg') }}" alt="Blog">
+                            </div>
+                            <div class="blog-content">
+                                <span class="date"><span>25</span> March</span>
+                                <div class="content">
+                                    <ul class="blog-meta">
+                                        <li><i class="far fa-user"></i> <a href="blog.html">By Somalia</a></li>
+                                        <li><i class="far fa-comments"></i> <a href="blog.html">Com (5)</a></li>
+                                    </ul>
+                                    <h5><a href="blog-details.html">Designing Better Linke Website And Email</a></h5>
+                                    <p>Sit amet consectetur adiscins eiusmod tempor incididunt</p>
+                                    <a href="blog-details.html" class="read-more">Read more <i
+                                            class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="blog-item wow fadeInUp delay-0-6s">
+                            <div class="blog-image">
+                                <img src="{{ asset('assets/front/images/blog/blog3.jpg') }}" alt="Blog">
+                            </div>
+                            <div class="blog-content">
+                                <span class="date"><span>03</span> April</span>
+                                <div class="content">
+                                    <ul class="blog-meta">
+                                        <li><i class="far fa-user"></i> <a href="blog.html">By Somalia</a></li>
+                                        <li><i class="far fa-comments"></i> <a href="blog.html">Com (5)</a></li>
+                                    </ul>
+                                    <h5><a href="blog-details.html">Useful VS Code Esions Front-End Develop</a></h5>
+                                    <p>Sit amet consectetur adiscins eiusmod tempor incididunt</p>
+                                    <a href="blog-details.html" class="read-more">Read more <i
+                                            class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-more-btn pt-30 text-center">
+                    <a href="blog.html" class="theme-btn style-three">view more news <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+        <!-- Blog Section End -->
+
+
+        <!-- Logo Section Start -->
+        <div class="logo-section pt-130 rpt-100 pb-80 rpb-50">
+            <div class="container">
+                <div class="logo-inner">
+                    <div class="logo-item wow fadeInUp delay-0-1s">
+                        <a href="contact.html"><img src="{{ asset('assets/front/images/client-logos/client-logo1.png') }}"
+                                alt="Client Logo"></a>
+                    </div>
+                    <div class="logo-item wow fadeInUp delay-0-2s">
+                        <a href="contact.html"><img src="{{ asset('assets/front/images/client-logos/client-logo2.png') }}"
+                                alt="Client Logo"></a>
+                    </div>
+                    <div class="logo-item wow fadeInUp delay-0-3s">
+                        <a href="contact.html"><img src="{{ asset('assets/front/images/client-logos/client-logo3.png') }}"
+                                alt="Client Logo"></a>
+                    </div>
+                    <div class="logo-item wow fadeInUp delay-0-4s">
+                        <a href="contact.html"><img src="{{ asset('assets/front/images/client-logos/client-logo4.png') }}"
+                                alt="Client Logo"></a>
+                    </div>
+                    <div class="logo-item wow fadeInUp delay-0-5s">
+                        <a href="contact.html"><img src="{{ asset('assets/front/images/client-logos/client-logo5.png') }}"
+                                alt="Client Logo"></a>
+                    </div>
+                    <div class="logo-item wow fadeInUp delay-0-6s">
+                        <a href="contact.html"><img src="{{ asset('assets/front/images/client-logos/client-logo6.png') }}"
+                                alt="Client Logo"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Logo Section End -->
+
+
+        <!-- Instagram Section Start -->
+        <div class="instagram-section pb-120 rpb-90">
+            <div class="container-fluid">
+                <div class="row small-gap justify-content-center">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                        <div class="instagram-item wow fadeInUp delay-0-1s">
+                            <img src="{{ asset('assets/front/images/instagram/instagram1.jpg') }}" alt="Instagram">
+                            <div class="instagram-hover">
+                                <a href="{{ asset('assets/front/images/instagram/instagram1.jpg') }}">
+                                    <i class="fab fa-instagram"></i>
+                                    <span>Instagram</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                        <div class="instagram-item wow fadeInUp delay-0-2s">
+                            <img src="{{ asset('assets/front/images/instagram/instagram2.jpg') }}" alt="Instagram">
+                            <div class="instagram-hover">
+                                <a href="{{ asset('assets/front/images/instagram/instagram2.jpg') }}">
+                                    <i class="fab fa-instagram"></i>
+                                    <span>Instagram</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                        <div class="instagram-item wow fadeInUp delay-0-3s">
+                            <img src="{{ asset('assets/front/images/instagram/instagram3.jpg') }}" alt="Instagram">
+                            <div class="instagram-hover">
+                                <a href="{{ asset('assets/front/images/instagram/instagram3.jpg') }}">
+                                    <i class="fab fa-instagram"></i>
+                                    <span>Instagram</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                        <div class="instagram-item wow fadeInUp delay-0-4s">
+                            <img src="{{ asset('assets/front/images/instagram/instagram4.jpg') }}" alt="Instagram">
+                            <div class="instagram-hover">
+                                <a href="{{ asset('assets/front/images/instagram/instagram4.jpg') }}">
+                                    <i class="fab fa-instagram"></i>
+                                    <span>Instagram</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                        <div class="instagram-item wow fadeInUp delay-0-5s">
+                            <img src="{{ asset('assets/front/images/instagram/instagram5.jpg') }}" alt="Instagram">
+                            <div class="instagram-hover">
+                                <a href="{{ asset('assets/front/images/instagram/instagram5.jpg') }}">
+                                    <i class="fab fa-instagram"></i>
+                                    <span>Instagram</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                        <div class="instagram-item wow fadeInUp delay-0-6s">
+                            <img src="{{ asset('assets/front/images/instagram/instagram6.jpg') }}" alt="Instagram">
+                            <div class="instagram-hover">
+                                <a href="{{ asset('assets/front/images/instagram/instagram6.jpg') }}">
+                                    <i class="fab fa-instagram"></i>
+                                    <span>Instagram</span>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="footer-copyright">
+        <!-- Instagram Section End -->
+
+
+        <!-- Footer Area Start -->
+        <footer class="main-footer bg-blue text-white pt-75">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-md-6">
-                        <span>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;
-                            <script>document.write(new Date().getFullYear());</script> All rights reserved | This
-                            template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a
-                                href="https://colorlib.com" target="_blank">Colorlib</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        </span>
+                <div class="row justify-content-between">
+                    <div class="col-lg-3 col-sm-4">
+                        <div class="footer-widget about-widget">
+                            <h5 class="footer-title">About Us</h5>
+                            <p>Sit amet consectetur adipiscin seeiusmod tempor incididunt ut dolore magna aliqu asusp
+                                disse ultrices gravida commodo</p>
+                            <h5 class="pt-5">Follow Us</h5>
+                            <div class="social-style-one">
+                                <a href="contact.html"><i class="fab fa-facebook-f"></i></a>
+                                <a href="contact.html"><i class="fab fa-twitter"></i></a>
+                                <a href="contact.html"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="contact.html"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="social-icons">
+                    <div class="col-lg-2 col-md-3 col-sm-4">
+                        <div class="footer-widget menu-widget">
+                            <h5 class="footer-title">Courses</h5>
                             <ul>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                <li><a href="course-details.html">Life Coach</a></li>
+                                <li><a href="course-details.html">Business Coach</a></li>
+                                <li><a href="course-details.html">Health Coach</a></li>
+                                <li><a href="course-details.html">Development</a></li>
+                                <li><a href="course-details.html">Web Design</a></li>
+                                <li><a href="course-details.html">SEO Optimize</a></li>
                             </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-4">
+                        <div class="footer-widget menu-widget">
+                            <h5 class="footer-title">Resources</h5>
+                            <ul>
+                                <li><a href="contact.html">Community</a></li>
+                                <li><a href="contact.html">Support</a></li>
+                                <li><a href="contact.html">Video Guides</a></li>
+                                <li><a href="contact.html">Documentation</a></li>
+                                <li><a href="contact.html">Security</a></li>
+                                <li><a href="contact.html">Template</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="footer-widget contact-info-widget">
+                                    <h5 class="footer-title">Get In Touch</h5>
+                                    <ul>
+                                        <li><i class="fas fa-map-marker-alt"></i> 55 Main Street, 2nd Block, New York
+                                        </li>
+                                        <li><i class="far fa-envelope"></i> <a
+                                                href="mailto:support@gmail.com">support@gmail.com</a></li>
+                                        <li><i class="fas fa-phone"></i> <a href="callto:+0123456789">+012 (345) 67
+                                                89</a></li>
+                                        <li><i class="far fa-clock"></i> Sunday - Friday,<br> 08 am - 05 pm</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="footer-widget video-widget">
+                                    <p>Quis autem vel eum iure repre enderit voluptate</p>
+                                    <div class="video-widget overlay my-20">
+                                        <img src="{{ asset('assets/front/images/footer/video.jpg') }}" alt="Video">
+                                        <a href="https://www.youtube.com/watch?v=9Y7ma241N8k"
+                                            class="mfp-iframe video-play"><i class="fas fa-play"></i></a>
+                                    </div>
+                                    <a href="about.html" class="read-more">view more <i
+                                            class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </footer>
-    <!-- Footer Area End -->
+            <div class="copyright-area bg-dark-blue rel">
+                <div class="container">
+                    <div class="copyright-inner">
+                        <p>© 2022. <a href="index.html">Wellern</a> All rights reserved.</p>
+                        <ul class="footer-menu">
+                            <li><a href="faqs.html">Faqs</a></li>
+                            <li><a href="contact.html">Links</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Payments</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Scroll Top Button -->
+                <button class="scroll-top scroll-to-target" data-target="html"><span
+                        class="fas fa-angle-double-up"></span></button>
+            </div>
+        </footer>
+        <!-- Footer Area End -->
+
+    </div>
+    <!--End pagewrapper-->
 
 
-    <!-- Javascript -->
-    <script src="{{ asset('assets/front/medino/js/vendor/jquery-2.2.4.min.js') }}"></script>
-    <script src="{{ asset('assets/front/medino/js/vendor/bootstrap-4.1.3.min.js') }}"></script>
-    <script src="{{ asset('assets/front/medino/js/vendor/wow.min.js') }}"></script>
-    <script src="{{ asset('assets/front/medino/js/vendor/owl-carousel.min.js') }}"></script>
-    <script src="{{ asset('assets/front/medino/js/vendor/jquery.datetimepicker.full.min.js') }}"></script>
-    <script src="{{ asset('assets/front/medino/js/vendor/jquery.nice-select.min.js') }}"></script>
-    <script src="{{ asset('assets/front/medino/js/vendor/superfish.min.js') }}"></script>
-    <script src="{{ asset('assets/front/medino/js/main.js') }}"></script>
+    <!--====== Jquery ======-->
+    <script src="{{ asset('assets/front/js/jquery-3.6.0.min.js') }}"></script>
+    <!--====== Bootstrap ======-->
+    <script src="{{ asset('assets/front/js/bootstrap.min.js') }}"></script>
+    <!--====== Appear Js ======-->
+    <script src="{{ asset('assets/front/js/appear.min.js') }}"></script>
+    <!--====== Slick ======-->
+    <script src="{{ asset('assets/front/js/slick.min.js') }}"></script>
+    <!--====== jQuery UI ======-->
+    <script src="{{ asset('assets/front/js/jquery-ui.min.js') }}"></script>
+    <!--====== Isotope ======-->
+    <script src="{{ asset('assets/front/js/isotope.pkgd.min.js') }}"></script>
+    <!--====== Circle Progress bar ======-->
+    <script src="{{ asset('assets/front/js/circle-progress.min.js') }}"></script>
+    <!--====== Images Loader ======-->
+    <script src="{{ asset('assets/front/js/imagesloaded.pkgd.min.js') }}"></script>
+    <!--====== Nice Select ======-->
+    <script src="{{ asset('assets/front/js/jquery.nice-select.min.js') }}"></script>
+    <!--====== Magnific Popup ======-->
+    <script src="{{ asset('assets/front/js/jquery.magnific-popup.min.js') }}"></script>
+    <!--  WOW Animation -->
+    <script src="{{ asset('assets/front/js/wow.min.js') }}"></script>
+    <!-- Custom script -->
+    <script src="{{ asset('assets/front/js/script.js') }}"></script>
 
 </body>
 
