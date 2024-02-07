@@ -193,12 +193,12 @@ class FrontController extends Controller
     {
         Seo::seO();
         $data = FrontMenu::where('menu_url', $id)->with('menu_induk')->first();
-
+        $news = News::with('gambarmuka')->where('terbit', 1)->orderByViews()->take(5)->get();
         if (!$data) {
             $data = News::where('id', $id)->first();
         }
 
-        return view('front.pages.page', compact('data'));
+        return view('front.pages.page', compact('data', 'news'));
     }
 
     public function component($id)

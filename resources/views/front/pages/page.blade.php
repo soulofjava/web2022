@@ -44,44 +44,27 @@
                         {{Form::close()}}
                     </div>
                     <div class="widget widget-recent-courses wow fadeInUp delay-0-2s">
-                        <h4 class="widget-title">Recent Courses</h4>
+                        <h4 class="widget-title">Postingan Terpopular</h4>
                         <ul>
+                            @foreach($news as $item)
                             <li>
+                                @if($item->gambarmuka)
                                 <div class="image">
-                                    <img src="{{ asset('assets/front/images/widgets/course1.jpg') }}" alt="Course">
+                                    <img src="{{ route('helper.show-picture', ['path' => $item->gambarmuka->path]) }}" alt="Course">
                                 </div>
+                                @else
+                                <div class="image">
+                                    <img src="{{ asset('assets/bkdwonosobo.png') }}" alt="Course">
+                                </div>
+                                @endif
                                 <div class="content">
-                                    <h6><a href="course-details.html">How to Learn Basic Web (UI) Design</a></h6>
-                                    <span>By <a href="#">Williams</a></span>
+                                    <h6><a href="{{ url('/news-detail', $item->slug) }}">{{
+                                            \Illuminate\Support\Str::limit($item->title, 50, $end='...') }}</a></h6>
+                                    <span>By <a href="#">{{ $item->uploader->name
+                                            }}</a></span>
                                 </div>
                             </li>
-                            <li>
-                                <div class="image">
-                                    <img src="{{ asset('assets/front/images/widgets/course2.jpg') }}" alt="Course">
-                                </div>
-                                <div class="content">
-                                    <h6><a href="course-details.html">How to Learn Basic Web Development</a></h6>
-                                    <span>By <a href="#">Somalia</a></span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="image">
-                                    <img src="{{ asset('assets/front/images/widgets/course3.jpg') }}" alt="Course">
-                                </div>
-                                <div class="content">
-                                    <h6><a href="course-details.html">How to Learn Basic (SEO) Marketing </a></h6>
-                                    <span>By <a href="#">Blanchard</a></span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="image">
-                                    <img src="{{ asset('assets/front/images/widgets/course4.jpg') }}" alt="Course">
-                                </div>
-                                <div class="content">
-                                    <h6><a href="course-details.html">Business Strategy Managements</a></h6>
-                                    <span>By <a href="#">Johnson</a></span>
-                                </div>
-                            </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
