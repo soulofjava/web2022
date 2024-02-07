@@ -15,6 +15,7 @@ use App\Http\Controllers\RelatedLinkController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\ComRegionController;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\HelperController;
 use App\Http\Controllers\MigrasiDataController;
 use App\Http\Controllers\PermohonanInformasiController;
 use App\Http\Controllers\SSO\SSOController;
@@ -36,17 +37,6 @@ use Illuminate\Support\Facades\Redirect;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-// Route::group(
-//     ['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']],
-//     function () {
-//         \UniSharp\LaravelFilemanager\Lfm::routes();
-//     }
-// );
-
-Route::any('/register', function () {
-    return Redirect::to(route('login'));
-});
 
 Route::get('sso', [SSOController::class, 'getLogin'])->name('sso.login');
 Route::get('callback', [SSOController::class, 'getCallback'])->name('sso.callback');
@@ -160,6 +150,8 @@ Route::get('/datappid', [FrontController::class, 'datappid'])->name('datappid');
 Route::get('/datappid2', [FrontController::class, 'datappid2'])->name('datappid2');
 
 Route::get('migrate', [MigrasiDataController::class, 'insert']);
+
+Route::get('show-picture', [HelperController::class, 'showPicture'])->name('helper.show-picture');
 
 Route::get('kabupaten', [ComRegionController::class, 'kabupaten'])->name('kabupaten');
 Route::get('kecamatan', [ComRegionController::class, 'kecamatan'])->name('kecamatan');

@@ -7,11 +7,8 @@ use App\Models\News;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Storage;
-use Cviebrock\EloquentSluggable\Services\SlugService;
-use Illuminate\Support\Facades\DB;
 use App\Models\File as Files;
 use App\Models\Website;
-use File;
 
 class NewsController extends Controller
 {
@@ -77,34 +74,50 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        $val = $request->validate([
+        $request->validate([
             'title' => 'required',
             'date' => 'required',
-            'description' => 'required',
+            'content' => 'required',
         ]);
 
         if ($request->datadip) {
-            $id = News::create($request->except(['_token', 'datadip']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
+            $id = News::create([
+                'title' => $request->title,
+                'date' => $request->date,
+                'content' => $request->content,
+                'terbit' => $request->terbit ?? 0,
+                'komentar' => $request->komentar ?? 0,
+                'highlight' => $request->highlight ?? 0,
+                'kategori' => $request->kategori,
+                'dip' => true,
+                'dip_tahun' => $request->dip_tahun,
+                'upload_by' => auth()->user()->id
+            ]);
         } else {
-            $id = News::create($val + ['kategori' => 'INFORMASI_ST_02', 'upload_by' => auth()->user()->id]);
+            $id = News::create([
+                'title' => $request->title,
+                'date' => $request->date,
+                'content' => $request->content,
+                'terbit' => $request->terbit ?? 0,
+                'komentar' => $request->komentar ?? 0,
+                'highlight' => $request->highlight ?? 0,
+                'kategori' => 'INFORMASI_ST_02',
+                'dip' => false,
+                'dip_tahun' => null,
+                'upload_by' => auth()->user()->id
+            ]);
         }
 
         if ($request->document) {
             foreach ($request->document as $df) {
-                $path = storage_path('app/public/gallery');
-
-                if (!file_exists($path)) {
-                    mkdir($path, 0777, true);
-                }
-
-                File::move(storage_path('tmp/uploads/') . $df, storage_path('app/public/gallery/') . $df);
                 Files::create([
                     'id_news' => $id->id,
-                    'path' => 'gallery/' . $df,
+                    'path' =>  'news/' . $df,
                     'file_name' => $df
                 ]);
             }
         }
+
         return redirect(route('news.index'))->with(['success' => 'Data added successfully!']);
     }
 
@@ -142,9 +155,9 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validated = $request->validate([
+        $request->validate([
             'title' => 'required',
-            'description' => 'required',
+            'content' => 'required',
             'date' => 'required',
         ]);
 
@@ -152,18 +165,39 @@ class NewsController extends Controller
 
         if ($request->datadip) {
             $isa->slug =  null;
-            $isa->update($request->except(['_token', 'datadip']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
+            $isa->update([
+                'title' => $request->title,
+                'date' => $request->date,
+                'content' => $request->content,
+                'terbit' => $request->terbit ?? 0,
+                'komentar' => $request->komentar ?? 0,
+                'highlight' => $request->highlight ?? 0,
+                'kategori' => $request->kategori,
+                'dip' => true,
+                'dip_tahun' => $request->dip_tahun,
+                'upload_by' => auth()->user()->id
+            ]);
         } else {
             $isa->slug =  null;
-            $isa->update($validated + ['kategori' => $request->kategori ?? 'INFORMASI_ST_02', 'upload_by' => auth()->user()->id]);
+            $isa->update([
+                'title' => $request->title,
+                'date' => $request->date,
+                'content' => $request->content,
+                'terbit' => $request->terbit ?? 0,
+                'komentar' => $request->komentar ?? 0,
+                'highlight' => $request->highlight ?? 0,
+                'kategori' => 'INFORMASI_ST_02',
+                'dip' => false,
+                'dip_tahun' => null,
+                'upload_by' => auth()->user()->id
+            ]);
         }
 
         if ($request->document) {
             foreach ($request->document as $df) {
-                File::move(storage_path('tmp/uploads/') . $df, storage_path('app/public/gallery/') . $df);
                 Files::create([
                     'id_news' => $id,
-                    'path' => 'gallery/' . $df,
+                    'path' =>  '/news/' . $df,
                     'file_name' => $df
                 ]);
             }
@@ -196,34 +230,4 @@ class NewsController extends Controller
         return $data->delete();
     }
 
-    // pindah dari wonosobokab
-    public function insert()
-    {
-        set_time_limit(0);
-        $tables = DB::select('SHOW TABLES');
-        $data = DB::table('postingan')->where('domain', 'arpusda.wonosobokab.go.id')->get();
-        foreach ($data as $dt) {
-            $file = DB::table('attachment')
-                ->where('id_tabel', $dt->id_posting)
-                ->get();
-            foreach ($file as $f) {
-                $fi = [
-                    'id_news' => $f->id_tabel,
-                    'file_name' => $f->file_name,
-                    'path' => 'gallery/' . $f->file_name,
-                ];
-                Files::insert($fi);
-            }
-            $pk = [
-                'title' => $dt->judul_posting,
-                'date' => $dt->created_time,
-                'upload_by' => auth()->user()->name,
-                'description' => $dt->isi_posting,
-                'attachment' => $dt->id_posting,
-                'slug' => SlugService::createSlug(News::class, 'slug', $dt->judul_posting),
-            ];
-            News::insert($pk);
-        }
-        return 'selesai';
-    }
 }

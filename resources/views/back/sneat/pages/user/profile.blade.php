@@ -1,118 +1,121 @@
-@extends('back.material.layouts.app')
+@extends('back.sneat.layouts.app')
 @section('content')
-<div class="content">
-    <div class="container-fluid">
-        {{ Breadcrumbs::render('users') }}
-        @if ($message = Session::get('success'))
-        <div id="elementId" hidden>{{ $message }}</div>
-        @endif
-        <div class="row">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header card-header-icon" data-background-color="green">
-                        <i class="material-icons">perm_identity</i>
-                    </div>
-                    <div class="card-content">
-                        <h4 class="card-title">Edit Profile
-                            <!-- <small class="category">Complete your profile</small> -->
-                        </h4>
-                        {{Form::model($data, ['route' => ['myprofile.update', $data->id],'method' => 'put', 'files' =>
-                        'true', ''])}}
-                        <div class="row">
-                            <div class="col text-center">
-                                <!-- <legend>Regular Image</legend> -->
-                                <div class="fileinput fileinput-new text-center" data-provides="fileinput">
-                                    <div class="fileinput-new thumbnail">
-                                        @if($data->profile_photo_path)
-                                        <img src="{{ asset('storage') }}/{{ $data->profile_photo_path }}"
-                                            alt="profile picture">
-                                        @else
-                                        <img src="{{ asset('assets/back/assets/img/image_placeholder.jpg') }}"
-                                            alt="profile picture">
-                                        @endif
-                                    </div>
-                                    <div class="fileinput-preview fileinput-exists thumbnail"></div>
-                                    <div>
-                                        <span class="btn btn-success btn-round btn-file">
-                                            <span class="fileinput-new">Select image</span>
-                                            <span class="fileinput-exists">Change</span>
-                                            <!-- <input type="file" name="photo" /> -->
-                                            {{Form::file('profile_photo_path', null,['class' => 'form-control'])}}
-                                        </span>
-                                        <a href="#pablo" class="btn btn-danger btn-round fileinput-exists"
-                                            data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
-                                    </div>
-                                    @if ($errors->any())
-                                    <div class="alert alert-danger">
-                                        <ul>
-                                            @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Name</label>
-                                    {{Form::text('name', null,['class' => 'form-control'])}}
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">NIP</label>
-                                    {{Form::number('nip', null,['class' => 'form-control'])}}
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Jabatan / Golongan</label>
-                                    {{Form::text('jabatan', null,['class' => 'form-control'])}}
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Email</label>
-                                    {{Form::text('email', null,['class' => 'form-control'])}}
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Phone Number</label>
-                                    {{Form::text('user_phone', null,['class' => 'form-control'])}}
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Old Password</label>
-                                    {{Form::password('current_password',['class' => 'form-control'])}}
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">New Password</label>
-                                    {{Form::password('new_password',['class' => 'form-control'])}}
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">New Confirm Password</label>
-                                    {{Form::password('new_confirm_password',['class' => 'form-control'])}}
-                                </div>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-success pull-right">Update Profile</button>
-                        <div class="clearfix"></div>
-                        {{Form::close()}}
-                    </div>
+<!-- Content -->
+<div class="container-xxl flex-grow-1 container-p-y">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="#">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="#">Pengguna</a>
+            </li>
+            <li class="breadcrumb-item active">Data</li>
+        </ol>
+    </nav>
+    <div class="card">
+        <div class="card-body">
+            @if ($message = Session::get('success'))
+            <div id="elementId" hidden>{{ $message }}</div>
+            @endif
+            <h4 class="card-title">Form Tambah Data</h4>
+            <div class="card-content">
+                {{Form::model($data, ['route' => ['myprofile.update', $data->id],'method' => 'put', 'files' =>
+                'true', ''])}}
+
+                @role('superadmin')
+                <div class="form-group label-floating is-focused">
+                    <label class="control-label">Role</label>
+                    {{ Form::select('role', $role, $user_role, ['class' => 'form-control',
+                    'placeholder' => 'Select Role']); }}
                 </div>
+                <div class="form-group label-floating is-focused">
+                    <label class="control-label">Permission</label>
+                    {{ Form::select('permission', $permission, null, ['class' => 'form-control',
+                    'placeholder' => 'Select Permission']); }}
+                </div>
+                @endrole
+
+                <div class="row">
+
+                    <div class="form-group col-sm-12 col-md-6">
+                        <label for="defaultFormControlInput" class="form-label">Nama</label>
+                        {{Form::text('name', null, ['class' => 'form-control',
+                        'placeholder' => 'Jono'])}}
+                    </div>
+                    @error('name')
+                    <div id="defaultFormControlHelp" class="form-text" style="color: red;">
+                        {{ $message }}
+                    </div>
+                    @enderror
+
+                    <div class="form-group col-sm-12 col-md-6">
+                        <label for="defaultFormControlInput" class="form-label">Nomor Telp</label>
+                        {{Form::text('user_phone', null, ['class' =>
+                        'form-control','placeholder' => '0286'])}}
+                    </div>
+                    @error('user_phone')
+                    <div id="defaultFormControlHelp" class="form-text" style="color: red;">
+                        {{ $message }}
+                    </div>
+                    @enderror
+
+                    <div class="form-group col-sm-12 col-md-6">
+                        <label for="defaultFormControlInput" class="form-label">Email</label>
+                        {{Form::text('email', null, ['class' =>
+                        'form-control','placeholder' => 'admin@admin.com'])}}
+                    </div>
+                    @error('email')
+                    <div id="defaultFormControlHelp" class="form-text" style="color: red;">
+                        {{ $message }}
+                    </div>
+                    @enderror
+
+                    <div class="form-group col-sm-12 col-md-6">
+                        <label for="defaultFormControlInput" class="form-label">Sandi Lama</label>
+                        {{Form::password('current_password', ['class' =>
+                        'form-control','placeholder' => '********'])}}
+                    </div>
+                    @error('current_password')
+                    <div id="defaultFormControlHelp" class="form-text" style="color: red;">
+                        {{ $message }}
+                    </div>
+                    @enderror
+
+                    <div class="form-group col-sm-12 col-md-6">
+                        <label for="defaultFormControlInput" class="form-label">Sandi Baru</label>
+                        {{Form::password('new_password', ['class' =>
+                        'form-control','placeholder' => '********'])}}
+                    </div>
+                    @error('new_password')
+                    <div id="defaultFormControlHelp" class="form-text" style="color: red;">
+                        {{ $message }}
+                    </div>
+                    @enderror
+
+                    <div class="form-group col-sm-12 col-md-6">
+                        <label for="defaultFormControlInput" class="form-label">Konfirmasi Sandi Baru</label>
+                        {{Form::password('new_confirm_password', ['class' =>
+                        'form-control','placeholder' => '********'])}}
+                    </div>
+                    @error('new_confirm_password')
+                    <div id="defaultFormControlHelp" class="form-text" style="color: red;">
+                        {{ $message }}
+                    </div>
+                    @enderror
+
+                </div>
+
+                <div class="mt-3">
+                    <a href="{{ route('user.index') }}" class="btn btn-secondary">Kembali</a>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+                {{Form::close()}}
             </div>
         </div>
     </div>
 </div>
+<!-- / Content -->
 @endsection
 @push('after-script')
 <script>
@@ -120,7 +123,11 @@
         if ($('#elementId').length > 0) {
             const pesan = document.getElementById('elementId').innerText;
             console.log(pesan);
-            demo.showNotification('top', 'center', pesan)
+            Swal.fire(
+                'OK!',
+                'Data berhasil disimpan.',
+                'success'
+            )
         }
     });
 </script>

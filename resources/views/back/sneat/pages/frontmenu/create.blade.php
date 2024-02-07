@@ -87,14 +87,11 @@
 </script>
 
 <!-- ck editor -->
-<script src="{{asset('assets/back/material/ckeditor/ckeditor.js')}}"></script>
+<script src="{{asset('assets/back/sneat/assets/ckeditor/ckeditor.js')}}"></script>
 <script>
     var konten = document.getElementById("my-editor");
     var options = {
-        filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
-        filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
-        filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-        filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+        filebrowserImageBrowseUrl: '/file-manager/ckeditor',
     };
     CKEDITOR.replace(konten, options);
     CKEDITOR.config.allowedContent = true;

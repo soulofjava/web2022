@@ -29,12 +29,13 @@
             <div class="card-content">
                 {{Form::model($data, ['route' => ['news.update', $data->id],'method' => 'put', 'files' =>
                 'true', ''])}}
-                <input type="text" value="{{ $data->id }}" id="malika" hidden>
-
                 <div class="row">
                     <div class="togglebutton" style="margin-bottom: 15px;">
                         <label>
-                            Data DIP? <input type="checkbox" id="hideButton">
+                            <input type="text" value="{{ $data->id }}" id="malika" hidden>
+                            <input type="text" value="{{ $data->dip }}" id="bbb" hidden>
+                            Data DIP? <input name="datadip" type="checkbox" id="hideButton" {{ $data->dip ? 'checked' :
+                            '' }}>
                         </label>
                     </div>
                 </div>
@@ -42,43 +43,30 @@
                 <!-- Example of a form that Dropzone can take over -->
                 <div class="dropzone" id="my-awesome-dropzone"></div>
 
-                @can('ppidsetda')
                 <div class="row">
-                    <div class="form-group">
-                        <label for="defaultFormControlInput" class="form-label">Tag Bagian</label>
-                        {{Form::select('tag', $categori, null, ['class' => 'form-control
-                        js-example-basic-multiple',
-                        'name' => 'tag[]',
-                        'multiple' => 'multiple',
-                        ])}}
-                        @error('tag') <span class="text-danger">Tidak boleh kosong</span> @enderror
-                    </div>
-                </div>
-                @endcan
+                    <div class="form-group jip col-sm-12 col-md-6" style="display: none;">
 
-                <div class="row">
-                    <div class="form-group jip col-6">
                         <label for="defaultFormControlInput" class="form-label">Jenis Informasi Publik</label>
                         {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
                         'form-control select2','placeholder' => 'Silahkan Pilih'])}}
                     </div>
-
-                    <div class="form-group col-6">
-                        <label for="defaultFormControlInput" class="form-label">Tanggal</label>
-                        {{Form::text('date', null, ['class' => 'form-control flatpickr-date',
-                        'placeholder' => 'Silahkan Pilih Tanggal'])}}
-                    </div>
-                    @error('date')
-                    <div id="defaultFormControlHelp" class="form-text" style="color: red;">
-                        Tidak Boleh Kosong
-                    </div>
-                    @enderror
 
                     <div class="form-group col-6 dip" style="display: none;">
                         <label for="defaultFormControlInput" class="form-label">Tahun Daftar Informasi Publik</label>
                         {{Form::number('dip_tahun', null, ['class' =>
                         'form-control','placeholder' => 'Masukkan Tahun'])}}
                     </div>
+                    <div class="form-group col-12">
+                        <label for="defaultFormControlInput" class="form-label">Tanggal</label>
+                        {{Form::text('date', null, ['class' => 'form-control flatpickr-date',
+                        'placeholder' => 'Silahkan Pilih Tanggal'])}}
+                        @error('date')
+                        <div id="defaultFormControlHelp" class="form-text" style="color: red;">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+
                 </div>
 
                 <div class="row">
@@ -89,7 +77,7 @@
                     </div>
                     @error('title')
                     <div id="defaultFormControlHelp" class="form-text" style="color: red;">
-                        Tidak Boleh Kosong
+                        {{ $message }}
                     </div>
                     @enderror
                 </div>
@@ -97,13 +85,51 @@
                 <div class="row">
                     <div class="form-group label">
                         <label for="defaultFormControlInput" class="form-label">Deskripsi</label>
-                        {{Form::textarea('description', null,['class' => 'my-editor form-control','id'=>'my-editor'])}}
+                        {{Form::textarea('content', null,['class' => 'my-editor form-control','id'=>'my-editor'])}}
                     </div>
-                    @error('description')
+                    @error('content')
                     <div id="defaultFormControlHelp" class="form-text" style="color: red;">
-                        Tidak Boleh Kosong
+                        {{ $message }}
                     </div>
                     @enderror
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col col-sm-12 col-md-4">
+                        <div class="form-group">
+                            <div class="form-check form-switch">
+                                {{Form::checkbox('komentar', '1', null,['class' => 'form-check-input',
+                                'id'=>'flexSwitchCheckDefault'])}}
+                                <label class="form-check-label" for="flexSwitchCheckDefault">
+                                    Komentar
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col col-sm-12 col-md-4">
+                        <div class="form-group">
+                            <div class="form-check form-switch">
+                                {{Form::checkbox('terbit', '1',null,['class' => 'form-check-input',
+                                'id'=>'flexSwitchCheckDefault'])}}
+                                <label class="form-check-label" for="flexSwitchCheckDefault">
+                                    Publish
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col col-sm-12 col-md-4">
+                        <div class="form-group">
+                            <div class="form-check form-switch">
+                                {{Form::checkbox('highlight', '1', null,['class' => 'form-check-input',
+                                'id'=>'flexSwitchCheckDefault'])}}
+                                <label class="form-check-label" for="flexSwitchCheckDefault">
+                                    Highlight
+                                </label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="mt-3">
@@ -122,14 +148,22 @@
 <script>
     $(document).ready(function () {
 
+        let a = document.getElementById('bbb').value;
+        console.log(a);
+        if (a == 1) {
+            $(".dropzone").hide();
+            $(".jip").show();
+            $(".dip").show();
+        }
+
         $("#hideButton").click(function () {
             if ($(this).is(":checked")) {
                 $(".dropzone").hide();
-                $(".jip").hide();
+                $(".jip").show();
                 $(".dip").show();
             } else {
                 $(".dropzone").show();
-                $(".jip").show();
+                $(".jip").hide();
                 $(".dip").hide();
             }
         });
@@ -139,10 +173,14 @@
     $(".select2").select2();
 
     var flatpickrDate = document.querySelector(".flatpickr-date");
+    var flatpickrDate2 = document.querySelector(".flatpickr-date2");
 
     flatpickrDate.flatpickr({
         monthSelectorType: "static",
-        // todayHighlight: true,
+    });
+
+    flatpickrDate2.flatpickr({
+        monthSelectorType: "static",
     });
 </script>
 
@@ -249,10 +287,7 @@
 <script>
     var konten = document.getElementById("my-editor");
     var options = {
-        filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
-        filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
-        filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-        filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+        filebrowserImageBrowseUrl: '/file-manager/ckeditor',
     };
     CKEDITOR.replace(konten, options);
     CKEDITOR.config.allowedContent = true;

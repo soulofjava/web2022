@@ -34,8 +34,8 @@ class DatabaseSeeder extends Seeder
             'web_name' => 'BKD Wonosobo',
             'web_description' => '-',
             'email' => '-',
-            'address' => 'Wonosobo - The Soul Of Java',
-            'phone' => '-',
+            'address' => 'Jl. Soekarno - Hatta No.9, Wonosobo Timur, Wonosobo Tim., Kec. Wonosobo, Kabupaten Wonosobo, Jawa Tengah 56311',
+            'phone' => '(0286) 321221',
             'instagram' => '-',
             'twitter' => '-',
             'facebook' => '-',
@@ -43,6 +43,8 @@ class DatabaseSeeder extends Seeder
             'url_stream' => '-',
             'themes_front' => 'medino',
             'themes_back' => 'sneat',
+            'latitude' => '-7.356758264797785',
+            'longitude' => '109.90528464317322',
             'open_hours' => "Senin - Kamis (07:00 - 16:00 WIB) Jum'at (07:00 - 11:00 WIB)",
         ]);
 
