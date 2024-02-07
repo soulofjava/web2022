@@ -19,8 +19,8 @@
 </section>
 <!-- Page Banner End -->
 
-<!--================Blog Area =================-->
-<section class="blog_area mt-3">
+<!-- Blog Standard Start -->
+<section class="blog-standard-area py-130 rpt-95 rpb-100">
     <div class="container">
         <div class="row">
             <div class="col">
@@ -35,12 +35,11 @@
                         </tr>
                     </thead>
                 </table>
-
             </div>
         </div>
     </div>
 </section>
-<!--================Blog Area =================-->
+<!-- Blog Standard End -->
 @endsection
 @push('after-script')
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"

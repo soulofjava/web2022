@@ -19,8 +19,8 @@
 </section>
 <!-- Page Banner End -->
 
-<!-- Welcome Area Starts -->
-<section class="welcome-area section-padding">
+<!-- Blog Standard Start -->
+<section class="blog-standard-area py-130 rpt-95 rpb-100">
     <div class="container">
         <div class="row">
             <div class="col">
@@ -47,7 +47,7 @@
             </div>
         </div>
 </section>
-<!-- Welcome Area End -->
+<!-- Blog Standard End -->
 @endsection
 @push('after-script')
 <script type="text/javascript">
