@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('websites')->insert([
-            'web_name' => 'Kesbangpol',
+            'web_name' => 'BKD Wonosobo',
             'web_description' => '-',
             'email' => '-',
             'address' => 'Wonosobo - The Soul Of Java',
@@ -42,8 +42,8 @@ class DatabaseSeeder extends Seeder
             'youtube' => '-',
             'url_stream' => '-',
             'themes_front' => 'medino',
-            'themes_back' => 'material',
-            'open_hours' => 'Monday - Thursday (07:00AM - 04:00PM) Friday (07:00AM - 11:00AM)',
+            'themes_back' => 'sneat',
+            'open_hours' => "Senin - Kamis (07:00 - 16:00 WIB) Jum'at (07:00 - 11:00 WIB)",
         ]);
 
         $related = [

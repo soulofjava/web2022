@@ -27,7 +27,9 @@ class JetstreamServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
+        Fortify::registerView(function () {
+            return redirect(url('/'));
+        });
 
         Fortify::loginView(function () {
             $themes = Website::all()->first();
