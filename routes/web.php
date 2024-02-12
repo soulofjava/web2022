@@ -26,6 +26,7 @@ use App\Models\Gallery;
 use App\Models\Website;
 use App\Models\Themes;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Cache;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,12 +60,12 @@ Route::get('/', function () {
         Seo::seO();
         Counter::create($data);
 
-        $response = Http::withoutVerifying()->get('https://diskominfo.wonosobokab.go.id/api/news');
-        $response = $response->collect();
-        $berita =   array_slice($response['data']['data'], 0, 3);
-        $gallery = Gallery::orderBy('created_at', 'desc')->paginate(12);
-        $news = News::orderBy('date', 'desc')->paginate(9);
-        return view('front.' . $themes->themes_front . '.pages.index', compact('gallery', 'news', 'berita'));
+        $gallery = Gallery::latest('created_at')->paginate(12);
+        $news = Cache::remember('beritaku', 60 * 60, function () {
+            return News::latest('date')->paginate(9);
+        });
+        // $news = News::latest('date')->paginate(9);
+        return view('front.' . $themes->themes_front . '.pages.index', compact('gallery', 'news'));
     } else {
         $data = Themes::all();
         return view('front.setup', compact('data'));

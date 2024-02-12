@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
 class NewsController extends Controller
@@ -111,6 +112,7 @@ class NewsController extends Controller
             ];
         }
         News::create($data);
+        Cache::flush();
         return redirect(route('news.index'))->with(['success' => 'Data added successfully!']);
     }
 
@@ -191,6 +193,7 @@ class NewsController extends Controller
             ];
         }
         News::find($id)->update($data);
+        Cache::flush();
         return redirect(route('news.index'))->with(['success' => 'Data has been successfully changed!']);
     }
 
