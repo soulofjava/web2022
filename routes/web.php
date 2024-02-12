@@ -64,8 +64,9 @@ Route::get('/', function () {
         $news = Cache::remember('beritaku', 60 * 60, function () {
             return News::latest('date')->paginate(9);
         });
+        $berita = [];
         // $news = News::latest('date')->paginate(9);
-        return view('front.' . $themes->themes_front . '.pages.index', compact('gallery', 'news'));
+        return view('front.' . $themes->themes_front . '.pages.index', compact('gallery', 'news', 'berita'));
     } else {
         $data = Themes::all();
         return view('front.setup', compact('data'));
