@@ -41,6 +41,7 @@
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
 <script src="{{ asset('assets/back/assets/js/demo.js') }}"></script>
 <!-- <script src="{{ asset('assets/back/assets/ckeditor/ckeditor.js') }}"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         demo.checkFullPageBackgroundImage();

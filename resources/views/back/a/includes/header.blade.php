@@ -56,7 +56,7 @@
                     </a>
                 </li>
                 @endforeach
-              
+
                 <li class="{{ (Str::contains(Request::url(), 'news')) ? 'active' : '' }}">
                     <a href="{{ route('news.index') }}">
                         <i class="material-icons">event_note</i>
@@ -65,15 +65,15 @@
                 </li>
                 @role('superadmin|admin')
                 <li
-                    class="{{ (Str::contains(Request::url(), ['component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user', 'bidang'])) ? 'active' : '' }}">
+                    class="{{ (Str::contains(Request::url(), ['tags', 'component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user', 'bidang'])) ? 'active' : '' }}">
                     <a data-toggle="collapse" href="#pagesExamples2"
-                        aria-expanded="{{ (Str::contains(Request::url(), ['component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user', 'bidang'])) ? 'true' : '' }}">
+                        aria-expanded="{{ (Str::contains(Request::url(), ['tags', 'component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user', 'bidang'])) ? 'true' : '' }}">
                         <i class="material-icons">public</i>
                         <p>Website
                             <b class="caret"></b>
                         </p>
                     </a>
-                    <div class="collapse {{ (Str::contains(Request::url(), ['component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user', 'bidang'])) ? 'in' : '' }}"
+                    <div class="collapse {{ (Str::contains(Request::url(), ['tags', 'component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user', 'bidang'])) ? 'in' : '' }}"
                         id="pagesExamples2">
                         <ul class="nav">
                             <li class="{{ (Str::contains(Request::url(), 'component')) ? 'active' : '' }}">
@@ -83,6 +83,11 @@
                             <li class="{{ (Str::contains(Request::url(), 'frontmenu')) ? 'active' : '' }}">
                                 <a href="{{ route('frontmenu.index') }}"> <i class="material-icons">menu</i>
                                     Menu</a>
+                            </li>
+                            <li class="{{ (Str::contains(Request::url(), ['tags'])) ? 'active' : '' }}">
+                                <a href="{{ route('tags.index') }}">
+                                    <i class="material-icons">local_offer</i>
+                                    Kategori</a>
                             </li>
                             <li class="{{ (Str::contains(Request::url(), 'relatedlink')) ? 'active' : '' }}">
                                 <a href="{{ route('relatedlink.index') }}"><i class="material-icons">link</i>

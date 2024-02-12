@@ -53,6 +53,16 @@
                     <div class="error text-danger">Tidak Boleh Kosong</div>
                     @enderror
 
+                    <div class="form-group">
+                        <label class="control-label">Kategori</label>
+                        {{Form::select('tag', $categori, null, ['class' => 'form-control
+                        js-example-basic-multiple',
+                        'name' => 'tag[]',
+                        'multiple' => 'multiple',
+                        ])}}
+                        @error('tag') <span class="text-danger">Tidak boleh kosong</span> @enderror
+                    </div>
+
                     <div class="form-group label">
                         <label class="control-label">Deskripsi</label>
                         {{Form::textarea('description', null,['class' => 'my-editor form-control','id'=>'my-editor'])}}
@@ -85,6 +95,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         demo.initFormExtendedDatetimepickers();
+        $('.js-example-basic-multiple').select2();
 
         $("#hideButton").click(function () {
             if ($(this).is(":checked")) {

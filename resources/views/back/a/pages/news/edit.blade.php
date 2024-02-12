@@ -28,10 +28,16 @@
 
                     <div class="dropzone" id="my-awesome-dropzone"></div>
 
-                    <!-- <div class="form-group label-floating">
-                        <label class="control-label">Highlight</label>
-                        {{Form::select('highlight', $highlight, null, ['class' => 'form-control'])}}
-                    </div> -->
+                    <div class="form-group">
+                        <label class="control-label">Kategori</label>
+                        {{Form::select('tag', $categori, null, ['class' => 'form-control
+                        js-example-basic-multiple',
+                        'name' => 'tag[]',
+                        'multiple' => 'multiple',
+                        ])}}
+                        @error('tag') <span class="text-danger">Tidak boleh kosong</span> @enderror
+                    </div>
+
                     <div class="form-group label-floating jip" style="display: none;">
                         <label class="control-label">Jenis Informasi Publik</label>
                         {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>

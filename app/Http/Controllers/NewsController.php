@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\DB;
 use App\Models\File as Files;
+use Conner\Tagging\Model\Tag;
 use File;
 
 class NewsController extends Controller
@@ -70,7 +71,7 @@ class NewsController extends Controller
     public function create()
     {
         $highlight = ComCodes::where('code_group', 'highlight_news')->pluck('code_nm');
-        $categori = ComCodes::where('code_group', 'kategori_news')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
+        $categori = Tag::orderBy('name', 'ASC')->pluck('name', 'id');
         return view('back.a.pages.news.create', compact('highlight', 'categori'));
     }
 
@@ -131,7 +132,7 @@ class NewsController extends Controller
     {
         $data = News::find($id);
         $highlight = ComCodes::where('code_group', 'highlight_news')->pluck('code_nm');
-        $categori = ComCodes::where('code_group', 'kategori_news')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
+        $categori = Tag::orderBy('name', 'ASC')->pluck('name', 'id');
         return view('back.a.pages.news.edit', compact('data', 'highlight', 'categori'));
     }
 
