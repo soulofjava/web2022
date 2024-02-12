@@ -25,7 +25,6 @@ use App\Models\News;
 use App\Models\Website;
 use App\Models\Themes;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Redirect;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,7 +73,7 @@ Route::get('/', function () {
             $berita = [];
         }
 
-        $news = News::with('gambar', 'gambarmuka', 'uploader')->orderBy('date', 'desc')->paginate(9);
+        $news = News::with('gambarmuka', 'uploader')->latest('date')->paginate(6);
         return view('front.pages.index', compact('news', 'berita'));
         // return view('front.index', compact('news', 'berita'));
     } else {

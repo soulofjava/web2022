@@ -6,14 +6,15 @@
         <div class="row align-items-center">
             <div class="col-lg-7">
                 <div class="hero-content rpt-25 rmb-75">
-                    <span class="sub-title style-two mb-20 wow fadeInUp delay-0-2s">Coaching & Speker</span>
-                    <h1 class="mb-20 wow fadeInUp delay-0-4s">Build Bright Life? Take Our Life Coach</h1>
-                    <p class="wow fadeInUp delay-0-6s">Sit amet consectetur adipiscing elit sed do eiusmod
-                        tempor incididunt labore dolore magna aliqua suspendisse ultrices gravida.</p>
-                    <div class="hero-btn mt-30 wow fadeInUp delay-0-8s">
+                    <!-- <span class="sub-title style-two mb-20 wow fadeInUp delay-0-2s">Coaching & Speker</span> -->
+                    <h1 class="mb-20 wow fadeInUp delay-0-4s">Selamat Datang di Website Resmi Badan Kepegawaian Daerah
+                        Kab.
+                        Wonosobo</h1>
+                    <p class="wow fadeInUp delay-0-6s">Kami Siap Melayani Anda</p>
+                    <!-- <div class="hero-btn mt-30 wow fadeInUp delay-0-8s">
                         <a href="course-grid.html" class="theme-btn">Get Your Free Coach <i
                                 class="fas fa-arrow-right"></i></a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="col-lg-5">
@@ -155,29 +156,38 @@
         <div class="row justify-content-center">
             <div class="col-xl-6 col-lg-7 col-md-8">
                 <div class="section-title text-center mb-40">
-                    <h2>Best Solutions For Life Coach Solutions</h2>
+                    <h2>Postingan Kami</h2>
                 </div>
             </div>
         </div>
-        <ul class="coach-filter mb-35">
+        <!-- <ul class="coach-filter mb-35">
             <li data-filter="*" class="current">Show All</li>
             <li data-filter=".design">Web Design</li>
             <li data-filter=".marketing">Marketing</li>
             <li data-filter=".development">Development</li>
             <li data-filter=".technology">IT & Technology</li>
             <li data-filter=".photography">Photography</li>
-        </ul>
+        </ul> -->
         <div class="row coach-active justify-content-center">
+            @foreach($news as $n)
             <div class="col-lg-4 col-md-6 item marketing technology">
                 <div class="coach-item wow fadeInUp delay-0-2s">
                     <div class="coach-image">
-                        <a href="course-grid.html" class="category">Lifestyle</a>
-                        <img src="{{ asset('assets/front/images/coachs/coach1.jpg') }}" alt="Coach">
+                        <a href="{{ url('/news-detail', $n->slug) }}">
+                            @if($n->gambarmuka)
+                            <img src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
+                                class="img-thumbnail" alt="{{ $n->gambarmuka->file_name }}"
+                                style="flex-shrink: 0; min-width: 100%; min-height: 100%">
+                            @else
+                            <img src="{{ asset('assets/bkdwonosobo.png') }}" alt="Course">
+                            @endif
+                        </a>
+                        <!-- <img src="{{ asset('assets/front/images/coachs/coach1.jpg') }}" alt="Coach"> -->
                     </div>
                     <div class="coach-content">
-                        <span class="label">Basic Coach</span>
-                        <h4><a href="course-details.html">Learn How to Manage Your Lifestyle</a></h4>
-                        <div class="ratting-price">
+                        <!-- <span class="label">Basic Coach</span> -->
+                        <h4><a href="{{ url('/news-detail', $n->slug) }}">{{ $n->title }}</a></h4>
+                        <!-- <div class="ratting-price">
                             <div class="ratting">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -187,149 +197,15 @@
                                 <span>(3k)</span>
                             </div>
                             <span class="price">256.95</span>
-                        </div>
-                        <ul class="coach-footer">
+                        </div> -->
+                        <!-- <ul class="coach-footer">
                             <li><i class="far fa-file-alt"></i><span>12 Lessions</span></li>
                             <li><i class="far fa-user"></i><span>seats</span></li>
-                        </ul>
+                        </ul> -->
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 item design photography">
-                <div class="coach-item wow fadeInUp delay-0-4s">
-                    <div class="coach-image">
-                        <a href="course-grid.html" class="category">Web Design</a>
-                        <img src="{{ asset('assets/front/images/coachs/coach2.jpg') }}" alt="Coach">
-                    </div>
-                    <div class="coach-content">
-                        <span class="label">HTML CSS</span>
-                        <h4><a href="course-details.html">How to Learn Basic Web Design HTML</a></h4>
-                        <div class="ratting-price">
-                            <div class="ratting">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <span>(3k)</span>
-                            </div>
-                            <span class="price">256.95</span>
-                        </div>
-                        <ul class="coach-footer">
-                            <li><i class="far fa-file-alt"></i><span>12 Lessions</span></li>
-                            <li><i class="far fa-user"></i><span>seats</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 item development photography">
-                <div class="coach-item wow fadeInUp delay-0-6s">
-                    <div class="coach-image">
-                        <a href="course-grid.html" class="category">Development</a>
-                        <img src="{{ asset('assets/front/images/coachs/coach3.jpg') }}" alt="Coach">
-                    </div>
-                    <div class="coach-content">
-                        <span class="label">Advance</span>
-                        <h4><a href="course-details.html">Learn How to Manage Your Lifestyle</a></h4>
-                        <div class="ratting-price">
-                            <div class="ratting">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <span>(3k)</span>
-                            </div>
-                            <span class="price">256.95</span>
-                        </div>
-                        <ul class="coach-footer">
-                            <li><i class="far fa-file-alt"></i><span>12 Lessions</span></li>
-                            <li><i class="far fa-user"></i><span>seats</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 item design technology">
-                <div class="coach-item wow fadeInUp delay-0-2s">
-                    <div class="coach-image">
-                        <a href="course-grid.html" class="category">Technology</a>
-                        <img src="{{ asset('assets/front/images/coachs/coach4.jpg') }}" alt="Coach">
-                    </div>
-                    <div class="coach-content">
-                        <span class="label">Basic Coach</span>
-                        <h4><a href="course-details.html">Learn How to Manage Your Lifestyle</a></h4>
-                        <div class="ratting-price">
-                            <div class="ratting">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <span>(3k)</span>
-                            </div>
-                            <span class="price">256.95</span>
-                        </div>
-                        <ul class="coach-footer">
-                            <li><i class="far fa-file-alt"></i><span>12 Lessions</span></li>
-                            <li><i class="far fa-user"></i><span>seats</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 item development photography">
-                <div class="coach-item wow fadeInUp delay-0-4s">
-                    <div class="coach-image">
-                        <a href="course-grid.html" class="category">Photography</a>
-                        <img src="{{ asset('assets/front/images/coachs/coach5.jpg') }}" alt="Coach">
-                    </div>
-                    <div class="coach-content">
-                        <span class="label">Photography</span>
-                        <h4><a href="course-details.html">Learn Photography and Video Editing Basic</a></h4>
-                        <div class="ratting-price">
-                            <div class="ratting">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <span>(3k)</span>
-                            </div>
-                            <span class="price">256.95</span>
-                        </div>
-                        <ul class="coach-footer">
-                            <li><i class="far fa-file-alt"></i><span>12 Lessions</span></li>
-                            <li><i class="far fa-user"></i><span>seats</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 item design technology">
-                <div class="coach-item wow fadeInUp delay-0-6s">
-                    <div class="coach-image">
-                        <a href="course-grid.html" class="category">Marketing</a>
-                        <img src="{{ asset('assets/front/images/coachs/coach6.jpg') }}" alt="Coach">
-                    </div>
-                    <div class="coach-content">
-                        <span class="label">Basic Coach</span>
-                        <h4><a href="course-details.html">Learn How to Manage Marketing Strategy</a></h4>
-                        <div class="ratting-price">
-                            <div class="ratting">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <span>(3k)</span>
-                            </div>
-                            <span class="price">256.95</span>
-                        </div>
-                        <ul class="coach-footer">
-                            <li><i class="far fa-file-alt"></i><span>12 Lessions</span></li>
-                            <li><i class="far fa-user"></i><span>seats</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
