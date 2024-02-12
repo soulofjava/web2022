@@ -7,10 +7,10 @@
             <div class="col-lg-7">
                 <div class="hero-content rpt-25 rmb-75">
                     <!-- <span class="sub-title style-two mb-20 wow fadeInUp delay-0-2s">Coaching & Speker</span> -->
-                    <h1 class="mb-20 wow fadeInUp delay-0-4s">Selamat Datang di Website Resmi Badan Kepegawaian Daerah
+                    <h1 class="mb-20 wow fadeInUp delay-0-4s">Kami Siap Melayani Anda</h1>
+                    <p class="wow fadeInUp delay-0-6s">Selamat Datang di Website Resmi Badan Kepegawaian Daerah
                         Kab.
-                        Wonosobo</h1>
-                    <p class="wow fadeInUp delay-0-6s">Kami Siap Melayani Anda</p>
+                        Wonosobo</p>
                     <!-- <div class="hero-btn mt-30 wow fadeInUp delay-0-8s">
                         <a href="course-grid.html" class="theme-btn">Get Your Free Coach <i
                                 class="fas fa-arrow-right"></i></a>
@@ -29,7 +29,7 @@
 <!-- Hero Section End -->
 
 <!-- Features Section Start -->
-<section class="features-section rel z-1 pt-80 pb-40 bg-blue text-white">
+<!-- <section class="features-section rel z-1 pt-80 pb-40 bg-blue text-white">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-4 col-md-6">
@@ -72,11 +72,11 @@
     </div>
     <img class="rectangle-dots" src="{{ asset('assets/front/images/shapes/rectangle-dots.png') }}" alt="Shape">
     <img class="circle-dots" src="{{ asset('assets/front/images/shapes/circle-dots.png') }}" alt="Shape">
-</section>
+</section> -->
 <!-- Features Section End -->
 
 <!-- About Section Start -->
-<section class="about-section pt-130 rpt-100">
+<!-- <section class="about-section pt-130 rpt-100">
     <div class="container">
         <div class="row">
             <div class="col-lg-5 align-self-end">
@@ -147,7 +147,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <!-- About Section End -->
 
 <!-- Coach Section Start -->
@@ -212,7 +212,7 @@
 <!-- Coach Section End -->
 
 <!-- Work Process Section Start -->
-<section class="work-process-section bg-white rel z-1 pt-130 rpt-100 pb-100 rpb-70">
+<!-- <section class="work-process-section bg-white rel z-1 pt-130 rpt-100 pb-100 rpb-70">
     <div class="container">
         <div class="row justify-content-between align-items-center pb-30 wow fadeInUp delay-0-2s">
             <div class="col-xl-7 col-lg-8">
@@ -252,11 +252,11 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <!-- Work Process Section End -->
 
 <!-- Newsletter Section Start -->
-<section class="newsletter-section pb-130 rpb-100 wow fadeInUp delay-0-2s">
+<!-- <section class="newsletter-section pb-130 rpb-100 wow fadeInUp delay-0-2s">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6">
@@ -297,11 +297,11 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <!-- Newsletter Section End -->
 
 <!-- Events Section Start -->
-<section class="events-section rel z-1 py-130 rpy-100 bg-blue text-white">
+<!-- <section class="events-section rel z-1 py-130 rpy-100 bg-blue text-white">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-7 col-lg-8 col-md-9">
@@ -377,11 +377,11 @@
     <span class="bg-text">coach</span>
     <img class="rectangle-dots" src="{{ asset('assets/front/images/shapes/rectangle-dots.png') }}" alt="Shape">
     <img class="circle-dots" src="{{ asset('assets/front/images/shapes/circle-dots.png') }}" alt="Shape">
-</section>
+</section> -->
 <!-- Events Section End -->
 
 <!-- Testimonials Section Start -->
-<section class="testimonials-section bg-white rel z-1 py-130 rpy-100">
+<!-- <section class="testimonials-section bg-white rel z-1 py-130 rpy-100">
     <div class="container">
         <div class="row align-items-center justify-content-between">
             <div class="col-lg-5">
@@ -494,11 +494,11 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <!-- Testimonials Section End -->
 
 <!-- Blog Section Start -->
-<section class="blog-section">
+<!-- <section class="blog-section">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-6 col-lg-7 col-md-8">
@@ -572,11 +572,11 @@
             <a href="blog.html" class="theme-btn style-three">view more news <i class="fas fa-arrow-right"></i></a>
         </div>
     </div>
-</section>
+</section> -->
 <!-- Blog Section End -->
 
 <!-- Logo Section Start -->
-<div class="logo-section pt-130 rpt-100 pb-80 rpb-50">
+<!-- <div class="logo-section pt-130 rpt-100 pb-80 rpb-50">
     <div class="container">
         <div class="logo-inner">
             <div class="logo-item wow fadeInUp delay-0-1s">
@@ -605,10 +605,11 @@
             </div>
         </div>
     </div>
-</div <!-- Logo Section End -->
+</div  -->
+<!-- Logo Section End -->
 
 <!-- Instagram Section Start -->
-<div class="instagram-section pb-120 rpb-90">
+<!-- <div class="instagram-section pb-120 rpb-90">
     <div class="container-fluid">
         <div class="row small-gap justify-content-center">
             <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
@@ -679,6 +680,6 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- Instagram Section End -->
 @endsection

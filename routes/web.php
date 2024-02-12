@@ -24,7 +24,6 @@ use Illuminate\Support\Facades\Route;
 use App\Models\News;
 use App\Models\Website;
 use App\Models\Themes;
-use Illuminate\Support\Facades\Http;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,16 +64,8 @@ Route::get('/', function () {
         Seo::seO();
         Counter::create($data);
 
-        try {
-            $response = Http::connectTimeout(2)->withoutVerifying()->get('https://diskominfo.wonosobokab.go.id/api/news');
-            $response = $response->collect();
-            $berita =   array_slice($response['data']['data'], 0, 3);
-        } catch (\Exception $e) {
-            $berita = [];
-        }
-
         $news = News::with('gambarmuka', 'uploader')->latest('date')->paginate(6);
-        return view('front.pages.index', compact('news', 'berita'));
+        return view('front.pages.index', compact('news'));
         // return view('front.index', compact('news', 'berita'));
     } else {
         $data = Themes::all();
