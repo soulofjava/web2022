@@ -23,6 +23,16 @@ class News extends Model implements Viewable
         ];
     }
 
+    public function getContentAttribute($value)
+    {
+        if ($this->id <= 775) {
+            // Ganti URL 'src' menggunakan regular expression
+            $newValue = str_replace('src="', 'src="' . url('show-picture?path='), $value);
+            return $newValue;
+        }
+        return $value;
+    }
+
     public function gambar()
     {
         return $this->hasMany(File::class, 'id_news', 'id');

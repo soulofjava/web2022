@@ -3,70 +3,93 @@
 namespace App\Http\Controllers;
 
 use App\Models\News;
-use App\Models\User;
-use Corcel\Model\Post;
-use Cviebrock\EloquentSluggable\Services\SlugService;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MigrasiDataController extends Controller
 {
     public function index()
     {
-        // all post
-        $posts = Post::whereNot('post_title', '')->get();
-        return response()->json($posts, 200);
-    }
+        $a = News::where('id', 591)->first();
+        return $a->content;
+        $searchTerm = 'Hasil SKD Seleksi CPNS 2018';
+        // $searchTerm = 'image';
 
-    public function post_id()
-    {
-        // post by id
-        $posts = Post::find(2641);
-        return response()->json($posts, 200);
+        $results = collect([]);
+
+        // Mendapatkan daftar tabel dalam database
+        $tables = DB::connection('joomla')->select('SHOW TABLES');
+
+        foreach ($tables as $table) {
+            $tableName = reset($table);
+
+            // Mendapatkan daftar kolom dalam tabel
+            $columns = DB::connection('joomla')->getSchemaBuilder()->getColumnListing($tableName);
+
+            // Membuat kueri untuk mencari data
+            $query = DB::connection('joomla')->table($tableName);
+
+            foreach ($columns as $column) {
+                $query->orWhere($column, 'like', '%' . $searchTerm . '%');
+            }
+
+            // Menambahkan hasil pencarian ke dalam koleksi
+            $tableResults = $query->get();
+            if ($tableResults->count() > 0) {
+                $results->push([
+                    'table' => $tableName,
+                    'results' => $tableResults
+                ]);
+            }
+        }
+
+        $this->insert();
+        $this->insert2();
+        // Output hasil pencarian
+        return response()->json($results, 200);
+        // return response()->json('selesai', 200);
     }
 
     public function insert()
     {
-        // insert into database laravel
-        $posts = Post::whereNot('post_title', '')->published()->get();
+        News::truncate();
+
+        set_time_limit(0);
+        // Mendapatkan daftar tabel dalam database
+        $posts = DB::connection('joomla')->table('runpack_k2_items')->where('id', '>', 34)->get();
 
         foreach ($posts as $key) {
-
             $data = ([
-                // 'title' => $jk,
-                'title' => $key->post_title,
-                'slug' => SlugService::createSlug(News::class, 'slug', $key->post_title),
-                'date' => $key->post_date,
-                'upload_by' => 'admin',
-                'description' => $key->post_content,
+                'title' => $key->title,
+                'slug' => $key->alias,
+                'content' => $key->introtext,
+                'terbit' => $key->published,
+                'date' => $key->created,
+                'upload_by' => 2,
             ]);
-
-            if (strtolower($key->main_category) == 'sambutan') {
-                $kate = 'KATEGORI_NEWS_0';
-            } elseif (strtolower($key->main_category) == 'dokumentasi') {
-                $kate = 'KATEGORI_NEWS_1';
-            } elseif (strtolower($key->main_category) == 'press release') {
-                $kate = 'KATEGORI_NEWS_2';
-            } elseif (strtolower($key->main_category) == 'notulensi') {
-                $kate = 'KATEGORI_NEWS_3';
-            } else {
-                $kate = $key->main_category;
-            }
-
-            News::create($data + ['kategori' => $kate]);
+            News::create($data);
         }
 
-        return response()->json('selesai salin data ke database baru', 200);
+        // return response()->json('Selesai!', 200);
     }
 
-    public function clean()
+    public function insert2()
     {
-        // hapus postingan tanpa judul
-        $posts = News::where('title', 'NULL')->get();
-        // foreach ($posts as $key) {
-        //     $data = News::find($key->id);
-        //     $data->delete();
-        // }
-        // return response()->json('data News sudah dibersihkan', 200);
-        return response()->json($posts, 200);
+        set_time_limit(0);
+        // Mendapatkan daftar tabel dalam database
+        $posts = DB::connection('joomla2')->table('ppid_k2_items')->where('id', '>', 33)->get();
+
+        foreach ($posts as $key) {
+            $data = ([
+                'title' => $key->title,
+                'slug' => $key->alias,
+                'content' => $key->introtext,
+                'terbit' => $key->published,
+                'date' => $key->created,
+                'upload_by' => 2,
+            ]);
+            News::create($data);
+        }
+
+        // return response()->json('Selesai!', 200);
     }
 }

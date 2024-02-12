@@ -86,7 +86,7 @@ class FrontController extends Controller
         OpenGraph::setUrl(url()->current());
         OpenGraph::addProperty('type', 'article');
         OpenGraph::addProperty('locale', 'id');
-        OpenGraph::addImage(route('helper.show-picture', ['path' => $data->gambarmuka->path]), ['height' => 300, 'width' => 300]);
+        OpenGraph::addImage(route('helper.show-picture', ['path' => $data->gambarmuka->path ?? '']), ['height' => 300, 'width' => 300]);
 
         $data = News::with('gambar', 'uploader')->where('slug', $slug)->first();
         views($data)->cooldown(5)->record();

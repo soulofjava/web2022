@@ -139,7 +139,7 @@ Route::get('/copydatapostingfromwonosobokab', [FrontController::class, 'copydata
 Route::get('/datappid', [FrontController::class, 'datappid'])->name('datappid');
 Route::get('/datappid2', [FrontController::class, 'datappid2'])->name('datappid2');
 
-Route::get('migrate', [MigrasiDataController::class, 'insert']);
+Route::get('migrate', [MigrasiDataController::class, 'index']);
 
 Route::get('show-picture', [HelperController::class, 'showPicture'])->name('helper.show-picture');
 
