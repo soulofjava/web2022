@@ -10,12 +10,12 @@
     rel="stylesheet">
 
 <!-- Vendor CSS Files -->
-<link href="{{ asset('assets/front/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-<link href="{{ asset('assets/front/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-<link href="{{ asset('assets/front/assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
-<link href="{{ asset('assets/front/assets/vendor/aos/aos.css') }}" rel="stylesheet">
-<link href="{{ asset('assets/front/assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
-<link href="{{ asset('assets/front/assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/front/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" async>
+<link href="{{ asset('assets/front/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet" async>
+<link href="{{ asset('assets/front/assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" async>
+<link href="{{ asset('assets/front/assets/vendor/aos/aos.css') }}" rel="stylesheet" async>
+<link href="{{ asset('assets/front/assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet" async>
+<link href="{{ asset('assets/front/assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet" async>
 
 <!-- Template Main CSS File -->
-<link href="{{ asset('assets/front/assets/css/main.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/front/assets/css/main.css') }}" rel="stylesheet" async>
