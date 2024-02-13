@@ -5,6 +5,11 @@
         <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
         <nav id="navbar" class="navbar">
             <ul>
+                <li style="color: rgba(255, 255, 255, 0.6);">
+                    <a id="carikan">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </a>
+                </li>
                 @foreach (App\Models\FrontMenu::where('menu_parent', '1')->where('active',1)->orderBy('id',
                 'ASC')->get() as $menu)
 
@@ -110,11 +115,6 @@
                 </li>
                 @endif
                 @endforeach
-                <li style="color: rgba(255, 255, 255, 0.6);">
-                    <a id="carikan">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </a>
-                </li>
             </ul>
         </nav>
         <a href="{{ url('/') }}" class="logo d-flex align-items-center">
