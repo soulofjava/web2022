@@ -1,6 +1,7 @@
 <?php
 
 use App\Helpers\Seo;
+use App\Jobs\TambahVisitor;
 use App\Http\Controllers\ComponentController;
 use App\Http\Controllers\CredentialController;
 use App\Http\Controllers\FrontController;
@@ -43,27 +44,8 @@ Route::get('ssouser', [SSOController::class, 'connectUser'])->name('sso.authuser
 Route::get('/', function () {
     $themes = Website::first();
     if (Website::exists()) {
-
-        $geoipInfo = geoip()->getLocation($_SERVER['REMOTE_ADDR']);
-
-        $data = [
-            'ip' => $geoipInfo->ip,
-            'iso_code' => $geoipInfo->iso_code,
-            'country' => $geoipInfo->country,
-            'city' => $geoipInfo->city,
-            'state' => $geoipInfo->state,
-            'state_name' => $geoipInfo->state_name,
-            'postal_code' => $geoipInfo->postal_code,
-            'lat' => $geoipInfo->lat,
-            'lon' => $geoipInfo->lon,
-            'timezone' => $geoipInfo->timezone,
-            'continent' => $geoipInfo->continent,
-            'currency' => $geoipInfo->currency,
-        ];
-
+        TambahVisitor::dispatch($_SERVER['REMOTE_ADDR']);
         Seo::seO();
-        Counter::create($data);
-
         $news = News::with('gambarmuka', 'uploader')->latest('date')->paginate(6);
         return view('front.pages.index', compact('news'));
         // return view('front.index', compact('news', 'berita'));
