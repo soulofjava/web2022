@@ -1,32 +1,31 @@
 <?php
 
 use App\Helpers\Seo;
-use App\Http\Controllers\ComponentController;
-use App\Http\Controllers\CredentialController;
-use App\Http\Controllers\FrontController;
-use App\Http\Controllers\WebsiteController;
-use App\Http\Controllers\NewsController;
-use App\Http\Controllers\GalleryController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\ThemesController;
-use App\Http\Controllers\FrontMenuController;
-use App\Http\Controllers\GuestBookController;
-use App\Http\Controllers\InboxController;
-use App\Http\Controllers\RelatedLinkController;
-use App\Http\Controllers\AgendaController;
-use App\Http\Controllers\BidangController;
-use App\Http\Controllers\ComplaintController;
-use App\Http\Controllers\DailyReportController;
-use App\Http\Controllers\MigrasiDataController;
-use App\Http\Controllers\HelperController;
-use App\Models\Counter;
-use Illuminate\Support\Facades\Route;
 use App\Models\News;
+use App\Models\Themes;
 use App\Models\Gallery;
 use App\Models\Website;
-use App\Models\Themes;
-use Illuminate\Support\Facades\Http;
+use App\Jobs\TambahVisitor;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\FrontController;
+use App\Http\Controllers\InboxController;
+use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\BidangController;
+use App\Http\Controllers\HelperController;
+use App\Http\Controllers\ThemesController;
+use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\WebsiteController;
+use App\Http\Controllers\ComplaintController;
+use App\Http\Controllers\ComponentController;
+use App\Http\Controllers\FrontMenuController;
+use App\Http\Controllers\GuestBookController;
+use App\Http\Controllers\CredentialController;
+use App\Http\Controllers\DailyReportController;
+use App\Http\Controllers\MigrasiDataController;
+use App\Http\Controllers\RelatedLinkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,24 +41,8 @@ use Illuminate\Support\Facades\Cache;
 Route::get('/', function () {
     $themes = Website::all()->first();
     if (Website::all()->count() != 0) {
-        // $geoipInfo = geoip()->getLocation($_SERVER['REMOTE_ADDR']);
-        // $data = [
-        //     'ip' => $geoipInfo->ip,
-        //     'iso_code' => $geoipInfo->iso_code,
-        //     'country' => $geoipInfo->country,
-        //     'city' => $geoipInfo->city,
-        //     'state' => $geoipInfo->state,
-        //     'state_name' => $geoipInfo->state_name,
-        //     'postal_code' => $geoipInfo->postal_code,
-        //     'lat' => $geoipInfo->lat,
-        //     'lon' => $geoipInfo->lon,
-        //     'timezone' => $geoipInfo->timezone,
-        //     'continent' => $geoipInfo->continent,
-        //     'currency' => $geoipInfo->currency,
-        // ];
+        TambahVisitor::dispatch($_SERVER['REMOTE_ADDR']);
         Seo::seO();
-        // Counter::create($data);
-
         $gallery = Gallery::latest('created_at')->paginate(12);
         $news = Cache::remember('beritaku', 60 * 60, function () {
             return News::latest('date')->paginate(9);

@@ -124,10 +124,6 @@
     @endif
     <!-- End Portfolio Section -->
 
-    <section id="services" class="services section-bg">
-        <x-seputar-wonosobo :message='$berita' />
-    </section>
-
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
         <div class="container" data-aos="fade-up">
