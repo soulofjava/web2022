@@ -20,7 +20,7 @@ use App\Http\Controllers\HelperController;
 use App\Http\Controllers\MigrasiDataController;
 use App\Http\Controllers\SSO\SSOController;
 use App\Http\Controllers\TagController;
-use App\Models\Counter;
+use App\Jobs\TambahVisitor;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
 use App\Models\Website;
@@ -44,26 +44,8 @@ Route::get('ssouser', [SSOController::class, 'connectUser'])->name('sso.authuser
 Route::get('/', function () {
     $themes = Website::first();
     if (Website::exists()) {
-
-        $geoipInfo = geoip()->getLocation($_SERVER['REMOTE_ADDR']);
-
-        $data = [
-            'ip' => $geoipInfo->ip,
-            'iso_code' => $geoipInfo->iso_code,
-            'country' => $geoipInfo->country,
-            'city' => $geoipInfo->city,
-            'state' => $geoipInfo->state,
-            'state_name' => $geoipInfo->state_name,
-            'postal_code' => $geoipInfo->postal_code,
-            'lat' => $geoipInfo->lat,
-            'lon' => $geoipInfo->lon,
-            'timezone' => $geoipInfo->timezone,
-            'continent' => $geoipInfo->continent,
-            'currency' => $geoipInfo->currency,
-        ];
-
+        TambahVisitor::dispatch($_SERVER['REMOTE_ADDR']);
         Seo::seO();
-        Counter::create($data);
         $popular = News::with('gambarmuka')->where('publish', 1)->orderByViews()->take(5)->get();
         $news = News::with('gambarmuka', 'uploader', 'tagged')->where('publish', 1)->latest('date')->paginate(6);
         return view('front.pages.index', compact('news', 'popular'));
