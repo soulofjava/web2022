@@ -20,6 +20,11 @@
                         @endif
                     </div>
                 </a>
+                @if($n->tagged)
+                @foreach($n->tagged as $tg)
+                <a href="{{ url('newscategory') }}/{{ $tg->tag_slug }}" class="tag-ornament">{{ $tg->tag_name }}</a>
+                @endforeach
+                @endif
                 <a href="{{ url('/news-detail', $n->slug) }}" class="post-preview-title">{{
                     \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}</a>
                 <div class="post-author-info-wrap">
@@ -80,15 +85,15 @@
 
                     <!-- POST PREVIEW TITLE -->
                     <a href="{{ url('/news-detail', $item->slug) }}" class="post-preview-title">{{
-                    \Illuminate\Support\Str::limit($item->title, 50, $end='...') }}</a>
+                        \Illuminate\Support\Str::limit($item->title, 50, $end='...') }}</a>
                     <!-- POST AUTHOR INFO -->
                     <div class="post-author-info-wrap">
                         <p class="post-author-info small light">By <a href="{{ url('/news-detail', $item->slug) }}"
                                 class="post-author">{{ $item->uploader->name
                                 }}</a><span class="separator">|</span>{{
-                                \Carbon\Carbon::parse($item->date)->format('l') }}, {{
-                                \Carbon\Carbon::parse( $item->date
-                                )->toFormattedDateString() }}</p>
+                            \Carbon\Carbon::parse($item->date)->format('l') }}, {{
+                            \Carbon\Carbon::parse( $item->date
+                            )->toFormattedDateString() }}</p>
                     </div>
                     <!-- /POST AUTHOR INFO -->
                 </div>
@@ -98,6 +103,26 @@
             <!-- /POST PREVIEW SHOWCASE -->
         </div>
         <!-- /WIDGET SIDEBAR -->
+        <div class="widget-sidebar">
+            <!-- SECTION TITLE WRAP -->
+            <div class="section-title-wrap blue">
+                <h2 class="section-title medium">Kategori</h2>
+                <div class="section-title-separator"></div>
+            </div>
+            <!-- /SECTION TITLE WRAP -->
+
+            <!-- TAG LIST -->
+            <div class="tag-list">
+
+                @foreach(Conner\Tagging\Model\Tag::all() as $t)
+                <!-- TAG ITEM -->
+                <a href="{{ url('newscategory') }}/{{ $t->slug }}" class="tag-item">{{ $t->name }}</a>
+                <!-- /TAG ITEM -->
+                @endforeach
+
+            </div>
+            <!-- /TAG LIST -->
+        </div>
     </div>
 </div>
 @endsection

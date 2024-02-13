@@ -51,9 +51,11 @@ class MigrasiDataController extends Controller
 
     public function insert()
     {
+        News::truncate();
+
         set_time_limit(0);
         // Mendapatkan daftar tabel dalam database
-        $posts = DB::connection('joomla')->table('cpns_k2_items')->get();
+        $posts = DB::connection('joomla')->table('cpns_k2_items')->where('id', '>', 34)->get();
 
         foreach ($posts as $key) {
             $data = ([

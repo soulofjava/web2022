@@ -7,11 +7,8 @@ use App\Models\News;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Storage;
-use Cviebrock\EloquentSluggable\Services\SlugService;
-use Illuminate\Support\Facades\DB;
 use App\Models\File as Files;
 use Conner\Tagging\Model\Tag;
-use File;
 
 class NewsController extends Controller
 {
@@ -23,7 +20,7 @@ class NewsController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = News::orderBy('date', 'DESC');
+            $data = News::latest('date');
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(
@@ -99,6 +96,9 @@ class NewsController extends Controller
             ]);
         }
 
+        // tagging postingan
+        $id->tag($request->tag);
+
         if ($request->document) {
             foreach ($request->document as $df) {
                 Files::create([
@@ -131,9 +131,14 @@ class NewsController extends Controller
     public function edit($id)
     {
         $data = News::find($id);
+        $terpilih = [];
         $highlight = ComCodes::where('code_group', 'highlight_news')->pluck('code_nm');
-        $categori = Tag::orderBy('name', 'ASC')->pluck('name', 'id');
-        return view('back.a.pages.news.edit', compact('data', 'highlight', 'categori'));
+        $categori = Tag::orderBy('name', 'ASC')->pluck('name', 'name');
+        // untuk list yang terpilih
+        foreach ($data->tagged as $key => $value) {
+            array_push($terpilih, strtoupper($value->tag_name));
+        }
+        return view('back.a.pages.news.edit', compact('data', 'highlight', 'categori', 'terpilih'));
     }
 
     /**
@@ -172,6 +177,9 @@ class NewsController extends Controller
                 'publish' => $request->publish ?? 0
             ]);
         }
+
+        // tag ulang postingan
+        $isa->retag($request->tag);
 
         if ($request->document) {
             foreach ($request->document as $df) {

@@ -2,110 +2,153 @@
 @push('after-style')
 @endpush
 @section('content')
-<main id="main">
+<!-- LAYOUT CONTENT 1 -->
+<div class="layout-content-1 layout-item-3-1 grid-limit" style="margin-top: 50px;">
+    <!-- LAYOUT BODY -->
+    <div class="layout-body">
+        <!-- LAYOUT ITEM -->
+        <div class="layout-item gutter-big">
+            @foreach($news as $n)
+            <div class="post-preview large gaming-news">
+                <!-- POST PREVIEW IMG WRAP -->
+                <a href="post-v1.html">
+                    <div class="post-preview-img-wrap">
+                        @if($n->gambarmuka)
+                        <figure class="post-preview-img liquid imgLiquid_bgSize imgLiquid_ready"
+                            style="background-image: url('{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
+                        </figure>
+                        @else
+                        <figure class="post-preview-img liquid imgLiquid_bgSize imgLiquid_ready"
+                            style="background-image: url('https://diskominfo.wonosobokab.go.id/uploads/20180919023758_wsbPemKab.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
+                        </figure>
+                        @endif
+                    </div>
+                </a>
+                <!-- /POST PREVIEW IMG WRAP -->
 
-    <!-- Start Breadcrumb
-        ============================================= -->
-    <div class="breadcrumb-area shadow bg-fixed text-center padding-xl text-light" style="background-color: #F4F7FB;">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12">
-                    <!-- <h1>Blog Single</h1> -->
-                    <ul class="breadcrumb">
-                        <li><a href="{{ url('/') }}">Home</a></li>
-                        <li><a href="#">postingan</a></li>
-                        <li><a href="#">Semua postingan</a></li>
-                    </ul>
+                @if($n->tagged)
+                @foreach($n->tagged as $tg)
+                <a href="{{ url('newscategory') }}/{{ $tg->tag_slug }}" class="tag-ornament">{{ $tg->tag_name }}</a>
+                @endforeach
+                @endif
+                <a href="{{ url('/news-detail', $n->slug) }}" class="post-preview-title">{{
+                    \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}</a>
+                <!-- POST AUTHOR INFO -->
+                <div class="post-author-info-wrap">
+                    <a href="#">
+                        <figure class="user-avatar tiny liquid imgLiquid_bgSize imgLiquid_ready"
+                            style="background-image: url(https://ui-avatars.com/api/?name={{ $n->uploader->name }}); background-size: cover; background-position: center center; background-repeat: no-repeat;">
+                        </figure>
+                    </a>
+                    <p class="post-author-info small light">
+                        By <a href="#" class="post-author">
+                            {{ $n->uploader->name }}
+                        </a>
+                        <span class="separator">|</span>
+                        {{ \Carbon\Carbon::parse($n->date)->format('l') }}, {{
+                        \Carbon\Carbon::parse( $n->date
+                        )->toFormattedDateString() }}
+                        <span class="separator">|</span>
+                        Dilihat {{ views($n)->count(); }} kali
+                    </p>
                 </div>
+                <!-- /POST AUTHOR INFO -->
+                <!-- POST PREVIEW TEXT -->
+                <p class="post-preview-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris
+                    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+                    esse cillum
+                    dolore eu fugiat nulla pariatur.</p>
             </div>
-        </div>
-    </div>
-    <!-- End Breadcrumb -->
+            @endforeach
 
-    <!-- Start Blog
-    ============================================= -->
-    <div class="blog-area full-width bg-gray default-padding">
-        <div class="container">
-            <x-cari-news style='margin-top: 22px; width:100%;' />
-            <div class="row" style="margin-top: 25px;">
-                <div class="blog-items">
-                    @foreach($news as $n)
-                    <!-- Single Item -->
-                    <div class="col-lg-4 col-md-4 col-sm-6 equal-height">
-                        <div class="item">
-                            <div class="thumb">
-                                <a href="#">
-                                    @forelse($n->gambar as $gambar)
-                                    @if($loop->iteration == 1)
-                                    <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
-                                        alt="{{ $gambar->file_name }}">
-                                    @endif
-                                    @empty
-                                    <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
-                                    @endforelse
-                                </a>
-                            </div>
-                            <div class="info">
-                                <div class="content">
-                                    <div class="date">
-                                        {{ \Carbon\Carbon::parse($n->date)->format('l') }}, {{
-                                        \Carbon\Carbon::parse( $n->date
-                                        )->toFormattedDateString() }}
-                                    </div>
-                                    <h4>
-                                        <a href="#">{{ \Illuminate\Support\Str::limit($n->title, 50,
-                                            $end='...') }}</a>
-                                    </h4>
-                                    <a href="{{ url('/news-detail', $n->slug) }}">lebih detail <i
-                                            class="fas fa-angle-right"></i></a>
-                                </div>
-                                <div class="meta">
-                                    <ul>
-                                        <li>
-                                            <a href="#">
-                                                <img src="{{ asset('assets/front/boxass/assets/img/100x100.png') }}"
-                                                    alt="Author">
-                                                <span>Author</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fas fa-comments"></i>
-                                                <span>05</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fas fa-share-alt"></i>
-                                                <span>37</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+        </div>
+        <!-- /LAYOUT ITEM -->
+
+    </div>
+    <!-- /LAYOUT BODY -->
+
+    <!-- LAYOUT SIDEBAR -->
+    <div class="layout-sidebar layout-item gutter-medium" style="margin-top: 
+    60px;">
+        <!-- WIDGET SIDEBAR -->
+        <div class="widget-sidebar">
+            <!-- SECTION TITLE WRAP -->
+            <div class="section-title-wrap blue">
+                <h2 class="section-title medium">Popular Posts</h2>
+                <div class="section-title-separator"></div>
+            </div>
+            <!-- /SECTION TITLE WRAP -->
+
+            <!-- POST PREVIEW SHOWCASE -->
+            <div class="post-preview-showcase grid-1col centered gutter-small">
+
+                @foreach($sideposts as $item)
+                <!-- POST PREVIEW -->
+                <div class="post-preview tiny gaming-news">
+                    <!-- POST PREVIEW IMG WRAP -->
+                    <a href="{{ url('/news-detail', $item->slug) }}">
+                        <div class="post-preview-img-wrap">
+                            @if($item->gambarmuka)
+                            <figure class="post-preview-img liquid imgLiquid_bgSize imgLiquid_ready"
+                                style="background-image: url('{{ route('helper.show-picture', ['path' => $item->gambarmuka->path]) }}'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
+                            </figure>
+                            @else
+                            <figure class="post-preview-img liquid imgLiquid_bgSize imgLiquid_ready"
+                                style="background-image: url('https://diskominfo.wonosobokab.go.id/uploads/20180919023758_wsbPemKab.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
+                            </figure>
+                            @endif
                         </div>
+                    </a>
+                    <!-- /POST PREVIEW IMG WRAP -->
+
+                    <!-- POST PREVIEW TITLE -->
+                    <a href="{{ url('/news-detail', $item->slug) }}" class="post-preview-title">{{
+                        \Illuminate\Support\Str::limit($item->title, 50, $end='...') }}</a>
+                    <!-- POST AUTHOR INFO -->
+                    <div class="post-author-info-wrap">
+                        <p class="post-author-info small light">By <a href="{{ url('/news-detail', $item->slug) }}"
+                                class="post-author">{{ $item->uploader->name
+                                }}</a><span class="separator">|</span>{{
+                            \Carbon\Carbon::parse($item->date)->format('l') }}, {{
+                            \Carbon\Carbon::parse( $item->date
+                            )->toFormattedDateString() }}</p>
                     </div>
-                    <!-- End Single Item -->
-                    @endforeach
-                    <div class="col-lg-12 col-md-12 pagi-area">
-                        <nav aria-label="navigation">
-                            <ul class="pagination">
-                                {{ $news->links('vendor.pagination.boxass') }}
-                                <!-- <li><a href="#">Previous</a></li>
-                                <li class="active"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">Next</a></li> -->
-                            </ul>
-                        </nav>
-                    </div>
+                    <!-- /POST AUTHOR INFO -->
                 </div>
+                <!-- /POST PREVIEW -->
+                @endforeach
             </div>
+            <!-- /POST PREVIEW SHOWCASE -->
+        </div>
+        <!-- /WIDGET SIDEBAR -->
+        <!-- /WIDGET SIDEBAR -->
+        <div class="widget-sidebar">
+            <!-- SECTION TITLE WRAP -->
+            <div class="section-title-wrap blue">
+                <h2 class="section-title medium">Kategori</h2>
+                <div class="section-title-separator"></div>
+            </div>
+            <!-- /SECTION TITLE WRAP -->
+        
+            <!-- TAG LIST -->
+            <div class="tag-list">
+        
+                @foreach(Conner\Tagging\Model\Tag::all() as $t)
+                <!-- TAG ITEM -->
+                <a href="{{ url('newscategory') }}/{{ $t->slug }}" class="tag-item">{{ $t->name }}</a>
+                <!-- /TAG ITEM -->
+                @endforeach
+        
+            </div>
+            <!-- /TAG LIST -->
         </div>
     </div>
-    <!-- End Blog -->
-
-</main>
+    <!-- /LAYOUT SIDEBAR -->
+</div>
+<!-- /LAYOUT CONTENT 1 -->
 @endsection
 @push('after-script')
 @endpush

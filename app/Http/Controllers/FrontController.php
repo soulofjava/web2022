@@ -87,7 +87,7 @@ class FrontController extends Controller
     public function newsdetail($slug)
     {
         Seo::seO();
-        $data = News::with('gambar', 'uploader')->where('slug', $slug)->first();
+        $data = News::with('gambar', 'uploader', 'tagged')->where('slug', $slug)->first();
         views($data)->cooldown(5)->record();
         $news = News::with('gambar')->orderBy('date', 'desc')->paginate(5);
         $file = File::where('id_news', $data->attachment)->get();
@@ -162,9 +162,9 @@ class FrontController extends Controller
     public function newsByCategory($id)
     {
         Seo::seO();
-        $news = News::where('kategori', $id)->latest('date')->paginate(12);
+        $news = News::with('gambarmuka', 'tagged')->withAnyTag($id)->latest('date')->paginate(5);
         $sideposts = News::latest('date')->take(5)->get();
-        return view('front.' . $this->themes->themes_front . '.pages.news', compact('news', 'sideposts'));
+        return view('front.pages.news', compact('news', 'sideposts'));
     }
 
     public function galleryall(Request $request)

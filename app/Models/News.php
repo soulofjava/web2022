@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Conner\Tagging\Taggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -11,7 +12,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 
 class News extends Model implements Viewable
 {
-    use HasFactory, SoftDeletes, InteractsWithViews, Sluggable;
+    use HasFactory, SoftDeletes, InteractsWithViews, Sluggable, Taggable;
     protected $guarded = [];
 
     public function sluggable(): array
@@ -21,6 +22,16 @@ class News extends Model implements Viewable
                 'source' => 'title'
             ]
         ];
+    }
+
+    public function getDescriptionAttribute($value)
+    {
+        if ($this->id <= 775) {
+            // Ganti URL 'src' menggunakan regular expression
+            $newValue = str_replace('sandbox', '', $value);
+            return $newValue;
+        }
+        return $value;
     }
 
     public function gambar()

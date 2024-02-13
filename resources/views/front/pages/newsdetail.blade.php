@@ -8,7 +8,6 @@
         <div class="layout-item gutter-big">
             <!-- POST OPEN -->
             <div class="post-open gaming-news">
-
                 @if($data->gambarmuka)
                 <img src="{{ route('helper.show-picture', ['path' => $data->gambarmuka->path ?? '']) }}" alt="post-13"
                     style="width: 100%; height: 500px; margin-bottom: 20px;">
@@ -19,11 +18,12 @@
                 <div class="post-open-content">
                     <!-- POST OPEN BODY  -->
                     <div class="post-open-body">
-                        <!-- TAG LIST -->
-                        <!-- <div class="tag-list">
-                            <a href="news-v1.html" class="tag-ornament">Gaming News</a>
-                        </div> -->
-                        <!-- /TAG LIST -->
+                        @if($data->tagged)
+                        @foreach($data->tagged as $tg)
+                        <a href="{{ url('newscategory') }}/{{ $tg->tag_slug }}" class="tag-ornament">{{ $tg->tag_name
+                            }}</a>
+                        @endforeach
+                        @endif
 
                         <!-- POST OPEN TITLE -->
                         <p class="post-open-title">{{ $data->title }}</p>
@@ -101,7 +101,7 @@
                         </div>
                     </a>
                     <!-- /POST PREVIEW IMG WRAP -->
-                
+
                     <!-- POST PREVIEW TITLE -->
                     <a href="{{ url('/news-detail', $item->slug) }}" class="post-preview-title">{{
                         \Illuminate\Support\Str::limit($item->title, 50, $end='...') }}</a>
@@ -122,6 +122,27 @@
             <!-- /POST PREVIEW SHOWCASE -->
         </div>
         <!-- /WIDGET SIDEBAR -->
+        <!-- /WIDGET SIDEBAR -->
+        <div class="widget-sidebar">
+            <!-- SECTION TITLE WRAP -->
+            <div class="section-title-wrap blue">
+                <h2 class="section-title medium">Kategori</h2>
+                <div class="section-title-separator"></div>
+            </div>
+            <!-- /SECTION TITLE WRAP -->
+
+            <!-- TAG LIST -->
+            <div class="tag-list">
+
+                @foreach(Conner\Tagging\Model\Tag::all() as $t)
+                <!-- TAG ITEM -->
+                <a href="{{ url('newscategory') }}/{{ $t->slug }}" class="tag-item">{{ $t->name }}</a>
+                <!-- /TAG ITEM -->
+                @endforeach
+
+            </div>
+            <!-- /TAG LIST -->
+        </div>
     </div>
     <!-- /LAYOUT SIDEBAR -->
 </div>

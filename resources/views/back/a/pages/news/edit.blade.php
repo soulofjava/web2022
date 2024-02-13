@@ -30,7 +30,7 @@
 
                     <div class="form-group">
                         <label class="control-label">Kategori</label>
-                        {{Form::select('tag', $categori, null, ['class' => 'form-control
+                        {{Form::select('tag', $categori, $terpilih, ['class' => 'form-control
                         js-example-basic-multiple',
                         'name' => 'tag[]',
                         'multiple' => 'multiple',
@@ -97,7 +97,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         demo.initFormExtendedDatetimepickers();
-
+        $('.js-example-basic-multiple').select2();
         let a = document.getElementById('bbb').value;
         console.log(a);
         if (a == 1) {

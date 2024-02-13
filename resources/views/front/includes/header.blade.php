@@ -52,12 +52,12 @@
         <!-- LOGO -->
         <div class="logo">
             <!-- LOGO IMG -->
-          
+
             <a href="{{ url('/') }}">
                 <img src="{{ asset('img/CPNS.png') }}" alt="Logo" width="250px" height="50px">
             </a>
             <!-- /LOGO IMG -->
-           
+
         </div>
         <!-- /LOGO -->
 
@@ -107,9 +107,11 @@
             <div class="slider-item-wrap">
                 <!-- POST PREVIEW -->
                 <div class="post-preview huge gaming-news">
-                    <!-- TAG ORNAMENT -->
-                    <!-- <a href="news-v1.html" class="tag-ornament">Gaming news</a> -->
-                    <!-- /TAG ORNAMENT -->
+                    @if($n->tagged)
+                    @foreach($n->tagged as $tg)
+                    <a href="{{ url('newscategory') }}/{{ $tg->tag_slug }}" class="tag-ornament">{{ $tg->tag_name }}</a>
+                    @endforeach
+                    @endif
 
                     <!-- POST PREVIEW TITLE -->
                     <a href="{{ url('/news-detail', $n->slug) }}" class="post-preview-title">{{
@@ -160,4 +162,3 @@
 </div>
 <!-- /BANNER SLIDER -->
 @endif
-
