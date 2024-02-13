@@ -57,7 +57,7 @@ Route::get('/', function () {
         TambahVisitor::dispatch($_SERVER['REMOTE_ADDR']);
         Seo::seO();
         $news = News::with('gambar', 'gambarmuka')->latest('date')->paginate(9);
-        return view('front.' . $themes->themes_front . '.pages.index', compact('news', 'berita'));
+        return view('front.' . $themes->themes_front . '.pages.index', compact('news'));
     } else {
         $data = Themes::all();
         return view('front.setup', compact('data'));
