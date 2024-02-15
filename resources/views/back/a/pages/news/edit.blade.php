@@ -27,7 +27,8 @@
                     <input type="text" value="{{ $data->dip }}" id="bbb" hidden>
 
                     <div class="dropzone" id="my-awesome-dropzone"></div>
-
+                    {{ json_encode($terpilih) }}spasi
+                    {{ $categori }}
                     <div class="form-group">
                         <label class="control-label">Kategori</label>
                         {{Form::select('tag', $categori, $terpilih, ['class' => 'form-control

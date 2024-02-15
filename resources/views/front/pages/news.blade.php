@@ -54,13 +54,6 @@
                 </div>
                 <!-- /POST AUTHOR INFO -->
                 <!-- POST PREVIEW TEXT -->
-                <p class="post-preview-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris
-                    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-                    esse cillum
-                    dolore eu fugiat nulla pariatur.</p>
             </div>
             @endforeach
 
@@ -132,16 +125,16 @@
                 <div class="section-title-separator"></div>
             </div>
             <!-- /SECTION TITLE WRAP -->
-        
+
             <!-- TAG LIST -->
             <div class="tag-list">
-        
+
                 @foreach(Conner\Tagging\Model\Tag::all() as $t)
                 <!-- TAG ITEM -->
                 <a href="{{ url('newscategory') }}/{{ $t->slug }}" class="tag-item">{{ $t->name }}</a>
                 <!-- /TAG ITEM -->
                 @endforeach
-        
+
             </div>
             <!-- /TAG LIST -->
         </div>

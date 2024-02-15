@@ -54,7 +54,13 @@ class NewsController extends Controller
                         return $actionBtn;
                     }
                 )
-                ->rawColumns(['action', 'tgl', 'publish'])
+                ->addColumn(
+                    'kategorine',
+                    function ($data) {
+                        return $data->tagNames();
+                    }
+                )
+                ->rawColumns(['action', 'tgl', 'publish', 'kategorine'])
                 ->make(true);
         }
         return view('back.a.pages.news.index');
@@ -68,7 +74,7 @@ class NewsController extends Controller
     public function create()
     {
         $highlight = ComCodes::where('code_group', 'highlight_news')->pluck('code_nm');
-        $categori = Tag::orderBy('name', 'ASC')->pluck('name', 'id');
+        $categori = Tag::orderBy('name', 'ASC')->pluck('name', 'name');
         return view('back.a.pages.news.create', compact('highlight', 'categori'));
     }
 
@@ -130,13 +136,13 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-        $data = News::find($id);
+        $data = News::with('tagged')->where('id', $id)->first();
         $terpilih = [];
         $highlight = ComCodes::where('code_group', 'highlight_news')->pluck('code_nm');
-        $categori = Tag::orderBy('name', 'ASC')->pluck('name', 'name');
+        $categori = Tag::orderBy('name', 'ASC')->pluck('name');
         // untuk list yang terpilih
         foreach ($data->tagged as $key => $value) {
-            array_push($terpilih, strtoupper($value->tag_name));
+            array_push($terpilih, $value->tag->name);
         }
         return view('back.a.pages.news.edit', compact('data', 'highlight', 'categori', 'terpilih'));
     }
