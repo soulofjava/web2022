@@ -17,6 +17,19 @@ Breadcrumbs::for('news', function ($trail) {
     $trail->push('News', url('news'));
 });
 
+// Dashboard > Kategori kelas
+Breadcrumbs::for('kategorikelas', function ($trail) {
+    $trail->parent('dashboard');
+    $trail->push('kategorikelas', url('kategorikelas'));
+});
+
+// Dasboadrd > Upload
+Breadcrumbs::for('upload', function ($trail) {
+    $trail->parent('dashboard');
+    $trail->push('upload', url('upload'));
+});
+
+
 // Dashboard > Menu
 Breadcrumbs::for('menu', function ($trail) {
     $trail->parent('dashboard');
