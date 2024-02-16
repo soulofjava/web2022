@@ -74,7 +74,7 @@
                                 <div class="content">
                                     <h6><a href="{{ url('/news-detail', $item->slug) }}">{{
                                             \Illuminate\Support\Str::limit($item->title, 50, $end='...') }}</a></h6>
-                                    <span>By <a href="#">{{ $item->uploader->name
+                                    <span>By <a href="#">{{ $item->uploader->name ?? 'Admin'
                                             }}</a></span>
                                 </div>
                             </li>
