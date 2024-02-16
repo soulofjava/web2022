@@ -62,7 +62,7 @@
         },
         columns: [
             { data: 'DT_RowIndex', orderable: false, searchable: false },
-            { data: 'title', name: 'title', className: "text-center" },
+            { data: 'title', name: 'title', className: "" },
             { data: 'tgl', className: "text-center" },
             { data: 'kategorine', className: "text-center" },
             { data: 'publish', className: "text-center" },
