@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use CyrildeWit\EloquentViewable\InteractsWithViews;
 use CyrildeWit\EloquentViewable\Contracts\Viewable;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Support\Str;
 
 class News extends Model implements Viewable
 {
@@ -25,11 +26,14 @@ class News extends Model implements Viewable
 
     public function getContentAttribute($value)
     {
-        if ($this->id <= 775) {
+        if (Str::contains('https://drive.google.com/', $value)) {
+            return $value;
+        } else if (!Str::contains($value, 'https://drive.google.com/') && $this->id <= 775) {
             // Ganti URL 'src' menggunakan regular expression
             $newValue = str_replace('src="', 'src="' . url('show-picture?path='), $value);
             return $newValue;
         }
+
         return $value;
     }
 
