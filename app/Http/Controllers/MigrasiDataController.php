@@ -10,7 +10,7 @@ class MigrasiDataController extends Controller
     public function index()
     {
         $a = News::where('id', 591)->first();
-        return $a->content;
+
         $searchTerm = 'Hasil SKD Seleksi CPNS 2018';
         // $searchTerm = 'image';
 
