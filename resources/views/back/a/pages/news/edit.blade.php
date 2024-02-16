@@ -27,13 +27,10 @@
                     <input type="text" value="{{ $data->dip }}" id="bbb" hidden>
 
                     <div class="dropzone" id="my-awesome-dropzone"></div>
-                    {{ json_encode($terpilih) }}spasi
-                    {{ $categori }}
                     <div class="form-group">
                         <label class="control-label">Kategori</label>
-                        {{Form::select('tag', $categori, $terpilih, ['class' => 'form-control
+                        {{Form::select('tag[]', $categori, $terpilih, ['class' => 'form-control
                         js-example-basic-multiple',
-                        'name' => 'tag[]',
                         'multiple' => 'multiple',
                         ])}}
                         @error('tag') <span class="text-danger">Tidak boleh kosong</span> @enderror
@@ -95,10 +92,13 @@
 @push('after-script')
 <script src="https://cdn.jsdelivr.net/npm/dropzone@5.9.2/dist/dropzone.js"
     integrity="sha256-IXyEnLo8FpsoOLrRzJlVYymqpY29qqsMHUD2Ah/ttwQ=" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function () {
+        $('.js-example-basic-multiple').select2();
+    });
+</script>
 <script type="text/javascript">
     $(document).ready(function () {
-        demo.initFormExtendedDatetimepickers();
-        $('.js-example-basic-multiple').select2();
         let a = document.getElementById('bbb').value;
         console.log(a);
         if (a == 1) {
