@@ -30,7 +30,7 @@
                     <!-- </div> -->
                     <x-carousel :jjj='$data' />
                     <ul class="blog-standard-header wow fadeInUp delay-0-2s mt-25">
-                        <li><span class="name">{{ $data->uploader->name }}</span></li>
+                        <li><span class="name">{{ $data->uploader->name ?? 'Admin' }}</span></li>
                         <li><i class="far fa-calendar-alt"></i> <a href="#">{{
                                 \Carbon\Carbon::parse($data->date)->format('l') }},
                                 {{ \Carbon\Carbon::parse( $data->date)->toFormattedDateString() }}</a></li>
