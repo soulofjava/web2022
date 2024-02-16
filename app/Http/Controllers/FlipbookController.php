@@ -82,13 +82,13 @@ class FlipbookController extends Controller
                 'path_pdf' => 'required|mimes:pdf|max:2048',
             ]);
             $fileName = time() . '.' . $request->path_pdf->extension();
-            $request->path_pdf->storeAs('public/uploads/gcs', $fileName, 'gcs');
+            $lokasi = $request->path_pdf->storeAs('flipbook', $fileName);
             $slug = $request->title;
             $data = [
                 'name' => $request->name,
                 'judul' => $request->judul,
                 'id_kategori' => $request->id_kategori,
-                'path_pdf' => $fileName,
+                'path_pdf' => $lokasi,
                 'status' => $request->status,
                 // 'slug' => SlugService::createSlug(Upload::class, 'slug', $request->title),
             ];
@@ -139,10 +139,10 @@ class FlipbookController extends Controller
                 'name' => 'required',
             ]);
             $fileName = time() . '.' . $request->path_pdf->extension();
-            $request->path_pdf->storeAs('public/uploads/gcs', $fileName, 'gcs');
+            $lokasi = $request->path_pdf->storeAs('flipbook', $fileName);
             $upload = Upload::where('id', $id)->first();
-            if (Storage::disk('gcs')->exists('public/uploads/' . $upload->path_pdf)) {
-                Storage::disk('gcs')->delete('public/uploads/' . $upload->path_pdf);
+            if (Storage::disk('gcs')->exists($upload->path_pdf)) {
+                Storage::disk('gcs')->delete($upload->path_pdf);
                 // unlink($upload->path_pdf);
             }
 
@@ -150,7 +150,7 @@ class FlipbookController extends Controller
                 'name' => $request->name,
                 'judul' => $request->judul,
                 'id_kategori' => $request->id_kategori,
-                'path_pdf' => $fileName,
+                'path_pdf' => $lokasi,
                 'status' => $request->status,
                 // 'slug' => SlugService::createSlug(Upload::class, 'slug', $request->title),
             ];
@@ -181,8 +181,8 @@ class FlipbookController extends Controller
     public function destroy($id)
     {
         $upload = Upload::where('id', $id)->first();
-        if (Storage::disk('gcs')->exists('public/uploads/' . $upload->path_pdf)) {
-            Storage::disk('gcs')->delete('public/uploads/' . $upload->path_pdf);
+        if (Storage::disk('gcs')->exists($upload->path_pdf)) {
+            Storage::disk('gcs')->delete($upload->path_pdf);
             // unlink($upload->path_pdf);
         }
         $data = Upload::find($id);

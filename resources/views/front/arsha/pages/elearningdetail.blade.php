@@ -7,10 +7,10 @@
             <div class="container">
 
                 <!-- <ol>
-                                                                                                                                                        <li><a href="index.html">Home</a></li>
-                                                                                                                                                        <li>Inner Page</li>
-                                                                                                                                                    </ol>
-                                                                                                                                                    <h2>Inner Page</h2> -->
+                                                                                                                                                                                    <li><a href="index.html">Home</a></li>
+                                                                                                                                                                                    <li>Inner Page</li>
+                                                                                                                                                                                </ol>
+                                                                                                                                                                                <h2>Inner Page</h2> -->
 
             </div>
         </section>
@@ -29,7 +29,9 @@
                     <div class="col-lg-12 d-flex align-items-stretch">
                         <div class="info">
                             <div class="_df_book" height="500" webgl="true" backgroundcolor="teal"
-                                source="{{ asset('storage/uploads/' . $data->path_pdf) }}" id="df_manual_book"></div>
+                                source="{{ route('helper.show-picture', ['path' => $data->path_pdf]) }}"
+                                id="df_manual_book"></div>
+
                         </div>
 
                     </div>

@@ -21,6 +21,7 @@ use App\Http\Controllers\ComplaintController;
 use App\Http\Controllers\DailyReportController;
 use App\Http\Controllers\ElearningController;
 use App\Http\Controllers\FlipbookController;
+use App\Http\Controllers\HelperController;
 use App\Http\Controllers\KategoriController;
 use App\Models\Counter;
 use Illuminate\Support\Facades\Route;
@@ -140,7 +141,7 @@ Route::middleware(['auth:sanctum', 'verified', 'data_web'])->get('/dashboard', f
     $themes = Website::all()->first();
     return view($themes->themes_back . '.pages.dashboard');
 })->name('dashboard');
-
+Route::get('show-picture}', [HelperController::class, 'showPicture'])->name('helper.show-picture');
 Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], function () {
     Route::resource('kategori', KategoriController::class);
     Route::resource('upload', FlipbookController::class);
