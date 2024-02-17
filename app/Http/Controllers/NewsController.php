@@ -7,10 +7,7 @@ use App\Models\News;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Storage;
-use Cviebrock\EloquentSluggable\Services\SlugService;
-use Illuminate\Support\Facades\DB;
 use App\Models\File as Files;
-use File;
 
 class NewsController extends Controller
 {
@@ -22,7 +19,7 @@ class NewsController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = News::orderBy('date', 'DESC');
+            $data = News::latest('date');
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(
