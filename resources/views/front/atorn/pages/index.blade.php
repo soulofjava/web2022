@@ -6,7 +6,8 @@
     @foreach(App\Models\News::where('highlight', '1')->orderBy('date', 'DESC')->take(3)->get() as $hl)
 
     @if($hl->gambarmuka)
-    <div class="hero-slider-item" style="background-image: url('storage/{{ $hl->gambarmuka->path }}');">
+    <div class="hero-slider-item"
+        style="background-image: {{ route('helper.show-picture', ['path' => $hl->gambarmuka->path]) }};">
         @else
         <div class="hero-slider-item" style="background-image: url('img/soulofjava.jpg');">
             @endif

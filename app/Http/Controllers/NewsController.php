@@ -85,16 +85,9 @@ class NewsController extends Controller
 
         if ($request->document) {
             foreach ($request->document as $df) {
-                $path = storage_path('app/public/gallery');
-
-                if (!file_exists($path)) {
-                    mkdir($path, 0777, true);
-                }
-
-                File::move(storage_path('tmp/uploads/') . $df, storage_path('app/public/gallery/') . $df);
                 Files::create([
                     'id_news' => $id->id,
-                    'path' => 'gallery/' . $df,
+                    'path' => 'news/' . $df,
                     'file_name' => $df
                 ]);
             }
@@ -160,10 +153,9 @@ class NewsController extends Controller
 
         if ($request->document) {
             foreach ($request->document as $df) {
-                File::move(storage_path('tmp/uploads/') . $df, storage_path('app/public/gallery/') . $df);
                 Files::create([
                     'id_news' => $id,
-                    'path' => 'gallery/' . $df,
+                    'path' => 'news/' . $df,
                     'file_name' => $df
                 ]);
             }
@@ -194,36 +186,5 @@ class NewsController extends Controller
         $data->gambar()->delete();
 
         return $data->delete();
-    }
-
-    // pindah dari wonosobokab
-    public function insert()
-    {
-        set_time_limit(0);
-        $tables = DB::select('SHOW TABLES');
-        $data = DB::table('postingan')->where('domain', 'arpusda.wonosobokab.go.id')->get();
-        foreach ($data as $dt) {
-            $file = DB::table('attachment')
-                ->where('id_tabel', $dt->id_posting)
-                ->get();
-            foreach ($file as $f) {
-                $fi = [
-                    'id_news' => $f->id_tabel,
-                    'file_name' => $f->file_name,
-                    'path' => 'gallery/' . $f->file_name,
-                ];
-                Files::insert($fi);
-            }
-            $pk = [
-                'title' => $dt->judul_posting,
-                'date' => $dt->created_time,
-                'upload_by' => auth()->user()->name,
-                'description' => $dt->isi_posting,
-                'attachment' => $dt->id_posting,
-                'slug' => SlugService::createSlug(News::class, 'slug', $dt->judul_posting),
-            ];
-            News::insert($pk);
-        }
-        return 'selesai';
     }
 }

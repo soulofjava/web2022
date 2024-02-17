@@ -14,7 +14,7 @@
                 </div>
                 @elseif($hl->gambarmuka)
                 <div class="slider-thumb bg-cover"
-                    style="background-image: url('storage/{{ $hl->gambarmuka->path }}');">
+                    style="background-image: {{ route('helper.show-picture', ['path' => $hl->gambarmuka->path]) }};">
                 </div>
                 @else
                 <div class="slider-thumb bg-cover" style="background-image: url('{{ asset('img/soulofjava.jpg') }}');">
@@ -44,7 +44,7 @@
                 </div>
                 @elseif($hl->gambarmuka)
                 <div class="slider-thumb bg-cover"
-                    style="background-image: url('storage/{{ $hl->gambarmuka->path }}');">
+                    style="background-image: {{ route('helper.show-picture', ['path' => $hl->gambarmuka->path]) }};">
                 </div>
                 @else
                 <div class="slider-thumb bg-cover" style="background-image: url('{{ asset('img/soulofjava.jpg') }}');">
@@ -111,7 +111,7 @@
                     <!-- Single Item -->
                     <div class="item">
                         <div class="thumbs overlay">
-                            <img src="https://bappeda.wonosobokab.go.id/storage/wp-content/uploads/2023/09/Logo-sipd-scaled.jpg"
+                            <img src="{{ route('helper.show-picture', ['path' => 'wp-content/uploads/2023/09/Logo-sipd-scaled.jpg']) }}"
                                 alt="Thumb">
                             <div class="info">
                                 <!-- <h4>Oil and Gass Energy</h4>
@@ -137,7 +137,7 @@
                     <!-- Single Item -->
                     <div class="item">
                         <div class="thumbs overlay">
-                            <img src="https://bappeda.wonosobokab.go.id/storage/wp-content/uploads/2023/09/Logo-gardu-scaled.jpg"
+                            <img src="{{ route('helper.show-picture', ['path' => 'wp-content/uploads/2023/09/Logo-gardu-scaled.jpg']) }}"
                                 alt="Thumb">
                             <div class="info">
                                 <!-- <h4>Agriculture Automation</h4>
@@ -163,7 +163,7 @@
                     <!-- Single Item -->
                     <div class="item">
                         <div class="thumbs overlay">
-                            <img src="https://bappeda.wonosobokab.go.id/storage/wp-content/uploads/2023/09/Logo-simake-scaled.jpg"
+                            <img src="{{ route('helper.show-picture', ['path' => 'wp-content/uploads/2023/09/Logo-simake-scaled.jpg']) }}"
                                 alt="Thumb">
                             <div class="info">
                                 <!-- <h4>Civil Engineering</h4>
@@ -189,7 +189,7 @@
                     <!-- Single Item -->
                     <div class="item">
                         <div class="thumbs overlay">
-                            <img src="https://bappeda.wonosobokab.go.id/storage/wp-content/uploads/2023/09/Logo-SKM-scaled.jpg"
+                            <img src="{{ route('helper.show-picture', ['path' => 'wp-content/uploads/2023/09/Logo-SKM-scaled.jpg']) }}"
                                 alt="Thumb">
                             <div class="info">
                                 <!-- <h4>Bridge Construction</h4>
@@ -996,8 +996,6 @@
 @if($news->count() != 0)
 
 @endif
-
-<x-seputar-wonosobo :message='$berita' />
 
 @endsection
 @push('after-script')

@@ -22,7 +22,7 @@
                 <div class="feat-item">
                     @if($hl->gambarmuka)
                     <div class="feat-img position-absolute"
-                        style="background-image: url('storage/{{ $hl->gambarmuka->path }}');">
+                        style="background-image: {{ route('helper.show-picture', ['path' => $hl->gambarmuka->path]) }};">
                         @else
                         <div class="feat-img position-absolute" style="background-image: url('img/soulofjava.jpg');">
                             @endif

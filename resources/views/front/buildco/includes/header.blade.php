@@ -108,7 +108,7 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="https://bappeda.wonosobokab.go.id/storage/wp-content/uploads/2023/06/logoheader.png"
+                    <img src="{{ route('helper.show-picture', ['path' => 'wp-content/uploads/2023/06/logoheader.png']) }}"
                         class="logo" alt="Logo" style="max-width: 250px;">
                 </a>
             </div>
