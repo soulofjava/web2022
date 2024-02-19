@@ -16,7 +16,11 @@
                 @if (App\Models\FrontMenu::where('menu_parent', $menu->id)->where('active',1)->orderBy('menu_parent',
                 'ASC')->count() == 0)
                 <li>
-                    @if ($menu->link)
+                    @if ($menu->menu_name = "Berita")
+                    <a href="{{ $menu->menu_url }}">
+                        {{ $menu->menu_name }}
+                    </a>
+                    @elseif ($menu->link)
                     <a target="_blank" href="{{ $menu->menu_url }}">
                         {{ $menu->menu_name }}
                     </a>
@@ -70,6 +74,10 @@
                                     <a href="{{ $sub3->menu_url }}" target="_blank">
                                         {{ $sub3->menu_name }}
                                     </a>
+                                    @elseif($sub3->id == 99)
+                                    <a href="{{ url('transparansi') }}/aturan-kebijakan-daerah">
+                                        {{ $sub3->menu_name }}
+                                    </a>
                                     @elseif($sub3->menu_parent == 89 || $sub3->menu_parent == 90 || $sub3->menu_parent
                                     == 91)
                                     <a href="{{ url('transparansi') }}/{{ $sub3->menu_url }}">
@@ -94,6 +102,10 @@
                                         <li>
                                             @if ($sub4->link)
                                             <a href="{{ $sub4->menu_url }}" target="_blank">
+                                                {{ $sub4->menu_name }}
+                                            </a>
+                                            @elseif($sub4->id == 101)
+                                            <a href="{{ url('transparansi') }}/{{ $sub4->menu_url }}">
                                                 {{ $sub4->menu_name }}
                                             </a>
                                             @else

@@ -74,12 +74,13 @@
             ajax: "{{ route('datappid') }}",
             columns: [
                 { data: 'DT_RowIndex', orderable: false, searchable: false },
-                { data: 'menu_name', name: 'menu_name', className: "text-center", defaultContent: 'N/A' },
+                { data: 'menu_name', name: 'menu_name', className: "", defaultContent: 'N/A' },
                 { data: 'kategori', name: 'kategori', className: "text-center" },
                 { data: 'action', className: "text-center" },
             ],
             columnDefs: [
-                { targets: [2], visible: false } // Hide the Category column (index 1)
+                { targets: [2], visible: false }, // Hide the Category column (index 1)
+                { className: "dt-head-center", targets: [0, 1, 3] },
             ]
         });
 
@@ -95,8 +96,11 @@
             columns: [
                 { data: 'DT_RowIndex', orderable: false, searchable: false },
                 { data: 'dip_tahun', name: 'dip_tahun', className: "text-center" },
-                { data: 'title', name: 'title', className: "text-center" },
+                { data: 'title', name: 'title', className: "" },
                 { data: 'action', className: "text-center" },
+            ],
+            columnDefs: [
+                { className: "dt-head-center", targets: [0, 1, 2, 3] },
             ]
         });
     });

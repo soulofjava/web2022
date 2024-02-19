@@ -32,8 +32,11 @@
             columns: [
                 { data: 'DT_RowIndex', orderable: false, searchable: false },
                 { data: 'dip_tahun', name: 'dip_tahun', className: "text-center" },
-                { data: 'title', name: 'title', className: "text-center" },
+                { data: 'title', name: 'title', className: "" },
                 { data: 'action', className: "text-center" },
+            ],
+            columnDefs: [
+                { className: "dt-head-center", targets: [0, 1, 2, 3] },
             ]
         });
     });

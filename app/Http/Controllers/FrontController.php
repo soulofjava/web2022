@@ -80,7 +80,28 @@ class FrontController extends Controller
     public function dikecualikan(Request $request)
     {
         if ($request->ajax()) {
-            $dip = News::where('kategori', 'INFORMASI_ST_04')->latest();
+            $dip = News::where('kategori', 'INFORMASI_ST_04')->latest('date');
+            return DataTables::of($dip)
+                ->addIndexColumn()
+                ->addColumn(
+                    'action',
+                    function ($dip) {
+                        $actionBtn = '<td class="text-center">
+                                <a target="_blank" href="' . url('news-detail', $dip->slug) . '" class="btn btn-warning">LIHAT
+                                    DATA</a>
+                            </td>';
+                        return $actionBtn;
+                    }
+                )
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+    }
+
+    public function tabel(Request $request, $id)
+    {
+        if ($request->ajax()) {
+            $dip = News::where('title', 'like', '%' . $id . '%')->latest('date');
             return DataTables::of($dip)
                 ->addIndexColumn()
                 ->addColumn(
@@ -101,7 +122,7 @@ class FrontController extends Controller
     public function datappid2(Request $request)
     {
         if ($request->ajax()) {
-            $dip = News::whereNotNull('kategori')->where('dip', 1)->latest('dip_tahun');
+            $dip = News::whereNotNull('kategori')->where('kategori', '!=', 'INFORMASI_ST_04')->where('dip', 1)->latest('dip_tahun');
             return DataTables::of($dip)
                 ->addIndexColumn()
                 ->addColumn(
@@ -161,7 +182,10 @@ class FrontController extends Controller
         Seo::seO();
         $cari = $id;
         $hasil = 'Hasil Pencarian : ' . $cari;
-        $data = News::Where('title', 'like', $cari . '%')->latest("date")->get();
+        $data = News::Where('slug', 'like', $cari . '%')->latest("date")->get();
+        if ($cari == 'aturan-kebijakan-daerah') {
+            $data = News::Where('slug', 'like', '%' . $cari . '%')->latest("date")->get();
+        }
         $data2 = DB::table('front_menus')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like', $cari . '%')->get();
         $combinedData = $data->concat($data2);
 

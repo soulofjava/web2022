@@ -36,6 +36,18 @@
                             <x-dip />
                         </div>
                     </div>
+                    @elseif($data->menu_url == 'penyertaan-modal' || $data->menu_url == 'investasi-usaha'||
+                    $data->menu_url == 'informasi-kejadian-bencana' || $data->menu_url == 'daftar-kejadian-bencana' ||
+                    $data->menu_url == 'pengumuman' || $data->menu_url == 'informasi-gangguan' || $data->menu_url ==
+                    'informasi-hoax' || $data->menu_url == 'kajian-dan-penelitian' || $data->menu_url ==
+                    'pengawasan-internal' || $data->menu_url == 'hasil-penanganan-pengaduan' || $data->menu_url ==
+                    'regulasi-informasi-publik' || $data->menu_url == 'standar-operasional-prosedur' || $data->menu_url
+                    == 'laporan-layanan-informasi-daerah')
+                    <div class="card">
+                        <div class="card-body">
+                            <x-data-table :kata="$data->menu_name" />
+                        </div>
+                    </div>
                     @elseif($data->title)
                     <div class="card">
                         <div class="card-body">

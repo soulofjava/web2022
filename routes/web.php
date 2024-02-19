@@ -39,7 +39,7 @@ use Illuminate\Support\Facades\Redirect;
 |
 */
 
-Route::any('/register', function () {
+Route::any('register', function () {
     return Redirect::to(route('login'));
 });
 
@@ -50,35 +50,31 @@ Route::get('ssouser', [SSOController::class, 'connectUser'])->name('sso.authuser
 Route::get('/', function () {
     TambahVisitor::dispatch($_SERVER['REMOTE_ADDR']);
     Seo::seO();
-    $news = News::with('gambar', 'gambarmuka', 'uploader')->where('terbit', 1)->latest('date')->paginate(3);
+    $news = News::with('gambar', 'gambarmuka', 'uploader')->where('terbit', 1)->latest('date')->paginate(6);
     return view('front.pages.index', compact('news'));
 })->name('root')->middleware('data_web');
 
 Route::group(['middleware' => 'data_web'], function () {
     Route::get('newscategory/{id}', [FrontController::class, 'newsByCategory']);
-    Route::get('/detail-berita/{id}', [FrontController::class, 'detailberita'])->name('detail-berita');
-    Route::get('/news-detail/{slug}', [FrontController::class, 'newsdetail'])->name('news.detail');
+    Route::get('detail-berita/{id}', [FrontController::class, 'detailberita'])->name('detail-berita');
+    Route::get('news-detail/{slug}', [FrontController::class, 'newsdetail'])->name('news.detail');
     Route::get('news-author/{id}', [FrontController::class, 'newsbyauthor'])->name('news.author');
-    Route::get('/news-search', [FrontController::class, 'newsbysearch'])->name('news.search');
+    Route::get('news-search', [FrontController::class, 'newsbysearch'])->name('news.search');
     Route::get('global-search', [FrontController::class, 'globalsearch'])->name('global.search');
     Route::get('transparansi/{id}', [FrontController::class, 'transparansi']);
     Route::get('newsall', [FrontController::class, 'newsall'])->name('news.all');
-    Route::get('/photos', [FrontController::class, 'galleryall'])->name('photo.all');
-    Route::post('/setup', [FrontController::class, 'setup'])->name('setup-first');
-    Route::get('/tentang-kami', [FrontController::class, 'tentangkami'])->name('tentang-kami');
-    Route::get('/latar-belakang', [FrontController::class, 'latarbelakang'])->name('latar-belakang');
-    Route::get('/tujuan', [FrontController::class, 'tujuan'])->name('tujuan');
-    Route::get('/kampung-pancasila', [FrontController::class, 'kampungpancasila'])->name('kampung-pancasila');
-    Route::get('/page/{id}', [FrontController::class, 'page'])->name('page');
-    Route::get('/component/{id}', [FrontController::class, 'component'])->name('component');
-    Route::get('/load-sql', [FrontController::class, 'loadsql']);
-    Route::get('/check', [FrontController::class, 'check']);
+    Route::get('photos', [FrontController::class, 'galleryall'])->name('photo.all');
+    Route::post('setup', [FrontController::class, 'setup'])->name('setup-first');
+    Route::get('page/{id}', [FrontController::class, 'page'])->name('page');
+    Route::get('component/{id}', [FrontController::class, 'component'])->name('component');
+    Route::get('load-sql', [FrontController::class, 'loadsql']);
+    Route::get('check', [FrontController::class, 'check']);
     Route::post('kotakmasuk', [FrontController::class, 'inbox']);
     Route::post('guest', [FrontController::class, 'addguest']);
     Route::resource('buku-tamu', GuestBookController::class);
     Route::get('agenda', [FrontController::class, 'event']);
     Route::get('berita', [FrontController::class, 'newsall']);
-    Route::get('/reload-captcha', [FrontController::class, 'reloadCaptcha']);
+    Route::get('reload-captcha', [FrontController::class, 'reloadCaptcha']);
 });
 
 Route::middleware(['auth:sanctum', 'verified', 'data_web', 'cek_inbox'])->get('/dashboard', function () {
@@ -128,11 +124,12 @@ Route::group(['middleware' => ['auth', 'data_web', 'cek_inbox'], 'prefix' => 'ad
 });
 
 // get data for front menu parent
-Route::get('/cari', [FrontMenuController::class, 'loadData'])->name('carimenu');
+Route::get('cari', [FrontMenuController::class, 'loadData'])->name('carimenu');
 Route::get('copydatapostingfromwonosobokab', [FrontController::class, 'copydatapostingfromwonosobokab']);
-Route::get('/datappid', [FrontController::class, 'datappid'])->name('datappid');
-Route::get('/datappid2', [FrontController::class, 'datappid2'])->name('datappid2');
-Route::get('/dikecualikan', [FrontController::class, 'dikecualikan'])->name('dikecualikan');
+Route::get('datappid', [FrontController::class, 'datappid'])->name('datappid');
+Route::get('datappid2', [FrontController::class, 'datappid2'])->name('datappid2');
+Route::get('dikecualikan', [FrontController::class, 'dikecualikan'])->name('dikecualikan');
+Route::get('tabel/{id}', [FrontController::class, 'tabel'])->name('tabel');
 
 Route::get('migrate', [MigrasiDataController::class, 'insert']);
 
