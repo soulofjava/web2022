@@ -65,8 +65,4 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function bidang()
-    {
-        return $this->belongsTo(Bidang::class);
-    }
 }
