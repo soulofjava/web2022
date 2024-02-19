@@ -21,27 +21,18 @@
                         </div>
                         @endif
                         {{Form::open(['route' => 'user.store','method' => 'post', 'files' => 'true', ''])}}
-                        @role('admin')
+                        @role('superadmin')
                         <div class="form-group label-floating is-focused">
                             <label class="control-label">Role</label>
                             {{ Form::select('role', $role, null, ['class' => 'form-control',
                             'placeholder' => 'Select Role']); }}
                         </div>
-                        @endrole
-                        @role('superadmin')
                         <div class="form-group label-floating is-focused">
                             <label class="control-label">Permission</label>
                             {{ Form::select('permission', $permission, null, ['class' => 'form-control',
                             'placeholder' => 'Select Permission']); }}
                         </div>
                         @endrole
-                        @can ('satpolpp')
-                        <div>
-                            {{Form::select('bidang_id', $bidang, null,['class' => 'form-control selectpicker',
-                            'data-style'
-                            => 'btn btn-success btn-round', 'title' => 'Choose Bidang'])}}
-                        </div>
-                        @endcan
                         <div class="form-group label-floating">
                             <label class="control-label">Name</label>
                             {{Form::text('name', null,['class' => 'form-control'])}}
