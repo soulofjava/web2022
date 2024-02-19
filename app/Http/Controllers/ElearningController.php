@@ -19,7 +19,7 @@ class ElearningController extends Controller
     public function index()
     {
         Seo::seO();
-        $data = Kategori::get();
+        $data = Kategori::where('status', '=', 'publish')->get();
         // $data = DB::table('front_menus')
         //     ->where('menu_url', '=', $id)
         //     ->get();
