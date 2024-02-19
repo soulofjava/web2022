@@ -60,20 +60,6 @@ Route::get('/', function () {
     }
 })->name('root')->middleware('data_web');
 
-Route::get('/page', function () {
-    $themes = Website::all()->first();
-    if (Website::all()->count() != 0) {
-        TambahVisitor::dispatch($_SERVER['REMOTE_ADDR']);
-        Seo::seO();
-        $gallery = Gallery::latest('created_at')->paginate(12);
-        $news = News::latest('date')->paginate(9);
-        return view('front.' . $themes->themes_front . '.pages.index', compact('gallery', 'news'));
-    } else {
-        $data = Themes::all();
-        return view('front.setup', compact('data'));
-    }
-})->middleware('data_web');
-
 Route::group(['middleware' => 'data_web'], function () {
     Route::get('/news-detail/{slug}', [FrontController::class, 'newsdetail'])->name('news.detail');
     Route::get('/news-author/{id}', [FrontController::class, 'newsbyauthor'])->name('news.author');

@@ -10,9 +10,6 @@
                 <h1>{{ $data_website->web_name }}</h1>
                 <h2>{{ $data_website->web_description }}</h2>
                 <div class="d-none justify-content-center justify-content-lg-start">
-                    <!-- <audio id="audio_1"> -->
-                    <!-- <source src="http://i.klikhost.com:8210/stream" type="audio/mpeg"> -->
-                    <!-- </audio> -->
                     <a href="#about" class="btn-get-started scrollto btn-playstream">Get Started</a>
                     <a href="{{ $data_website->heroes_video }}" class="glightbox btn-watch-video"><i
                             class="bi bi-play-circle"></i><span>Watch Video</span></a>
@@ -20,7 +17,8 @@
             </div>
             <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
                 @if($data_website->image_hero)
-                <img src="{{ asset('storage') }}/{{ $data_website->image_hero }}" class="img-fluid animated">
+                <img src="{{ route('helper.show-picture', ['path' => $data_website->image_hero]) }}"
+                    class="img-fluid animated" style="height: 300px !important;">
                 @else
                 <img src="{{ asset('assets/front/arsha/assets/img/hero-img.png') }}" class="img-fluid animated">
                 @endif
@@ -46,8 +44,8 @@
                 <div class="col-xl-3 col-md-6 d-flex align-items-stretch mb-3" data-aos="zoom-in" data-aos-delay="100">
                     <div class="icon-box">
                         <div class="post-img">
-                            @if(file_exists(public_path('storage/'.$n->path)))
-                            <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid">
+                            @if(Storage::get($n->path))
+                            <img src="{{ route('helper.show-picture', ['path' => $n->path]) }}" class="img-fluid">
                             @else
                             <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
                             @endif
@@ -91,8 +89,8 @@
                 @foreach($gallery as $g)
                 <div class="col-lg-3 col-md-6 portfolio-item filter-web">
                     <div class="portfolio-img">
-                        @if(file_exists(public_path('storage/'.$g->path)))
-                        <img src="{{ asset('storage/') }}/{{ $g->path}}" class="img-fluid">
+                        @if(Storage::get($g->path))
+                        <img src="{{ route('helper.show-picture', ['path' => $g->path]) }}" class="img-fluid">
                         @else
                         <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
                         @endif
@@ -228,26 +226,6 @@
                 $(".captcha span").html(data.captcha);
             }
         });
-    });
-
-    $('.btn-playstream').click(function () {
-        currentvalue = document.getElementById('audio_1').value;
-        if (currentvalue == "on") {
-            document.getElementById('audio_1').pause();
-            document.getElementById("audio_1").value = "off";
-            console.log("off!");
-        } else {
-            document.getElementById('audio_1').play();
-            document.getElementById("audio_1").value = "on";
-            console.log("on!");
-        }
-        // function playmusik() {
-        //     var song = new Audio();
-        //     song.src = "http://i.klikhost.com:8234/stream";
-        //     // song.autoplay = true;
-        //     song.play;
-        // }
-        // window.addEventListener("load", playmusik);
     });
 </script>
 @endpush

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\Seo;
 use App\Models\Agenda;
 use App\Models\Component;
+use App\Models\FrontMenu;
 use Illuminate\Http\Request;
 use App\Models\News;
 use App\Models\Gallery;
@@ -71,8 +72,7 @@ class FrontController extends Controller
     public function page($id)
     {
         Seo::seO();
-        $data = DB::table('front_menus')
-            ->where('menu_url', '=', $id)
+        $data = FrontMenu::where('menu_url', '=', $id)
             ->get();
         return view('front.' . $this->themes->themes_front . '.pages.page', compact('data'));
     }

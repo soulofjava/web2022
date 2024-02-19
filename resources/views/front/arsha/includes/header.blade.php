@@ -32,9 +32,17 @@
                     ->get();
                     @endphp
                     @if(count($subMenus) == 0)
-                    <li><a class="nav-link scrollto" href="{{ url('/page', $menu->menu_url) }}">{{ $menu->menu_name
+                    @if($menu->menu_url == 'beranda' )
+                    <li>
+                        <a class="nav-link scrollto" href="{{ url('/') }}">{{ $menu->menu_name
                             }}</a>
                     </li>
+                    @else
+                    <li>
+                        <a class="nav-link scrollto" href="{{ url('/page', $menu->menu_url) }}">{{ $menu->menu_name
+                            }}</a>
+                    </li>
+                    @endif
                     @else
                     <li class="dropdown"><a href="#"><span>{{ $menu->menu_name }}</span> <i
                                 class="bi bi-chevron-down"></i></a>
