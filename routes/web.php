@@ -72,7 +72,7 @@ Route::get('/page', function () {
         $data = Themes::all();
         return view('front.setup', compact('data'));
     }
-})->name('root')->middleware('data_web');
+})->middleware('data_web');
 
 Route::group(['middleware' => 'data_web'], function () {
     Route::get('/news-detail/{slug}', [FrontController::class, 'newsdetail'])->name('news.detail');
