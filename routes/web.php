@@ -89,7 +89,7 @@ Route::middleware(['auth:sanctum', 'verified', 'data_web'])->get('/dashboard', f
     $themes = Website::all()->first();
     return view($themes->themes_back . '.pages.dashboard');
 })->name('dashboard');
-Route::get('show-picture}', [HelperController::class, 'showPicture'])->name('helper.show-picture');
+Route::get('show-picture', [HelperController::class, 'showPicture'])->name('helper.show-picture');
 Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], function () {
     Route::resource('kategori', KategoriController::class);
     Route::resource('upload', FlipbookController::class);
