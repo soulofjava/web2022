@@ -23,13 +23,12 @@ use App\Http\Controllers\ElearningController;
 use App\Http\Controllers\FlipbookController;
 use App\Http\Controllers\HelperController;
 use App\Http\Controllers\KategoriController;
-use App\Models\Counter;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
 use App\Models\Gallery;
 use App\Models\Website;
 use App\Models\Themes;
-use PhpParser\Node\Stmt\Return_;
+use App\Jobs\TambahVisitor;
 use Illuminate\Support\Facades\File;
 
 /*
@@ -47,35 +46,13 @@ Route::get('template', function () {
     return File::get(public_path() . '/doc.html');
 });
 
-Route::group(
-    ['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']],
-    function () {
-        \UniSharp\LaravelFilemanager\Lfm::routes();
-    }
-);
-
 Route::get('/', function () {
     $themes = Website::all()->first();
     if (Website::all()->count() != 0) {
-        $geoipInfo = geoip()->getLocation($_SERVER['REMOTE_ADDR']);
-        $data = [
-            'ip' => $geoipInfo->ip,
-            'iso_code' => $geoipInfo->iso_code,
-            'country' => $geoipInfo->country,
-            'city' => $geoipInfo->city,
-            'state' => $geoipInfo->state,
-            'state_name' => $geoipInfo->state_name,
-            'postal_code' => $geoipInfo->postal_code,
-            'lat' => $geoipInfo->lat,
-            'lon' => $geoipInfo->lon,
-            'timezone' => $geoipInfo->timezone,
-            'continent' => $geoipInfo->continent,
-            'currency' => $geoipInfo->currency,
-        ];
+        TambahVisitor::dispatch($_SERVER['REMOTE_ADDR']);
         Seo::seO();
-        Counter::create($data);
-        $gallery = Gallery::orderBy('created_at', 'desc')->paginate(12);
-        $news = News::orderBy('date', 'desc')->paginate(9);
+        $gallery = Gallery::latest('created_at')->paginate(12);
+        $news = News::latest('date')->paginate(9);
         return view('front.' . $themes->themes_front . '.pages.index', compact('gallery', 'news'));
     } else {
         $data = Themes::all();
@@ -86,25 +63,10 @@ Route::get('/', function () {
 Route::get('/page', function () {
     $themes = Website::all()->first();
     if (Website::all()->count() != 0) {
-        $geoipInfo = geoip()->getLocation($_SERVER['REMOTE_ADDR']);
-        $data = [
-            'ip' => $geoipInfo->ip,
-            'iso_code' => $geoipInfo->iso_code,
-            'country' => $geoipInfo->country,
-            'city' => $geoipInfo->city,
-            'state' => $geoipInfo->state,
-            'state_name' => $geoipInfo->state_name,
-            'postal_code' => $geoipInfo->postal_code,
-            'lat' => $geoipInfo->lat,
-            'lon' => $geoipInfo->lon,
-            'timezone' => $geoipInfo->timezone,
-            'continent' => $geoipInfo->continent,
-            'currency' => $geoipInfo->currency,
-        ];
+        TambahVisitor::dispatch($_SERVER['REMOTE_ADDR']);
         Seo::seO();
-        Counter::create($data);
-        $gallery = Gallery::orderBy('created_at', 'desc')->paginate(12);
-        $news = News::orderBy('date', 'desc')->paginate(9);
+        $gallery = Gallery::latest('created_at')->paginate(12);
+        $news = News::latest('date')->paginate(9);
         return view('front.' . $themes->themes_front . '.pages.index', compact('gallery', 'news'));
     } else {
         $data = Themes::all();
@@ -145,13 +107,10 @@ Route::get('show-picture}', [HelperController::class, 'showPicture'])->name('hel
 Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], function () {
     Route::resource('kategori', KategoriController::class);
     Route::resource('upload', FlipbookController::class);
-
-
     Route::resource('gallery', GalleryController::class);
     Route::resource('menu', MenuController::class);
     Route::resource('submenu', SubmenuController::class);
     Route::resource('settings', WebsiteController::class)->middleware('is_superadmin');
-    Route::get('whatsapp', [WebsiteController::class, 'wa'])->middleware('is_superadmin');
     Route::resource('news', NewsController::class);
     Route::resource('myprofile', CredentialController::class);
     Route::resource('role', RoleController::class);
@@ -169,8 +128,6 @@ Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], functi
     Route::post('frameworks', [ComplaintController::class, 'getFrameworks'])->name('frameworks');
     Route::post('upstate/{id}', [ComplaintController::class, 'finish']);
     Route::get('phpword/{id}', [ComplaintController::class, 'phpword']);
-    // Route::get('/menu/checkSlug', [FrontMenuController::class, 'checkSlug']);
-
     // get data for front menu parent
     Route::get('/cari', [FrontMenuController::class, 'loadData'])->name('carimenu');
 });
