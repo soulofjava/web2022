@@ -1,66 +1,100 @@
 @extends('front.layouts.app')
+@push('after-style')
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+@endpush
 @section('content')
 <div class="layout-content-1 layout-item-3-1 search-pad grid-limit">
     <div class="layout-body layout-item centered">
         @foreach(Conner\Tagging\Model\Tag::all() as $t)
-        <div class="layout-item padded own-grid">
-            <div class="section-title-wrap violet">
-                <h2 class="section-title medium">{{ $t->name }}</h2>
-                <div class="section-title-separator"></div>
-                <div id="{{ ($loop->even) ? 'esnews-slider1-controls' : 'gknews-slider1-controls'}}"
-                    class="carousel-controls slider-controls violet">
-                    <div class="slider-control control-previous">
-                        <!-- ARROW ICON -->
-                        <svg class="arrow-icon medium">
-                            <use xlink:href="#svg-arrow-medium"></use>
-                        </svg>
-                        <!-- /ARROW ICON -->
-                    </div>
-                    <div class="slider-control control-next">
-                        <!-- ARROW ICON -->
-                        <svg class="arrow-icon medium">
-                            <use xlink:href="#svg-arrow-medium"></use>
-                        </svg>
-                        <!-- /ARROW ICON -->
-                    </div>
-                </div>
-            </div>
-            <div id="{{ ($loop->even) ? 'esnews-slider1' : 'gknews-slider1' }}" class="carousel">
-                <div class="carousel-items">
-                    @foreach(App\Models\News::with('gambarmuka')->withAnyTag($t->name)->get() as $it)
-                    <div class="post-preview e-sport">
-                        <a href="{{ url('news-detail', $it->slug) }}">
-                            <div class="post-preview-img-wrap">
-                                @if($it->gambarmuka)
-                                <figure class="post-preview-img liquid">
-                                    <img src="{{ route('helper.show-picture', ['path' => $it->gambarmuka->path]) }}"
-                                        alt="img">
-                                </figure>
-                                @else
-                                <figure class="post-preview-img liquid">
-                                    <img src="https://diskominfo.wonosobokab.go.id/uploads/20180919023758_wsbPemKab.jpg"
-                                        alt="img">
-                                </figure>
-                                @endif
-                            </div>
-                        </a>
-                        <a href="{{ url('news-detail', $it->slug) }}" class="tag-ornament">{{
-                            json_encode($it->tagNames()) }}</a>
-                        <a href="{{ url('news-detail', $it->slug) }}" class="post-preview-title">{{ $it->title
-                            }}</a>
-                        <div class="post-author-info-wrap">
-                            <p class="post-author-info small light">
+        <center>
+            <h2>{{ $t->name }}</h2>
+        </center>
+        <div id="myCarousel{{ $loop->iteration }}" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                @foreach(App\Models\News::with('gambarmuka')->withAnyTag($t->name)->get() as $it)
+                @if($loop->first)
+                <div class="carousel-item active">
+                    <a href="{{ url('news-detail', $it->slug) }}">
+                        <img src="{{ asset('Green and Black Maximalist Action  Adventure YouTube Channel Art.png') }}"
+                            alt="Slide 1" width="100%" height="300px">
+                        <div class="carousel-caption">
+                            <h3 style="color: white;">
+                                {{ $it->title }}
+                            </h3>
+                            <p style="color: white;">
                                 {{ \Carbon\Carbon::parse($it->date)->format('l') }}, {{
                                 \Carbon\Carbon::parse( $it->date
                                 )->toFormattedDateString() }}
                             </p>
                         </div>
-                    </div>
-                    @endforeach
+                    </a>
                 </div>
+                @else
+                <div class="carousel-item">
+                    <a href="{{ url('news-detail', $it->slug) }}">
+                        <img src="{{ asset('Green and Black Maximalist Action  Adventure YouTube Channel Art.png') }}"
+                            alt="Slide 1" width="100%" height="300px">
+                        <div class="carousel-caption">
+                            <h3 style="color: white;">
+                                {{ $it->title }}
+                            </h3>
+                            <p style="color: white;">
+                                {{ \Carbon\Carbon::parse($it->date)->format('l') }}, {{
+                                \Carbon\Carbon::parse( $it->date
+                                )->toFormattedDateString() }}
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                @endif
+                @endforeach
             </div>
+
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#myCarousel{{ $loop->iteration }}" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#myCarousel{{ $loop->iteration }}" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
         </div>
         @endforeach
+        <!-- @foreach(Conner\Tagging\Model\Tag::all() as $t)
+        <div id="myCarousel{{ $loop->iteration }}" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="container">
+                        <div class="row">
+                            <h3 class="text-center w-100">{{ $t->name }}</h3>
+                            @foreach(App\Models\News::with('gambarmuka')->withAnyTag($t->name)->get() as $it)
+                            <div class="col-sm-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            {{ $it->title }}
+                                        </h5>
+                                        <p class="card-text">
+                                            {{ \Carbon\Carbon::parse($it->date)->format('l') }}, {{
+                                            \Carbon\Carbon::parse( $it->date
+                                            )->toFormattedDateString() }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#myCarousel{{ $loop->iteration }}" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#myCarousel{{ $loop->iteration }}" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+        @endforeach -->
     </div>
     <div class="layout-sidebar layout-item gutter-medium">
         <!-- WIDGET SIDEBAR -->
@@ -138,4 +172,9 @@
 </div>
 @endsection
 @push('after-script')
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 @endpush
