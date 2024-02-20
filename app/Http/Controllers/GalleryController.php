@@ -6,7 +6,6 @@ use App\Models\Gallery;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\DB;
 
 class GalleryController extends Controller
 {
