@@ -17,8 +17,8 @@
                             <!-- <legend>Regular Image</legend> -->
                             <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                                 <div class="fileinput-new thumbnail">
-                                    @if($data->path)
-                                    <img src="{{ asset('storage') }}/{{ $data->path }}" alt="...">
+                                    @if(Storage::get($data->path))
+                                    <img src="{{ route('helper.show-picture', ['path' => $data->path]) }}">
                                     @else
                                     <img src="{{ asset('assets/back/assets/img/image_placeholder.jpg') }}" alt="...">
                                     @endif
