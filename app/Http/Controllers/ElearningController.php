@@ -6,8 +6,6 @@ use App\Helpers\Seo;
 use App\Models\Kategori;
 use App\Models\Upload;
 use App\Models\Website;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class ElearningController extends Controller
 {
