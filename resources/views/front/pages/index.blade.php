@@ -2,55 +2,65 @@
 @section('content')
 <div class="layout-content-1 layout-item-3-1 search-pad grid-limit">
     <div class="layout-body layout-item centered">
-        <div class="layout-item">
-            @foreach($news as $n)
-            <div class="post-preview landscape big gaming-news">
-                <a href="{{ url('/news-detail', $n->slug) }}">
-                    <div class="post-preview-img-wrap">
-                        @if($n->gambarmuka)
-                        <figure class="post-preview-img liquid imgLiquid_bgSize imgLiquid_ready"
-                            style="background-image: url('{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
-                        </figure>
-                        <!-- <img src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
-                            alt="post-01" style="display: block !important;"> -->
-                        @else
-                        <figure class="post-preview-img liquid imgLiquid_bgSize imgLiquid_ready"
-                            style="background-image: url('https://diskominfo.wonosobokab.go.id/uploads/20180919023758_wsbPemKab.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
-                        </figure>
-                        @endif
+        @foreach(Conner\Tagging\Model\Tag::all() as $t)
+        <div class="layout-item padded own-grid">
+            <div class="section-title-wrap violet">
+                <h2 class="section-title medium">{{ $t->name }}</h2>
+                <div class="section-title-separator"></div>
+                <div id="{{ ($loop->even) ? 'esnews-slider1-controls' : 'gknews-slider1-controls'}}"
+                    class="carousel-controls slider-controls violet">
+                    <div class="slider-control control-previous">
+                        <!-- ARROW ICON -->
+                        <svg class="arrow-icon medium">
+                            <use xlink:href="#svg-arrow-medium"></use>
+                        </svg>
+                        <!-- /ARROW ICON -->
                     </div>
-                </a>
-                @if($n->tagged)
-                @foreach($n->tagged as $tg)
-                <a href="{{ url('newscategory') }}/{{ $tg->tag_slug }}" class="tag-ornament">{{ $tg->tag_name }}</a>
-                @endforeach
-                @endif
-                <a href="{{ url('/news-detail', $n->slug) }}" class="post-preview-title">{{
-                    \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}</a>
-                <div class="post-author-info-wrap">
-                    <a href="#">
-                        <figure class="user-avatar tiny liquid imgLiquid_bgSize imgLiquid_ready"
-                            style="background-image: url(https://ui-avatars.com/api/?name={{ $n->uploader->name }}); background-size: cover; background-position: center center; background-repeat: no-repeat;">
-                        </figure>
-                    </a>
-                    <p class="post-author-info small light">
-                        By <a href="#" class="post-author">
-                            {{ $n->uploader->name }}
-                        </a>
-                        <span class="separator">|</span>
-                        {{ \Carbon\Carbon::parse($n->date)->format('l') }}, {{
-                        \Carbon\Carbon::parse( $n->date
-                        )->toFormattedDateString() }}
-                        <span class="separator">|</span>
-                        Dilihat {{ views($n)->count(); }} kali
-                    </p>
+                    <div class="slider-control control-next">
+                        <!-- ARROW ICON -->
+                        <svg class="arrow-icon medium">
+                            <use xlink:href="#svg-arrow-medium"></use>
+                        </svg>
+                        <!-- /ARROW ICON -->
+                    </div>
                 </div>
-                <p class="post-preview-text">{!! strip_tags(\Illuminate\Support\Str::limit($n->description, 250, $end =
-                    '...')) !!}
-                </p>
             </div>
-            @endforeach
+            <div id="{{ ($loop->even) ? 'esnews-slider1' : 'gknews-slider1' }}" class="carousel">
+                <div class="carousel-items">
+                    @foreach(App\Models\News::with('gambarmuka')->withAnyTag($t->name)->get() as $it)
+                    <div class="post-preview e-sport">
+                        <a href="{{ url('news-detail', $it->slug) }}">
+                            <div class="post-preview-img-wrap">
+                                @if($it->gambarmuka)
+                                <figure class="post-preview-img liquid">
+                                    <img src="{{ route('helper.show-picture', ['path' => $it->gambarmuka->path]) }}"
+                                        alt="img">
+                                </figure>
+                                @else
+                                <figure class="post-preview-img liquid">
+                                    <img src="https://diskominfo.wonosobokab.go.id/uploads/20180919023758_wsbPemKab.jpg"
+                                        alt="img">
+                                </figure>
+                                @endif
+                            </div>
+                        </a>
+                        <a href="{{ url('news-detail', $it->slug) }}" class="tag-ornament">{{
+                            json_encode($it->tagNames()) }}</a>
+                        <a href="{{ url('news-detail', $it->slug) }}" class="post-preview-title">{{ $it->title
+                            }}</a>
+                        <div class="post-author-info-wrap">
+                            <p class="post-author-info small light">
+                                {{ \Carbon\Carbon::parse($it->date)->format('l') }}, {{
+                                \Carbon\Carbon::parse( $it->date
+                                )->toFormattedDateString() }}
+                            </p>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
         </div>
+        @endforeach
     </div>
     <div class="layout-sidebar layout-item gutter-medium">
         <!-- WIDGET SIDEBAR -->
@@ -89,7 +99,8 @@
                     <!-- POST AUTHOR INFO -->
                     <div class="post-author-info-wrap">
                         <p class="post-author-info small light">By <a href="{{ url('/news-detail', $item->slug) }}"
-                                class="post-author">{{ $item->uploader->name
+                                class="post-author">{{
+                                $item->uploader->name
                                 }}</a><span class="separator">|</span>{{
                             \Carbon\Carbon::parse($item->date)->format('l') }}, {{
                             \Carbon\Carbon::parse( $item->date
