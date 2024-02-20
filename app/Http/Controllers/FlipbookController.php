@@ -82,7 +82,7 @@ class FlipbookController extends Controller
                 'path_pdf' => 'required|mimes:pdf|max:2048',
             ]);
             $fileName = time() . '.' . $request->path_pdf->extension();
-            $lokasi = $request->path_pdf->storeAs('flipbook', $fileName);
+            $lokasi = $request->path_pdf->storeAs('uploads', $fileName);
             $slug = $request->title;
             $data = [
                 'name' => $request->name,
@@ -139,7 +139,7 @@ class FlipbookController extends Controller
                 'name' => 'required',
             ]);
             $fileName = time() . '.' . $request->path_pdf->extension();
-            $lokasi = $request->path_pdf->storeAs('flipbook', $fileName);
+            $lokasi = $request->path_pdf->storeAs('uploads', $fileName);
             $upload = Upload::where('id', $id)->first();
             if (Storage::disk('gcs')->exists($upload->path_pdf)) {
                 Storage::disk('gcs')->delete($upload->path_pdf);
