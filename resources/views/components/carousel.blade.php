@@ -13,9 +13,9 @@
         </div>
         @endif
         @empty
-        <div class="carousel-item active">
+        <!-- <div class="carousel-item active">
             <img src="{{ asset('assets/bkdwonosobo.png') }}" class="d-block w-100" alt="soul of java">
-        </div>
+        </div> -->
         @endforelse
     </div>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
