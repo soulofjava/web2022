@@ -34,13 +34,18 @@
 
                 @role('superadmin|admin')
                 <li
-                    class="menu-item {{ (Str::contains(Request::url(), ['component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user', 'bidang', 'myprofile'])) ? 'active open' : '' }}">
+                    class="menu-item {{ (Str::contains(Request::url(), ['kategori', 'component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user', 'bidang', 'myprofile'])) ? 'active open' : '' }}">
                     <a href="javascript:void(0);" class="menu-link menu-toggle">
                         <i class="menu-icon tf-icons bx bx-layout"></i>
                         <div data-i18n="Website">Website</div>
                     </a>
 
                     <ul class="menu-sub">
+                        <li class="menu-item {{ (Str::contains(Request::url(), 'kategori')) ? 'active' : '' }}">
+                            <a class="menu-link" href="{{ route('kategori.index') }}">
+                                <div data-i18n="Kategori">Kategori</div>
+                            </a>
+                        </li>
                         <li class="menu-item {{ (Str::contains(Request::url(), 'component')) ? 'active' : '' }}">
                             <a class="menu-link" href="{{ route('component.index') }}">
                                 <div data-i18n="Komponen">Komponen</div>

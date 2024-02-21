@@ -17,10 +17,9 @@ use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\ComRegionController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\HelperController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\MigrasiDataController;
-use App\Http\Controllers\PermohonanInformasiController;
 use App\Http\Controllers\SSO\SSOController;
-use App\Models\Counter;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
 use App\Models\Website;
@@ -65,21 +64,14 @@ Route::group(['middleware' => 'data_web'], function () {
     Route::get('newsall', [FrontController::class, 'newsall'])->name('news.all');
     Route::get('/photos', [FrontController::class, 'galleryall'])->name('photo.all');
     Route::post('/setup', [FrontController::class, 'setup'])->name('setup-first');
-    Route::get('/tentang-kami', [FrontController::class, 'tentangkami'])->name('tentang-kami');
-    Route::get('/latar-belakang', [FrontController::class, 'latarbelakang'])->name('latar-belakang');
-    Route::get('/tujuan', [FrontController::class, 'tujuan'])->name('tujuan');
-    Route::get('/kampung-pancasila', [FrontController::class, 'kampungpancasila'])->name('kampung-pancasila');
     Route::get('/page/{id}', [FrontController::class, 'page'])->name('page');
     Route::get('/component/{id}', [FrontController::class, 'component'])->name('component');
-    Route::get('/load-sql', [FrontController::class, 'loadsql']);
-    Route::get('/check', [FrontController::class, 'check']);
     Route::post('kotakmasuk', [FrontController::class, 'inbox']);
     Route::post('guest', [FrontController::class, 'addguest']);
     Route::resource('buku-tamu', GuestBookController::class);
     Route::get('agenda', [FrontController::class, 'event']);
     Route::get('berita', [FrontController::class, 'newsall']);
     Route::get('/reload-captcha', [FrontController::class, 'reloadCaptcha']);
-    Route::post('permohonaninformasi', [PermohonanInformasiController::class, 'store']);
 });
 
 Route::middleware(['auth:sanctum', 'verified', 'data_web', 'cek_inbox'])->get('/dashboard', function () {
@@ -97,27 +89,20 @@ Route::group(['middleware' => ['auth', 'data_web', 'cek_inbox'], 'prefix' => 'ad
         Route::resource('frontmenu', FrontMenuController::class);
         Route::resource('relatedlink', RelatedLinkController::class);
         Route::resource('component', ComponentController::class);
+        Route::resource('kategori', KategoriController::class);
     });
     Route::resource('news', NewsController::class);
     Route::resource('myprofile', CredentialController::class);
     Route::resource('event', AgendaController::class);
     Route::resource('inbox', InboxController::class);
-    Route::resource('permohonaninformasi', PermohonanInformasiController::class);
     Route::post('sendCentang', [ComponentController::class, 'changeAccess'])->name('centang');
     Route::post('sendCentangFM', [FrontMenuController::class, 'changeAccess'])->name('centangfm');
     Route::get('getAlamat', [WebsiteController::class, 'location']);
     Route::resource('file_image', FileController::class);
-
-    // pindah data dari database wonsobokab
-    Route::get('insert', [NewsController::class, 'insert']);
-
-    // Route::get('/menu/checkSlug', [FrontMenuController::class, 'checkSlug']);
-
 });
 
 // get data for front menu parent
 Route::get('/cari', [FrontMenuController::class, 'loadData'])->name('carimenu');
-Route::get('/copydatapostingfromwonosobokab', [FrontController::class, 'copydatapostingfromwonosobokab']);
 Route::get('/datappid', [FrontController::class, 'datappid'])->name('datappid');
 Route::get('/datappid2', [FrontController::class, 'datappid2'])->name('datappid2');
 
@@ -130,5 +115,3 @@ Route::get('kecamatan', [ComRegionController::class, 'kecamatan'])->name('kecama
 Route::get('kelurahan', [ComRegionController::class, 'kelurahan'])->name('kelurahan');
 
 Route::get('template_email', [FrontController::class, 'template_email']);
-
-// Route::get('delete_image/{id?}', [FileController::class, 'destroy']);
