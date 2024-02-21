@@ -25,7 +25,19 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-3 col-md-3 col-sm-4">
+                <div class="footer-widget menu-widget">
+                    <h5 class="footer-title">Link Terkait</h5>
+                    <ul>
+                        @foreach($related as $rr)
+                        <li>
+                            <a target="_blank" href="{{ $rr->url }}">{{ $rr->name }}</a>
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3">
                 <div class="row">
                     <div class="col">
                         <div class="footer-widget contact-info-widget">
