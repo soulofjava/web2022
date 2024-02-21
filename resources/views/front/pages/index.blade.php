@@ -12,7 +12,8 @@
         </center>
         <div id="myCarousel{{ $loop->iteration }}" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
-                @foreach(App\Models\News::with('gambarmuka')->withAnyTag($t->name)->get() as $it)
+                @foreach(App\Models\News::with('gambarmuka')->withAnyTag($t->name)->where('publish',1)->latest('date')->get()
+                as $it)
                 @if($loop->first)
                 <div class="carousel-item active">
                     <a href="{{ url('news-detail', $it->slug) }}">
