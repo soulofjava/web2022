@@ -24,8 +24,8 @@
                 <div class="col-md-6 right-info">
                     <div class="thumb animated">
                         @if($data_website->image_hero)
-                        <img src="{{ asset('storage') }}/{{ $data_website->image_hero }}" class="img-fluid"
-                            alt="{{ $data_website->image_hero_name }}">
+                        <img src="{{ route('helper.show-picture', ['path' => $data_website->image_hero]) }}"
+                            class="img-fluid" alt="{{ $data_website->image_hero_name }}">
                         @else
                         <img src="{{ asset('assets/front/boxass/assets/img/illustrations/1.png') }}" alt="Thumb">
                         @endif
@@ -56,15 +56,13 @@
                 <div class="col-md-4 single-item">
                     <div class="item">
                         <div class="thumb">
-                            <a href="#">
-                                @forelse($n->gambar as $gambar)
-                                @if($loop->iteration == 1)
-                                <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
-                                    alt="{{ $gambar->file_name }}">
-                                @endif
-                                @empty
+                            <a href="{{ url('/news-detail', $n->slug) }}">
+                                @if($n->gambarmuka)
+                                <img src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
+                                    class="img-fluid" alt="{{ $n->gambarmuka->file_name }}">
+                                @else
                                 <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
-                                @endforelse
+                                @endif
                             </a>
                         </div>
                         <div class="info">
@@ -75,7 +73,7 @@
                                     )->toFormattedDateString() }}
                                 </div>
                                 <h4>
-                                    <a href="#">{{ \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}</a>
+                                    <a href="{{ url('/news-detail', $n->slug) }}">{{ \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}</a>
                                 </h4>
                                 <a href="{{ url('/news-detail', $n->slug) }}">Baca Lebih lanjut<i
                                         class="fas fa-angle-right"></i></a>

@@ -16,10 +16,10 @@ use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\ComRegionController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\HelperController;
 use App\Http\Controllers\MigrasiDataController;
 use App\Http\Controllers\SSO\SSOController;
 use App\Jobs\TambahVisitor;
-use App\Models\Counter;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
 use App\Models\Website;
@@ -37,13 +37,6 @@ use Illuminate\Support\Facades\Redirect;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-// Route::group(
-//     ['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']],
-//     function () {
-//         \UniSharp\LaravelFilemanager\Lfm::routes();
-//     }
-// );
 
 Route::any('/register', function () {
     return Redirect::to(route('login'));
@@ -127,12 +120,6 @@ Route::group(['middleware' => ['auth', 'data_web', 'cek_inbox'], 'prefix' => 'ad
     Route::post('sendCentangFM', [FrontMenuController::class, 'changeAccess'])->name('centangfm');
     Route::get('getAlamat', [WebsiteController::class, 'location']);
     Route::resource('file_image', FileController::class);
-
-    // pindah data dari database wonsobokab
-    Route::get('insert', [NewsController::class, 'insert']);
-
-    // Route::get('/menu/checkSlug', [FrontMenuController::class, 'checkSlug']);
-
 });
 
 // get data for front menu parent
@@ -140,7 +127,7 @@ Route::get('/cari', [FrontMenuController::class, 'loadData'])->name('carimenu');
 Route::get('/copydatapostingfromwonosobokab', [FrontController::class, 'copydatapostingfromwonosobokab']);
 Route::get('/datappid', [FrontController::class, 'datappid'])->name('datappid');
 Route::get('/datappid2', [FrontController::class, 'datappid2'])->name('datappid2');
-
+Route::get('show-picture', [HelperController::class, 'showPicture'])->name('helper.show-picture');
 Route::get('migrate', [MigrasiDataController::class, 'insert']);
 
 Route::get('kabupaten', [ComRegionController::class, 'kabupaten'])->name('kabupaten');
@@ -148,5 +135,3 @@ Route::get('kecamatan', [ComRegionController::class, 'kecamatan'])->name('kecama
 Route::get('kelurahan', [ComRegionController::class, 'kelurahan'])->name('kelurahan');
 
 Route::get('template_email', [FrontController::class, 'template_email']);
-
-// Route::get('delete_image/{id?}', [FileController::class, 'destroy']);

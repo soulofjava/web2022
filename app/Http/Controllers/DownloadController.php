@@ -55,7 +55,8 @@ class DownloadController extends Controller
         ]);
 
         $file = $request->file('file');
-        $path = $file->store('download-area', 'public');
+        $name = uniqid() . '_' . trim($file->getClientOriginalName());
+        $path = $file->storeAs('download-area', $name, 'gcs');
 
         Download::create([
             'judul' => $request->judul,
@@ -99,7 +100,8 @@ class DownloadController extends Controller
             }
 
             $file = $request->file('file');
-            $path = $file->store('download-area', 'public');
+            $name = uniqid() . '_' . trim($file->getClientOriginalName());
+            $path = $file->storeAs('download-area', $name, 'gcs');
 
             $datane->update([
                 'judul' => $request->judul,
