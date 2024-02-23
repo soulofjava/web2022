@@ -32,7 +32,7 @@
                         </div>
                         <div class="form-group label-floating is-focused">
                             <label class="control-label">Content</label>
-                            {{Form::textarea('description', null,['class' => 'my-editor
+                            {{Form::textarea('content, null,['class' => 'my-editor
                             form-control','id'=>'my-editor'])}}
                         </div>
                         <div class="d-flex text-right">
