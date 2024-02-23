@@ -91,12 +91,6 @@ class NewsController extends Controller
 
         if ($request->document) {
             foreach ($request->document as $df) {
-
-
-                if (!file_exists($path)) {
-                    mkdir($path, 0777, true);
-                }
-
                 Files::create([
                     'id_news' => $id->id,
                     'path' => 'news/' . $df,
@@ -181,7 +175,7 @@ class NewsController extends Controller
         $gambar = News::with('gambar')->where('id', $id)->get();
         foreach ($gambar as $key) {
             foreach ($key->gambar as $value) {
-                Storage::disk('gcs')->delete('/news/' . $value->file_name);
+                Storage::disk('gcs')->delete('news/' . $value->file_name);
             }
         }
 
