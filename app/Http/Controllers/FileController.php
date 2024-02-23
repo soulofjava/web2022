@@ -63,7 +63,7 @@ class FileController extends Controller
             $fileList[] = [
                 'name'          => $d->file_name,
                 'size'          => Storage::size(($d->path)),
-                'path'          => config('app.url') . '/storage/' . $d->path
+                'path'          => route('helper.show-picture', array('path' => $d->path))
             ];
         }
         return json_encode($fileList ?? []);
