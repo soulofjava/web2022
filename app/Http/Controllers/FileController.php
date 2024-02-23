@@ -108,7 +108,7 @@ class FileController extends Controller
         }
 
         // Delete the file
-        Storage::disk('gcs')->delete('/news/' . $id);
+        Storage::delete('news/' . $id);
 
         return response()->json([
             'response' => 'File terhapus'

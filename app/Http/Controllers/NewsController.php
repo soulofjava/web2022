@@ -175,7 +175,7 @@ class NewsController extends Controller
         $gambar = News::with('gambar')->where('id', $id)->get();
         foreach ($gambar as $key) {
             foreach ($key->gambar as $value) {
-                Storage::disk('gcs')->delete('news/' . $value->file_name);
+                Storage::delete('news/' . $value->file_name);
             }
         }
 
@@ -186,34 +186,4 @@ class NewsController extends Controller
         return $data->delete();
     }
 
-    // pindah dari wonosobokab
-    public function insert()
-    {
-        set_time_limit(0);
-        $tables = DB::select('SHOW TABLES');
-        $data = DB::table('postingan')->where('domain', 'arpusda.wonosobokab.go.id')->get();
-        foreach ($data as $dt) {
-            $file = DB::table('attachment')
-                ->where('id_tabel', $dt->id_posting)
-                ->get();
-            foreach ($file as $f) {
-                $fi = [
-                    'id_news' => $f->id_tabel,
-                    'file_name' => $f->file_name,
-                    'path' => 'gallery/' . $f->file_name,
-                ];
-                Files::insert($fi);
-            }
-            $pk = [
-                'title' => $dt->judul_posting,
-                'date' => $dt->created_time,
-                'upload_by' => auth()->user()->name,
-                'description' => $dt->isi_posting,
-                'attachment' => $dt->id_posting,
-                'slug' => SlugService::createSlug(News::class, 'slug', $dt->judul_posting),
-            ];
-            News::insert($pk);
-        }
-        return 'selesai';
-    }
 }
