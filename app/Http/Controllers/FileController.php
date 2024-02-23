@@ -101,20 +101,17 @@ class FileController extends Controller
     public function destroy($id)
     {
 
-        $loc = storage_path('tmp/uploads/') . $id;
+        $data = File::where('file_name', $id)->first();
 
-        if (file_exists($loc)) {
-            unlink(storage_path('tmp/uploads/' . $id));
-            return response()->json([
-                'lokasi'          => $loc,
-            ]);
-        } else {
-            $data = File::where('file_name', $id)->first();
+        if ($data) {
             $data->delete();
-            unlink(storage_path('app/public/gallery/') . $id);
-            return response()->json([
-                'lokasi' => 'File terhapus'
-            ]);
         }
+
+        // Delete the file
+        Storage::disk('gcs')->delete('/news/' . $id);
+
+        return response()->json([
+            'response' => 'File terhapus'
+        ]);
     }
 }
