@@ -29,9 +29,9 @@
                         <div class="item">
                             <div class="thumb">
                                 @if(count($data->gambar))
-                                <x-looping-image :foto="$data" />
+                                <x-carousel :jjj='$data' />
                                 @else
-                                <img src="{{ asset('img/soulofjava.jpg') }}" alt="soul of java">
+                                <!-- <img src="{{ asset('img/soulofjava.jpg') }}" alt="soul of java"> -->
                                 @endif
                             </div>
 
