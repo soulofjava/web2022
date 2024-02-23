@@ -168,6 +168,7 @@ return [
         Mews\Captcha\CaptchaServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
+        Alexusmai\LaravelFileManager\FileManagerServiceProvider::class,
         /*
          * Package Service Providers...
          */
