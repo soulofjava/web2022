@@ -15,6 +15,7 @@ use App\Http\Controllers\RelatedLinkController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\ComRegionController;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\HelperController;
 use App\Http\Controllers\MigrasiDataController;
 use App\Http\Controllers\PermohonanInformasiController;
 use App\Http\Controllers\SSO\SSOController;
@@ -51,6 +52,7 @@ Route::any('/register', function () {
 Route::get('sso', [SSOController::class, 'getLogin'])->name('sso.login');
 Route::get('callback', [SSOController::class, 'getCallback'])->name('sso.callback');
 Route::get('ssouser', [SSOController::class, 'connectUser'])->name('sso.authuser');
+Route::get('show-picture}', [HelperController::class, 'showPicture'])->name('helper.show-picture');
 
 Route::get('/', function () {
     $themes = Website::first();
