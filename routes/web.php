@@ -17,9 +17,8 @@ use App\Http\Controllers\ComRegionController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\HelperController;
 use App\Http\Controllers\MigrasiDataController;
-use App\Http\Controllers\PermohonanInformasiController;
 use App\Http\Controllers\SSO\SSOController;
-use App\Models\Counter;
+use App\Jobs\TambahVisitor;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
 use App\Models\Website;
@@ -38,13 +37,6 @@ use Illuminate\Support\Facades\Redirect;
 |
 */
 
-// Route::group(
-//     ['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']],
-//     function () {
-//         \UniSharp\LaravelFilemanager\Lfm::routes();
-//     }
-// );
-
 Route::any('/register', function () {
     return Redirect::to(route('login'));
 });
@@ -58,25 +50,8 @@ Route::get('/', function () {
     $themes = Website::first();
     if (Website::exists()) {
 
-        $geoipInfo = geoip()->getLocation($_SERVER['REMOTE_ADDR']);
-
-        $data = [
-            'ip' => $geoipInfo->ip,
-            'iso_code' => $geoipInfo->iso_code,
-            'country' => $geoipInfo->country,
-            'city' => $geoipInfo->city,
-            'state' => $geoipInfo->state,
-            'state_name' => $geoipInfo->state_name,
-            'postal_code' => $geoipInfo->postal_code,
-            'lat' => $geoipInfo->lat,
-            'lon' => $geoipInfo->lon,
-            'timezone' => $geoipInfo->timezone,
-            'continent' => $geoipInfo->continent,
-            'currency' => $geoipInfo->currency,
-        ];
-
+        TambahVisitor::dispatch($_SERVER['REMOTE_ADDR']);
         Seo::seO();
-        Counter::create($data);
 
         try {
             $response = Http::connectTimeout(2)->withoutVerifying()->get('https://diskominfo.wonosobokab.go.id/api/news');
@@ -119,7 +94,6 @@ Route::group(['middleware' => 'data_web'], function () {
     Route::get('agenda', [FrontController::class, 'event']);
     Route::get('berita', [FrontController::class, 'newsall']);
     Route::get('/reload-captcha', [FrontController::class, 'reloadCaptcha']);
-    Route::post('permohonaninformasi', [PermohonanInformasiController::class, 'store']);
 });
 
 Route::middleware(['auth:sanctum', 'verified', 'data_web', 'cek_inbox'])->get('/dashboard', function () {
@@ -142,7 +116,6 @@ Route::group(['middleware' => ['auth', 'data_web', 'cek_inbox'], 'prefix' => 'ad
     Route::resource('myprofile', CredentialController::class);
     Route::resource('event', AgendaController::class);
     Route::resource('inbox', InboxController::class);
-    Route::resource('permohonaninformasi', PermohonanInformasiController::class);
     Route::post('sendCentang', [ComponentController::class, 'changeAccess'])->name('centang');
     Route::post('sendCentangFM', [FrontMenuController::class, 'changeAccess'])->name('centangfm');
     Route::get('getAlamat', [WebsiteController::class, 'location']);
@@ -150,9 +123,6 @@ Route::group(['middleware' => ['auth', 'data_web', 'cek_inbox'], 'prefix' => 'ad
 
     // pindah data dari database wonsobokab
     Route::get('insert', [NewsController::class, 'insert']);
-
-    // Route::get('/menu/checkSlug', [FrontMenuController::class, 'checkSlug']);
-
 });
 
 // get data for front menu parent
@@ -168,5 +138,3 @@ Route::get('kecamatan', [ComRegionController::class, 'kecamatan'])->name('kecama
 Route::get('kelurahan', [ComRegionController::class, 'kelurahan'])->name('kelurahan');
 
 Route::get('template_email', [FrontController::class, 'template_email']);
-
-// Route::get('delete_image/{id?}', [FileController::class, 'destroy']);
