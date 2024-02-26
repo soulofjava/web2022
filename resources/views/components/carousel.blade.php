@@ -1,19 +1,13 @@
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
         @forelse($jjj->gambar as $gambar)
-        @if($loop->iteration == 1)
-        <div class="carousel-item active">
-            <img src="{{  url('storage/')}}/{{ $gambar->path }}" class="d-block w-100" alt="{{ $gambar->file_name }}">
+        <div class="carousel-item {{ $loop->iteration ? 'active' : ''}} ">
+            <img src="{{ route('helper.show-picture', ['path' => $gambar->path]) }}" class="d-block w-100" alt="{{ $gambar->file_name }}">
         </div>
-        @else
-        <div class="carousel-item">
-            <img src="{{ url('storage/')}}/{{ $gambar->path }}" class="d-block w-100" alt="{{ $gambar->file_name }}">
-        </div>
-        @endif
         @empty
-        <div class="carousel-item active">
+        <!-- <div class="carousel-item active">
             <img src="{{ asset('img/soulofjava.jpg') }}" class="d-block w-100" alt="soul of java">
-        </div>
+        </div> -->
         @endforelse
     </div>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">

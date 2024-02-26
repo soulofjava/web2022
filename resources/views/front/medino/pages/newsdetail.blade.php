@@ -173,8 +173,8 @@
                             <h4 class="widget_title">Postingan Terbaru</h4>
                             @foreach ($news as $n)
                                 <div class="media post_item">
-                                    @if ($n->gambarmuka)
-                                        <img src={{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
+                                    @if($n->gambarmuka->path)
+                                        <img src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
                                             width="100px" height="60px" alt="{{ $n->gambarmuka->file_name }}">
                                     @else
                                         <img src="{{ asset('img/soulofjava.jpg') }}" width="100px" height="60px"

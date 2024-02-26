@@ -165,7 +165,7 @@
                         <div class="card col-lg-4 col-md-6 mb-3">
                             <div class="single-news">
                                 <div class="news-img">
-                                    @if (Storage::get($n->gambarmuka))
+                                    @if(Storage::get($n->gambarmuka->path))
                                         <img src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
                                             class="img-fluid" alt="{{ $n->gambarmuka->file_name }}"
                                             style="height: 350px;">
