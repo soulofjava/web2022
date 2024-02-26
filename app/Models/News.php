@@ -30,11 +30,12 @@ class News extends Model implements Viewable
         //     return $value;
         // } else if (!Str::contains($value, 'https://drive.google.com/')) {
         // Ganti URL 'src' menggunakan regular expression
-        $newValue = str_replace('src="' . url('/') . 'storage/', 'src="' . url('show-picture?path='), $value);
-        return $newValue;
-        // }
+        if (strpos($value, url('/') . 'storage/') !== false) {
+            $newValue = str_replace(url('/') . 'storage/', url('show-picture?path='), $value);
+            return $newValue;
+        }
 
-        // return $value;
+        return $value;
     }
 
     public function gambar()
