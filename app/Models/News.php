@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use CyrildeWit\EloquentViewable\InteractsWithViews;
 use CyrildeWit\EloquentViewable\Contracts\Viewable;
 use Cviebrock\EloquentSluggable\Sluggable;
-
+use Illuminate\Support\Str;
 class News extends Model implements Viewable
 {
     use HasFactory, SoftDeletes, InteractsWithViews, Sluggable;
@@ -21,6 +21,19 @@ class News extends Model implements Viewable
                 'source' => 'title'
             ]
         ];
+    }
+
+    public function getDescriptionAttribute($value)
+    {
+        if (Str::contains('https://drive.google.com/', $value)) {
+            return $value;
+        } else if (!Str::contains($value, 'https://drive.google.com/')) {
+            // Ganti URL 'src' menggunakan regular expression
+            $newValue = str_replace('src="', 'src="' . url('show-picture?path='), $value);
+            return $newValue;
+        }
+
+        return $value;
     }
 
     public function gambar()
