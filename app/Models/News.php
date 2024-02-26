@@ -30,7 +30,8 @@ class News extends Model implements Viewable
         //     return $value;
         // } else if (!Str::contains($value, 'https://drive.google.com/')) {
         // Ganti URL 'src' menggunakan regular expression
-        if (strpos($value, url('/') . 'storage/') !== false) {
+        $substring = url('/') . 'storage/';
+        if (Str::contains($value, $substring)) {
             $newValue = str_replace(url('/') . 'storage/', url('show-picture?path='), $value);
             return $newValue;
         }
