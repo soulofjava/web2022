@@ -57,7 +57,7 @@
                     <div class="item">
                         <div class="thumb">
                             <a href="{{ url('/news-detail', $n->slug) }}">
-                                @if($n->gambarmuka)
+                                @if(Storage::get($n->gambarmuka->path ?? ''))
                                 <img src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
                                     class="img-fluid" alt="{{ $n->gambarmuka->file_name }}">
                                 @else
@@ -73,7 +73,8 @@
                                     )->toFormattedDateString() }}
                                 </div>
                                 <h4>
-                                    <a href="{{ url('/news-detail', $n->slug) }}">{{ \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}</a>
+                                    <a href="{{ url('/news-detail', $n->slug) }}">{{
+                                        \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}</a>
                                 </h4>
                                 <a href="{{ url('/news-detail', $n->slug) }}">Baca Lebih lanjut<i
                                         class="fas fa-angle-right"></i></a>

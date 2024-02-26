@@ -26,10 +26,6 @@ class News extends Model implements Viewable
 
     public function getDescriptionAttribute($value)
     {
-        // if (Str::contains('https://drive.google.com/', $value)) {
-        //     return $value;
-        // } else if (!Str::contains($value, 'https://drive.google.com/')) {
-        // Ganti URL 'src' menggunakan regular expression
         $substring = url('/') . 'storage/';
         if (Str::contains($value, $substring)) {
             $newValue = str_replace(url('/') . 'storage/', url('show-picture?path='), $value);

@@ -35,7 +35,7 @@
                         <div class="item">
                             <div class="thumb">
                                 <a href="{{ url('/news-detail', $n->slug) }}">
-                                    @if($n->gambarmuka)
+                                    @if(Storage::get($n->gambarmuka->path ?? ''))
                                     <img src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
                                         class="img-fluid" alt="{{ $n->gambarmuka->file_name }}">
                                     @else
