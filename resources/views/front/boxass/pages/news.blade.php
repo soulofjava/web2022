@@ -39,7 +39,7 @@
                                     <img src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
                                         class="img-fluid" alt="{{ $n->gambarmuka->file_name }}">
                                     @else
-                                    <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
+                                    <!-- <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java"> -->
                                     @endif
                                 </a>
                             </div>
