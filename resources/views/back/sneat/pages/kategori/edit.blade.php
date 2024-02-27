@@ -17,7 +17,7 @@
         <div class="card-body">
             <h4 class="card-title">Form Ubah Data</h4>
             <div class="card-content">
-                {{Form::model($data, ['route' => 'kategori.store','method' => 'post', ''])}}
+                {{Form::model($data, ['route' => ['kategori.update', $data->id],'method' => 'put', ''])}}
                 @include('back.sneat.pages.kategori.form')
                 {{Form::close()}}
             </div>
