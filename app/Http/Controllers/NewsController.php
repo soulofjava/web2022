@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Storage;
 use App\Models\File as Files;
+use App\Models\Kategori;
 use App\Models\Website;
 
 class NewsController extends Controller
@@ -71,9 +72,10 @@ class NewsController extends Controller
      */
     public function create()
     {
+        $kategorinya = Kategori::all();
         $highlight = ComCodes::where('code_group', 'highlight_news')->pluck('code_nm');
         $categori = ComCodes::where('code_group', 'kategori_news')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
-        return view('back.' . $this->themes->themes_back . '.pages.news.create', compact('highlight', 'categori'));
+        return view('back.' . $this->themes->themes_back . '.pages.news.create', compact('kategorinya', 'highlight', 'categori'));
     }
 
     /**

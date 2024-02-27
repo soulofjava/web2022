@@ -1,7 +1,9 @@
 <div class="row">
     <div class="togglebutton" style="margin-bottom: 15px;">
         <label class="form-check-label">
-            Data DIP? <input type="checkbox" id="hideButton" name="datadip" class="form-check-input">
+            Data DIP? <input type="checkbox" id="hideButton" name="datadip" class="form-check-input" {{
+                                $data->dip ?? '' ?
+                            'checked' : '' }}>
         </label>
     </div>
 </div>
@@ -9,6 +11,20 @@
 <div class="row">
     <!-- Example of a form that Dropzone can take over -->
     <div class="dropzone" id="my-awesome-dropzone"></div>
+</div>
+
+<div class="row">
+    <div class="form-group col-sm-12 col-md-6">
+        <label for="defaultFormControlInput" class="form-label">Kategori</label>
+        {{Form::select('kategori', $kategorinya, null, ['class' =>
+        'form-control select2'. ($errors->has('kategori') ? ' is-invalid' :
+        null),'placeholder' => 'Silahkan Pilih'])}}
+        @error('kategori')
+        <div id="defaultFormControlHelp" class="form-text" style="color: red;">
+            {{ $message }}
+        </div>
+        @enderror
+    </div>
 </div>
 
 <div class="row">
