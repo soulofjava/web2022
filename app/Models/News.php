@@ -26,14 +26,14 @@ class News extends Model implements Viewable
 
     public function getContentAttribute($value)
     {
-        if (Str::contains('https://drive.google.com/', $value)) {
-            return $value;
-        } else if (!Str::contains($value, 'https://drive.google.com/') && $this->id <= 775) {
-            // Ganti URL 'src' menggunakan regular expression
-            $newValue = str_replace('src="', 'src="' . url('show-picture?path='), $value);
+        if (Str::contains($value, 'sandbox=""')) {
+            $newValue = str_replace('sandbox=""', '', $value);
             return $newValue;
         }
-
+        if (Str::contains($value, 'https://bkd.wonosobokab.go.id/show-picture?path=https://bkd.wonosobokab.go.id/show-picture?path=')) {
+            $newValue = str_replace('src="https://bkd.wonosobokab.go.id/show-picture?path=https://bkd.wonosobokab.go.id/show-picture?path=', 'src="' . url('show-picture?path='), $value);
+            return $newValue;
+        }
         return $value;
     }
 

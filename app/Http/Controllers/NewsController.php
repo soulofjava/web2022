@@ -111,7 +111,7 @@ class NewsController extends Controller
                 'title' => $request->title,
                 'date' => $request->date,
                 'content' => $request->content,
-                'tag' => $request->tag,
+                'tag' => $request->tag ?? null,
                 'terbit' => $request->terbit ?? 0,
                 'komentar' => $request->komentar ?? 0,
                 'highlight' => $request->highlight ?? 0,
@@ -198,7 +198,7 @@ class NewsController extends Controller
             $isa->update([
                 'title' => $request->title,
                 'date' => $request->date,
-                'tag' => $request->tag,
+                'tag' => $request->tag ?? null,
                 'content' => $request->content,
                 'terbit' => $request->terbit ?? 0,
                 'komentar' => $request->komentar ?? 0,
