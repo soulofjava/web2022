@@ -72,7 +72,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        $kategorinya = Kategori::all();
+        $kategorinya = Kategori::all()->pluck('name', 'id');
         $highlight = ComCodes::where('code_group', 'highlight_news')->pluck('code_nm');
         $categori = ComCodes::where('code_group', 'kategori_news')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
         return view('back.' . $this->themes->themes_back . '.pages.news.create', compact('kategorinya', 'highlight', 'categori'));
@@ -97,6 +97,7 @@ class NewsController extends Controller
                 'title' => $request->title,
                 'date' => $request->date,
                 'content' => $request->content,
+                'tag' => null,
                 'terbit' => $request->terbit ?? 0,
                 'komentar' => $request->komentar ?? 0,
                 'highlight' => $request->highlight ?? 0,
@@ -110,6 +111,7 @@ class NewsController extends Controller
                 'title' => $request->title,
                 'date' => $request->date,
                 'content' => $request->content,
+                'tag' => $request->tag,
                 'terbit' => $request->terbit ?? 0,
                 'komentar' => $request->komentar ?? 0,
                 'highlight' => $request->highlight ?? 0,
@@ -153,9 +155,10 @@ class NewsController extends Controller
     public function edit($id)
     {
         $data = News::find($id);
+        $kategorinya = Kategori::all()->pluck('name', 'id');
         $highlight = ComCodes::where('code_group', 'highlight_news')->pluck('code_nm');
         $categori = ComCodes::where('code_group', 'kategori_news')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
-        return view('back.' . $this->themes->themes_back . '.pages.news.edit', compact('data', 'highlight', 'categori'));
+        return view('back.' . $this->themes->themes_back . '.pages.news.edit', compact('kategorinya', 'data', 'highlight', 'categori'));
     }
 
     /**
@@ -180,6 +183,7 @@ class NewsController extends Controller
             $isa->update([
                 'title' => $request->title,
                 'date' => $request->date,
+                'tag' => null,
                 'content' => $request->content,
                 'terbit' => $request->terbit ?? 0,
                 'komentar' => $request->komentar ?? 0,
@@ -194,6 +198,7 @@ class NewsController extends Controller
             $isa->update([
                 'title' => $request->title,
                 'date' => $request->date,
+                'tag' => $request->tag,
                 'content' => $request->content,
                 'terbit' => $request->terbit ?? 0,
                 'komentar' => $request->komentar ?? 0,
@@ -209,7 +214,7 @@ class NewsController extends Controller
             foreach ($request->document as $df) {
                 Files::create([
                     'id_news' => $id,
-                    'path' =>  '/news/' . $df,
+                    'path' =>  'news/' . $df,
                     'file_name' => $df
                 ]);
             }

@@ -1,9 +1,9 @@
 <div class="row">
     <div class="togglebutton" style="margin-bottom: 15px;">
         <label class="form-check-label">
-            Data DIP? <input type="checkbox" id="hideButton" name="datadip" class="form-check-input" {{
-                                $data->dip ?? '' ?
-                            'checked' : '' }}>
+            Data DIP? <input type="checkbox" id="hideButton" name="datadip" class="form-check-input" {{ $data->dip ?? ''
+            ?
+            'checked' : '' }}>
         </label>
     </div>
 </div>
@@ -14,12 +14,12 @@
 </div>
 
 <div class="row">
-    <div class="form-group col-sm-12 col-md-6">
+    <div class="form-group col">
         <label for="defaultFormControlInput" class="form-label">Kategori</label>
-        {{Form::select('kategori', $kategorinya, null, ['class' =>
-        'form-control select2'. ($errors->has('kategori') ? ' is-invalid' :
+        {{Form::select('tag', $kategorinya, null, ['class' =>
+        'form-control select2'. ($errors->has('tag') ? ' is-invalid' :
         null),'placeholder' => 'Silahkan Pilih'])}}
-        @error('kategori')
+        @error('tag')
         <div id="defaultFormControlHelp" class="form-text" style="color: red;">
             {{ $message }}
         </div>
@@ -28,7 +28,7 @@
 </div>
 
 <div class="row">
-    <div class="form-group jip col-sm-12 col-md-6" style="display: none;">
+    <div class="form-group jip col-lg-12 col-sm-12 col-md-6" style="display: none;">
         <label for="defaultFormControlInput" class="form-label">Jenis Informasi Publik</label>
         {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
         'form-control select2','placeholder' => 'Silahkan Pilih'])}}

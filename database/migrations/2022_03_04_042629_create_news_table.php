@@ -23,6 +23,7 @@ class CreateNewsTable extends Migration
             $table->string('attachment')->nullable();
             $table->boolean('highlight')->default(false);
             $table->string('kategori')->default('INFORMASI_ST_02');
+            $table->string('tag')->nullable();
             $table->boolean('dip')->default(false);
             $table->string('dip_tahun')->nullable();
             $table->boolean('komentar')->default(false);
