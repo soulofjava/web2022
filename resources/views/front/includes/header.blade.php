@@ -104,7 +104,7 @@
                                             <a href="{{ $sub4->menu_url }}" target="_blank">
                                                 {{ $sub4->menu_name }}
                                             </a>
-                                            @elseif($sub4->id == 101)
+                                            @elseif($sub4->id == 101 || $sub4->id == 122)
                                             <a href="{{ url('transparansi') }}/{{ $sub4->menu_url }}">
                                                 {{ $sub4->menu_name }}
                                             </a>

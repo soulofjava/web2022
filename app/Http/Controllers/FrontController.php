@@ -182,11 +182,35 @@ class FrontController extends Controller
         Seo::seO();
         $cari = $id;
         $hasil = 'Hasil Pencarian : ' . $cari;
-        $data = News::Where('slug', 'like', $cari . '%')->latest("date")->get();
+
         if ($cari == 'aturan-kebijakan-daerah') {
             $data = News::Where('slug', 'like', '%' . $cari . '%')->latest("date")->get();
+        } elseif ($cari == 'kak-tor') {
+            $data = News::Where('title', 'like', '%Kerangka Acuan Kerja (KAK)%')->latest("date")->get();
+            $data2 = DB::table('front_menus')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like', '%Kerangka Acuan Kerja (KAK)%')->get();
+        } elseif ($cari == 'lrpbpd') {
+            $data = News::Where('title', 'like', '%Laporan Realisasi Pendapatan, Belanja dan Pembiayaan Daerah%')->latest("date")->get();
+            $data2 = DB::table('front_menus')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like',  '%Laporan Realisasi Pendapatan, Belanja dan Pembiayaan Daerah')->get();
+        } elseif ($cari == 'lak') {
+            $data = News::Where('title', 'like', '%Laporan Arus Kas (LAK)%')->latest("date")->get();
+            $data2 = DB::table('front_menus')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like',  '%Laporan Arus Kas (LAK)')->get();
+        } elseif ($cari == 'aset-inventaris') {
+            $data = News::Where('title', 'like', '%Aset & Inventaris%')->latest("date")->get();
+            $data2 = [];
+        } elseif ($cari == 'lkpd-dan-opini-bpk') {
+            $data = News::Where('title', 'like', '%lkpd%')->orWhere('title', 'like', '%lhp opini bpk%')->latest("date")->get();
+            $data2 = [];
+        } elseif ($cari == 'bumd') {
+            $data = News::Where('title', 'like', '%laporan keuangan bumd%')->latest("date")->get();
+            $data2 = [];
+        } elseif ($cari == 'csr') {
+            $data = News::Where('title', 'like', '%laporan pengelolaan bantuan csr%')->latest("date")->get();
+            $data2 = [];
+        } else {
+            $data = News::Where('slug', 'like', $cari . '%')->latest("date")->get();
+            $data2 = DB::table('front_menus')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like', $cari . '%')->get();
         }
-        $data2 = DB::table('front_menus')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like', $cari . '%')->get();
+
         $combinedData = $data->concat($data2);
 
         if ($request->ajax()) {
