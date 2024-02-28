@@ -37,7 +37,7 @@
                                 @if($n->attachment)
                                 <img src="{{ $n->attachment }}" alt="thumbnail">
                                 @elseif(count($n->gambar))
-                                <x-looping-image :foto="$n" />
+                                <x-carousel :jjj="$n" />
                                 @else
                                 <img src="{{ asset('img/soulofjava.jpg') }}" alt="soul of java">
                                 @endif

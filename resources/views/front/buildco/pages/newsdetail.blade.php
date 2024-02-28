@@ -31,7 +31,7 @@
                         <!-- Start Post Thumb -->
                         <div class="thumb">
                             @if(count($data->gambar))
-                            <x-looping-image :foto="$data" />
+                            <x-carousel :jjj="$data" />
                             @elseif($data->attachment)
                             <img src="{{ $data->attachment }}" alt="soul of java">
                             @else

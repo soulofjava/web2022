@@ -9,6 +9,7 @@ use CyrildeWit\EloquentViewable\InteractsWithViews;
 use CyrildeWit\EloquentViewable\Contracts\Viewable;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Mews\Purifier\Casts\CleanHtmlOutput;
+use Illuminate\Support\Str;
 
 class News extends Model implements Viewable
 {
@@ -20,6 +21,15 @@ class News extends Model implements Viewable
         // 'description'    => CleanHtmlInput::class, // cleans when setting the value
         'description'        => CleanHtmlOutput::class, // cleans when getting the value
     ];
+
+    public function getDescriptionAttribute($value)
+    {
+        if (Str::contains($value, 'https://bappeda.wonosobokab.go.id/storage/')) {
+            $newValue = str_replace('https://bappeda.wonosobokab.go.id/storage/', 'https://bappeda.wonosobokab.go.id/show-picture?path=', $value);
+            return $newValue;
+        }
+        return $value;
+    }
 
     public function sluggable(): array
     {

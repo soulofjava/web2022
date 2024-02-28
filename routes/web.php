@@ -38,13 +38,6 @@ use App\Http\Controllers\RelatedLinkController;
 |
 */
 
-// Route::group(
-//     ['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']],
-//     function () {
-//         \UniSharp\LaravelFilemanager\Lfm::routes();
-//     }
-// );
-
 Route::any('/register', function () {
     return Redirect::to(route('login'));
 });
@@ -122,9 +115,6 @@ Route::group(['middleware' => ['auth', 'data_web', 'cek_inbox'], 'prefix' => 'ad
 
     // pindah data dari database wonsobokab
     Route::get('insert', [NewsController::class, 'insert']);
-
-    // Route::get('/menu/checkSlug', [FrontMenuController::class, 'checkSlug']);
-
 });
 
 // get data for front menu parent
@@ -141,5 +131,3 @@ Route::get('kecamatan', [ComRegionController::class, 'kecamatan'])->name('kecama
 Route::get('kelurahan', [ComRegionController::class, 'kelurahan'])->name('kelurahan');
 
 Route::get('template_email', [FrontController::class, 'template_email']);
-
-// Route::get('delete_image/{id?}', [FileController::class, 'destroy']);

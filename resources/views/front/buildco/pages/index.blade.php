@@ -7,8 +7,7 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner text-light carousel-zoom">
             @foreach(App\Models\News::latest('date')->take(3)->get() as $hl)
-            @if ($loop->first)
-            <div class="item active">
+            <div class="item {{ $loop->first ? 'active' : '' }}">
                 @if($hl->attachment)
                 <div class="slider-thumb bg-cover" style="background-image: url('{{ $hl->attachment }}');">
                 </div>
@@ -37,41 +36,6 @@
                     </div>
                 </div>
             </div>
-            @else
-            <div class="item">
-                @if($hl->attachment)
-                <div class="slider-thumb bg-cover" style="background-image: url('{{ $hl->attachment }}');">
-                </div>
-                @elseif($hl->gambarmuka)
-                <div class="slider-thumb bg-cover"
-                    style="background-image: {{ route('helper.show-picture', ['path' => $hl->gambarmuka->path]) }};">
-                </div>
-                @else
-                <div class="slider-thumb bg-cover" style="background-image: url('{{ asset('img/soulofjava.jpg') }}');">
-                </div>
-                @endif
-                <div class="box-table shadow dark">
-                    <div class="box-cell">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-8">
-                                    <div class="content">
-                                        <!-- <h3 data-animation="animated slideInUp">Since 1985</h3> -->
-                                        <h1 data-animation="animated slideInDown">{{ $hl->title }}
-                                        </h1>
-                                        <!-- <a data-animation="animated slideInUp" class="btn btn-light border btn-md"
-                                            href="#">Our
-                                            Services</a> -->
-                                        <a data-animation="animated slideInUp" class="btn btn-theme effect btn-md"
-                                            href="{{ url('/news-detail', $hl->slug) }}">Lebih Detail</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @endif
             @endforeach
         </div>
         <!-- End Wrapper for slides -->
