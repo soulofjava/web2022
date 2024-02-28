@@ -12,8 +12,7 @@
                 <div class="slider-thumb bg-cover" style="background-image: url('{{ $hl->attachment }}');">
                 </div>
                 @elseif($hl->gambarmuka)
-                <div class="slider-thumb bg-cover"
-                    style="background-image: {{ route('helper.show-picture', ['path' => $hl->gambarmuka->path]) }};">
+                <div class="slider-thumb bg-cover" style="background-image: {{ route('helper.show-picture', ['path' => $hl->gambarmuka->path]) }};">
                 </div>
                 @else
                 <div class="slider-thumb bg-cover" style="background-image: url('{{ asset('img/soulofjava.jpg') }}');">
