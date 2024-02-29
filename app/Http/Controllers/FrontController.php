@@ -189,6 +189,9 @@ class FrontController extends Controller
         } elseif ($cari == 'kak-tor') {
             $data = News::Where('title', 'like', '%Kerangka Acuan Kerja (KAK)%')->latest("date")->get();
             $data2 = DB::table('front_menus')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like', '%Kerangka Acuan Kerja (KAK)%')->get();
+        } elseif ($cari == 'apbd') {
+            $data = News::Where('title', 'like', 'apbd penetapan%')->orWhere('title', 'like', 'apbd perubahan%')->latest("date")->get();
+            $data2 = [];
         } elseif ($cari == 'lrpbpd') {
             $data = News::Where('title', 'like', '%Laporan Realisasi Pendapatan, Belanja dan Pembiayaan Daerah%')->latest("date")->get();
             $data2 = DB::table('front_menus')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like',  '%Laporan Realisasi Pendapatan, Belanja dan Pembiayaan Daerah')->get();
