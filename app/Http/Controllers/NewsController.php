@@ -6,12 +6,11 @@ use App\Models\ComCodes;
 use App\Models\News;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\DB;
 use App\Models\File as Files;
 use File;
-use Illuminate\Support\Facades\Storage;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class NewsController extends Controller
 {
@@ -40,16 +39,10 @@ class NewsController extends Controller
                     'action',
                     function ($data) {
                         $actionBtn = '
-<<<<<<< HEAD
-                        <a href="' . route('news.edit', $data->id) . ' " class="mdc-button mdc-button--outlined shaped-button outlined-button--primary mdc-ripple-upgraded">Edit</a>
-                        <a href="' . route('news.destroy', $data->id) . ' " class="mdc-button mdc-button--outlined shaped-button outlined-button--primary mdc-ripple-upgraded delete-data-table">Delete</a>
-                    ';
-=======
                     <div class="text-center">
                         <a href="' . route('news.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="bx bx-edit"></i> </a>
                         <a href="' . route('news.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="bx bxs-trash"></i> </a>
                     </div>';
->>>>>>> 57cd9d6f8615469020dc8a6e5e8bddd03a11010e
                         return $actionBtn;
                     }
                 )
@@ -65,14 +58,7 @@ class NewsController extends Controller
                 ->rawColumns(['action', 'tgl', 'link'])
                 ->make(true);
         }
-<<<<<<< HEAD
-        $title = 'Delete User!';
-        $text = "Are you sure you want to delete?";
-        confirmDelete($title, $text);
-        return view('back.a.pages.news.index');
-=======
         return view('back.pages.news.index');
->>>>>>> 57cd9d6f8615469020dc8a6e5e8bddd03a11010e
     }
 
     /**
@@ -101,12 +87,6 @@ class NewsController extends Controller
             'content' => 'required',
         ]);
 
-<<<<<<< HEAD
-        $id = News::create($request->except(['_token', 'document', 'tag']) + ['upload_by' => auth()->user()->id]);
-
-        // tagging postingan
-        $id->tag($request->tag);
-=======
         if ($request->datadip) {
             $id = News::create([
                 'title' => $request->title,
@@ -134,7 +114,6 @@ class NewsController extends Controller
                 'upload_by' => auth()->user()->id
             ]);
         }
->>>>>>> 57cd9d6f8615469020dc8a6e5e8bddd03a11010e
 
         if ($request->document) {
             foreach ($request->document as $df) {
@@ -155,7 +134,7 @@ class NewsController extends Controller
      * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(News $news)
     {
         //
     }
@@ -169,23 +148,9 @@ class NewsController extends Controller
     public function edit($id)
     {
         $data = News::find($id);
-<<<<<<< HEAD
-        $terpilih = [];
-
-        $highlight = ComCodes::where('code_group', 'HIGHLIGHT_NEWS')->pluck('code_nm');
-        $categori = ComCodes::where('code_group', 'KATEGORI_NEWS')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
-
-        // untuk list yang terpilih
-        foreach ($data->tagged as $key => $value) {
-            array_push($terpilih, strtoupper($value->tag_name));
-        }
-
-        return view('back.a.pages.news.edit', compact('data', 'highlight', 'categori', 'terpilih'));
-=======
         $highlight = ComCodes::where('code_group', 'highlight_news')->pluck('code_nm');
         $categori = ComCodes::where('code_group', 'kategori_news')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
         return view('back.pages.news.edit', compact('data', 'highlight', 'categori'));
->>>>>>> 57cd9d6f8615469020dc8a6e5e8bddd03a11010e
     }
 
     /**
@@ -203,17 +168,8 @@ class NewsController extends Controller
             'date' => 'required',
         ]);
 
-<<<<<<< HEAD
-        $data = News::find($id);
-        $data->slug = null;
-
-        $data->update($request->except(['_token', 'document', 'tag']) + ['upload_by' => auth()->user()->id]);
-
-        // tag ulang postingan
-        $data->retag($request->tag);
-=======
         $isa =  News::find($id);
-        
+
         if ($request->datadip) {
             $isa->slug =  null;
             $isa->update([
@@ -243,7 +199,6 @@ class NewsController extends Controller
                 'upload_by' => auth()->user()->id
             ]);
         }
->>>>>>> 57cd9d6f8615469020dc8a6e5e8bddd03a11010e
 
         if ($request->document) {
             foreach ($request->document as $df) {
@@ -254,7 +209,7 @@ class NewsController extends Controller
                 ]);
             }
         }
-        Alert::success('Sukses', 'Data berhasil diubah.');
+
         return redirect(route('news.index'))->with(['success' => 'Data has been successfully changed!']);
     }
 
@@ -278,13 +233,16 @@ class NewsController extends Controller
         $data = News::find($id);
         // delete related
         $data->gambar()->delete();
-        $data->delete();
+
         return $data->delete();
     }
 
-    public function insert(Request $request)
+    // pindah dari wonosobokab
+    public function insert()
     {
-        $data = DB::table('posting')->get();
+        set_time_limit(0);
+        $tables = DB::select('SHOW TABLES');
+        $data = DB::table('postingan')->where('domain', 'arpusda.wonosobokab.go.id')->get();
         foreach ($data as $dt) {
             $file = DB::table('attachment')
                 ->where('id_tabel', $dt->id_posting)
@@ -293,8 +251,9 @@ class NewsController extends Controller
                 $fi = [
                     'id_news' => $f->id_tabel,
                     'file_name' => $f->file_name,
+                    'path' => 'gallery/' . $f->file_name,
                 ];
-                File::create($fi);
+                Files::insert($fi);
             }
             $pk = [
                 'title' => $dt->judul_posting,
@@ -304,7 +263,7 @@ class NewsController extends Controller
                 'attachment' => $dt->id_posting,
                 'slug' => SlugService::createSlug(News::class, 'slug', $dt->judul_posting),
             ];
-            News::create($pk);
+            News::insert($pk);
         }
         return 'selesai';
     }
