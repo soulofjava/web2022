@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Storage;
 
 class WebsiteController extends Controller
 {
+    public function __construct()
+    {
+        $this->themes = Website::all()->first();
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +20,7 @@ class WebsiteController extends Controller
     public function index()
     {
         $data = Website::first();
-        return view('back.a.pages.website.index', compact('data'));
+        return view('back.pages.website.index', compact('data'));
     }
 
     /**

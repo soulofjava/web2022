@@ -3,7 +3,7 @@
 <script>
     $(document).ready(function () {
         $web = document.getElementById('websitename').innerText;
-        suara('Selamat datang di website ' + $web);
+        suara('Selamat datang di ' + $web);
 
         // Tag a dan h3 saat di hover
         $("a, h3").mouseover(function (e) {

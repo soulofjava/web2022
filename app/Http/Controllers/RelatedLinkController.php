@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\RelatedLink;
+use App\Models\Website;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -22,18 +23,18 @@ class RelatedLinkController extends Controller
                 ->addColumn(
                     'action',
                     function ($data) {
-                        $actionBtn = '
-                    <div class="list-icons d-flex justify-content-center text-center">
-                        <a href="' . route('relatedlink.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> edit</a>
-                        <a href="' . route('relatedlink.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> delete</a>
-                    </div>';
+                        $actionBtn = '<center>
+                    <div class="text-center">
+                        <a href="' . route('relatedlink.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="bx bx-edit"></i> </a>
+                        <a href="' . route('relatedlink.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="bx bxs-trash"></i> </a>
+                    </div></center>';
                         return $actionBtn;
                     }
                 )
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('back.a.pages.related.index');
+        return view('back.pages.related.index');
     }
 
     /**
@@ -43,7 +44,7 @@ class RelatedLinkController extends Controller
      */
     public function create()
     {
-        return view('back.a.pages.related.create');
+        return view('back.pages.related.create');
     }
 
     /**
@@ -82,7 +83,7 @@ class RelatedLinkController extends Controller
     public function edit($id)
     {
         $data = RelatedLink::find($id);
-        return view('back.a.pages.related.edit', compact('data'));
+        return view('back.pages.related.edit', compact('data'));
     }
 
     /**

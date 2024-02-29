@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\News;
-use App\Models\User;
 use Corcel\Model\Post;
 use Cviebrock\EloquentSluggable\Services\SlugService;
-use Illuminate\Http\Request;
 
 class MigrasiDataController extends Controller
 {

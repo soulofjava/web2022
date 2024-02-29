@@ -44,14 +44,14 @@
         content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design." />
     <meta property="og:site_name" content="Creative Tim" />
     <!-- Bootstrap core CSS     -->
-    <link href="{{ asset('assets/back/assets/css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/back/material/css/bootstrap.min.css') }}" rel="stylesheet" />
     <!--  Material Dashboard CSS    -->
-    <link href="{{ asset('assets/back/assets/css/material-dashboard.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/back/material/css/material-dashboard.css') }}" rel="stylesheet" />
     <!--  CSS for Demo Purpose, don't include it in your project     -->
-    <link href="{{ asset('assets/back/assets/css/demo.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/back/material/css/demo.css') }}" rel="stylesheet" />
     <!--     Fonts and icons     -->
-    <link href="{{ asset('assets/back/assets/css/font-awesome.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/back/assets/css/google-roboto-300-700.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/back/material/css/font-awesome.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/back/material/css/google-roboto-300-700.css') }}" rel="stylesheet" />
 </head>
 
 <body>
@@ -218,7 +218,7 @@
                                         <div class="col-sm-4 col-sm-offset-1">
                                             <div class="picture-container">
                                                 <div class="picture">
-                                                    <img src="{{ asset('assets/back/assets/img/default-avatar.png') }}"
+                                                    <img src="{{ asset('assets/back/material/img/default-avatar.png') }}"
                                                         class="picture-src" id="wizardPicturePreview" title="" />
                                                     <input type="file" id="wizard-picture">
                                                 </div>
@@ -298,47 +298,47 @@
     </footer>
 </body>
 <!--   Core JS Files   -->
-<script src="{{ asset('assets/back/assets/js/jquery-3.1.1.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('assets/back/assets/js/jquery-ui.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('assets/back/assets/js/bootstrap.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('assets/back/assets/js/material.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('assets/back/assets/js/perfect-scrollbar.jquery.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/back/material/js/jquery-3.1.1.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/back/material/js/jquery-ui.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/back/material/js/bootstrap.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/back/material/js/material.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/back/material/js/perfect-scrollbar.jquery.min.js') }}" type="text/javascript"></script>
 <!-- Forms Validations Plugin -->
-<script src="{{ asset('assets/back/assets/js/jquery.validate.min.js') }}"></script>
+<script src="{{ asset('assets/back/material/js/jquery.validate.min.js') }}"></script>
 <!--  Plugin for Date Time Picker and Full Calendar Plugin-->
-<script src="{{ asset('assets/back/assets/js/moment.min.js') }}"></script>
+<script src="{{ asset('assets/back/material/js/moment.min.js') }}"></script>
 <!--  Charts Plugin -->
-<script src="{{ asset('assets/back/assets/js/chartist.min.js') }}"></script>
+<script src="{{ asset('assets/back/material/js/chartist.min.js') }}"></script>
 <!--  Plugin for the Wizard -->
-<script src="{{ asset('assets/back/assets/js/jquery.bootstrap-wizard.js') }}"></script>
+<script src="{{ asset('assets/back/material/js/jquery.bootstrap-wizard.js') }}"></script>
 <!--  Notifications Plugin    -->
-<script src="{{ asset('assets/back/assets/js/bootstrap-notify.js') }}"></script>
+<script src="{{ asset('assets/back/material/js/bootstrap-notify.js') }}"></script>
 <!--   Sharrre Library    -->
-<script src="{{ asset('assets/back/assets/js/jquery.sharrre.js') }}"></script>
+<script src="{{ asset('assets/back/material/js/jquery.sharrre.js') }}"></script>
 <!-- DateTimePicker Plugin -->
-<script src="{{ asset('assets/back/assets/js/bootstrap-datetimepicker.js') }}"></script>
+<script src="{{ asset('assets/back/material/js/bootstrap-datetimepicker.js') }}"></script>
 <!-- Vector Map plugin -->
-<script src="{{ asset('assets/back/assets/js/jquery-jvectormap.js') }}"></script>
+<script src="{{ asset('assets/back/material/js/jquery-jvectormap.js') }}"></script>
 <!-- Sliders Plugin -->
-<script src="{{ asset('assets/back/assets/js/nouislider.min.js') }}"></script>
+<script src="{{ asset('assets/back/material/js/nouislider.min.js') }}"></script>
 <!--  Google Maps Plugin    -->
 <!--<script src="https://maps.googleapis.com/maps/api/js"></script>-->
 <!-- Select Plugin -->
-<script src="{{ asset('assets/back/assets/js/jquery.select-bootstrap.js') }}"></script>
+<script src="{{ asset('assets/back/material/js/jquery.select-bootstrap.js') }}"></script>
 <!--  DataTables.net Plugin    -->
-<script src="{{ asset('assets/back/assets/js/jquery.datatables.js') }}"></script>
+<script src="{{ asset('assets/back/material/js/jquery.datatables.js') }}"></script>
 <!-- Sweet Alert 2 plugin -->
-<script src="{{ asset('assets/back/assets/js/sweetalert2.js') }}"></script>
+<script src="{{ asset('assets/back/material/js/sweetalert2.js') }}"></script>
 <!--	Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-<script src="{{ asset('assets/back/assets/js/jasny-bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/back/material/js/jasny-bootstrap.min.js') }}"></script>
 <!--  Full Calendar Plugin    -->
-<script src="{{ asset('assets/back/assets/js/fullcalendar.min.js') }}"></script>
+<script src="{{ asset('assets/back/material/js/fullcalendar.min.js') }}"></script>
 <!-- TagsInput Plugin -->
-<script src="{{ asset('assets/back/assets/js/jquery.tagsinput.js') }}"></script>
+<script src="{{ asset('assets/back/material/js/jquery.tagsinput.js') }}"></script>
 <!-- Material Dashboard javascript methods -->
-<script src="{{ asset('assets/back/assets/js/material-dashboard.js') }}"></script>
+<script src="{{ asset('assets/back/material/js/material-dashboard.js') }}"></script>
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
-<script src="{{ asset('assets/back/assets/js/demo.js') }}"></script>
+<script src="{{ asset('assets/back/material/js/demo.js') }}"></script>
 <script type="text/javascript">
     $().ready(function () {
         demo.initMaterialWizard();

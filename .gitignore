@@ -1,7 +1,7 @@
 /node_modules
 /public/hot
-/public/build
 /public/storage
+/storage/debugbar/
 /storage/*.key
 /storage/debugbar
 /storage/clockwork
@@ -18,3 +18,4 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+/upload

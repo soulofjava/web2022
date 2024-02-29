@@ -29,6 +29,13 @@ class News extends Model implements Viewable
         ];
     }
 
+    public function getContentAttribute($value)
+    {
+        // Ganti URL 'src' menggunakan regular expression
+        $newValue = str_replace('src="https://website.wonosobokab.go.id/storage/', 'src="' . url('show-picture?path='), $value);
+        return $newValue;
+    }
+
     public function gambar()
     {
         return $this->hasMany(File::class, 'id_news', 'id');

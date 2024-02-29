@@ -9,9 +9,4 @@ class File extends Model
 {
     use HasFactory;
     protected $guarded = [];
-
-    public function galeri()
-    {
-        return $this->belongsTo(Gallery::class, 'id', 'id_news');
-    }
 }

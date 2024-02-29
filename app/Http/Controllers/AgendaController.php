@@ -3,11 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Agenda;
+use App\Models\Website;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
 class AgendaController extends Controller
 {
+    public function __construct()
+    {
+        $this->themes = Website::all()->first();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -42,7 +48,7 @@ class AgendaController extends Controller
                 ->rawColumns(['action', 'tgl'])
                 ->make(true);
         }
-        return view('back.a.pages.agenda.index');
+        return view('back.' . $this->themes->themes_back . '.pages.agenda.index');
     }
 
     /**
@@ -52,7 +58,7 @@ class AgendaController extends Controller
      */
     public function create()
     {
-        return view('back.a.pages.agenda.create');
+        return view('back.' . $this->themes->themes_back . '.pages.agenda.create');
     }
 
     /**
@@ -93,7 +99,7 @@ class AgendaController extends Controller
     public function edit(Agenda $agenda, $id)
     {
         $data = Agenda::find($id);
-        return view('back.a.pages.agenda.edit', compact('data'));
+        return view('back.' . $this->themes->themes_back . '.pages.agenda.edit', compact('data'));
     }
 
     /**

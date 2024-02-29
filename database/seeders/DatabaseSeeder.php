@@ -2,11 +2,13 @@
 
 namespace Database\Seeders;
 
-use App\Models\GuestBook;
 use App\Models\RelatedLink;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+<<<<<<< HEAD
 use Faker\Factory as Faker;
+=======
+>>>>>>> 57cd9d6f8615469020dc8a6e5e8bddd03a11010e
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,6 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RoleSeeder::class,
             UserSeeder::class,
+<<<<<<< HEAD
             // FrontMenuSeeder::class,
             ThemesSeeder::class,
             ComCodes::class,
@@ -42,36 +45,57 @@ class DatabaseSeeder extends Seeder
             'themes_front' => 'flexstart',
             'themes_back' => 'back.a',
             'open_hours' => "Senin - Kamis (08:00 - 12:00 WIB) Jum'at - Sabtu (08:00 - 10:00 WIB)",
+=======
+            FrontMenuSeeder::class,
+            ComCodes::class,
+            ViewSeeder::class,
+        ]);
+
+        DB::table('websites')->insert([
+            'web_name' => 'Website Resmi Kabupaten Wonosobo',
+            'web_description' => '"Hello World!"',
+            'email' => 'pemkab@wonosobokab.go.id',
+            'address' => 'JL. Soekarno-Hatta, No. 2-4, Kel. Wonosobo Timur, Kec. Wonosobo, Kabupaten Wonosobo, Jawa Tengah 56311',
+            'phone' => '(0286) 321345',
+            'instagram' => 'https://www.instagram.com/wonosobohebat/',
+            'twitter' => 'https://twitter.com/wonosobohebat',
+            'facebook' => 'https://www.facebook.com/wonosobohebat',
+            'youtube' => 'https://www.youtube.com/@OfficialWonosoboTV',
+            'latitude' => '-7.358664418685239',
+            'longitude' => '109.9047188187568',
+            'open_hours' => "Senin - Kamis (07:00 - 16:00) Jum'at (07:00 - 11:00)",
+>>>>>>> 57cd9d6f8615469020dc8a6e5e8bddd03a11010e
         ]);
 
         $related = [
             [
-                'name' => 'Website Pemkab Wonosobo',
-                'url' => 'https://website.wonosobokab.go.id/',
+                'name' => 'JDIH',
+                'url' => 'https://jdih.wonosobokab.go.id/',
             ],
             [
-                'name' => 'Dashboard Smartcity',
-                'url' => 'https://smartcity.wonosobokab.go.id/',
+                'name' => 'FLLAJ',
+                'url' => 'https://fllaj.wonosobokab.go.id/',
             ],
             [
-                'name' => 'Website Diskominfo Wonosobo',
-                'url' => 'https://diskominnfo.wonosobokab.go.id/',
+                'name' => 'CASN',
+                'url' => 'https://casn.wonosobokab.go.id/',
+            ],
+            [
+                'name' => 'JELAJAH',
+                'url' => 'https://www.jelajahwonosobo.com/',
+            ],
+            [
+                'name' => 'CEK HOAX',
+                'url' => 'https://www.kominfo.go.id/content/all/laporan_isu_hoaks',
+            ],
+            [
+                'name' => 'LAPORBUP',
+                'url' => 'https://laporbupati.wonosobokab.go.id/',
             ]
         ];
 
         foreach ($related as $rr) {
             RelatedLink::create($rr);
-        }
-
-        $faker = Faker::create('id_ID');
-        for ($i = 1; $i <= 10; $i++) {
-            GuestBook::create([
-                'name'  => $faker->name(),
-                'date'  => $faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now'),
-                'instansi'  => $faker->company(3),
-                'jumlah'  => $faker->randomDigit(),
-                'keperluan'  => $faker->sentence()
-            ]);
         }
     }
 }

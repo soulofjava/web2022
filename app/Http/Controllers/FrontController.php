@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Helpers\Seo;
 use App\Jobs\KirimEmailInbox;
 use App\Models\Agenda;
+use App\Models\Comment;
 use App\Models\File;
 use App\Models\Component;
+use App\Models\DataPPID;
 use App\Models\FrontMenu;
 use Illuminate\Http\Request;
 use App\Models\News;
@@ -16,61 +18,117 @@ use App\Models\User;
 use App\Models\Website;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Http;
+use Artesaos\SEOTools\Facades\OpenGraph;
+use Illuminate\Support\Str;
 
 class FrontController extends Controller
 {
-    public function __construct()
+    public function komentar(Request $request)
     {
-        $this->themes = Website::all()->first();
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required|email',
+            'comments' => 'required',
+            'captcha' => 'required|captcha',
+        ]);
+
+        if ($validator->fails()) {
+            Alert::error('Failed', 'Gagal Menyimpan Komentar');
+            return redirect()->back()->withErrors($validator)->withInput();
+        } else {
+            Comment::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'comments' => $request->comments,
+                'news_id' => $request->id,
+            ]);
+            Alert::success('Success', 'Komentar Berhasil Disimpan');
+            return redirect()->back();
+        }
     }
 
     public function datappid()
     {
-        $data1 = FrontMenu::whereNotNull('kategori')->get();
-        $data2 = DB::table('news')->select('id', 'slug', 'kategori', DB::raw('title as menu_name'))->whereNotNull('kategori')->get();
-        $combinedData = $data1->concat($data2);
-        // return $combinedData;
+        $combinedData = DataPPID::select('*');
         return DataTables::of($combinedData)
             ->addIndexColumn()
             ->addColumn(
                 'action',
                 function ($combinedData) {
-                    if ($combinedData->slug) {
+                    if ($combinedData->tipe == 'news') {
                         $actionBtn = '<td class="text-center">
-                                <a target="_blank" href="' . url('news-detail', $combinedData->menu_url ?? $combinedData->slug) . '" class="btn btn-primary">LIHAT
+                                <a target="_blank" href="' . url('news-detail', $combinedData->menu_url) . '" class="btn btn-warning">LIHAT
                                     DATA</a>
                             </td>';
                     } else {
                         $actionBtn = '<td class="text-center">
-                                <a target="_blank" href="' . url('page', $combinedData->menu_url ?? $combinedData->slug) . '" class="btn btn-primary">LIHAT
+                                <a target="_blank" href="' . url('page', $combinedData->menu_url) . '" class="btn btn-warning">LIHAT
                                     DATA</a>
                             </td>';
                     }
-
-
                     return $actionBtn;
                 }
             )
             ->rawColumns(['action'])
             ->make(true);
-        // }
     }
 
-    public function datappid2(Request $request)
+    public function dikecualikan(Request $request)
     {
         if ($request->ajax()) {
-            $dip = News::where('dip', true)->orderBy('dip_tahun', 'DESC')->get();
+            $dip = News::where('kategori', 'INFORMASI_ST_04')->latest('date');
             return DataTables::of($dip)
                 ->addIndexColumn()
                 ->addColumn(
                     'action',
                     function ($dip) {
                         $actionBtn = '<td class="text-center">
-                                <a target="_blank" href="' . url('page', $dip->id) . '" class="btn btn-primary">LIHAT
+                                <a target="_blank" href="' . url('news-detail', $dip->slug) . '" class="btn btn-warning">LIHAT
+                                    DATA</a>
+                            </td>';
+                        return $actionBtn;
+                    }
+                )
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+    }
+
+    public function tabel(Request $request, $id)
+    {
+        if ($request->ajax()) {
+            $dip = News::where('title', 'like', '%' . $id . '%')->latest('date');
+            return DataTables::of($dip)
+                ->addIndexColumn()
+                ->addColumn(
+                    'action',
+                    function ($dip) {
+                        $actionBtn = '<td class="text-center">
+                                <a target="_blank" href="' . url('news-detail', $dip->slug) . '" class="btn btn-warning">LIHAT
+                                    DATA</a>
+                            </td>';
+                        return $actionBtn;
+                    }
+                )
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+    }
+
+    public function datappid2(Request $request)
+    {
+        if ($request->ajax()) {
+            $dip = News::whereNotNull('kategori')->where('kategori', '!=', 'INFORMASI_ST_04')->where('dip', 1)->latest('dip_tahun');
+            return DataTables::of($dip)
+                ->addIndexColumn()
+                ->addColumn(
+                    'action',
+                    function ($dip) {
+                        $actionBtn = '<td class="text-center">
+                                <a target="_blank" href="' . url('news-detail', $dip->slug) . '" class="btn btn-warning">LIHAT
                                     DATA</a>
                             </td>';
                         return $actionBtn;
@@ -83,19 +141,33 @@ class FrontController extends Controller
 
     public function newsdetail($slug)
     {
+        $data = News::with('gambar', 'uploader', 'gambarmuka')->where('slug', $slug)->first();
+
         Seo::seO();
-        $data = News::with('gambar', 'uploader')->where('slug', $slug)->first();
+
+        OpenGraph::setDescription(strip_tags(Str::limit($data->content, 50, '...')));
+        OpenGraph::setTitle($data->title);
+        OpenGraph::setUrl(url()->current());
+        OpenGraph::addProperty('type', 'article');
+        OpenGraph::addProperty('locale', 'id');
+
+        if (!empty($data->gambarmuka->path)) {
+            if (Str::contains($data->gambarmuka->path, 'https')) {
+                OpenGraph::addImage($data->gambarmuka->path);
+            } else {
+                OpenGraph::addImage(url('storage') . '/' . $data->gambarmuka->path);
+            }
+        }
+
         views($data)->cooldown(5)->record();
+<<<<<<< HEAD
         $news = News::with('gambarmuka')->latest('date')->paginate(5);
+=======
+        $news = News::with('gambarmuka')->orderBy('date', 'desc')->paginate(5);
+>>>>>>> 57cd9d6f8615469020dc8a6e5e8bddd03a11010e
         $file = File::where('id_news', $data->attachment)->get();
 
-        $prev = $data->id - 1;
-        $prev_data = News::with('gambar', 'uploader')->where('id', $prev)->first();
-
-        $next = $data->id + 1;
-        $next_data = News::with('gambar', 'uploader')->where('id', $next)->first();
-
-        return view('front.' . $this->themes->themes_front . '.pages.newsdetail', compact('data', 'news', 'file', 'prev_data', 'next_data'));
+        return view('front.pages.newsdetail', compact('data', 'news', 'file'));
     }
 
     public function detailberita($id)
@@ -105,26 +177,136 @@ class FrontController extends Controller
         $response = $response->collect();
         $berita =   $response['data'];
         $news = News::orderBy('date', 'desc')->paginate(5);
-        return view('front.' . $this->themes->themes_front . '.pages.beritadetail', compact('berita', 'news'));
+        return view('front.pages.beritadetail', compact('berita', 'news'));
+    }
+
+    public function transparansi(Request $request, $id)
+    {
+        Seo::seO();
+        $cari = $id;
+        $hasil = 'Hasil Pencarian : ' . $cari;
+
+        if ($cari == 'aturan-kebijakan-daerah') {
+            $data = News::Where('slug', 'like', '%' . $cari . '%')->latest("date")->get();
+        } elseif ($cari == 'kak-tor') {
+            $data = News::Where('title', 'like', '%Kerangka Acuan Kerja (KAK)%')->latest("date")->get();
+            $data2 = DB::table('front_menus')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like', '%Kerangka Acuan Kerja (KAK)%')->get();
+        } elseif ($cari == 'lrpbpd') {
+            $data = News::Where('title', 'like', '%Laporan Realisasi Pendapatan, Belanja dan Pembiayaan Daerah%')->latest("date")->get();
+            $data2 = DB::table('front_menus')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like',  '%Laporan Realisasi Pendapatan, Belanja dan Pembiayaan Daerah')->get();
+        } elseif ($cari == 'lak') {
+            $data = News::Where('title', 'like', '%Laporan Arus Kas (LAK)%')->latest("date")->get();
+            $data2 = DB::table('front_menus')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like',  '%Laporan Arus Kas (LAK)')->get();
+        } elseif ($cari == 'aset-inventaris') {
+            $data = News::Where('title', 'like', '%Aset & Inventaris%')->latest("date")->get();
+            $data2 = [];
+        } elseif ($cari == 'lkpd-dan-opini-bpk') {
+            $data = News::Where('title', 'like', '%lkpd%')->orWhere('title', 'like', '%lhp opini bpk%')->latest("date")->get();
+            $data2 = [];
+        } elseif ($cari == 'perjanjian-kinerja-pk') {
+            $data = News::Where('title', 'like', '%perjanjian kinerja (pk)%')->latest("date")->get();
+            $data2 = [];
+        } elseif ($cari == 'bumd') {
+            $data = News::Where('title', 'like', '%laporan keuangan bumd%')->latest("date")->get();
+            $data2 = [];
+        } elseif ($cari == 'csr') {
+            $data = News::Where('title', 'like', '%laporan pengelolaan bantuan csr%')->latest("date")->get();
+            $data2 = [];
+        } else {
+            $data = News::Where('slug', 'like', $cari . '%')->latest("date")->get();
+            $data2 = DB::table('front_menus')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like', $cari . '%')->get();
+        }
+
+        $combinedData = $data->concat($data2);
+
+        if ($request->ajax()) {
+            return DataTables::of($combinedData)
+                ->addIndexColumn()
+                ->addColumn(
+                    'action',
+                    function ($combinedData) {
+                        if ($combinedData->menu_url) {
+                            $actionBtn = '<td class="text-center">
+                            <a target="_blank" href="' . url('page', $combinedData->menu_url) . '" class="btn btn-sm btn-warning">LIHAT
+                            DATA</a>
+                            </td>';
+                        } else {
+                            $actionBtn = '<td class="text-center">
+                                <a target="_blank" href="' . url('news-detail', $combinedData->slug) . '" class="btn btn-sm btn-warning">LIHAT
+                                    DATA</a>
+                            </td>';
+                        }
+                        return $actionBtn;
+                    }
+                )
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+
+        return view('front.pages.globalsearch', compact('hasil', 'combinedData'));
     }
 
     public function newsByAuthor($id)
     {
         Seo::seO();
+<<<<<<< HEAD
         $usere = User::find($id);
         $hasil = 'All post by : ' . $usere->name;
         $data = News::with('gambar', 'uploader')->where('upload_by', '=', $id)->orderBy("date", "desc")->paginate(5);
         return view('front.' . $this->themes->themes_front . '.pages.newsbyauthor', compact('data', 'hasil'));
+=======
+        $hasil = 'All post by : ' . $id;
+        $data = News::with('gambar')->where('upload_by', '=', $id)->orderBy("date", "desc")->paginate(5);
+        $news = News::latest('date')->take(5)->get();
+        return view('front.pages.newsbyauthor', compact('data', 'news', 'hasil'));
+    }
+
+    public function globalSearch(Request $request)
+    {
+        Seo::seO();
+        $cari = $request->kolomcari;
+        $hasil = 'Hasil Pencarian : ' . $cari;
+        $data = News::with('gambar')->whereDate('date', 'like', '%' . $cari . '%')->orWhere('title', 'like', '%' . $cari . '%')->orderBy("date", "desc")->get();
+        $data2 = DB::table('front_menus')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like', '%' . $cari . '%')->get();
+        $combinedData = $data->concat($data2);
+        // return $combinedData;
+
+        if ($request->ajax()) {
+            return DataTables::of($combinedData)
+                ->addIndexColumn()
+                ->addColumn(
+                    'action',
+                    function ($combinedData) {
+                        if ($combinedData->menu_url) {
+                            $actionBtn = '<td class="text-center">
+                            <a target="_blank" href="' . url('page', $combinedData->menu_url) . '" class="btn btn-sm btn-warning">LIHAT
+                            DATA</a>
+                            </td>';
+                        } else {
+                            $actionBtn = '<td class="text-center">
+                                <a target="_blank" href="' . url('news-detail', $combinedData->slug) . '" class="btn btn-sm btn-warning">LIHAT
+                                    DATA</a>
+                            </td>';
+                        }
+                        return $actionBtn;
+                    }
+                )
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+
+        return view('front.pages.globalsearch', compact('hasil', 'combinedData'));
+>>>>>>> 57cd9d6f8615469020dc8a6e5e8bddd03a11010e
     }
 
     public function newsBySearch(Request $request)
     {
         Seo::seO();
         $cari = $request->kolomcari;
-        $hasil = 'Search result : ' . $cari;
+        $hasil = 'Hasil Pencarian : ' . $cari;
         $data = News::with('gambar')->whereDate('date', 'like', '%' . $cari . '%')->orWhere('title', 'like', '%' . $cari . '%')->orderBy("date", "desc")->paginate();
         $news = News::latest('date')->take(5)->get();
-        return view('front.' . $this->themes->themes_front . '.pages.newsbyauthor', compact('data', 'news', 'hasil'));
+        return view('front.pages.newsbyauthor', compact('data', 'news', 'hasil'));
     }
 
     public function newsall(Request $request)
@@ -132,7 +314,7 @@ class FrontController extends Controller
         Seo::seO();
         $news = News::latest('date')->paginate(12);
         $sideposts = News::latest('date')->take(5)->get();
-        return view('front.' . $this->themes->themes_front . '.pages.news', compact('news', 'sideposts'));
+        return view('front.pages.news', compact('news', 'sideposts'));
     }
 
     public function newsByCategory($id)
@@ -140,9 +322,19 @@ class FrontController extends Controller
         Seo::seO();
         $news = News::where('kategori', $id)->latest('date')->paginate(12);
         $sideposts = News::latest('date')->take(5)->get();
-        return view('front.' . $this->themes->themes_front . '.pages.news', compact('news', 'sideposts'));
+        return view('front.pages.news', compact('news', 'sideposts'));
     }
 
+<<<<<<< HEAD
+=======
+    public function galleryall(Request $request)
+    {
+        Seo::seO();
+        $gallery = Gallery::with('gambar')->orderBy('upload_date', 'desc')->paginate(12);
+        return view('front.pages.gallery', compact('gallery'));
+    }
+
+>>>>>>> 57cd9d6f8615469020dc8a6e5e8bddd03a11010e
     public function page($id)
     {
         Seo::seO();
@@ -152,14 +344,14 @@ class FrontController extends Controller
             $data = News::where('id', $id)->first();
         }
 
-        return view('front.' . $this->themes->themes_front . '.pages.page', compact('data'));
+        return view('front.pages.page', compact('data'));
     }
 
     public function component($id)
     {
         Seo::seO();
         $data = Component::all();
-        return view('front.' . $this->themes->themes_front . '.component.guestbook', compact('data'));
+        return view('front.component.guestbook', compact('data'));
     }
 
     public function setup(Request $request)
@@ -167,7 +359,6 @@ class FrontController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                // 'web_name' => 'required',
                 'themes_front' => 'required',
                 'name' => 'required',
                 'email' => 'required|unique:users',
@@ -181,7 +372,6 @@ class FrontController extends Controller
         );
 
         if ($validator->fails()) {
-            // Alert::error('Failed', 'Passwords Do Not Match');
             return redirect()->back()->withErrors($validator)->withInput();
         } else {
             $data = [
@@ -238,7 +428,7 @@ class FrontController extends Controller
                 ->rawColumns(['tgl'])
                 ->make(true);
         }
-        return view('front.' . $this->themes->themes_front . '.component.event');
+        return view('front.component.event');
     }
 
     public function inbox(Request $request)
@@ -266,155 +456,72 @@ class FrontController extends Controller
         }
     }
 
-    // kampung pancasila
-    public function tentangkami()
+    public function copydatapostingfromwonosobokab()
     {
-        return view('front.kampungpancasila.tentang-kami');
-    }
-
-    public function latarbelakang()
-    {
-        return view('front.kampungpancasila.latar-belakang');
-    }
-
-    public function tujuan()
-    {
-        return view('front.kampungpancasila.tujuan');
-    }
-
-    public function kampungpancasila()
-    {
-        return view('front.kampungpancasila.kampung-pancasila');
-    }
-
-    // sql ppid setda
-    public function loadsql()
-    {
-        set_time_limit(0);
-
-        // insert data dari table ppid_post ke tabel news
-        $variable = DB::table('ppid_posts')->get();
-        foreach ($variable as $us) {
-            $isi = str_replace("wp-image", "img-fluid ", $us->post_content);
-
-            $validated =
-                [
-                    'photo' => 'soulofjava',
-                    'path' => 'img/soulofjava.jpg',
-                    'date' => $us->post_date,
-                    'description' => $isi,
-                    'title' => $us->post_title,
-                    'upload_by' => 'Admin',
-                ];
-            News::create($validated);
-        }
-
-        // hapus data kolom content yang kosong
-        $users = DB::table('news')
-            ->where('description', '=', '')
-            ->get();
-        foreach ($users as $us) {
-            News::destroy($us->id);
-        }
-
-        // hapus data kolom title yang kosong
-        $users = DB::table('news')
-            ->where('title', '=', '')
-            ->get();
-        foreach ($users as $us) {
-            News::destroy($us->id);
-        }
-
-        // cek duplikasi dan hapus
-        $users = News::all();
-        $usersUnique = $users->unique('title');
-        $usersDupes = $users->diff($usersUnique);
-        foreach ($usersDupes as $dp) {
-            News::destroy($dp->id);
-        }
-
-        // // hitung data
-        // $data = News::all()->count();
-        // return response()->json($data);
-
-        return response()->json('Selesai');
-    }
-
-    public function check()
-    {
-        // ubah deskripsi yang ada pdf 1
-        // $data = News::where('description', 'like', '%[vc_row][vc_column][v_pfbk_flip_book%')->get();
-        // $width = '"100%"';
-        // $height = '"750"';
-        // foreach ($data as $dt) {
-        //     $pdfa = str_replace("[vc_row][vc_column][v_pfbk_flip_book", "<embed", $dt->description);
-        //     $slice = Str::after($pdfa, '.pdf"');
-        //     $pdfb = str_replace($slice, " width=" . $width . " height=" . $height . ">", $pdfa);
-        //     News::find($dt->id)->update([
-        //         'description' => $pdfb
-        //     ]);
-        // }
-
-        // ubah deskripsi yang ada pdf 2
-        // $data = News::where('description', 'like', '%[pfbk_pdf_flipbook%')->get();
-        // $width = '"100%"';
-        // $height = '"750"';
-        // foreach ($data as $dt) {
-        //     $pdfa = str_replace("[pfbk_pdf_flipbook", "<embed", $dt->description);
-        //     $slice = Str::after($pdfa, '.pdf"');
-        //     $pdfb = str_replace($slice, " width=" . $width . " height=" . $height . ">", $pdfa);
-        //     News::find($dt->id)->update([
-        //         'description' => $pdfb
-        //     ]);
-        // }
-
-        // $id = 5602;
-        // $data = News::find($id);
-        // $slice = Str::after($data->description, 'src="');
-        // $slice2 = Str::before($slice, '"');
-        // $pdfb = str_replace("][/vc_column][/vc_row]", "width=" . $width . " height=" . $height . ">", $data->description);
-        // $data = News::where('description', 'like', '%.pdf%')->get();
+        ini_set('max_execution_time', 0);
         $data = News::all();
-        // News::find($b->id)->update([
-        // $data = News::where('description', 'like', '%.pdf%')->count();
-        foreach ($data as $dt) {
-            $slice = Str::after($dt->description, 'src="');
-            $slice2 = Str::before($slice, '"');
-            echo $slice2;
-        }
-        // return response()->json('selesai');
-        // return $slice2;
-    }
 
-    function copydatapostingfromwonosobokab()
-    {
-        $data = DB::table('posting')->where('domain', '=', 'arpusda.wonosobokab.go.id')->get();
         foreach ($data as $index => $item) {
-            print_r($index . "\n");
-            $idnya = News::create([
-                'title' => $item->judul_posting,
-                'description' => $item->isi_posting,
-                'date' => $item->created_time,
-                'upload_by' =>  'Admin',
-            ])->id;
-            print_r($idnya);
-            $this->copydatafilefromwonosobokab($item->id_posting, $idnya);
+            $indra = explode(',', $item->attachment);
+            // return $indra;
+            // print_r($index . "\n");
+            // $idnya = News::create([
+            //     'title' => $item->title_posting,
+            //     'content' => $item->content_posting,
+            //     'slug' => $item->link_posting,
+            //     'upload_by' =>  2,
+            //     'date' =>  $item->date_created,
+            //     'highlight' =>  $item->headline,
+            //     'komentar' =>  $item->published,
+            //     'terbit' =>  $item->published,
+            // ])->id;
+            // print_r($item->id);
+            foreach ($indra as $in => $it) {
+                $this->copydatafilefromwonosobokab($it, $item->id);
+            }
         }
+        // print_r('Selesai!');
     }
 
-    function copydatafilefromwonosobokab($a, $b)
+    public function copydatafilefromwonosobokab($a, $b)
     {
         $isa = [];
-        $data = DB::table('attachment')->select('file_name')->where('id_tabel', '=', $a)->get();
+        $data = DB::table('images')->select('file_name')->where('id_images', '=', $a)->get();
         foreach ($data as $ratna) {
             array_push($isa, $ratna->file_name);
             $fff = [
                 'id_news' => $b,
                 'file_name' => $ratna->file_name,
-                'path' => 'gallery/' . $ratna->file_name,
+                'path' => 'https://website.wonosobokab.go.id/upload/img/' . $ratna->file_name,
             ];
-            DB::table('files')->insert($fff);
+            File::create($fff);
         }
         return json_encode($isa);
+    }
+
+    public function ubahstring()
+    {
+        // $users = DB::table('front_menus')
+        //     ->leftJoin('news', 'front_menus.menu_name', '=', 'news.title')
+        //     ->whereNotNull('news.content')
+        //     ->get();
+        // return $users;
+        // foreach ($users as $key => $value) {
+        //     FrontMenu::where('menu_url', '=', $value->menu_url)->update(['content' => $value->content]);
+        // echo $value->content . '<br>';
+        // }
+        // return 'selesai';
+
+        // start ganti string
+        // $data = News::all();
+        // foreach ($data as $key => $value) {
+        //     if (Str::contains($value->content, '../../')) {
+        //         $new = str_replace('../../', 'https://website.wonosobokab.go.id/', $value->content) . '<br>';
+        //         // echo $value->id;
+        //         News::find($value->id)->update(['content' => $new]);
+        //     };
+        // }
+        // return 'selesai';
+        // end ganti string
     }
 }

@@ -1,7 +1,0 @@
-@function tracking( $target ){
-  @return ($target / 1000) * 1em;
-}
-
-@mixin tracking( $target ){
-  letter-spacing: tracking( $target );
-}

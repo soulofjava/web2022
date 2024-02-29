@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Component;
+use App\Models\Website;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
 
 class ComponentController extends Controller
 {
+    public function __construct()
+    {
+        $this->themes = Website::all()->first();
+    }
     /**
      * Display a listing of the resource.
      *
@@ -24,19 +29,19 @@ class ComponentController extends Controller
                     'action',
                     function ($data) {
                         if ($data->active == 1) {
-                            $actionBtn = '<div class="togglebutton">
-                                                <label>
-                                                    <input type="checkbox" checked onclick="centang('  . $data->id . ')">
+                            $actionBtn = '<center><div class="togglebutton">
+                                                <label class="form-check-label">
+                                                    <input type="checkbox" class="form-check-input" checked onclick="centang('  . $data->id . ')">
                                                     <span class="toggle"></span>
                                                 </label>
-                                            </div>';
+                                            </div></center>';
                         } else {
-                            $actionBtn = '<div class="togglebutton">
-                                                <label>
-                                                    <input type="checkbox" onclick="centang('  . $data->id . ')">
+                            $actionBtn = '<center>
+                                                <label class="form-check-label">
+                                                    <input type="checkbox" class="form-check-input" onclick="centang('  . $data->id . ')">
                                                     <span class="toggle"></span>
                                                 </label>
-                                            </div>';
+                                            </div></center>';
                         }
                         return $actionBtn;
                     }
@@ -44,7 +49,7 @@ class ComponentController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('back.a.pages.component.index');
+        return view('back.' . $this->themes->themes_back . '.pages.component.index');
     }
 
     /**
