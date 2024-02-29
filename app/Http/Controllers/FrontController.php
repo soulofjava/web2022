@@ -200,8 +200,11 @@ class FrontController extends Controller
         } elseif ($cari == 'rup') {
             $data = News::Where('title', 'like', '%rup tahun%')->latest("date")->get();
             $data2 = [];
-        } elseif ($cari == 'lkpd-dan-opini-bpk') {
-            $data = News::Where('title', 'like', '%lkpd%')->orWhere('title', 'like', '%lhp opini bpk%')->latest("date")->get();
+        } elseif ($cari == 'rup') {
+            $data = News::Where('title', 'like', '%rup tahun%')->latest("date")->get();
+            $data2 = [];
+        } elseif ($cari == 'info-pengadaan') {
+            $data = News::Where('title', 'like', '%informasi pengadaan barang dan jasa%')->latest("date")->get();
             $data2 = [];
         } elseif ($cari == 'perjanjian-kinerja-pk') {
             $data = News::Where('title', 'like', '%perjanjian kinerja (pk)%')->latest("date")->get();
