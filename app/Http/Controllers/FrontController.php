@@ -184,7 +184,7 @@ class FrontController extends Controller
         $hasil = 'Hasil Pencarian : ' . $cari;
 
         if ($cari == 'aturan-kebijakan-daerah') {
-            $data = News::Where('slug', 'like', '%[akd]%')->latest("date")->get();
+            $data = News::Where('title', 'like', '%[akd]%')->latest("date")->get();
             $data2 = [];
         } elseif ($cari == 'kak-tor') {
             $data = News::Where('title', 'like', '%Kerangka Acuan Kerja (KAK)%')->latest("date")->get();
