@@ -185,6 +185,7 @@ class FrontController extends Controller
 
         if ($cari == 'aturan-kebijakan-daerah') {
             $data = News::Where('slug', 'like', '%' . $cari . '%')->latest("date")->get();
+            $data2 = [];
         } elseif ($cari == 'kak-tor') {
             $data = News::Where('title', 'like', '%Kerangka Acuan Kerja (KAK)%')->latest("date")->get();
             $data2 = DB::table('front_menus')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like', '%Kerangka Acuan Kerja (KAK)%')->get();
