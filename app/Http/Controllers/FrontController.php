@@ -197,6 +197,9 @@ class FrontController extends Controller
         } elseif ($cari == 'aset-inventaris') {
             $data = News::Where('title', 'like', '%Aset & Inventaris%')->latest("date")->get();
             $data2 = [];
+        } elseif ($cari == 'rup') {
+            $data = News::Where('title', 'like', '%rup tahun%')->latest("date")->get();
+            $data2 = [];
         } elseif ($cari == 'lkpd-dan-opini-bpk') {
             $data = News::Where('title', 'like', '%lkpd%')->orWhere('title', 'like', '%lhp opini bpk%')->latest("date")->get();
             $data2 = [];
