@@ -70,6 +70,7 @@ class WebsiteController extends Controller
         $result = Website::find(1);
         return json_encode($result);
     }
+
     /**
      * Update the specified resource in storage.
      *
@@ -89,8 +90,9 @@ class WebsiteController extends Controller
                 if ($gambar->image_hero) {
                     Storage::delete($gambar->image_hero);
                 }
+                $file = $request->file('image_hero');
                 $name = $request->file('image_hero')->getClientOriginalName();
-                $path = $request->file('image_hero')->store('website');
+                $path = $file->storeAs('website', $name, 'gcs');
             }
         }
         if ($request->hasFile('favicon')) {

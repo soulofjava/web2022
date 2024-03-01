@@ -39,6 +39,7 @@
 <script src="{{ asset('assets/back/sneat/assets/js/main.js') }}"></script>
 
 <!-- Page JS -->
+<script src="{{ asset('assets/back/sneat/assets/js/pages-account-settings-account.js') }}"></script>
 <!-- <script src="{{ asset('assets/back/sneat/assets/js/docs.js') }}"></script> -->
 <!-- <script src="{{ asset('assets/back/sneat/assets/js/forms-pickers.js') }}"></script> -->
 
