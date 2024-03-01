@@ -19,7 +19,11 @@
             </div>
             <div class="col-lg-5">
                 <div class="hero-right-images text-lg-right wow fadeInUp delay-0-2s">
+                    @if ($data_website->image_hero)
+                    <img src="{{ route('helper.show-picture', ['path' => $data_website->image_hero]) }}" class="img-fluid animated">
+                    @else
                     <img src="{{ asset('assets/front/images/hero/hero-right.png') }}" alt="Hero">
+                    @endif
                 </div>
             </div>
         </div>
