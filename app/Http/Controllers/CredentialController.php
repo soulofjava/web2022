@@ -7,6 +7,8 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use App\Rules\MatchOldPassword;
 use Illuminate\Support\Facades\Storage;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class CredentialController extends Controller
 {
@@ -60,7 +62,10 @@ class CredentialController extends Controller
     public function edit($id)
     {
         $data = User::find($id);
-        return view('back.sneat.pages.user.profile', compact('data'));
+        $role = Role::all()->pluck('name', 'id');
+        $user_role = $data->roles->pluck('id');
+        $permission = Permission::all()->pluck('name', 'id');
+        return view('back.sneat.pages.user.profile', compact('data', 'role', 'user_role', 'permission'));
     }
 
     /**
