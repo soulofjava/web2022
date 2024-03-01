@@ -62,11 +62,7 @@ class UserController extends Controller
     {
         $role = ModelsRole::all()->pluck('name', 'id')->skip(1);
         $permission = Permission::all()->pluck('name', 'id');
-<<<<<<< HEAD
-        return view('back.a.pages.user.create', compact('role', 'permission'));
-=======
         return view('back.pages.user.create', compact('role', 'permission'));
->>>>>>> 57cd9d6f8615469020dc8a6e5e8bddd03a11010e
     }
 
     /**
@@ -134,11 +130,7 @@ class UserController extends Controller
         $user_role = $data->roles->pluck('id');
         $permission = Permission::all()->pluck('name', 'id');
         $permis = $data->getAllPermissions();
-<<<<<<< HEAD
-        return view('back.a.pages.user.edit', compact('data', 'role', 'user_role', 'permission', 'permis'));
-=======
         return view('back.pages.user.edit', compact('data', 'role', 'user_role', 'permission', 'permis'));
->>>>>>> 57cd9d6f8615469020dc8a6e5e8bddd03a11010e
     }
 
     /**

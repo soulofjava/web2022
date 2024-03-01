@@ -79,7 +79,7 @@
 
                 @role('superadmin')
                 <li
-                    class="menu-item {{ (Str::contains(Request::url(), ['frontmenu', 'relatedlink', 'settings', 'user', 'testimoni', 'myprofile'])) ? 'active open' : '' }}">
+                    class="menu-item {{ (Str::contains(Request::url(), ['menu-builder', 'frontmenu', 'relatedlink', 'settings', 'user', 'testimoni', 'myprofile'])) ? 'active open' : '' }}">
                     <a href="javascript:void(0);" class="menu-link menu-toggle">
                         <i class="menu-icon tf-icons bx bx-layout"></i>
                         <div data-i18n="Website">Website</div>
@@ -92,6 +92,11 @@
                         </li>
                         <li class="menu-item {{ (Str::contains(Request::url(), 'frontmenu')) ? 'active' : '' }}">
                             <a class="menu-link" href="{{ route('frontmenu.index') }}">
+                                <div data-i18n="Menu">Menu</div>
+                            </a>
+                        </li>
+                        <li class="menu-item {{ (Str::contains(Request::url(), 'menu-builder')) ? 'active' : '' }}">
+                            <a class="menu-link" href="{{ route('menu-builder') }}">
                                 <div data-i18n="Menu">Menu</div>
                             </a>
                         </li>

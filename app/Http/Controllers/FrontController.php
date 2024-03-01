@@ -160,11 +160,7 @@ class FrontController extends Controller
         }
 
         views($data)->cooldown(5)->record();
-<<<<<<< HEAD
-        $news = News::with('gambarmuka')->latest('date')->paginate(5);
-=======
         $news = News::with('gambarmuka')->orderBy('date', 'desc')->paginate(5);
->>>>>>> 57cd9d6f8615469020dc8a6e5e8bddd03a11010e
         $file = File::where('id_news', $data->attachment)->get();
 
         return view('front.pages.newsdetail', compact('data', 'news', 'file'));
@@ -249,12 +245,6 @@ class FrontController extends Controller
     public function newsByAuthor($id)
     {
         Seo::seO();
-<<<<<<< HEAD
-        $usere = User::find($id);
-        $hasil = 'All post by : ' . $usere->name;
-        $data = News::with('gambar', 'uploader')->where('upload_by', '=', $id)->orderBy("date", "desc")->paginate(5);
-        return view('front.' . $this->themes->themes_front . '.pages.newsbyauthor', compact('data', 'hasil'));
-=======
         $hasil = 'All post by : ' . $id;
         $data = News::with('gambar')->where('upload_by', '=', $id)->orderBy("date", "desc")->paginate(5);
         $news = News::latest('date')->take(5)->get();
@@ -296,7 +286,6 @@ class FrontController extends Controller
         }
 
         return view('front.pages.globalsearch', compact('hasil', 'combinedData'));
->>>>>>> 57cd9d6f8615469020dc8a6e5e8bddd03a11010e
     }
 
     public function newsBySearch(Request $request)
@@ -325,8 +314,6 @@ class FrontController extends Controller
         return view('front.pages.news', compact('news', 'sideposts'));
     }
 
-<<<<<<< HEAD
-=======
     public function galleryall(Request $request)
     {
         Seo::seO();
@@ -334,7 +321,6 @@ class FrontController extends Controller
         return view('front.pages.gallery', compact('gallery'));
     }
 
->>>>>>> 57cd9d6f8615469020dc8a6e5e8bddd03a11010e
     public function page($id)
     {
         Seo::seO();

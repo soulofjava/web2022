@@ -7,6 +7,7 @@ use App\Models\Website;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
+use Efectn\Menu\Models\Menus;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
@@ -26,15 +27,9 @@ class FrontMenuController extends Controller
                 ->addColumn(
                     'action',
                     function ($data) {
-<<<<<<< HEAD
-                        $actionBtn = '<div class="list-icons d-flex justify-content-center text-center">
-                        <a href="' . route('frontmenu.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> edit</a>
-                           <a href="' . route('frontmenu.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> delete</a>
-=======
                         $actionBtn = '<div class="text-center">
                         <a href="' . route('frontmenu.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="bx bx-edit"></i> </a>
                           <a href="' . route('frontmenu.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="bx bxs-trash"></i> </a>
->>>>>>> 57cd9d6f8615469020dc8a6e5e8bddd03a11010e
                     </div>';
                         return $actionBtn;
                     }
@@ -81,6 +76,12 @@ class FrontMenuController extends Controller
     {
         $root = FrontMenu::pluck('menu_name', 'id');
         return view('back.pages.frontmenu.create', compact('root'));
+    }
+
+    public function menu_builder()
+    {
+        $menulist = Menus::all()->pluck('name', 'id');
+        return view('back.pages.frontmenu.menu', compact('menulist'));
     }
 
     /**
