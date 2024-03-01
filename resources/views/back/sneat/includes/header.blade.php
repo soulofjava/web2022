@@ -46,11 +46,11 @@
                                 <div data-i18n="Kategori">Kategori</div>
                             </a>
                         </li>
-                        <li class="menu-item {{ (Str::contains(Request::url(), 'component')) ? 'active' : '' }}">
+                        <!-- <li class="menu-item {{ (Str::contains(Request::url(), 'component')) ? 'active' : '' }}">
                             <a class="menu-link" href="{{ route('component.index') }}">
                                 <div data-i18n="Komponen">Komponen</div>
                             </a>
-                        </li>
+                        </li> -->
                         <li class="menu-item {{ (Str::contains(Request::url(), 'relatedlink')) ? 'active' : '' }}">
                             <a class="menu-link" href="{{ route('relatedlink.index') }}">
                                 Link Terkait</a>
