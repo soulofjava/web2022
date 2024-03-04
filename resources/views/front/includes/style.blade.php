@@ -29,3 +29,12 @@
 <link rel="stylesheet" href="{{ asset('assets/front/css/slick.min.css') }}">
 <!--====== Main Style ======-->
 <link rel="stylesheet" href="{{ asset('assets/front/css/style.css') }}">
+<style>
+    .hero-section:before {
+        display: none;
+    }
+
+    .hero-section:after {
+        display: none;
+    }
+</style>

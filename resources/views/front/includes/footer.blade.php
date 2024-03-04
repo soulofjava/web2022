@@ -11,6 +11,11 @@
                         <a target="_blank" href="{{ $data_website->instagram }}"><i class="fab fa-instagram"></i></a>
                         <a target="_blank" href="{{ $data_website->youtube }}"><i class="fab fa-youtube"></i></a>
                     </div>
+                    <div>
+                        <iframe
+                            src="https://maps.google.com/maps?q={{ $data_website->latitude }},{{ $data_website->longitude }}&z=17&output=embed"
+                            frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-4">
