@@ -2,7 +2,7 @@
 @section('content')
 <!-- Hero Section Start -->
 <section class="hero-section rel z-1 pt-150 rpt-135 pb-75 rpb-100"
-    style="background-image: url('{{ route('helper.show-picture', ['path' => $data_website->image_hero]) }}'); height: 800px;">
+    style="background-image: url('{{ route('helper.show-picture', ['path' => $data_website->image_hero]) }}'); height: 800px; background-repeat: no-repeat;">
 </section>
 <!-- Hero Section End -->
 
