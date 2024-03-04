@@ -2,7 +2,7 @@
 @section('content')
 <!-- Page Banner Start -->
 <section class="page-banner-area rel z-1 text-white text-center"
-    style="background-image: url({{ asset('assets/front/images/banner.jpg') }});">
+    style="background-image: url({{ asset('assets/front/images/1.png') }});">
     <div class="container">
         <div class="banner-inner rpt-10">
             <h2 class="page-title wow fadeInUp delay-0-2s">Agenda</h2>

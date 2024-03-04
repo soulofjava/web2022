@@ -2,7 +2,7 @@
 <div class="preloader"></div>
 
 <!-- main header -->
-<header class="main-header {{ (Route::current()->getName() != 'root') ? 'header-two' : '' }}">
+<header class="main-header {{ (Route::current()->getName() != 'root') ? '' : '' }}">
     <!-- Header-Top -->
     <div class="header-top bg-light-blue text-white">
         <div class="container-fluid">
