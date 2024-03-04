@@ -26,7 +26,9 @@
     <div class="layout-body layout-item centered">
         @foreach(Conner\Tagging\Model\Tag::all() as $t)
         <center>
+            @if($t->count > 1)
             <h2>{{ $t->name }}</h2>
+            @endif
         </center>
         <div id="multi-item-example{{ $loop->iteration }}" class="carousel slide" data-ride="carousel"
             style="height: auto;">
@@ -40,12 +42,17 @@
                         <div class="col-md-4 mb-1">
                             <a href="{{ url('news-detail', $i['slug']) }}">
                                 <div class="card">
+                                    @if($i->gambarmuka)
+                                    <img src="{{ route('helper.show-picture', ['path' => $i->gambarmuka->path]) }}"
+                                        class="card-img-top" alt="img" height="200px">
+                                    @else
                                     <img src="{{ asset('hand-painted-watercolor-background-with-sky-clouds-shape.jpg') }}"
                                         class="card-img-top" alt="img" height="200px">
                                     <div class="card-overlay">
                                         <h5 class="card-title">{{ $i['title'] }}</h5>
                                         <p class="card-text">{{ $i['date'] }}</p>
                                     </div>
+                                    @endif
                                 </div>
                             </a>
                         </div>
