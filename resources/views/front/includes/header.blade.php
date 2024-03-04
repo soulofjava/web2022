@@ -85,7 +85,7 @@
                                         {{ $menu->menu_name }}
                                     </a>
                                     @else
-                                    <a href="{{ url('/page', $menu->menu_url) }}">
+                                    <a href="{{ url('page', $menu->menu_url) }}">
                                         {{ $menu->menu_name }}
                                     </a>
                                     @endif
@@ -107,6 +107,10 @@
                                         <li>
                                             @if($sm->link)
                                             <a target="_blank" href="{{ $sm->menu_url }}">
+                                                {{ $sm->menu_name }}
+                                            </a>
+                                            @elseif($sm->menu_parent == 2 || $sm->menu_parent == 29)
+                                            <a href="{{ url('transparansi') }}/{{ $sm->menu_url }}">
                                                 {{ $sm->menu_name }}
                                             </a>
                                             @else
@@ -134,9 +138,7 @@
                                                     <a href="{{ $sub3->menu_url }}" target="_blank">
                                                         {{ $sub3->menu_name }}
                                                     </a>
-                                                    @elseif($sub3->menu_parent == 89 || $sub3->menu_parent == 90 ||
-                                                    $sub3->menu_parent
-                                                    == 91)
+                                                    @elseif($sub3->menu_parent == 4)
                                                     <a href="{{ url('transparansi') }}/{{ $sub3->menu_url }}">
                                                         {{ $sub3->menu_name }}
                                                     </a>

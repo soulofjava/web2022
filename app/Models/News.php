@@ -34,6 +34,10 @@ class News extends Model implements Viewable
             $newValue = str_replace('src="https://bkd.wonosobokab.go.id/show-picture?path=https://bkd.wonosobokab.go.id/show-picture?path=', 'src="' . url('show-picture?path='), $value);
             return $newValue;
         }
+        if (Str::contains($value, 'src="images/')) {
+            $newValue = str_replace('src="images/', 'src="' . url('show-picture?path=images/'), $value);
+            return $newValue;
+        }
         return $value;
     }
 

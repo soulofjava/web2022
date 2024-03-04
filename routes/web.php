@@ -65,6 +65,7 @@ Route::group(['middleware' => 'data_web'], function () {
     Route::get('/photos', [FrontController::class, 'galleryall'])->name('photo.all');
     Route::post('/setup', [FrontController::class, 'setup'])->name('setup-first');
     Route::get('/page/{id}', [FrontController::class, 'page'])->name('page');
+    Route::get('/transparansi/{id}', [FrontController::class, 'transparansi'])->name('transparansi');
     Route::get('/component/{id}', [FrontController::class, 'component'])->name('component');
     Route::post('kotakmasuk', [FrontController::class, 'inbox']);
     Route::post('guest', [FrontController::class, 'addguest']);

@@ -36,7 +36,7 @@
             // ajax: "{{ route('global.search') }}",
             columns: [
                 { data: 'DT_RowIndex', orderable: false, searchable: false },
-                { data: 'title', name: 'title', className: "text-center", defaultContent: 'N/A' },
+                { data: 'title', name: 'title', className: "", defaultContent: 'N/A' },
                 { data: 'kategori', name: 'kategori', className: "text-center" },
                 { data: 'action', className: "text-center" },
             ],

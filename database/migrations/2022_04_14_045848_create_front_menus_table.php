@@ -21,6 +21,7 @@ class CreateFrontMenusTable extends Migration
             $table->string('kategori')->nullable();
             $table->longText('content')->nullable();
             $table->boolean('active')->default(true);
+            $table->boolean('link')->default(false);
             $table->softDeletes();
             $table->timestamps();
         });

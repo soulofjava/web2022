@@ -178,6 +178,56 @@ class FrontController extends Controller
         return view('front.pages.news', compact('news', 'sideposts'));
     }
 
+    public function transparansi(Request $request, $id)
+    {
+        Seo::seO();
+        $cari = $id;
+        $hasil = 'Hasil Pencarian : ' . $cari;
+        $data2 = [];
+
+        if ($cari == 'laporan-aset') {
+            $data = News::where('title', 'like', 'lap. aset%')->orWhere('title', 'like', 'laporan aset%')->latest("date")->get();
+        } elseif ($cari == 'calk') {
+            $data = News::where('title', 'like', 'laporan keuangan%')->latest("date")->get();
+        } elseif ($cari == 'program-kegiatan') {
+            $data = News::where('title', 'like', 'lap. kegiatan%')->latest("date")->get();
+        } elseif ($cari == 'lhkpn-pimpinan') {
+            $data = News::where('title', 'like', 'lhkpn%')->latest("date")->get();
+        } elseif ($cari == 'tupoksi') {
+            $data = News::where('title', 'like', 'tugas dan fungsi%')->latest("date")->get();
+        } else {
+            $data = News::Where('slug', 'like', $cari . '%')->latest("date")->get();
+        }
+
+        $combinedData = $data->concat($data2);
+
+        if ($request->ajax()) {
+            return DataTables::of($combinedData)
+                ->addIndexColumn()
+                ->addColumn(
+                    'action',
+                    function ($combinedData) {
+                        if ($combinedData->menu_url) {
+                            $actionBtn = '<td class="text-center">
+                            <a target="_blank" href="' . url('page', $combinedData->menu_url) . '" class="btn btn-primary">LIHAT
+                            DATA</a>
+                            </td>';
+                        } else {
+                            $actionBtn = '<td class="text-center">
+                                <a target="_blank" href="' . url('news-detail', $combinedData->slug) . '" class="btn btn-primary">LIHAT
+                                    DATA</a>
+                            </td>';
+                        }
+                        return $actionBtn;
+                    }
+                )
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+
+        return view('front.pages.globalsearch', compact('hasil', 'combinedData'));
+    }
+
     public function newsByCategory($id)
     {
         Seo::seO();
