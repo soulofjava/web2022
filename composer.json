@@ -14,7 +14,7 @@
         "davejamesmiller/laravel-breadcrumbs": "5.x",
         "doctrine/dbal": "^3.0",
         "guzzlehttp/guzzle": "^7.2",
-        "jenssegers/agent": "^2.6",
+        "hisorange/browser-detect": "^4.5",
         "jgrossi/corcel": "^7.0",
         "jorenvanhocht/laravel-share": "^4.2",
         "laravel/framework": "^10.10",

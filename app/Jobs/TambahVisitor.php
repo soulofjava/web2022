@@ -3,12 +3,12 @@
 namespace App\Jobs;
 
 use App\Models\Counter;
+use DeviceDetector\Parser\Client\Browser;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use Jenssegers\Agent\Agent;
 
 class TambahVisitor implements ShouldQueue
 {
@@ -22,26 +22,23 @@ class TambahVisitor implements ShouldQueue
     }
 
     /**
+
      * Execute the job.
      */
     public function handle(): void
     {
         $geoipInfo = geoip()->getLocation($this->kampret);
 
-        $agent = new Agent();
-
-        if ($agent->isDesktop()) {
-            // The user is using a desktop device
+        if (Browser::isDesktop() == 1) {
             $deviceType = 'Desktop';
-        } elseif ($agent->isTablet()) {
-            // The user is using a tablet device
+        }
+
+        if (Browser::isTablet() == 1) {
             $deviceType = 'Tablet';
-        } elseif ($agent->isMobile()) {
-            // The user is using a mobile device
+        }
+
+        if (Browser::isMobile() == 1) {
             $deviceType = 'Mobile';
-        } else {
-            // The device type couldn't be determined
-            $deviceType = 'Unknown';
         }
 
         $data = [
