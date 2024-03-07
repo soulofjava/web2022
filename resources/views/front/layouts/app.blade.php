@@ -19,7 +19,6 @@
         @include('front.includes.footer')
         @stack('before-script')
         @include('front.includes.script')
-        @include('components.responsive-voice')
         @stack('after-script')
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -236,11 +236,36 @@ class FrontController extends Controller
         return view('front.pages.news', compact('news', 'sideposts'));
     }
 
-    public function page($id)
+    public function page(Request $request, $id)
     {
         Seo::seO();
         $data = FrontMenu::where('menu_url', $id)->with('menu_induk')->first();
         $news = News::with('gambarmuka')->where('terbit', 1)->orderByViews()->take(5)->get();
+
+        if ($id == 'statistik') {
+            $data = News::where('title', 'like', '%' . $id . '%')->with('gambarmuka')->get();
+            $hasil = [];
+
+            if ($request->ajax()) {
+                return DataTables::of($data)
+                    ->addIndexColumn()
+                    ->addColumn(
+                        'action',
+                        function ($data) {
+                            $actionBtn = '<td class="text-center">
+                                <a target="_blank" href="' . url('news-detail', $data->slug) . '" class="btn btn-primary">LIHAT
+                                    DATA</a>
+                            </td>';
+                            return $actionBtn;
+                        }
+                    )
+                    ->rawColumns(['action'])
+                    ->make(true);
+            }
+
+            return view('front.pages.globalsearch', compact('hasil', 'data'));
+        }
+
         if (!$data) {
             $data = News::where('id', $id)->first();
         }
