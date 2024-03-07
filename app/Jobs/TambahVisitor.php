@@ -6,6 +6,7 @@ use App\Models\Counter;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Http\Request;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
@@ -23,9 +24,19 @@ class TambahVisitor implements ShouldQueue
     /**
      * Execute the job.
      */
-    public function handle(): void
+    public function handle(Request $request): void
     {
         $geoipInfo = geoip()->getLocation($this->kampret);
+
+        $userAgent = $request->header('User-Agent');
+
+        if (strpos($userAgent, 'Mobile') !== false || strpos($userAgent, 'Android') !== false || strpos($userAgent, 'iPhone') !== false) {
+            $deviceType = 'Mobile';
+        } elseif (strpos($userAgent, 'Tablet') !== false || strpos($userAgent, 'iPad') !== false) {
+            $deviceType = 'Tablet';
+        } else {
+            $deviceType = 'Desktop';
+        }
 
         $data = [
             'ip' => $geoipInfo->ip,
@@ -40,6 +51,7 @@ class TambahVisitor implements ShouldQueue
             'timezone' => $geoipInfo->timezone,
             'continent' => $geoipInfo->continent,
             'currency' => $geoipInfo->currency,
+            'device_type' => $deviceType,
         ];
         Counter::create($data);
     }
