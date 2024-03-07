@@ -7,6 +7,7 @@ use App\Jobs\KirimEmailInbox;
 use App\Models\Agenda;
 use App\Models\File;
 use App\Models\Component;
+use App\Models\Download;
 use App\Models\FrontMenu;
 use Illuminate\Http\Request;
 use App\Models\News;
@@ -20,10 +21,31 @@ use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class FrontController extends Controller
 {
+    public function downloadarea(Request $request)
+    {
+        Seo::seO();
+        if ($request->ajax()) {
+            $data = Download::latest();
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn(
+                    'download',
+                    function ($data) {
+                        $actionBtn = '<td class="text-center"><a target="_blank" href="' .  Storage::url($data->path)  . '" class="btn btn-primary">Download</a></td>';
+                        return $actionBtn;
+                    }
+                )
+                ->rawColumns(['download'])
+                ->make(true);
+        }
+        return view('front.component.download-area');
+    }
+
     public function datappid()
     {
         $data1 = FrontMenu::whereNotNull('kategori')->get();
@@ -234,6 +256,32 @@ class FrontController extends Controller
         $news = News::where('kategori', $id)->latest('date')->paginate(5);
         $sideposts = News::latest('date')->take(5)->get();
         return view('front.pages.news', compact('news', 'sideposts'));
+    }
+
+    public function statistik(Request $request)
+    {
+        Seo::seO();
+        $data = News::where('title', 'like', '%statistik%')->with('gambarmuka')->get();
+        $hasil = [];
+
+        if ($request->ajax()) {
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn(
+                    'action',
+                    function ($data) {
+                        $actionBtn = '<td class="text-center">
+                                <a target="_blank" href="' . url('news-detail', $data->slug) . '" class="btn btn-primary">LIHAT
+                                    DATA</a>
+                            </td>';
+                        return $actionBtn;
+                    }
+                )
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+
+        return view('front.pages.globalsearch', compact('hasil', 'data'));
     }
 
     public function page(Request $request, $id)

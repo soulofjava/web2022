@@ -18,7 +18,7 @@
                 <a href="#">Dashboard</a>
             </li>
             <li class="breadcrumb-item">
-                <a href="#">Postingan</a>
+                <a href="#">Download Area</a>
             </li>
             <li class="breadcrumb-item active">Data</li>
         </ol>
@@ -27,11 +27,11 @@
         <div class="card-body">
             <h4 class="card-title">Form Ubah Data</h4>
             <div class="card-content">
-                {{Form::model($data, ['route' => ['news.update', $data->id],'method' => 'put', 'files' =>
+                {{Form::model($data, ['route' => ['download.update', $data->id],'method' => 'put', 'files' =>
                 'true', ''])}}
                 <input type="text" value="{{ $data->id }}" id="malika" hidden>
                 <input type="text" value="{{ $data->dip }}" id="bbb" hidden>
-                @include('back.sneat.pages.news.form')
+                @include('back.sneat.pages.download.form')
                 {{Form::close()}}
             </div>
         </div>
@@ -41,41 +41,6 @@
 
 @endsection
 @push('after-script')
-<script>
-    $(document).ready(function () {
-
-        let a = document.getElementById('bbb').value;
-        console.log(a);
-        if (a == 1) {
-            $(".dropzone").hide();
-            $(".jip").show();
-            $(".dip").show();
-        }
-
-        $("#hideButton").click(function () {
-            if ($(this).is(":checked")) {
-                $(".dropzone").hide();
-                $(".jip").show();
-                $(".dip").show();
-            } else {
-                $(".dropzone").show();
-                $(".jip").hide();
-                $(".dip").hide();
-            }
-        });
-
-    });
-
-    $(".select2").select2();
-
-    var flatpickrDate = document.querySelector(".flatpickr-date");
-
-    flatpickrDate.flatpickr({
-        monthSelectorType: "static",
-    });
-
-</script>
-
 <!-- Start DropZone -->
 <script src="https://cdn.jsdelivr.net/npm/dropzone@5.9.2/dist/dropzone.js"
     integrity="sha256-IXyEnLo8FpsoOLrRzJlVYymqpY29qqsMHUD2Ah/ttwQ=" crossorigin="anonymous"></script>
@@ -87,7 +52,7 @@
     Dropzone.autoDiscover = false;
     $(".dropzone").dropzone({
 
-        url: `{{ route('file_image.store') }}`,
+        url: `{{ route('download_area_file.store') }}`,
         acceptedFiles: 'image/*',
         // maxFilesize: 2, // MB
         addRemoveLinks: true,
@@ -115,7 +80,7 @@
             $('form').find('input[name="document[]"][value="' + name + '"]').remove();
 
             $.ajax({
-                url: `/admin/file_image/${name}`,
+                url: `/admin/download_area_file/${name}`,
                 type: "DELETE",
                 cache: false,
                 data: {
@@ -133,7 +98,7 @@
             this.on("removedfile", function (file) {
                 alert("Delete this file?");
                 $.ajax({
-                    url: '/admin/file_image/' + file.name,
+                    url: '/admin/download_area_file/' + file.name,
                     type: "DELETE",
                     data: {
                         "_token": token
@@ -143,7 +108,7 @@
             });
 
             $.ajax({
-                url: `/admin/file_image/${id_ku}`,
+                url: `/admin/download_area_file/${id_ku}`,
                 type: 'get',
                 // data: { request: 'fetch' },
                 dataType: 'json',
@@ -173,16 +138,4 @@
     });
 </script>
 <!-- End DropZone -->
-
-<!-- ck editor -->
-<script src="{{asset('assets/back/sneat/assets/ckeditor/ckeditor.js')}}"></script>
-<script>
-    var konten = document.getElementById("my-editor");
-    var options = {
-        filebrowserImageBrowseUrl: '/file-manager/ckeditor',
-    };
-    CKEDITOR.replace(konten, options);
-    CKEDITOR.config.allowedContent = true;
-</script>
-<!-- end ck editor -->
 @endpush

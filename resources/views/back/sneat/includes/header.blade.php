@@ -25,6 +25,13 @@
                     </a>
                 </li>
 
+                <li class="menu-item {{ (Str::contains(Request::url(), 'download')) ? 'active' : '' }}">
+                    <a href="{{ url('admin/download') }}" class="menu-link">
+                        <i class='bx bx-download'></i>
+                        <div data-i18n="Basic">Download Area</div>
+                    </a>
+                </li>
+
                 <li class="menu-item {{ (Str::contains(Request::url(), 'news')) ? 'active' : '' }}">
                     <a href="{{ url('admin/news') }}" class="menu-link">
                         <i class='bx bx-news'></i>

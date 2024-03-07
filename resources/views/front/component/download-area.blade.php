@@ -9,10 +9,9 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Halaman</th>
-                            <th>Kategori</th>
+                            <th>Nama</th>
                             <th class="disabled-sorting text-center">
-                                Aksi</th>
+                                Download</th>
                         </tr>
                     </thead>
                 </table>
@@ -35,16 +34,10 @@
             // ajax: "{{ route('global.search') }}",
             columns: [
                 { data: 'DT_RowIndex', orderable: false, searchable: false },
-                { data: 'title', name: 'title', className: "", defaultContent: 'N/A' },
-                { data: 'kategori', name: 'kategori', className: "text-center" },
-                { data: 'action', className: "text-center" },
+                { data: 'judul', name: 'judul', className: "", defaultContent: 'N/A' },
+                { data: 'download', className: "text-center" },
             ],
-            columnDefs: [
-                { targets: [2], visible: false } // Hide the Category column (index 1)
-            ]
         });
-
-
     });
 </script>
 @endpush

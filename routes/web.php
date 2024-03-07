@@ -15,6 +15,8 @@ use App\Http\Controllers\InboxController;
 use App\Http\Controllers\RelatedLinkController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\ComRegionController;
+use App\Http\Controllers\DownloadAreaFileController;
+use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\HelperController;
 use App\Http\Controllers\KategoriController;
@@ -72,6 +74,8 @@ Route::group(['middleware' => 'data_web'], function () {
     Route::resource('buku-tamu', GuestBookController::class);
     Route::get('agenda', [FrontController::class, 'event']);
     Route::get('berita', [FrontController::class, 'newsall']);
+    Route::get('statistik', [FrontController::class, 'statistik']);
+    Route::get('download-area', [FrontController::class, 'downloadarea']);
     Route::get('/reload-captcha', [FrontController::class, 'reloadCaptcha']);
 });
 
@@ -95,6 +99,8 @@ Route::group(['middleware' => ['auth', 'data_web', 'cek_inbox'], 'prefix' => 'ad
     Route::resource('news', NewsController::class);
     Route::resource('myprofile', CredentialController::class);
     Route::resource('event', AgendaController::class);
+    Route::resource('download', DownloadController::class);
+    Route::resource('download_area_file', DownloadAreaFileController::class);
     Route::resource('inbox', InboxController::class);
     Route::post('sendCentang', [ComponentController::class, 'changeAccess'])->name('centang');
     Route::post('sendCentangFM', [FrontMenuController::class, 'changeAccess'])->name('centangfm');
