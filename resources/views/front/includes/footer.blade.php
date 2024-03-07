@@ -12,9 +12,15 @@
                         <a target="_blank" href="{{ $data_website->youtube }}"><i class="fab fa-youtube"></i></a>
                     </div>
                     <div class="mt-3">
-                        <iframe
-                            src="https://maps.google.com/maps?q={{ $data_website->latitude }},{{ $data_website->longitude }}&z=17&output=embed"
-                            frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+                        <h5 class="footer-title">Link Terkait</h5>
+                        <ul>
+                            @foreach($related as $rr)
+                            <li>
+                                <a target="_blank" href="{{ $rr->url }}">{{ $rr->name }}</a>
+                            </li>
+                            @endforeach
+                        </ul>
+
                     </div>
                 </div>
             </div>
@@ -27,18 +33,6 @@
                         <li><a href="#">Minggu ini = {{ $counter_webm }}</a></li>
                         <li><a href="#">Bulan ini = {{ $counter_webb }}</a></li>
                         <li><a href="#">Total = {{ $counter_web }}</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-4">
-                <div class="footer-widget menu-widget">
-                    <h5 class="footer-title">Link Terkait</h5>
-                    <ul>
-                        @foreach($related as $rr)
-                        <li>
-                            <a target="_blank" href="{{ $rr->url }}">{{ $rr->name }}</a>
-                        </li>
-                        @endforeach
                     </ul>
                 </div>
             </div>
@@ -66,6 +60,13 @@
                             </ul>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-4">
+                <div class="footer-widget menu-widget">
+                    <iframe
+                        src="https://maps.google.com/maps?q={{ $data_website->latitude }},{{ $data_website->longitude }}&z=17&output=embed"
+                        frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
