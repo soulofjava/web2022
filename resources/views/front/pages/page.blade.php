@@ -24,13 +24,13 @@
             <div class="row">
                 <div class="col">
 
-                    @if($data->menu_name == 'Daftar Informasi Publik')
+                    @if($data->menu_name ?? '' == 'Daftar Informasi Publik')
                     <div class="card">
                         <div class="card-body">
                             <x-jip />
                         </div>
                     </div>
-                    @elseif($data->menu_name == 'Daftar Informasi yang Dikecualikan')
+                    @elseif($data->menu_name ?? '' == 'Daftar Informasi yang Dikecualikan')
                     <div class="card">
                         <div class="card-body">
                             <x-dip />
