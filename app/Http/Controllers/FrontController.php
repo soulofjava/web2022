@@ -36,8 +36,30 @@ class FrontController extends Controller
                 ->addColumn(
                     'download',
                     function ($data) {
-                        $actionBtn = '<td class="text-center"><a target="_blank" href="' .  Storage::url($data->path)  . '" class="btn btn-primary">Download</a></td>';
-                        return $actionBtn;
+                        $nama = "";
+
+                        foreach ($data->files as $value) {
+                            $download = route('helper.show-picture', array('path' => $value->file_path));
+                            $nama .= '<li>
+                                             <a target="_blank" href="' . $download . '">' . $value->file_name . '</a>
+                                        </li>
+                                             ';
+                        }
+
+                        return '<li>
+                        <ul>
+                        ' . $nama . '
+                        </ul>
+                      </li><div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+    Dropdown button
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+</div>';
                     }
                 )
                 ->rawColumns(['download'])
