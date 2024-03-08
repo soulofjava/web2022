@@ -29,16 +29,16 @@ class ApiController extends Controller
 
         // If 'status' parameter is provided, filter users by status
         if ($status) {
-            $data = News::select('id', 'title', 'slug')->where('title', 'like', '%' . $status . '%')->get();
+            $data = News::select('id', 'title', 'slug as url')->where('title', 'like', '%' . $status . '%')->get();
             // Add a new column containing the Laravel route based on the fetched data
             $data->transform(function ($item) {
-                $item['slug'] = URL::route('news.detail', ['slug' => $item['slug']]);
+                $item['url'] = URL::route('news.detail', ['slug' => $item['url']]);
                 return $item;
             });
 
-            $data2 = FrontMenu::select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like', '%' . $status . '%')->get();
+            $data2 = FrontMenu::select('id', 'menu_url as url', 'kategori', 'menu_name as title')->where('menu_name', 'like', '%' . $status . '%')->get();
             $data2->transform(function ($item2) {
-                $item2['menu_url'] = URL::route('page', ['id' => $item2['menu_url']]);
+                $item2['url'] = URL::route('page', ['id' => $item2['url']]);
                 return $item2;
             });
 
