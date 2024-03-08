@@ -24,35 +24,32 @@
             <div class="row">
                 <div class="col">
 
-                    @if($data->menu_name ?? '' == 'Daftar Informasi Publik')
+                    @if($data->menu_name == 'Daftar Informasi Publik')
                     <div class="card">
                         <div class="card-body">
                             <x-jip />
                         </div>
                     </div>
-                    @elseif($data->menu_name ?? '' == 'Daftar Informasi yang Dikecualikan')
+                    @elseif($data->menu_name == 'Daftar Informasi yang Dikecualikan')
                     <div class="card">
                         <div class="card-body">
                             <x-dip />
                         </div>
                     </div>
-                    @elseif(($data->menu_url ?? '') == 'penyertaan-modal' || ($data->menu_url ?? '') ==
-                    'investasi-usaha' ||
-                    ($data->menu_url ?? '') == 'informasi-kejadian-bencana' || ($data->menu_url ?? '') ==
-                    'daftar-kejadian-bencana' ||
-                    ($data->menu_url ?? '') == 'pengumuman' || ($data->menu_url ?? '') == 'informasi-gangguan' ||
-                    ($data->menu_url ?? '') == 'informasi-hoax' || ($data->menu_url ?? '') == 'kajian-dan-penelitian' ||
-                    ($data->menu_url ?? '') == 'pengawasan-internal' || ($data->menu_url ?? '') ==
-                    'hasil-penanganan-pengaduan' ||
-                    ($data->menu_url ?? '') == 'regulasi-informasi-publik' || ($data->menu_url ?? '') ==
-                    'standar-operasional-prosedur' ||
-                    ($data->menu_url ?? '') == 'laporan-layanan-informasi-daerah')
+                    @elseif($data->menu_name == 'Penyertaan Modal' || $data->menu_name == 'Investasi Usaha' ||
+                    $data->menu_name == 'Informasi Kejadian Bencana' || $data->menu_name == 'Daftar Kejadian Bencana' ||
+                    $data->menu_name == 'Pengumuman' || $data->menu_name == 'Informasi Gangguan' ||
+                    $data->menu_name == 'Informasi Hoax' || $data->menu_name == 'Kajian dan Penelitian' ||
+                    $data->menu_name == 'Pengawasan Internal' || $data->menu_name == 'Hasil Penanganan Pengaduan' ||
+                    $data->menu_name == 'Regulasi Informasi Publik' || $data->menu_name == 'Standar Operasional
+                    Prosedur' ||
+                    $data->menu_name == 'Laporan Layanan Informasi Daerah')
                     <div class="card">
                         <div class="card-body">
                             <x-data-table :kata="$data->menu_name" />
                         </div>
                     </div>
-                    @elseif($data->title ?? '')
+                    @elseif($data->title)
                     <div class="card">
                         <div class="card-body">
                             {!! $data->description !!}
@@ -61,7 +58,7 @@
                     @else
                     <div class="card">
                         <div class="card-body">
-                            {!! $data->content ?? '' !!}
+                            {!! $data->content !!}
                         </div>
                     </div>
                     @endif
