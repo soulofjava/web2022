@@ -67,7 +67,6 @@ Route::group(['middleware' => 'data_web'], function () {
     Route::post('setup', [FrontController::class, 'setup'])->name('setup-first');
     Route::get('page/{id}', [FrontController::class, 'page'])->name('page');
     Route::get('component/{id}', [FrontController::class, 'component'])->name('component');
-    Route::get('load-sql', [FrontController::class, 'loadsql']);
     Route::get('check', [FrontController::class, 'check']);
     Route::post('kotakmasuk', [FrontController::class, 'inbox']);
     Route::post('guest', [FrontController::class, 'addguest']);
