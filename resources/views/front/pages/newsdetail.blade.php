@@ -69,7 +69,7 @@
                         </div>
                         <!-- End meta top -->
 
-                        <div class="content" style="width: max-content;">
+                        <div class="content" style="overflow-x: auto;">
                             {!! $data->content !!}
                         </div>
                         <!-- End post content -->
