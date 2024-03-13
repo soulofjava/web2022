@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\RelatedLink;
 use App\Models\Website;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 
 class RelatedLinkController extends Controller
@@ -59,11 +60,24 @@ class RelatedLinkController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        $request->validate([
             'name' => 'required',
             'url' => 'required',
         ]);
-        RelatedLink::create($validated);
+
+        if ($request->hasFile('logo')) {
+            $file = $request->file('logo');
+            $name = $request->file('logo')->getClientOriginalName();
+            $path = $file->storeAs('link_terkait', $name, 'gcs');
+        }
+
+        RelatedLink::create([
+            'name' => $request->name,
+            'url' => $request->url,
+            'logo' => $name ?? '',
+            'path_logo' => $path ?? ''
+        ]);
+
         return redirect(route('relatedlink.index'))->with(['success' => 'Data added successfully!']);
     }
 
@@ -99,11 +113,35 @@ class RelatedLinkController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validated = $request->validate([
+        $request->validate([
             'name' => 'required',
             'url' => 'required',
         ]);
-        RelatedLink::find($id)->update($validated);
+
+        $data = RelatedLink::find($id)->first();
+
+        if ($request->hasFile('logo')) {
+            if (Storage::exists($data->path_logo)) {
+                Storage::delete($data->path_logo);
+            }
+
+            $file = $request->file('logo');
+            $name = $request->file('logo')->getClientOriginalName();
+            $path = $file->storeAs('link_terkait', $name, 'gcs');
+
+            $data->update([
+                'name' => $request->name,
+                'url' => $request->url,
+                'logo' => $name,
+                'path_logo' => $path
+            ]);
+        } else {
+            $data->update([
+                'name' => $request->name,
+                'url' => $request->url,
+            ]);
+        }
+
         return redirect(route('relatedlink.index'))->with(['success' => 'Data has been successfully changed!']);
     }
 
@@ -115,6 +153,10 @@ class RelatedLinkController extends Controller
      */
     public function destroy($id)
     {
+        $gambar = RelatedLink::find($id)->first();
+        if (Storage::exists($gambar->path_logo)) {
+            Storage::delete($gambar->path_logo);
+        }
         $data = RelatedLink::destroy($id);
         return $data;
     }

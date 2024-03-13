@@ -72,10 +72,10 @@
                                 Pengaturan Web</a>
                         </li>
                         @role('superadmin')
-                        <li class="menu-item {{ (Str::contains(Request::url(), 'themes')) ? 'active' : '' }}">
+                        <!-- <li class="menu-item {{ (Str::contains(Request::url(), 'themes')) ? 'active' : '' }}">
                             <a class="menu-link" href="{{ route('themes.index') }}">
                                 Tema</a>
-                        </li>
+                        </li> -->
                         @endrole
                         <li
                             class="menu-item {{ (Str::contains(Request::url(), ['user', 'bidang', 'myprofile'])) ? 'active' : '' }}">

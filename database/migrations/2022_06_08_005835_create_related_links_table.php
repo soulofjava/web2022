@@ -17,7 +17,8 @@ class CreateRelatedLinksTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('url');
-            $table->string('blok')->nullable();
+            $table->string('logo')->nullable();
+            $table->string('path_logo')->nullable();
             $table->timestamps();
         });
     }
