@@ -118,7 +118,7 @@ class RelatedLinkController extends Controller
             'url' => 'required',
         ]);
 
-        $data = RelatedLink::find($id)->first();
+        $data = RelatedLink::where('id', $id)->first();
 
         if ($request->hasFile('logo')) {
             if (Storage::exists($data->path_logo)) {

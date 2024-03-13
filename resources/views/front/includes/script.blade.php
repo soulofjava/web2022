@@ -41,3 +41,6 @@
         });
     });
 </script>
+
+<!-- accessibility widget -->
+<script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>

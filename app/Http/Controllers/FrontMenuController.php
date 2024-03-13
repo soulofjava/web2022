@@ -104,16 +104,24 @@ class FrontMenuController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(
-            [
-                'menu_parent' => 'required',
-                'menu_name' => 'required',
-            ],
-        );
+        if ($request->acb) {
+            $data = [
+                'menu_parent' => $request->menu_parent,
+                'menu_name' => $request->menu_name,
+                'menu_url' => $request->menu_url,
+                'link' => 1
+            ];
+        } else {
+            $data = [
+                'menu_parent' => $request->menu_parent,
+                'menu_name' => $request->menu_name,
+                'menu_url' => Str::slug($request->menu_name),
+                'content' => $request->content,
+                'link' => 0
+            ];
+        }
 
-        FrontMenu::create($request->except('_token') + [
-            'menu_url' => Str::slug($request->menu_name)
-        ]);
+        FrontMenu::insert($data);
 
         return redirect(route('frontmenu.index'))->with(['success' => 'Data added successfully!']);
     }
@@ -151,9 +159,26 @@ class FrontMenuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        FrontMenu::find($id)->update(
-            $request->except(['_token']),
-        );
+        $o = FrontMenu::find($id);
+
+        if ($request->acb) {
+            $data = [
+                'menu_parent' => $request->menu_parent,
+                'menu_name' => $request->menu_name,
+                'menu_url' => $request->menu_url,
+                'link' => 1
+            ];
+        } else {
+            $data = [
+                'menu_parent' => $request->menu_parent,
+                'menu_name' => $request->menu_name,
+                'menu_url' => Str::slug($request->menu_name),
+                'content' => $request->content,
+                'link' => 0
+            ];
+        }
+
+        $o->update($data);
 
         return redirect(route('frontmenu.index'))->with(['success' => 'Data has been successfully changed!']);
     }
@@ -188,7 +213,7 @@ class FrontMenuController extends Controller
     {
         if ($request->has('q')) {
             $cari = $request->q;
-            $data = DB::table('front_menus')->select('id', 'menu_name')->where('menu_name', 'LIKE', '%' . $cari . '%')->get();
+            $data = FrontMenu::select('id', 'menu_name')->where('menu_name', 'LIKE', '%' . $cari . '%')->get();
         } else {
             $data = FrontMenu::orderBy('id', 'ASC')->limit(10)->get();
         }

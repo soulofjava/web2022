@@ -1,56 +1,43 @@
 @extends('front.layouts.app')
 @section('content')
 <!-- Hero Section Start -->
-<section class="hero-section rel z-1 pt-150 rpt-135 pb-75 rpb-100"
-    style="background-image: url('{{ route('helper.show-picture', ['path' => $data_website->image_hero]) }}'); height: 800px; background-repeat: no-repeat;">
+<section class="hero-section rel z-1 pt-150 rpt-135 pb-75 rpb-100" style="background-image: url('{{ route('helper.show-picture', ['path' => $data_website->image_hero]) }}');
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh; 
+">
 </section>
 <!-- Hero Section End -->
 
 <!-- Features Section Start -->
-<!-- <section class="features-section rel z-1 pt-80 pb-40 bg-blue text-white">
+<section class="features-section rel z-1 pt-80 pb-40 bg-blue text-white">
     <div class="container">
         <div class="row justify-content-center">
+            @foreach($related as $rr)
             <div class="col-lg-4 col-md-6">
-                <div class="feature-item wow fadeInUp delay-0-2s">
+                <div class="feature-item wow fadeInUp delay-0-2s" style="display: flex; align-items: center;">
                     <div class="image">
-                        <img src="{{ asset('assets/front/images/features/icon1.png') }}" alt="Icon">
+                        <a href="{{ $rr->url }}">
+                            @if(Storage::exists($rr->path_logo))
+                            <img src="{{ route('helper.show-picture', ['path' => $rr->path_logo]) }}" alt="Icon">
+                            @else
+                            <img src="{{ asset('assets/front/images/features/icon2.png') }}" alt="Icon">
+                            @endif
+                        </a>
                     </div>
                     <div class="content">
-                        <h4>Online Courses From Experts</h4>
-                        <p>Sit amet consectetur adipisc elit sed do eiusmod temporse incididunt labore dolore
-                        </p>
+                        <a href="{{ $rr->url }}">
+                            <h4>{{ $rr->name }}</h4>
+                        </a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="feature-item wow fadeInUp delay-0-4s">
-                    <div class="image">
-                        <img src="{{ asset('assets/front/images/features/icon2.png') }}" alt="Icon">
-                    </div>
-                    <div class="content">
-                        <h4>Over 500+ High Quality Topics</h4>
-                        <p>Sit amet consectetur adipisc elit sed do eiusmod temporse incididunt labore dolore
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="feature-item wow fadeInUp delay-0-6s">
-                    <div class="image">
-                        <img src="{{ asset('assets/front/images/features/icon1.png') }}" alt="Icon">
-                    </div>
-                    <div class="content">
-                        <h4>Event & Program Video Update</h4>
-                        <p>Sit amet consectetur adipisc elit sed do eiusmod temporse incididunt labore dolore
-                        </p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
     <img class="rectangle-dots" src="{{ asset('assets/front/images/shapes/rectangle-dots.png') }}" alt="Shape">
     <img class="circle-dots" src="{{ asset('assets/front/images/shapes/circle-dots.png') }}" alt="Shape">
-</section> -->
+</section>
 <!-- Features Section End -->
 
 <!-- About Section Start -->
