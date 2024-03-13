@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use MacsiDigital\Zoom\Facades\Zoom;
 use GuzzleHttp\Client;
 use Illuminate\Support\Carbon;
 
@@ -11,7 +10,25 @@ class ZoomController extends Controller
 {
     public function viewzoom()
     {
-        return view('front.zoom.index');
+        $client = new Client();
+
+        $today = Carbon::now()->format('Y-m-d');
+
+        $response = $client->get("https://api.zoom.us/v2/users/me/meetings", [
+            'headers' => [
+                'Authorization' => 'Bearer ' . $this->generateAccessToken(),
+                'Content-Type' => 'application/json',
+            ],
+        ]);
+
+        $data = json_decode($response->getBody(), true);
+
+        // Filter pertemuan yang hanya terjadi hari ini
+        $meetingsToday = array_filter($data['meetings'], function ($meeting) use ($today) {
+            return Carbon::parse($meeting['start_time'])->format('Y-m-d') === $today;
+        });
+
+        return view('front.zoom.index', compact('meetingsToday'));
     }
 
     protected $apiKey = 'AFtp4s3KQ5m6ArheGFZHWw';
@@ -21,14 +38,16 @@ class ZoomController extends Controller
 
     public function createMeeting(Request $request)
     {
-        $tgl = date('Y-m-d\Th:i:00', strtotime($request->tanggal)) . 'Z';
-
-        // dd($tgl);
-        // Waktu mulai
+        // Waktu mulai dan selesai pertemuan yang akan dibuat
         $waktuMulai = Carbon::parse($request->jam_mulai);
-
-        // Waktu selesai
         $waktuSelesai = Carbon::parse($request->jam_selesai);
+
+        // Periksa apakah pertemuan yang baru dibuat bertabrakan dengan pertemuan yang sudah ada
+        if ($this->checkMeetingConflict($waktuMulai, $waktuSelesai)) {
+            return response()->json(['error' => 'Pertemuan bertabrakan dengan pertemuan yang sudah ada'], 400);
+        }
+
+        $tgl = date('Y-m-d\Th:i:00', strtotime($request->tanggal)) . 'Z';
 
         // Hitung perbedaan menit
         $perbedaanMenit = $waktuMulai->diffInMinutes($waktuSelesai);
@@ -49,9 +68,35 @@ class ZoomController extends Controller
         ]);
 
         $data = json_decode($response->getBody(), true);
-
         // return redirect('permohonan-zoom');
         return response()->json($data);
+    }
+
+    // Fungsi untuk memeriksa konflik waktu pertemuan
+    private function checkMeetingConflict($start_time, $end_time)
+    {
+        $client = new Client();
+
+        $response = $client->get("https://api.zoom.us/v2/users/me/meetings", [
+            'headers' => [
+                'Authorization' => 'Bearer ' . $this->generateAccessToken(),
+                'Content-Type' => 'application/json',
+            ],
+        ]);
+
+        $meetings = json_decode($response->getBody(), true);
+
+        foreach ($meetings['meetings'] as $meeting) {
+            $meeting_start = Carbon::parse($meeting['start_time']);
+            $meeting_end = $meeting_start->copy()->addMinutes($meeting['duration']);
+
+            // Periksa jika waktu selesai pertemuan yang baru bertabrakan dengan waktu mulai pertemuan yang sudah ada
+            if (($start_time >= $meeting_start && $start_time < $meeting_end) || ($end_time > $meeting_start && $end_time <= $meeting_end)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private function generateAccessToken()
@@ -72,184 +117,19 @@ class ZoomController extends Controller
         return $data['access_token'];
     }
 
-    public function index(Request $request)
+    private function getMeetings()
     {
-        if (!$request->code) {
-            $this->get_oauth_step_1();
-        } else {
-            $getToken         = $this->get_oauth_step_2($request->code);
-            $get_zoom_details = $this->create_a_zoom_meeting([
-                'topic'      => 'Interview With Code-180',
-                'start_time' => date('Y-m-dTh:i:00') . 'Z',
-                'agenda'     => "We are having interview with @code-180",
-                'jwtToken'   => $getToken['access_token'],
-            ]);
-            //dd($get_zoom_details);
-            return view('welcome')->with('respond', json_encode($get_zoom_details));
-        }
-    }
+        $client = new Client();
 
-    private function get_oauth_step_1()
-    {
-        $redirectURL  = 'http://127.0.0.1:8000/zoom-meeting-create';
-        $authorizeURL = 'https://zoom.us/oauth/authorize';
-
-        $clientID     = env("ZOOM_CLIENT_ID");
-        $clientSecret = env("ZOOM_CLIENT_SECRET");
-
-        $authURL = $authorizeURL . '?client_id=' . $clientID . '&redirect_uri=' . $redirectURL . '&response_type=code&scope=&state=xyz';
-        header('Location: ' . $authURL);
-        exit;
-    }
-
-    private function get_oauth_step_2($code)
-    {
-        $tokenURL    = 'https://zoom.us/oauth/token';
-        $redirectURL = 'http://127.0.0.1:8000/zoom-meeting-create';
-
-        $clientID     = env("ZOOM_CLIENT_ID");
-        $clientSecret = env("ZOOM_CLIENT_SECRECT");
-
-        $curl   = curl_init();
-        $params = array(
-            CURLOPT_URL => $tokenURL . "?"
-                . "code=" . $code
-                . "&grant_type=authorization_code"
-                . "&client_id=" . $clientID
-                . "&client_secret=" . $clientSecret
-                . "&redirect_uri=" . $redirectURL,
-            CURLOPT_RETURNTRANSFER      => true,
-            CURLOPT_MAXREDIRS           => 10,
-            CURLOPT_TIMEOUT             => 30,
-            CURLOPT_HTTP_VERSION        => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST       => "POST",
-            CURLOPT_NOBODY              => false,
-            CURLOPT_HTTPHEADER          => array(
-                "cache-control: no-cache",
-                "content-type: application/x-www-form-urlencoded",
-                "accept: *",
-            ),
-        );
-        curl_setopt_array($curl, $params);
-        $response = curl_exec($curl);
-
-        $err = curl_error($curl);
-        curl_close($curl);
-
-        $response = json_decode($response, true);
-        return $response;
-    }
-
-    private function create_a_zoom_meeting($meetingConfig = [])
-    {
-        $requestBody = [
-            'topic'      => $meetingConfig['topic'] ?? 'New Meeting General Talk',
-            'type'       => $meetingConfig['type'] ?? 2,
-            'start_time' => $meetingConfig['start_time'] ?? date('Y-m-dTh:i:00') . 'Z',
-            'duration'   => $meetingConfig['duration'] ?? 30,
-            'password'   => $meetingConfig['password'] ?? mt_rand(),
-            'timezone'   => 'Asia/Jakarta',
-            'agenda'     => $meetingConfig['agenda'] ?? 'Interview Meeting',
-            'settings'   => [
-                'host_video'        => false,
-                'participant_video' => true,
-                'cn_meeting'        => false,
-                'in_meeting'        => false,
-                'join_before_host'  => true,
-                'mute_upon_entry'   => true,
-                'watermark'         => false,
-                'use_pmi'           => false,
-                'approval_type'     => 0,
-                'registration_type' => 0,
-                'audio'             => 'voip',
-                'auto_recording'    => 'none',
-                'waiting_room'      => false,
+        $response = $client->get("https://api.zoom.us/v2/users/me/meetings", [
+            'headers' => [
+                'Authorization' => 'Bearer ' . $this->generateAccessToken(),
+                'Content-Type' => 'application/json',
             ],
-        ];
+        ]);
 
-        $curl = curl_init();
-        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0); // Skip SSL Verification
-        curl_setopt_array($curl, array(
-            CURLOPT_URL            => "https://api.zoom.us/v2/users/me/meetings",
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING       => "",
-            CURLOPT_MAXREDIRS      => 10,
-            CURLOPT_SSL_VERIFYHOST => 0,
-            CURLOPT_SSL_VERIFYPEER => 0,
-            CURLOPT_TIMEOUT        => 30,
-            CURLOPT_HTTP_VERSION   => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST  => "POST",
-            CURLOPT_POSTFIELDS     => json_encode($requestBody),
-            CURLOPT_HTTPHEADER     => array(
-                "Authorization: Bearer " . $meetingConfig['jwtToken'],
-                "Content-Type: application/json",
-                "cache-control: no-cache",
-            ),
-        ));
-        $response = curl_exec($curl);
-        $err      = curl_error($curl);
-        curl_close($curl);
+        $data = json_decode($response->getBody(), true);
 
-        if ($err) {
-            return [
-                'success'  => false,
-                'msg'      => 'cURL Error #:' . $err,
-                'response' => null,
-            ];
-        } else {
-            return [
-                'success'  => true,
-                'msg'      => 'success',
-                'response' => json_decode($response, true),
-            ];
-        }
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return $data['meetings'];
     }
 }
