@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "05d8d2a65d63c072af429efb9823dda7",
+    "content-hash": "8e8ac0486f28618b5047c742e846f844",
     "packages": [
         {
             "name": "alexusmai/laravel-file-manager",
@@ -6757,77 +6757,6 @@
                 }
             ],
             "time": "2024-03-10T08:07:49+00:00"
-        },
-        {
-            "name": "shetabit/visitor",
-            "version": "v4.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/shetabit/visitor.git",
-                "reference": "3bcc4254fd4f3e5347970d7891a50dee0919cd60"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/shetabit/visitor/zipball/3bcc4254fd4f3e5347970d7891a50dee0919cd60",
-                "reference": "3bcc4254fd4f3e5347970d7891a50dee0919cd60",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "^5.1|6.*|7.*|8.*|9.*|10.*",
-                "jenssegers/agent": "^2.6",
-                "php": ">=7.2",
-                "ua-parser/uap-php": "^3.9"
-            },
-            "require-dev": {
-                "orchestra/testbench": "^4.0",
-                "phpunit/phpunit": ">=7.5",
-                "squizlabs/php_codesniffer": "^3.4"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Shetabit\\Visitor\\Provider\\VisitorServiceProvider"
-                    ],
-                    "aliases": {
-                        "Visitor": "Shetabit\\Visitor\\Facade\\Visitor"
-                    }
-                }
-            },
-            "autoload": {
-                "files": [
-                    "src/helpers.php"
-                ],
-                "psr-4": {
-                    "Shetabit\\Visitor\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Mahdi Khanzadi",
-                    "email": "khanzadimahdi@gmail.com",
-                    "homepage": "https://github.com/khanzadimahdi",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Laravel visitor",
-            "homepage": "https://github.com/shetabit/visitor",
-            "keywords": [
-                "parse laravel user agents",
-                "shetabit",
-                "trace laravel visitors",
-                "track laravel visitors",
-                "visitor"
-            ],
-            "support": {
-                "issues": "https://github.com/shetabit/visitor/issues",
-                "source": "https://github.com/shetabit/visitor/tree/v4.2.0"
-            },
-            "time": "2024-01-21T08:13:24+00:00"
         },
         {
             "name": "spatie/laravel-google-cloud-storage",

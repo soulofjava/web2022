@@ -25,9 +25,6 @@ use App\Http\Controllers\ZoomController;
 use App\Jobs\TambahVisitor;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
-// use App\Models\Visitor;
-// use Shetabit\Visitor\Models\Visitor;
-// use Shetabit\Visitor\Facade\Visitor;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
@@ -51,9 +48,7 @@ Route::get('callback', [SSOController::class, 'getCallback'])->name('sso.callbac
 Route::get('ssouser', [SSOController::class, 'connectUser'])->name('sso.authuser');
 
 Route::get('/', function () {
-    // $a = Visitor::userAgent();
-    // return response()->json($a);
-    TambahVisitor::dispatch($_SERVER['REMOTE_ADDR']);
+    // TambahVisitor::dispatch($_SERVER['REMOTE_ADDR']);
     Seo::seO();
     $news = News::with('gambar', 'gambarmuka', 'uploader')->where('terbit', 1)->latest('date')->paginate(6);
     return view('front.pages.index', compact('news'));
@@ -144,10 +139,4 @@ Route::get('kelurahan', [ComRegionController::class, 'kelurahan'])->name('kelura
 Route::get('template_email', [FrontController::class, 'template_email']);
 Route::post('komentar', [FrontController::class, 'komentar'])->name('komentar');
 
-Route::get('zoom', [ZoomController::class, 'index']);
-Route::any('zoom-meeting-create', [ZoomController::class, 'index']);
-
 Route::get('show-picture', [HelperController::class, 'showPicture'])->name('helper.show-picture');
-
-Route::get('create-meeting', [ZoomController::class, 'createMeeting']);
-Route::get('permohonan-zoom', [ZoomController::class, 'viewzoom']);

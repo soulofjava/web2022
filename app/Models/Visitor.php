@@ -9,7 +9,7 @@ class Visitor extends Model
     public function __construct(array $attributes = [])
     {
         if (!isset($this->table)) {
-            $this->setTable(config('visitor.table_name'));
+            $this->setTable('shetabit_visits');
         }
         parent::__construct($attributes);
     }
