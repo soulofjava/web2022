@@ -23,7 +23,7 @@
 
             <div class="row">
                 <div class="col">
-
+                    @if(isset($data->menu_name))
                     @if($data->menu_name == 'Daftar Informasi Publik')
                     <div class="card">
                         <div class="card-body">
@@ -49,13 +49,18 @@
                             <x-data-table :kata="$data->menu_name" />
                         </div>
                     </div>
-                    @elseif($data->title)
+                    @endif()
+                    @endif()
+
+                    @if(isset($data->title))
                     <div class="card">
                         <div class="card-body">
                             {!! $data->description !!}
                         </div>
                     </div>
-                    @else
+                    @endif
+
+                    @if(isset($data->content))
                     <div class="card">
                         <div class="card-body">
                             {!! $data->content !!}
