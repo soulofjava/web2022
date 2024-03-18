@@ -20,8 +20,8 @@ class FrontMenu extends Model
             $newValue = str_replace('src="', 'src="https://docs.google.com/viewer?url=', $value);
         }
 
-        $iframeEmbed = str_replace('<embed', '<iframe', $newValue);
-        $iframeEmbed = str_replace('></embed>', '></iframe>', $iframeEmbed);
+        $iframeEmbed = str_replace('<embed', '<iframe ', $newValue);
+        $iframeEmbed = str_replace('></embed>', 'style="width:100%; height:800px;" frameborder="0"></iframe>', $iframeEmbed);
 
         return $iframeEmbed;
     }

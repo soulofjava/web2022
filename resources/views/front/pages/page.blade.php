@@ -64,6 +64,9 @@
                     <div class="card">
                         <div class="card-body">
                             {!! $data->content !!}
+                            <!-- <iframe
+                                src="https://docs.google.com/viewer?url=https://website.wonosobokab.go.id/show-picture?path=document/portal_wonosobo_kab/Sekretariat_Daerah/02_Profil_Pimpinan_Setda_26052023.pdf&embedded=true"
+                                style="width:100%; height:800px;" frameborder="0"></iframe> -->
                         </div>
                     </div>
                     @endif
