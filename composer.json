@@ -15,6 +15,7 @@
         "doctrine/dbal": "^3.0",
         "guzzlehttp/guzzle": "^7.2",
         "hisorange/browser-detect": "^4.5",
+        "jenssegers/agent": "^2.6",
         "jgrossi/corcel": "^7.0",
         "jorenvanhocht/laravel-share": "^4.2",
         "laravel/framework": "^10.10",
@@ -28,9 +29,9 @@
         "novay/laravel-word-template": "^1.1",
         "phpoffice/phpword": "^0.18.3",
         "realrashid/sweet-alert": "^7.0",
+        "shetabit/visitor": "^4.2",
         "spatie/laravel-google-cloud-storage": "^2.2",
         "spatie/laravel-permission": "^5.8",
-        "torann/geoip": "^3.0",
         "yajra/laravel-datatables-oracle": "^10.3.1"
     },
     "require-dev": {

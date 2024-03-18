@@ -25,6 +25,9 @@ use App\Http\Controllers\ZoomController;
 use App\Jobs\TambahVisitor;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
+// use App\Models\Visitor;
+// use Shetabit\Visitor\Models\Visitor;
+// use Shetabit\Visitor\Facade\Visitor;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
@@ -48,11 +51,13 @@ Route::get('callback', [SSOController::class, 'getCallback'])->name('sso.callbac
 Route::get('ssouser', [SSOController::class, 'connectUser'])->name('sso.authuser');
 
 Route::get('/', function () {
+    // $a = Visitor::userAgent();
+    // return response()->json($a);
     TambahVisitor::dispatch($_SERVER['REMOTE_ADDR']);
     Seo::seO();
     $news = News::with('gambar', 'gambarmuka', 'uploader')->where('terbit', 1)->latest('date')->paginate(6);
     return view('front.pages.index', compact('news'));
-})->name('root')->middleware('data_web');
+})->name('root')->middleware('data_web', 'VisitorMiddleware');
 
 Route::group(['middleware' => 'data_web'], function () {
     Route::get('newscategory/{id}', [FrontController::class, 'newsByCategory']);
