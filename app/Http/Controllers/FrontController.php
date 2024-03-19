@@ -301,7 +301,7 @@ class FrontController extends Controller
     public function statistik(Request $request)
     {
         Seo::seO();
-        $data = News::where('title', 'like', '%statistik%')->latest('date');
+        $data = News::where('title', 'like', '%statistik%')->latest('date')->get();
         $hasil = [];
 
         if ($request->ajax()) {
@@ -331,7 +331,7 @@ class FrontController extends Controller
         $news = News::with('gambarmuka')->where('terbit', 1)->orderByViews()->take(5);
 
         if ($id == 'statistik') {
-            $data = News::where('title', 'like', '%' . $id . '%')->with('gambarmuka');
+            $data = News::where('title', 'like', '%' . $id . '%')->get();
             $hasil = [];
 
             if ($request->ajax()) {
