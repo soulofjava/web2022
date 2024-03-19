@@ -12,6 +12,7 @@ use App\Models\FrontMenu;
 use App\Models\Inbox;
 use App\Models\News;
 use App\Models\RelatedLink;
+use App\Models\Visitor;
 use Illuminate\Support\Facades\DB;
 
 class WebHelper
@@ -30,7 +31,7 @@ class WebHelper
         $menu = FrontMenu::all();
         $agenda = Agenda::all()->count();
         $news = News::all()->count();
-        $counter = Counter::all()->count();
+        $counter = Visitor::all()->count();
         $inbox = Inbox::all()->count();
         $related = RelatedLink::all();
         $berita = News::where('kategori', 'KATEGORI_NEWS_4')->count();
