@@ -26,9 +26,10 @@ class News extends Model implements Viewable
 
     public function getDescriptionAttribute($value)
     {
-        $substring = url('/') . 'storage/';
+        $substring = url('/') . '/storage/';
+        
         if (Str::contains($value, $substring)) {
-            $newValue = str_replace(url('/') . 'storage/', url('show-picture?path='), $value);
+            $newValue = str_replace(url('/') . '/storage/', url('show-picture?path='), $value);
             return $newValue;
         }
 

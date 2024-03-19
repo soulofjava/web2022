@@ -19,7 +19,6 @@ use App\Http\Controllers\FileController;
 use App\Http\Controllers\HelperController;
 use App\Http\Controllers\MigrasiDataController;
 use App\Http\Controllers\SSO\SSOController;
-use App\Jobs\TambahVisitor;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
 use App\Models\Website;
@@ -49,7 +48,6 @@ Route::get('ssouser', [SSOController::class, 'connectUser'])->name('sso.authuser
 Route::get('/', function () {
     $themes = Website::first();
     if (Website::exists()) {
-        TambahVisitor::dispatch($_SERVER['REMOTE_ADDR']);
         Seo::seO();
 
         try {
@@ -67,7 +65,7 @@ Route::get('/', function () {
         $data = Themes::all();
         return view('front.setup', compact('data'));
     }
-})->name('root')->middleware('data_web');
+})->name('root')->middleware('data_web', 'VisitorMiddleware');
 
 Route::group(['middleware' => 'data_web'], function () {
     Route::get('newscategory/{id}', [FrontController::class, 'newsByCategory']);
