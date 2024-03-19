@@ -81,7 +81,7 @@
                                 'ASC')->count() == 0)
                                 <li>
                                     @if ($menu->link)
-                                    <a href="{{ $menu->menu_url }}">
+                                    <a href="{{ $menu->menu_url }}" target="_blank">
                                         {{ $menu->menu_name }}
                                     </a>
                                     @else
