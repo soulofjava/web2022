@@ -99,6 +99,10 @@
                                                 <a href="https://jdih.wonosobokab.go.id/" target="_blank">{{
                                                     $sub3->menu_name }}
                                                 </a>
+                                                @elseif ($sub3->menu_name == 'Agenda Pimpinan')
+                                                <a href="{{ url('/agenda') }}">{{
+                                                    $sub3->menu_name }}
+                                                </a>
                                                 @elseif($sub3->link)
                                                 <a href="{{ $sub3->menu_url }}" target="_blank">
                                                     {{ $sub3->menu_name }}
