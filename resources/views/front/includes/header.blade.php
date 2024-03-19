@@ -182,7 +182,7 @@
                                 </li>
                                 @endif
                                 @endforeach
-                                <x-komponen li='' a="" ul="" />
+                                <x-komponen li="" a="" ul="" />
                             </ul>
                         </div>
 

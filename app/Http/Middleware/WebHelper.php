@@ -3,7 +3,6 @@
 namespace App\Http\Middleware;
 
 use App\Models\Agenda;
-use App\Models\Counter;
 use Closure;
 use Illuminate\Http\Request;
 use App\Models\Website;
@@ -11,6 +10,7 @@ use App\Models\FrontMenu;
 use App\Models\Inbox;
 use App\Models\News;
 use App\Models\RelatedLink;
+use App\Models\Visitor;
 use Carbon\Carbon;
 
 class WebHelper
@@ -29,11 +29,11 @@ class WebHelper
         $menu = FrontMenu::all();
         $agenda = Agenda::all()->count();
         $news = News::all()->count();
-        $counter = Counter::all()->count();
-        $counterH = Counter::whereDate('created_at', Carbon::today())->count();
-        $counterK = Counter::whereDate('created_at', Carbon::yesterday())->count();
-        $counterM = Counter::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->count();
-        $counterB = Counter::whereMonth('created_at', date('m'))->whereYear('created_at', date('Y'))->count();
+        $counter = Visitor::all()->count();
+        $counterH = Visitor::whereDate('created_at', Carbon::today())->count();
+        $counterK = Visitor::whereDate('created_at', Carbon::yesterday())->count();
+        $counterM = Visitor::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->count();
+        $counterB = Visitor::whereMonth('created_at', date('m'))->whereYear('created_at', date('Y'))->count();
         $inbox = Inbox::all()->count();
         $related = RelatedLink::all();
 

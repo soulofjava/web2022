@@ -21,7 +21,6 @@ use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class FrontController extends Controller
@@ -195,6 +194,34 @@ class FrontController extends Controller
         return view('front.pages.globalsearch', compact('hasil', 'combinedData'));
     }
 
+    public function layanan(Request $request)
+    {
+        Seo::seO();
+        $cari = $request->kolomcari;
+        $hasil = 'Search result : ' . $cari;
+        $data = News::where('tag', '3')->latest("date");
+
+        if ($request->ajax()) {
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn(
+                    'action',
+                    function ($data) {
+                        $actionBtn = '<td class="text-center">
+                            <a href="' . url('news-detail', $data->slug) . '" class="btn btn-primary">LIHAT
+                            DATA</a>
+                            </td>';
+
+                        return $actionBtn;
+                    }
+                )
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+
+        return view('front.pages.globalsearch', compact('hasil', 'data'));
+    }
+
     public function newsBySearch(Request $request)
     {
         Seo::seO();
@@ -274,7 +301,7 @@ class FrontController extends Controller
     public function statistik(Request $request)
     {
         Seo::seO();
-        $data = News::where('title', 'like', '%statistik%')->with('gambarmuka')->get();
+        $data = News::where('title', 'like', '%statistik%')->latest('date');
         $hasil = [];
 
         if ($request->ajax()) {
@@ -301,10 +328,10 @@ class FrontController extends Controller
     {
         Seo::seO();
         $data = FrontMenu::where('menu_url', $id)->with('menu_induk')->first();
-        $news = News::with('gambarmuka')->where('terbit', 1)->orderByViews()->take(5)->get();
+        $news = News::with('gambarmuka')->where('terbit', 1)->orderByViews()->take(5);
 
         if ($id == 'statistik') {
-            $data = News::where('title', 'like', '%' . $id . '%')->with('gambarmuka')->get();
+            $data = News::where('title', 'like', '%' . $id . '%')->with('gambarmuka');
             $hasil = [];
 
             if ($request->ajax()) {

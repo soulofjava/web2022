@@ -1,7 +1,6 @@
 <?php
 
 use App\Helpers\Seo;
-use App\Jobs\TambahVisitor;
 use App\Http\Controllers\ComponentController;
 use App\Http\Controllers\CredentialController;
 use App\Http\Controllers\FrontController;
@@ -25,7 +24,6 @@ use App\Http\Controllers\SSO\SSOController;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
 use App\Models\Website;
-use App\Models\Themes;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,18 +41,11 @@ Route::get('callback', [SSOController::class, 'getCallback'])->name('sso.callbac
 Route::get('ssouser', [SSOController::class, 'connectUser'])->name('sso.authuser');
 
 Route::get('/', function () {
-    $themes = Website::first();
-    if (Website::exists()) {
-        TambahVisitor::dispatch($_SERVER['REMOTE_ADDR']);
-        Seo::seO();
-        $news = News::with('gambarmuka', 'uploader')->latest('date')->paginate(6);
-        return view('front.pages.index', compact('news'));
-        // return view('front.index', compact('news', 'berita'));
-    } else {
-        $data = Themes::all();
-        return view('front.setup', compact('data'));
-    }
-})->name('root')->middleware('data_web');
+    Seo::seO();
+    $news = News::with('gambarmuka', 'uploader')->latest('date')->paginate(6);
+    return view('front.pages.index', compact('news'));
+    // return view('front.index', compact('news', 'berita'));
+})->name('root')->middleware('data_web', 'VisitorMiddleware');
 
 Route::group(['middleware' => 'data_web'], function () {
     Route::get('newscategory/{id}', [FrontController::class, 'newsByCategory']);
@@ -74,6 +65,7 @@ Route::group(['middleware' => 'data_web'], function () {
     Route::resource('buku-tamu', GuestBookController::class);
     Route::get('agenda', [FrontController::class, 'event']);
     Route::get('berita', [FrontController::class, 'newsall']);
+    Route::get('layanan', [FrontController::class, 'layanan']);
     Route::get('statistik', [FrontController::class, 'statistik']);
     Route::get('download-area', [FrontController::class, 'downloadarea']);
     Route::get('/reload-captcha', [FrontController::class, 'reloadCaptcha']);

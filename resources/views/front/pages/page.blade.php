@@ -1,7 +1,7 @@
 @extends('front.layouts.app')
 @section('content')
 <!-- Blog Details Start -->
-<section class="blog-details-area py-130 rpy-100">
+<section class="blog-details-area py-130 rpy-100" style="height: 100vh; overflow-y: auto;">
     <div class="container">
         <div class="row">
             <div class="col">
