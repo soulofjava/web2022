@@ -24,6 +24,7 @@ use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Http;
 use Artesaos\SEOTools\Facades\OpenGraph;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class FrontController extends Controller
 {
