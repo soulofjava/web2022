@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\Http;
 use Artesaos\SEOTools\Facades\OpenGraph;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class FrontController extends Controller
 {
