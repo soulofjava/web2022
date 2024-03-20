@@ -156,7 +156,7 @@ class FrontController extends Controller
             if (Str::contains($data->gambarmuka->path, 'https')) {
                 OpenGraph::addImage($data->gambarmuka->path);
             } else {
-                OpenGraph::addImage(url('storage') . '/' . $data->gambarmuka->path);
+                OpenGraph::addImage(route('helper.show-picture', ['path' => $data->gambarmuka->path ?? '']), ['height' => 300, 'width' => 300]);
             }
         }
 
