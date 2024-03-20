@@ -13,6 +13,7 @@
         "davejamesmiller/laravel-breadcrumbs": "5.x",
         "doctrine/dbal": "^3.0",
         "guzzlehttp/guzzle": "^7.2",
+        "intervention/image": "^2.7",
         "jenssegers/agent": "^2.6",
         "jgrossi/corcel": "^7.0",
         "jorenvanhocht/laravel-share": "^4.2",

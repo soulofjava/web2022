@@ -21,7 +21,9 @@ use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class FrontController extends Controller
 {
@@ -113,6 +115,34 @@ class FrontController extends Controller
     {
         $data = News::with('gambarmuka')->where('slug', $slug)->first();
 
+        if ($data->gambarmuka) {
+            // Mendapatkan path gambar dari GCS
+            $imagePath = $data->gambarmuka->path; // Sesuaikan dengan path gambar di GCS Anda
+
+            // Mendapatkan konten gambar dari GCS
+            $imageContent = Storage::get($imagePath);
+
+            // Membuat instance gambar menggunakan Intervention Image
+            $image = Image::make($imageContent);
+
+            // Menyesuaikan ukuran gambar tanpa mempertahankan rasio aspek
+            $image->fit(300, 300);
+
+            // Mengirim gambar yang sudah dikompres sebagai respons HTTP
+            // return response($compressedImage, 200)
+            // ->header('Content-Type', 'image/jpeg');
+
+            // Menghasilkan nama file baru berdasarkan format "hari-bulan-tahun"
+            $newFileName = $slug . '.jpg';
+
+            // Menyimpan gambar yang sudah dikompres ke GCS
+            $temporaryImagePath = 'thumbs/' . $newFileName;
+            Storage::disk('gcs')->put($temporaryImagePath, $image->encode());
+            OpenGraph::addImage(route('helper.show-picture', ['path' => $temporaryImagePath ?? '']), ['height' => 300, 'width' => 300]);
+        } else {
+            OpenGraph::addImage(url('assets/pemda.ico'));
+        }
+
         Seo::seO();
 
         OpenGraph::setDescription(strip_tags(Str::limit($data->content, 50, '...')));
@@ -120,7 +150,6 @@ class FrontController extends Controller
         OpenGraph::setUrl(url()->current());
         OpenGraph::addProperty('type', 'article');
         OpenGraph::addProperty('locale', 'id');
-        OpenGraph::addImage(route('helper.show-picture', ['path' => $data->gambarmuka->path ?? '']), ['height' => 300, 'width' => 300]);
 
         $data = News::with('gambar', 'uploader')->where('slug', $slug)->first();
         views($data)->cooldown(5)->record();
