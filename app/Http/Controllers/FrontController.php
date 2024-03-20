@@ -161,7 +161,7 @@ class FrontController extends Controller
         }
 
         views($data)->cooldown(5)->record();
-        $news = News::with('gambarmuka')->orderBy('date', 'desc')->paginate(5);
+        $news = News::with('gambarmuka')->latest('date')->paginate(5);
         $file = File::where('id_news', $data->attachment)->get();
 
         return view('front.pages.newsdetail', compact('data', 'news', 'file'));
