@@ -156,8 +156,32 @@ class FrontController extends Controller
             if (Str::contains($data->gambarmuka->path, 'https')) {
                 OpenGraph::addImage($data->gambarmuka->path);
             } else {
-                OpenGraph::addImage(route('helper.show-picture', ['path' => $data->gambarmuka->path ?? '']), ['height' => 300, 'width' => 300]);
+                // Mendapatkan path gambar dari GCS
+            $imagePath = $data->gambarmuka->path; // Sesuaikan dengan path gambar di GCS Anda
+
+            // Mendapatkan konten gambar dari GCS
+            $imageContent = Storage::get($imagePath);
+
+            // Membuat instance gambar menggunakan Intervention Image
+            $image = Image::make($imageContent);
+
+            // Menyesuaikan ukuran gambar tanpa mempertahankan rasio aspek
+            $image->fit(300, 300);
+
+            // Mengirim gambar yang sudah dikompres sebagai respons HTTP
+            // return response($compressedImage, 200)
+            // ->header('Content-Type', 'image/jpeg');
+
+            // Menghasilkan nama file baru berdasarkan format "hari-bulan-tahun"
+            $newFileName = $slug . '.jpg';
+
+            // Menyimpan gambar yang sudah dikompres ke GCS
+            $temporaryImagePath = 'thumbs/' . $newFileName;
+            Storage::disk('gcs')->put($temporaryImagePath, $image->encode());
+            OpenGraph::addImage(route('helper.show-picture', ['path' => $temporaryImagePath ?? '']), ['height' => 300, 'width' => 300]);
             }
+        }else{
+            OpenGraph::addImage(url('assets/pemda.ico'));
         }
 
         views($data)->cooldown(5)->record();
