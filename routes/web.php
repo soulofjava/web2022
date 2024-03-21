@@ -18,6 +18,7 @@ use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\ComRegionController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\HelperController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\MigrasiDataController;
 use App\Http\Controllers\SSO\SSOController;
 use App\Http\Controllers\TestimonialController;
@@ -104,6 +105,7 @@ Route::group(['middleware' => ['auth', 'data_web', 'cek_inbox'], 'prefix' => 'ad
         Route::resource('settings', WebsiteController::class);
         Route::resource('user', UserController::class);
         Route::resource('frontmenu', FrontMenuController::class);
+        Route::resource('kategori', KategoriController::class);
         Route::resource('relatedlink', RelatedLinkController::class);
         Route::resource('component', ComponentController::class);
         Route::resource('testimoni', TestimonialController::class);
