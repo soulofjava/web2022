@@ -25,11 +25,11 @@
                     {{ $data->title }}
                 </p>
                 <p class="text-center">
-                    <img class="max-w-lg h-auto rounded-lg" src="{{ asset('storage/') }}/{{ $data->path}}">
+                    <img class="max-w-lg h-auto rounded-lg" src="{{ route('helper.show-picture', ['path' => $data->path]) }}">
                 </p>
                 <br>
                 <div class="w-full px-3 py-5 inset-5 bg-white opacity-95 text-justify rounded-lg">
-                    <div class="flex justify-end">
+                    <div class="flex justify-end mb-8">
                         <div class="text-black text-bold">
                             {{
                             \Carbon\Carbon::parse( $data->date )->format('l') }}, {{
@@ -38,11 +38,11 @@
                         </div>
                     </div>
                     <hr>
-                    <article class="prose lg:prose-lg xl:prose-xl text-black font-serif">
+                    <article class=" text-black font-serif">
                         {!! $data->description !!}
                     </article>
                     <hr>
-                    <div class="flex justify-between ">
+                    <div class="flex justify-between mt-8">
                         <div class="text-black">Dilihat : {{
                             views($data)->count(); }} kali.</div>
                         <div class="text-black">

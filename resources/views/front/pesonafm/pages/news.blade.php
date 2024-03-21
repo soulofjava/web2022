@@ -49,7 +49,7 @@
                                         <a href="{{ url('/news-detail', $n->slug) }}">
                                             @if(Storage::get($n->path))
                                             <img src="{{ route('helper.show-picture', ['path' => $n->path]) }}"
-                                                class=" bg-blend-normal rounded-lg" alt="image" />
+                                                class=" bg-blend-normal rounded-lg" style="width: 100%; height: 240px; object-fit: cover" alt="image" />
                                             @else
                                             <img src="{{ asset('assets/front/pesonafm/Radio Pesona 2 white bg (1).jpg') }}"
                                                 class="img-fluid rounded-lg" alt="image" />

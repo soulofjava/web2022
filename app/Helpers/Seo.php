@@ -13,8 +13,9 @@ class Seo
         $data = Website::all()->first();
         return SEOMeta::setTitle($data->web_name)
             ->setDescription($data->web_description)
-            ->setKeywords($data->web_name)
-            ->addKeyword($data->web_description)
-            ->addMeta('$meta', '$value');
+            ->addKeyword('PesonaFM')
+            ->addKeyword('Wonosobo')
+            ->addKeyword('Soul Of Java')
+            ->addMeta('author', 'Isa Maulana Tantra');
     }
 }

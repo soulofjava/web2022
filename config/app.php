@@ -245,6 +245,7 @@ return [
         'Captcha' => Mews\Captcha\Facades\Captcha::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
         'Seo' => App\Helpers\Seo::class,
+        'OpenGraph' => Artesaos\SEOTools\Facades\OpenGraph::class,
     ],
 
 ];
