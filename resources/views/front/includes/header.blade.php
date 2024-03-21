@@ -75,7 +75,7 @@
                                         {{ $sub3->menu_name }}
                                     </a>
                                     @elseif($sub3->id == 99)
-                                    <a href="{{ url('transparansi') }}/aturan-kebijakan-daerah">
+                                    <a href="{{ url('transparansi') }}/{{ $sub3->menu_name }}">
                                         {{ $sub3->menu_name }}
                                     </a>
                                     @elseif($sub3->menu_parent == 89 || $sub3->menu_parent == 90 || $sub3->menu_parent

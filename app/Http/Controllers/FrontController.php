@@ -159,30 +159,30 @@ class FrontController extends Controller
                 OpenGraph::addImage($data->gambarmuka->path);
             } else {
                 // Mendapatkan path gambar dari GCS
-            $imagePath = $data->gambarmuka->path; // Sesuaikan dengan path gambar di GCS Anda
+                $imagePath = $data->gambarmuka->path; // Sesuaikan dengan path gambar di GCS Anda
 
-            // Mendapatkan konten gambar dari GCS
-            $imageContent = Storage::get($imagePath);
+                // Mendapatkan konten gambar dari GCS
+                $imageContent = Storage::get($imagePath);
 
-            // Membuat instance gambar menggunakan Intervention Image
-            $image = Image::make($imageContent);
+                // Membuat instance gambar menggunakan Intervention Image
+                $image = Image::make($imageContent);
 
-            // Menyesuaikan ukuran gambar tanpa mempertahankan rasio aspek
-            $image->fit(300, 300);
+                // Menyesuaikan ukuran gambar tanpa mempertahankan rasio aspek
+                $image->fit(300, 300);
 
-            // Mengirim gambar yang sudah dikompres sebagai respons HTTP
-            // return response($compressedImage, 200)
-            // ->header('Content-Type', 'image/jpeg');
+                // Mengirim gambar yang sudah dikompres sebagai respons HTTP
+                // return response($compressedImage, 200)
+                // ->header('Content-Type', 'image/jpeg');
 
-            // Menghasilkan nama file baru berdasarkan format "hari-bulan-tahun"
-            $newFileName = $slug . '.jpg';
+                // Menghasilkan nama file baru berdasarkan format "hari-bulan-tahun"
+                $newFileName = $slug . '.jpg';
 
-            // Menyimpan gambar yang sudah dikompres ke GCS
-            $temporaryImagePath = 'thumbs/' . $newFileName;
-            Storage::disk('gcs')->put($temporaryImagePath, $image->encode());
-            OpenGraph::addImage(route('helper.show-picture', ['path' => $temporaryImagePath ?? '']), ['height' => 300, 'width' => 300]);
+                // Menyimpan gambar yang sudah dikompres ke GCS
+                $temporaryImagePath = 'thumbs/' . $newFileName;
+                Storage::disk('gcs')->put($temporaryImagePath, $image->encode());
+                OpenGraph::addImage(route('helper.show-picture', ['path' => $temporaryImagePath ?? '']), ['height' => 300, 'width' => 300]);
             }
-        }else{
+        } else {
             OpenGraph::addImage(url('assets/pemda.ico'));
         }
 
@@ -206,48 +206,49 @@ class FrontController extends Controller
     public function transparansi(Request $request, $id)
     {
         Seo::seO();
-        $cari = $id;
-        $hasil = 'Hasil Pencarian : ' . $cari;
+        $hasil = $id;
 
-        if ($cari == 'aturan-kebijakan-daerah') {
-            $data = News::Where('title', 'like', '%[akd]%')->latest("date")->get();
-            $data2 = [];
-        } elseif ($cari == 'kak-tor') {
+        // if ($cari == 'aturan-kebijakan-daerah') {
+        //     $data = News::Where('title', 'like', '%[akd]%')->latest("date")->get();
+        //     $data2 = [];
+        // } else
+        if ($id == 'kak-tor') {
             $data = News::Where('title', 'like', '%Kerangka Acuan Kerja (KAK)%')->latest("date")->get();
             $data2 = DB::table('front_menus')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like', '%Kerangka Acuan Kerja (KAK)%')->get();
-        } elseif ($cari == 'apbd') {
+        } elseif ($id == 'apbd') {
             $data = News::Where('title', 'like', 'apbd penetapan%')->orWhere('title', 'like', 'apbd perubahan%')->latest("date")->get();
             $data2 = [];
-        } elseif ($cari == 'lrpbpd') {
+        } elseif ($id == 'lrpbpd') {
             $data = News::Where('title', 'like', '%Laporan Realisasi Pendapatan, Belanja dan Pembiayaan Daerah%')->latest("date")->get();
             $data2 = DB::table('front_menus')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like',  '%Laporan Realisasi Pendapatan, Belanja dan Pembiayaan Daerah')->get();
-        } elseif ($cari == 'lak') {
+        } elseif ($id == 'lak') {
             $data = News::Where('title', 'like', '%Laporan Arus Kas (LAK)%')->latest("date")->get();
             $data2 = DB::table('front_menus')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like',  '%Laporan Arus Kas (LAK)')->get();
-        } elseif ($cari == 'aset-inventaris') {
+        } elseif ($id == 'aset-inventaris') {
             $data = News::Where('title', 'like', '%Aset & Inventaris%')->latest("date")->get();
             $data2 = [];
-        } elseif ($cari == 'rup') {
+        } elseif ($id == 'rup') {
             $data = News::Where('title', 'like', '%rup tahun%')->latest("date")->get();
             $data2 = [];
-        } elseif ($cari == 'rup') {
+        } elseif ($id == 'rup') {
             $data = News::Where('title', 'like', '%rup tahun%')->latest("date")->get();
             $data2 = [];
-        } elseif ($cari == 'info-pengadaan') {
+        } elseif ($id == 'info-pengadaan') {
             $data = News::Where('title', 'like', '%informasi pengadaan barang dan jasa%')->latest("date")->get();
             $data2 = [];
-        } elseif ($cari == 'perjanjian-kinerja-pk') {
+        } elseif ($id == 'perjanjian-kinerja-pk') {
             $data = News::Where('title', 'like', '%perjanjian kinerja (pk)%')->latest("date")->get();
             $data2 = [];
-        } elseif ($cari == 'bumd') {
+        } elseif ($id == 'bumd') {
             $data = News::Where('title', 'like', '%laporan keuangan bumd%')->latest("date")->get();
             $data2 = [];
-        } elseif ($cari == 'csr') {
+        } elseif ($id == 'csr') {
             $data = News::Where('title', 'like', '%laporan pengelolaan bantuan csr%')->latest("date")->get();
             $data2 = [];
         } else {
-            $data = News::Where('slug', 'like', $cari . '%')->latest("date")->get();
-            $data2 = DB::table('front_menus')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like', $cari . '%')->get();
+            $data = News::withAnyTag([Str::slug($id)])->latest("datef")->get();
+            dd($data);
+            $data2 = [];
         }
 
         $combinedData = $data->concat($data2);

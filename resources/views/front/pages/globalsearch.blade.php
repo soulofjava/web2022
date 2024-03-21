@@ -35,8 +35,6 @@
     <section id="blog" class="blog">
         <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-            <x-cari-news />
-
             <div class="mt-3">
                 <table id="dataTable" class="table-hover table-striped" style="width:100%">
                     <thead>
