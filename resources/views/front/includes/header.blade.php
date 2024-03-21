@@ -23,7 +23,7 @@
     </div>
 
     <!-- Header-Upper -->
-    <div class="header-upper">
+    <div class="header-upper" style="background-color: white;">
         <div class="container-fluid clearfix">
 
             <div class="header-inner d-flex align-items-center justify-content-between">

@@ -7,9 +7,12 @@
 <link rel="icon" type="image/png" href="{{ asset('storage') }}/{{ $data_website->favicon }}" />
 @endif
 <!--====== Google Fonts ======-->
-<link
+<!-- <link
     href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600;700&family=Oswald:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet">
+    rel="stylesheet"> -->
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<!-- <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet"> -->
 
 <!--====== Flaticon ======-->
 <link rel="stylesheet" href="{{ asset('assets/front/css/flaticon.min.css') }}">
@@ -30,6 +33,10 @@
 <!--====== Main Style ======-->
 <link rel="stylesheet" href="{{ asset('assets/front/css/style.css') }}">
 <style>
+    body {
+        font-family: 'Open Sans', sans-serif;
+    }
+
     .hero-section:before {
         display: none;
     }

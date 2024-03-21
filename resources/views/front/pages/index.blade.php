@@ -4,7 +4,8 @@
 <section class="hero-section rel z-1 pt-150 rpt-135 pb-75 rpb-100" style="background-image: url('{{ route('helper.show-picture', ['path' => $data_website->image_hero]) }}');
     background-repeat: no-repeat;
     background-position: center;
-    height: 100vh; 
+    background-size: cover;
+    height: 100vh;
 ">
 </section>
 <!-- Hero Section End -->
@@ -17,7 +18,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="feature-item wow fadeInUp delay-0-2s" style="display: flex; align-items: center;">
                     <div class="image">
-                        <a href="{{ $rr->url }}">
+                        <a href="{{ $rr->url }}" target="_blank">
                             @if(Storage::exists($rr->path_logo))
                             <img src="{{ route('helper.show-picture', ['path' => $rr->path_logo]) }}" alt="Icon">
                             @else
@@ -26,7 +27,7 @@
                         </a>
                     </div>
                     <div class="content">
-                        <a href="{{ $rr->url }}">
+                        <a href="{{ $rr->url }}" target="_blank">
                             <h4>{{ $rr->name }}</h4>
                         </a>
                     </div>
