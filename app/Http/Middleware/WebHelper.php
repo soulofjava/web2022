@@ -2,12 +2,12 @@
 
 namespace App\Http\Middleware;
 
-use App\Models\Counter;
 use Closure;
 use Illuminate\Http\Request;
 use App\Models\Website;
 use App\Models\Gallery;
 use App\Models\News;
+use App\Models\Visitor;
 
 class WebHelper
 {
@@ -24,7 +24,7 @@ class WebHelper
         $data = Website::first();
         $news = News::all()->count();
         $gallery = Gallery::all()->count();
-        $counter = Counter::all()->count();
+        $counter = Visitor::all()->count();
         // Sharing is caring
         view()->share('data_website', $data);
         view()->share('news_all', $news);

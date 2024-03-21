@@ -1,5 +1,5 @@
 <div>
-    <div class="flex flex-row justify-between">
+    <div class="flex flex-row justify-between mb-8">
         @for($index = 0; $index < 5; $index++) <div>
             <div id="iklan">
                 <a href="" target="_blank" id="link-iklan{{ $index }}">
