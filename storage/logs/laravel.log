@@ -748,3 +748,320 @@ Stack trace:
 #51 /Users/isamaulana/Sites/webku/web2022/public/index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #52 {main}
 "} 
+[2024-03-21 02:17:47] production.ERROR: Unable to detect application namespace. {"exception":"[object] (RuntimeException(code: 0): Unable to detect application namespace. at /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php:1425)
+[stacktrace]
+#0 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(289): Illuminate\\Foundation\\Application->getNamespace()
+#1 /Users/isamaulana/Sites/webku/web2022/app/Console/Kernel.php(29): Illuminate\\Foundation\\Console\\Kernel->load(Array)
+#2 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(389): App\\Console\\Kernel->commands()
+#3 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(153): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-03-21 02:17:47] production.ERROR: Unable to detect application namespace. {"exception":"[object] (RuntimeException(code: 0): Unable to detect application namespace. at /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php:1425)
+[stacktrace]
+#0 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(289): Illuminate\\Foundation\\Application->getNamespace()
+#1 /Users/isamaulana/Sites/webku/web2022/app/Console/Kernel.php(29): Illuminate\\Foundation\\Console\\Kernel->load(Array)
+#2 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(389): App\\Console\\Kernel->commands()
+#3 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(153): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-03-21 02:17:48] production.ERROR: Unable to detect application namespace. {"exception":"[object] (RuntimeException(code: 0): Unable to detect application namespace. at /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php:1425)
+[stacktrace]
+#0 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(289): Illuminate\\Foundation\\Application->getNamespace()
+#1 /Users/isamaulana/Sites/webku/web2022/app/Console/Kernel.php(29): Illuminate\\Foundation\\Console\\Kernel->load(Array)
+#2 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(389): App\\Console\\Kernel->commands()
+#3 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(153): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-03-21 02:17:48] production.ERROR: Unable to detect application namespace. {"exception":"[object] (RuntimeException(code: 0): Unable to detect application namespace. at /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php:1425)
+[stacktrace]
+#0 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(289): Illuminate\\Foundation\\Application->getNamespace()
+#1 /Users/isamaulana/Sites/webku/web2022/app/Console/Kernel.php(29): Illuminate\\Foundation\\Console\\Kernel->load(Array)
+#2 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(389): App\\Console\\Kernel->commands()
+#3 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(153): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-03-21 02:17:48] production.ERROR: Unable to detect application namespace. {"exception":"[object] (RuntimeException(code: 0): Unable to detect application namespace. at /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php:1425)
+[stacktrace]
+#0 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(289): Illuminate\\Foundation\\Application->getNamespace()
+#1 /Users/isamaulana/Sites/webku/web2022/app/Console/Kernel.php(29): Illuminate\\Foundation\\Console\\Kernel->load(Array)
+#2 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(389): App\\Console\\Kernel->commands()
+#3 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(153): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-03-21 02:17:48] production.ERROR: Unable to detect application namespace. {"exception":"[object] (RuntimeException(code: 0): Unable to detect application namespace. at /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php:1425)
+[stacktrace]
+#0 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(289): Illuminate\\Foundation\\Application->getNamespace()
+#1 /Users/isamaulana/Sites/webku/web2022/app/Console/Kernel.php(29): Illuminate\\Foundation\\Console\\Kernel->load(Array)
+#2 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(389): App\\Console\\Kernel->commands()
+#3 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(153): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-03-21 02:17:48] production.ERROR: Unable to detect application namespace. {"exception":"[object] (RuntimeException(code: 0): Unable to detect application namespace. at /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php:1425)
+[stacktrace]
+#0 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(289): Illuminate\\Foundation\\Application->getNamespace()
+#1 /Users/isamaulana/Sites/webku/web2022/app/Console/Kernel.php(29): Illuminate\\Foundation\\Console\\Kernel->load(Array)
+#2 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(389): App\\Console\\Kernel->commands()
+#3 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(153): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-03-21 02:17:48] production.ERROR: Unable to detect application namespace. {"exception":"[object] (RuntimeException(code: 0): Unable to detect application namespace. at /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php:1425)
+[stacktrace]
+#0 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(289): Illuminate\\Foundation\\Application->getNamespace()
+#1 /Users/isamaulana/Sites/webku/web2022/app/Console/Kernel.php(29): Illuminate\\Foundation\\Console\\Kernel->load(Array)
+#2 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(389): App\\Console\\Kernel->commands()
+#3 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(153): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-03-21 02:17:49] production.ERROR: Unable to detect application namespace. {"exception":"[object] (RuntimeException(code: 0): Unable to detect application namespace. at /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php:1425)
+[stacktrace]
+#0 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(289): Illuminate\\Foundation\\Application->getNamespace()
+#1 /Users/isamaulana/Sites/webku/web2022/app/Console/Kernel.php(29): Illuminate\\Foundation\\Console\\Kernel->load(Array)
+#2 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(389): App\\Console\\Kernel->commands()
+#3 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(153): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-03-21 02:17:49] production.ERROR: Unable to detect application namespace. {"exception":"[object] (RuntimeException(code: 0): Unable to detect application namespace. at /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php:1425)
+[stacktrace]
+#0 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(289): Illuminate\\Foundation\\Application->getNamespace()
+#1 /Users/isamaulana/Sites/webku/web2022/app/Console/Kernel.php(29): Illuminate\\Foundation\\Console\\Kernel->load(Array)
+#2 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(389): App\\Console\\Kernel->commands()
+#3 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(153): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-03-21 02:17:49] production.ERROR: Unable to detect application namespace. {"exception":"[object] (RuntimeException(code: 0): Unable to detect application namespace. at /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php:1425)
+[stacktrace]
+#0 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(289): Illuminate\\Foundation\\Application->getNamespace()
+#1 /Users/isamaulana/Sites/webku/web2022/app/Console/Kernel.php(29): Illuminate\\Foundation\\Console\\Kernel->load(Array)
+#2 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(389): App\\Console\\Kernel->commands()
+#3 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(153): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-03-21 02:17:49] production.ERROR: Unable to detect application namespace. {"exception":"[object] (RuntimeException(code: 0): Unable to detect application namespace. at /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php:1425)
+[stacktrace]
+#0 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(289): Illuminate\\Foundation\\Application->getNamespace()
+#1 /Users/isamaulana/Sites/webku/web2022/app/Console/Kernel.php(29): Illuminate\\Foundation\\Console\\Kernel->load(Array)
+#2 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(389): App\\Console\\Kernel->commands()
+#3 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(153): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-03-21 02:17:50] production.ERROR: Unable to detect application namespace. {"exception":"[object] (RuntimeException(code: 0): Unable to detect application namespace. at /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php:1425)
+[stacktrace]
+#0 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(289): Illuminate\\Foundation\\Application->getNamespace()
+#1 /Users/isamaulana/Sites/webku/web2022/app/Console/Kernel.php(29): Illuminate\\Foundation\\Console\\Kernel->load(Array)
+#2 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(389): App\\Console\\Kernel->commands()
+#3 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(153): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-03-21 02:17:50] production.ERROR: Unable to detect application namespace. {"exception":"[object] (RuntimeException(code: 0): Unable to detect application namespace. at /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php:1425)
+[stacktrace]
+#0 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(289): Illuminate\\Foundation\\Application->getNamespace()
+#1 /Users/isamaulana/Sites/webku/web2022/app/Console/Kernel.php(29): Illuminate\\Foundation\\Console\\Kernel->load(Array)
+#2 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(389): App\\Console\\Kernel->commands()
+#3 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(153): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-03-21 02:17:50] production.ERROR: Unable to detect application namespace. {"exception":"[object] (RuntimeException(code: 0): Unable to detect application namespace. at /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php:1425)
+[stacktrace]
+#0 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(289): Illuminate\\Foundation\\Application->getNamespace()
+#1 /Users/isamaulana/Sites/webku/web2022/app/Console/Kernel.php(29): Illuminate\\Foundation\\Console\\Kernel->load(Array)
+#2 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(389): App\\Console\\Kernel->commands()
+#3 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(153): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-03-21 02:17:50] production.ERROR: Unable to detect application namespace. {"exception":"[object] (RuntimeException(code: 0): Unable to detect application namespace. at /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php:1425)
+[stacktrace]
+#0 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(289): Illuminate\\Foundation\\Application->getNamespace()
+#1 /Users/isamaulana/Sites/webku/web2022/app/Console/Kernel.php(29): Illuminate\\Foundation\\Console\\Kernel->load(Array)
+#2 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(389): App\\Console\\Kernel->commands()
+#3 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(153): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-03-21 02:17:51] production.ERROR: Unable to detect application namespace. {"exception":"[object] (RuntimeException(code: 0): Unable to detect application namespace. at /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php:1425)
+[stacktrace]
+#0 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(289): Illuminate\\Foundation\\Application->getNamespace()
+#1 /Users/isamaulana/Sites/webku/web2022/app/Console/Kernel.php(29): Illuminate\\Foundation\\Console\\Kernel->load(Array)
+#2 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(389): App\\Console\\Kernel->commands()
+#3 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(153): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-03-21 02:25:40] production.ERROR: Class "Fruitcake\Cors\CorsServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Fruitcake\\Cors\\CorsServiceProvider\" not found at /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php:851)
+[stacktrace]
+#0 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(785): Illuminate\\Foundation\\Application->resolveProvider('Fruitcake\\\\Cors\\\\...')
+#1 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(75): Illuminate\\Foundation\\Application->register('Fruitcake\\\\Cors\\\\...')
+#2 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(765): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-03-21 02:25:52] production.ERROR: Target class [Fruitcake\Cors\HandleCors] does not exist. {"exception":"[object] (Illuminate\\Contracts\\Container\\BindingResolutionException(code: 0): Target class [Fruitcake\\Cors\\HandleCors] does not exist. at /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Container/Container.php:914)
+[stacktrace]
+#0 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\\Container\\Container->build('Fruitcake\\\\Cors\\\\...')
+#1 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(957): Illuminate\\Container\\Container->resolve('Fruitcake\\\\Cors\\\\...', Array, true)
+#2 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate\\Foundation\\Application->resolve('Fruitcake\\\\Cors\\\\...', Array)
+#3 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(942): Illuminate\\Container\\Container->make('Fruitcake\\\\Cors\\\\...', Array)
+#4 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(172): Illuminate\\Foundation\\Application->make('Fruitcake\\\\Cors\\\\...')
+#5 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#6 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#7 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#8 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#9 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#10 /Users/isamaulana/Sites/webku/web2022/public/index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#11 {main}
+
+[previous exception] [object] (ReflectionException(code: -1): Class \"Fruitcake\\Cors\\HandleCors\" does not exist at /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Container/Container.php:912)
+[stacktrace]
+#0 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Container/Container.php(912): ReflectionClass->__construct('Fruitcake\\\\Cors\\\\...')
+#1 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\\Container\\Container->build('Fruitcake\\\\Cors\\\\...')
+#2 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(957): Illuminate\\Container\\Container->resolve('Fruitcake\\\\Cors\\\\...', Array, true)
+#3 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate\\Foundation\\Application->resolve('Fruitcake\\\\Cors\\\\...', Array)
+#4 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(942): Illuminate\\Container\\Container->make('Fruitcake\\\\Cors\\\\...', Array)
+#5 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(172): Illuminate\\Foundation\\Application->make('Fruitcake\\\\Cors\\\\...')
+#6 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#7 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#8 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#9 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#10 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#11 /Users/isamaulana/Sites/webku/web2022/public/index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#12 {main}
+"} 
+[2024-03-21 02:25:53] production.ERROR: Target class [Fruitcake\Cors\HandleCors] does not exist. {"exception":"[object] (Illuminate\\Contracts\\Container\\BindingResolutionException(code: 0): Target class [Fruitcake\\Cors\\HandleCors] does not exist. at /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Container/Container.php:914)
+[stacktrace]
+#0 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\\Container\\Container->build('Fruitcake\\\\Cors\\\\...')
+#1 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(957): Illuminate\\Container\\Container->resolve('Fruitcake\\\\Cors\\\\...', Array, true)
+#2 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate\\Foundation\\Application->resolve('Fruitcake\\\\Cors\\\\...', Array)
+#3 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(942): Illuminate\\Container\\Container->make('Fruitcake\\\\Cors\\\\...', Array)
+#4 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(255): Illuminate\\Foundation\\Application->make('Fruitcake\\\\Cors\\\\...')
+#5 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(213): Illuminate\\Foundation\\Http\\Kernel->terminateMiddleware(Object(Illuminate\\Http\\Request), Object(Illuminate\\Http\\Response))
+#6 /Users/isamaulana/Sites/webku/web2022/public/index.php(55): Illuminate\\Foundation\\Http\\Kernel->terminate(Object(Illuminate\\Http\\Request), Object(Illuminate\\Http\\Response))
+#7 {main}
+
+[previous exception] [object] (ReflectionException(code: -1): Class \"Fruitcake\\Cors\\HandleCors\" does not exist at /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Container/Container.php:912)
+[stacktrace]
+#0 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Container/Container.php(912): ReflectionClass->__construct('Fruitcake\\\\Cors\\\\...')
+#1 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\\Container\\Container->build('Fruitcake\\\\Cors\\\\...')
+#2 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(957): Illuminate\\Container\\Container->resolve('Fruitcake\\\\Cors\\\\...', Array, true)
+#3 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate\\Foundation\\Application->resolve('Fruitcake\\\\Cors\\\\...', Array)
+#4 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(942): Illuminate\\Container\\Container->make('Fruitcake\\\\Cors\\\\...', Array)
+#5 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(255): Illuminate\\Foundation\\Application->make('Fruitcake\\\\Cors\\\\...')
+#6 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(213): Illuminate\\Foundation\\Http\\Kernel->terminateMiddleware(Object(Illuminate\\Http\\Request), Object(Illuminate\\Http\\Response))
+#7 /Users/isamaulana/Sites/webku/web2022/public/index.php(55): Illuminate\\Foundation\\Http\\Kernel->terminate(Object(Illuminate\\Http\\Request), Object(Illuminate\\Http\\Response))
+#8 {main}
+"} 
+[2024-03-21 02:27:52] production.ERROR: Target class [Fruitcake\Cors\HandleCors] does not exist. {"exception":"[object] (Illuminate\\Contracts\\Container\\BindingResolutionException(code: 0): Target class [Fruitcake\\Cors\\HandleCors] does not exist. at /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Container/Container.php:914)
+[stacktrace]
+#0 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\\Container\\Container->build('Fruitcake\\\\Cors\\\\...')
+#1 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(957): Illuminate\\Container\\Container->resolve('Fruitcake\\\\Cors\\\\...', Array, true)
+#2 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate\\Foundation\\Application->resolve('Fruitcake\\\\Cors\\\\...', Array)
+#3 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(942): Illuminate\\Container\\Container->make('Fruitcake\\\\Cors\\\\...', Array)
+#4 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(172): Illuminate\\Foundation\\Application->make('Fruitcake\\\\Cors\\\\...')
+#5 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#6 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#7 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#8 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#9 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#10 /Users/isamaulana/Sites/webku/web2022/public/index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#11 {main}
+
+[previous exception] [object] (ReflectionException(code: -1): Class \"Fruitcake\\Cors\\HandleCors\" does not exist at /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Container/Container.php:912)
+[stacktrace]
+#0 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Container/Container.php(912): ReflectionClass->__construct('Fruitcake\\\\Cors\\\\...')
+#1 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\\Container\\Container->build('Fruitcake\\\\Cors\\\\...')
+#2 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(957): Illuminate\\Container\\Container->resolve('Fruitcake\\\\Cors\\\\...', Array, true)
+#3 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate\\Foundation\\Application->resolve('Fruitcake\\\\Cors\\\\...', Array)
+#4 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(942): Illuminate\\Container\\Container->make('Fruitcake\\\\Cors\\\\...', Array)
+#5 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(172): Illuminate\\Foundation\\Application->make('Fruitcake\\\\Cors\\\\...')
+#6 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#7 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#8 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#9 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#10 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#11 /Users/isamaulana/Sites/webku/web2022/public/index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#12 {main}
+"} 
+[2024-03-21 02:27:53] production.ERROR: Target class [Fruitcake\Cors\HandleCors] does not exist. {"exception":"[object] (Illuminate\\Contracts\\Container\\BindingResolutionException(code: 0): Target class [Fruitcake\\Cors\\HandleCors] does not exist. at /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Container/Container.php:914)
+[stacktrace]
+#0 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\\Container\\Container->build('Fruitcake\\\\Cors\\\\...')
+#1 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(957): Illuminate\\Container\\Container->resolve('Fruitcake\\\\Cors\\\\...', Array, true)
+#2 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate\\Foundation\\Application->resolve('Fruitcake\\\\Cors\\\\...', Array)
+#3 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(942): Illuminate\\Container\\Container->make('Fruitcake\\\\Cors\\\\...', Array)
+#4 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(255): Illuminate\\Foundation\\Application->make('Fruitcake\\\\Cors\\\\...')
+#5 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(213): Illuminate\\Foundation\\Http\\Kernel->terminateMiddleware(Object(Illuminate\\Http\\Request), Object(Illuminate\\Http\\Response))
+#6 /Users/isamaulana/Sites/webku/web2022/public/index.php(55): Illuminate\\Foundation\\Http\\Kernel->terminate(Object(Illuminate\\Http\\Request), Object(Illuminate\\Http\\Response))
+#7 {main}
+
+[previous exception] [object] (ReflectionException(code: -1): Class \"Fruitcake\\Cors\\HandleCors\" does not exist at /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Container/Container.php:912)
+[stacktrace]
+#0 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Container/Container.php(912): ReflectionClass->__construct('Fruitcake\\\\Cors\\\\...')
+#1 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\\Container\\Container->build('Fruitcake\\\\Cors\\\\...')
+#2 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(957): Illuminate\\Container\\Container->resolve('Fruitcake\\\\Cors\\\\...', Array, true)
+#3 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate\\Foundation\\Application->resolve('Fruitcake\\\\Cors\\\\...', Array)
+#4 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(942): Illuminate\\Container\\Container->make('Fruitcake\\\\Cors\\\\...', Array)
+#5 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(255): Illuminate\\Foundation\\Application->make('Fruitcake\\\\Cors\\\\...')
+#6 /Users/isamaulana/Sites/webku/web2022/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(213): Illuminate\\Foundation\\Http\\Kernel->terminateMiddleware(Object(Illuminate\\Http\\Request), Object(Illuminate\\Http\\Response))
+#7 /Users/isamaulana/Sites/webku/web2022/public/index.php(55): Illuminate\\Foundation\\Http\\Kernel->terminate(Object(Illuminate\\Http\\Request), Object(Illuminate\\Http\\Response))
+#8 {main}
+"} 
+[2024-03-21 02:28:34] production.ERROR: (expression)::class cannot be used in constant expressions {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): (expression)::class cannot be used in constant expressions at /Users/isamaulana/Sites/webku/web2022/app/Http/Kernel.php:16)
+[stacktrace]
+#0 {main}
+"} 
+[2024-03-21 02:28:34] production.ERROR: (expression)::class cannot be used in constant expressions {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): (expression)::class cannot be used in constant expressions at /Users/isamaulana/Sites/webku/web2022/app/Http/Kernel.php:16)
+[stacktrace]
+#0 {main}
+"} 
+[2024-03-21 02:28:34] production.ERROR: (expression)::class cannot be used in constant expressions {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): (expression)::class cannot be used in constant expressions at /Users/isamaulana/Sites/webku/web2022/app/Http/Kernel.php:16)
+[stacktrace]
+#0 {main}
+"} 
+[2024-03-21 02:28:34] production.ERROR: (expression)::class cannot be used in constant expressions {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): (expression)::class cannot be used in constant expressions at /Users/isamaulana/Sites/webku/web2022/app/Http/Kernel.php:16)
+[stacktrace]
+#0 {main}
+"} 
+[2024-03-21 02:28:35] production.ERROR: (expression)::class cannot be used in constant expressions {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): (expression)::class cannot be used in constant expressions at /Users/isamaulana/Sites/webku/web2022/app/Http/Kernel.php:16)
+[stacktrace]
+#0 {main}
+"} 
+[2024-03-21 02:28:35] production.ERROR: (expression)::class cannot be used in constant expressions {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): (expression)::class cannot be used in constant expressions at /Users/isamaulana/Sites/webku/web2022/app/Http/Kernel.php:16)
+[stacktrace]
+#0 {main}
+"} 
+[2024-03-21 02:28:35] production.ERROR: (expression)::class cannot be used in constant expressions {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): (expression)::class cannot be used in constant expressions at /Users/isamaulana/Sites/webku/web2022/app/Http/Kernel.php:16)
+[stacktrace]
+#0 {main}
+"} 
+[2024-03-21 02:28:35] production.ERROR: (expression)::class cannot be used in constant expressions {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): (expression)::class cannot be used in constant expressions at /Users/isamaulana/Sites/webku/web2022/app/Http/Kernel.php:16)
+[stacktrace]
+#0 {main}
+"} 
+[2024-03-21 02:28:35] production.ERROR: (expression)::class cannot be used in constant expressions {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): (expression)::class cannot be used in constant expressions at /Users/isamaulana/Sites/webku/web2022/app/Http/Kernel.php:16)
+[stacktrace]
+#0 {main}
+"} 
+[2024-03-21 02:28:36] production.ERROR: (expression)::class cannot be used in constant expressions {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): (expression)::class cannot be used in constant expressions at /Users/isamaulana/Sites/webku/web2022/app/Http/Kernel.php:16)
+[stacktrace]
+#0 {main}
+"} 
+[2024-03-21 02:28:36] production.ERROR: (expression)::class cannot be used in constant expressions {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): (expression)::class cannot be used in constant expressions at /Users/isamaulana/Sites/webku/web2022/app/Http/Kernel.php:16)
+[stacktrace]
+#0 {main}
+"} 
