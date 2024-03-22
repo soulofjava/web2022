@@ -15,6 +15,12 @@ class KategoriController extends Controller
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(
+                    'kategorine',
+                    function ($data) {
+                        return strtoupper($data->name);
+                    }
+                )
+                ->addColumn(
                     'action',
                     function ($data) {
                         $actionBtn = '
@@ -25,7 +31,7 @@ class KategoriController extends Controller
                         return $actionBtn;
                     }
                 )
-                ->rawColumns(['action'])
+                ->rawColumns(['action', 'kategorine'])
                 ->make(true);
         }
         return view('back.pages.kategori.index');
