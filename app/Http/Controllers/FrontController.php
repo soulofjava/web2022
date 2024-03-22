@@ -206,50 +206,10 @@ class FrontController extends Controller
     public function transparansi(Request $request, $id)
     {
         Seo::seO();
-        $hasil = $id;
+        $hasil = Str::upper($id);
 
-        // if ($cari == 'aturan-kebijakan-daerah') {
-        //     $data = News::Where('title', 'like', '%[akd]%')->latest("date")->get();
-        //     $data2 = [];
-        // } else
-        if ($id == 'kak-tor') {
-            $data = News::Where('title', 'like', '%Kerangka Acuan Kerja (KAK)%')->latest("date")->get();
-            $data2 = DB::table('front_menus')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like', '%Kerangka Acuan Kerja (KAK)%')->get();
-        } elseif ($id == 'apbd') {
-            $data = News::Where('title', 'like', 'apbd penetapan%')->orWhere('title', 'like', 'apbd perubahan%')->latest("date")->get();
-            $data2 = [];
-        } elseif ($id == 'lrpbpd') {
-            $data = News::Where('title', 'like', '%Laporan Realisasi Pendapatan, Belanja dan Pembiayaan Daerah%')->latest("date")->get();
-            $data2 = DB::table('front_menus')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like',  '%Laporan Realisasi Pendapatan, Belanja dan Pembiayaan Daerah')->get();
-        } elseif ($id == 'lak') {
-            $data = News::Where('title', 'like', '%Laporan Arus Kas (LAK)%')->latest("date")->get();
-            $data2 = DB::table('front_menus')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like',  '%Laporan Arus Kas (LAK)')->get();
-        } elseif ($id == 'aset-inventaris') {
-            $data = News::Where('title', 'like', '%Aset & Inventaris%')->latest("date")->get();
-            $data2 = [];
-        } elseif ($id == 'rup') {
-            $data = News::Where('title', 'like', '%rup tahun%')->latest("date")->get();
-            $data2 = [];
-        } elseif ($id == 'rup') {
-            $data = News::Where('title', 'like', '%rup tahun%')->latest("date")->get();
-            $data2 = [];
-        } elseif ($id == 'info-pengadaan') {
-            $data = News::Where('title', 'like', '%informasi pengadaan barang dan jasa%')->latest("date")->get();
-            $data2 = [];
-        } elseif ($id == 'perjanjian-kinerja-pk') {
-            $data = News::Where('title', 'like', '%perjanjian kinerja (pk)%')->latest("date")->get();
-            $data2 = [];
-        } elseif ($id == 'bumd') {
-            $data = News::Where('title', 'like', '%laporan keuangan bumd%')->latest("date")->get();
-            $data2 = [];
-        } elseif ($id == 'csr') {
-            $data = News::Where('title', 'like', '%laporan pengelolaan bantuan csr%')->latest("date")->get();
-            $data2 = [];
-        } else {
-            $data = News::withAnyTag([Str::slug($id)])->latest("datef")->get();
-            dd($data);
-            $data2 = [];
-        }
+        $data = News::withAnyTag([Str::slug($id)])->where('terbit', 1)->latest("date")->get();
+        $data2 = [];
 
         $combinedData = $data->concat($data2);
 
@@ -297,7 +257,6 @@ class FrontController extends Controller
         $data = News::with('gambar')->whereDate('date', 'like', '%' . $cari . '%')->orWhere('title', 'like', '%' . $cari . '%')->orderBy("date", "desc")->get();
         $data2 = DB::table('front_menus')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like', '%' . $cari . '%')->get();
         $combinedData = $data->concat($data2);
-        // return $combinedData;
 
         if ($request->ajax()) {
             return DataTables::of($combinedData)
@@ -478,74 +437,5 @@ class FrontController extends Controller
             Alert::success('Success', 'Your Message Has Been Sent');
             return redirect(url('/'));
         }
-    }
-
-    public function copydatapostingfromwonosobokab()
-    {
-        ini_set('max_execution_time', 0);
-        $data = News::all();
-
-        foreach ($data as $index => $item) {
-            $indra = explode(',', $item->attachment);
-            // return $indra;
-            // print_r($index . "\n");
-            // $idnya = News::create([
-            //     'title' => $item->title_posting,
-            //     'content' => $item->content_posting,
-            //     'slug' => $item->link_posting,
-            //     'upload_by' =>  2,
-            //     'date' =>  $item->date_created,
-            //     'highlight' =>  $item->headline,
-            //     'komentar' =>  $item->published,
-            //     'terbit' =>  $item->published,
-            // ])->id;
-            // print_r($item->id);
-            foreach ($indra as $in => $it) {
-                $this->copydatafilefromwonosobokab($it, $item->id);
-            }
-        }
-        // print_r('Selesai!');
-    }
-
-    public function copydatafilefromwonosobokab($a, $b)
-    {
-        $isa = [];
-        $data = DB::table('images')->select('file_name')->where('id_images', '=', $a)->get();
-        foreach ($data as $ratna) {
-            array_push($isa, $ratna->file_name);
-            $fff = [
-                'id_news' => $b,
-                'file_name' => $ratna->file_name,
-                'path' => 'https://website.wonosobokab.go.id/upload/img/' . $ratna->file_name,
-            ];
-            File::create($fff);
-        }
-        return json_encode($isa);
-    }
-
-    public function ubahstring()
-    {
-        // $users = DB::table('front_menus')
-        //     ->leftJoin('news', 'front_menus.menu_name', '=', 'news.title')
-        //     ->whereNotNull('news.content')
-        //     ->get();
-        // return $users;
-        // foreach ($users as $key => $value) {
-        //     FrontMenu::where('menu_url', '=', $value->menu_url)->update(['content' => $value->content]);
-        // echo $value->content . '<br>';
-        // }
-        // return 'selesai';
-
-        // start ganti string
-        // $data = News::all();
-        // foreach ($data as $key => $value) {
-        //     if (Str::contains($value->content, '../../')) {
-        //         $new = str_replace('../../', 'https://website.wonosobokab.go.id/', $value->content) . '<br>';
-        //         // echo $value->id;
-        //         News::find($value->id)->update(['content' => $new]);
-        //     };
-        // }
-        // return 'selesai';
-        // end ganti string
     }
 }

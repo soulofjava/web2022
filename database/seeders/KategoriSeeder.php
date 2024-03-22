@@ -46,7 +46,6 @@ class KategoriSeeder extends Seeder
             ['name' => 'CSR'],
             ['name' => 'INFORMASI KEJADIAN BENCANA'],
             ['name' => 'DAFTAR KEJADIAN BENCANA'],
-            ['name' => 'DAFTAR KEJADIAN BENCANA'],
             ['name' => 'PENGUMUMAN'],
             ['name' => 'INFORMASI GANGGUAN'],
             ['name' => 'INFORMASI HOAX'],
@@ -58,8 +57,15 @@ class KategoriSeeder extends Seeder
             ['name' => 'PENYERTAAN MODAL'],
             ['name' => 'INVESTASI USAHA'],
         ];
-        // Add slug to each array element
+        // Fungsi untuk mengubah nilai menjadi sentence case
+        function toSentenceCase($string)
+        {
+            return ucwords(strtolower($string));
+        }
+
+        // Mengubah setiap nilai dalam array menjadi sentence case dan menambahkan slug
         foreach ($data as &$item) {
+            $item['name'] = toSentenceCase($item['name']);
             $item['slug'] = Str::slug($item['name']);
         }
         Tag::insert($data);
