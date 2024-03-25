@@ -6,7 +6,7 @@
         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
             <div class="app-brand demo">
                 <a href="{{ url('/') }}" target="_blank" class="app-brand-link">
-                    <img src="{{ asset('assets/logo.png') }}" alt="logo" style="width: 200px;">
+                    <img src="{{ asset('assets/bkd.png') }}" alt="logo" style="width: 200px;">
                 </a>
 
                 <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -41,13 +41,18 @@
 
                 @role('superadmin|admin')
                 <li
-                    class="menu-item {{ (Str::contains(Request::url(), ['kategori', 'component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user', 'bidang', 'myprofile'])) ? 'active open' : '' }}">
+                    class="menu-item {{ (Str::contains(Request::url(), ['slide', 'kategori', 'component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user', 'bidang', 'myprofile'])) ? 'active open' : '' }}">
                     <a href="javascript:void(0);" class="menu-link menu-toggle">
                         <i class="menu-icon tf-icons bx bx-layout"></i>
                         <div data-i18n="Website">Website</div>
                     </a>
 
                     <ul class="menu-sub">
+                        <li class="menu-item {{ (Str::contains(Request::url(), 'slide')) ? 'active' : '' }}">
+                            <a class="menu-link" href="{{ route('slide.index') }}">
+                                <div data-i18n="slideshow">Gambar Slide</div>
+                            </a>
+                        </li>
                         <li class="menu-item {{ (Str::contains(Request::url(), 'kategori')) ? 'active' : '' }}">
                             <a class="menu-link" href="{{ route('kategori.index') }}">
                                 <div data-i18n="Kategori">Kategori</div>

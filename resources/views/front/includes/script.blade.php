@@ -39,6 +39,10 @@
         $("#exampleModal").on('shown.bs.modal', function () {
             $(this).find('#textareaID1').focus();
         });
+
+        $('.carousel').carousel({
+            interval: 5000 // Mengatur interval perpindahan slide (dalam milidetik)
+        });
     });
 </script>
 

@@ -17,6 +17,7 @@ use App\Http\Controllers\ComRegionController;
 use App\Http\Controllers\DownloadAreaFileController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\GambarSlideController;
 use App\Http\Controllers\HelperController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\MigrasiDataController;
@@ -42,7 +43,7 @@ Route::get('ssouser', [SSOController::class, 'connectUser'])->name('sso.authuser
 
 Route::get('/', function () {
     Seo::seO();
-    $news = News::with('gambarmuka', 'uploader')->latest('date')->paginate(6);
+    $news = News::with('gambarmuka', 'uploader')->latest('date')->paginate(8);
     return view('front.pages.index', compact('news'));
     // return view('front.index', compact('news', 'berita'));
 })->name('root')->middleware('data_web', 'VisitorMiddleware');
@@ -87,6 +88,7 @@ Route::group(['middleware' => ['auth', 'data_web', 'cek_inbox'], 'prefix' => 'ad
         Route::resource('relatedlink', RelatedLinkController::class);
         Route::resource('component', ComponentController::class);
         Route::resource('kategori', KategoriController::class);
+        Route::resource('slide', GambarSlideController::class);
     });
     Route::resource('news', NewsController::class);
     Route::resource('myprofile', CredentialController::class);

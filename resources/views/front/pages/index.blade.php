@@ -1,14 +1,19 @@
 @extends('front.layouts.app')
 @section('content')
-<!-- Hero Section Start -->
-<section class="hero-section rel z-1 pt-150 rpt-135 pb-75 rpb-100" style="background-image: url('{{ route('helper.show-picture', ['path' => $data_website->image_hero]) }}');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    height: 100vh;
-">
-</section>
-<!-- Hero Section End -->
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        @foreach (App\Models\GambarSlide::all() as $item)
+        <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+            <img src="{{ route('helper.show-picture', ['path' => $item->path]) }}" class="d-block w-100"
+                alt="Hero Image 1" style="background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            height: 100vh;
+            ">
+        </div>
+        @endforeach
+    </div>
+</div>
 
 <!-- Features Section Start -->
 <section class="features-section rel z-1 pt-80 pb-40 bg-blue text-white">
@@ -136,23 +141,24 @@
         </ul> -->
         <div class="row coach-active justify-content-center">
             @foreach($news as $n)
-            <div class="col-lg-4 col-md-6 item marketing technology">
+            <div class="col-lg-3 col-md-6 item marketing technology">
                 <div class="coach-item wow fadeInUp delay-0-2s">
                     <div class="coach-image">
                         <a href="{{ url('/news-detail', $n->slug) }}">
                             @if($n->gambarmuka)
                             <img src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
                                 class="img-thumbnail" alt="{{ $n->gambarmuka->file_name }}"
-                                style="flex-shrink: 0; min-width: 100%; min-height: 100%">
+                                style="object-fit: cover; width: 270px; height: 148px">
                             @else
                             <img src="{{ asset('assets/bkdwonosobo.png') }}" alt="Course">
                             @endif
                         </a>
                         <!-- <img src="{{ asset('assets/front/images/coachs/coach1.jpg') }}" alt="Coach"> -->
                     </div>
-                    <div class="coach-content">
+                    <div class="coach-content" style="height: 175px;">
                         <!-- <span class="label">Basic Coach</span> -->
-                        <h4><a href="{{ url('/news-detail', $n->slug) }}">{{ $n->title }}</a></h4>
+                        <h4><a href="{{ url('/news-detail', $n->slug) }}">{{ Str::limit($n->title, 40, '...') }}</a>
+                        </h4>
                         <!-- <div class="ratting-price">
                             <div class="ratting">
                                 <i class="fas fa-star"></i>

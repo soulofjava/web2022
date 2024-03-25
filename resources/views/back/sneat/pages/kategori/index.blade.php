@@ -63,7 +63,7 @@
                 serverSide: true,
                 columns: [
                     { data: 'DT_RowIndex', orderable: false, searchable: false },
-                    { data: 'name', name: 'name' },
+                    { data: 'kategorine', name: 'name' },
                     { data: 'action' },
                 ],
                 bSort: false,
