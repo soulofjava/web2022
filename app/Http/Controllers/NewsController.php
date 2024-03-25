@@ -69,7 +69,10 @@ class NewsController extends Controller
      */
     public function create()
     {
-        $categori = Tag::orderBy('name', 'ASC')->pluck('name', 'name');
+        $categori = Tag::orderBy('name', 'ASC')->pluck('name', 'name')->map(function ($item) {
+            return strtoupper($item);
+        });
+
         return view('back.pages.news.create', compact('categori'));
     }
 
@@ -152,7 +155,9 @@ class NewsController extends Controller
     {
         $data = News::find($id);
         $categorinya = [];
-        $categori = Tag::orderBy('name', 'ASC')->pluck('name', 'name');
+        $categori = Tag::orderBy('name', 'ASC')->pluck('name', 'name')->map(function ($item) {
+            return strtoupper($item);
+        });
         // untuk list yang terpilih
         foreach ($data->tagged as $key => $value) {
             array_push($categorinya, $value->tag_name);
