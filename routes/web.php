@@ -51,7 +51,7 @@ Route::get('ssouser', [SSOController::class, 'connectUser'])->name('sso.authuser
 Route::get('/', function () {
     // TambahVisitor::dispatch($_SERVER['REMOTE_ADDR']);
     Seo::seO();
-    $news = News::with('gambar', 'gambarmuka', 'uploader')->where('terbit', 1)->latest('date')->paginate(6);
+    $news = News::withAnyTag(['berita'])->with('gambarmuka', 'uploader')->where('terbit', 1)->latest('date')->paginate(6);
     return view('front.pages.index', compact('news'));
 })->name('root')->middleware('data_web', 'VisitorMiddleware');
 

@@ -290,15 +290,23 @@ class FrontController extends Controller
         Seo::seO();
         $cari = $request->kolomcari;
         $hasil = 'Hasil Pencarian : ' . $cari;
-        $data = News::with('gambar')->whereDate('date', 'like', '%' . $cari . '%')->orWhere('title', 'like', '%' . $cari . '%')->orderBy("date", "desc")->paginate();
-        $news = News::latest('date')->take(5)->get();
+        $data = News::withAnyTag(['berita'])
+            ->with('gambarmuka')
+            ->where(function ($query) use ($cari) {
+                $query->whereDate('date', 'like', '%' . $cari . '%')
+                    ->orWhere('title', 'like', '%' . $cari . '%');
+            })
+            ->latest("date")
+            ->paginate();
+        $news = [];
+        // $news = News::latest('date')->take(5)->get();
         return view('front.pages.newsbyauthor', compact('data', 'news', 'hasil'));
     }
 
     public function newsall(Request $request)
     {
         Seo::seO();
-        $news = News::latest('date')->paginate(12);
+        $news = News::withAnyTag(['berita'])->latest('date')->paginate(12);
         $sideposts = News::latest('date')->take(5)->get();
         return view('front.pages.news', compact('news', 'sideposts'));
     }
