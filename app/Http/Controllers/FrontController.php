@@ -228,7 +228,7 @@ class FrontController extends Controller
         Seo::seO();
         $cari = $request->kolomcari;
         $hasil = 'Search result : ' . $cari;
-        $data = News::where('tag', '3')->latest("date");
+        $data = News::where('tag', 'layanan')->latest("date");
 
         if ($request->ajax()) {
             return DataTables::of($data)
@@ -330,7 +330,7 @@ class FrontController extends Controller
     public function statistik(Request $request)
     {
         Seo::seO();
-        $data = News::where('title', 'like', '%statistik%')->latest('date')->get();
+        $data = News::where('tag', 'statistik')->latest('date');
         $hasil = [];
 
         if ($request->ajax()) {

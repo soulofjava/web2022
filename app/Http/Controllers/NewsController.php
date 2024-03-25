@@ -72,7 +72,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        $kategorinya = Kategori::all()->pluck('name', 'id')->map(function ($item) {
+        $kategorinya = Kategori::all()->pluck('name', 'name')->map(function ($item) {
             return strtoupper($item);
         });
         $highlight = ComCodes::where('code_group', 'highlight_news')->pluck('code_nm');
@@ -157,7 +157,7 @@ class NewsController extends Controller
     public function edit($id)
     {
         $data = News::find($id);
-        $kategorinya = Kategori::all()->pluck('name', 'id')->map(function ($item) {
+        $kategorinya = Kategori::all()->pluck('name', 'name')->map(function ($item) {
             return strtoupper($item);
         });
         $highlight = ComCodes::where('code_group', 'highlight_news')->pluck('code_nm');
