@@ -49,6 +49,10 @@
                             <a target="_blank" href="{{ $sm->menu_url }}">
                                 {{ $sm->menu_name }}
                             </a>
+                            @elseif($sm->menu_url == 'pengumuman')
+                            <a href="{{ url('transparansi') }}/{{ $sm->menu_url }}">
+                                {{ $sm->menu_name }}
+                            </a>
                             @else
                             <a href="{{ url('page', $sm->menu_url) }}">
                                 {{ $sm->menu_name }}
@@ -74,12 +78,8 @@
                                     <a href="{{ $sub3->menu_url }}" target="_blank">
                                         {{ $sub3->menu_name }}
                                     </a>
-                                    @elseif($sub3->id == 99)
-                                    <a href="{{ url('transparansi') }}/{{ $sub3->menu_name }}">
-                                        {{ $sub3->menu_name }}
-                                    </a>
-                                    @elseif($sub3->menu_parent == 89 || $sub3->menu_parent == 90 || $sub3->menu_parent
-                                    == 91)
+                                    @elseif($sub3->id == 99 || $sub3->menu_parent == 89 || $sub3->menu_parent == 90 || $sub3->menu_parent
+                                    == 91 || $sub3->id == 85)
                                     <a href="{{ url('transparansi') }}/{{ $sub3->menu_url }}">
                                         {{ $sub3->menu_name }}
                                     </a>

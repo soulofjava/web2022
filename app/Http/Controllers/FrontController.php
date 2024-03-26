@@ -206,7 +206,7 @@ class FrontController extends Controller
     public function transparansi(Request $request, $id)
     {
         Seo::seO();
-        $hasil = Str::upper($id);
+        $hasil = str_replace('-', ' ', Str::upper($id));
 
         $data = News::withAnyTag([Str::slug($id)])->where('terbit', 1)->latest("date")->get();
         $data2 = [];
