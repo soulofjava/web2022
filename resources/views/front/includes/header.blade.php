@@ -78,8 +78,9 @@
                                     <a href="{{ $sub3->menu_url }}" target="_blank">
                                         {{ $sub3->menu_name }}
                                     </a>
-                                    @elseif($sub3->id == 99 || $sub3->menu_parent == 89 || $sub3->menu_parent == 90 || $sub3->menu_parent
-                                    == 91 || $sub3->id == 85)
+                                    @elseif($sub3->id == 99 || $sub3->menu_parent == 89 || $sub3->menu_parent == 90 ||
+                                    $sub3->menu_parent
+                                    == 91 || $sub3->id == 85 || $sub3->id == 80)
                                     <a href="{{ url('transparansi') }}/{{ $sub3->menu_url }}">
                                         {{ $sub3->menu_name }}
                                     </a>
