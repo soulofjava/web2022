@@ -66,6 +66,7 @@ class Kernel extends HttpKernel
         'data_web' => \App\Http\Middleware\WebHelper::class,
         'cek_inbox' => \App\Http\Middleware\CekInboxBaru::class,
         'VisitorMiddleware' => \App\Http\Middleware\VisitorMiddleware::class,
+        'MobileDetect' => Riverskies\Laravel\MobileDetect\Facades\MobileDetect::class,
         // 'is_superadmin' => \App\Http\Middleware\IsSuperAdmin::class,
         'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
         'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,

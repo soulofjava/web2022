@@ -4,37 +4,48 @@
     <div class="carousel-inner">
         @foreach (App\Models\GambarSlide::all() as $item)
         <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+            @mobile
+            <img src="{{ route('helper.show-picture', ['path' => $item->path]) }}" class="d-block w-100"
+                alt="Hero Image 1" style="background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: cover;
+                        height: 300px;
+                        ">
+            @elsemobile
             <img src="{{ route('helper.show-picture', ['path' => $item->path]) }}" class="d-block w-100"
                 alt="Hero Image 1" style="background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
             height: 100vh;
             ">
+            @endmobile
         </div>
         @endforeach
     </div>
 </div>
 
+
 <!-- Features Section Start -->
-<section class="features-section rel z-1 pt-80 pb-40 bg-blue text-white">
+<section class="features-section rel z-1 pt-80 pb-120 bg-blue text-white">
     <div class="container">
         <div class="row justify-content-center">
             @foreach($related as $rr)
-            <div class="col-lg-4 col-md-6">
-                <div class="feature-item wow fadeInUp delay-0-2s" style="display: flex; align-items: center;">
+            <div class="col-lg-2 col-md-4 mt-3 d-flex justify-content-center align-items-center">
+                <div class="feature-item wow fadeInUp delay-0-2s">
                     <div class="image">
                         <a href="{{ $rr->url }}" target="_blank">
                             @if(Storage::exists($rr->path_logo))
-                            <img src="{{ route('helper.show-picture', ['path' => $rr->path_logo]) }}" alt="Icon">
+                            <img src="{{ route('helper.show-picture', ['path' => $rr->path_logo]) }}" alt="Icon"
+                                style="max-width: 100px; max-height: 100px; object-fit: cover;">
                             @else
                             <img src="{{ asset('assets/front/images/features/icon2.png') }}" alt="Icon">
                             @endif
                         </a>
-                    </div>
-                    <div class="content">
-                        <a href="{{ $rr->url }}" target="_blank">
-                            <h4>{{ $rr->name }}</h4>
-                        </a>
+                        <div class="mt-3">
+                            <a href="{{ $rr->url }}" target="_blank">
+                                <h6>{{ $rr->name }}</h6>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

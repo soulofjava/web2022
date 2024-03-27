@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <div class="blog-details-wrap" >
+                <div class="blog-details-wrap">
                     @if($data->menu_name == 'Daftar Informasi Publik')
                     <x-jip />
                     @elseif($data->title)
