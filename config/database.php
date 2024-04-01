@@ -63,6 +63,26 @@ return [
             ]) : [],
         ],
 
+        'simpeg' => [
+            'driver' => 'mysql',
+            'url' => env('DATABASE_URL'),
+            'host' => '103.155.105.9',
+            'port' => '3306',
+            'database' => 'simpeg_v19',
+            'username' => 'integrasi',
+            'password' => '1nt3gr4s1WSB2023%',
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'strict' => true,
+            'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+            ]) : [],
+        ],
+        
         'wordpress' => [ // for WordPress database (used by Corcel)
             'driver'    => 'mysql',
             'host'      => 'localhost',
