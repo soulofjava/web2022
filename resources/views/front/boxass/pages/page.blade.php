@@ -32,6 +32,8 @@
                             <x-jip />
                             @elseif($data->menu_name == 'Personil')
                             <x-personil />
+                            @elseif($data->title == 'Layanan')
+                            <livewire:layanan />
                             @elseif($data->title)
                             {!! $data->description !!}
                             @else

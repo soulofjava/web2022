@@ -84,6 +84,17 @@ class FrontController extends Controller
         }
     }
 
+    function layanan()
+    {
+        $data = (object)[
+            'menu_name' => 'Layanan',
+            'title' => 'Layanan',
+            'description' => 'Layanan'
+        ];
+        
+        return view('front.boxass.pages.page', compact('data'));
+    }
+
     public function newsdetail($slug)
     {
         Seo::seO();

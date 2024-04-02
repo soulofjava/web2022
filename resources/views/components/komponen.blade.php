@@ -1,6 +1,6 @@
 <!-- start looping component -->
 @foreach(App\Models\Component::where('active', '1')->orderBy('name', 'ASC')->get() as $component)
-@if($component->slug != 'seputar-wonosobo' and $component->slug != 'complaints' and $component->slug != 'layanan')
+@if($component->slug != 'seputar-wonosobo' and $component->slug != 'complaints')
 <li class="{{ $li }}">
     <a class="{{ $a }}" href="{{ url($component->slug) }}">
         {{ $component->name }}
