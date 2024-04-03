@@ -17,6 +17,12 @@ Breadcrumbs::for('news', function ($trail) {
     $trail->push('Postingan', url('news'));
 });
 
+// Dashboard > Pinjam Tempat
+Breadcrumbs::for('pinjamtempat', function ($trail) {
+    $trail->parent('dashboard');
+    $trail->push('Pinjam Tempat', url('pinjamtempat'));
+});
+
 // Dashboard > Download
 Breadcrumbs::for('download', function ($trail) {
     $trail->parent('dashboard');

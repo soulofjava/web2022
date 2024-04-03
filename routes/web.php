@@ -18,6 +18,7 @@ use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\HelperController;
 use App\Http\Controllers\MigrasiDataController;
+use App\Http\Controllers\PinjamTempatController;
 use App\Http\Controllers\SSO\SSOController;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
@@ -111,6 +112,7 @@ Route::group(['middleware' => ['auth', 'data_web', 'cek_inbox'], 'prefix' => 'ad
         Route::resource('component', ComponentController::class);
     });
     Route::resource('news', NewsController::class);
+    Route::resource('pinjamtempat', PinjamTempatController::class);
     Route::resource('download', DownloadController::class);
     Route::resource('myprofile', CredentialController::class);
     Route::resource('event', AgendaController::class);

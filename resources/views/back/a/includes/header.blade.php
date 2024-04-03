@@ -68,6 +68,12 @@
                         <p>Download Area</p>
                     </a>
                 </li>
+                <li class="{{ (Str::contains(Request::url(), 'pinjamtempat')) ? 'active' : '' }}">
+                    <a href="{{ route('pinjamtempat.index') }}">
+                        <i class="material-icons">room</i>
+                        <p>Pinjam Tempat</p>
+                    </a>
+                </li>
                 <li class="{{ (Str::contains(Request::url(), 'news')) ? 'active' : '' }}">
                     <a href="{{ route('news.index') }}">
                         <i class="material-icons">event_note</i>

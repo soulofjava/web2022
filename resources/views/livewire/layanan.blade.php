@@ -29,8 +29,21 @@
                     <td style="text-align: center;">{{ $item->acara }}</td>
                     <td style="text-align: center;">{{ $item->jumlah }}</td>
                     <td style="text-align: center;">{{ $item->waktu }}</td>
-                    <td style="text-align: center;"><span class="badge">{{ ($item->status == 0) ? 'Menunggu
-                            Persetujuan' : '' }}</span></td>
+                    <td style="text-align: center;">
+                        <span class="badge" style="background-color: {{
+                            $item->status == 'STATUS_ST_01' ? 'grey' :
+                            ($item->status == 'STATUS_ST_02' ? 'green' :
+                            ($item->status == 'STATUS_ST_03' ? 'red' :
+                            ($item->status == 'STATUS_ST_04' ? 'blue' : '')))
+                            }};">
+                            {{
+                            $item->status == 'STATUS_ST_01' ? 'Menunggu Persetujuan' :
+                            ($item->status == 'STATUS_ST_02' ? 'Disetujui' :
+                            ($item->status == 'STATUS_ST_03' ? 'Ditolak' :
+                            ($item->status == 'STATUS_ST_04' ? 'Dibatalkan' : '')))
+                            }}
+                        </span>
+                    </td>
                 </tr>
                 @empty
                 <tr>

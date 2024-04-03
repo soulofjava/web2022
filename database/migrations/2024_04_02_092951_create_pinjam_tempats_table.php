@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('jumlah');
             $table->string('kontak');
             $table->string('surat');
-            $table->integer('status')->default(0);
+            $table->string('status')->default('STATUS_ST_01');
             $table->string('catatan')->nullable();
             $table->timestamps();
         });
