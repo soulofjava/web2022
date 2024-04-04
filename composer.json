@@ -12,6 +12,7 @@
         "cyrildewit/eloquent-viewable": "*",
         "davejamesmiller/laravel-breadcrumbs": "5.x",
         "doctrine/dbal": "^3.0",
+        "intervention/image": "^2.7",
         "guzzlehttp/guzzle": "^7.2",
         "jenssegers/agent": "^2.6",
         "jgrossi/corcel": "^7.0",
