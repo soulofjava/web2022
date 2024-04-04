@@ -88,12 +88,6 @@ class PinjamTempatController extends Controller
     public function edit($id)
     {
         $data = PinjamTempat::find($id)->first();
-        // $terpilih = [];
-
-        // // untuk list yang terpilih
-        // foreach ($data->tagged as $key => $value) {
-        //     array_push($terpilih, $value->tag_name);
-        // }
 
         return view('back.a.pages.pinjamtempat.edit', compact('data'));
     }
@@ -108,6 +102,8 @@ class PinjamTempatController extends Controller
             'catatan' => $request->catatan
         ]);
 
+        // kirim email 
+        
         return redirect(route('pinjamtempat.index'));
     }
 
