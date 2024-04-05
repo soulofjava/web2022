@@ -6,6 +6,8 @@ use App\Models\PinjamTempat;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\PinjamTempatMail;
 
 class Layanan extends Component
 {
@@ -83,6 +85,21 @@ class Layanan extends Component
         ]);
 
         // kirim email 
+        Mail::to(env('MAIL_USERNAME'))->send(new PinjamTempatMail([
+            'nama' => $this->nama,
+            'jkel' => $this->jkel,
+            'usia' => $this->usia,
+            'pekerjaan' => $this->pekerjaan,
+            'pendidikan' => $this->pendidikan,
+            'instansi' => $this->instansi,
+            'tanggal' => $this->tanggal,
+            'waktu' => $this->waktu,
+            'kegiatan' => $this->kegiatan,
+            'acara' => $this->acara,
+            'jumlah' => $this->jumlah,
+            'kontak' => $this->kontak,
+        ]));
+        
 
         $this->toggleDiv();
     }
