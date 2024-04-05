@@ -12,13 +12,14 @@ use Illuminate\Queue\SerializesModels;
 class PinjamTempatMail extends Mailable
 {
     use Queueable, SerializesModels;
+    protected $data;
 
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($data)
     {
-        //
+        $this->data = $data;
     }
 
     /**
@@ -27,7 +28,7 @@ class PinjamTempatMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Pinjam Tempat Mail',
+            subject: 'Notifikasi Pinjam Tempat',
         );
     }
 
@@ -37,14 +38,21 @@ class PinjamTempatMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'pinjam_tempat',
+            with: [
+                'nama' => $this->data['nama'],
+                'jkel' => $this->data['jkel'],
+                'usia' => $this->data['usia'],
+                'pekerjaan' => $this->data['pekerjaan'],
+                'pendidikan' => $this->data['pendidikan'],
+                'instansi' => $this->data['instansi'],
+                'tanggal' => $this->data['tanggal'],
+                'waktu' => $this->data['waktu'],
+                'kegiatan' => $this->data['kegiatan'],
+                'acara' => $this->data['acara'],
+                'jumlah' => $this->data['jumlah'],
+            ]
         );
-    }
-
-    public function build()
-    {
-        return $this->subject('Pinjam Tempat Mail')
-                    ->view('emails.pinjam_tempat');
     }
 
     /**

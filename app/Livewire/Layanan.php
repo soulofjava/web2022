@@ -72,22 +72,7 @@ class Layanan extends Component
 
         PinjamTempat::create($data);
 
-        // kirim email 
-        Mail::to(env('MAIL_USERNAME'))->send(new PinjamTempatMail([
-            'nama' => $this->nama,
-            'jkel' => $this->jkel,
-            'usia' => $this->usia,
-            'pekerjaan' => $this->pekerjaan,
-            'pendidikan' => $this->pendidikan,
-            'instansi' => $this->instansi,
-            'tanggal' => $this->tanggal,
-            'waktu' => $this->waktu,
-            'kegiatan' => $this->kegiatan,
-            'acara' => $this->acara,
-            'jumlah' => $this->jumlah,
-            'kontak' => $this->kontak,
-        ]));
-        
+        Mail::to($this->email)->send(new PinjamTempatMail($data));
 
         $this->toggleDiv();
     }
