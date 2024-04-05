@@ -183,6 +183,12 @@
             </div>
 
             <div class="row">
+                <div class="col-md-6">
+                    <label for="email">Alamat Email:</label><br>
+                    <input type="email" wire:model.live="email" class="form-control">
+                    <div style="color: red;">@error('email') {{ $message }} @enderror</div>
+                </div>
+
                 <!-- Surat Permohonan (pdf) -->
                 <div class="col-md-6">
                     <label for="surat_permohonan">Surat Permohonan (PDF):</label><br>
