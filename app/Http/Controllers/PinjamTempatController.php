@@ -87,8 +87,7 @@ class PinjamTempatController extends Controller
      */
     public function edit($id)
     {
-        $data = PinjamTempat::find($id)->first();
-
+        $data = PinjamTempat::find($id);
         return view('back.a.pages.pinjamtempat.edit', compact('data'));
     }
 
@@ -103,7 +102,7 @@ class PinjamTempatController extends Controller
         ]);
 
         // kirim email 
-        
+
         return redirect(route('pinjamtempat.index'));
     }
 

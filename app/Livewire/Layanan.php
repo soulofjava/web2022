@@ -51,6 +51,9 @@ class Layanan extends Component
     #[Validate('required')]
     public $kontak;
 
+    #[Validate('required')]
+    public $email;
+
     #[Validate('required|mimes:pdf|max:2048')]
     public $surat;
 
@@ -62,27 +65,12 @@ class Layanan extends Component
 
     function simpan()
     {
-        $this->validate();
-
+        $data = $this->validate();
         $nama_file = $this->surat->getClientOriginalName();
         $path = $this->surat->storeAs('surat', $nama_file, 'gcs');
+        $data['surat'] = $path;
 
-        PinjamTempat::create([
-            'nama' => $this->nama,
-            'jkel' => $this->jkel,
-            'usia' => $this->usia,
-            'pekerjaan' => $this->pekerjaan,
-            'pendidikan' => $this->pendidikan,
-            'instansi' => $this->instansi,
-            'tanggal' => $this->tanggal,
-            'waktu' => $this->waktu,
-            'kegiatan' => $this->kegiatan,
-            'acara' => $this->acara,
-            'kegiatan' => $this->kegiatan,
-            'jumlah' => $this->jumlah,
-            'kontak' => $this->kontak,
-            'surat' => $path
-        ]);
+        PinjamTempat::create($data);
 
         // kirim email 
         Mail::to(env('MAIL_USERNAME'))->send(new PinjamTempatMail([
