@@ -24,36 +24,24 @@ class MigrasiDataController extends Controller
 
     public function insert()
     {
+        set_time_limit(0);
+
         // insert into database laravel
-        $posts = Post::whereNot('post_title', '')->published()->get();
+        $posts = Post::where('post_title', '!=', '')->where('post_content', '!=', '')->published()->get();
 
         foreach ($posts as $key) {
-
             $data = ([
-                // 'title' => $jk,
                 'title' => $key->post_title,
                 'slug' => SlugService::createSlug(News::class, 'slug', $key->post_title),
                 'date' => $key->post_date,
-                'upload_by' => 'admin',
+                'upload_by' => 2,
+                'attachment' => $key->thumbnail->attachment->url ?? null,
                 'description' => $key->post_content,
             ]);
-
-            if (strtolower($key->main_category) == 'sambutan') {
-                $kate = 'KATEGORI_NEWS_0';
-            } elseif (strtolower($key->main_category) == 'dokumentasi') {
-                $kate = 'KATEGORI_NEWS_1';
-            } elseif (strtolower($key->main_category) == 'press release') {
-                $kate = 'KATEGORI_NEWS_2';
-            } elseif (strtolower($key->main_category) == 'notulensi') {
-                $kate = 'KATEGORI_NEWS_3';
-            } else {
-                $kate = $key->main_category;
-            }
-
-            News::create($data + ['kategori' => $kate]);
+            News::create($data);
         }
 
-        return response()->json('selesai salin data ke database baru', 200);
+        return response()->json('Selesai!', 200);
     }
 
     public function clean()

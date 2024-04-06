@@ -32,8 +32,13 @@ class FrontMenuSeeder extends Seeder
             ],
             [
                 'menu_parent' => '2',
+<<<<<<< HEAD
+                'menu_name' => 'Profil OPD',
+                'menu_url' => Str::slug('Profil OPD', '-')
+=======
                 'menu_name' => 'Fasilitas Publik',
                 'menu_url' => Str::slug('Fasilitas Publik', '-')
+>>>>>>> 57cd9d6f8615469020dc8a6e5e8bddd03a11010e
             ],
             [
                 'menu_parent' => '3',
@@ -178,9 +183,14 @@ class FrontMenuSeeder extends Seeder
 
             [
                 'menu_parent' => '2',
+<<<<<<< HEAD
+                'menu_name' => 'Tupoksi',
+                'menu_url' => Str::slug('Tupoksi', '-')
+=======
                 'menu_name' => 'Geopark Dieng',
                 'menu_url' => 'https://geoparkdieng.com/',
                 'link' => '1',
+>>>>>>> 57cd9d6f8615469020dc8a6e5e8bddd03a11010e
             ],
             [
                 'menu_parent' => '2',
@@ -195,9 +205,21 @@ class FrontMenuSeeder extends Seeder
                 'menu_url' => Str::slug('Kepemerintahan', '-')
             ],
             [
+<<<<<<< HEAD
+                'menu_parent' => '2',
+                'menu_name' => 'Struktur',
+                'menu_url' => Str::slug('Struktur', '-')
+            ],
+            // submenu profil pimpinan opd
+            [
+                'menu_parent' => '4',
+                'menu_name' => 'Profil Pimpinan',
+                'menu_url' => Str::slug('Profil Pimpinan', '-')
+=======
                 'menu_parent' => '32',
                 'menu_name' => 'Profil Bupati dan Wakil Bupati',
                 'menu_url' => Str::slug('Profil Bupati dan Wakil Bupati', '-')
+>>>>>>> 57cd9d6f8615469020dc8a6e5e8bddd03a11010e
             ],
             [
                 'menu_parent' => '33',
@@ -205,6 +227,11 @@ class FrontMenuSeeder extends Seeder
                 'menu_url' => Str::slug('Bupati', '-')
             ],
             [
+<<<<<<< HEAD
+                'menu_parent' => '4',
+                'menu_name' => 'Agenda Pimpinan',
+                'menu_url' => Str::slug('Agenda Pimpinan', '-')
+=======
                 'menu_parent' => '33',
                 'menu_name' => 'Wakil Bupati',
                 'menu_url' => Str::slug('Wakil Bupati', '-')
@@ -368,6 +395,7 @@ class FrontMenuSeeder extends Seeder
                 'menu_parent' => '50',
                 'menu_name' => 'Pengawasan Internal',
                 'menu_url' => Str::slug('Pengawasan Internal', '-')
+>>>>>>> 57cd9d6f8615469020dc8a6e5e8bddd03a11010e
             ],
             [
                 'menu_parent' => '1',
@@ -387,7 +415,47 @@ class FrontMenuSeeder extends Seeder
                 'menu_url' => Str::slug('Profil', '-')
             ],
             [
+<<<<<<< HEAD
+                'menu_parent' => '12',
+                'menu_name' => 'SK PPID',
+                'menu_url' => Str::slug('SK PPID', '-')
+            ],
+            [
+                'menu_parent' => '12',
+                'menu_name' => 'Produk Hukum',
+                'menu_url' => Str::slug('Produk Hukum', '-')
+            ],
+            [
+                'menu_parent' => '12',
+                'menu_name' => 'Gallery PPID',
+                'menu_url' => Str::slug('Gallery PPID', '-')
+            ],
+            [
+                'menu_parent' => '12',
+                'menu_name' => 'SOP PPID',
+                'menu_url' => Str::slug('SOP PPID', '-')
+            ],
+            [
+                'menu_parent' => '12',
+                'menu_name' => 'Alur Permohonan Informasi',
+                'menu_url' => Str::slug('Alur Permohonan Informasi', '-')
+            ],
+            // profil ppid
+            [
+                'menu_parent' => '13',
+                'menu_name' => 'Profil Singkat',
+                'menu_url' => Str::slug('Profil Singkat', '-')
+            ],
+            [
+                'menu_parent' => '13',
+                'menu_name' => 'Tugas PPID',
+                'menu_url' => Str::slug('Tugas PPID', '-')
+            ],
+            [
+                'menu_parent' => '13',
+=======
                 'menu_parent' => '68',
+>>>>>>> 57cd9d6f8615469020dc8a6e5e8bddd03a11010e
                 'menu_name' => 'Maklumat PPID',
                 'menu_url' => Str::slug('Maklumat PPID', '-')
             ],
@@ -467,7 +535,28 @@ class FrontMenuSeeder extends Seeder
                 'menu_url' => Str::slug('Standar Operasional Prosedur', '-')
             ],
             [
+<<<<<<< HEAD
+                'menu_parent' => '29',
+                'menu_name' => 'RKA',
+                'menu_url' => Str::slug('RKA', '-')
+            ],
+            [
+                'menu_parent' => '29',
+                'menu_name' => 'Neraca',
+                'menu_url' => Str::slug('Neraca', '-')
+            ],
+            // layanan menu
+            [
+                'menu_parent' => '1',
+                'menu_name' => 'Layanan',
+                'menu_url' => Str::slug('Layanan', '-')
+            ],
+            // layanan sub menu
+            [
+                'menu_parent' => '43',
+=======
                 'menu_parent' => '81',
+>>>>>>> 57cd9d6f8615469020dc8a6e5e8bddd03a11010e
                 'menu_name' => 'Permohonan Informasi Publik',
                 'menu_url' => Str::slug('Permohonan Informasi Publik', '-')
             ],

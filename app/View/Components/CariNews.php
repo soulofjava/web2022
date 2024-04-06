@@ -6,15 +6,14 @@ use Illuminate\View\Component;
 
 class CariNews extends Component
 {
-    public $style;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($style = '')
+    public function __construct()
     {
-        $this->style = $style;
+        //
     }
 
     /**

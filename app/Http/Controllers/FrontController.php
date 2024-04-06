@@ -12,7 +12,6 @@ use App\Models\DataPPID;
 use App\Models\FrontMenu;
 use Illuminate\Http\Request;
 use App\Models\News;
-use App\Models\Gallery;
 use App\Models\GuestBook;
 use App\Models\Inbox;
 use App\Models\User;

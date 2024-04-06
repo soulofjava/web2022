@@ -32,7 +32,7 @@ class UserSeeder extends Seeder
         ]);
 
         $admin->assignRole('admin');
-        
+
         $user = User::create([
             'name' => 'user',
             'email' => 'user@app.com',

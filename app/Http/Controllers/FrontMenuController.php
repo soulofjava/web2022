@@ -7,6 +7,7 @@ use App\Models\Website;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
+use Efectn\Menu\Models\Menus;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
@@ -75,6 +76,12 @@ class FrontMenuController extends Controller
     {
         $root = FrontMenu::pluck('menu_name', 'id');
         return view('back.pages.frontmenu.create', compact('root'));
+    }
+
+    public function menu_builder()
+    {
+        $menulist = Menus::all()->pluck('name', 'id');
+        return view('back.pages.frontmenu.menu', compact('menulist'));
     }
 
     /**

@@ -13,6 +13,7 @@
         "cyrildewit/eloquent-viewable": "*",
         "davejamesmiller/laravel-breadcrumbs": "5.x",
         "doctrine/dbal": "^3.0",
+        "efectn/laravel-menu-builder": "^1.5",
         "guzzlehttp/guzzle": "^7.2",
         "hisorange/browser-detect": "^4.5",
         "intervention/image": "^2.7",

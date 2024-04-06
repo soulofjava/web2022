@@ -24,8 +24,7 @@
 
                     <div class="d-flex flex-row-reverse">
                         <div class="p-2">
-                            <a class="btn btn-primary" target="_blank"
-                                href="https://diskominfo.wonosobokab.go.id/detail/{{ $art['slug'] }}" class="">
+                            <a class="btn btn-primary" href="{{ route('detail-berita', $art['id_posting']) }}" class="">
                                 <span>Read More</span><i class="bi bi-arrow-right"></i>
                             </a>
                         </div>

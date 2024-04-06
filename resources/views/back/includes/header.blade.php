@@ -99,6 +99,11 @@
                                 <div data-i18n="Menu">Menu</div>
                             </a>
                         </li>
+                        <li class="menu-item {{ (Str::contains(Request::url(), 'menu-builder')) ? 'active' : '' }}">
+                            <a class="menu-link" href="{{ route('menu-builder') }}">
+                                <div data-i18n="Menu">Menu</div>
+                            </a>
+                        </li>
                         <li class="menu-item {{ (Str::contains(Request::url(), 'settings')) ? 'active' : '' }}">
                             <a class="menu-link" href="{{ route('settings.index') }}">
                                 Pengaturan Web</a>

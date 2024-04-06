@@ -7,7 +7,6 @@ use App\Http\Controllers\CredentialController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\NewsController;
-use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ThemesController;
 use App\Http\Controllers\FrontMenuController;
@@ -104,20 +103,20 @@ Route::group(['middleware' => ['auth', 'data_web', 'cek_inbox'], 'prefix' => 'ad
         Route::resource('themes', ThemesController::class);
         Route::resource('settings', WebsiteController::class);
         Route::resource('user', UserController::class);
+        Route::resource('themes', ThemesController::class);
         Route::resource('frontmenu', FrontMenuController::class);
         Route::resource('kategori', KategoriController::class);
         Route::resource('relatedlink', RelatedLinkController::class);
         Route::resource('component', ComponentController::class);
         Route::resource('testimoni', TestimonialController::class);
     });
-    Route::resource('gallery', GalleryController::class);
     Route::resource('news', NewsController::class);
     Route::resource('myprofile', CredentialController::class);
     Route::resource('event', AgendaController::class);
     Route::resource('inbox', InboxController::class);
     Route::post('sendCentang', [ComponentController::class, 'changeAccess'])->name('centang');
-    Route::post('sendCentangFM', [FrontMenuController::class, 'changeAccess'])->name('centangfm');
     Route::get('getAlamat', [WebsiteController::class, 'location']);
+    Route::get('menu-builder', [FrontMenuController::class, 'menu_builder'])->name('menu-builder');
     Route::resource('file_image', FileController::class);
 
     // pindah data dari database wonsobokab

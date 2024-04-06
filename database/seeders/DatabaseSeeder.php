@@ -5,6 +5,10 @@ namespace Database\Seeders;
 use App\Models\RelatedLink;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+<<<<<<< HEAD
+use Faker\Factory as Faker;
+=======
+>>>>>>> 57cd9d6f8615469020dc8a6e5e8bddd03a11010e
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,6 +22,30 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RoleSeeder::class,
             UserSeeder::class,
+<<<<<<< HEAD
+            // FrontMenuSeeder::class,
+            ThemesSeeder::class,
+            ComCodes::class,
+            PermissionSeeder::class,
+            ComponentSeeder::class,
+        ]);
+
+        // \App\Models\User::factory(10)->create();
+        DB::table('websites')->insert([
+            'web_name' => 'Puskesmas Kaliwiro',
+            'web_description' => '"Hello World!"',
+            'email' => 'pkmxwiro@gmail.com',
+            'address' => 'Jln. Selomanik No.02 Kaliwiro Wonosobo',
+            'phone' => '081390087602 / 088229758069',
+            'instagram' => 'https://www.instagram.com/puskesmaskaliwiro/',
+            'twitter' => 'https://twitter.com/diskominfo_wsb',
+            'facebook' => 'https://www.facebook.com/p/Puskesmas-Kaliwiro-100066666039544/',
+            'youtube' => 'https://www.youtube.com/@puskesmaskaliwirotv',
+            'url_stream' => '#',
+            'themes_front' => 'flexstart',
+            'themes_back' => 'back.a',
+            'open_hours' => "Senin - Kamis (08:00 - 12:00 WIB) Jum'at - Sabtu (08:00 - 10:00 WIB)",
+=======
             FrontMenuSeeder::class,
             ComCodes::class,
             ViewSeeder::class,
@@ -36,6 +64,7 @@ class DatabaseSeeder extends Seeder
             'latitude' => '-7.358664418685239',
             'longitude' => '109.9047188187568',
             'open_hours' => "Senin - Kamis (07:00 - 16:00) Jum'at (07:00 - 11:00)",
+>>>>>>> 57cd9d6f8615469020dc8a6e5e8bddd03a11010e
         ]);
 
         $related = [

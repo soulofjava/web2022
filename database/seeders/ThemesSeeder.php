@@ -41,6 +41,8 @@ class ThemesSeeder extends Seeder
                 'image' => 'img/atorn.png'
             ],
             [
+<<<<<<< HEAD
+=======
                 'name' => 'boxass',
                 'image' => 'img/boxass.png'
             ],
@@ -49,6 +51,7 @@ class ThemesSeeder extends Seeder
                 'image' => 'img/medino.png'
             ],
             [
+>>>>>>> 57cd9d6f8615469020dc8a6e5e8bddd03a11010e
                 'name' => 'anada',
                 'image' => 'img/anada.png'
             ]
