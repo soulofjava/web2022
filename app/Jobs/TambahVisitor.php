@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use App\Models\Counter;
+use DeviceDetector\Parser\Client\Browser;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -21,11 +22,24 @@ class TambahVisitor implements ShouldQueue
     }
 
     /**
+
      * Execute the job.
      */
     public function handle(): void
     {
         $geoipInfo = geoip()->getLocation($this->kampret);
+
+        if (Browser::isDesktop() == 1) {
+            $deviceType = 'Desktop';
+        }
+
+        if (Browser::isTablet() == 1) {
+            $deviceType = 'Tablet';
+        }
+
+        if (Browser::isMobile() == 1) {
+            $deviceType = 'Mobile';
+        }
 
         $data = [
             'ip' => $geoipInfo->ip,
@@ -40,6 +54,7 @@ class TambahVisitor implements ShouldQueue
             'timezone' => $geoipInfo->timezone,
             'continent' => $geoipInfo->continent,
             'currency' => $geoipInfo->currency,
+            'device_type' => $deviceType,
         ];
         Counter::create($data);
     }

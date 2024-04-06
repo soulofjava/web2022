@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\DB;
 use App\Models\File as Files;
+use Conner\Tagging\Model\Tag;
 use File;
 
 class NewsController extends Controller
@@ -68,9 +69,11 @@ class NewsController extends Controller
      */
     public function create()
     {
-        $highlight = ComCodes::where('code_group', 'highlight_news')->pluck('code_nm');
-        $categori = ComCodes::where('code_group', 'kategori_news')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
-        return view('back.pages.news.create', compact('highlight', 'categori'));
+        $categori = Tag::orderBy('name', 'ASC')->pluck('name', 'name')->map(function ($item) {
+            return strtoupper($item);
+        });
+
+        return view('back.pages.news.create', compact('categori'));
     }
 
     /**
@@ -115,6 +118,9 @@ class NewsController extends Controller
             ]);
         }
 
+        // tagging postingan
+        $id->tag($request->tag);
+
         if ($request->document) {
             foreach ($request->document as $df) {
                 Files::create([
@@ -148,9 +154,16 @@ class NewsController extends Controller
     public function edit($id)
     {
         $data = News::find($id);
-        $highlight = ComCodes::where('code_group', 'highlight_news')->pluck('code_nm');
-        $categori = ComCodes::where('code_group', 'kategori_news')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
-        return view('back.pages.news.edit', compact('data', 'highlight', 'categori'));
+        $categorinya = [];
+        $categori = Tag::orderBy('name', 'ASC')->pluck('name', 'name')->map(function ($item) {
+            return strtoupper($item);
+        });
+        // untuk list yang terpilih
+        foreach ($data->tagged as $key => $value) {
+            array_push($categorinya, $value->tag_name);
+        }
+
+        return view('back.pages.news.edit', compact('data', 'categori', 'categorinya'));
     }
 
     /**
@@ -200,6 +213,9 @@ class NewsController extends Controller
             ]);
         }
 
+        // tag ulang postingan
+        $isa->retag($request->tag);
+
         if ($request->document) {
             foreach ($request->document as $df) {
                 Files::create([
@@ -235,36 +251,5 @@ class NewsController extends Controller
         $data->gambar()->delete();
 
         return $data->delete();
-    }
-
-    // pindah dari wonosobokab
-    public function insert()
-    {
-        set_time_limit(0);
-        $tables = DB::select('SHOW TABLES');
-        $data = DB::table('postingan')->where('domain', 'arpusda.wonosobokab.go.id')->get();
-        foreach ($data as $dt) {
-            $file = DB::table('attachment')
-                ->where('id_tabel', $dt->id_posting)
-                ->get();
-            foreach ($file as $f) {
-                $fi = [
-                    'id_news' => $f->id_tabel,
-                    'file_name' => $f->file_name,
-                    'path' => 'gallery/' . $f->file_name,
-                ];
-                Files::insert($fi);
-            }
-            $pk = [
-                'title' => $dt->judul_posting,
-                'date' => $dt->created_time,
-                'upload_by' => auth()->user()->name,
-                'description' => $dt->isi_posting,
-                'attachment' => $dt->id_posting,
-                'slug' => SlugService::createSlug(News::class, 'slug', $dt->judul_posting),
-            ];
-            News::insert($pk);
-        }
-        return 'selesai';
     }
 }

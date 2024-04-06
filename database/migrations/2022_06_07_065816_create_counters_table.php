@@ -27,6 +27,7 @@ class CreateCountersTable extends Migration
             $table->string('timezone');
             $table->string('continent');
             $table->string('currency');
+            $table->string('device_type');
             $table->timestamps();
         });
     }

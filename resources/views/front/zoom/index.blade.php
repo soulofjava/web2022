@@ -11,6 +11,11 @@
 <body>
 
     <div class="container mt-5">
+        <div class="row">
+            <div class="col">
+                {{ serialize($meetingsToday) }}
+            </div>
+        </div>
         <h2>Formulir Contoh</h2>
         <form method="get" action="{{ url('/create-meeting') }}">
             <div class="mb-3">

@@ -7,8 +7,7 @@
     <section id="hero" class="hero">
 
         <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
-            @foreach(App\Models\News::where('highlight', '1')->orderBy('date',
-            'DESC')->take(10)->get() as $hl)
+            @foreach(App\Models\News::withAnyTag(['berita'])->with('gambarmuka')->where('highlight', '1')->latest('date')->take(10)->get() as $hl)
 
             @if ($loop->first)
             @if($hl->gambarmuka)
@@ -815,7 +814,7 @@
             <div class="row gy-4">
 
                 <div class="d-flex justify-content-around mt-3"">
-        		@for ($index = 0; $index < 6; $index++) 
+        		@for ($index = 0; $index < 6; $index++)
         			<div>
         				<div id=" iklan" title="Ayo lihat Produk ini">
                     <a href="" target="_blank" id="link-iklan{{  $index }}">

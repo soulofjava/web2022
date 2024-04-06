@@ -79,9 +79,9 @@
                 </div>
                 <!-- End post list item -->
                 @endforeach
-                <center>
+                <div style="overflow: auto; white-space: nowrap; text-align: center; min-width: 100%;">
                     {!! $news->withQueryString()->links('vendor.pagination.boxass') !!}
-                </center>
+                </div>
                 <!-- End blog pagination -->
             </div>
             <!-- End blog posts list -->

@@ -23,7 +23,7 @@
 
             <div class="row g-5">
 
-                <div class="col-lg-8">
+                <div class="{{ ($data->dip == 1) ? 'col-lg-12' : 'col-lg-8' }}">
 
                     <article class="blog-details">
 
@@ -69,7 +69,7 @@
                         </div>
                         <!-- End meta top -->
 
-                        <div class="content">
+                        <div class="content" style="overflow-x: auto;">
                             {!! $data->content !!}
                         </div>
                         <!-- End post content -->
@@ -210,7 +210,7 @@
 
                 </div>
 
-                <div class="col-lg-4">
+                <div class="{{ ($data->dip == 1) ? 'col-lg-0' : 'col-lg-4' }}">
 
                     <div class="sidebar">
 

@@ -23,6 +23,8 @@ use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Http;
 use Artesaos\SEOTools\Facades\OpenGraph;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class FrontController extends Controller
 {
@@ -155,12 +157,36 @@ class FrontController extends Controller
             if (Str::contains($data->gambarmuka->path, 'https')) {
                 OpenGraph::addImage($data->gambarmuka->path);
             } else {
-                OpenGraph::addImage(url('storage') . '/' . $data->gambarmuka->path);
+                // Mendapatkan path gambar dari GCS
+                $imagePath = $data->gambarmuka->path; // Sesuaikan dengan path gambar di GCS Anda
+
+                // Mendapatkan konten gambar dari GCS
+                $imageContent = Storage::get($imagePath);
+
+                // Membuat instance gambar menggunakan Intervention Image
+                $image = Image::make($imageContent);
+
+                // Menyesuaikan ukuran gambar tanpa mempertahankan rasio aspek
+                $image->fit(300, 300);
+
+                // Mengirim gambar yang sudah dikompres sebagai respons HTTP
+                // return response($compressedImage, 200)
+                // ->header('Content-Type', 'image/jpeg');
+
+                // Menghasilkan nama file baru berdasarkan format "hari-bulan-tahun"
+                $newFileName = $slug . '.jpg';
+
+                // Menyimpan gambar yang sudah dikompres ke GCS
+                $temporaryImagePath = 'thumbs/' . $newFileName;
+                Storage::disk('gcs')->put($temporaryImagePath, $image->encode());
+                OpenGraph::addImage(route('helper.show-picture', ['path' => $temporaryImagePath ?? '']), ['height' => 300, 'width' => 300]);
             }
+        } else {
+            OpenGraph::addImage(url('assets/pemda.ico'));
         }
 
         views($data)->cooldown(5)->record();
-        $news = News::with('gambarmuka')->orderBy('date', 'desc')->paginate(5);
+        $news = News::with('gambarmuka')->latest('date')->paginate(5);
         $file = File::where('id_news', $data->attachment)->get();
 
         return view('front.pages.newsdetail', compact('data', 'news', 'file'));
@@ -179,39 +205,10 @@ class FrontController extends Controller
     public function transparansi(Request $request, $id)
     {
         Seo::seO();
-        $cari = $id;
-        $hasil = 'Hasil Pencarian : ' . $cari;
+        $hasil = str_replace('-', ' ', Str::upper($id));
 
-        if ($cari == 'aturan-kebijakan-daerah') {
-            $data = News::Where('slug', 'like', '%' . $cari . '%')->latest("date")->get();
-        } elseif ($cari == 'kak-tor') {
-            $data = News::Where('title', 'like', '%Kerangka Acuan Kerja (KAK)%')->latest("date")->get();
-            $data2 = DB::table('front_menus')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like', '%Kerangka Acuan Kerja (KAK)%')->get();
-        } elseif ($cari == 'lrpbpd') {
-            $data = News::Where('title', 'like', '%Laporan Realisasi Pendapatan, Belanja dan Pembiayaan Daerah%')->latest("date")->get();
-            $data2 = DB::table('front_menus')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like',  '%Laporan Realisasi Pendapatan, Belanja dan Pembiayaan Daerah')->get();
-        } elseif ($cari == 'lak') {
-            $data = News::Where('title', 'like', '%Laporan Arus Kas (LAK)%')->latest("date")->get();
-            $data2 = DB::table('front_menus')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like',  '%Laporan Arus Kas (LAK)')->get();
-        } elseif ($cari == 'aset-inventaris') {
-            $data = News::Where('title', 'like', '%Aset & Inventaris%')->latest("date")->get();
-            $data2 = [];
-        } elseif ($cari == 'lkpd-dan-opini-bpk') {
-            $data = News::Where('title', 'like', '%lkpd%')->orWhere('title', 'like', '%lhp opini bpk%')->latest("date")->get();
-            $data2 = [];
-        } elseif ($cari == 'perjanjian-kinerja-pk') {
-            $data = News::Where('title', 'like', '%perjanjian kinerja (pk)%')->latest("date")->get();
-            $data2 = [];
-        } elseif ($cari == 'bumd') {
-            $data = News::Where('title', 'like', '%laporan keuangan bumd%')->latest("date")->get();
-            $data2 = [];
-        } elseif ($cari == 'csr') {
-            $data = News::Where('title', 'like', '%laporan pengelolaan bantuan csr%')->latest("date")->get();
-            $data2 = [];
-        } else {
-            $data = News::Where('slug', 'like', $cari . '%')->latest("date")->get();
-            $data2 = DB::table('front_menus')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like', $cari . '%')->get();
-        }
+        $data = News::withAnyTag([Str::slug($id)])->where('terbit', 1)->latest("date")->get();
+        $data2 = [];
 
         $combinedData = $data->concat($data2);
 
@@ -259,7 +256,6 @@ class FrontController extends Controller
         $data = News::with('gambar')->whereDate('date', 'like', '%' . $cari . '%')->orWhere('title', 'like', '%' . $cari . '%')->orderBy("date", "desc")->get();
         $data2 = DB::table('front_menus')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like', '%' . $cari . '%')->get();
         $combinedData = $data->concat($data2);
-        // return $combinedData;
 
         if ($request->ajax()) {
             return DataTables::of($combinedData)
@@ -293,15 +289,23 @@ class FrontController extends Controller
         Seo::seO();
         $cari = $request->kolomcari;
         $hasil = 'Hasil Pencarian : ' . $cari;
-        $data = News::with('gambar')->whereDate('date', 'like', '%' . $cari . '%')->orWhere('title', 'like', '%' . $cari . '%')->orderBy("date", "desc")->paginate();
-        $news = News::latest('date')->take(5)->get();
+        $data = News::withAnyTag(['berita'])
+            ->with('gambarmuka')
+            ->where(function ($query) use ($cari) {
+                $query->whereDate('date', 'like', '%' . $cari . '%')
+                    ->orWhere('title', 'like', '%' . $cari . '%');
+            })
+            ->latest("date")
+            ->paginate();
+        $news = [];
+        // $news = News::latest('date')->take(5)->get();
         return view('front.pages.newsbyauthor', compact('data', 'news', 'hasil'));
     }
 
     public function newsall(Request $request)
     {
         Seo::seO();
-        $news = News::latest('date')->paginate(12);
+        $news = News::withAnyTag(['berita'])->latest('date')->paginate(12);
         $sideposts = News::latest('date')->take(5)->get();
         return view('front.pages.news', compact('news', 'sideposts'));
     }
@@ -440,74 +444,5 @@ class FrontController extends Controller
             Alert::success('Success', 'Your Message Has Been Sent');
             return redirect(url('/'));
         }
-    }
-
-    public function copydatapostingfromwonosobokab()
-    {
-        ini_set('max_execution_time', 0);
-        $data = News::all();
-
-        foreach ($data as $index => $item) {
-            $indra = explode(',', $item->attachment);
-            // return $indra;
-            // print_r($index . "\n");
-            // $idnya = News::create([
-            //     'title' => $item->title_posting,
-            //     'content' => $item->content_posting,
-            //     'slug' => $item->link_posting,
-            //     'upload_by' =>  2,
-            //     'date' =>  $item->date_created,
-            //     'highlight' =>  $item->headline,
-            //     'komentar' =>  $item->published,
-            //     'terbit' =>  $item->published,
-            // ])->id;
-            // print_r($item->id);
-            foreach ($indra as $in => $it) {
-                $this->copydatafilefromwonosobokab($it, $item->id);
-            }
-        }
-        // print_r('Selesai!');
-    }
-
-    public function copydatafilefromwonosobokab($a, $b)
-    {
-        $isa = [];
-        $data = DB::table('images')->select('file_name')->where('id_images', '=', $a)->get();
-        foreach ($data as $ratna) {
-            array_push($isa, $ratna->file_name);
-            $fff = [
-                'id_news' => $b,
-                'file_name' => $ratna->file_name,
-                'path' => 'https://website.wonosobokab.go.id/upload/img/' . $ratna->file_name,
-            ];
-            File::create($fff);
-        }
-        return json_encode($isa);
-    }
-
-    public function ubahstring()
-    {
-        // $users = DB::table('front_menus')
-        //     ->leftJoin('news', 'front_menus.menu_name', '=', 'news.title')
-        //     ->whereNotNull('news.content')
-        //     ->get();
-        // return $users;
-        // foreach ($users as $key => $value) {
-        //     FrontMenu::where('menu_url', '=', $value->menu_url)->update(['content' => $value->content]);
-        // echo $value->content . '<br>';
-        // }
-        // return 'selesai';
-
-        // start ganti string
-        // $data = News::all();
-        // foreach ($data as $key => $value) {
-        //     if (Str::contains($value->content, '../../')) {
-        //         $new = str_replace('../../', 'https://website.wonosobokab.go.id/', $value->content) . '<br>';
-        //         // echo $value->id;
-        //         News::find($value->id)->update(['content' => $new]);
-        //     };
-        // }
-        // return 'selesai';
-        // end ganti string
     }
 }
