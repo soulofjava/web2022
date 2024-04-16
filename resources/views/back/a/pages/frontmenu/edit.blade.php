@@ -24,7 +24,9 @@
                         </div>
                         <div class="form-group label-floating">
                             <label class="control-label">Content</label>
-                            {{Form::textarea('content', null,['class' => 'my-editor form-control'])}}
+                            {{Form::textarea('description', null,['class' => 'my-editor
+                            form-control','id'=>'my-editor'])}}
+
                         </div>
                         <div class="d-flex text-right">
                             <a href="{{ route('frontmenu.index') }}" class="btn btn-default btn-fill">Cancel</a>
@@ -68,6 +70,7 @@
     var konten = document.getElementById("my-editor");
     var options = {
         filebrowserImageBrowseUrl: '/file-manager/ckeditor',
+
     };
     CKEDITOR.replace(konten, options);
     CKEDITOR.config.allowedContent = true;

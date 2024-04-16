@@ -47,6 +47,7 @@
     var konten = document.getElementById("my-editor");
     var options = {
         filebrowserImageBrowseUrl: '/file-manager/ckeditor',
+
     };
     CKEDITOR.replace(konten, options);
     CKEDITOR.config.allowedContent = true;
