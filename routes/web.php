@@ -19,11 +19,9 @@ use App\Http\Controllers\DownloadAreaFileController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\HelperController;
 use App\Http\Controllers\SSOController;
-use App\Jobs\TambahVisitor;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
 use App\Models\Website;
-use App\Models\Themes;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
 
@@ -48,26 +46,21 @@ Route::get('ssouser', [SSOController::class, 'connectUser'])->name('sso.authuser
 
 Route::get('/', function () {
     $themes = Website::first();
-    if (Website::exists()) {
-        TambahVisitor::dispatch($_SERVER['REMOTE_ADDR']);
-        Seo::seO();
+    
+    Seo::seO();
 
-        try {
-            $response = Http::connectTimeout(2)->withoutVerifying()->get('https://diskominfo.wonosobokab.go.id/api/news');
-            $response = $response->collect();
-            $berita =   array_slice($response['data']['data'], 0, 3);
-        } catch (\Exception $e) {
-            // hndle the exception
-            $berita = [];
-        }
-
-        $news = News::with('gambarmuka')->orderBy('date', 'desc')->paginate(9);
-        return view('front.' . $themes->themes_front . '.pages.index', compact('news', 'berita'));
-    } else {
-        $data = Themes::all();
-        return view('front.setup', compact('data'));
+    try {
+        $response = Http::connectTimeout(2)->withoutVerifying()->get('https://diskominfo.wonosobokab.go.id/api/news');
+        $response = $response->collect();
+        $berita =   array_slice($response['data']['data'], 0, 3);
+    } catch (\Exception $e) {
+        // hndle the exception
+        $berita = [];
     }
-})->name('root')->middleware('data_web');
+
+    $news = News::with('gambarmuka')->latest('date')->paginate(9);
+    return view('front.' . $themes->themes_front . '.pages.index', compact('news', 'berita'));
+})->name('root')->middleware('data_web', 'VisitorMiddleware');
 
 Route::group(['middleware' => 'data_web'], function () {
     Route::get('newscategory/{id}', [FrontController::class, 'newsByCategory']);
@@ -78,13 +71,8 @@ Route::group(['middleware' => 'data_web'], function () {
     Route::get('newsall', [FrontController::class, 'newsall'])->name('news.all');
     Route::get('/photos', [FrontController::class, 'galleryall'])->name('photo.all');
     Route::post('/setup', [FrontController::class, 'setup'])->name('setup-first');
-    Route::get('/tentang-kami', [FrontController::class, 'tentangkami'])->name('tentang-kami');
-    Route::get('/latar-belakang', [FrontController::class, 'latarbelakang'])->name('latar-belakang');
-    Route::get('/tujuan', [FrontController::class, 'tujuan'])->name('tujuan');
-    Route::get('/kampung-pancasila', [FrontController::class, 'kampungpancasila'])->name('kampung-pancasila');
     Route::get('/page/{id}', [FrontController::class, 'page'])->name('page');
     Route::get('/component/{id}', [FrontController::class, 'component'])->name('component');
-    Route::get('/load-sql', [FrontController::class, 'loadsql']);
     Route::get('/check', [FrontController::class, 'check']);
     Route::post('kotakmasuk', [FrontController::class, 'inbox']);
     Route::post('guest', [FrontController::class, 'addguest']);
