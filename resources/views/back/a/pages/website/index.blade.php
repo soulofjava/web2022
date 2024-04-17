@@ -21,36 +21,13 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6 text-center">
-                                <legend>Hero Image</legend>
-                                <div class="fileinput fileinput-new text-center" data-provides="fileinput">
-                                    <div class="fileinput-new thumbnail">
-                                        @if($data->image_hero)
-                                        <img src="{{ asset('storage') }}/{{ $data->image_hero }}" alt="...">
-                                        @else
-                                        <img src="{{ asset('assets/back/assets/img/image_placeholder.jpg') }}"
-                                            alt="...">
-                                        @endif
-                                    </div>
-                                    <div class="fileinput-preview fileinput-exists thumbnail"></div>
-                                    <div>
-                                        <span class="btn btn-success btn-round btn-file">
-                                            <span class="fileinput-new">Select image</span>
-                                            <span class="fileinput-exists">Change</span>
-                                            {{Form::file('image_hero', null,['class' => 'form-control'])}}
-                                        </span>
-                                        <a href="#pablo" class="btn btn-danger btn-round fileinput-exists"
-                                            data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 text-center">
                                 <legend>Favicon Image</legend>
                                 <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                                     <div class="fileinput-new thumbnail">
                                         @if($data->favicon == 'assets/pemda.ico')
                                         <img src="{{ asset('') }}{{ $data->favicon }}" alt="...">
                                         @elseif($data->favicon)
-                                        <img src="{{ asset('storage') }}/{{ $data->favicon }}" alt="...">
+                                        <img src="{{ route('helper.show-picture', ['path' => $data->favicon]) }}" alt="...">
                                         @else
                                         <img src="{{ asset('assets/back/assets/img/image_placeholder.jpg') }}"
                                             alt="...">

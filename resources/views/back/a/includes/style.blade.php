@@ -1,9 +1,9 @@
 @if($data_website->favicon == 'assets/pemda.ico')
-<link rel="apple-touch-icon" sizes="76x76" href="{{ asset('') }}{{ $data_website->favicon }}" />
-<link rel="icon" type="image/png" href="{{ asset('') }}{{ $data_website->favicon }}" />
+<link rel="apple-touch-icon" sizes="76x76" href="{{ route('helper.show-picture', ['path' => $data_website->favicon]) }}" />
+<link rel="icon" type="image/png" href="{{ route('helper.show-picture', ['path' => $data_website->favicon]) }}" />
 @else
-<link rel="apple-touch-icon" sizes="76x76" href="{{ asset('storage') }}/{{ $data_website->favicon }}" />
-<link rel="icon" type="image/png" href="{{ asset('storage') }}/{{ $data_website->favicon }}" />
+<link rel="apple-touch-icon" sizes="76x76" href="{{ route('helper.show-picture', ['path' => $data_website->favicon]) }}" />
+<link rel="icon" type="image/png" href="{{ route('helper.show-picture', ['path' => $data_website->favicon]) }}" />
 @endif
 <!-- Canonical SEO -->
 <link rel="canonical" href="//www.creative-tim.com/product/material-dashboard-pro" />

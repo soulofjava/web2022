@@ -91,7 +91,9 @@ class WebsiteController extends Controller
         }
         if ($request->hasFile('favicon')) {
             if ($request->file('favicon')->getClientOriginalName() != $gambar->favicon_name) {
-                Storage::delete($gambar->favicon);
+                if ($gambar->favicon) {
+                    Storage::delete($gambar->favicon);
+                }
                 $name2 = $request->file('favicon')->getClientOriginalName();
                 $path2 = $request->file('favicon')->store('website');
             }
