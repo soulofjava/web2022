@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\PinjamTempat;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\UpdateStatusNotification;
+
+
 
 class PinjamTempatController extends Controller
 {
@@ -100,11 +104,17 @@ class PinjamTempatController extends Controller
             'status' => $request->status,
             'catatan' => $request->catatan
         ]);
+    // Kirim email notifikasi setelah update
+    $data = PinjamTempat::find($id); // Ambil data pinjaman yang telah diupdate
+    $email = $data->email; // Ambil alamat email dari data pinjaman
 
-        // kirim email 
-
-        return redirect(route('pinjamtempat.index'));
+    // Kirim email hanya jika alamat email tersedia
+    if ($email) {
+        Mail::to($email)->send(new UpdateStatusNotification($data)); // Kirim email menggunakan template mail UpdateStatusNotification
     }
+
+    return redirect(route('pinjamtempat.index'));
+}
 
     /**
      * Remove the specified resource from storage.

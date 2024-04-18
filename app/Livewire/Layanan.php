@@ -60,7 +60,7 @@ class Layanan extends Component
     public function toggleDiv()
     {
         $this->showDiv = !$this->showDiv;
-        $this->reset(['nama', 'jkel', 'usia', 'pekerjaan', 'pendidikan', 'instansi', 'tanggal', 'waktu', 'kegiatan', 'acara', 'jumlah', 'kontak', 'surat']);
+        $this->reset(['nama', 'jkel', 'usia', 'pekerjaan', 'pendidikan', 'instansi', 'tanggal', 'waktu', 'kegiatan', 'acara', 'jumlah', 'kontak', 'surat' ]);
     }
 
     function simpan()
