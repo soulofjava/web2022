@@ -17,6 +17,7 @@ use App\Http\Controllers\ComRegionController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\HelperController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\MigrasiDataController;
 use App\Http\Controllers\PinjamTempatController;
 use App\Http\Controllers\SSO\SSOController;
@@ -48,24 +49,20 @@ Route::get('ssouser', [SSOController::class, 'connectUser'])->name('sso.authuser
 
 Route::get('/', function () {
     $themes = Website::first();
-    if (Website::exists()) {
-        Seo::seO();
+    Seo::seO();
 
-        try {
-            $response = Http::connectTimeout(2)->withoutVerifying()->get('https://diskominfo.wonosobokab.go.id/api/news');
-            $response = $response->collect();
-            $berita =   array_slice($response['data']['data'], 0, 3);
-        } catch (\Exception $e) {
-            $berita = [];
-        }
-
-        $news = News::with('gambarmuka', 'uploader')->latest('date')->paginate(9);
-        return view('front.' . $themes->themes_front . '.pages.index', compact('news', 'berita'));
-        // return view('front.index', compact('news', 'berita'));
-    } else {
-        $data = Themes::all();
-        return view('front.setup', compact('data'));
+    try {
+        $response = Http::connectTimeout(2)->withoutVerifying()->get('https://diskominfo.wonosobokab.go.id/api/news');
+        $response = $response->collect();
+        $berita =   array_slice($response['data']['data'], 0, 3);
+    } catch (\Exception $e) {
+        $berita = [];
     }
+
+    $news = News::with('gambarmuka', 'uploader')->latest('date')->paginate(9);
+    return view('front.' . $themes->themes_front . '.pages.index', compact('news', 'berita'));
+    // return view('front.index', compact('news', 'berita'));
+
 })->name('root')->middleware('data_web', 'VisitorMiddleware');
 
 Route::group(['middleware' => 'data_web'], function () {
@@ -110,6 +107,7 @@ Route::group(['middleware' => ['auth', 'data_web', 'cek_inbox'], 'prefix' => 'ad
         Route::resource('frontmenu', FrontMenuController::class);
         Route::resource('relatedlink', RelatedLinkController::class);
         Route::resource('component', ComponentController::class);
+        Route::resource('kategori', KategoriController::class);
     });
     Route::resource('news', NewsController::class);
     Route::resource('pinjamtempat', PinjamTempatController::class);

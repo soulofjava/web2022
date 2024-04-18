@@ -12,6 +12,7 @@ use Illuminate\Support\Str;
 
 class News extends Model implements Viewable
 {
+    use \Conner\Tagging\Taggable;
     use HasFactory, SoftDeletes, InteractsWithViews, Sluggable;
     protected $guarded = [];
 

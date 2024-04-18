@@ -20,59 +20,8 @@
                     <input type="text" value="{{ $data->id }}" id="malika" hidden>
                     <input type="text" value="{{ $data->dip }}" id="bbb" hidden>
 
-                    <div class="togglebutton" style="margin-bottom: 15px;">
-                        <label>
-                            Data DIP? <input name="datadip" type="checkbox" id="hideButton" {{ $data->dip ? 'checked' :
-                            '' }}>
-                        </label>
-                    </div>
+                    @include('back.a.pages.news.form')
 
-                    <div class="dropzone" id="my-awesome-dropzone"></div>
-
-                    <!-- <div class="form-group label-floating">
-                        <label class="control-label">Highlight</label>
-                        {{Form::select('highlight', $highlight, null, ['class' => 'form-control'])}}
-                    </div> -->
-                    <div class="form-group label-floating jip" style="display: none;">
-                        <label class="control-label">Jenis Informasi Publik</label>
-                        {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
-                        'form-control','placeholder' => ''])}}
-                    </div>
-
-                    <div class="form-group label-floating dip" style="display: none;">
-                        <label class="control-label">Tahun Daftar Informasi Publik</label>
-                        {{Form::number('dip_tahun', null, ['class' =>
-                        'form-control','placeholder' => ''])}}
-                    </div>
-
-                    <div class="form-group label-floating">
-                        <label class="control-label">Judul Postingan</label>
-                        {{Form::text('title', null,['class' => 'form-control'])}}
-                    </div>
-                    @error('title')
-                    <div class="error text-danger">Tidak Boleh Kosong</div>
-                    @enderror
-
-                    <div class="form-group">
-                        <label class="control-label">Tanggal</label>
-                        {{Form::text('date', null,['class' => 'form-control datepicker'])}}
-                    </div>
-                    @error('date')
-                    <div class="error text-danger">Tidak Boleh Kosong</div>
-                    @enderror
-
-                    <div class="form-group label-floating">
-                        <label class="control-label">Description</label>
-                        {{Form::textarea('description', null,['class' => 'form-control','id'=>'my-editor'])}}
-                    </div>
-                    @error('description')
-                    <div class="error text-danger">Tidak Boleh Kosong</div>
-                    @enderror
-
-                    <div class="d-flex text-right">
-                        <a href="{{ route('news.index') }}" class="btn btn-default btn-fill">Cancel</a>
-                        <button type="submit" class="btn btn-success btn-fill">Update</button>
-                    </div>
                     {{Form::close()}}
                 </div>
             </div>

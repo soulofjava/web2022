@@ -90,9 +90,13 @@
                             <b class="caret"></b>
                         </p>
                     </a>
-                    <div class="collapse {{ (Str::contains(Request::url(), ['component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user', 'bidang'])) ? 'in' : '' }}"
+                    <div class="collapse {{ (Str::contains(Request::url(), ['kategori', 'component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user', 'bidang'])) ? 'in' : '' }}"
                         id="pagesExamples2">
                         <ul class="nav">
+                            <li class="{{ (Str::contains(Request::url(), 'kategori')) ? 'active' : '' }}">
+                                <a href="{{ route('kategori.index') }}"><i class="material-icons">category</i>
+                                    Kategori</a>
+                            </li>
                             <li class="{{ (Str::contains(Request::url(), 'component')) ? 'active' : '' }}">
                                 <a href="{{ route('component.index') }}"><i class="material-icons">apps</i>
                                     Komponen</a>

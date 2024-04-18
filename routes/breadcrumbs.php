@@ -17,6 +17,12 @@ Breadcrumbs::for('news', function ($trail) {
     $trail->push('Postingan', url('news'));
 });
 
+// Dashboard > Kategori
+Breadcrumbs::for('kategori', function ($trail) {
+    $trail->parent('dashboard');
+    $trail->push('Kategori', url('kategori'));
+});
+
 // Dashboard > Pinjam Tempat
 Breadcrumbs::for('pinjamtempat', function ($trail) {
     $trail->parent('dashboard');

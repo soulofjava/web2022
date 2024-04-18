@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Storage;
 use App\Models\File as Files;
-
+use Conner\Tagging\Model\Tag;
 class NewsController extends Controller
 {
     /**
@@ -55,9 +55,10 @@ class NewsController extends Controller
      */
     public function create()
     {
-        $highlight = ComCodes::where('code_group', 'highlight_news')->pluck('code_nm');
-        $categori = ComCodes::where('code_group', 'kategori_news')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
-        return view('back.a.pages.news.create', compact('highlight', 'categori'));
+        $categori = Tag::orderBy('name', 'ASC')->pluck('name', 'name')->map(function ($item) {
+            return strtoupper($item);
+        });
+        return view('back.a.pages.news.create', compact('categori'));
     }
 
     /**
@@ -79,6 +80,9 @@ class NewsController extends Controller
         } else {
             $id = News::create($val + ['kategori' => 'INFORMASI_ST_02', 'upload_by' => auth()->user()->id]);
         }
+
+        // tagging postingan
+        $id->tag($request->tag);
 
         if ($request->document) {
             foreach ($request->document as $df) {
@@ -112,9 +116,15 @@ class NewsController extends Controller
     public function edit($id)
     {
         $data = News::find($id);
-        $highlight = ComCodes::where('code_group', 'highlight_news')->pluck('code_nm');
-        $categori = ComCodes::where('code_group', 'kategori_news')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
-        return view('back.a.pages.news.edit', compact('data', 'highlight', 'categori'));
+        $categorinya = [];
+        $categori = Tag::orderBy('name', 'ASC')->pluck('name', 'name')->map(function ($item) {
+            return strtoupper($item);
+        });
+        // untuk list yang terpilih
+        foreach ($data->tagged ?? [] as $key => $value) {
+            array_push($categorinya, $value->tag_name);
+        }
+        return view('back.a.pages.news.edit', compact('data', 'categori', 'categorinya'));
     }
 
     /**
@@ -147,6 +157,9 @@ class NewsController extends Controller
         } else {
             $isa->update($validated + ['kategori' => 'INFORMASI_ST_02', 'dip' => false, 'dip_tahun' => null, 'upload_by' => auth()->user()->id]);
         }
+
+        // tag ulang postingan
+        $isa->retag($request->tag);
 
         if ($request->document) {
             foreach ($request->document as $df) {
