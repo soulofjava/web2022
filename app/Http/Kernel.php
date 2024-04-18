@@ -65,6 +65,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'data_web' => \App\Http\Middleware\WebHelper::class,
         'cek_inbox' => \App\Http\Middleware\CekInboxBaru::class,
+        'VisitorMiddleware' => \App\Http\Middleware\VisitorMiddleware::class,
         'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
         'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
         'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,

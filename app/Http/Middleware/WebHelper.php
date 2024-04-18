@@ -13,6 +13,7 @@ use App\Models\Gallery;
 use App\Models\Inbox;
 use App\Models\News;
 use App\Models\RelatedLink;
+use App\Models\Visitor;
 use Illuminate\Support\Facades\DB;
 
 class WebHelper
@@ -33,7 +34,7 @@ class WebHelper
         $news = News::all()->count();
         $public_complaints = Complaint::all()->count();
         $gallery = Gallery::all()->count();
-        $counter = Counter::all()->count();
+        $counter = Visitor::all()->count();
         $inbox = Inbox::all()->count();
         $related = RelatedLink::all();
         // Sharing is caring

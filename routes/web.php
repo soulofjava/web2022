@@ -2,7 +2,6 @@
 
 use App\Helpers\Seo;
 use App\Models\News;
-use App\Models\Themes;
 use App\Models\Gallery;
 use App\Models\Website;
 use App\Jobs\TambahVisitor;
@@ -39,22 +38,15 @@ use App\Http\Controllers\RelatedLinkController;
 */
 
 Route::get('/', function () {
-    $themes = Website::all()->first();
-    if (Website::all()->count() != 0) {
-        TambahVisitor::dispatch($_SERVER['REMOTE_ADDR']);
-        Seo::seO();
-        $gallery = Gallery::latest('created_at')->paginate(12);
-        $news = Cache::remember('beritaku', 60 * 60, function () {
-            return News::latest('date')->paginate(9);
-        });
-        $berita = [];
-        // $news = News::latest('date')->paginate(9);
-        return view('front.' . $themes->themes_front . '.pages.index', compact('gallery', 'news', 'berita'));
-    } else {
-        $data = Themes::all();
-        return view('front.setup', compact('data'));
-    }
-})->name('root')->middleware('data_web');
+    Seo::seO();
+    $gallery = Gallery::latest('created_at')->paginate(12);
+    $news = Cache::remember('beritaku', 60 * 60, function () {
+        return News::latest('date')->paginate(9);
+    });
+    $berita = [];
+    // $news = News::latest('date')->paginate(9);
+    return view('front.arsha.pages.index', compact('gallery', 'news', 'berita'));
+})->name('root')->middleware('data_web', 'VisitorMiddleware');
 
 Route::group(['middleware' => 'data_web'], function () {
     Route::get('/detail-berita/{id}', [FrontController::class, 'detailberita'])->name('detail-berita');
@@ -64,10 +56,6 @@ Route::group(['middleware' => 'data_web'], function () {
     Route::get('/newsall', [FrontController::class, 'newsall'])->name('news.all');
     Route::get('/photos', [FrontController::class, 'galleryall'])->name('photo.all');
     Route::post('/setup', [FrontController::class, 'setup'])->name('setup-first');
-    Route::get('/tentang-kami', [FrontController::class, 'tentangkami'])->name('tentang-kami');
-    Route::get('/latar-belakang', [FrontController::class, 'latarbelakang'])->name('latar-belakang');
-    Route::get('/tujuan', [FrontController::class, 'tujuan'])->name('tujuan');
-    Route::get('/kampung-pancasila', [FrontController::class, 'kampungpancasila'])->name('kampung-pancasila');
     Route::get('/page/{id}', [FrontController::class, 'page'])->name('page');
     Route::get('/component/{id}', [FrontController::class, 'component'])->name('component');
     Route::get('/load-sql', [FrontController::class, 'loadsql']);

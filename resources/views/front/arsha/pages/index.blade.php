@@ -176,20 +176,20 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             {{Form::text('name', null,['class' => 'form-control', 'placeholder' => 'Your Name',
-                            'aaaaaarequired'])}}
+                            'required'])}}
                         </div>
                         <div class="form-group col-md-6">
                             {{Form::email('email', null,['class' => 'form-control', 'placeholder' => 'Email',
-                            'aaaaaarequired'])}}
+                            'required'])}}
                         </div>
                     </div>
                     <div class="form-group">
                         {{Form::number('phone', null,['class' => 'form-control', 'placeholder' => 'Phone Number',
-                        'aaaaaarequired'])}}
+                        'required'])}}
                     </div>
                     <div class="form-group">
                         {{Form::textarea('message', null,['class' => 'form-control', 'placeholder' => 'Message',
-                        'aaaaaarequired'])}}
+                        'required'])}}
                     </div>
                     <div class="form-group">
                         <div class="row">
@@ -202,7 +202,7 @@
                             <div class="col-sm-12 col-md-12 mb-3">
                                 {{Form::number('captcha', null,['class' => 'form-control',
                                 'placeholder' => 'Enter Captcha Result',
-                                'aaaaaarequired'])}}
+                                'required'])}}
                             </div>
                         </div>
                     </div>
@@ -243,13 +243,6 @@
             document.getElementById("audio_1").value = "on";
             console.log("on!");
         }
-        // function playmusik() {
-        //     var song = new Audio();
-        //     song.src = "http://i.klikhost.com:8234/stream";
-        //     // song.autoplay = true;
-        //     song.play;
-        // }
-        // window.addEventListener("load", playmusik);
     });
 </script>
 @endpush
