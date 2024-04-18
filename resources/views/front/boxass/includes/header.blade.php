@@ -88,11 +88,11 @@
                                             'ASC')->count() == 0)
                                             <li>
                                                 @if ($sub3->menu_name == 'Permohonan Informasi Publik')
-                                                <a href="https://website.wonosobokab.go.id/category/detail/Permohonan-Informasi-Publik"
+                                                <a href="https://sobopedia.wonosobokab.go.id/homesobopedia/permohonan"
                                                     target="_blank">{{ $sub3->menu_name }}
                                                 </a>
                                                 @elseif ($sub3->menu_name == 'Pengajuan Keberatan Informasi Publik')
-                                                <a href="https://website.wonosobokab.go.id/category/detail/Formulir-Keberatan-atas-Permohonan-Informasi-Publik-pada-PPID-Kabupaten-Wonosobo"
+                                                <a href="https://sobopedia.wonosobokab.go.id/homesobopedia/keberatan"
                                                     target="_blank">{{ $sub3->menu_name }}
                                                 </a>
                                                 @elseif ($sub3->menu_name == 'JDIH Wonosobo')
