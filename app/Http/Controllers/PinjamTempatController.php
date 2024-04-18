@@ -112,6 +112,7 @@ class PinjamTempatController extends Controller
     if ($email) {
         Mail::to($email)->send(new UpdateStatusNotification($data)); // Kirim email menggunakan template mail UpdateStatusNotification
     }
+    //aaa
 
     return redirect(route('pinjamtempat.index'));
 }
