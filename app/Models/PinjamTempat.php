@@ -9,4 +9,9 @@ class PinjamTempat extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function statuse()
+    {
+        return $this->belongsTo(ComCodes::class, 'status', 'code_cd');
+    }
 }

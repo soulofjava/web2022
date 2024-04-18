@@ -104,18 +104,18 @@ class PinjamTempatController extends Controller
             'status' => $request->status,
             'catatan' => $request->catatan
         ]);
-    // Kirim email notifikasi setelah update
-    $data = PinjamTempat::find($id); // Ambil data pinjaman yang telah diupdate
-    $email = $data->email; // Ambil alamat email dari data pinjaman
 
-    // Kirim email hanya jika alamat email tersedia
-    if ($email) {
-        Mail::to($email)->send(new UpdateStatusNotification($data)); // Kirim email menggunakan template mail UpdateStatusNotification
+        // Kirim email notifikasi setelah update
+        $data = PinjamTempat::with('statuse')->find($id); // Ambil data pinjaman yang telah diupdate
+        $email = $data->email; // Ambil alamat email dari data pinjaman
+
+        // Kirim email hanya jika alamat email tersedia
+        if ($email) {
+            Mail::to($email)->send(new UpdateStatusNotification($data)); // Kirim email menggunakan template mail UpdateStatusNotification
+        }
+
+        return redirect(route('pinjamtempat.index'));
     }
-    //aaa
-
-    return redirect(route('pinjamtempat.index'));
-}
 
     /**
      * Remove the specified resource from storage.

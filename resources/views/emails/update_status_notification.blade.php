@@ -6,12 +6,13 @@
     <title>Update Status Peminjaman</title>
 </head>
 <body>
-    <p>Halo,</p>
+    <p>Halo, {{ $data->nama }}</p>
 
-    <p>Status peminjaman Anda telah diperbarui:</p>
+    <p>Status peminjaman ruangan Anda telah diperbarui menjadi <b>{{ $data->statuse->code_nm }}</b></p>
 
     <ul>
-        <li><strong>Status:</strong> {{ $data->status }}</li>
+        <li><strong>Tanggal:</strong> {{ $data->tanggal }}</li>
+        <li><strong>Nama Kegiatan:</strong> {{ $data->kegiatan }}</li>
         <li><strong>Catatan:</strong> {{ $data->catatan }}</li>
     </ul>
 
