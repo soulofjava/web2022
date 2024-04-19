@@ -33,6 +33,43 @@ class FrontController extends Controller
         $this->themes = Website::all()->first();
     }
 
+    public function transparansi(Request $request, $id)
+    {
+        Seo::seO();
+        $hasil = str_replace('-', ' ', Str::upper($id));
+
+        $data = News::withAnyTag([Str::slug($id)])->where('terbit', 1)->latest("date")->get();
+        $data2 = [];
+
+        $combinedData = $data->concat($data2);
+
+        if ($request->ajax()) {
+            return DataTables::of($combinedData)
+                ->addIndexColumn()
+                ->addColumn(
+                    'action',
+                    function ($combinedData) {
+                        if ($combinedData->menu_url) {
+                            $actionBtn = '<td class="text-center">
+                            <a target="_blank" href="' . url('page', $combinedData->menu_url) . '" class="btn btn-sm btn-warning">LIHAT
+                            DATA</a>
+                            </td>';
+                        } else {
+                            $actionBtn = '<td class="text-center">
+                                <a target="_blank" href="' . url('news-detail', $combinedData->slug) . '" class="btn btn-sm btn-warning">LIHAT
+                                    DATA</a>
+                            </td>';
+                        }
+                        return $actionBtn;
+                    }
+                )
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+
+        return view('front.boxass.pages.globalsearch', compact('hasil', 'combinedData'));
+    }
+
     public function datappid()
     {
         $data1 = FrontMenu::whereNotNull('kategori')->get();
@@ -93,7 +130,7 @@ class FrontController extends Controller
             'title' => 'Layanan',
             'description' => 'Layanan'
         ];
-        
+
         return view('front.boxass.pages.page', compact('data'));
     }
 
@@ -169,7 +206,7 @@ class FrontController extends Controller
     {
         Seo::seO();
         $hasil = 'All post by : ' . $id;
-        $data = News::with('gambar')->where('upload_by', '=', $id)->orderBy("date", "desc")->paginate(5);
+        $data = News::with('gambar')->where('upload_by', '=', $id)->latest("date")->paginate(5);
         $news = News::latest('date')->take(5)->get();
         return view('front.' . $this->themes->themes_front . '.pages.newsbyauthor', compact('data', 'news', 'hasil'));
     }

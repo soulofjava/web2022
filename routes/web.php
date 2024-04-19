@@ -74,10 +74,7 @@ Route::group(['middleware' => 'data_web'], function () {
     Route::get('newsall', [FrontController::class, 'newsall'])->name('news.all');
     Route::get('/photos', [FrontController::class, 'galleryall'])->name('photo.all');
     Route::post('/setup', [FrontController::class, 'setup'])->name('setup-first');
-    Route::get('/tentang-kami', [FrontController::class, 'tentangkami'])->name('tentang-kami');
-    Route::get('/latar-belakang', [FrontController::class, 'latarbelakang'])->name('latar-belakang');
-    Route::get('/tujuan', [FrontController::class, 'tujuan'])->name('tujuan');
-    Route::get('/kampung-pancasila', [FrontController::class, 'kampungpancasila'])->name('kampung-pancasila');
+    Route::get('transparansi/{id}', [FrontController::class, 'transparansi']);
     Route::get('/page/{id}', [FrontController::class, 'page'])->name('page');
     Route::get('/component/{id}', [FrontController::class, 'component'])->name('component');
     Route::get('/load-sql', [FrontController::class, 'loadsql']);
