@@ -138,7 +138,7 @@
         <div class="row justify-content-center">
             <div class="col-xl-6 col-lg-7 col-md-8">
                 <div class="section-title text-center mb-40">
-                    <h2>Postingan Terbaru Kami</h2>
+                    <h2>Berita</h2>
                 </div>
             </div>
         </div>
