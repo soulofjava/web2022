@@ -8,6 +8,8 @@
                 <div class="blog-details-wrap">
                     @if($data->menu_name == 'Daftar Informasi Publik')
                     <x-jip />
+                    @elseif($data->menu_name == 'Personil')
+                    <x-personil />
                     @elseif($data->title)
                     {!! $data->description !!}
                     @else
