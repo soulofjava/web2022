@@ -43,7 +43,7 @@ Route::get('ssouser', [SSOController::class, 'connectUser'])->name('sso.authuser
 
 Route::get('/', function () {
     Seo::seO();
-    $news = News::with('gambarmuka', 'uploader')->latest('date')->paginate(8);
+    $news = News::where('tag', 'berita')->with('gambarmuka', 'uploader')->latest('date')->paginate(8);
     return view('front.pages.index', compact('news'));
     // return view('front.index', compact('news', 'berita'));
 })->name('root')->middleware('data_web', 'VisitorMiddleware');
