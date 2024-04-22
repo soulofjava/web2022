@@ -133,7 +133,7 @@
 <!-- About Section End -->
 
 <!-- Coach Section Start -->
-<section class="coach-section rel z-1 pt-120 rpt-90 pb-100 rpb-70 bg-lighter">
+<section class="coach-section rel z-1 pt-120 rpt-90 rpb-70 bg-lighter">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-6 col-lg-7 col-md-8">
@@ -195,7 +195,7 @@
 <!-- Coach Section End -->
 
 <!-- Coach Section Start -->
-<section class="coach-section rel z-1 pt-120 rpt-90 pb-100 rpb-70 bg-lighter">
+<section class="coach-section rel z-1 pt-60 rpt-90 pb-100 rpb-70">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-6 col-lg-7 col-md-8">

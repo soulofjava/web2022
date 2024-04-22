@@ -223,32 +223,10 @@ class FrontController extends Controller
         return view('front.pages.globalsearch', compact('hasil', 'combinedData'));
     }
 
-    public function layanan(Request $request)
+    public function layanan()
     {
         Seo::seO();
-        $cari = $request->kolomcari;
-        $hasil = 'Search result : ' . $cari;
-        $data = News::where('tag', 'layanan')->latest("date");
-
-        if ($request->ajax()) {
-            return DataTables::of($data)
-                ->addIndexColumn()
-                ->addColumn(
-                    'action',
-                    function ($data) {
-                        $actionBtn = '<td class="text-center">
-                            <a href="' . url('news-detail', $data->slug) . '" class="btn btn-primary">LIHAT
-                            DATA</a>
-                            </td>';
-
-                        return $actionBtn;
-                    }
-                )
-                ->rawColumns(['action'])
-                ->make(true);
-        }
-
-        return view('front.pages.globalsearch', compact('hasil', 'data'));
+        return view('front.pages.layanan');
     }
 
     public function newsBySearch(Request $request)
