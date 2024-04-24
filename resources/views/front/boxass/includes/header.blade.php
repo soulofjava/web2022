@@ -42,7 +42,7 @@
                             'ASC')->count() == 0)
                             <li>
                                 @if ($menu->link)
-                                <a target="_blank" href="{{ $menu->menu_url }}">
+                                <a class="smooth-menu" target="_blank" href="{{ $menu->menu_url }}">
                                     {{ $menu->menu_name }}
                                 </a>
                                 @else
@@ -52,7 +52,7 @@
                             </li>
                             @else
                             <li class="dropdown dropdown-right">
-                                <a href="#" dropdown-toggle smooth-menu data-toggle="dropdown">{{ $menu->menu_name }}
+                                <a href="#" class="dropdown-toggle smooth-menu" data-toggle="dropdown">{{ $menu->menu_name }}
                                 </a>
                                 <ul class="dropdown-menu">
                                     @foreach (App\Models\FrontMenu::where('menu_parent',
@@ -79,7 +79,7 @@
                                     </li>
                                     @else
                                     <li class="dropdown dropdown-right">
-                                        <a href="#" dropdown-toggle smooth-menu data-toggle="dropdown">{{ $sm->menu_name
+                                        <a href="#" class="dropdown-toggle smooth-menu" data-toggle="dropdown">{{ $sm->menu_name
                                             }}
                                         </a>
                                         <ul class="dropdown-menu">
