@@ -15,6 +15,5 @@ class Seo
             ->setDescription($data->web_description)
             ->setKeywords($data->web_name)
             ->addKeyword($data->web_description)
-            ->addMeta('$meta', '$value');
     }
 }
