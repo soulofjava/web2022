@@ -1,5 +1,5 @@
 <div>
-    <div class="container">
+    <div>
         <center>
             <h1 class="mt-5">Personil</h1>
         </center>

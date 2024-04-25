@@ -7,6 +7,7 @@ use App\Models\Simpeg\Tb01;
 use Illuminate\View\Component;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\View\View;
+use PhpParser\Node\Stmt\Return_;
 
 class Personil extends Component
 {
@@ -51,7 +52,7 @@ class Personil extends Component
             ->leftJoin('a_golruang', "tb_01.idgolrupkt", "a_golruang.idgolru")
             ->leftJoin('a_jabfungum', "tb_01.idjabfungum", "a_jabfungum.idjabfungum")
             ->leftJoin('a_jabfung', "tb_01.idjabfung", "a_jabfung.idjabfung")
-            ->where('tb_01.kdunit', 18) //kode opd
+            ->where('tb_01.kdunit', env('ID_OPD')) //kode opd
             ->where('idjenkedudupeg', 1) //aktif / tidak
             ->where('idjenjab', '>', '4')
             ->orderBy('idesljbt', 'ASC')
@@ -70,7 +71,7 @@ class Personil extends Component
             ->leftJoin('a_golruang', "tb_01.idgolrupkt", "a_golruang.idgolru")
             ->leftJoin('a_jabfungum', "tb_01.idjabfungum", "a_jabfungum.idjabfungum")
             ->leftJoin('a_jabfung', "tb_01.idjabfung", "a_jabfung.idjabfung")
-            ->where('tb_01.kdunit', 18) //kode opd
+            ->where('tb_01.kdunit', env('ID_OPD')) //kode opd
             ->where('idjenkedudupeg', 1) //aktif / tidak
             ->where('idjenjab', '<=', '4')
             ->orderBy('idstspeg', 'ASC')
