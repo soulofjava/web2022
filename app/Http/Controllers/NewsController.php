@@ -9,6 +9,7 @@ use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Storage;
 use App\Models\File as Files;
 use Conner\Tagging\Model\Tag;
+
 class NewsController extends Controller
 {
     /**
@@ -42,7 +43,16 @@ class NewsController extends Controller
                         return $actionBtn;
                     }
                 )
-                ->rawColumns(['action', 'tgl'])
+                ->addColumn(
+                    'link',
+                    function ($data) {
+                        $actionBtn = '<a href="' . url("/news-detail", $data->slug) . '" target="_blank">' .
+                            $data->title .
+                            '</a>';
+                        return $actionBtn;
+                    }
+                )
+                ->rawColumns(['action', 'tgl', 'link'])
                 ->make(true);
         }
         return view('back.a.pages.news.index');

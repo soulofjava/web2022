@@ -1,58 +1,52 @@
-@extends('front.buspro.layouts.app')
+@extends('front.buspro.layout.app')
 @push('after-style')
-
 <!-- datatable -->
 <link href="https://cdn.datatables.net/v/bs/dt-1.13.6/datatables.min.css" rel="stylesheet">
 @endpush
 @section('content')
-<main id="main">
-
-    <!-- Start Breadcrumb
-        ============================================= -->
-    <div class="breadcrumb-area shadow bg-fixed text-center padding-xl text-light" style="background-color: #F4F7FB;">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12">
-                    <!-- <h1>Blog Single</h1> -->
-                    <ul class="breadcrumb">
-                        <li><a href="{{ url('/') }}">Home</a></li>
-                        <li><a href="#">page</a></li>
-                        <li><a href="#">Agenda</a></li>
-                    </ul>
-                </div>
+<!-- Start Breadcrumb 
+    ============================================= -->
+<div class="breadcrumb-area shadow dark bg-fixed text-center text-light"
+    style="background-image: url(assets/img/2440x1578.png);">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <h1>Agenda</h1>
+                <ul class="breadcrumb">
+                    <li><a href="{{ url('/') }}"><i class="fas fa-home"></i> Beranda</a></li>
+                    <li><a href="#"> Halaman</a></li>
+                    <li class="active"> Agenda</li>
+                </ul>
             </div>
         </div>
     </div>
-    <!-- End Breadcrumb -->
-
-    <!-- Start Blog
+</div>
+<!-- End Breadcrumb -->
+<!-- Start Blog
         ============================================= -->
-    <div id="blog" class="blog-area bg-gray full-width single default-padding">
-        <div class="container">
-            <div class="row">
-                <div class="blog-items">
-                    <div class="col-lg-12 col-md-12">
-                        <div class="item">
-                            <table id="datatables" class="table is-striped" cellspacing="0" width="100%"
-                                style="width:100%">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Date</th>
-                                        <th>Event Name</th>
-                                        <th>Event Location</th>
-                                    </tr>
-                                </thead>
-                            </table>
-                        </div>
+<div class="blog-area single full-blog full-blog default-padding">
+    <div class="container">
+        <div class="row">
+            <div class="blog-items">
+                <div class="blog-content col-md-10 col-md-offset-1">
+                    <div class="item">
+                        <table id="datatables" class="table is-striped" cellspacing="0" width="100%" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Tanggal</th>
+                                    <th>Nama Kegiatan</th>
+                                    <th>Lokasi Kegiatan</th>
+                                </tr>
+                            </thead>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- End Blog -->
-
-</main>
+</div>
+<!-- End Blog -->
 @endsection
 @push('after-script')
 <!-- DataTables   -->
