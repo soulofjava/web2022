@@ -60,7 +60,7 @@ Route::get('/', function () {
     }
 
     $news = News::with('gambarmuka', 'uploader')->latest('date')->paginate(9);
-    return view('front.' . $themes->themes_front . '.pages.index', compact('news', 'berita'));
+    return view('front.buspro.pages.index', compact('news', 'berita'));
     // return view('front.index', compact('news', 'berita'));
 
 })->name('root')->middleware('data_web', 'VisitorMiddleware');

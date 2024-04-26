@@ -28,16 +28,17 @@ class DatabaseSeeder extends Seeder
             ComCodes::class,
             PermissionSeeder::class,
             ComponentSeeder::class,
+            KategoriSeeder::class,
             // RegionSeeder::class,
         ]);
 
         // \App\Models\User::factory(10)->create();
         DB::table('websites')->insert([
-            'web_name' => 'Web2022',
-            'web_description' => '"Hello World!"',
-            'email' => 'diskominfo@wonosobokab.go.id',
-            'address' => 'Wonosobo - The Soul Of Java',
-            'phone' => '085643710007',
+            'web_name' => 'Dinas Kesehatan Kabupaten Wonosobo',
+            'web_description' => 'Website Resmi Dinas Kesehatan Kabupaten Wonosobo',
+            'email' => 'dinkes@wonosobokab.go.id',
+            'address' => 'Jl. T.Jogonegoro 2-4, Jaraksari, Kec. Wonosobo',
+            'phone' => '(0286) 321033',
             'instagram' => 'https://www.instagram.com/diskominfo_wonosobo/?hl=id',
             'twitter' => 'https://twitter.com/diskominfo_wsb',
             'facebook' => 'https://www.facebook.com/wonosobohebat/',
@@ -45,7 +46,7 @@ class DatabaseSeeder extends Seeder
             'url_stream' => '#',
             'themes_front' => 'boxass',
             'themes_back' => 'back.a',
-            'open_hours' => 'Monday - Thursday (07:00AM - 04:00PM) Friday (07:00AM - 11:00AM)',
+            'open_hours' => "Senin - Kamis (07:00 - 14:00 WIB) Jum'at (07:00 - 11:00 WIB)",
         ]);
 
         $related = [

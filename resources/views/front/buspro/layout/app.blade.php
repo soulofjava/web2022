@@ -19,4 +19,5 @@
     @include('front.buspro.include.script')
     @stack('after-script')
 </body>
+
 </html>

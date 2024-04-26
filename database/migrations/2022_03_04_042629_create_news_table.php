@@ -25,6 +25,7 @@ class CreateNewsTable extends Migration
             $table->string('kategori')->nullable();
             $table->boolean('dip')->default(false);
             $table->string('dip_tahun')->nullable();
+            $table->boolean('terbit')->default(false);
             $table->softDeletes();
             $table->timestamps();
         });

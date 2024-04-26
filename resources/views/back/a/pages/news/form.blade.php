@@ -43,7 +43,7 @@
 <div class="error text-danger">Tidak Boleh Kosong</div>
 @enderror
 
-<div class="form-group label-floating">
+<div class="form-group">
     <label class="control-label">Description</label>
     {{Form::textarea('description', null,['class' => 'form-control','id'=>'my-editor'])}}
 </div>

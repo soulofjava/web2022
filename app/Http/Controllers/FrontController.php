@@ -11,7 +11,6 @@ use App\Models\Download;
 use App\Models\FrontMenu;
 use Illuminate\Http\Request;
 use App\Models\News;
-use App\Models\Gallery;
 use App\Models\GuestBook;
 use App\Models\Inbox;
 use Illuminate\Support\Str;
@@ -28,11 +27,6 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 class FrontController extends Controller
 {
-    public function __construct()
-    {
-        $this->themes = Website::all()->first();
-    }
-
     public function transparansi(Request $request, $id)
     {
         Seo::seO();
@@ -67,7 +61,7 @@ class FrontController extends Controller
                 ->make(true);
         }
 
-        return view('front.boxass.pages.globalsearch', compact('hasil', 'combinedData'));
+        return view('front.buspro.pages.globalsearch', compact('hasil', 'combinedData'));
     }
 
     public function datappid()
@@ -189,7 +183,7 @@ class FrontController extends Controller
         $next = $data->id + 1;
         $next_data = News::with('gambar', 'uploader')->where('id', $next)->first();
 
-        return view('front.' . $this->themes->themes_front . '.pages.newsdetail', compact('data', 'news', 'file', 'prev_data', 'next_data'));
+        return view('front.buspro.pages.newsdetail', compact('data', 'news', 'file', 'prev_data', 'next_data'));
     }
 
     public function detailberita($id)
@@ -199,7 +193,7 @@ class FrontController extends Controller
         $response = $response->collect();
         $berita =   $response['data'];
         $news = News::orderBy('date', 'desc')->paginate(5);
-        return view('front.' . $this->themes->themes_front . '.pages.beritadetail', compact('berita', 'news'));
+        return view('front.buspro.pages.beritadetail', compact('berita', 'news'));
     }
 
     public function newsByAuthor($id)
@@ -208,25 +202,23 @@ class FrontController extends Controller
         $hasil = 'All post by : ' . $id;
         $data = News::with('gambar')->where('upload_by', '=', $id)->latest("date")->paginate(5);
         $news = News::latest('date')->take(5)->get();
-        return view('front.' . $this->themes->themes_front . '.pages.newsbyauthor', compact('data', 'news', 'hasil'));
+        return view('front.buspro.pages.newsbyauthor', compact('data', 'news', 'hasil'));
     }
 
     public function newsBySearch(Request $request)
     {
         Seo::seO();
         $cari = $request->kolomcari;
-        $hasil = 'Search result : ' . $cari;
-        $data = News::with('gambar')->whereDate('date', 'like', '%' . $cari . '%')->orWhere('title', 'like', '%' . $cari . '%')->orderBy("date", "desc")->paginate();
-        $news = News::latest('date')->take(5)->get();
-        return view('front.' . $this->themes->themes_front . '.pages.newsbyauthor', compact('data', 'news', 'hasil'));
+        $hasil = 'Hasil pencarian : ' . $cari;
+        $news = News::with('gambarmuka')->whereDate('date', 'like', '%' . $cari . '%')->orWhere('title', 'like', '%' . $cari . '%')->latest("date")->paginate(6);
+        return view('front.buspro.pages.newsbyauthor', compact('news', 'hasil'));
     }
 
     public function newsall(Request $request)
     {
         Seo::seO();
-        $news = News::latest('date')->paginate(12);
-        $sideposts = News::latest('date')->take(5)->get();
-        return view('front.' . $this->themes->themes_front . '.pages.news', compact('news', 'sideposts'));
+        $news = News::latest('date')->paginate(6);
+        return view('front.buspro.pages.news', compact('news'));
     }
 
     public function downloadarea(Request $request)
@@ -246,7 +238,7 @@ class FrontController extends Controller
                 ->rawColumns(['download'])
                 ->make(true);
         }
-        return view('front.' . $this->themes->themes_front . '.component.download-area');
+        return view('front.buspro.component.download-area');
     }
 
     public function newsByCategory($id)
@@ -254,14 +246,7 @@ class FrontController extends Controller
         Seo::seO();
         $news = News::where('kategori', $id)->latest('date')->paginate(12);
         $sideposts = News::latest('date')->take(5)->get();
-        return view('front.' . $this->themes->themes_front . '.pages.news', compact('news', 'sideposts'));
-    }
-
-    public function galleryall(Request $request)
-    {
-        Seo::seO();
-        $gallery = Gallery::with('gambar')->orderBy('upload_date', 'desc')->paginate(12);
-        return view('front.' . $this->themes->themes_front . '.pages.gallery', compact('gallery'));
+        return view('front.buspro.pages.news', compact('news', 'sideposts'));
     }
 
     public function page($id)
@@ -273,14 +258,14 @@ class FrontController extends Controller
             $data = News::where('id', $id)->first();
         }
 
-        return view('front.' . $this->themes->themes_front . '.pages.page', compact('data'));
+        return view('front.buspro.pages.page', compact('data'));
     }
 
     public function component($id)
     {
         Seo::seO();
         $data = Component::all();
-        return view('front.' . $this->themes->themes_front . '.component.guestbook', compact('data'));
+        return view('front.buspro.component.guestbook', compact('data'));
     }
 
     public function setup(Request $request)
@@ -359,7 +344,7 @@ class FrontController extends Controller
                 ->rawColumns(['tgl'])
                 ->make(true);
         }
-        return view('front.' . $this->themes->themes_front . '.component.event');
+        return view('front.buspro.component.event');
     }
 
     public function inbox(Request $request)
