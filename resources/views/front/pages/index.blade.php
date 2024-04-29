@@ -213,7 +213,7 @@
             <li data-filter=".photography">Photography</li>
         </ul> -->
         <div class="row coach-active justify-content-center">
-            @foreach(App\Models\News::where('tag',
+            @foreach(App\Models\News::where('terbit', 1)->where('tag',
             'informasi umum')->latest('date')->get() as $iu)
             <div class="col-lg-3 col-md-6 item marketing technology">
                 <div class="coach-item wow fadeInUp delay-0-2s">
