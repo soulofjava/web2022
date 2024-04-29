@@ -30,7 +30,7 @@
     <div class="container">
         <div class="row justify-content-center">
             @foreach($related as $rr)
-            <div class="col-lg-2 col-md-4 mt-3 d-flex justify-content-center align-items-center">
+            <div class="col-lg-2 col-md-4 col-6 mt-3 d-flex justify-content-center align-items-center">
                 <div class="feature-item wow fadeInUp delay-0-2s">
                     <div class="image">
                         <a href="{{ $rr->url }}" target="_blank">
