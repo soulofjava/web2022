@@ -1,4 +1,11 @@
 @extends('front.layouts.app')
+@push('after-style')
+<style>
+    table a {
+        color: blue;
+    }
+</style>
+@endpush
 @section('content')
 <main id="main">
 

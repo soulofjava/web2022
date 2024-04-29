@@ -81,7 +81,7 @@ class FrontController extends Controller
     public function dikecualikan(Request $request)
     {
         if ($request->ajax()) {
-            $dip = News::where('kategori', 'INFORMASI_ST_04')->latest('date');
+            $dip = News::where('kategori', 'INFORMASI_ST_04')->where('terbit', 1)->latest('date');
             return DataTables::of($dip)
                 ->addIndexColumn()
                 ->addColumn(
@@ -123,7 +123,7 @@ class FrontController extends Controller
     public function datappid2(Request $request)
     {
         if ($request->ajax()) {
-            $dip = News::whereNotNull('kategori')->where('kategori', '!=', 'INFORMASI_ST_04')->where('dip', 1)->latest('dip_tahun');
+            $dip = News::whereNotNull('kategori')->where('kategori', '!=', 'INFORMASI_ST_04')->where('dip', 1)->where('terbit', 1)->latest('dip_tahun');
             return DataTables::of($dip)
                 ->addIndexColumn()
                 ->addColumn(
@@ -198,7 +198,7 @@ class FrontController extends Controller
         $response = Http::withoutVerifying()->get('https://diskominfo.wonosobokab.go.id/api/news/' . $id);
         $response = $response->collect();
         $berita =   $response['data'];
-        $news = News::orderBy('date', 'desc')->paginate(5);
+        $news = News::latest('date')->paginate(5);
         return view('front.pages.beritadetail', compact('berita', 'news'));
     }
 
@@ -243,7 +243,7 @@ class FrontController extends Controller
     {
         Seo::seO();
         $hasil = 'All post by : ' . $id;
-        $data = News::with('gambar')->where('upload_by', '=', $id)->orderBy("date", "desc")->paginate(5);
+        $data = News::with('gambarmuka')->where('upload_by', '=', $id)->latest("date")->paginate(5);
         $news = News::latest('date')->take(5)->get();
         return view('front.pages.newsbyauthor', compact('data', 'news', 'hasil'));
     }
@@ -253,7 +253,7 @@ class FrontController extends Controller
         Seo::seO();
         $cari = $request->kolomcari;
         $hasil = 'Hasil Pencarian : ' . $cari;
-        $data = News::with('gambar')->whereDate('date', 'like', '%' . $cari . '%')->orWhere('title', 'like', '%' . $cari . '%')->orderBy("date", "desc")->get();
+        $data = News::with('gambarmuka')->whereDate('date', 'like', '%' . $cari . '%')->orWhere('title', 'like', '%' . $cari . '%')->latest("date")->get();
         $data2 = DB::table('front_menus')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like', '%' . $cari . '%')->get();
         $combinedData = $data->concat($data2);
 
