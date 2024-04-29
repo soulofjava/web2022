@@ -113,6 +113,7 @@ Route::group(['middleware' => ['auth', 'data_web', 'cek_inbox'], 'prefix' => 'ad
     Route::resource('event', AgendaController::class);
     Route::resource('inbox', InboxController::class);
     Route::post('sendCentang', [ComponentController::class, 'changeAccess'])->name('centang');
+    Route::post('sendCentangFM', [FrontMenuController::class, 'changeAccess'])->name('centangfm');
     Route::get('getAlamat', [WebsiteController::class, 'location']);
     Route::resource('file_image', FileController::class);
 
@@ -138,3 +139,4 @@ Route::get('template_email', [FrontController::class, 'template_email']);
 Route::post('komentar', [FrontController::class, 'komentar'])->name('komentar');
 
 Route::get('show-picture', [HelperController::class, 'showPicture'])->name('helper.show-picture');
+
