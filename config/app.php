@@ -164,7 +164,6 @@ return [
         Yajra\DataTables\DataTablesServiceProvider::class,
         CyrildeWit\EloquentViewable\EloquentViewableServiceProvider::class,
         Jorenvh\Share\Providers\ShareServiceProvider::class,
-        \Torann\GeoIP\GeoIPServiceProvider::class,
         Mews\Captcha\CaptchaServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,

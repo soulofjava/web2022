@@ -3,17 +3,14 @@
 namespace App\Http\Middleware;
 
 use App\Models\Agenda;
-use App\Models\Complaint;
-use App\Models\Counter;
 use Closure;
 use Illuminate\Http\Request;
 use App\Models\Website;
 use App\Models\FrontMenu;
-use App\Models\Gallery;
 use App\Models\Inbox;
 use App\Models\News;
 use App\Models\RelatedLink;
-use Illuminate\Support\Facades\DB;
+use App\Models\Visitor;
 
 class WebHelper
 {
@@ -31,7 +28,7 @@ class WebHelper
         $menu = FrontMenu::all();
         $agenda = Agenda::all()->count();
         $news = News::all()->count();
-        $counter = Counter::all()->count();
+        $counter = Visitor::all()->count();
         $inbox = Inbox::all()->count();
         $related = RelatedLink::all();
 

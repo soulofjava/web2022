@@ -248,7 +248,7 @@ class FrontController extends Controller
             'email' => 'required',
             'phone' => 'required',
             'message' => 'required',
-            'captcha' => 'required|captcha',
+            'captcha' => 'required',
         ]);
 
         if ($validator->fails()) {
