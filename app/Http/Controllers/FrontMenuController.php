@@ -78,12 +78,6 @@ class FrontMenuController extends Controller
         return view('back.pages.frontmenu.create', compact('root'));
     }
 
-    public function menu_builder()
-    {
-        $menulist = Menus::all()->pluck('name', 'id');
-        return view('back.pages.frontmenu.menu', compact('menulist'));
-    }
-
     /**
      * Store a newly created resource in storage.
      *

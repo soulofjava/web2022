@@ -21,8 +21,6 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\MigrasiDataController;
 use App\Http\Controllers\SSO\SSOController;
 use App\Http\Controllers\TestimonialController;
-use App\Http\Controllers\ZoomController;
-use App\Jobs\TambahVisitor;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
 use Illuminate\Support\Facades\DB;
@@ -116,7 +114,6 @@ Route::group(['middleware' => ['auth', 'data_web', 'cek_inbox'], 'prefix' => 'ad
     Route::resource('inbox', InboxController::class);
     Route::post('sendCentang', [ComponentController::class, 'changeAccess'])->name('centang');
     Route::get('getAlamat', [WebsiteController::class, 'location']);
-    Route::get('menu-builder', [FrontMenuController::class, 'menu_builder'])->name('menu-builder');
     Route::resource('file_image', FileController::class);
 
     // pindah data dari database wonsobokab
