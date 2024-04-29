@@ -55,4 +55,9 @@ class News extends Model implements Viewable
     {
         return $this->hasOne(User::class, 'id', 'upload_by');
     }
+
+    public function groupe()
+    {
+        return $this->hasOne(ComCodes::class, 'code_cd', 'tag');
+    }
 }

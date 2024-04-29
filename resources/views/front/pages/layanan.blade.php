@@ -12,12 +12,20 @@
         </div>
         <ul class="coach-filter mb-35">
             <li data-filter="*" class="current">Show All</li>
-            @foreach(App\Models\Kategori::orderBy('name', 'ASC')->get() as $kat)
-            <li data-filter=".{{ Str::slug($kat->name, '_') }}">{{ Str::title($kat->name) }}</li>
+            @php
+            $kategoriNames = App\Models\Kategori::with('groupe')
+            ->whereHas('groupe', function($query) {
+            $query->where('code_nm', 'layanan');
+            })
+            ->orderBy('name', 'ASC')
+            ->pluck('name');
+            @endphp
+            @foreach($kategoriNames as $kat)
+            <li data-filter=".{{ Str::slug($kat, '_') }}">{{ Str::title($kat) }}</li>
             @endforeach
         </ul>
         <div class="row coach-active justify-content-center">
-            @foreach(App\Models\News::whereNotNull('tag')->where('terbit', 1)->latest('date')->get() as $iu)
+            @foreach(App\Models\News::whereIn('tag', $kategoriNames)->whereNotNull('tag')->where('terbit', 1)->latest('date')->get() as $iu)
             <div class="col-lg-3 col-md-6 item {{ Str::slug($iu->tag, '_') }}">
                 <div class="coach-item wow fadeInUp delay-0-2s">
                     <div class="coach-image">

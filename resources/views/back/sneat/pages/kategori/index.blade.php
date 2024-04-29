@@ -23,6 +23,7 @@
                     <thead>
                         <tr>
                             <th style="text-align: center;">id</th>
+                            <th style="text-align: center;">Group Name</th>
                             <th style="text-align: center;">Name</th>
                             <th style="text-align: center;">Aksi</th>
                         </tr>
@@ -63,6 +64,7 @@
                 serverSide: true,
                 columns: [
                     { data: 'DT_RowIndex', orderable: false, searchable: false },
+                    { data: 'groupe', name: 'group' },
                     { data: 'kategorine', name: 'name' },
                     { data: 'action' },
                 ],

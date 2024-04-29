@@ -1,5 +1,20 @@
 <div class="row">
     <div class="form-group col-sm-12 col-md-6">
+        <label for="defaultFormControlInput" class="form-label">Group</label>
+        {{Form::select('group', get_code_group('TAG_GROUP'), null, ['class' => 'form-control'. ($errors->has('group') ? '
+        is-invalid' :
+        null),
+        'placeholder' => 'Pilih Group'])}}
+        @error('group')
+        <div id="defaultFormControlHelp" class="form-text" style="color: red;">
+            {{ $message }}
+        </div>
+        @enderror
+    </div>
+</div>
+
+<div class="row">
+    <div class="form-group col-sm-12 col-md-6">
         <label for="defaultFormControlInput" class="form-label">Kategori</label>
         {{Form::text('name', null, ['class' => 'form-control'. ($errors->has('name') ? '
         is-invalid' :

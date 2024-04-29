@@ -29,6 +29,12 @@ class KategoriController extends Controller
                     }
                 )
                 ->addColumn(
+                    'groupe',
+                    function ($data) {
+                        return strtoupper($data->groupe->code_nm ?? '');
+                    }
+                )
+                ->addColumn(
                     'action',
                     function ($data) {
                         $actionBtn = '
@@ -60,11 +66,14 @@ class KategoriController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'group' => 'required',
         ]);
 
         Kategori::create([
             'name' => $request->name,
+            'group' => $request->group,
         ]);
+
         return redirect(route('kategori.index'))->with(['success' => 'Data added successfully!']);
     }
 
@@ -92,6 +101,7 @@ class KategoriController extends Controller
     {
         $data = $request->validate([
             'name' => 'required',
+            'group' => 'required',
         ]);
 
         Kategori::find($id)->update($data);

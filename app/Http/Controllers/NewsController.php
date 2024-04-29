@@ -75,9 +75,7 @@ class NewsController extends Controller
         $kategorinya = Kategori::all()->pluck('name', 'name')->map(function ($item) {
             return strtoupper($item);
         });
-        $highlight = ComCodes::where('code_group', 'highlight_news')->pluck('code_nm');
-        $categori = ComCodes::where('code_group', 'kategori_news')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
-        return view('back.' . $this->themes->themes_back . '.pages.news.create', compact('kategorinya', 'highlight', 'categori'));
+        return view('back.' . $this->themes->themes_back . '.pages.news.create', compact('kategorinya'));
     }
 
     /**
@@ -160,9 +158,7 @@ class NewsController extends Controller
         $kategorinya = Kategori::all()->pluck('name', 'name')->map(function ($item) {
             return strtoupper($item);
         });
-        $highlight = ComCodes::where('code_group', 'highlight_news')->pluck('code_nm');
-        $categori = ComCodes::where('code_group', 'kategori_news')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
-        return view('back.' . $this->themes->themes_back . '.pages.news.edit', compact('kategorinya', 'data', 'highlight', 'categori'));
+        return view('back.' . $this->themes->themes_back . '.pages.news.edit', compact('kategorinya', 'data'));
     }
 
     /**

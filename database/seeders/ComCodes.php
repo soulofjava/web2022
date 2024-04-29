@@ -15,6 +15,8 @@ class ComCodes extends Seeder
      */
     public function run()
     {
+        CS::truncate();
+
         $data = [
             ['code_cd' => 'STATUS_ST_01', 'code_nm' => 'Menunggu Persetujuan', 'code_group' => 'STATUS_ST', 'code_value' => ''],
             ['code_cd' => 'STATUS_ST_02', 'code_nm' => 'Disetujui', 'code_group' => 'STATUS_ST', 'code_value' => ''],
@@ -33,6 +35,9 @@ class ComCodes extends Seeder
             ['code_cd' => 'KATEGORI_NEWS_4', 'code_nm' => 'BERITA', 'code_group' => 'KATEGORI_NEWS', 'code_value' => ''],
             ['code_cd' => 'JENIS_KELAMIN_0', 'code_nm' => 'Laki - Laki', 'code_group' => 'JENIS_KELAMIN', 'code_value' => ''],
             ['code_cd' => 'JENIS_KELAMIN_1', 'code_nm' => 'Perempuan', 'code_group' => 'JENIS_KELAMIN', 'code_value' => ''],
+            ['code_cd' => 'TAG_GROUP_1', 'code_nm' => 'TRANSPARANSI', 'code_group' => 'TAG_GROUP', 'code_value' => ''],
+            ['code_cd' => 'TAG_GROUP_2', 'code_nm' => 'LAYANAN', 'code_group' => 'TAG_GROUP', 'code_value' => ''],
+            ['code_cd' => 'TAG_GROUP_3', 'code_nm' => 'INFORMASI', 'code_group' => 'TAG_GROUP', 'code_value' => ''],
         ];
 
         foreach ($data as $datum) {
