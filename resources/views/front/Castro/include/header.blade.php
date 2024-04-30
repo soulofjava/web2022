@@ -92,119 +92,89 @@
                         <nav class="main-menu navbar-expand-md navbar-light">
                             <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                                 <ul class="navigation clearfix">
-                                    <li class="current dropdown"><a href="index.html">Home</a>
+                                    @php
+                                    $queryMenu = DB::table('front_menus')
+                                    ->where('menu_parent', '=', '1')
+                                    ->where('deleted_at', '=', null)
+                                    ->orderBy('id', 'ASC')
+                                    ->get();
+                                    @endphp
+                                    @foreach($queryMenu as $menu)
+                                    @php
+                                    $menuId = $menu->id;
+                                    $subMenus = DB::table('front_menus')
+                                    ->where('menu_parent', '=' , $menuId)
+                                    ->where('deleted_at', '=', null)
+                                    ->orderBy('menu_parent', 'ASC')
+                                    ->get();
+                                    @endphp
+                                    @if(count($subMenus) == 0)
+                                    <li><a href="{{ url('/page', $menu->menu_url) }}">{{
+                                            $menu->menu_name
+                                            }}</a>
+                                    </li>
+                                    @else
+                                    <li class="dropdown"><a href="#">{{ $menu->menu_name }}</a>
                                         <ul>
-                                            <li><a href="index.html">Home Page 01</a></li>
-                                            <li><a href="index-2.html">Home Page 02</a></li>
-                                            <li><a href="index-3.html">Home Page 03</a></li>
-                                            <li><a href="index-4.html">Home Page 04</a></li>
-                                            <li><a href="index-5.html">Home Page 05</a></li>
-                                            <li><a href="index-rtl.html">Home RTL</a></li>
-                                            <li><a href="index-onepage.html">Home OnePage</a></li>
-                                            <li class="dropdown"><a href="index.html">Header Style</a>
+                                            @foreach($subMenus as $sm)
+                                            @php
+                                            $menuId2 = $sm->id;
+                                            $subMenus2 = DB::table('front_menus')
+                                            ->where('menu_parent', '=' , $menuId2)
+                                            ->where('deleted_at', '=', null)
+                                            ->orderBy('menu_parent', 'ASC')
+                                            ->get();
+                                            @endphp
+                                            @if(count($subMenus2) == 0)
+                                            <li><a href="{{ url('page', $sm->menu_url) }}">{{ $sm->menu_name }}</a></li>
+                                            @else
+                                            <li class="dropdown"><a href="#">{{ $sm->menu_name }}</a>
                                                 <ul>
-                                                    <li><a href="index.html">Header Style 01</a></li>
-                                                    <li><a href="index-2.html">Header Style 02</a></li>
-                                                    <li><a href="index-4.html">Header Style 03</a></li>
-                                                    <li><a href="index-5.html">Header Style 04</a></li>
+                                                    @foreach($subMenus2 as $sub3)
+    
+                                                    @php
+                                                    $menuId3 = $sub3->id;
+                                                    $subMenus3 = DB::table('front_menus')
+                                                    ->where('menu_parent', '=' , $menuId3)
+                                                    ->where('deleted_at', '=', null)
+                                                    ->orderBy('menu_parent', 'ASC')
+                                                    ->get();
+                                                    @endphp
+    
+                                                    @if(count($subMenus3) == 0)
+                                                    <li><a href="{{ url('page', $sub3->menu_url) }}">{{
+                                                            $sub3->menu_name }}</a></li>
+                                                    @else
+                                                    <li class="dropdown"><a href="#">{{ $sub3->menu_name }}</a>
+                                                        <ul>
+                                                            @foreach($subMenus3 as $sub4)
+                                                            <li class="jmbt">
+                                                                <a class="jmbt2"
+                                                                    href="{{ url('page', $sub4->menu_url) }}">{{
+                                                                    $sub4->menu_name
+                                                                    }}</a>
+                                                            </li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </li>
+                                                    @endif
+                                                    @endforeach
                                                 </ul>
                                             </li>
+                                            @endif
+                                            @endforeach
                                         </ul>
                                     </li>
-                                    <li class="dropdown"><a href="index.html">Pages</a>
-                                        <ul>
-                                            <li><a href="about.html">About Us</a></li>
-                                            <li><a href="service.html">Our Service</a></li>
-                                            <li><a href="team.html">Our Team</a></li>
-                                            <li><a href="testimonials.html">Testimonials</a></li>
-                                            <li><a href="error.html">404</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown"><a href="index.html">Shop</a>
-                                        <div class="megamenu">
-                                            <div class="row clearfix">
-                                                <div class="col-lg-4 column">
-                                                    <ul>
-                                                        <li><h4>Shop Page</h4></li>
-                                                        <li><a href="shop.html">Shop Page 01</a></li>
-                                                        <li><a href="shop-2.html">Shop Page 02</a></li>
-                                                        <li><a href="shop-3.html">Shop Page 03</a></li>
-                                                        <li><a href="shop-4.html">Shop Page 04</a></li>
-                                                        <li><a href="shop-5.html">Shop Page 05</a></li>
-                                                        <li><a href="shop-6.html">Shop Page 06</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="col-lg-4 column">
-                                                    <ul>
-                                                        <li><h4>Product Details Page</h4></li>
-                                                        <li><a href="product-details.html">Product Details 01</a></li>
-                                                        <li><a href="product-details-2.html">Product Details 02</a></li>
-                                                        <li><a href="product-details-3.html">Product Details 03</a></li>
-                                                        <li><a href="product-details-4.html">Product Details 04</a></li>
-                                                        <li><a href="product-details-5.html">Product Details 05</a></li>
-                                                        <li><a href="product-details-6.html">Product Details 06</a></li>
-                                                        <li><a href="product-details-7.html">Product Details 07</a></li>
-                                                    </ul>
-                                                </div> 
-                                                <div class="col-lg-4 column">
-                                                    <ul>
-                                                        <li><h4>Other Shop Page</h4></li>
-                                                        <li><a href="cart.html">Cart Page</a></li>
-                                                        <li><a href="checkout.html">Checkout Page</a></li>
-                                                        <li><a href="my-account.html">My Account</a></li>
-                                                    </ul>
-                                                </div>                                        
-                                            </div>                                           
-                                        </div>
-                                    </li>
-                                    <li class="dropdown"><a href="index.html">Elements</a>
-                                        <div class="megamenu">
-                                            <div class="row clearfix">
-                                                <div class="col-lg-6 column">
-                                                    <ul>
-                                                        <li><h4>Elements 1</h4></li>
-                                                        <li><a href="category-element-1.html">Category 01</a></li>
-                                                        <li><a href="category-element-2.html">Category 02</a></li>
-                                                        <li><a href="category-element-3.html">Category 03</a></li>
-                                                        <li><a href="category-element-4.html">Category 04</a></li>
-                                                        <li><a href="shop-element-1.html">Shop 01</a></li>
-                                                        <li><a href="shop-element-2.html">Shop 02</a></li>
-                                                        <li><a href="shop-element-3.html">Shop 03</a></li>
-                                                        <li><a href="shop-element-4.html">Shop 04</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="col-lg-6 column">
-                                                    <ul>
-                                                        <li><h4>Elements 2</h4></li>
-                                                        <li><a href="news-element-1.html">News 01</a></li>
-                                                        <li><a href="news-element-2.html">News 02</a></li>
-                                                        <li><a href="service-element-1.html">Service 01</a></li>
-                                                        <li><a href="service-element-2.html">Service 02</a></li>
-                                                        <li><a href="team-element-1.html">Team 01</a></li>
-                                                        <li><a href="team-element-2.html">Team 02</a></li>
-                                                        <li><a href="instagram-element.html">Instagram</a></li>
-                                                        <li><a href="clients-element.html">Clients</a></li>
-                                                    </ul>
-                                                </div>                                        
-                                            </div>                                           
-                                        </div>
-                                    </li>    
-                                    <li class="dropdown"><a href="index.html">Blog</a>
-                                        <ul>
-                                            <li><a href="blog.html">Blog 01</a></li>
-                                            <li><a href="blog-2.html">Blog 02</a></li>
-                                            <li><a href="blog-3.html">Blog 03</a></li>
-                                            <li><a href="blog-4.html">Blog 04</a></li>
-                                            <li><a href="blog-5.html">Blog 05</a></li>
-                                            <li><a href="blog-details.html">Blog Details 01</a></li>
-                                            <li><a href="blog-details-2.html">Blog Details 02</a></li>
-                                        </ul>
-                                    </li> 
-                                    <li><a href="contact.html">Contact</a></li>               
+                                    @endif
+                                    @endforeach
+                                    <x-komponen li='dropdown' />
                                 </ul>
                             </div>
                         </nav>
                     </div>
+                </div>
+            </div>
+        </div>
                     <ul class="menu-right-content clearfix">
                         <li>
                             <div class="search-btn">

@@ -175,7 +175,7 @@
                 </div>
             </div>
         </div>
-        <div class="pagination-wrapper centred">
+        {{-- <div class="pagination-wrapper centred">
             <ul class="pagination clearfix">
                 <li><a href="shop.html">Prev</a></li>
                 <li><a href="shop.html">1</a></li>
@@ -185,7 +185,7 @@
                 <li><a href="shop.html">5</a></li>
                 <li><a href="shop.html">Next</a></li>
             </ul>
-        </div>
+        </div> --}}
     </div>
 </section>
 <!-- news-section end -->
