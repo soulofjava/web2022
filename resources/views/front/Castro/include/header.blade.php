@@ -43,7 +43,7 @@
                 <div class="top-inner clearfix">
                     <div class="top-left pull-left">
                         <ul class="info clearfix">
-                            <li><i class="flaticon-email"></i><a href="mailto:support@example.com">dppkbpppa@wonosobokab.go.id / badankbwonosobo@gmail.com</a></li>
+                            <li><i class="flaticon-email"></i><a href="mailto:dppkbpppa@wonosobokab.go.id">dppkbpppa@wonosobokab.go.id</a>/<a href="mailto:badankbwonosobo@gmail.com">badankbwonosobo@gmail.com</a></li>
                             <li><i class="flaticon-global"></i> Jl. T. Jogonegoro No 13 Wonosobo</li>
                         </ul>
                     </div>
