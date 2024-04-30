@@ -33,19 +33,19 @@ class DatabaseSeeder extends Seeder
 
         // \App\Models\User::factory(10)->create();
         DB::table('websites')->insert([
-            'web_name' => 'Web2022',
+            'web_name' => 'Dinas Pengendalian Penduduk Keluarga Berencana Pemberdayaan Perempuan & Perlindungan Anak Kab.Wonosobo',
             'web_description' => '"Hello World!"',
-            'email' => 'diskominfo@wonosobokab.go.id',
-            'address' => 'Wonosobo - The Soul Of Java',
-            'phone' => '085643710007',
-            'instagram' => 'https://www.instagram.com/diskominfo_wonosobo/?hl=id',
-            'twitter' => 'https://twitter.com/diskominfo_wsb',
-            'facebook' => 'https://www.facebook.com/wonosobohebat/',
-            'youtube' => 'https://www.youtube.com/c/OfficialWonosoboTV',
+            'email' => 'dppkbpppa@wonosobokab.go.id',
+            'address' => 'Jl. T. Jogonegoro No 13 Wonosobo',
+            'phone' => '(0286) 321339',
+            'instagram' => 'https://www.instagram.com/dppkbpppa_wsb/',
+            'twitter' => 'https://twitter.com/dppkbpppa_wsb',
+            'facebook' => 'https://www.facebook.com/dppkbpppa.wsb',
+            'youtube' => 'https://www.youtube.com/channel/UCu2dBYK26YiDBeekWvICS4Q',
             'url_stream' => '#',
-            'themes_front' => 'boxass',
+            'themes_front' => 'Castro',
             'themes_back' => 'back.a',
-            'open_hours' => 'Monday - Thursday (07:00AM - 04:00PM) Friday (07:00AM - 11:00AM)',
+            'open_hours' => "Senin - Kamis (07:00 - 14:00 WIB) Jum'at (07:00 - 11:00 WIB)",
         ]);
 
         $related = [
