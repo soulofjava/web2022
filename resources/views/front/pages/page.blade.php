@@ -11,7 +11,7 @@
                     @elseif($data->menu_name == 'Personil')
                     <x-personil />
                     @elseif($data->menu_name == 'Transparansi')
-                    <livewire:transparansi />
+                    @include('front.pages.transparansi')
                     @elseif($data->title)
                     {!! $data->description !!}
                     @else

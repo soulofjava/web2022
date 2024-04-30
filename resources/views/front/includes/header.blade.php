@@ -84,6 +84,10 @@
                                     <a href="{{ $menu->menu_url }}" target="_blank">
                                         {{ $menu->menu_name }}
                                     </a>
+                                    @elseif ($menu->menu_name == 'Transparansi')
+                                    <a href="{{ url('layanan2') }}">
+                                        {{ $menu->menu_name }}
+                                    </a>
                                     @else
                                     <a href="{{ url('page', $menu->menu_url) }}">
                                         {{ $menu->menu_name }}

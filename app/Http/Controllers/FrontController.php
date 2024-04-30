@@ -228,7 +228,13 @@ class FrontController extends Controller
         Seo::seO();
         return view('front.pages.layanan');
     }
-
+   
+    public function layanan2()
+    {
+        Seo::seO();
+        return view('front.pages.transparansi');
+    }
+   
     public function newsBySearch(Request $request)
     {
         Seo::seO();

@@ -6,27 +6,28 @@
         <div class="row justify-content-center">
             <div class="col-xl-6 col-lg-7 col-md-8">
                 <div class="section-title text-center mb-40">
-                    <h2>Layanan Badan Kepegawaian Daerah Kabupaten Wonosobo</h2>
+                    <h2>Transparansi</h2>
                 </div>
             </div>
         </div>
         <ul class="coach-filter mb-35">
             <li data-filter="*" class="current">Show All</li>
             @php
-            $kategoriNames = 
+            $kategoriNames =
             App\Models\Kategori::with('groupe')
             ->whereHas('groupe', function($query) {
-            $query->where('code_nm', 'layanan');
+            $query->where('code_nm', 'transparansi');
             })
             ->orderBy('name', 'ASC')
             ->pluck('name');
             @endphp
             @foreach($kategoriNames as $kat)
-            <li data-filter=".{{ Str::slug($kat, '_') }}">{{ Str::title($kat) }}</li>
+            <li data-filter=".{{ Str::slug($kat, '_') }}">{{ $kat }}</li>
             @endforeach
         </ul>
         <div class="row coach-active justify-content-center">
-            @foreach(App\Models\News::whereIn('tag', $kategoriNames)->whereNotNull('tag')->where('terbit', 1)->latest('date')->get() as $iu)
+            @foreach(App\Models\News::whereIn('tag', $kategoriNames)->whereNotNull('tag')->where('terbit',
+            1)->latest('date')->get() as $iu)
             <div class="col-lg-3 col-md-6 item {{ Str::slug($iu->tag, '_') }}">
                 <div class="coach-item wow fadeInUp delay-0-2s">
                     <div class="coach-image">

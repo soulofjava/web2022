@@ -67,6 +67,7 @@ Route::group(['middleware' => 'data_web'], function () {
     Route::get('agenda', [FrontController::class, 'event']);
     Route::get('berita', [FrontController::class, 'newsall']);
     Route::get('layanan', [FrontController::class, 'layanan']);
+    Route::get('layanan2', [FrontController::class, 'layanan2']);
     Route::get('statistik', [FrontController::class, 'statistik']);
     Route::get('download-area', [FrontController::class, 'downloadarea']);
     Route::get('/reload-captcha', [FrontController::class, 'reloadCaptcha']);
