@@ -55,12 +55,8 @@
         $("#hideButton").click(function () {
             if ($(this).is(":checked")) {
                 $(".dropzone").hide();
-                $(".jip").show();
-                $(".dip").show();
             } else {
                 $(".dropzone").show();
-                $(".jip").hide();
-                $(".dip").hide();
             }
         });
 

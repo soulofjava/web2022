@@ -13,13 +13,13 @@
 </div>
 
 <div class="row">
-    <div class="form-group jip col-sm-12 col-md-6" style="display: none;">
+    <div class="form-group col-sm-12 col-md-6">
         <label for="defaultFormControlInput" class="form-label">Jenis Informasi Publik</label>
         {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
         'form-control select2','placeholder' => 'Silahkan Pilih'])}}
     </div>
 
-    <div class="form-group col-sm-12 col-md-6 dip" style="display: none;">
+    <div class="form-group col-sm-12 col-md-6">
         <label for="defaultFormControlInput" class="form-label">Tahun Daftar Informasi Publik</label>
         {{Form::number('dip_tahun', null, ['class' =>
         'form-control','placeholder' => 'Masukkan Tahun'])}}

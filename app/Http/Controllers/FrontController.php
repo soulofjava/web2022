@@ -102,7 +102,7 @@ class FrontController extends Controller
     public function tabel(Request $request, $id)
     {
         if ($request->ajax()) {
-            $dip = News::where('title', 'like', '%' . $id . '%')->latest('date');
+            $dip = News::where('title', 'like', '%' . $id . '%')->where('terbit', 1)->latest('date');
             return DataTables::of($dip)
                 ->addIndexColumn()
                 ->addColumn(
@@ -316,13 +316,6 @@ class FrontController extends Controller
         $news = News::where('kategori', $id)->latest('date')->paginate(12);
         $sideposts = News::latest('date')->take(5)->get();
         return view('front.pages.news', compact('news', 'sideposts'));
-    }
-
-    public function galleryall(Request $request)
-    {
-        Seo::seO();
-        $gallery = Gallery::with('gambar')->orderBy('upload_date', 'desc')->paginate(12);
-        return view('front.pages.gallery', compact('gallery'));
     }
 
     public function page($id)

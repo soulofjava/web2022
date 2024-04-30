@@ -13,22 +13,22 @@
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
-            <a class="nav-link active" id="tab1-tab" data-bs-toggle="tab" href="#tab1" role="tab" aria-controls="tab1"
-                aria-selected="true">
-                Informasi Berkala | Setiap Saat | Serta Merta
+            <a class="nav-link active" id="tab2-tab" data-bs-toggle="tab" href="#tab2" role="tab" aria-controls="tab2"
+                aria-selected="false">
+                Daftar Informasi Publik (DIP)
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="tab2-tab" data-bs-toggle="tab" href="#tab2" role="tab" aria-controls="tab2"
-                aria-selected="false">
-                Daftar Informasi Publik (DIP)
+            <a class="nav-link" id="tab1-tab" data-bs-toggle="tab" href="#tab1" role="tab" aria-controls="tab1"
+                aria-selected="true">
+                Informasi Berkala | Setiap Saat | Serta Merta
             </a>
         </li>
     </ul>
 
     <!-- Tab content -->
     <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="tab1-tab">
+        <div class="tab-pane fade" id="tab1" role="tabpanel" aria-labelledby="tab1-tab">
             <!-- Content for Tab 1 -->
             <div class="form-group text-center my-3">
                 {{Form::select('kategori', get_code_group('INFORMASI_ST')->take(3), null, ['class' =>
@@ -46,7 +46,7 @@
                 </thead>
             </table>
         </div>
-        <div class="tab-pane fade mt-3" id="tab2" role="tabpanel" aria-labelledby="tab2-tab">
+        <div class="tab-pane fade show active mt-3" id="tab2" role="tabpanel" aria-labelledby="tab2-tab">
             <!-- Content for Tab 2 -->
             <table id="datatables2" class="table-hover table-striped" style="width:100%">
                 <thead>
