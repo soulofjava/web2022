@@ -10,6 +10,8 @@
                     <x-jip />
                     @elseif($data->menu_name == 'Personil')
                     <x-personil />
+                    @elseif($data->menu_name == 'Transparansi')
+                    <livewire:transparansi />
                     @elseif($data->title)
                     {!! $data->description !!}
                     @else
