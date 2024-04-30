@@ -111,9 +111,9 @@ class NewsController extends Controller
                 'terbit' => $request->terbit ?? 0,
                 'komentar' => $request->komentar ?? 0,
                 'highlight' => $request->highlight ?? 0,
-                'kategori' => 'INFORMASI_ST_02',
+                'kategori' => $request->kategori ?? 'INFORMASI_ST_02',
                 'dip' => false,
-                'dip_tahun' => null,
+                'dip_tahun' => $request->dip_tahun ?? null,
                 'upload_by' => auth()->user()->id
             ]);
         }
@@ -206,9 +206,9 @@ class NewsController extends Controller
                 'terbit' => $request->terbit ?? 0,
                 'komentar' => $request->komentar ?? 0,
                 'highlight' => $request->highlight ?? 0,
-                'kategori' => 'INFORMASI_ST_02',
+                'kategori' => $request->kategori ?? 'INFORMASI_ST_02',
                 'dip' => false,
-                'dip_tahun' => null,
+                'dip_tahun' => $request->dip_tahun ?? null,
                 'upload_by' => auth()->user()->id
             ]);
         }
