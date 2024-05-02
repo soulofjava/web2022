@@ -1,7 +1,6 @@
 @extends('back.layouts.app')
 @push('after-style')
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dropzone@5.9.2/dist/dropzone.css"
-    integrity="sha256-6X2vamB3vs1zAJefAme/aHhUeJl13mYKs3VKpIGmcV4=" crossorigin="anonymous">
+<link rel="stylesheet" href="{{ asset('assets/back/sneat/assets/css/dropzone.min.css') }}">
 <style>
     .dz-image img {
         width: 100%;
@@ -66,8 +65,7 @@
 </script>
 
 <!-- Start DropZone -->
-<script src="https://cdn.jsdelivr.net/npm/dropzone@5.9.2/dist/dropzone.js"
-    integrity="sha256-IXyEnLo8FpsoOLrRzJlVYymqpY29qqsMHUD2Ah/ttwQ=" crossorigin="anonymous"></script>
+<script src="{{ asset('assets/back/sneat/assets/js/dropzone.min.js') }}"></script>
 
 <script>
     var uploadedDocumentMap = {}

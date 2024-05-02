@@ -7,9 +7,11 @@
     </div>
 </div>
 
-<div class="row">
-    <!-- Example of a form that Dropzone can take over -->
-    <div class="dropzone" id="my-awesome-dropzone"></div>
+<div class="row mb-3">
+    <div class="form-group">
+        <!-- Example of a form that Dropzone can take over -->
+        <div class="dropzone" id="my-awesome-dropzone"></div>
+    </div>
 </div>
 
 <div class="row">
@@ -19,12 +21,12 @@
         'form-control select2','placeholder' => 'Silahkan Pilih'])}}
     </div>
 
-    <div class="form-group col-sm-12 col-md-6">
+    <div class="form-group col-sm-12 col-md-6 mb-3">
         <label for="defaultFormControlInput" class="form-label">Tahun Daftar Informasi Publik</label>
         {{Form::number('dip_tahun', null, ['class' =>
         'form-control','placeholder' => 'Masukkan Tahun'])}}
     </div>
-    <div class="form-group col-sm-12 col-md-12">
+    <div class="form-group col-sm-12 col-md-12 mb-3">
         <label for="defaultFormControlInput" class="form-label">Kategori</label>
         {{Form::select('tag', $categori, $categorinya ?? [], ['class' => 'form-control select2',
         'placeholder' => 'Silahkan Pilih Kategori'])}}
@@ -34,7 +36,7 @@
         </div>
         @enderror
     </div>
-    <div class="form-group col-sm-12 col-md-12">
+    <div class="form-group col-sm-12 col-md-12 mb-3">
         <label for="defaultFormControlInput" class="form-label">Tanggal</label>
         {{Form::text('date', null, ['class' => 'form-control flatpickr-date',
         'placeholder' => 'Silahkan Pilih Tanggal'])}}
@@ -47,7 +49,7 @@
 
 </div>
 
-<div class="row">
+<div class="row mb-3">
     <div class="form-group">
         <label for="defaultFormControlInput" class="form-label">Judul Postingan</label>
         {{Form::text('title', null,['class' => 'form-control',
@@ -60,7 +62,7 @@
     @enderror
 </div>
 
-<div class="row">
+<div class="row mb-3">
     <div class="form-group label">
         <label for="defaultFormControlInput" class="form-label">Deskripsi</label>
         {{Form::textarea('content', null,['class' => 'my-editor form-control','id'=>'my-editor'])}}
@@ -72,7 +74,7 @@
     @enderror
 </div>
 
-<div class="row mt-2">
+<div class="row mt-3">
     <div class="col col-sm-12 col-md-4">
         <div class="form-group">
             <div class="form-check form-switch">
