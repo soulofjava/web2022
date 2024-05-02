@@ -23,6 +23,16 @@ class ComponentSeeder extends Seeder
                 'slug' => Str::slug('Agenda', '-'),
             ],
             [
+                'name' => 'Download Area',
+                'active' => 0,
+                'slug' => Str::slug('Download Area', '-'),
+            ],
+            [
+                'name' => 'Pinjam Tempat',
+                'active' => 0,
+                'slug' => Str::slug('Pinjam Tempat', '-'),
+            ],
+            [
                 'name' => 'Buku Tamu',
                 'active' => 0,
                 'slug' => Str::slug('Buku Tamu', '-'),
