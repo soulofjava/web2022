@@ -10,6 +10,11 @@ use Illuminate\Http\Request;
 
 class ApiController extends Controller
 {
+    public function personil()
+    {
+        return view('api.listperson');
+    }
+
     public function menu()
     {
         return response()->json(FrontMenu::all(), 200);
@@ -18,10 +23,5 @@ class ApiController extends Controller
     public function news()
     {
         return response()->json(News::all(), 200);
-    }
-
-    public function galleries()
-    {
-        return response()->json(Gallery::all(), 200);
     }
 }

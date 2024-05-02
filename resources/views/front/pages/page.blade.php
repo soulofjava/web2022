@@ -9,7 +9,8 @@
                     @if($data->menu_name == 'Daftar Informasi Publik')
                     <x-jip />
                     @elseif($data->menu_name == 'Personil')
-                    <x-personil />
+                    <div id="personil">
+                    </div>
                     @elseif($data->menu_name == 'Transparansi')
                     @include('front.pages.transparansi')
                     @elseif($data->title)
@@ -24,3 +25,17 @@
 </section>
 <!-- Blog Details End -->
 @endsection
+@push('after-script')
+<script>
+    $.get('{{ route('api.personil') }}', function (data) {
+            // Lakukan sesuatu dengan data yang diterima
+            console.log(data);
+            $('#personil').empty();
+            $('#personil').html(data);
+        }).fail(function (xhr, status, error) {
+            // Tangani kesalahan jika ada
+            console.error(xhr.responseText);
+        });
+
+</script>
+@endpush

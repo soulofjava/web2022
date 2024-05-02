@@ -15,18 +15,18 @@
             <tbody>
                 @foreach ($struktural as $list)
                 <tr>
-                    <td>{{ $list->gdp.$list->nama.', '.$list->gdb }}</td>
-                    <td>{{ $list->pangkat.' / '.$list->golru }}</td>
-                    <td>{{ $list->jabatan }}</td>
-                    <td>{{ $list->pendidikan }}</td>
+                    <td>{{ $list['gdp'].$list['nama'].', '.$list['gdb'] }}</td>
+                    <td>{{ $list['pangkat'].' / '.$list['golru'] }}</td>
+                    <td>{{ $list['jabatan'] }}</td>
+                    <td>{{ $list['pendidikan'] }}</td>
                 </tr>
                 @endforeach
                 @foreach ($non_struktural as $list)
                 <tr>
-                    <td>{{ $list->gdp.$list->nama.', '.$list->gdb }}</td>
-                    <td>{{ $list->pangkat.' / '.$list->golru }}</td>
-                    <td>{{ $list->jabatan }}</td>
-                    <td>{{ $list->pendidikan }}</td>
+                    <td>{{ $list['gdp'].$list['nama'].', '.$list['gdb'] }}</td>
+                    <td>{{ $list['pangkat'].' / '.$list['golru'] }}</td>
+                    <td>{{ $list['jabatan'] }}</td>
+                    <td>{{ $list['pendidikan'] }}</td>
                 </tr>
                 @endforeach
             </tbody>
