@@ -49,23 +49,23 @@ class FrontMenuController extends Controller
                     function ($data) {
                         if ($data->id <= 45) {
                             $actionBtn = '<div class="togglebutton">
-                            <label>
-                                <input type="checkbox" disabled checked>
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" disabled checked>
                                 <span class="toggle"></span>
                             </label>
                         </div>';
                         } else {
                             if ($data->active == 1) {
                                 $actionBtn = '<div class="togglebutton">
-                                <label>
-                                <input type="checkbox" checked onclick="centang('  . $data->id . ')">
+                                <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" checked onclick="centang('  . $data->id . ')">
                                 <span class="toggle"></span>
                                 </label>
                                 </div>';
                             } else {
                                 $actionBtn = '<div class="togglebutton">
-                                <label>
-                                <input type="checkbox" onclick="centang('  . $data->id . ')">
+                                <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" onclick="centang('  . $data->id . ')">
                                 <span class="toggle"></span>
                                 </label>
                                 </div>';

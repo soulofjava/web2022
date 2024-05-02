@@ -49,7 +49,7 @@
                 columns: [
                     { data: 'DT_RowIndex', orderable: false, searchable: false },
                     { data: 'name', name: 'name' },
-                    { data: 'action' },
+                    { data: 'action', class:'text-center' },
                 ],
                 bSort: false,
 
