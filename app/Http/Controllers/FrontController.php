@@ -54,7 +54,7 @@ class FrontController extends Controller
 
     public function datappid()
     {
-        $combinedData = DataPPID::select('*');
+        $combinedData = DataPPID::select('*')->latest('dip_tahun');
         return DataTables::of($combinedData)
             ->addIndexColumn()
             ->addColumn(

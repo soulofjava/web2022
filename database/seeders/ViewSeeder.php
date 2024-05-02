@@ -15,6 +15,6 @@ class ViewSeeder extends Seeder
     public function run(): void
     {
         DB::statement("drop view if exists datappid");
-        DB::statement("create view datappid as select 'menu' as tipe, menu_url, kategori, menu_name from front_menus where kategori is not null and active = 1 union all select 'news' as tipe, slug, kategori, title as menu_name from news where kategori is not null and terbit = 1;");
+        DB::statement("create view datappid as select 'menu' as tipe, menu_url, kategori, menu_name, created_at as dip_tahun from front_menus where kategori is not null and active = 1 union all select 'news' as tipe, slug, kategori, title as menu_name, dip_tahun from news where kategori is not null and terbit = 1;");
     }
 }
