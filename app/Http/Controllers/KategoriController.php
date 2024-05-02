@@ -24,9 +24,9 @@ class KategoriController extends Controller
                     'action',
                     function ($data) {
                         $actionBtn = '
-                    <div class="list-icons d-flex justify-content-center text-center">
-                        <a href="' . route('kategori.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> Edit</a>
-                        <a href="' . route('kategori.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> Delete</a>
+                    <div class="text-center">
+                        <a href="' . route('kategori.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="bx bx-edit"></i> </a>
+                        <a href="' . route('kategori.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="bx bxs-trash"></i> </a>
                     </div>';
                         return $actionBtn;
                     }
@@ -34,12 +34,12 @@ class KategoriController extends Controller
                 ->rawColumns(['action', 'kategorine'])
                 ->make(true);
         }
-        return view('back.a.pages.kategori.index');
+        return view('back.sneat.pages.kategori.index');
     }
 
     public function create()
     {
-        return view('back.a.pages.kategori.create');
+        return view('back.sneat.pages.kategori.create');
     }
 
     public function store(Request $request)
@@ -58,7 +58,7 @@ class KategoriController extends Controller
     public function edit($id)
     {
         $data = Tag::find($id);
-        return view('back.a.pages.kategori.edit', compact('data'));
+        return view('back.sneat.pages.kategori.edit', compact('data'));
     }
 
     public function update(Request $request, $id)

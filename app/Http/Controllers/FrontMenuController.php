@@ -26,12 +26,12 @@ class FrontMenuController extends Controller
                     'action',
                     function ($data) {
                         if ($data->id <= 45) {
-                            $actionBtn = '<div class="list-icons d-flex justify-content-center text-center">
-                        <a href="' . route('frontmenu.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> edit</a>';
+                            $actionBtn = '<div class="text-center">
+                        <a href="' . route('frontmenu.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="bx bx-edit"></i> </a></div>';
                         } else {
-                            $actionBtn = '<div class="list-icons d-flex justify-content-center text-center">
-                        <a href="' . route('frontmenu.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> edit</a>
-                           <a href="' . route('frontmenu.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> delete</a>
+                            $actionBtn = '<div class="text-center">
+                        <a href="' . route('frontmenu.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="bx bx-edit"></i> </a>
+                           <a href="' . route('frontmenu.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="bx bxs-trash"></i> </a>
                     </div>';
                         }
                         return $actionBtn;
@@ -77,7 +77,7 @@ class FrontMenuController extends Controller
                 ->rawColumns(['action', 'orang_tua', 'aksi'])
                 ->make(true);
         }
-        return view('back.a.pages.frontmenu.index');
+        return view('back.sneat.pages.frontmenu.index');
     }
 
     /**
@@ -88,7 +88,7 @@ class FrontMenuController extends Controller
     public function create()
     {
         $root = FrontMenu::pluck('menu_name', 'id');
-        return view('back.a.pages.frontmenu.create', compact('root'));
+        return view('back.sneat.pages.frontmenu.create', compact('root'));
     }
 
     /**
@@ -142,7 +142,7 @@ class FrontMenuController extends Controller
     {
         $data = FrontMenu::find($id);
         $root = FrontMenu::pluck('menu_name', 'id');
-        return view('back.a.pages.frontmenu.edit', compact('data', 'root'));
+        return view('back.sneat.pages.frontmenu.edit', compact('data', 'root'));
     }
 
     /**

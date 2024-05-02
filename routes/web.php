@@ -39,8 +39,12 @@ use Illuminate\Support\Facades\Redirect;
 |
 */
 
-Route::any('/register', function () {
-    return Redirect::to(route('login'));
+Route::get('/register', function () {
+    return redirect('/login');
+});
+
+Route::post('/register', function () {
+    return redirect('/login');
 });
 
 Route::get('sso', [SSOController::class, 'getLogin'])->name('sso.login');

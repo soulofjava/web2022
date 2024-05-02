@@ -7,8 +7,12 @@ use App\Models\News;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Storage;
+use Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Facades\DB;
 use App\Models\File as Files;
 use Conner\Tagging\Model\Tag;
+use File;
+
 class NewsController extends Controller
 {
     /**
@@ -19,16 +23,26 @@ class NewsController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = News::latest('date');
+            $data = News::orderBy('date', 'DESC');
             return DataTables::of($data)
                 ->addIndexColumn()
+                ->addColumn(
+                    'link',
+                    function ($data) {
+                        $actionBtn = '
+                    <div>
+                        <a target="_blank" href="' . url('news-detail', $data->slug) . ' " >' . $data->title . ' </a>
+                    </div>';
+                        return $actionBtn;
+                    }
+                )
                 ->addColumn(
                     'action',
                     function ($data) {
                         $actionBtn = '
-                    <div class="list-icons d-flex justify-content-center text-center">
-                        <a href="' . route('news.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> Edit</a>
-                        <a href="' . route('news.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> Delete</a>
+                    <div class="text-center">
+                        <a href="' . route('news.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="bx bx-edit"></i> </a>
+                        <a href="' . route('news.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="bx bxs-trash"></i> </a>
                     </div>';
                         return $actionBtn;
                     }
@@ -37,15 +51,15 @@ class NewsController extends Controller
                     'tgl',
                     function ($data) {
                         $actionBtn = '<center>' .
-                            \Carbon\Carbon::parse($data->date)->toFormattedDateString()
+                            \Carbon\Carbon::parse($data->date)->isoFormat('dddd, D MMMM Y')
                             . '</center>';
                         return $actionBtn;
                     }
                 )
-                ->rawColumns(['action', 'tgl'])
+                ->rawColumns(['action', 'tgl', 'link'])
                 ->make(true);
         }
-        return view('back.a.pages.news.index');
+        return view('back.sneat.pages.news.index');
     }
 
     /**
@@ -58,7 +72,8 @@ class NewsController extends Controller
         $categori = Tag::orderBy('name', 'ASC')->pluck('name', 'name')->map(function ($item) {
             return strtoupper($item);
         });
-        return view('back.a.pages.news.create', compact('categori'));
+
+        return view('back.sneat.pages.news.create', compact('categori'));
     }
 
     /**
@@ -69,16 +84,38 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        $val = $request->validate([
+        $request->validate([
             'title' => 'required',
             'date' => 'required',
-            'description' => 'required',
+            'content' => 'required',
         ]);
 
         if ($request->datadip) {
-            $id = News::create($request->except(['_token', 'datadip']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
+            $id = News::create([
+                'title' => $request->title,
+                'date' => $request->date,
+                'content' => $request->content,
+                'terbit' => $request->terbit ?? 0,
+                'komentar' => $request->komentar ?? 0,
+                'highlight' => $request->highlight ?? 0,
+                'kategori' => $request->kategori,
+                'dip' => true,
+                'dip_tahun' => $request->dip_tahun,
+                'upload_by' => auth()->user()->id
+            ]);
         } else {
-            $id = News::create($val + ['kategori' => 'INFORMASI_ST_02', 'upload_by' => auth()->user()->id]);
+            $id = News::create([
+                'title' => $request->title,
+                'date' => $request->date,
+                'content' => $request->content,
+                'terbit' => $request->terbit ?? 0,
+                'komentar' => $request->komentar ?? 0,
+                'highlight' => $request->highlight ?? 0,
+                'kategori' => $request->kategori ?? 'INFORMASI_ST_02',
+                'dip' => false,
+                'dip_tahun' => $request->dip_tahun ?? null,
+                'upload_by' => auth()->user()->id
+            ]);
         }
 
         // tagging postingan
@@ -88,11 +125,12 @@ class NewsController extends Controller
             foreach ($request->document as $df) {
                 Files::create([
                     'id_news' => $id->id,
-                    'path' => 'news/' . $df,
+                    'path' =>  '/news/' . $df,
                     'file_name' => $df
                 ]);
             }
         }
+
         return redirect(route('news.index'))->with(['success' => 'Data added successfully!']);
     }
 
@@ -121,10 +159,11 @@ class NewsController extends Controller
             return strtoupper($item);
         });
         // untuk list yang terpilih
-        foreach ($data->tagged ?? [] as $key => $value) {
+        foreach ($data->tagged as $key => $value) {
             array_push($categorinya, $value->tag_name);
         }
-        return view('back.a.pages.news.edit', compact('data', 'categori', 'categorinya'));
+
+        return view('back.sneat.pages.news.edit', compact('data', 'categori', 'categorinya'));
     }
 
     /**
@@ -136,26 +175,42 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validated = $request->validate([
+        $request->validate([
             'title' => 'required',
-            'description' => 'required',
+            'content' => 'required',
             'date' => 'required',
         ]);
 
-        $isa =  News::with('gambar')->get()->find($id);
-        $isa->slug =  null;
+        $isa =  News::find($id);
 
         if ($request->datadip) {
-            foreach ($isa->gambar as $key) {
-                if (Storage::exists($key->path)) {
-                    Storage::delete($key->path);
-                }
-                Files::destroy($key->id);
-            }
-
-            $isa->update($request->except(['_token', 'datadip']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
+            $isa->slug =  null;
+            $isa->update([
+                'title' => $request->title,
+                'date' => $request->date,
+                'content' => $request->content,
+                'terbit' => $request->terbit ?? 0,
+                'komentar' => $request->komentar ?? 0,
+                'highlight' => $request->highlight ?? 0,
+                'kategori' => $request->kategori,
+                'dip' => true,
+                'dip_tahun' => $request->dip_tahun,
+                'upload_by' => auth()->user()->id
+            ]);
         } else {
-            $isa->update($validated + ['kategori' => 'INFORMASI_ST_02', 'dip' => false, 'dip_tahun' => null, 'upload_by' => auth()->user()->id]);
+            $isa->slug =  null;
+            $isa->update([
+                'title' => $request->title,
+                'date' => $request->date,
+                'content' => $request->content,
+                'terbit' => $request->terbit ?? 0,
+                'komentar' => $request->komentar ?? 0,
+                'highlight' => $request->highlight ?? 0,
+                'kategori' => $request->kategori ?? 'INFORMASI_ST_02',
+                'dip' => false,
+                'dip_tahun' => $request->dip_tahun ?? null,
+                'upload_by' => auth()->user()->id
+            ]);
         }
 
         // tag ulang postingan
@@ -165,7 +220,7 @@ class NewsController extends Controller
             foreach ($request->document as $df) {
                 Files::create([
                     'id_news' => $id,
-                    'path' => 'news/' . $df,
+                    'path' =>  '/news/' . $df,
                     'file_name' => $df
                 ]);
             }
@@ -183,11 +238,11 @@ class NewsController extends Controller
     public function destroy($id)
     {
         $gambar = News::with('gambar')->where('id', $id)->get();
+
         foreach ($gambar as $key) {
             foreach ($key->gambar as $value) {
-                if (Storage::exists($value->path)) {
-                    Storage::delete($value->path);
-                }
+                // Delete the file
+                Storage::disk('gcs')->delete('/news/' . $value->file_name);
             }
         }
 

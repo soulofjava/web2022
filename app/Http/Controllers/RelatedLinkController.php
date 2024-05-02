@@ -23,9 +23,9 @@ class RelatedLinkController extends Controller
                     'action',
                     function ($data) {
                         $actionBtn = '
-                    <div class="list-icons d-flex justify-content-center text-center">
-                        <a href="' . route('relatedlink.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> edit</a>
-                        <a href="' . route('relatedlink.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> delete</a>
+                    <div class="text-center">
+                        <a href="' . route('relatedlink.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="bx bx-edit"></i> </a>
+                        <a href="' . route('relatedlink.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="bx bxs-trash"></i> </a>
                     </div>';
                         return $actionBtn;
                     }
@@ -33,7 +33,7 @@ class RelatedLinkController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('back.a.pages.related.index');
+        return view('back.sneat.pages.related.index');
     }
 
     /**
@@ -43,7 +43,7 @@ class RelatedLinkController extends Controller
      */
     public function create()
     {
-        return view('back.a.pages.related.create');
+        return view('back.sneat.pages.related.create');
     }
 
     /**
@@ -82,7 +82,7 @@ class RelatedLinkController extends Controller
     public function edit($id)
     {
         $data = RelatedLink::find($id);
-        return view('back.a.pages.related.edit', compact('data'));
+        return view('back.sneat.pages.related.edit', compact('data'));
     }
 
     /**

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Bidang;
 use App\Rules\MatchOldPassword;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -35,9 +34,9 @@ class UserController extends Controller
                     'action',
                     function ($data) {
                         $actionBtn = '
-                    <div class="list-icons d-flex justify-content-center text-center">
-                        <a href="' . route('user.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> edit</a>
-                        <a href="' . route('user.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> delete</a>
+                    <div class="text-center">
+                        <a href="' . route('user.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="bx bx-edit"></i> </a>
+                        <a href="' . route('user.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="bx bxs-trash"></i> </a>
                     </div>';
                         return $actionBtn;
                     }
@@ -51,7 +50,7 @@ class UserController extends Controller
                 ->rawColumns(['action', 'rrole'])
                 ->make(true);
         }
-        return view('back.a.pages.user.index');
+        return view('back.sneat.pages.user.index');
     }
 
     /**
@@ -63,7 +62,7 @@ class UserController extends Controller
     {
         $role = ModelsRole::all()->pluck('name', 'id')->skip(1);
         $permission = Permission::all()->pluck('name', 'id');
-        return view('back.a.pages.user.create', compact('role', 'permission'));
+        return view('back.sneat.pages.user.create', compact('role', 'permission'));
     }
 
     /**
@@ -130,7 +129,7 @@ class UserController extends Controller
         $user_role = $data->roles->pluck('id');
         $permission = Permission::all()->pluck('name', 'id');
         $permis = $data->getAllPermissions();
-        return view('back.a.pages.user.edit', compact('data', 'role', 'user_role', 'permission', 'permis'));
+        return view('back.sneat.pages.user.edit', compact('data', 'role', 'user_role', 'permission', 'permis'));
     }
 
     /**

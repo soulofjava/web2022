@@ -19,12 +19,14 @@ class CreateNewsTable extends Migration
             $table->text('slug', 4294967295)->nullable();
             $table->date('date');
             $table->string('upload_by');
-            $table->text('description', 4294967295);
+            $table->text('content', 4294967295);
             $table->bigInteger('attachment')->nullable();
             $table->boolean('highlight')->default(false);
             $table->string('kategori')->nullable();
-            $table->boolean('dip')->default(false);
             $table->string('dip_tahun')->nullable();
+            $table->boolean('terbit')->default(false);
+            $table->boolean('komentar')->default(false);
+            $table->boolean('dip')->default(false);
             $table->softDeletes();
             $table->timestamps();
         });

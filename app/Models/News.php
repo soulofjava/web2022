@@ -25,7 +25,7 @@ class News extends Model implements Viewable
         ];
     }
 
-    public function getDescriptionAttribute($value)
+    public function getContentAttribute($value)
     {
         $substring = url('/') . '/storage/';
         

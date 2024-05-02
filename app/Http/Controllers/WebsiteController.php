@@ -16,7 +16,7 @@ class WebsiteController extends Controller
     public function index()
     {
         $data = Website::first();
-        return view('back.a.pages.website.index', compact('data'));
+        return view('back.sneat.pages.website.index', compact('data'));
     }
 
     /**
@@ -118,6 +118,6 @@ class WebsiteController extends Controller
 
     public function wa()
     {
-        return view('back.a.pages.website.wa');
+        return view('back.sneat.pages.website.wa');
     }
 }
