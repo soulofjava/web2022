@@ -37,7 +37,7 @@
             <table id="dataTable" class="table-hover table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th>No</th>
+                        <th>Tahun</th>
                         <th>Judul Postingan</th>
                         <th>Kategori</th>
                         <th class="disabled-sorting text-center">
@@ -73,7 +73,7 @@
             serverSide: true,
             ajax: "{{ route('datappid') }}",
             columns: [
-                { data: 'DT_RowIndex', orderable: false, searchable: false },
+                { data: 'dip_tahun', name: 'dip_tahun', className: "text-center" },
                 { data: 'menu_name', name: 'menu_name', className: "", defaultContent: 'N/A' },
                 { data: 'kategori', name: 'kategori', className: "text-center" },
                 { data: 'action', className: "text-center" },
@@ -100,6 +100,7 @@
                 { data: 'action', className: "text-center" },
             ],
             columnDefs: [
+                { targets: [0], visible: false }, // Hide the Category column (index 1)
                 { className: "dt-head-center", targets: [0, 1, 2, 3] },
             ]
         });
