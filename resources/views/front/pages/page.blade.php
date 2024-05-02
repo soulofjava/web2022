@@ -47,7 +47,7 @@
                     $data->menu_name == 'Informasi Kejadian Bencana' || $data->menu_name == 'Daftar Kejadian Bencana' ||
                     $data->menu_name == 'Pengumuman' || $data->menu_name == 'Informasi Gangguan' ||
                     $data->menu_name == 'Informasi Hoax' || $data->menu_name == 'Kajian dan Penelitian' ||
-                    $data->menu_name == 'Pengawasan Internal' || $data->menu_name == 'Hasil Penanganan Pengaduan' ||
+                    $data->menu_name == 'Pengawasan Internal' ||
                     $data->menu_name == 'Regulasi Informasi Publik' || $data->menu_name == 'Standar Operasional
                     Prosedur' ||
                     $data->menu_name == 'Laporan Layanan Informasi Daerah')
