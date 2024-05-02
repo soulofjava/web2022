@@ -49,7 +49,7 @@
                             <a target="_blank" href="{{ $sm->menu_url }}">
                                 {{ $sm->menu_name }}
                             </a>
-                            @elseif($sm->menu_url == 'pengumuman')
+                            @elseif($sm->menu_url == 'pengumuman' || $sm->id == 61 || $sm->id == 62 || $sm->id == 65 || $sm->id == 66)
                             <a href="{{ url('transparansi') }}/{{ $sm->menu_url }}">
                                 {{ $sm->menu_name }}
                             </a>
@@ -80,7 +80,7 @@
                                     </a>
                                     @elseif($sub3->id == 99 || $sub3->menu_parent == 89 || $sub3->menu_parent == 90 ||
                                     $sub3->menu_parent
-                                    == 91 || $sub3->id == 85 || $sub3->id == 80 || $sub3->id == 126 || $sub3->id == 54 || $sub3->id == 55 || $sub3->id == 61 || $sub3->id == 62 || $sub3->id == 65 || $sub3->id == 66 || $sub3->id == 88)
+                                    == 91 || $sub3->id == 85 || $sub3->id == 80 || $sub3->id == 126 || $sub3->id == 54 || $sub3->id == 55 || $sub3->id == 88)
                                     <a href="{{ url('transparansi') }}/{{ $sub3->menu_url }}">
                                         {{ $sub3->menu_name }}
                                     </a>
