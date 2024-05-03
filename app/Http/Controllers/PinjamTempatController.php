@@ -25,9 +25,9 @@ class PinjamTempatController extends Controller
                     'action',
                     function ($data) {
                         $actionBtn = '
-                    <div class="list-icons d-flex justify-content-center text-center">
-                        <a href="' . route('pinjamtempat.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> Edit</a>
-                        <a href="' . route('pinjamtempat.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> Delete</a>
+                    <div class="text-center">
+                        <a href="' . route('pinjamtempat.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="bx bx-edit"></i> </a>
+                        <a href="' . route('pinjamtempat.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="bx bxs-trash"></i> </a>
                     </div>';
                         return $actionBtn;
                     }
@@ -59,7 +59,7 @@ class PinjamTempatController extends Controller
                 ->rawColumns(['action', 'tgl', 'stat'])
                 ->make(true);
         }
-        return view('back.a.pages.pinjamtempat.index');
+        return view('back.sneat.pages.pinjamtempat.index');
     }
 
     /**
@@ -92,7 +92,7 @@ class PinjamTempatController extends Controller
     public function edit($id)
     {
         $data = PinjamTempat::find($id);
-        return view('back.a.pages.pinjamtempat.edit', compact('data'));
+        return view('back.sneat.pages.pinjamtempat.edit', compact('data'));
     }
 
     /**

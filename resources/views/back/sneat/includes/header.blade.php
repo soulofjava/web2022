@@ -70,6 +70,15 @@
                     </a>
                 </li>
 
+                @foreach(App\Models\Component::whereIn('name', ['agenda', 'download area', 'pinjam tempat'])->where('active', '1')->get() as $component)
+                <li class="menu-item {{ (Str::contains(Request::url(), $component->url)) ? 'active' : '' }}">
+                    <a href="{{ route($component->url . '.index') }}" class="menu-link">
+                        <i class='{{ $component->icon }}'></i>
+                        <div data-i18n="Basic">{{ $component->name }}</div>
+                    </a>
+                </li>
+                @endforeach
+
                 <li class="menu-item {{ (Str::contains(Request::url(), 'news')) ? 'active' : '' }}">
                     <a href="{{ url('admin/news') }}" class="menu-link">
                         <i class='bx bx-news'></i>

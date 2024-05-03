@@ -8,17 +8,17 @@
                 <a href="#">Dashboard</a>
             </li>
             <li class="breadcrumb-item">
-                <a href="#">Menu</a>
+                <a href="#">Agenda</a>
             </li>
             <li class="breadcrumb-item active">Data</li>
         </ol>
     </nav>
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Form Tambah Data</h4>
+            <h4 class="card-title">Form Ubah Data</h4>
             <div class="card-content">
-                {{Form::open(['route' => 'frontmenu.store','method' => 'post', 'files' => 'true', ''])}}
-                @include('back.sneat.pages.frontmenu.form')
+                {{Form::model($data, ['route' => ['event.update', $data->id],'method' => 'put', ''])}}
+                @include('back.sneat.pages.agenda.form')
                 {{Form::close()}}
             </div>
         </div>

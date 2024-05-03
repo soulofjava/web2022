@@ -74,3 +74,43 @@
     <a href="{{ route('frontmenu.index') }}" class="btn btn-secondary">Kembali</a>
     <button type="submit" class="btn btn-primary">Simpan</button>
 </div>
+@push('after-script')
+<script>
+    $(document).ready(function () {
+        let a = document.getElementById('bbb').value;
+        console.log(a);
+        if (a == 1) {
+            $(".konten").hide();
+            $(".jip").hide();
+            $(".url").show();
+        }
+
+        $("#hideButton").click(function () {
+            if ($(this).is(":checked")) {
+                $(".konten").hide();
+                $(".jip").hide();
+                $(".url").show();
+            } else {
+                $(".konten").show();
+                $(".jip").show();
+                $(".url").hide();
+            }
+        });
+
+    });
+
+    $(".select2").select2();
+</script>
+
+<!-- ck editor -->
+<script src="{{asset('assets/back/assets/ckeditor/ckeditor.js')}}"></script>
+<script>
+    var konten = document.getElementById("my-editor");
+    var options = {
+        filebrowserImageBrowseUrl: '/file-manager/ckeditor',
+    };
+    CKEDITOR.replace(konten, options);
+    CKEDITOR.config.allowedContent = true;
+</script>
+<!-- end ck editor -->
+@endpush

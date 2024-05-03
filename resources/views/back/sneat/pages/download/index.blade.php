@@ -8,20 +8,24 @@
                 <a href="#">Dashboard</a>
             </li>
             <li class="breadcrumb-item">
-                <a href="#">Komponen</a>
+                <a href="#">Download Area</a>
             </li>
             <li class="breadcrumb-item active">Data</li>
         </ol>
     </nav>
     <div class="card">
         <div class="card-body">
+            @if ($message = Session::get('success'))
+            <div id="elementId" hidden>{{ $message }}</div>
+            @endif
             <div class="card-datatable table-responsive pt-0">
                 <table id="datatables" class="datatables-basic table border-top table-hover">
                     <thead>
                         <tr>
                             <th style="text-align: center;">id</th>
-                            <th style="text-align: center;">nama</th>
-                            <th style="text-align: center;">Aktif</th>
+                            <th style="text-align: center;">Nama File</th>
+                            <th style="text-align: center;">Path</th>
+                            <th style="text-align: center;">Aksi</th>
                         </tr>
                     </thead>
                 </table>
@@ -33,6 +37,18 @@
 @endsection
 @push('after-script')
 <script type="text/javascript">
+    $(document).ready(function () {
+        if ($('#elementId').length > 0) {
+            const pesan = document.getElementById('elementId').innerText;
+            console.log(pesan);
+            Swal.fire(
+                'OK!',
+                'Data berhasil disimpan.',
+                'success'
+            )
+        }
+    });
+
     $(function () {
         'use strict';
 
@@ -48,55 +64,26 @@
                 serverSide: true,
                 columns: [
                     { data: 'DT_RowIndex', orderable: false, searchable: false },
-                    { data: 'name', name: 'name' },
-                    { data: 'action', class: 'text-center' },
+                    { data: 'judul', name: 'judul' },
+                    { data: 'path' },
+                    { data: 'action' },
                 ],
                 bSort: false,
-
+                dom:
+                    '<"card-header"<"head-label text-center"><"dt-action-buttons text-end"B>><"d-flex justify-content-between align-items-center row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6"f>>t<"d-flex justify-content-between row"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>',
                 displayLength: 7,
                 lengthMenu: [7, 10, 25, 50, 75, 100],
-
+                buttons: [
+                    {
+                        text: '<i class="bx bx-plus me-1"></i> <span class="d-none d-lg-inline-block">Tambah D</span>',
+                        className: 'create-new btn btn-primary',
+                        action: function (e, dt, button, config) {
+                            window.location = `{{ route('download.create') }}`;
+                        }
+                    }
+                ],
             });
         }
     });
-
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-
-    function centang(submenu) {
-        // e.preventDefault();
-        // const { pathname } = window.location;
-        // const paths = pathname.split("/").filter(entry => entry !== "");
-        // const lastPath = parseInt(paths[paths.length - 1]);
-        var url = "{{ route('centang') }}";
-
-        $.ajax({
-            url: url,
-            method: 'POST',
-            data: {
-                id: submenu
-                // roleId: lastPath
-            },
-            success: function (response) {
-                if (response.success) {
-                    Swal.fire(
-                        'OK!',
-                        'Data berhasil diubah.',
-                        'success'
-                    ).then(() => {
-                        location.reload(); // Reload halaman setelah pesan sukses ditampilkan
-                    });
-                } else {
-                    alert("Error")
-                }
-            },
-            error: function (error) {
-                console.log(error)
-            }
-        });
-    };
 </script>
 @endpush

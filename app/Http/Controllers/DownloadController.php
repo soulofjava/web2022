@@ -23,9 +23,9 @@ class DownloadController extends Controller
                     'action',
                     function ($data) {
                         $actionBtn = '
-                    <div class="list-icons d-flex justify-content-center text-center">
-                        <a href="' . route('download.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> Edit</a>
-                        <a href="' . route('download.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> Delete</a>
+                    <div class="text-center">
+                        <a href="' . route('download.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="bx bx-edit"></i> </a>
+                        <a href="' . route('download.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="bx bxs-trash"></i> </a>
                     </div>';
                         return $actionBtn;
                     }
@@ -33,7 +33,7 @@ class DownloadController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('back.a.pages.download.index');
+        return view('back.sneat.pages.download.index');
     }
 
     /**
@@ -41,7 +41,7 @@ class DownloadController extends Controller
      */
     public function create()
     {
-        return view('back.a.pages.download.create');
+        return view('back.sneat.pages.download.create');
     }
 
     /**
@@ -80,7 +80,7 @@ class DownloadController extends Controller
     public function edit($id)
     {
         $data = Download::find($id);
-        return view('back.a.pages.download.edit', compact('data'));
+        return view('back.sneat.pages.download.edit', compact('data'));
     }
 
     /**

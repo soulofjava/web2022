@@ -16,8 +16,10 @@ class CreateComponentsTable extends Migration
         Schema::create('components', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('active');
             $table->string('slug');
+            $table->string('icon');
+            $table->string('url')->nullable();
+            $table->integer('active');
             $table->timestamps();
         });
     }

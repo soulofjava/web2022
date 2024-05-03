@@ -24,9 +24,7 @@ use App\Http\Controllers\SSO\SSOController;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
 use App\Models\Website;
-use App\Models\Themes;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Redirect;
 
 /*
 |--------------------------------------------------------------------------

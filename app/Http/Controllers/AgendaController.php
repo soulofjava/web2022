@@ -23,9 +23,9 @@ class AgendaController extends Controller
                     'action',
                     function ($data) {
                         $actionBtn = '
-                    <div class="list-icons d-flex justify-content-center text-center">
-                        <a href="' . route('event.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> Edit</a>
-                        <a href="' . route('event.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> Delete</a>
+                    <div class="text-center">
+                        <a href="' . route('event.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="bx bx-edit"></i> </a>
+                        <a href="' . route('event.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="bx bxs-trash"></i> </a>
                     </div>';
                         return $actionBtn;
                     }
@@ -42,7 +42,7 @@ class AgendaController extends Controller
                 ->rawColumns(['action', 'tgl'])
                 ->make(true);
         }
-        return view('back.a.pages.agenda.index');
+        return view('back.sneat.pages.agenda.index');
     }
 
     /**
@@ -52,7 +52,7 @@ class AgendaController extends Controller
      */
     public function create()
     {
-        return view('back.a.pages.agenda.create');
+        return view('back.sneat.pages.agenda.create');
     }
 
     /**
@@ -93,7 +93,7 @@ class AgendaController extends Controller
     public function edit(Agenda $agenda, $id)
     {
         $data = Agenda::find($id);
-        return view('back.a.pages.agenda.edit', compact('data'));
+        return view('back.sneat.pages.agenda.edit', compact('data'));
     }
 
     /**

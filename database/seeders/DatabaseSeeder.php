@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
             ComCodes::class,
             PermissionSeeder::class,
             ComponentSeeder::class,
+            ViewSeeder::class,
             // RegionSeeder::class,
         ]);
 
