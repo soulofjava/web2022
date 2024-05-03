@@ -26,8 +26,8 @@ class FrontMenuController extends Controller
                     'action',
                     function ($data) {
                         $actionBtn = '<div class="list-icons d-flex justify-content-center text-center">
-                        <a href="' . route('frontmenu.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> edit</a>
-                           <a href="' . route('frontmenu.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> delete</a>
+                        <a href="' . route('frontmenu.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> ubah</a>
+                           <a href="' . route('frontmenu.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> hapus</a>
                     </div>';
                         return $actionBtn;
                     }

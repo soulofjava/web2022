@@ -23,14 +23,14 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Date</th>
-                                        <th>Name</th>
+                                        <th>Tanggal</th>
+                                        <th>Nama</th>
                                         <th>Email</th>
-                                        <th>Phone</th>
-                                        <th>Message</th>
+                                        <th>No Telpn</th>
+                                        <th>Pesan</th>
                                         <th>Status</th>
                                         <th class="disabled-sorting text-center">
-                                            Action</th>
+                                            Aksi</th>
                                     </tr>
                                 </thead>
                                 <!-- <tfoot>

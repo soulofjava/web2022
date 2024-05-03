@@ -12,22 +12,7 @@
                     <h4 class="card-title">Form Edit Event</h4>
                     {{Form::model($data, ['route' => ['event.update', $data->id],'method' => 'put', 'files' =>
                     'true', ''])}}
-                    <div class="form-group label-floating">
-                        <label class="control-label">Event Name</label>
-                        {{Form::text('title', null,['class' => 'form-control'])}}
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Event Date</label>
-                        {{Form::text('date', null,['class' => 'form-control datepicker'])}}
-                    </div>
-                    <div class="form-group label-floating">
-                        <label class="control-label">Event Location</label>
-                        {{Form::text('location', null,['class' => 'form-control'])}}
-                    </div>
-                    <div class="d-flex text-right">
-                        <a href="{{ route('event.index') }}" class="btn btn-default btn-fill">Cancel</a>
-                        <button type="submit" class="btn btn-success btn-fill">Update</button>
-                    </div>
+                    @include('back.a.pages.agenda.form')
                     {{Form::close()}}
                 </div>
             </div>

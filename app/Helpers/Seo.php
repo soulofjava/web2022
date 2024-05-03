@@ -14,7 +14,6 @@ class Seo
         return SEOMeta::setTitle($data->web_name)
             ->setDescription($data->web_description)
             ->setKeywords($data->web_name)
-            ->addKeyword($data->web_description)
-            ->addMeta('$meta', '$value');
+            ->addKeyword($data->web_description);
     }
 }

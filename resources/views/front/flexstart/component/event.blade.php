@@ -29,9 +29,9 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Date</th>
-                                            <th>Event Name</th>
-                                            <th>Event Location</th>
+                                            <th>Tanggal</th>
+                                            <th>Nama Kegiatan</th>
+                                            <th>Lokasi Kegiatan</th>
                                         </tr>
                                     </thead>
                                 </table>

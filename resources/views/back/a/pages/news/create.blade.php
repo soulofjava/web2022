@@ -1,7 +1,6 @@
 @extends('back.a.layouts.app')
 @push('after-style')
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dropzone@5.9.2/dist/dropzone.css"
-    integrity="sha256-6X2vamB3vs1zAJefAme/aHhUeJl13mYKs3VKpIGmcV4=" crossorigin="anonymous">
+<link rel="stylesheet" href="{{ asset('assets/back/assets/css/dropzone.min.css') }}">
 @endpush
 @section('content')
 <div class="content">
@@ -24,24 +23,7 @@
                 <div class="card-content">
                     <h4 class="card-title">Form Tambah Data</h4>
                     {{Form::open(['route' => 'news.store','method' => 'post', 'files' => 'true', ''])}}
-                    <!-- Example of a form that Dropzone can take over -->
-                    <div class="dropzone" id="my-awesome-dropzone"></div>
-                    <div class="form-group label-floating">
-                        <label class="control-label">Title</label>
-                        {{Form::text('title', null,['class' => 'form-control'])}}
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Date</label>
-                        {{Form::text('date', null,['class' => 'form-control datepicker'])}}
-                    </div>
-                    <div class="form-group label-floating is-focused">
-                        <label class="control-label">Description</label>
-                        {{Form::textarea('description', null,['class' => 'my-editor form-control','id'=>'my-editor'])}}
-                    </div>
-                    <div class="d-flex text-right">
-                        <a href="{{ route('news.index') }}" class="btn btn-default btn-fill">Cancel</a>
-                        <button type="submit" class="btn btn-success btn-fill">Insert</button>
-                    </div>
+                    @include('back.a.pages.news.form')
                     {{Form::close()}}
                 </div>
             </div>
@@ -50,8 +32,7 @@
 </div>
 @endsection
 @push('after-script')
-<script src="https://cdn.jsdelivr.net/npm/dropzone@5.9.2/dist/dropzone.js"
-    integrity="sha256-IXyEnLo8FpsoOLrRzJlVYymqpY29qqsMHUD2Ah/ttwQ=" crossorigin="anonymous"></script>
+<script src="{{ asset('assets/back/assets/js/dropzone.min.js') }}"></script>
 
 <script type="text/javascript">
     $(document).ready(function () {

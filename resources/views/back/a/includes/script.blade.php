@@ -90,6 +90,13 @@
                         'success'
                     )
                     $('#datatables').DataTable().ajax.reload();
+                },
+                error: function (xhr, status, error) {
+                    swal(
+                        'Error!',
+                        'Failed to delete data. Please try again later.',
+                        'error'
+                    );
                 }
             })
         })

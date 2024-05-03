@@ -29,11 +29,11 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Date</th>
-                                        <th>Title</th>
-                                        <th>Location</th>
+                                        <th>Tanggal</th>
+                                        <th>Nama Kegiatan</th>
+                                        <th>Lokasi Kegiatan</th>
                                         <th class="disabled-sorting text-center">
-                                            Actions</th>
+                                            Aksi</th>
                                     </tr>
                                 </thead>
                                 <!-- <tfoot>
@@ -80,8 +80,8 @@
         ]
 
     });
-        // var table = $('#datatables').DataTable();
-        // $('.card .material-datatables label').addClass('form-group');
+    // var table = $('#datatables').DataTable();
+    // $('.card .material-datatables label').addClass('form-group');
 </script>
 <script>
     $(document).ready(function () {

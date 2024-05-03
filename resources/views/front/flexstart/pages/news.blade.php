@@ -1,7 +1,7 @@
 @extends('front.flexstart.layouts.app')
 @section('content')
 <!-- ======= Recent Blog Posts Section ======= -->
-<section id="blog" class="blog">
+<section id="blog" class="blog mt-5">
     <div class="container" data-aos="fade-up">
         <header class="section-header mt-5">
             <h2>Blog</h2>
@@ -16,13 +16,12 @@
                 <article class="entry">
 
                     <div class="entry-img">
-                        @if($n->attachment)
-                        <img src="{{ $n->attachment }}" alt="thumbnail" class="img-fluid">
-                        @elseif($n->gambarmuka)
-                        <img src="{{ asset('storage/') }}/{{  $n->gambarmuka->path }}" class="img-fluid"
-                            alt="{{ $n->gambarmuka->file_name }}">
+                        @if(Storage::get($n->gambarmuka->path ?? ''))
+                        <img src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}" class="img-fluid"
+                            alt="{{ $n->gambarmuka->file_name }}"
+                            style="background-size: cover; height: 240px; background-position: center; width: 100%;">
                         @else
-                        <img src="{{ asset('img/soulofjava.jpg') }}" alt="soul of java" class="img-fluid">
+                        <!-- <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java"> -->
                         @endif
                     </div>
 

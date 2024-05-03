@@ -1,4 +1,4 @@
-<div class="container">
+<div>
     <div class="row">
         <div class="col ">
             {{Form::open(['route' => 'news.search','method' => 'get', ''])}}

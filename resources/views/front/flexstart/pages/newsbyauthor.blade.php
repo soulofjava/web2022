@@ -106,7 +106,7 @@
                                 @if($n->attachment)
                                 <img src="{{ $n->attachment }}" alt="thumbnail" class="img-fluid">
                                 @elseif($n->gambarmuka)
-                                <img src="{{ asset('storage/') }}/{{  $n->gambarmuka->path }}" class="img-fluid"
+                                <img src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}" class="img-fluid"
                                     alt="{{ $n->gambarmuka->file_name }}">
                                 @else
                                 <img src="{{ asset('img/soulofjava.jpg') }}" alt="soul of java" class="img-fluid">

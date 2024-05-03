@@ -15,4 +15,9 @@ class FrontMenu extends Model
     {
         return $this->belongsTo(FrontMenu::class, 'menu_parent');
     }
+
+    public function anaknya()
+    {
+        return $this->hasMany(FrontMenu::class, 'menu_parent');
+    }
 }

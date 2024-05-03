@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RoleSeeder::class,
             UserSeeder::class,
-            // FrontMenuSeeder::class,
+            FrontMenuSeeder::class,
             ThemesSeeder::class,
             ComCodes::class,
             PermissionSeeder::class,
