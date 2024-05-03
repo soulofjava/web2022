@@ -20,6 +20,9 @@ use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Http;
+use Artesaos\SEOTools\Facades\OpenGraph;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class FrontController extends Controller
 {
@@ -83,8 +86,45 @@ class FrontController extends Controller
 
     public function newsdetail($slug)
     {
+        $data = News::with('gambar', 'uploader', 'gambarmuka')->where('slug', $slug)->first();
+
         Seo::seO();
-        $data = News::with('gambar', 'uploader')->where('slug', $slug)->first();
+
+        OpenGraph::setDescription(strip_tags(Str::limit($data->content, 50, '...')));
+        OpenGraph::setTitle($data->title);
+        OpenGraph::setUrl(url()->current());
+        OpenGraph::addProperty('type', 'article');
+        OpenGraph::addProperty('locale', 'id');
+
+        if (!empty($data->gambarmuka->path)) {
+           
+                // Mendapatkan path gambar dari GCS
+                $imagePath = $data->gambarmuka->path; // Sesuaikan dengan path gambar di GCS Anda
+
+                // Mendapatkan konten gambar dari GCS
+                $imageContent = Storage::get($imagePath);
+
+                // Membuat instance gambar menggunakan Intervention Image
+                $image = Image::make($imageContent);
+
+                // Menyesuaikan ukuran gambar tanpa mempertahankan rasio aspek
+                $image->fit(300, 300);
+
+                // Mengirim gambar yang sudah dikompres sebagai respons HTTP
+                // return response($compressedImage, 200)
+                // ->header('Content-Type', 'image/jpeg');
+
+                // Menghasilkan nama file baru berdasarkan format "hari-bulan-tahun"
+                $newFileName = $slug . '.jpg';
+
+                // Menyimpan gambar yang sudah dikompres ke GCS
+                $temporaryImagePath = 'thumbs/' . $newFileName;
+                Storage::disk('gcs')->put($temporaryImagePath, $image->encode());
+                OpenGraph::addImage(route('helper.show-picture', ['path' => $temporaryImagePath ?? '']), ['height' => 300, 'width' => 300]);
+        } else {
+            OpenGraph::addImage(url('assets/pemda.ico'));
+        }
+
         views($data)->cooldown(5)->record();
         $news = News::with('gambarmuka')->latest('date')->paginate(5);
         $file = File::where('id_news', $data->attachment)->get();
