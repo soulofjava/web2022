@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
             PermissionSeeder::class,
             ComponentSeeder::class,
             ViewSeeder::class,
+            KategoriSeeder::class,
             // RegionSeeder::class,
         ]);
 
@@ -44,7 +45,7 @@ class DatabaseSeeder extends Seeder
             'facebook' => 'https://www.facebook.com/wonosobohebat/',
             'youtube' => 'https://www.youtube.com/c/OfficialWonosoboTV',
             'url_stream' => '#',
-            'themes_front' => 'boxass',
+            'themes_front' => 'deluck',
             'themes_back' => 'back.sneat',
             'open_hours' => 'Monday - Thursday (07:00AM - 04:00PM) Friday (07:00AM - 11:00AM)',
         ]);
