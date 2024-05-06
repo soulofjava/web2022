@@ -17,58 +17,59 @@ class KategoriSeeder extends Seeder
         Tag::truncate();
         $data = [
             [
-                'name' => 'LHKASN',
+                'name' => ucwords(strtolower('LHKASN')),
                 'slug' => Str::slug('LHKASN', '-'),
             ],
             [
-                'name' => 'Perjanjian Kinerja',
+                'name' => ucwords(strtolower('Perjanjian Kinerja')),
                 'slug' => Str::slug('Perjanjian Kinerja', '-'),
             ],
             [
-                'name' => 'CaLK',
+                'name' => ucwords(strtolower('CaLK')),
                 'slug' => Str::slug('CaLK', '-'),
             ],
             [
-                'name' => 'Laporan Aset',
+                'name' => ucwords(strtolower('Laporan Aset')),
                 'slug' => Str::slug('Laporan Aset', '-'),
             ],
             [
-                'name' => 'Renja',
+                'name' => ucwords(strtolower('Renja')),
                 'slug' => Str::slug('Renja', '-'),
             ],
             [
-                'name' => 'Renstra',
+                'name' => ucwords(strtolower('Renstra')),
                 'slug' => Str::slug('Renstra', '-'),
             ],
             [
-                'name' => 'POBL',
+                'name' => ucwords(strtolower('POBL')),
                 'slug' => Str::slug('POBL', '-'),
             ],
             [
-                'name' => 'Program Kegiatan',
+                'name' => ucwords(strtolower('Program Kegiatan')),
                 'slug' => Str::slug('Program Kegiatan', '-'),
             ],
             [
-                'name' => 'Realisasi Anggaran',
+                'name' => ucwords(strtolower('Realisasi Anggaran')),
                 'slug' => Str::slug('Realisasi Anggaran', '-'),
             ],
             [
-                'name' => 'LKjIP',
+                'name' => ucwords(strtolower('LKjIP')),
                 'slug' => Str::slug('LKjIP', '-'),
             ],
             [
-                'name' => 'DPA',
+                'name' => ucwords(strtolower('DPA')),
                 'slug' => Str::slug('DPA', '-'),
             ],
             [
-                'name' => 'RKA',
+                'name' => ucwords(strtolower('RKA')),
                 'slug' => Str::slug('RKA', '-'),
             ],
             [
-                'name' => 'NERACA',
+                'name' => ucwords(strtolower('NERACA')),
                 'slug' => Str::slug('NERACA', '-'),
             ],
         ];
+
         Tag::insert($data);
     }
 }

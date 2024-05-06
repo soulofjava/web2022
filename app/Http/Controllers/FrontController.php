@@ -51,12 +51,12 @@ class FrontController extends Controller
                     function ($combinedData) {
                         if ($combinedData->menu_url) {
                             $actionBtn = '<td class="text-center">
-                            <a target="_blank" href="' . url('page', $combinedData->menu_url) . '" class="btn btn-sm btn-warning">LIHAT
+                            <a target="_blank" href="' . url('page', $combinedData->menu_url) . '" class="btn btn-sm btn-primary butone">LIHAT
                             DATA</a>
                             </td>';
                         } else {
                             $actionBtn = '<td class="text-center">
-                                <a target="_blank" href="' . url('news-detail', $combinedData->slug) . '" class="btn btn-sm btn-warning">LIHAT
+                                <a target="_blank" href="' . url('news-detail', $combinedData->slug) . '" class="btn btn-sm btn-primary butone">LIHAT
                                     DATA</a>
                             </td>';
                         }
@@ -67,7 +67,7 @@ class FrontController extends Controller
                 ->make(true);
         }
 
-        return view('front.boxass.pages.globalsearch', compact('hasil', 'combinedData'));
+        return view('front.' . $this->themes->themes_front . '.pages.globalsearch', compact('hasil', 'combinedData'));
     }
 
     public function datappid()
