@@ -1,13 +1,4 @@
 @extends('back.sneat.layouts.app')
-@push('after-style')
-<link rel="stylesheet" href="{{ asset('assets/back/sneat/assets/css/dropzone.min.css') }}">
-<style>
-    .dz-image img {
-        width: 100%;
-        height: 100%;
-    }
-</style>
-@endpush
 @section('content')
 <!-- Content -->
 <div class="container-xxl flex-grow-1 container-p-y">
@@ -34,5 +25,4 @@
     </div>
 </div>
 <!-- / Content -->
-
 @endsection

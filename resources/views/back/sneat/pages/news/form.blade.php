@@ -1,3 +1,14 @@
+@push('after-style')
+<link rel="stylesheet" href="{{ asset('assets/back/sneat/assets/css/dropzone.min.css') }}">
+<style>
+    .dz-image img {
+        width: 100%;
+        height: 100%;
+    }
+</style>
+@endpush
+<input type="text" value="{{ $data->id ?? '' }}" id="malika" hidden>
+<input type="text" value="{{ $data->dip ?? '' }}" id="bbb" hidden>
 <div class="row">
     <div class="togglebutton" style="margin-bottom: 15px;">
         <label class="form-check-label">
@@ -18,13 +29,13 @@
     <div class="form-group col-sm-12 col-md-6">
         <label for="defaultFormControlInput" class="form-label">Jenis Informasi Publik</label>
         {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
-        'form-control select2','placeholder' => 'Silahkan Pilih'])}}
+        'form-control select2','placeholder' => 'Silahkan Pilih Jenis Informasi Publik'])}}
     </div>
 
     <div class="form-group col-sm-12 col-md-6 mb-3">
         <label for="defaultFormControlInput" class="form-label">Tahun Daftar Informasi Publik</label>
         {{Form::number('dip_tahun', null, ['class' =>
-        'form-control','placeholder' => 'Masukkan Tahun'])}}
+        'form-control','placeholder' => '2024'])}}
     </div>
     <div class="form-group col-sm-12 col-md-12 mb-3">
         <label for="defaultFormControlInput" class="form-label">Kategori</label>
@@ -124,8 +135,6 @@
         console.log(a);
         if (a == 1) {
             $(".dropzone").hide();
-            $(".jip").show();
-            $(".dip").show();
         }
 
         $("#hideButton").click(function () {
@@ -141,13 +150,8 @@
     $(".select2").select2();
 
     var flatpickrDate = document.querySelector(".flatpickr-date");
-    var flatpickrDate2 = document.querySelector(".flatpickr-date2");
 
     flatpickrDate.flatpickr({
-        monthSelectorType: "static",
-    });
-
-    flatpickrDate2.flatpickr({
         monthSelectorType: "static",
     });
 </script>
