@@ -33,7 +33,7 @@
             </div>
         </div> -->
         <div class="row">
-            @foreach($news as $n)
+            @foreach($data as $n)
             <!-- Single Item -->
             <div class="col-md-4 single-item" style="height: 450px;">
                 <div class="item">
@@ -88,7 +88,7 @@
                             <li><a href="#">2</a></li>
                             <li><a href="#">3</a></li>
                             <li><a href="#"><i class="fas fa-angle-double-right"></i></a></li> -->
-                            {{ $news->withQueryString()->links('vendor.pagination.boxass') }}
+                            {{ $data->withQueryString()->links('vendor.pagination.buspro') }}
                         </ul>
                     </nav>
                 </div>

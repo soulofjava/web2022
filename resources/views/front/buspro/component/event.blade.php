@@ -1,7 +1,41 @@
 @extends('front.buspro.layout.app')
 @push('after-style')
 <!-- datatable -->
-<link href="https://cdn.datatables.net/v/bs/dt-1.13.6/datatables.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+<style>
+    /* Untuk tombol dengan kelas butone */
+    .butone {
+        background-color: #1cb9c8;
+        /* Ubah warna latar belakang */
+        color: white;
+        /* Ubah warna teks */
+        border: none;
+        /* Hapus batas */
+        padding: 8px 16px;
+        /* Atur padding */
+        border-radius: 4px;
+        /* Atur border-radius untuk sudut yang lebih lembut */
+    }
+
+    /* Untuk mengubah warna tombol saat dihover */
+    .butone:hover {
+        background-color: #0e7f8f;
+        /* Ubah warna latar belakang saat dihover */
+    }
+
+    .pagination>li.active>a {
+        background: #1cb9c8;
+        color: #fff;
+    }
+
+    /* Untuk tautan aktif di dalam pagination saat dihover */
+    .pagination>li.active>a:hover {
+        background: #0e7f8f;
+        /* Ubah warna latar belakang saat dihover */
+        color: #fff;
+        /* Ubah warna teks saat dihover */
+    }
+</style>
 @endpush
 @section('content')
 <!-- Start Breadcrumb 
@@ -24,25 +58,19 @@
 <!-- End Breadcrumb -->
 <!-- Start Blog
         ============================================= -->
-<div class="blog-area single full-blog full-blog default-padding">
+<div class="blog-area default-padding bottom-less">
     <div class="container">
         <div class="row">
-            <div class="blog-items">
-                <div class="blog-content col-md-10 col-md-offset-1">
-                    <div class="item">
-                        <table id="datatables" class="table is-striped" cellspacing="0" width="100%" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Tanggal</th>
-                                    <th>Nama Kegiatan</th>
-                                    <th>Lokasi Kegiatan</th>
-                                </tr>
-                            </thead>
-                        </table>
-                    </div>
-                </div>
-            </div>
+            <table id="datatables" class="table is-striped" cellspacing="0" width="100%" style="width:100%">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;">#</th>
+                        <th style="text-align: center;">Tanggal</th>
+                        <th style="text-align: center;">Nama Kegiatan</th>
+                        <th style="text-align: center;">Lokasi Kegiatan</th>
+                    </tr>
+                </thead>
+            </table>
         </div>
     </div>
 </div>
@@ -50,8 +78,8 @@
 @endsection
 @push('after-script')
 <!-- DataTables   -->
-<!-- <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script> -->
-<script src="https://cdn.datatables.net/v/bs/dt-1.13.6/datatables.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
 
 <script type="text/javascript">
     $('#datatables').DataTable({

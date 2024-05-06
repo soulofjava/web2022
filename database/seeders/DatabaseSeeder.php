@@ -2,14 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\GuestBook;
 use App\Models\RelatedLink;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use App\Models\Role;
-use App\Models\Themes;
-use App\Models\User;
-use Faker\Factory as Faker;
 
 class DatabaseSeeder extends Seeder
 {
@@ -67,17 +62,6 @@ class DatabaseSeeder extends Seeder
 
         foreach ($related as $rr) {
             RelatedLink::create($rr);
-        }
-
-        $faker = Faker::create('id_ID');
-        for ($i = 1; $i <= 10; $i++) {
-            GuestBook::create([
-                'name'  => $faker->name(),
-                'date'  => $faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now'),
-                'instansi'  => $faker->company(3),
-                'jumlah'  => $faker->randomDigit(),
-                'keperluan'  => $faker->sentence()
-            ]);
         }
     }
 }

@@ -1,16 +1,19 @@
-@extends('front.castro.layouts.app')
-
+@extends('front.Castro.layouts.app')
+@push('after-style')
+@endpush
 @section('content')
 <!-- page-title -->
 <section class="page-title centred">
-    <div class="pattern-layer" style="background-image: url(assets/images/background/page-title.jpg);"></div>
+    <div class="pattern-layer"
+        style="background-image: url({{ asset('master/Castro/assets/images/background/page-title.jpg') }});">
+    </div>
     <div class="auto-container">
         <div class="content-box">
-            <h1>Semua Postingan</h1>
+            <h1>{{ $hasil }}</h1>
             <ul class="bread-crumb clearfix">
-                <li><i class="flaticon-home-1"></i><a href="{{ url('/') }}">Beranda</a></li>
-                <li><a href="{{ url('newsall') }}">Postingan</a></li>
-                <li>Semua Postingan</li>
+                <li><a href="{{ url('/') }}">Beranda</a></li>
+                <li><a href="{{ url('newsall') }}">Semua Postingan</a></li>
+                <li>{{ $hasil }}</li>
             </ul>
         </div>
     </div>
@@ -20,7 +23,7 @@
 <section class="blog-page-section blog-page-1 sec-pad-2">
     <div class="auto-container">
         <div class="row clearfix">
-            @foreach($news as $n)
+            @foreach($data as $n)
             <div class="col-lg-4 col-md-6 col-sm-12 news-block">
                 <div class="news-block-one wow fadeInUp animated animated" data-wow-delay="00ms"
                     data-wow-duration="1500ms">
@@ -69,7 +72,7 @@
                 <li><a href="shop.html">Next</a></li>
             </ul>
         </div> -->
-        {{ $news->links('vendor.pagination.castro') }}
+        {{ $data->withQueryString()->links('vendor.pagination.castro') }}
     </div>
 </section>
 <!-- news-section end -->

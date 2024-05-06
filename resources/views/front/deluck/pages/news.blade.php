@@ -77,7 +77,7 @@
                         <div class="col-md-12 pagi-area">
                             <nav aria-label="navigation">
                                 <ul class="pagination">
-                                    {{ $news->withQueryString()->links('vendor.pagination.boxass') }}
+                                    {{ $news->withQueryString()->links('vendor.pagination.deluck') }}
                                     <!-- <li><a href="#"><i class="fas fa-long-arrow-alt-left"></i></a></li>
                                     <li class="active"><a href="#">1</a></li>
                                     <li><a href="#">2</a></li>

@@ -83,12 +83,12 @@ class FrontController extends Controller
                 function ($combinedData) {
                     if ($combinedData->slug) {
                         $actionBtn = '<td class="text-center">
-                                <a target="_blank" href="' . url('news-detail', $combinedData->menu_url ?? $combinedData->slug) . '" class="btn btn-primary">LIHAT
+                                <a target="_blank" href="' . url('news-detail', $combinedData->menu_url ?? $combinedData->slug) . '" class="btn btn-primary butone">LIHAT
                                     DATA</a>
                             </td>';
                     } else {
                         $actionBtn = '<td class="text-center">
-                                <a target="_blank" href="' . url('page', $combinedData->menu_url ?? $combinedData->slug) . '" class="btn btn-primary">LIHAT
+                                <a target="_blank" href="' . url('page', $combinedData->menu_url ?? $combinedData->slug) . '" class="btn btn-primary butone">LIHAT
                                     DATA</a>
                             </td>';
                     }
@@ -112,7 +112,7 @@ class FrontController extends Controller
                     'action',
                     function ($dip) {
                         $actionBtn = '<td class="text-center">
-                                <a target="_blank" href="' . url('page', $dip->id) . '" class="btn btn-primary">LIHAT
+                                <a target="_blank" href="' . url('page', $dip->id) . '" class="btn btn-primary butone">LIHAT
                                     DATA</a>
                             </td>';
                         return $actionBtn;
@@ -206,7 +206,7 @@ class FrontController extends Controller
     {
         Seo::seO();
         $hasil = 'All post by : ' . $id;
-        $data = News::with('gambar')->where('upload_by', '=', $id)->latest("date")->paginate(5);
+        $data = News::with('gambarmuka')->where('upload_by', '=', $id)->latest("date")->paginate(5);
         $news = News::latest('date')->take(5)->get();
         return view('front.' . $this->themes->themes_front . '.pages.newsbyauthor', compact('data', 'news', 'hasil'));
     }
@@ -216,7 +216,7 @@ class FrontController extends Controller
         Seo::seO();
         $cari = $request->kolomcari;
         $hasil = 'Search result : ' . $cari;
-        $data = News::with('gambar')->whereDate('date', 'like', '%' . $cari . '%')->orWhere('title', 'like', '%' . $cari . '%')->orderBy("date", "desc")->paginate();
+        $data = News::with('gambarmuka')->whereDate('date', 'like', '%' . $cari . '%')->orWhere('title', 'like', '%' . $cari . '%')->latest("date")->paginate();
         $news = News::latest('date')->take(5)->get();
         return view('front.' . $this->themes->themes_front . '.pages.newsbyauthor', compact('data', 'news', 'hasil'));
     }
@@ -224,7 +224,7 @@ class FrontController extends Controller
     public function newsall(Request $request)
     {
         Seo::seO();
-        $news = News::latest('date')->paginate(12);
+        $news = News::latest('date')->paginate(9);
         $sideposts = News::latest('date')->take(5)->get();
         return view('front.' . $this->themes->themes_front . '.pages.news', compact('news', 'sideposts'));
     }
@@ -239,7 +239,7 @@ class FrontController extends Controller
                 ->addColumn(
                     'download',
                     function ($data) {
-                        $actionBtn = '<a href="' . Storage::url($data->path) . '" target="_blank" class="btn btn-primary">Download</a>';
+                        $actionBtn = '<center><a href="' . Storage::url($data->path) . '" target="_blank" class="btn btn-primary butone">Download</a></center>';
                         return $actionBtn;
                     }
                 )

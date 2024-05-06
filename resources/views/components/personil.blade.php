@@ -1,9 +1,6 @@
 <div>
     <div>
-        <center>
-            <h1 class="mt-5">Personil</h1>
-        </center>
-        <table class="table mt-4 table-striped table-bordered table-hover">
+        <table class="table table-striped table-bordered table-hover">
             <thead class="thead-dark">
                 <tr>
                     <th>NAMA</th>

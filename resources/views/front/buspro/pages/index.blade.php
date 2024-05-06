@@ -7,7 +7,7 @@
     <div id="bootcarousel" class="carousel inc-top-heading slide carousel-fade animate_text" data-ride="carousel">
         <!-- Wrapper for slides -->
         <div class="carousel-inner text-light carousel-zoom">
-            @foreach(App\Models\News::with('gambarmuka')->latest('date')->take(3)->get() as $hl)
+            @foreach(App\Models\News::with('gambarmuka')->where('terbit', 1)->where('highlight', 1)->latest('date')->take(3)->get() as $hl)
             <div class="item {{ $loop->first ? 'active' : '' }}">
                 @if($hl->gambarmuka)
                 <div class="slider-thumb bg-cover"

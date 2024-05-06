@@ -1,4 +1,29 @@
 @extends('front.deluck.layouts.app')
+@push('after-style')
+<!-- datatable -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+<style>
+    /* Untuk tombol dengan kelas butone */
+    .butone {
+        background-color: #FF4135;
+        /* Ubah warna latar belakang */
+        color: white;
+        /* Ubah warna teks */
+        border: none;
+        /* Hapus batas */
+        padding: 8px 16px;
+        /* Atur padding */
+        border-radius: 4px;
+        /* Atur border-radius untuk sudut yang lebih lembut */
+    }
+
+    /* Untuk mengubah warna tombol saat dihover */
+    .butone:hover {
+        background-color: #aa3931;
+        /* Ubah warna latar belakang saat dihover */
+    }
+</style>
+@endpush
 @section('content')
 <!-- Start Breadcrumb 
     ============================================= -->
@@ -44,7 +69,9 @@
 <!-- End Blog -->
 @endsection
 @push('after-script')
-<script src="https://cdn.datatables.net/v/bs/dt-1.13.6/datatables.min.js"></script>
+<!-- DataTables   -->
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
 <script type="text/javascript">
     $('#datatables').DataTable({
         "pagingType": "full_numbers",

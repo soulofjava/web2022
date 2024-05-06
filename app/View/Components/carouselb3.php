@@ -6,14 +6,17 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class jip extends Component
+class carouselb3 extends Component
 {
+    public $jjj;
     /**
      * Create a new component instance.
+     *
+     * @return void
      */
-    public function __construct()
+    public function __construct($jjj)
     {
-        //
+        $this->jjj = $jjj;
     }
 
     /**
@@ -21,6 +24,6 @@ class jip extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.jip');
+        return view('components.carouselb3');
     }
 }

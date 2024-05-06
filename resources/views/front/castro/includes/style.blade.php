@@ -15,3 +15,4 @@
 <link href="{{ asset('master/Castro/assets/css/color.css') }}" rel="stylesheet">
 <link href="{{ asset('master/Castro/assets/css/style.css') }}" rel="stylesheet">
 <link href="{{ asset('master/Castro/assets/css/responsive.css') }}" rel="stylesheet">
+<link href="{{ asset('master/Castro/assets/css/nice-select.css') }}" rel="stylesheet">

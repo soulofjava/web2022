@@ -44,7 +44,7 @@
                 <ul class="breadcrumb">
                     <li><a href="{{ url('/') }}"><i class="fas fa-home"></i> Beranda</a></li>
                     <li><a href="#"> Halaman</a></li>
-                    <li class="active"> Agenda</li>
+                    <li class="active"> Download Area</li>
                 </ul>
             </div>
         </div>
@@ -62,10 +62,9 @@
                         <table id="datatables" class="table is-striped" cellspacing="0" width="100%" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>#</th>
-                                    <th>Tanggal</th>
-                                    <th>Nama Kegiatan</th>
-                                    <th>Lokasi Kegiatan</th>
+                                    <th style="text-align: center;">#</th>
+                                    <th style="text-align: center;">Nama File</th>
+                                    <th style="text-align: center;">Aksi</th>
                                 </tr>
                             </thead>
                         </table>
@@ -100,9 +99,8 @@
         },
         columns: [
             { data: 'DT_RowIndex', orderable: false, searchable: false },
-            { data: 'tgl', className: "text-center" },
-            { data: 'title', className: "text-center" },
-            { data: 'location', className: "text-center" },
+            { data: 'judul', className: "text-center" },
+            { data: 'download', className: "text-center" },
         ]
 
     });

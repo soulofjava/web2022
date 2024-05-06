@@ -90,7 +90,7 @@
                             <li><a href="#">2</a></li>
                             <li><a href="#">3</a></li>
                             <li><a href="#"><i class="fas fa-angle-double-right"></i></a></li> -->
-                            {{ $news->links('vendor.pagination.boxass') }}
+                            {{ $news->links('vendor.pagination.buspro') }}
                         </ul>
                     </nav>
                 </div>
