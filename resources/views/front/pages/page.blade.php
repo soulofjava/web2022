@@ -32,33 +32,29 @@
             <div class="row">
                 <div class="col">
                     @if(isset($data->menu_name))
-                    @if($data->menu_name == 'Daftar Informasi Publik')
                     <div class="card">
                         <div class="card-body">
+                            @if($data->menu_name == 'Staf Ahli Bupati')
+                            <x-staf-ahli-bupati />
+                            @elseif($data->menu_name == 'Sekretariat Daerah')
+                            <x-sekretariat-daerah />
+                            @elseif($data->menu_name == 'Perangkat Daerah')
+                            <x-perangkat-daerah />
+                            @elseif($data->menu_name == 'Kecamatan')
+                            <x-kecamatan />
+                            @elseif($data->menu_name == 'Daftar Informasi Publik')
                             <x-jip />
-                        </div>
-                    </div>
-                    @elseif($data->menu_name == 'Daftar Informasi yang Dikecualikan')
-                    <div class="card">
-                        <div class="card-body">
+                            @elseif($data->menu_name == 'Daftar Informasi yang Dikecualikan')
                             <x-dip />
-                        </div>
-                    </div>
-                    @elseif($data->menu_name == 'Penyertaan Modal' || $data->menu_name == 'Investasi Usaha' ||
-                    $data->menu_name == 'Informasi Kejadian Bencana' || $data->menu_name == 'Daftar Kejadian Bencana' ||
-                    $data->menu_name == 'Pengumuman' || $data->menu_name == 'Informasi Gangguan' ||
-                    $data->menu_name == 'Informasi Hoax' || $data->menu_name == 'Kajian dan Penelitian' ||
-                    $data->menu_name == 'Pengawasan Internal' ||
-                    $data->menu_name == 'Regulasi Informasi Publik' || $data->menu_name == 'Standar Operasional
-                    Prosedur' ||
-                    $data->menu_name == 'Laporan Layanan Informasi Daerah')
-                    <div class="card">
-                        <div class="card-body">
+                            @elseif(in_array($data->menu_name, ['Penyertaan Modal', 'Investasi Usaha', 'Informasi Kejadian Bencana', 'Daftar
+                            Kejadian Bencana', 'Pengumuman', 'Informasi Gangguan', 'Informasi Hoax', 'Kajian dan Penelitian', 'Pengawasan
+                            Internal', 'Regulasi Informasi Publik', 'Standar Operasional Prosedur', 'Laporan Layanan Informasi Daerah']))
                             <x-data-table :kata="$data->menu_name" />
+                            @endif
                         </div>
                     </div>
-                    @endif()
-                    @endif()
+                    @endif
+
 
                     @if(isset($data->title))
                     <div class="card">
@@ -68,7 +64,7 @@
                     </div>
                     @endif
 
-                    @if(isset($data->content))
+                    @if(isset($data->content) && $data->menu_name != 'Staf Ahli Bupati' && $data->menu_name != 'Sekretariat Daerah' && $data->menu_name != 'Perangkat Daerah' && $data->menu_name != 'Kecamatan')
                     <div class="card">
                         <div class="card-body">
                             {!! $data->content !!}
