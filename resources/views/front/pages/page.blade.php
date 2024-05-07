@@ -46,9 +46,12 @@
                             <x-jip />
                             @elseif($data->menu_name == 'Daftar Informasi yang Dikecualikan')
                             <x-dip />
-                            @elseif(in_array($data->menu_name, ['Penyertaan Modal', 'Investasi Usaha', 'Informasi Kejadian Bencana', 'Daftar
-                            Kejadian Bencana', 'Pengumuman', 'Informasi Gangguan', 'Informasi Hoax', 'Kajian dan Penelitian', 'Pengawasan
-                            Internal', 'Regulasi Informasi Publik', 'Standar Operasional Prosedur', 'Laporan Layanan Informasi Daerah']))
+                            @elseif(in_array($data->menu_name, ['Penyertaan Modal', 'Investasi Usaha', 'Informasi
+                            Kejadian Bencana', 'Daftar
+                            Kejadian Bencana', 'Pengumuman', 'Informasi Gangguan', 'Informasi Hoax', 'Kajian dan
+                            Penelitian', 'Pengawasan
+                            Internal', 'Regulasi Informasi Publik', 'Standar Operasional Prosedur', 'Laporan Layanan
+                            Informasi Daerah']))
                             <x-data-table :kata="$data->menu_name" />
                             @endif
                         </div>
@@ -64,7 +67,9 @@
                     </div>
                     @endif
 
-                    @if(isset($data->content) && $data->menu_name != 'Staf Ahli Bupati' && $data->menu_name != 'Sekretariat Daerah' && $data->menu_name != 'Perangkat Daerah' && $data->menu_name != 'Kecamatan')
+                    @if(isset($data->content) && !in_array($data->menu_name, ['Staf Ahli Bupati', 'Sekretariat Daerah',
+                    'Perangkat Daerah',
+                    'Kecamatan']))
                     <div class="card">
                         <div class="card-body">
                             {!! $data->content !!}
