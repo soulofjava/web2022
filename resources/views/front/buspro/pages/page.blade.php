@@ -28,6 +28,8 @@
                 <div class="blog-content col-md-10 col-md-offset-1">
                     @if($data->menu_name == 'Daftar Informasi Publik')
                     <x-jip />
+                    @elseif($data->menu_name == 'Daftar Informasi yang Dikecualikan')
+                    <x-dip />
                     @elseif($data->menu_name == 'Personil')
                     <x-personil />
                     @elseif($data->title == 'Layanan')

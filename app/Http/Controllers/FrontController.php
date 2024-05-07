@@ -33,6 +33,27 @@ class FrontController extends Controller
         $this->themes = Website::all()->first();
     }
 
+    public function dikecualikan(Request $request)
+    {
+        if ($request->ajax()) {
+            $dip = News::where('kategori', 'INFORMASI_ST_04')->where('terbit', 1)->latest('date');
+            return DataTables::of($dip)
+                ->addIndexColumn()
+                ->addColumn(
+                    'action',
+                    function ($dip) {
+                        $actionBtn = '<td class="text-center">
+                                <a target="_blank" href="' . url('news-detail', $dip->slug) . '" class="btn btn-warning butone">LIHAT
+                                    DATA</a>
+                            </td>';
+                        return $actionBtn;
+                    }
+                )
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+    }
+
     public function transparansi(Request $request, $id)
     {
         Seo::seO();
@@ -73,7 +94,7 @@ class FrontController extends Controller
     public function datappid()
     {
         $data1 = FrontMenu::whereNotNull('kategori')->get();
-        $data2 = DB::table('news')->select('id', 'slug', 'kategori', DB::raw('title as menu_name'))->whereNotNull('kategori')->get();
+        $data2 = DB::table('news')->select('id', 'slug', 'kategori', DB::raw('title as menu_name'))->whereNotNull('kategori')->whereNot('kategori', 'INFORMASI_ST_04')->get();
         $combinedData = $data1->concat($data2);
         // return $combinedData;
         return DataTables::of($combinedData)
@@ -86,14 +107,18 @@ class FrontController extends Controller
                                 <a target="_blank" href="' . url('news-detail', $combinedData->menu_url ?? $combinedData->slug) . '" class="btn btn-primary butone">LIHAT
                                     DATA</a>
                             </td>';
+                    } elseif ($combinedData->menu_url == 'agenda-pimpinan') {
+                        $actionBtn = '<td class="text-center">
+                                <a target="_blank" href="' . url('agenda') . '" class="btn btn-primary butone">LIHAT
+                                    DATA</a>
+                            </td>';
                     } else {
                         $actionBtn = '<td class="text-center">
                                 <a target="_blank" href="' . url('page', $combinedData->menu_url ?? $combinedData->slug) . '" class="btn btn-primary butone">LIHAT
                                     DATA</a>
                             </td>';
                     }
-
-
+                  
                     return $actionBtn;
                 }
             )

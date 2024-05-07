@@ -49,7 +49,7 @@
     <ul class="nav nav-tabs">
         <li class="nav-item">
             <a class="nav-link" data-toggle="tab" href="#tab1">
-                Informasi Berkala | Setiap Saat | Serta Merta | Dikecualikan
+                Informasi Berkala | Setiap Saat | Serta Merta
             </a>
         </li>
         <li class="nav-item">
@@ -63,9 +63,19 @@
             <div class="mt-3 mb-3">
                 <div class="row">
                     <div class="col">
-                        {{ Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' => 'form-control',
-                        'placeholder' => 'Semua
-                        Data', 'id' => 'filterSelect', 'style' => 'width: 100%; !important']) }}
+                        @php
+                        $codeGroup = get_code_group('INFORMASI_ST')->toArray();
+                        $filteredCodeGroup = array_filter($codeGroup, function ($value) {
+                        // Ganti 'nilai_yang_ingin_dilewati' dengan nilai yang ingin Anda lewati
+                        return $value !== 'Informasi Dikecualikan';
+                        });
+                        @endphp
+                        {{ Form::select('kategori', $filteredCodeGroup, null, 
+                        ['class' => 'form-control',
+                        'placeholder' => 'Semua Data',
+                        'id' => 'filterSelect', 
+                        'style' => 'width: 100%; !important'
+                        ]) }}
                     </div>
                 </div>
             </div>
