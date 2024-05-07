@@ -85,6 +85,7 @@ Route::group(['middleware' => 'data_web'], function () {
     Route::post('guest', [FrontController::class, 'addguest']);
     Route::resource('buku-tamu', GuestBookController::class);
     Route::get('agenda', [FrontController::class, 'event']);
+    Route::get('dikecualikan', [FrontController::class, 'dikecualikan'])->name('dikecualikan');
     Route::get('download-area', [FrontController::class, 'downloadarea']);
     Route::get('berita', [FrontController::class, 'newsall']);
     Route::get('layanan', [FrontController::class, 'layanan']);

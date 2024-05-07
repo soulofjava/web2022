@@ -92,8 +92,8 @@ class FrontMenuSeeder extends Seeder
             ],
             [
                 'menu_parent' => '12',
-                'menu_name' => 'Daftar Informasi Publik',
-                'menu_url' => Str::slug('Daftar Informasi Publik', '-')
+                'menu_name' => 'Daftar Informasi',
+                'menu_url' => Str::slug('Daftar Informasi', '-')
             ],
             [
                 'menu_parent' => '12',
@@ -143,6 +143,16 @@ class FrontMenuSeeder extends Seeder
                 'menu_name' => 'Struktur PPID',
                 'menu_url' => Str::slug('Struktur PPID', '-')
             ],
+            [
+                'menu_parent' => '14',
+                'menu_name' => 'Daftar Informasi Publik',
+                'menu_url' => Str::slug('Daftar Informasi Publik', '-')
+            ],
+            [
+                'menu_parent' => '14',
+                'menu_name' => 'Daftar Informasi yang Dikecualikan',
+                'menu_url' => Str::slug('Daftar Informasi yang Dikecualikan', '-')
+            ],
             // submenu produk hukum
             [
                 'menu_parent' => '16',
@@ -177,67 +187,67 @@ class FrontMenuSeeder extends Seeder
                 'menu_url' => Str::slug('Transparansi', '-')
             ],
             [
-                'menu_parent' => '29',
+                'menu_parent' => '31',
                 'menu_name' => 'LHKASN',
                 'menu_url' => Str::slug('LHKASN', '-')
             ],
             [
-                'menu_parent' => '29',
+                'menu_parent' => '31',
                 'menu_name' => 'Perjanjian Kinerja',
                 'menu_url' => Str::slug('Perjanjian Kinerja', '-')
             ],
             [
-                'menu_parent' => '29',
+                'menu_parent' => '31',
                 'menu_name' => 'CaLK',
                 'menu_url' => Str::slug('CaLK', '-')
             ],
             [
-                'menu_parent' => '29',
+                'menu_parent' => '31',
                 'menu_name' => 'Laporan Aset',
                 'menu_url' => Str::slug('Laporan Aset', '-')
             ],
             [
-                'menu_parent' => '29',
+                'menu_parent' => '31',
                 'menu_name' => 'Renja',
                 'menu_url' => Str::slug('Renja', '-')
             ],
             [
-                'menu_parent' => '29',
+                'menu_parent' => '31',
                 'menu_name' => 'Renstra',
                 'menu_url' => Str::slug('Renstra', '-')
             ],
             [
-                'menu_parent' => '29',
+                'menu_parent' => '31',
                 'menu_name' => 'POBL',
                 'menu_url' => Str::slug('POBL', '-')
             ],
             [
-                'menu_parent' => '29',
+                'menu_parent' => '31',
                 'menu_name' => 'Program Kegiatan',
                 'menu_url' => Str::slug('Program Kegiatan', '-')
             ],
             [
-                'menu_parent' => '29',
+                'menu_parent' => '31',
                 'menu_name' => 'Realisasi Anggaran',
                 'menu_url' => Str::slug('Realisasi Anggaran', '-')
             ],
             [
-                'menu_parent' => '29',
+                'menu_parent' => '31',
                 'menu_name' => 'LKjIP',
                 'menu_url' => Str::slug('LKjIP', '-')
             ],
             [
-                'menu_parent' => '29',
+                'menu_parent' => '31',
                 'menu_name' => 'DPA',
                 'menu_url' => Str::slug('DPA', '-')
             ],
             [
-                'menu_parent' => '29',
+                'menu_parent' => '31',
                 'menu_name' => 'RKA',
                 'menu_url' => Str::slug('RKA', '-')
             ],
             [
-                'menu_parent' => '29',
+                'menu_parent' => '31',
                 'menu_name' => 'Neraca',
                 'menu_url' => Str::slug('Neraca', '-')
             ],
