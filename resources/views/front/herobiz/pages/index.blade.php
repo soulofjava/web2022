@@ -10,7 +10,7 @@
         <img src="{{ asset('assets/front/herobiz/assets/img/hero-carousel/hero-carousel-3.svg') }}"
             class="img-fluid animated" alt="hero_image">
         @endif
-        <h2>Welcome to <span>{{ $data_website->web_name }}</span></h2>
+        <h2><span>{{ $data_website->web_name }}</span></h2>
         <p>{{ $data_website->web_description }}</p>
         <div class="d-none">
             <a href="#about" class="btn-get-started scrollto">Get Started</a>
