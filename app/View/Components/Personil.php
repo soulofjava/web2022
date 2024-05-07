@@ -66,9 +66,8 @@ class Personil extends Component
         $opdId = env('ID_OPD'); // Mengambil nilai OPD_ID dari variabel lingkungan
 
         $response = Http::withoutVerifying()->get('http://10.90.237.7/diskominfo-api/public/api/list-personil/' . $opdId);
-
         // lokal http://10.90.237.7/diskominfo-api/public/api/list-personil/23
-        return $response->body();
+        // return $response->body();
 
         if (!$response->successful()) {
             return '<center><h1>Koneksi Gagal...</h1></center>';
