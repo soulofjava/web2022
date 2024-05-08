@@ -25,5 +25,5 @@ Route::get('cari', [ApiController::class, 'cari']);
 
 Route::get('stafahli', [ApiController::class, 'stafahli'])->name('api.stafahli');
 Route::get('setda', [ApiController::class, 'stafahli'])->name('api.setda');
-Route::get('kapalaopd', [ApiController::class, 'stafahli'])->name('api.kapalaopd');
+Route::get('kapalaopd', [ApiController::class, 'stafahli'])->name('api.kepalaopd');
 Route::get('camat', [ApiController::class, 'stafahli'])->name('api.camat');
