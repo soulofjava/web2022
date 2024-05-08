@@ -9,18 +9,18 @@
     rel="stylesheet">
 
 <!-- Stylesheets -->
-<link href="{{ asset('master/detox/assets/css/font-awesome-all.css') }}" rel="stylesheet">
-<link href="{{ asset('master/detox/assets/css/flaticon.css') }}" rel="stylesheet">
-<link href="{{ asset('master/detox/assets/css/owl.css') }}" rel="stylesheet">
-<link href="{{ asset('master/detox/assets/css/bootstrap.css') }}" rel="stylesheet">
-<link href="{{ asset('master/detox/assets/css/jquery.fancybox.min.css') }}" rel="stylesheet">
-<link href="{{ asset('master/detox/assets/css/animate.css') }}" rel="stylesheet">
-<link href="{{ asset('master/detox/assets/css/imagebg.css') }}" rel="stylesheet">
-<link href="{{ asset('master/detox/assets/css/color/theme-color.css') }}" id="jssDefault" rel="stylesheet">
-<link href="{{ asset('master/detox/assets/css/switcher-style.css') }}" rel="stylesheet">
-<link href="{{ asset('master/detox/assets/css/rtl.css') }}" rel="stylesheet">
-<link href="{{ asset('master/detox/assets/css/style.css') }}" rel="stylesheet">
-<link href="{{ asset('master/detox/assets/css/responsive.css') }}" rel="stylesheet">
+<link href="{{ asset('master/Detox/assets/css/font-awesome-all.css') }}" rel="stylesheet">
+<link href="{{ asset('master/Detox/assets/css/flaticon.css') }}" rel="stylesheet">
+<link href="{{ asset('master/Detox/assets/css/owl.css') }}" rel="stylesheet">
+<link href="{{ asset('master/Detox/assets/css/bootstrap.css') }}" rel="stylesheet">
+<link href="{{ asset('master/Detox/assets/css/jquery.fancybox.min.css') }}" rel="stylesheet">
+<link href="{{ asset('master/Detox/assets/css/animate.css') }}" rel="stylesheet">
+<link href="{{ asset('master/Detox/assets/css/imagebg.css') }}" rel="stylesheet">
+<link href="{{ asset('master/Detox/assets/css/color/theme-color.css') }}" id="jssDefault" rel="stylesheet">
+<link href="{{ asset('master/Detox/assets/css/switcher-style.css') }}" rel="stylesheet">
+<link href="{{ asset('master/Detox/assets/css/rtl.css') }}" rel="stylesheet">
+<link href="{{ asset('master/Detox/assets/css/style.css') }}" rel="stylesheet">
+<link href="{{ asset('master/Detox/assets/css/responsive.css') }}" rel="stylesheet">
 <style>
     .modal-backdrop {
         z-index: initial !important;

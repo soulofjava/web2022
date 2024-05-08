@@ -7,7 +7,7 @@
                         <div class="footer-widget contact-widget">
                             <!-- <figure class="footer-logo">
                                 <a href="index.html">
-                                    <img src="{{ asset('master/detox/assets/images/footer-logo.png') }}" alt="">
+                                    <img src="{{ asset('master/Detox/assets/images/footer-logo.png') }}" alt="">
                                 </a>
                             </figure> -->
                             <div class="widget-title">

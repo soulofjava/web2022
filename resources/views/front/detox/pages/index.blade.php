@@ -20,8 +20,8 @@
                     <div class="col-lg-6 col-md-12 col-sm-12 content-column">
                         <div class="content-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
                             <h1>{!!
-                            \Illuminate\Support\Str::limit($hl->title, 10,
-                            $end='...') !!}</h1>
+                                \Illuminate\Support\Str::limit($hl->title, 10,
+                                $end='...') !!}</h1>
                             <p>{!!
                                 \Illuminate\Support\Str::limit($hl->content, 50,
                                 $end='...') !!}</p>
@@ -37,10 +37,10 @@
                                 <!-- 687x612x -->
                                 @if ($hl->gambarmuka)
                                 <img src="{{ route('helper.show-picture', ['path' => $hl->gambarmuka->path]) }}"
-                                alt="thumb"
-                                style="width: 687px !important; height: 612px !important; object-fit: cover !important;">
+                                    alt="thumb"
+                                    style="width: 687px !important; height: 612px !important; object-fit: cover !important;">
                                 @else
-                                <img src="{{ asset('master/detox/assets/images/banner/banner-1.png') }}" alt="thumb">
+                                <img src="{{ asset('master/Detox/assets/images/banner/banner-1.png') }}" alt="thumb">
                                 @endif
                             </figure>
                         </div>
