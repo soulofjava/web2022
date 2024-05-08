@@ -7,20 +7,19 @@
     <!-- preloader -->
 
     <!-- page-direction -->
-    <div class="page_direction">
+    <!-- <div class="page_direction">
         <div class="demo-rtl direction_switch"><button class="rtl">RTL</button></div>
         <div class="demo-ltr direction_switch"><button class="ltr">LTR</button></div>
-    </div>
+    </div> -->
     <!-- page-direction end -->
 
 
     <!-- switcher menu -->
-    <div class="switcher">
+    <!-- <div class="switcher">
         <div class="switch_btn">
             <button><i class="fas fa-palette"></i></button>
         </div>
         <div class="switch_menu">
-            <!-- color changer -->
             <div class="switcher_container">
                 <ul id="styleOptions" title="switch styling">
                     <li>
@@ -41,7 +40,7 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- end switcher menu -->
 
     <!-- main header -->
@@ -50,8 +49,11 @@
             <div class="header-upper clearfix">
                 <div class="outer-box pull-left">
                     <div class="logo-box pull-left">
-                        <figure class="logo"><a href="index.html"><img src="{{ asset('assets/pemda.ico') }}"
-                                    alt="" title="" style="width: 60px; height: 60px;"></a>
+                        <figure class="logo">
+                            <a href="{{ url('/') }}">
+                                <img src="{{ asset('assets/pemda.ico') }}" alt="" title=""
+                                    style="width: 60px; height: 60px;">
+                            </a>
                         </figure>
                     </div>
                     <div class="menu-area pull-left">
@@ -64,112 +66,129 @@
                         <nav class="main-menu navbar-expand-md navbar-light">
                             <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                                 <ul class="navigation clearfix">
-                                    <li class="current dropdown"><a href="index.html">Home</a>
+                                    @foreach (App\Models\FrontMenu::where('menu_parent',
+                                    '1')->where('active',1)->orderBy('id',
+                                    'ASC')->get() as $menu)
+
+                                    @if (App\Models\FrontMenu::where('menu_parent',
+                                    $menu->id)->where('active',1)->orderBy('menu_parent',
+                                    'ASC')->count() == 0)
+                                    <li>
+                                        @if ($menu->link)
+                                        <a class="smooth-menu" target="_blank" href="{{ $menu->menu_url }}">
+                                            {{ $menu->menu_name }}
+                                        </a>
+                                        @else
+                                        <a class="smooth-menu" href="{{ url('/page', $menu->menu_url) }}">{{
+                                            $menu->menu_name }}
+                                        </a>
+                                        @endif
+                                    </li>
+                                    @else
+                                    <li class="dropdown">
+                                        <a href="#">
+                                            {{ $menu->menu_name }}
+                                        </a>
                                         <ul>
-                                            <li><a href="index.html">Home Page One</a></li>
-                                            <li><a href="index-2.html">Home Page Two</a></li>
-                                            <li><a href="index-3.html">Home Page Three</a></li>
-                                            <li><a href="index-boxed.html">Home Boxed</a></li>
-                                            <li><a href="index-onepage.html">Home OnePage</a></li>
-                                            <li class="dropdown"><a href="index.html">Home Page</a>
+                                            @foreach (App\Models\FrontMenu::where('menu_parent',
+                                            $menu->id)->where('active',1)->orderBy('menu_parent',
+                                            'ASC')->get() as $sm)
+
+                                            @if (App\Models\FrontMenu::where('menu_parent',
+                                            $sm->id)->where('active',1)->orderBy('menu_parent',
+                                            'ASC')->count() == 0)
+                                            <li>
+                                                @if($sm->link)
+                                                <a target="_blank" href="{{ $sm->menu_url }}">
+                                                    {{ $sm->menu_name }}
+                                                </a>
+                                                @elseif($sm->menu_parent == 31)
+                                                <a href="{{ url('transparansi', $sm->menu_url) }}">
+                                                    {{ $sm->menu_name }}
+                                                </a>
+                                                @else
+                                                <a href="{{ url('page', $sm->menu_url) }}">
+                                                    {{ $sm->menu_name }}
+                                                </a>
+                                                @endif
+                                            </li>
+                                            @else
+                                            <li class="dropdown">
+                                                <a href="#">
+                                                    {{ $sm->menu_name }}
+                                                </a>
                                                 <ul>
-                                                    <li><a href="index.html">Home Page One</a></li>
-                                                    <li><a href="index-2.html">Home Page Two</a></li>
-                                                    <li><a href="index-3.html">Home Page Three</a></li>
+                                                    @foreach (App\Models\FrontMenu::where('menu_parent',
+                                                    $sm->id)->where('active',1)->orderBy('menu_parent',
+                                                    'ASC')->get() as $sub3)
+
+                                                    @if (App\Models\FrontMenu::where('menu_parent',
+                                                    $sub3->id)->where('active',1)->orderBy('menu_parent',
+                                                    'ASC')->count() == 0)
+                                                    <li>
+                                                        @if ($sub3->menu_name == 'Permohonan Informasi Publik')
+                                                        <a href="https://sobopedia.wonosobokab.go.id/homesobopedia/permohonan"
+                                                            target="_blank">{{
+                                                            $sub3->menu_name }}
+                                                        </a>
+                                                        @elseif ($sub3->menu_name == 'Pengajuan Keberatan Informasi
+                                                        Publik')
+                                                        <a href="https://sobopedia.wonosobokab.go.id/homesobopedia/keberatan"
+                                                            target="_blank">{{
+                                                            $sub3->menu_name }}
+                                                        </a>
+                                                        @elseif ($sub3->menu_name == 'JDIH Wonosobo')
+                                                        <a href="https://jdih.wonosobokab.go.id/" target="_blank">{{
+                                                            $sub3->menu_name }}
+                                                        </a>
+                                                        @elseif ($sub3->menu_name == 'Agenda Pimpinan')
+                                                        <a href="{{ url('/agenda') }}">{{
+                                                            $sub3->menu_name }}
+                                                        </a>
+                                                        @elseif($sub3->link)
+                                                        <a href="{{ $sub3->menu_url }}" target="_blank">
+                                                            {{ $sub3->menu_name }}
+                                                        </a>
+                                                        @else
+                                                        <a href="{{ url('page', $sub3->menu_url) }}">{{ $sub3->menu_name
+                                                            }}
+                                                        </a>
+                                                        @endif
+                                                    </li>
+                                                    @else
+                                                    <li class="dropdown">
+                                                        <a href="#">
+                                                            {{ $sub3->menu_name }}
+                                                        </a>
+                                                        <ul>
+                                                            @foreach (App\Models\FrontMenu::where('menu_parent',
+                                                            $sub3->id)->where('active',1)->orderBy('menu_parent',
+                                                            'ASC')->get() as $sub4)
+                                                            <li>
+                                                                @if ($sub4->link)
+                                                                <a href="{{ $sub4->menu_url }}" target="_blank">
+                                                                    {{ $sub4->menu_name }}
+                                                                </a>
+                                                                @else
+                                                                <a href="{{ url('page', $sub4->menu_url) }}">
+                                                                    {{ $sub4->menu_name }}
+                                                                </a>
+                                                                @endif
+                                                            </li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </li>
+                                                    @endif
+                                                    @endforeach
                                                 </ul>
                                             </li>
+                                            @endif
+                                            @endforeach
                                         </ul>
                                     </li>
-                                    <li class="dropdown"><a href="index.html">Services</a>
-                                        <ul>
-                                            <li><a href="service.html">Services One</a></li>
-                                            <li><a href="service-2.html">Services Two</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown"><a href="index.html">Pages</a>
-                                        <ul class="megamenu">
-                                            <li><a href="about.html">About Us</a></li>
-                                            <li><a href="service.html">Services One</a></li>
-                                            <li><a href="team-element-2.html">Team Elements 02</a></li>
-                                            <li><a href="feature-element-1.html">Feature Elements 01</a></li>
-                                            <li><a href="portfolio.html">Portfolio Grid</a></li>
-                                            <li><a href="service-2.html">Services Two</a></li>
-                                            <li><a href="counter-element-1.html">Counter Elements 01</a></li>
-                                            <li><a href="feature-element-2.html">Feature Elements 02</a></li>
-                                            <li><a href="portfolio-2.html">Portfolio Masonry</a></li>
-                                            <li><a href="error.html">Error Page</a></li>
-                                            <li><a href="counter-element-2.html">Counter Elements 02</a></li>
-                                            <li><a href="about-element-1.html">About Elements 01</a></li>
-                                            <li><a href="portfolio-details.html">Portfolio Details</a></li>
-                                            <li><a href="blog-grid.html">Blog Grid</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                            <li><a href="about-element-2.html">About Elements 02</a></li>
-                                            <li><a href="team.html">Our Team</a></li>
-                                            <li><a href="blog-masonry.html">Blog Masonry</a></li>
-                                            <li><a href="service-element.html">Service Elements</a></li>
-                                            <li><a href="process-element-1.html">Process Elements 01</a></li>
-                                            <li><a href="faq.html">Faq's</a></li>
-                                            <li><a href="blog-standard.html">Blog Standard</a></li>
-                                            <li><a href="faq-element.html">Faq's Elements</a></li>
-                                            <li><a href="process-element-2.html">Process Elements 02</a></li>
-                                            <li><a href="pricing.html">Pricing Plan</a></li>
-                                            <li><a href="blog-details.html">Blog Details</a></li>
-                                            <li><a href="choose-element.html">Choose Elements</a></li>
-                                            <li><a href="team-element-1.html">Team Elements 01</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown"><a href="index.html">Elements</a>
-                                        <ul>
-                                            <li class="dropdown"><a href="index.html">Feature Elements</a>
-                                                <ul>
-                                                    <li><a href="feature-element-1.html">Feature Elements 01</a></li>
-                                                    <li><a href="feature-element-2.html">Feature Elements 02</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="dropdown"><a href="index.html">About Elements</a>
-                                                <ul>
-                                                    <li><a href="about-element-1.html">About Elements 01</a></li>
-                                                    <li><a href="about-element-2.html">About Elements 02</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="dropdown"><a href="index.html">Blog Elements</a>
-                                                <ul>
-                                                    <li><a href="blog-element-1.html">Blog Elements 01</a></li>
-                                                    <li><a href="blog-element-2.html">Blog Elements 02</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="dropdown"><a href="index.html">Process Elements</a>
-                                                <ul>
-                                                    <li><a href="process-element-1.html">Process Elements 01</a></li>
-                                                    <li><a href="process-element-2.html">Process Elements 02</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="dropdown"><a href="index.html">Counter Elements</a>
-                                                <ul>
-                                                    <li><a href="counter-element-1.html">Counter Elements 01</a></li>
-                                                    <li><a href="counter-element-2.html">Counter Elements 02</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="dropdown"><a href="index.html">Team Elements</a>
-                                                <ul>
-                                                    <li><a href="team-element-1.html">Team Elements 01</a></li>
-                                                    <li><a href="team-element-2.html">Team Elements 02</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="service-element.html">Service Elements</a></li>
-                                            <li><a href="faq-element.html">Faq's Elements</a></li>
-                                            <li><a href="choose-element.html">Choose Elements</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown"><a href="index.html">Blog</a>
-                                        <ul>
-                                            <li><a href="blog-grid.html">Blog Grid</a></li>
-                                            <li><a href="blog-masonry.html">Blog Masonry</a></li>
-                                            <li><a href="blog-standard.html">Blog Standard</a></li>
-                                            <li><a href="blog-details.html">Blog Details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    @endif
+                                    @endforeach
+                                    <x-komponen li='' a="" ul="" />
                                 </ul>
                             </div>
                         </nav>
@@ -177,16 +196,57 @@
                 </div>
                 <div class="menu-right-content pull-right">
                     {{-- <div class="phone">Call Us <a href="tel:880762009">+880.762.009</a></div> --}}
-                    <div class="btn-box"><a href="index.html">Login</a></div>
+
+                    <!-- Tombol Search -->
+                    <div class="btn-box">
+                        <a href="#" data-toggle="modal" data-target="#searchModal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </div>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title mx-auto" id="exampleModalLabel">Pencarian Data Global</h5>
+                                    <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                                </div>
+                                <div class="modal-body">
+                                    {{ Form::open(['route' => 'news.search', 'method' => 'get', '', 'class' => 'w-100'])
+                                    }}
+                                    {{ Form::text('kolomcari', null, [
+                                    'class' => 'form-control text-center',
+                                    'placeholder' => 'Masukkan Kata Pencarian',
+                                    ]) }}
+                                    <button type="submit" class="btn mt-3"
+                                        style="width: 100%; background-color: #6377EE; color: white;">
+                                        Cari Data
+                                    </button>
+                                </div>
+                                {{ Form::close() }}
+                            </div>
+                            <div class="modal-footer">
+                                <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                    <button type="submit" class="btn"
+                                        style="color: white; background: #6377EE;">Simpan</button> -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <!-- End Modal -->
             </div>
+        </div>
         </div>
 
         <!--sticky Header-->
         <div class="sticky-header">
             <div class="container clearfix">
-                <figure class="logo-box"><a href="index.html"><img src="{{ asset('assets/pemda.ico') }}"
-                            alt="" title="" style="width: 50px; height: 50px;"></a>
+                <figure class="logo-box">
+                    <a href="{{ url('/') }}">
+                        <img src="{{ asset('assets/pemda.ico') }}" alt="" title="" style="width: 50px; height: 50px;">
+                    </a>
                 </figure>
                 <div class="menu-area">
                     <nav class="main-menu clearfix">
@@ -204,9 +264,8 @@
         <div class="close-btn"><i class="fas fa-times"></i></div>
 
         <nav class="menu-box">
-            <div class="nav-logo" style="text-align: center;"><a href="index.html"><img
-                        src="{{ asset('assets/pemda.ico') }}" alt="" title=""
-                        style="width: 80px; height: 80px;"></a>
+            <div class="nav-logo" style="text-align: center;"><a href="{{ url('/') }}"><img
+                        src="{{ asset('assets/pemda.ico') }}" alt="" title="" style="width: 80px; height: 80px;"></a>
             </div>
             <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
             </div>

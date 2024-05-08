@@ -6,11 +6,11 @@
     <div class="pattern-layer" style="background-image: url(assets/images/shape/pattern-18.png);"></div>
     <div class="auto-container">
         <div class="content-box">
-            <h1>Semua Postingan</h1>
+            <h1>{{ $hasil }}</h1>
             <ul class="bread-crumb clearfix">
-                <li><i class="flaticon-home-1"></i><a href="{{ url('/') }}">Beranda</a></li>
-                <li><a href="{{ url('newsall') }}">Postingan</a></li>
-                <li>Semua Postingan</li>
+                <li><a href="{{ url('/') }}">Beranda</a></li>
+                <li><a href="{{ url('newsall') }}">Semua Postingan</a></li>
+                <li>{{ $hasil }}</li>
             </ul>
         </div>
     </div>
@@ -23,7 +23,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12 content-side">
                 <div class="blog-grid-content">
                     <div class="row clearfix">
-                        @foreach($news as $n)
+                        @forelse($data as $n)
                         <div class="col-lg-4 col-md-4 col-sm-12 news-block">
                             <div class="news-block-one wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
                                 <div class="inner-box">
@@ -65,12 +65,22 @@
                                 </div>
                             </div>
                         </div>
-                        @endforeach
+                        @empty
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="text-center">
+                                        <h1>Data Tidak Ditemukan</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endforelse
                     </div>
                 </div>
             </div>
         </div>
-        {{ $news->links('vendor.pagination.detox') }}
+        {{ $data->withQueryString()->links('vendor.pagination.detox') }}
     </div>
 </section>
 <!-- blog-grid end -->

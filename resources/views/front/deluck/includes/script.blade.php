@@ -17,3 +17,5 @@
 <script src="{{ asset('master/deluck/source/assets/js/main.js') }}"></script>
 <script src="{{ asset('master/deluck/source/assets/js/html5/html5shiv.min.js') }}"></script>
 <script src="{{ asset('master/deluck/source/assets/js/html5/respond.min.js') }}"></script>
+<!-- accessibility widget -->
+<script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>

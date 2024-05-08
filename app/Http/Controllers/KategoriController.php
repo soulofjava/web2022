@@ -11,7 +11,7 @@ class KategoriController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Tag::orderBy('name', 'ASC');
+            $data = Tag::where('id', '>', 13)->orderBy('name', 'ASC');
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(

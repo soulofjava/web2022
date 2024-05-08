@@ -21,3 +21,8 @@
 <link href="{{ asset('master/detox/assets/css/rtl.css') }}" rel="stylesheet">
 <link href="{{ asset('master/detox/assets/css/style.css') }}" rel="stylesheet">
 <link href="{{ asset('master/detox/assets/css/responsive.css') }}" rel="stylesheet">
+<style>
+    .modal-backdrop {
+        z-index: initial !important;
+    }
+</style>

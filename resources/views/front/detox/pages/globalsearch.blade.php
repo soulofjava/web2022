@@ -3,6 +3,26 @@
 <!-- datatable -->
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
 <style>
+    /* Untuk tombol dengan kelas butone */
+    .butone {
+        background-color: #6377EE;
+        /* Ubah warna latar belakang */
+        color: white;
+        /* Ubah warna teks */
+        border: none;
+        /* Hapus batas */
+        padding: 8px 16px;
+        /* Atur padding */
+        border-radius: 4px;
+        /* Atur border-radius untuk sudut yang lebih lembut */
+    }
+
+    /* Untuk mengubah warna tombol saat dihover */
+    .butone:hover {
+        background-color: #313a6e;
+        /* Ubah warna latar belakang saat dihover */
+    }
+
     .dataTables_wrapper .dataTables_paginate .paginate_button.current {
         background: #6377EE !important;
         color: white !important;
@@ -15,11 +35,11 @@
     <div class="pattern-layer" style="background-image: url(assets/images/shape/pattern-18.png);"></div>
     <div class="auto-container">
         <div class="content-box">
-            <h1>Agenda</h1>
+            <h1>{{ $hasil }}</h1>
             <ul class="bread-crumb clearfix">
-                <li><i class="flaticon-home-1"></i><a href="{{ url('/') }}">Beranda</a></li>
-                <li><a href="#">Halaman</a></li>
-                <li>Agenda</li>
+                <li><a href="{{ url('/') }}">Beranda</a></li>
+                <li><a href="{{ url('newsall') }}">Semua Postingan</a></li>
+                <li>{{ $hasil }}</li>
             </ul>
         </div>
     </div>
@@ -32,10 +52,10 @@
             <table id="datatables" class="table is-striped" cellspacing="0" width="100%" style="width:100%">
                 <thead>
                     <tr>
-                        <th style="text-align: center;">#</th>
-                        <th style="text-align: center;">Date</th>
-                        <th style="text-align: center;">Event Name</th>
-                        <th style="text-align: center;">Event Location</th>
+                        <th style="text-align: center;">No</th>
+                        <th style="text-align: center;">Halaman</th>
+                        <th style="text-align: center;" class="disabled-sorting text-center">
+                            Aksi</th>
                     </tr>
                 </thead>
             </table>
@@ -70,15 +90,11 @@
                 searchable: false
             },
             {
-                data: 'tgl',
-                className: "text-center"
-            },
-            {
                 data: 'title',
                 className: "text-center"
             },
             {
-                data: 'location',
+                data: 'action',
                 className: "text-center"
             },
             ]

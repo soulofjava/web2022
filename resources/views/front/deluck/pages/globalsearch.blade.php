@@ -22,6 +22,16 @@
         background-color: #aa3931;
         /* Ubah warna latar belakang saat dihover */
     }
+
+    /* Mengubah warna latar belakang tombol aktif */
+    .paginate_button.page-item.active .page-link {
+        background-color: #ff0000;
+        /* Warna latar belakang merah */
+        border-color: #ff0000;
+        /* Warna border */
+        color: #fff;
+        /* Warna teks */
+    }
 </style>
 @endpush
 @section('content')

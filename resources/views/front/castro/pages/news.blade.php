@@ -29,10 +29,10 @@
                             @if(Storage::get($n->gambarmuka->path ?? ''))
                             <img src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
                                 class="img-fluid" alt="{{ $n->gambarmuka->file_name }}"
-                                style="background-size: cover; height: 240px; background-position: center; width: 100%;">
+                                style="object-fit: cover !important; height: 240px; background-position: center; width: 100%;">
                             @else
                             <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java"
-                                style="background-size: cover; height: 240px; background-position: center; width: 100%;">
+                                style="object-fit: cover !important; height: 240px; background-position: center; width: 100%;">
                             @endif
                         </figure>
                         <div class="lower-content">

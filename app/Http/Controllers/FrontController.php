@@ -11,7 +11,6 @@ use App\Models\Download;
 use App\Models\FrontMenu;
 use Illuminate\Http\Request;
 use App\Models\News;
-use App\Models\Gallery;
 use App\Models\GuestBook;
 use App\Models\Inbox;
 use Illuminate\Support\Str;
@@ -118,7 +117,7 @@ class FrontController extends Controller
                                     DATA</a>
                             </td>';
                     }
-                  
+
                     return $actionBtn;
                 }
             )
@@ -231,8 +230,8 @@ class FrontController extends Controller
     {
         Seo::seO();
         $hasil = 'All post by : ' . $id;
-        $data = News::with('gambarmuka')->where('upload_by', '=', $id)->latest("date")->paginate(5);
-        $news = News::latest('date')->take(5)->get();
+        $data = News::with('gambarmuka')->where('terbit', 1)->where('upload_by', '=', $id)->latest("date")->paginate(5);
+        $news = News::where('terbit', 1)->latest('date')->take(5)->get();
         return view('front.' . $this->themes->themes_front . '.pages.newsbyauthor', compact('data', 'news', 'hasil'));
     }
 
@@ -241,16 +240,16 @@ class FrontController extends Controller
         Seo::seO();
         $cari = $request->kolomcari;
         $hasil = 'Search result : ' . $cari;
-        $data = News::with('gambarmuka')->whereDate('date', 'like', '%' . $cari . '%')->orWhere('title', 'like', '%' . $cari . '%')->latest("date")->paginate();
-        $news = News::latest('date')->take(5)->get();
+        $data = News::with('gambarmuka')->whereDate('date', 'like', '%' . $cari . '%')->orWhere('title', 'like', '%' . $cari . '%')->where('terbit', 1)->latest("date")->paginate();
+        $news = News::where('terbit', 1)->latest('date')->take(5)->get();
         return view('front.' . $this->themes->themes_front . '.pages.newsbyauthor', compact('data', 'news', 'hasil'));
     }
 
     public function newsall(Request $request)
     {
         Seo::seO();
-        $news = News::latest('date')->paginate(9);
-        $sideposts = News::latest('date')->take(5)->get();
+        $news = News::where('terbit', 1)->latest('date')->paginate(9);
+        $sideposts = News::where('terbit', 1)->latest('date')->take(5)->get();
         return view('front.' . $this->themes->themes_front . '.pages.news', compact('news', 'sideposts'));
     }
 
@@ -280,13 +279,6 @@ class FrontController extends Controller
         $news = News::where('kategori', $id)->latest('date')->paginate(12);
         $sideposts = News::latest('date')->take(5)->get();
         return view('front.' . $this->themes->themes_front . '.pages.news', compact('news', 'sideposts'));
-    }
-
-    public function galleryall(Request $request)
-    {
-        Seo::seO();
-        $gallery = Gallery::with('gambar')->orderBy('upload_date', 'desc')->paginate(12);
-        return view('front.' . $this->themes->themes_front . '.pages.gallery', compact('gallery'));
     }
 
     public function page($id)

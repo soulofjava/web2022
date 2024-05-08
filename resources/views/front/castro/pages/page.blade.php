@@ -24,6 +24,8 @@
         <div class="blog-details-content">
             @if($data->menu_name == 'Daftar Informasi Publik')
             <x-jip />
+            @elseif($data->menu_name == 'Daftar Informasi yang Dikecualikan')
+            <x-dip />
             @elseif($data->menu_name == 'Personil')
             <div id="personil">
             </div>

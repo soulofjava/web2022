@@ -52,7 +52,8 @@
                             </li>
                             @else
                             <li class="dropdown dropdown-right">
-                                <a href="#" class="dropdown-toggle smooth-menu" data-toggle="dropdown">{{ $menu->menu_name }}
+                                <a href="#" class="dropdown-toggle smooth-menu" data-toggle="dropdown">{{
+                                    $menu->menu_name }}
                                 </a>
                                 <ul class="dropdown-menu">
                                     @foreach (App\Models\FrontMenu::where('menu_parent',
@@ -67,7 +68,7 @@
                                         <a target="_blank" href="{{ $sm->menu_url }}">
                                             {{ $sm->menu_name }}
                                         </a>
-                                        @elseif($sm->menu_parent == 29)
+                                        @elseif($sm->menu_parent == 31)
                                         <a href="{{ url('transparansi', $sm->menu_url) }}">
                                             {{ $sm->menu_name }}
                                         </a>
@@ -79,7 +80,8 @@
                                     </li>
                                     @else
                                     <li class="dropdown dropdown-right">
-                                        <a href="#" class="dropdown-toggle smooth-menu" data-toggle="dropdown">{{ $sm->menu_name
+                                        <a href="#" class="dropdown-toggle smooth-menu" data-toggle="dropdown">{{
+                                            $sm->menu_name
                                             }}
                                         </a>
                                         <ul class="dropdown-menu">

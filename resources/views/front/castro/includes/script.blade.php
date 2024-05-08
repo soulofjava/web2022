@@ -11,6 +11,7 @@
 <script src="{{ asset('master/Castro/assets/js/scrollbar.js') }}"></script>
 <script src="{{ asset('master/Castro/assets/js/jquery.nice-select.min.js') }}"></script>
 <script src="{{ asset('master/Castro/assets/js/isotope.js') }}"></script>
-
 <!-- main-js -->
 <script src="{{ asset('master/Castro/assets/js/script.js') }}"></script>
+<!-- accessibility widget -->
+<script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>

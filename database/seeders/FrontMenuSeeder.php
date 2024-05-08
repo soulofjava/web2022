@@ -259,12 +259,12 @@ class FrontMenuSeeder extends Seeder
             ],
             // layanan sub menu
             [
-                'menu_parent' => '43',
+                'menu_parent' => '45',
                 'menu_name' => 'Permohonan Informasi Publik',
                 'menu_url' => Str::slug('Permohonan Informasi Publik', '-')
             ],
             [
-                'menu_parent' => '43',
+                'menu_parent' => '45',
                 'menu_name' => 'Pengajuan Keberatan Informasi Publik',
                 'menu_url' => Str::slug('Pengajuan Keberatan Informasi Publik', '-')
             ],

@@ -16,4 +16,5 @@
     <script src="{{ asset('master/Buspro/source/assets/js/YTPlayer.min.js') }}"></script>
     <script src="{{ asset('master/Buspro/source/assets/js/bootsnav.js') }}"></script>
     <script src="{{ asset('master/Buspro/source/assets/js/main.js') }}"></script>
-    
+    <!-- accessibility widget -->
+    <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>

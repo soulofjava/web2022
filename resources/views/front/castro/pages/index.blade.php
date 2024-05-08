@@ -11,7 +11,9 @@
                     <div class="auto-container">
                         <div class="content-inner">
                             <div class="content-box">
-                                <h1>{{ $hl->title }}</h1>
+                                <h1>{!!
+                                \Illuminate\Support\Str::limit($hl->title, 10,
+                                $end='...') !!}</h1>
                                 <!-- 868x655 -->
                                 <!-- <h3>Summer Lookbook - 2020</h3>
                             <p>New Modern Stylist Fashionable Men's Wear Jeans Shirt.</p> -->
@@ -24,7 +26,7 @@
                                 @if ($hl->gambarmuka)
                                     <img src="{{ route('helper.show-picture', ['path' => $hl->gambarmuka->path]) }}"
                                         alt="thumb"
-                                        style="width: 868px !important; height: 655px !important; object-fit: fill !important;">
+                                        style="width: 868px !important; height: 655px !important; object-fit: cover !important;">
                                 @else
                                     <img src="{{ asset('master/Castro/assets/images/banner/banner-image-3.png') }}"
                                         alt="thumb">
