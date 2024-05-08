@@ -9,18 +9,9 @@ use Illuminate\View\Component;
 
 class Kecamatan extends Component
 {
-    protected $struktural;
 
     public function __construct()
     {
-        $response = Http::withoutVerifying()->get('https://api.wonosobokab.go.id/api/camat');
-
-        if (!$response->successful()) {
-            $this->struktural = '<center><h1>Koneksi Gagal...</h1></center>';
-        } else {
-            $data = $response->json();
-            $this->struktural = $data['struktural'];
-        }
     }
 
     /**
@@ -28,6 +19,16 @@ class Kecamatan extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.kecamatan', ['struktural' => $this->struktural]);
+        $response = Http::withoutVerifying()->get('https://api.wonosobokab.go.id/api/camat');
+
+        if (!$response->successful()) {
+            return '<center><h1>Koneksi Gagal...</h1></center>';
+        }
+
+        $data = $response->json();
+
+        $struktural = $data['struktural'];
+
+        return view('components.kecamatan', compact('struktural'));
     }
 }

@@ -35,13 +35,17 @@
                     <div class="card">
                         <div class="card-body">
                             @if($data->menu_name == 'Staf Ahli Bupati')
-                            <x-staf-ahli-bupati />
+                            <div id="stafahli">
+                            </div>
                             @elseif($data->menu_name == 'Sekretariat Daerah')
-                            <x-sekretariat-daerah />
+                            <div id="setda">
+                            </div>
                             @elseif($data->menu_name == 'Perangkat Daerah')
-                            <x-perangkat-daerah />
+                            <div id="kapalaopda">
+                            </div>
                             @elseif($data->menu_name == 'Kecamatan')
-                            <x-kecamatan />
+                            <div id="camat">
+                            </div>
                             @elseif($data->menu_name == 'Daftar Informasi Publik')
                             <x-jip />
                             @elseif($data->menu_name == 'Daftar Informasi yang Dikecualikan')
@@ -66,7 +70,7 @@
                         </div>
                     </div>
                     @endif
-                    
+
                     @if(isset($data->content))
                     <div class="card">
                         <div class="card-body">
@@ -74,7 +78,7 @@
                         </div>
                     </div>
                     @endif
-                    
+
                     <!-- @if(isset($data->content) && !in_array($data->menu_name, ['Staf Ahli Bupati', 'Sekretariat Daerah',
                     'Perangkat Daerah',
                     'Kecamatan']))@endif -->
@@ -89,3 +93,46 @@
 </main>
 <!-- End #main -->
 @endsection
+@push('after-script')
+<script>
+    $.get('{{ route('api.stafahli') }}', function (data) {
+        // Lakukan sesuatu dengan data yang diterima
+        console.log(data);
+        $('#stafahli').empty();
+        $('#stafahli').html(data);
+    }).fail(function (xhr, status, error) {
+        // Tangani kesalahan jika ada
+        console.error(xhr.responseText);
+    });
+
+    $.get('{{ route('api.setda') }}', function (data) {
+        // Lakukan sesuatu dengan data yang diterima
+        console.log(data);
+        $('#setda').empty();
+        $('#setda').html(data);
+    }).fail(function (xhr, status, error) {
+        // Tangani kesalahan jika ada
+        console.error(xhr.responseText);
+    });
+
+    $.get('{{ route('api.kepalaopd') }}', function (data) {
+        // Lakukan sesuatu dengan data yang diterima
+        console.log(data);
+        $('#kepalaopd').empty();
+        $('#kepalaopd').html(data);
+    }).fail(function (xhr, status, error) {
+        // Tangani kesalahan jika ada
+        console.error(xhr.responseText);
+    });
+
+    $.get('{{ route('api.camat') }}', function (data) {
+        // Lakukan sesuatu dengan data yang diterima
+        console.log(data);
+        $('#camat').empty();
+        $('#camat').html(data);
+    }).fail(function (xhr, status, error) {
+        // Tangani kesalahan jika ada
+        console.error(xhr.responseText);
+    });
+</script>
+@endpush

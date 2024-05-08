@@ -4,10 +4,8 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\FrontMenu;
-use App\Models\Gallery;
 use App\Models\News;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
 
 class ApiController extends Controller
@@ -51,8 +49,8 @@ class ApiController extends Controller
         return response()->json($users);
     }
 
-    public function galleries()
+    public function personil()
     {
-        return response()->json(Gallery::all(), 200);
+        return view('api.listperson');
     }
 }

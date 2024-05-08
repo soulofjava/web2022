@@ -22,5 +22,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('menu', [ApiController::class, 'menu']);
 Route::get('news', [ApiController::class, 'news']);
 Route::get('cari', [ApiController::class, 'cari']);
-Route::get('galleries', [ApiController::class, 'galleries']);
 
+Route::get('stafahli', [ApiController::class, 'stafahli'])->name('api.stafahli');
+Route::get('setda', [ApiController::class, 'stafahli'])->name('api.setda');
+Route::get('kapalaopd', [ApiController::class, 'stafahli'])->name('api.kapalaopd');
+Route::get('camat', [ApiController::class, 'stafahli'])->name('api.camat');
