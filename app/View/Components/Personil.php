@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Http;
 use PhpParser\Node\Stmt\Return_;
+use GuzzleHttp\Client;
 
 class Personil extends Component
 {
@@ -27,18 +28,47 @@ class Personil extends Component
     {
         $opdId = env('ID_OPD'); // Mengambil nilai OPD_ID dari variabel lingkungan
 
-        $response = Http::withoutVerifying()->get('https://api.wonosobokab.go.id/api/list-personil/' . $opdId);
+        $client = new Client([
+            'verify' => false // Mengabaikan verifikasi sertifikat SSL
+        ]);
 
-        if (!$response->successful()) {
-            return '<center><h1>Koneksi Gagal...</h1></center><br>' . $response->body();
+        try {
+            $response = $client->get('https://api.wonosobokab.go.id/api/list-personil/' . $opdId);
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode === 200) {
+                $data = json_decode($response->getBody(), true);
+
+                // Pastikan bahwa data yang diharapkan tersedia dalam respons
+                if (isset($data['struktural']) && isset($data['non_struktural'])) {
+                    $struktural = $data['struktural'];
+                    $non_struktural = $data['non_struktural'];
+
+                    return view('components.personil', compact('struktural', 'non_struktural'));
+                } else {
+                    return '<center><h1>Format respons tidak sesuai...</h1></center><br>';
+                }
+            } else {
+                return '<center><h1>Koneksi Gagal...</h1></center><br>';
+            }
+        } catch (\Exception $e) {
+            return '<center><h1>Koneksi Gagal: ' . $e->getMessage() . '</h1></center><br>';
         }
 
-        $data = $response->json();
+        // $opdId = env('ID_OPD'); // Mengambil nilai OPD_ID dari variabel lingkungan
 
-        $struktural = $data['struktural'];
+        // $response = Http::withoutVerifying()->get('https://api.wonosobokab.go.id/api/list-personil/' . $opdId);
 
-        $non_struktural = $data['non_struktural'];
+        // if (!$response->successful()) {
+        //     return '<center><h1>Koneksi Gagal...</h1></center><br>' . $response->body();
+        // }
 
-        return view('components.personil', compact('struktural', 'non_struktural'));
+        // $data = $response->json();
+
+        // $struktural = $data['struktural'];
+
+        // $non_struktural = $data['non_struktural'];
+
+        // return view('components.personil', compact('struktural', 'non_struktural'));
     }
 }
