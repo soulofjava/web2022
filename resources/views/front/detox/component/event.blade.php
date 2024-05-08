@@ -12,7 +12,8 @@
 @section('content')
 <!--Page Title-->
 <section class="page-title bg-color-1 text-center">
-    <div class="pattern-layer" style="background-image: url(assets/images/shape/pattern-18.png);"></div>
+    <div class="pattern-layer"
+        style="background-image: url('{{ asset('master/Detox/assets/images/shape/pattern-18.png') }}');"></div>
     <div class="auto-container">
         <div class="content-box">
             <h1>Agenda</h1>
