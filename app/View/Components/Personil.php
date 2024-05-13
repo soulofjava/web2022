@@ -4,6 +4,7 @@ namespace App\View\Components;
 
 use Closure;
 use App\Models\Simpeg\Tb01;
+use GuzzleHttp\Client;
 use Illuminate\View\Component;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\View\View;
@@ -25,20 +26,27 @@ class Personil extends Component
      */
     public function render(): View|Closure|string
     {
-        $opdId = env('ID_OPD'); // Mengambil nilai OPD_ID dari variabel lingkungan
+        $opdId = env('ID_OPD');
 
-        $response = Http::withoutVerifying()->get('https://api.wonosobokab.go.id/api/list-personil/' . $opdId);
+        $client = new Client();
 
-        if (!$response->successful()) {
-            return '<center><h1>Koneksi Gagal...</h1></center>';
+        try {
+            $response = $client->request('GET', 'https://api.wonosobokab.go.id/api/list-personil/' . $opdId, [
+                'verify' => false, // Menonaktifkan verifikasi SSL
+            ]);
+
+            if ($response->getStatusCode() != 200) {
+                return '<center><h1>Koneksi Gagal...</h1></center>';
+            }
+
+            $data = json_decode($response->getBody(), true);
+
+            $struktural = $data['struktural'];
+            $non_struktural = $data['non_struktural'];
+
+            return view('components.personil', compact('struktural', 'non_struktural'));
+        } catch (Exception $e) {
+            return '<center><h1>Error: ' . $e->getMessage() . '</h1></center>';
         }
-
-        $data = $response->json();
-
-        $struktural = $data['struktural'];
-
-        $non_struktural = $data['non_struktural'];
-
-        return view('components.personil', compact('struktural', 'non_struktural'));
     }
 }
