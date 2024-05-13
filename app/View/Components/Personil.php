@@ -70,7 +70,7 @@ class Personil extends Component
         // return $response->body();
 
         if (!$response->successful()) {
-            return '<center><h1>Koneksi Gagal...</h1></center>';
+            return $response->body();
         }
 
         $data = $response->json();
