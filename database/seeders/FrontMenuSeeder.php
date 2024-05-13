@@ -17,6 +17,8 @@ class FrontMenuSeeder extends Seeder
      */
     public function run()
     {
+        FrontMenu::truncate();
+        
         $front_menu = [
             // root menu
             [
@@ -157,7 +159,8 @@ class FrontMenuSeeder extends Seeder
             [
                 'menu_parent' => '16',
                 'menu_name' => 'JDIH Wonosobo',
-                'menu_url' => Str::slug('JDIH Wonosobo', '-')
+                'menu_url' => 'https://jdih.wonosobokab.go.id/',
+                'link' => 1
             ],
             [
                 'menu_parent' => '16',
@@ -261,12 +264,14 @@ class FrontMenuSeeder extends Seeder
             [
                 'menu_parent' => '45',
                 'menu_name' => 'Permohonan Informasi Publik',
-                'menu_url' => Str::slug('Permohonan Informasi Publik', '-')
+                'menu_url' => 'https://sobopedia.wonosobokab.go.id/homesobopedia/permohonan',
+                'link' => 1
             ],
             [
                 'menu_parent' => '45',
                 'menu_name' => 'Pengajuan Keberatan Informasi Publik',
-                'menu_url' => Str::slug('Pengajuan Keberatan Informasi Publik', '-')
+                'menu_url' => 'https://sobopedia.wonosobokab.go.id/homesobopedia/keberatan',
+                'link' => 1
             ],
         ];
 

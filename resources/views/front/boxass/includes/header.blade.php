@@ -93,19 +93,7 @@
                                             $sub3->id)->where('active',1)->orderBy('menu_parent',
                                             'ASC')->count() == 0)
                                             <li>
-                                                @if ($sub3->menu_name == 'Permohonan Informasi Publik')
-                                                <a href="https://sobopedia.wonosobokab.go.id/homesobopedia/permohonan"
-                                                    target="_blank">{{ $sub3->menu_name }}
-                                                </a>
-                                                @elseif ($sub3->menu_name == 'Pengajuan Keberatan Informasi Publik')
-                                                <a href="https://sobopedia.wonosobokab.go.id/homesobopedia/keberatan"
-                                                    target="_blank">{{ $sub3->menu_name }}
-                                                </a>
-                                                @elseif ($sub3->menu_name == 'JDIH Wonosobo')
-                                                <a href="https://jdih.wonosobokab.go.id/" target="_blank">{{
-                                                    $sub3->menu_name }}
-                                                </a>
-                                                @elseif ($sub3->menu_name == 'Agenda Pimpinan')
+                                                @if ($sub3->menu_name == 'Agenda Pimpinan')
                                                 <a href="{{ url('/agenda') }}">{{
                                                     $sub3->menu_name }}
                                                 </a>

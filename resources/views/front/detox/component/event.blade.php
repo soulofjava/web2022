@@ -34,9 +34,9 @@
                 <thead>
                     <tr>
                         <th style="text-align: center;">#</th>
-                        <th style="text-align: center;">Date</th>
-                        <th style="text-align: center;">Event Name</th>
-                        <th style="text-align: center;">Event Location</th>
+                        <th style="text-align: center;">Tanggal</th>
+                        <th style="text-align: center;">Nama Kegiatan</th>
+                        <th style="text-align: center;">Lokasi Kegiatan</th>
                     </tr>
                 </thead>
             </table>

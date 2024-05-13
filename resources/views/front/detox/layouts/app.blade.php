@@ -15,6 +15,7 @@
     @include('front.detox.include.footer')
     @stack('before-script')
     @include('front.detox.include.script')
+    @include('components.responsive-voice')
     @stack('after-script')
 </body>
 

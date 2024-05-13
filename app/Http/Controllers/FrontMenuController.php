@@ -25,7 +25,7 @@ class FrontMenuController extends Controller
                 ->addColumn(
                     'action',
                     function ($data) {
-                        if ($data->id <= 45) {
+                        if ($data->id <= 47) {
                             $actionBtn = '<div class="text-center">
                         <a href="' . route('frontmenu.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="bx bx-edit"></i> </a></div>';
                         } else {
@@ -47,7 +47,7 @@ class FrontMenuController extends Controller
                 ->addColumn(
                     'aksi',
                     function ($data) {
-                        if ($data->id <= 45) {
+                        if ($data->id <= 47) {
                             $actionBtn = '<div class="togglebutton">
                             <label class="form-check-label">
                                 <input type="checkbox" class="form-check-input" disabled checked>

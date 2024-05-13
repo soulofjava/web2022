@@ -49,7 +49,7 @@
 <script src="{{ asset('assets/back/sneat/assets/js/extended-ui-sweetalert2.js') }}"></script>
 
 <!-- <script src="{{ asset('assets/back/sneat/assets/js/docs-tables-datatables.js') }}"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script> -->
 
 <script>
     ajaxRequest = document.querySelector('#btn-logout');
