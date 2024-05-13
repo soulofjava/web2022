@@ -65,7 +65,7 @@ class Personil extends Component
 
         $opdId = env('ID_OPD'); // Mengambil nilai OPD_ID dari variabel lingkungan
 
-        $response = Http::withoutVerifying()->get('https://api.wonosobokab.go.id/api/list-personil/' . $opdId);
+        $response = Http::withoutVerifying()->get('http://10.90.237.7/diskominfo-api/public/api/list-personil/' . $opdId);
         // lokal http://10.90.237.7/diskominfo-api/public/api/list-personil/23
         // return $response->body();
 
