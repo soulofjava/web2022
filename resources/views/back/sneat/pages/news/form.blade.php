@@ -38,7 +38,7 @@
         'form-control','placeholder' => '2024'])}}
     </div>
     <div class="form-group col-sm-12 col-md-12 mb-3">
-        <label for="defaultFormControlInput" class="form-label">Kategori</label>
+        <label for="defaultFormControlInput" class="form-label">Kategori Menu Transparansi</label>
         {{Form::select('tag', $categori, $categorinya ?? [], ['class' => 'form-control select2',
         'placeholder' => 'Silahkan Pilih Kategori'])}}
         @error('tag')
