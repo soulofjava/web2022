@@ -23,4 +23,4 @@ Route::get('menu', [ApiController::class, 'menu']);
 Route::get('news', [ApiController::class, 'news']);
 Route::get('galleries', [ApiController::class, 'galleries']);
 Route::get('personil', [ApiController::class, 'personil'])->name('api.personil');
-
+Route::get('getpersonil/{id}', [ApiController::class, 'getpersonil'])->name('api.getpersonil');

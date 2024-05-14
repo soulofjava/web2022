@@ -66,11 +66,11 @@ return [
         'simpeg' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            'host' => '103.155.105.9',
+            'host' => '10.90.237.2',
             'port' => '3306',
-            'database' => 'simpeg_v19',
-            'username' => 'integrasi',
-            'password' => '1nt3gr4s1WSB2023%',
+            'database' => 'simpeg',
+            'username' => 'simpeg_api',
+            'password' => 'TetapSemangat!',
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
@@ -82,7 +82,7 @@ return [
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
         ],
-        
+
         'wordpress' => [ // for WordPress database (used by Corcel)
             'driver'    => 'mysql',
             'host'      => 'localhost',
