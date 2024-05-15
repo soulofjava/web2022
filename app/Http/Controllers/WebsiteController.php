@@ -96,7 +96,7 @@ class WebsiteController extends Controller
                 $path2 = $request->file('favicon')->store('website');
             }
         }
-        Website::find($id)->update($request->except(['_token', 'image_hero', 'favicon']) + [
+        Website::find($id)->update($request->except(['_token', 'image_hero', 'favicon', 'statistik_pengunjung']) + [
             'image_hero_name' => $name,
             'image_hero' => $path,
             'favicon_name' => $name2,
