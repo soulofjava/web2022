@@ -24,15 +24,15 @@
 
     <!-- Start Blog
     ============================================= -->
-    <div class="blog-area full-width bg-gray default-padding">
+    <div class="blog-area full-width bg-gray">
         <div class="container">
-            <x-cari-news style='margin-top: 22px; width:100%;' />
+            <x-cari-news style='margin-bottom: 50px; width:100%;' />
             <div class="row" style="margin-top: 25px;">
                 <div class="blog-items">
                     @foreach($news as $n)
                     <!-- Single Item -->
                     <div class="col-lg-4 col-md-4 col-sm-6 equal-height">
-                        <div class="item">
+                        <div class="item" style="height: 245px;">
                             <div class="thumb">
                                 <a href="{{ url('/news-detail', $n->slug) }}">
                                     @if(Storage::get($n->gambarmuka->path ?? ''))

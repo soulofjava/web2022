@@ -248,7 +248,14 @@ class FrontController extends Controller
     public function newsall(Request $request)
     {
         Seo::seO();
-        $news = News::where('terbit', 1)->latest('date')->paginate(9);
+        $news = News::whereNotIn('id', function ($query) {
+            $query->select('taggable_id')
+            ->from('tagging_tagged');
+        })
+        ->where('terbit', 1)
+        ->latest('date')
+        ->paginate(9);
+        News::where('terbit', 1)->latest('date')->paginate(9);
         $sideposts = News::where('terbit', 1)->latest('date')->take(5)->get();
         return view('front.' . $this->themes->themes_front . '.pages.news', compact('news', 'sideposts'));
     }

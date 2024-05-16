@@ -61,7 +61,7 @@
                                     </ul>
                                 </div>
                                 <h3>{{ $data->title }}</h3>
-                                {!! $data->description !!}
+                                {!! $data->content !!}
                                 <!-- <div class="post-tags">
                                     <span>Tags: </span>
                                     <a href="#">Consulting</a>

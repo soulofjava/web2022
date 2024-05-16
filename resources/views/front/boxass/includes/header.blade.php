@@ -68,7 +68,7 @@
                                         <a target="_blank" href="{{ $sm->menu_url }}">
                                             {{ $sm->menu_name }}
                                         </a>
-                                        @elseif($sm->menu_parent == 31)
+                                        @elseif($menu->menu_name === 'Transparansi')
                                         <a href="{{ url('transparansi', $sm->menu_url) }}">
                                             {{ $sm->menu_name }}
                                         </a>
