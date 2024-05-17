@@ -29,7 +29,7 @@
                         <div class="item">
                             <div class="thumb">
                                 @if(count($data->gambar))
-                                <x-carousel :jjj='$data' />
+                                <x-carouselb3 :jjj='$data' />
                                 @else
                                 <!-- <img src="{{ asset('img/soulofjava.jpg') }}" alt="soul of java"> -->
                                 @endif
