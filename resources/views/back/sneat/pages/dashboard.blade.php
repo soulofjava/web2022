@@ -263,7 +263,7 @@
             show: false
         },
         min: 0,
-            max: 200,
+            max: 500,
                 tickAmount: 4
     },
     
