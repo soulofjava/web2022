@@ -13,6 +13,7 @@ use App\Http\Controllers\GuestBookController;
 use App\Http\Controllers\InboxController;
 use App\Http\Controllers\RelatedLinkController;
 use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\BukuPedomanController;
 use App\Http\Controllers\ComRegionController;
 use App\Http\Controllers\DownloadAreaFileController;
 use App\Http\Controllers\DownloadController;
@@ -92,6 +93,7 @@ Route::group(['middleware' => ['auth', 'data_web', 'cek_inbox'], 'prefix' => 'ad
         Route::resource('slide', GambarSlideController::class);
     });
     Route::resource('news', NewsController::class);
+    Route::resource('bukupetunjuk', BukuPedomanController::class);
     Route::resource('myprofile', CredentialController::class);
     Route::resource('event', AgendaController::class);
     Route::resource('download', DownloadController::class);

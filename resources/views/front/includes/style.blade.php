@@ -44,4 +44,8 @@
     .hero-section:after {
         display: none;
     }
+
+    .main-menu .navbar-collapse li a {
+        font-size: 16px;
+    }
 </style>
