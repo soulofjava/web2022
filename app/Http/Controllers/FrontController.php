@@ -241,7 +241,7 @@ class FrontController extends Controller
         Seo::seO();
         $cari = $request->kolomcari;
         $hasil = 'Search result : ' . $cari;
-        $data = News::with('gambar')->whereDate('date', 'like', '%' . $cari . '%')->orWhere('title', 'like', '%' . $cari . '%')->orderBy("date", "desc")->paginate();
+        $data = News::with('gambarmuka')->whereDate('date', 'like', '%' . $cari . '%')->orWhere('title', 'like', '%' . $cari . '%')->latest("date")->paginate();
         $news = News::latest('date')->take(5)->get();
         return view('front.pages.newsbyauthor', compact('data', 'news', 'hasil'));
     }
@@ -249,7 +249,7 @@ class FrontController extends Controller
     public function newsall(Request $request)
     {
         Seo::seO();
-        $news = News::whereIn('kategori', ['berita', 'informasi umum'])->latest('date')->paginate(5);
+        $news = News::with('gambarmuka')->whereIn('tag', ['berita', 'informasi umum'])->latest('date')->paginate(5);
         $sideposts = News::latest('date')->take(5)->get();
         return view('front.pages.news', compact('news', 'sideposts'));
     }
