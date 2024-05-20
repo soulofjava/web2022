@@ -6,12 +6,12 @@
         <div class="row justify-content-center">
             <div class="col-xl-6 col-lg-7 col-md-8">
                 <div class="section-title text-center mb-40">
-                    <h2>Transparansi</h2>
+                    <h3>Transparansi</h3>
                 </div>
             </div>
         </div>
         <ul class="coach-filter mb-35">
-            <li data-filter="*" class="current">Show All</li>
+            <!-- <li data-filter="*" class="current">Show All</li> -->
             @php
             $kategoriNames =
             App\Models\Kategori::with('groupe')
