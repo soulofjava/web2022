@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\ApiController;
+use App\Http\Middleware\CorsMiddleware;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,5 +23,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('menu', [ApiController::class, 'menu']);
 Route::get('news', [ApiController::class, 'news']);
 Route::get('galleries', [ApiController::class, 'galleries']);
-Route::get('personil', [ApiController::class, 'personil'])->name('api.personil');
-Route::get('getpersonil/{id}', [ApiController::class, 'getpersonil'])->name('api.getpersonil');
+
+Route::middleware([CorsMiddleware::class])->group(function () {
+    Route::get('personil', [ApiController::class, 'personil'])->name('api.personil');
+    Route::get('getpersonil/{id}', [ApiController::class, 'getpersonil'])->name('api.getpersonil');
+});
