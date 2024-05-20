@@ -33,6 +33,7 @@ class Personil extends Component
         // $response = Http::withoutVerifying()->get('https://api.wonosobokab.go.id/api/list-personil/' . $opdId);
 
         if (!$response->successful()) {
+            return $response;
             return '<center><h1>Koneksi Gagal...</h1></center>';
         }
 
