@@ -11,7 +11,7 @@
                         <a target="_blank" href="{{ $data_website->instagram }}"><i class="fab fa-instagram"></i></a>
                         <a target="_blank" href="{{ $data_website->youtube }}"><i class="fab fa-youtube"></i></a>
                     </div>
-                    <div class="mt-3">
+                    <!-- <div class="mt-3">
                         <h5 class="footer-title">Link Terkait</h5>
                         <ul>
                             @foreach($related as $rr)
@@ -21,7 +21,7 @@
                             @endforeach
                         </ul>
 
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-4">

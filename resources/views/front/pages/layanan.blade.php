@@ -41,10 +41,11 @@
                         </a>
                         <!-- <img src="{{ asset('assets/front/images/coachs/coach1.jpg') }}" alt="Coach"> -->
                     </div>
-                    <div class="coach-content" style="height: 175px;">
+                    <div class="coach-content" style="height: 100px; text-align: center;">
                         <!-- <span class="label">Basic Coach</span> -->
-                        <h4><a href="{{ url('/news-detail', $iu->slug) }}">{{ Str::limit($iu->title, 40, '...') }}</a>
-                        </h4>
+                        <h6>
+                            <a href="{{ url('/news-detail', $iu->slug) }}">{{ Str::limit($iu->title, 30, '...') }}</a>
+                        </h6>
                         <!-- <div class="ratting-price">
                             <div class="ratting">
                                 <i class="fas fa-star"></i>
