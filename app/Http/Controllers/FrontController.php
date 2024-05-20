@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use App\Models\News;
 use App\Models\GuestBook;
 use App\Models\Inbox;
+use App\Models\Kategori;
 use App\Models\User;
 use App\Models\Website;
 use Artesaos\SEOTools\Facades\OpenGraph;
@@ -228,13 +229,13 @@ class FrontController extends Controller
         Seo::seO();
         return view('front.pages.layanan');
     }
-   
+
     public function layanan2()
     {
         Seo::seO();
         return view('front.pages.transparansi');
     }
-   
+
     public function newsBySearch(Request $request)
     {
         Seo::seO();
@@ -248,7 +249,7 @@ class FrontController extends Controller
     public function newsall(Request $request)
     {
         Seo::seO();
-        $news = News::latest('date')->paginate(5);
+        $news = News::whereIn('kategori', ['berita', 'informasi umum'])->latest('date')->paginate(5);
         $sideposts = News::latest('date')->take(5)->get();
         return view('front.pages.news', compact('news', 'sideposts'));
     }
