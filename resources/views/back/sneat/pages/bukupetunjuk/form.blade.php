@@ -38,7 +38,7 @@
         null)])}}
         <!-- Display default file name -->
         <br>
-        <p>Current File: {{ $data->path_file }}</p>
+        <p>Current File: {{ $data->path_file ?? 'Belum ada' }}</p>
         @error('file')
         <div id="defaultFormControlHelp" class="form-text" style="color: red;">
             {{ $message }}
