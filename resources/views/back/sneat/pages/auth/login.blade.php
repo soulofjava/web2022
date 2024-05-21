@@ -8,6 +8,7 @@
       <div class="card">
         <div class="card-body">
 
+          <p>Access Token: {{ session('state') }}</p>
           <!-- Logo -->
           <div class="app-brand justify-content-center">
             <a href="{{ url('/') }}" class="app-brand-link gap-2">
@@ -43,6 +44,9 @@
             </div>
             <div class="mb-3">
               <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
+            </div>
+            <div class="mb-3">
+              <a href="{{ route('sso.login') }}" class="btn btn-primary d-grid w-100">Login With SSO</a>
             </div>
           </form>
 

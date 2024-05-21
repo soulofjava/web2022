@@ -41,7 +41,6 @@ use App\Models\Website;
 
 Route::get('sso', [SSOController::class, 'getLogin'])->name('sso.login');
 Route::get('callback', [SSOController::class, 'getCallback'])->name('sso.callback');
-Route::get('ssouser', [SSOController::class, 'connectUser'])->name('sso.authuser');
 
 Route::get('/', function () {
     Seo::seO();

@@ -3,13 +3,12 @@
 namespace App\Http\Controllers\SSO;
 
 use App\Http\Controllers\Controller;
-use App\Mail\InboxMail;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Mail;
+use InvalidArgumentException;
 
 class SSOController extends Controller
 {
@@ -17,49 +16,54 @@ class SSOController extends Controller
     {
         $request->session()->put("state", $state = Str::random(40));
         $query = http_build_query([
-            'client_id' => '99a0195d-c5ef-4f75-ab9b-00ff52429158',
-            'redirect_uri' => 'http://127.0.0.1:8001/callback',
+            'client_id' => '3',
+            'redirect_uri' => 'https://web.lokal:8890/callback',
             'response_type' => 'code',
             'scope' => '',
             'state' => $state,
             // 'prompt' => '', // "none", "consent", or "login"
         ]);
 
-        return redirect('http://127.0.0.1:8000/oauth/authorize?' . $query);
+        return redirect('https://api.lokal:8890/oauth/authorize?' . $query);
     }
 
     public function getCallback(Request $request)
     {
         $state = $request->session()->pull('state');
 
-        $codeVerifier = $request->session()->pull('code_verifier');
-
         throw_unless(
             strlen($state) > 0 && $state === $request->state,
-            InvalidArgumentException::class
+            InvalidArgumentException::class,
+            'Invalid state value.'
         );
 
-        $response = Http::asForm()->post('http://127.0.0.1:8000/oauth/token', [
+        $response = Http::withoutVerifying()->asForm()->post('https://api.lokal:8890/oauth/token', [
             'grant_type' => 'authorization_code',
-            'client_id' => '99a0195d-c5ef-4f75-ab9b-00ff52429158',
-            'client_secret' => 'ktqnJIvq24HdtEzpQpLoXioYiGmF8U6HHXXnv9rm',
-            'redirect_uri' => 'http://127.0.0.1:8001/callback',
-            'code_verifier' => $codeVerifier,
+            'client_id' => '3',
+            'client_secret' => 'hzRsPrbRcggZa6DjAkqAjIJ206MASOb2VfVYXLql',
+            'redirect_uri' => 'https://web.lokal:8890/callback',
             'code' => $request->code,
         ]);
 
-        $request->session()->put($response->json());
-
-        return redirect('/ssouser');
+        if ($response->successful()) {
+            if ($this->connectUser($response->object())) {
+                return redirect(route('dashboard'));
+            } else {
+                return redirect(route('login'));
+            }
+        } else {
+            dd($response->object());
+        }
     }
 
-    public function connectUser(Request $request)
+    public function connectUser($tttt)
     {
-        $access_token = $request->session()->get('access_token');
-        $response = Http::withHeaders([
+        $access_token = $tttt->access_token;
+
+        $response = Http::withoutVerifying()->withHeaders([
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . $access_token,
-        ])->get('http://127.0.0.1:8000/api/user');
+        ])->get('https://api.lokal:8890/api/user');
 
         $userArray = $response->json();
 
@@ -75,10 +79,17 @@ class SSOController extends Controller
             $user = new User;
             $user->name = $userArray['name'];
             $user->email = $userArray['email'];
+            $user->password = bcrypt($userArray['email']);
             $user->email_verified_at = $userArray['email_verified_at'];
             $user->save();
         }
+
         Auth::login($user);
-        return redirect(route('dashboard'));
+
+        if (Auth::check()) {
+            return true;
+        }
+
+        return false;
     }
 }
