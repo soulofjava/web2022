@@ -1,10 +1,12 @@
 <div class="row">
-    <!-- Example of a form that Dropzone can take over -->
-    <div class="dropzone" id="my-awesome-dropzone"></div>
+    <div class="form-group">
+        <!-- Example of a form that Dropzone can take over -->
+        <div class="dropzone" id="my-awesome-dropzone"></div>
+    </div>
 </div>
 
 <div class="row">
-    <div class="form-group">
+    <div class="form-group mt-1">
         <label for="defaultFormControlInput" class="form-label">Nama File</label>
         {{Form::text('judul', null,['class' => 'form-control',
         'placeholder'=>'Masukkan Nama File'])}}

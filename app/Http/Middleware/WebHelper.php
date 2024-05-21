@@ -24,31 +24,51 @@ class WebHelper
      */
     public function handle(Request $request, Closure $next)
     {
-        //its just a dummy data object.
-        $data = Website::first();
-        $menu = FrontMenu::all();
-        $agenda = Agenda::all()->count();
-        $news = News::all()->count();
-        $counter = Visitor::all()->count();
+        // Menginisialisasi array untuk menyimpan data pengunjung per hari
+        $statPengPerHari = [];
+
+        // Mengisi array dengan data pengunjung per hari untuk 7 hari terakhir
+        for ($i = 6; $i >= 0; $i--) {
+            $tanggal = Carbon::now()->subDays($i)->format('Y-m-d');
+            $jumlahPengunjung = Visitor::whereDate('created_at', $tanggal)->count();
+            $hari = Carbon::parse($tanggal)->translatedFormat('l');
+            $statPengPerHari[$hari] = $jumlahPengunjung;
+        }
+
+        // Memasukkan data pengunjung per hari ke dalam request agar dapat diakses di kontroler atau view
+        $request->merge(['statistik_pengunjung' => $statPengPerHari]);
+
+        // Mengambil data
+        $data_website = Website::first();
+        $nav_menu = FrontMenu::all();
+        $news_all = News::count();
+        $counter_web = Visitor::count();
+        $inbox = Inbox::count();
+        $related = RelatedLink::all();
         $counterH = Visitor::whereDate('created_at', Carbon::today())->count();
         $counterK = Visitor::whereDate('created_at', Carbon::yesterday())->count();
         $counterM = Visitor::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->count();
         $counterB = Visitor::whereMonth('created_at', date('m'))->whereYear('created_at', date('Y'))->count();
-        $inbox = Inbox::all()->count();
-        $related = RelatedLink::all();
 
-        // Sharing is caring
-        view()->share('data_website', $data);
-        view()->share('nav_menu', $menu);
-        view()->share('news_all', $news);
-        view()->share('counter_web', $counter);
-        view()->share('counter_webh', $counterH);
-        view()->share('counter_webk', $counterK);
-        view()->share('counter_webm', $counterM);
-        view()->share('counter_webb', $counterB);
-        view()->share('related', $related);
-        view()->share('inbox', $inbox);
-        view()->share('agenda', $agenda);
+        // Jumlah agenda
+        $agenda = Agenda::count();
+
+        // Sharing data ke view
+        view()->share(compact(
+            'data_website',
+            'nav_menu',
+            'news_all',
+            'counter_web',
+            'related',
+            'inbox',
+            'agenda',
+            'statPengPerHari',
+            'counterH',
+            'counterK',
+            'counterM',
+            'counterB'
+        ));
+
         return $next($request);
     }
 }

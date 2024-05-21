@@ -33,25 +33,11 @@
     </div>
 
     <div class="form-group col-sm-12 col-md-6">
-        <label for="formFile" class="form-label">Upload Buku / Dokumentasi (PDF)</label>
-        {{Form::file('file', ['class' => 'form-control'. ($errors->has('file') ? ' is-invalid' :
-        null)])}}
-        <!-- Display default file name -->
-        <br>
-        <p>Current File: {{ $data->path_file }}</p>
-        @error('file')
-        <div id="defaultFormControlHelp" class="form-text" style="color: red;">
-            {{ $message }}
-        </div>
-        @enderror
-    </div>
-
-    <div class="form-group col-sm-12 col-md-6">
-        <label for="defaultFormControlInput" class="form-label">Judul</label>
-        {{Form::text('judul', null, ['class' => 'form-control'. ($errors->has('judul') ? ' is-invalid' :
+        <label for="defaultFormControlInput" class="form-label">Nama</label>
+        {{Form::text('nama', null, ['class' => 'form-control'. ($errors->has('nama') ? ' is-invalid' :
         null),
-        'placeholder' => 'SIMPEG'])}}
-        @error('judul')
+        'placeholder' => 'Pangeran Diponegoro'])}}
+        @error('nama')
         <div id="defaultFormControlHelp" class="form-text" style="color: red;">
             {{ $message }}
         </div>
@@ -59,11 +45,11 @@
     </div>
 
     <div class="form-group col-sm-12 col-md-6">
-        <label for="defaultFormControlInput" class="form-label">Keterangan</label>
-        {{Form::text('keterangan', null, ['class' =>
-        'form-control' . ($errors->has('keterangan') ? ' is-invalid' : null),
-        'placeholder' => 'Aplikasi SIMPEG adalah...'])}}
-        @error('keterangan')
+        <label for="defaultFormControlInput" class="form-label">Jabatan</label>
+        {{Form::text('jabatan', null, ['class' =>
+        'form-control' . ($errors->has('jabatan') ? ' is-invalid' : null),
+        'placeholder' => 'Pahlawan RI'])}}
+        @error('jabatan')
         <div id="defaultFormControlHelp" class="form-text" style="color: red;">
             {{ $message }}
         </div>
@@ -73,6 +59,6 @@
 </div>
 
 <div class="mt-3">
-    <a href="{{ route('bukupetunjuk.index') }}" class="btn btn-secondary">Kembali</a>
+    <a href="{{ route('personil.index') }}" class="btn btn-secondary">Kembali</a>
     <button type="submit" class="btn btn-primary">Simpan</button>
 </div>

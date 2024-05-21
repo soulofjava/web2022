@@ -9,12 +9,14 @@
 </div>
 
 <div class="row">
-    <!-- Example of a form that Dropzone can take over -->
-    <div class="dropzone" id="my-awesome-dropzone"></div>
+    <div class="form-group">
+        <!-- Example of a form that Dropzone can take over -->
+        <div class="dropzone" id="my-awesome-dropzone"></div>
+    </div>
 </div>
 
 <div class="row">
-    <div class="form-group col">
+    <div class="form-group col mt-1">
         <label for="defaultFormControlInput" class="form-label">Kategori</label>
         {{Form::select('tag', $kategorinya, null, ['class' =>
         'form-control select2'. ($errors->has('tag') ? ' is-invalid' :

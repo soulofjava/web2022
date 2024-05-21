@@ -66,14 +66,6 @@
                 </div>
             </div>
         </div>
-        <!-- <ul class="coach-filter mb-35">
-            <li data-filter="*" class="current">Show All</li>
-            <li data-filter=".design">Web Design</li>
-            <li data-filter=".marketing">Marketing</li>
-            <li data-filter=".development">Development</li>
-            <li data-filter=".technology">IT & Technology</li>
-            <li data-filter=".photography">Photography</li>
-        </ul> -->
         <div class="row coach-active justify-content-center">
             @foreach($news as $n)
             <div class="col-lg-3 col-md-6 item marketing technology">
@@ -88,28 +80,11 @@
                             <img src="{{ asset('assets/bkdwonosobo.png') }}" alt="Course">
                             @endif
                         </a>
-                        <!-- <img src="{{ asset('assets/front/images/coachs/coach1.jpg') }}" alt="Coach"> -->
                     </div>
                     <div class="coach-content" style="height: 100px; text-align: center;">
-                        <!-- <span class="label">Basic Coach</span> -->
                         <h6>
                             <a href="{{ url('/news-detail', $n->slug) }}">{{ Str::limit($n->title, 30, '...') }}</a>
                         </h6>
-                        <!-- <div class="ratting-price">
-                            <div class="ratting">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <span>(3k)</span>
-                            </div>
-                            <span class="price">256.95</span>
-                        </div> -->
-                        <!-- <ul class="coach-footer">
-                            <li><i class="far fa-file-alt"></i><span>12 Lessions</span></li>
-                            <li><i class="far fa-user"></i><span>seats</span></li>
-                        </ul> -->
                     </div>
                 </div>
             </div>
@@ -184,7 +159,7 @@
 <!-- Coach Section End -->
 
 <!-- Advertise Area Start -->
-<!-- <section class="advertise-area pt-40 pb-100 rpb-70 bg-lighter">
+<section class="advertise-area pt-40 pb-100 rpb-70 bg-lighter">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-6 col-lg-7 col-md-8">
@@ -194,74 +169,90 @@
             </div>
         </div>
         <div class="row">
+            @foreach(App\Models\BukuPedoman::get() as $bp)
             <div class="col-lg-6">
-                <div class="advertise-item wow fadeInUp delay-0-2s">
+                <div class="advertise-item {{ ($loop->odd) ? 'bg-two' : '' }} wow fadeInUp delay-0-2s">
                     <div class="content">
-                        <h4>Become An Instructor?</h4>
-                        <p>Sit amet consectetur adipiscing sed eiusmod tempore dolore magna suspendisse</p>
-                        <a href="contact.html" class="theme-btn">Join with us <i class="fas fa-arrow-right"></i></a>
+                        <h4>{{ $bp->judul }}</h4>
+                        <p>{{ $bp->keterangan }}</p>
+                        <a target="_blank" href="{{ route('helper.show-picture', ['path' => $bp->path_file]) }}" class="theme-btn">Lihat lebih detail <i class="fas fa-arrow-right"></i></a>
                     </div>
                     <div class="image">
-                        <img src="assets/images/advertise/advertise1.png" alt="Advertise">
+                        <img src="{{ route('helper.show-picture', ['path' => $bp->path_foto]) }}" height="150px"
+                            width="150px" alt="Advertise">
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <div class="advertise-item bg-two wow fadeInUp delay-0-4s">
-                    <div class="content">
-                        <h4>Get Online Courses</h4>
-                        <p>Amet consectetur adipiscing sed eius tempore dolore magna suspens</p>
-                        <a href="contact.html" class="theme-btn style-two">Join with us <i
-                                class="fas fa-arrow-right"></i></a>
-                    </div>
-                    <div class="image">
-                        <img src="assets/images/advertise/advertise2.png" alt="Advertise">
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
-</section> -->
+</section>
 <!-- Advertise Area End -->
 
 <!-- Advertise Area Start -->
-<!-- <section class="advertise-area pt-40 pb-100 rpb-70">
+<section class="advertise-area pt-40 pb-100 rpb-70">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-6 col-lg-7 col-md-8">
                 <div class="section-title text-center mb-40">
-                    <h3>Testimonials</h3>
+                    <h3>Personil</h3>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="advertise-item wow fadeInUp delay-0-2s">
-                    <div class="content">
-                        <h4>Become An Instructor?</h4>
-                        <p>Sit amet consectetur adipiscing sed eiusmod tempore dolore magna suspendisse</p>
-                        <a href="contact.html" class="theme-btn">Join with us <i class="fas fa-arrow-right"></i></a>
+        <div class="row justify-content-center">
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    @foreach(App\Models\Personil::get()->chunk(2) as $chunk)
+                    <div class="carousel-item {{ ($loop->first) ? 'active' : '' }}">
+                        <div class="row">
+                            @foreach($chunk as $personil)
+                            <div class="col-md-6">
+                                <div class="testimonial-card">
+                                    <img src="{{ route('helper.show-picture', ['path' => $personil->path_foto]) }}"
+                                        alt="{{ $personil->nama }}">
+                                    <p>{{ $personil->nama }}</p>
+                                    <footer class="blockquote-footer">{{ $personil->jabatan }}</footer>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
                     </div>
-                    <div class="image">
-                        <img src="assets/images/advertise/advertise1.png" alt="Advertise">
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="advertise-item bg-two wow fadeInUp delay-0-4s">
-                    <div class="content">
-                        <h4>Get Online Courses</h4>
-                        <p>Amet consectetur adipiscing sed eius tempore dolore magna suspens</p>
-                        <a href="contact.html" class="theme-btn style-two">Join with us <i
-                                class="fas fa-arrow-right"></i></a>
-                    </div>
-                    <div class="image">
-                        <img src="assets/images/advertise/advertise2.png" alt="Advertise">
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
     </div>
-</section> -->
+</section>
 <!-- Advertise Area End -->
 @endsection
+@push('after-style')
+<style>
+    .testimonial-card {
+        width: 350px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .testimonial-card img {
+        width: 150px;
+        height: 150px;
+        object-fit: contain;
+        /* border-radius: 50%; */
+        margin-bottom: 15px;
+    }
+
+    .testimonial-card p {
+        font-size: 1rem;
+        font-style: italic;
+    }
+
+    .testimonial-card footer {
+        font-size: 0.9rem;
+        color: #777;
+    }
+</style>
+@endpush

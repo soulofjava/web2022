@@ -39,6 +39,13 @@
                     </a>
                 </li>
 
+                <li class="menu-item {{ (Str::contains(Request::url(), 'personil')) ? 'active' : '' }}">
+                    <a href="{{ url('admin/personil') }}" class="menu-link">
+                        <i class='bx bx-user'></i>
+                        <div data-i18n="Basic">Personil</div>
+                    </a>
+                </li>
+
                 <li class="menu-item {{ (Str::contains(Request::url(), 'news')) ? 'active' : '' }}">
                     <a href="{{ url('admin/news') }}" class="menu-link">
                         <i class='bx bx-news'></i>

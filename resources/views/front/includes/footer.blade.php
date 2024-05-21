@@ -28,10 +28,10 @@
                 <div class="footer-widget menu-widget">
                     <h5 class="footer-title">Statistik Pengunjung</h5>
                     <ul>
-                        <li><a href="#">Hari ini = {{ $counter_webh }}</a></li>
-                        <li><a href="#">Kemarin = {{ $counter_webk }}</a></li>
-                        <li><a href="#">Minggu ini = {{ $counter_webm }}</a></li>
-                        <li><a href="#">Bulan ini = {{ $counter_webb }}</a></li>
+                        <li><a href="#">Hari ini = {{ $counterH }}</a></li>
+                        <li><a href="#">Kemarin = {{ $counterK }}</a></li>
+                        <li><a href="#">Minggu ini = {{ $counterM }}</a></li>
+                        <li><a href="#">Bulan ini = {{ $counterB }}</a></li>
                         <li><a href="#">Total = {{ $counter_web }}</a></li>
                     </ul>
                 </div>

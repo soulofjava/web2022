@@ -56,17 +56,23 @@ class BukuPedomanController extends Controller
         $request->validate([
             'judul' => 'required',
             'keterangan' => 'required',
-            'foto' => 'required'
+            'foto' => 'required',
+            'file' => 'required'
         ]);
 
         $file = $request->file('foto');
         $name = $request->file('foto')->getClientOriginalName();
-        $path = $file->storeAs('struktur', $name, 'gcs');
+        $path = $file->storeAs('bukupetunjuk', $name, 'gcs');
+
+        $file2 = $request->file('file');
+        $name2 = $request->file('file')->getClientOriginalName();
+        $path2 = $file2->storeAs('file_bukupetunjuk', $name2, 'gcs');
 
         BukuPedoman::create([
             'judul' => $request->judul,
             'keterangan' => $request->keterangan,
-            'path_foto' => $path
+            'path_foto' => $path,
+            'path_file' => $path2
         ]);
 
         return redirect(route('bukupetunjuk.index'))->with(['success' => 'Data added successfully!']);
@@ -91,9 +97,37 @@ class BukuPedomanController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, BukuPedoman $bukuPedoman)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'judul' => 'required',
+            'keterangan' => 'required'
+        ]);
+
+        $isa =  BukuPedoman::find($id);
+
+        // Handle the file upload if a new file is provided
+        if ($file = $request->file('foto')) {
+            Storage::delete($isa->path_foto); // Delete the old file
+            $path = $file->storeAs('bukupetunjuk', $file->getClientOriginalName(), 'gcs');
+            $isa->path_foto = $path;
+        }
+
+        if ($file2 = $request->file('file')) {
+            Storage::delete($isa->path_file); // Delete the old file
+            $path2 = $file2->storeAs('file_bukupetunjuk', $file2->getClientOriginalName(), 'gcs');
+            $isa->path_file = $path2;
+        }
+
+        // Update the remaining fields
+        $isa->update([
+            'judul' => $request->judul,
+            'keterangan' => $request->keterangan,
+            'path_foto' => $isa->path_foto ?? $isa->getOriginal('path_foto'), // Retain the original if no new file
+            'path_file' => $isa->path_file ?? $isa->getOriginal('path_file') // Retain the original if no new file
+        ]);
+
+        return redirect(route('bukupetunjuk.index'))->with(['success' => 'Data added successfully!']);
     }
 
     /**
@@ -102,10 +136,11 @@ class BukuPedomanController extends Controller
     public function destroy($id)
     {
         $data = BukuPedoman::find($id)->first();
-        
+
         if ($data) {
             // Delete the file
             Storage::delete($data->path_foto);
+            Storage::delete($data->path_file);
             $data->delete();
         }
 
