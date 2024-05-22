@@ -102,7 +102,8 @@
                                 class="img-fluid" alt="{{ $n->gambarmuka->file_name }}">
                             @endif
                             @else
-                            <img loading="lazy" src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
+                            <img loading="lazy" src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid"
+                                alt="soul of java">
                             @endif
                             <span class="post-date">{{ \Carbon\Carbon::parse($n->date)->format('l') }}, {{
                                 \Carbon\Carbon::parse( $n->date
@@ -162,8 +163,8 @@
                                     src="{{ route('helper.show-picture', ['path' => $testimonial->lokasi_foto]) }}"
                                     alt="profile picture" style="height: 90px; width: 90px;">
                                 @else
-                                <img loading="lazy" src="{{ asset('assets/back/sneat/assets/img/avatars/1.png') }}" alt="user-avatar"
-                                    class="testimonial-img" style="height: 90px; width: 90px;">
+                                <img loading="lazy" src="{{ asset('assets/back/sneat/assets/img/avatars/1.png') }}"
+                                    alt="user-avatar" class="testimonial-img" style="height: 90px; width: 90px;">
                                 @endif
                                 <h3>{{ $testimonial->nama }}</h3>
                                 <h4>{{ $testimonial->jabatan }}</h4>
@@ -200,30 +201,29 @@
                     <a href="https://ayopromo.com">
                         <img loading="lazy" alt="Ayo Promo"
                             src="https://ayopromo.com/show-picture?path=gambar%2FZPAEK8CSkauimapGI5ueJ0iHzsPGqZVYS4Sv0f7H.png"
-                            style="width: 500px;">
+                            style="width: 100%;">
                     </a>
                 </div>
             </div>
 
             <div class="row gy-4">
-
-                <div class="d-flex justify-content-around mt-3">
-                    @for ($index = 0; $index < 6; $index++) <div>
-                        <div id=" iklan" title="Ayo lihat Produk ini">
+                <div class="d-flex justify-content-around mt-3 scroll-x">
+                    <div class="scroll-x-container d-md-none">
+                        @for ($index = 0; $index < 6; $index++) <div class="scroll-x-item" id="iklan"
+                            title="Ayo lihat Produk ini">
                             <a href="" target="_blank" id="link-iklan{{ $index }}">
                                 <img loading="lazy" id="gambar-iklan{{ $index }}" alt="ayopromo.com" style="
-                            border: 1px solid #ddd;
-                            border-radius: 4px;
-                            padding: 5px;
-                            width: 150px;
-                            height: 150px;
-                            ">
+                                        border: 1px solid #ddd;
+                                        border-radius: 4px;
+                                        padding: 5px;
+                                        width: 150px;
+                                        height: 150px;
+                                    ">
                             </a>
-                        </div>
+                    </div>
+                    @endfor
                 </div>
-                @endfor
             </div>
-
         </div>
 
         </div>
@@ -233,6 +233,23 @@
 </main>
 <!-- End #main -->
 @endsection
+@push('after-style')
+<style>
+    .scroll-x-container {
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .scroll-x-item {
+        display: inline-block;
+        width: 150px;
+        /* Adjust based on your needs */
+        vertical-align: top;
+        margin-right: 10px;
+        /* Add margin for spacing between items */
+    }
+</style>
+@endpush
 @push('after-script')
 <script>
     $(document).ready(function () {
