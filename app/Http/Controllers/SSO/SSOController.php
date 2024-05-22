@@ -24,7 +24,7 @@ class SSOController extends Controller
             // 'prompt' => '', // "none", "consent", or "login"
         ]);
 
-        return redirect(env('SSO_HOST') . '/oauth/authorize?' . $query);
+        return redirect(env('SSO_HOST_URL') . '/oauth/authorize?' . $query);
     }
 
     public function getCallback(Request $request)
