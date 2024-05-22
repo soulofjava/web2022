@@ -10,7 +10,7 @@
                     @foreach($data ?? [] as $author)
                     <div class="blog-standard-item wow fadeInUp delay-0-2s">
                         @if($author->gambarmuka)
-                        <img src="{{ route('helper.show-picture', ['path' => $author->gambarmuka->path]) }}"
+                        <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $author->gambarmuka->path]) }}"
                             class="img-fluid" alt="{{ $author->gambarmuka->file_name }}">
                         @else
                         <div class="image">

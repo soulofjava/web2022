@@ -229,6 +229,7 @@
 <style>
     .testimonial-card {
         width: 350px;
+        height: 305px;
         border: 1px solid #ddd;
         border-radius: 8px;
         padding: 20px;
