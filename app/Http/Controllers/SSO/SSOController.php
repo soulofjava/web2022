@@ -37,6 +37,7 @@ class SSOController extends Controller
             'Invalid state value.'
         );
 
+        dd(env('SSO_HOST') . '/oauth/token');
         $response = Http::withoutVerifying()->asForm()->post(env('SSO_HOST') . '/oauth/token', [
             'grant_type' => 'authorization_code',
             'client_id' => env('SSO_CLIENT_ID'),
