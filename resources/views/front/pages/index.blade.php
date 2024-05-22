@@ -818,7 +818,7 @@
         			<div>
         				<div id=" iklan" title="Ayo lihat Produk ini">
                     <a href="" target="_blank" id="link-iklan{{  $index }}">
-                        <img src="pic_trulli.jpg" id="gambar-iklan{{  $index }}" alt="ayopromo.com" style="
+                        <img loading="lazy" src="pic_trulli.jpg" id="gambar-iklan{{  $index }}" alt="ayopromo.com" style="
                             border: 1px solid #ddd;
                             border-radius: 4px;
                             padding: 5px;
