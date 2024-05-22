@@ -8,7 +8,7 @@
       <div class="card">
         <div class="card-body">
 
-          <p>Access Token: {{ session('state') }}</p>
+          <!-- <p>Access Token: {{ session('state') }}</p> -->
           <!-- Logo -->
           <div class="app-brand justify-content-center">
             <a href="{{ url('/') }}" class="app-brand-link gap-2">

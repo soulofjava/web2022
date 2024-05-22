@@ -16,15 +16,15 @@ class SSOController extends Controller
     {
         $request->session()->put("state", $state = Str::random(40));
         $query = http_build_query([
-            'client_id' => '3',
-            'redirect_uri' => 'https://web.lokal:8890/callback',
+            'client_id' => env('SSO_CLIENT_ID'),
+            'redirect_uri' => env('SSO_CLIENT_CALLBACK'),
             'response_type' => 'code',
             'scope' => '',
             'state' => $state,
             // 'prompt' => '', // "none", "consent", or "login"
         ]);
 
-        return redirect('https://api.lokal:8890/oauth/authorize?' . $query);
+        return redirect(env('SSO_HOST') . '/oauth/authorize?' . $query);
     }
 
     public function getCallback(Request $request)
@@ -37,11 +37,11 @@ class SSOController extends Controller
             'Invalid state value.'
         );
 
-        $response = Http::withoutVerifying()->asForm()->post('https://api.lokal:8890/oauth/token', [
+        $response = Http::withoutVerifying()->asForm()->post(env('SSO_HOST') . '/oauth/token', [
             'grant_type' => 'authorization_code',
-            'client_id' => '3',
-            'client_secret' => 'hzRsPrbRcggZa6DjAkqAjIJ206MASOb2VfVYXLql',
-            'redirect_uri' => 'https://web.lokal:8890/callback',
+            'client_id' => env('SSO_CLIENT_ID'),
+            'client_secret' => env('SSO_CLIENT_SECRET'),
+            'redirect_uri' => env('SSO_CLIENT_CALLBACK'),
             'code' => $request->code,
         ]);
 
@@ -63,7 +63,7 @@ class SSOController extends Controller
         $response = Http::withoutVerifying()->withHeaders([
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . $access_token,
-        ])->get('https://api.lokal:8890/api/user');
+        ])->get(env('SSO_HOST') . '/api/user');
 
         $userArray = $response->json();
 
