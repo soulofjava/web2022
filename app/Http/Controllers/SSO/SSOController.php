@@ -52,7 +52,7 @@ class SSOController extends Controller
                 return redirect(route('login'));
             }
         } else {
-            dd($response);
+            dd($response->body());
         }
     }
 
