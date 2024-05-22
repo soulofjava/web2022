@@ -22,7 +22,7 @@ class SekretariatDaerah extends Component
      */
     public function render(): View|Closure|string
     {
-        $response = Http::withoutVerifying()->get('https://api.wonosobokab.go.id/api/setda');
+        $response = Http::withoutVerifying()->get(config('app.iplocal') . '/setda');
 
         if (!$response->successful()) {
             return '<center><h1>Koneksi Gagal...</h1></center>';

@@ -23,7 +23,7 @@ class StafAhliBupati extends Component
     public function render(): View|Closure|string
     {
 
-        $response = Http::withoutVerifying()->get('https://api.wonosobokab.go.id/api/stafahli');
+        $response = Http::withoutVerifying()->get(config('app.iplocal') . '/stafahli');
 
         if (!$response->successful()) {
             return '<center><h1>Koneksi Gagal...</h1></center>';

@@ -15,6 +15,8 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    'iplocal' => env('IP_LOCAL', 'http://10.90.237.7/diskominfo-api/public/api'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment
