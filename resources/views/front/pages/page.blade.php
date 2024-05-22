@@ -71,7 +71,9 @@
                     </div>
                     @endif
 
-                    @if(isset($data->content))
+                    @if(isset($data->content) && !in_array($data->menu_name, ['Staf Ahli Bupati', 'Sekretariat Daerah',
+                    'Perangkat Daerah',
+                    'Kecamatan']))
                     <div class="card">
                         <div class="card-body">
                             {!! $data->content !!}
@@ -79,9 +81,9 @@
                     </div>
                     @endif
 
-                    <!-- @if(isset($data->content) && !in_array($data->menu_name, ['Staf Ahli Bupati', 'Sekretariat Daerah',
+                    @if(isset($data->content) && !in_array($data->menu_name, ['Staf Ahli Bupati', 'Sekretariat Daerah',
                     'Perangkat Daerah',
-                    'Kecamatan']))@endif -->
+                    'Kecamatan']))@endif
 
                 </div>
             </div>
