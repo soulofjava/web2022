@@ -23,6 +23,7 @@ use App\Http\Controllers\SSO\SSOController;
 use App\Http\Controllers\TestimonialController;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
@@ -46,9 +47,17 @@ Route::get('callback', [SSOController::class, 'getCallback'])->name('sso.callbac
 Route::get('ssouser', [SSOController::class, 'connectUser'])->name('sso.authuser');
 
 Route::get('/', function () {
-    // TambahVisitor::dispatch($_SERVER['REMOTE_ADDR']);
     Seo::seO();
-    $news = News::withAnyTag(['berita'])->with('gambarmuka', 'uploader')->where('terbit', 1)->latest('date')->paginate(6);
+
+    $news = Cache::remember('latest_news', 600, function () {
+        return News::withAnyTag(['berita'])
+            ->with('gambarmuka', 'uploader')
+            ->where('terbit', 1)
+            ->latest('date')
+            ->take(6)
+            ->get();
+    });
+    // $news = News::withAnyTag(['berita'])->with('gambarmuka', 'uploader')->where('terbit', 1)->latest('date')->paginate(6);
     return view('front.pages.index', compact('news'));
 })->name('root')->middleware('data_web', 'VisitorMiddleware');
 
@@ -139,4 +148,3 @@ Route::get('template_email', [FrontController::class, 'template_email']);
 Route::post('komentar', [FrontController::class, 'komentar'])->name('komentar');
 
 Route::get('show-picture', [HelperController::class, 'showPicture'])->name('helper.show-picture');
-
