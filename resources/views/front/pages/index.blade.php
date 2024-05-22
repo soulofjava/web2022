@@ -206,7 +206,7 @@
                     <div class="carousel-item {{ ($loop->first) ? 'active' : '' }}">
                         <div class="row">
                             @foreach($chunk as $personil)
-                            <div class="col-md-2">
+                            <div class="col-md-4">
                                 <div class="testimonial-card">
                                     <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $personil->path_foto]) }}"
                                         alt="{{ $personil->nama }}">
