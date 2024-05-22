@@ -24,6 +24,7 @@ use App\Http\Controllers\SSO\SSOController;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
 use App\Models\Website;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 
 /*
@@ -61,10 +62,12 @@ Route::get('/', function () {
         $berita = [];
     }
 
-    $news = News::with('gambarmuka', 'uploader')->latest('date')->paginate(9);
+    $news = Cache::remember('latest_news', 600, function () {
+        return News::with('gambarmuka', 'uploader')->where('terbit', 1)->latest('date')->take(9)->get();
+    });
+
     return view('front.' . $themes->themes_front . '.pages.index', compact('news', 'berita'));
     // return view('front.index', compact('news', 'berita'));
-
 })->name('root')->middleware('data_web', 'VisitorMiddleware');
 
 Route::group(['middleware' => 'data_web'], function () {

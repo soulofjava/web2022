@@ -36,11 +36,11 @@
                             <figure class="image image-1">
                                 <!-- 687x612x -->
                                 @if ($hl->gambarmuka)
-                                <img src="{{ route('helper.show-picture', ['path' => $hl->gambarmuka->path]) }}"
+                                <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $hl->gambarmuka->path]) }}"
                                     alt="thumb"
                                     style="width: 687px !important; height: 612px !important; object-fit: cover !important;">
                                 @else
-                                <img src="{{ asset('master/Detox/assets/images/banner/banner-1.png') }}" alt="thumb">
+                                <img loading="lazy" src="{{ asset('master/Detox/assets/images/banner/banner-1.png') }}" alt="thumb">
                                 @endif
                             </figure>
                         </div>

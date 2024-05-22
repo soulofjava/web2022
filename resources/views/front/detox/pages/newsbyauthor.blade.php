@@ -31,11 +31,11 @@
                                     <div class="image-holder">
                                         <figure class="image-box">
                                             @if(Storage::get($n->gambarmuka->path ?? ''))
-                                            <img src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
+                                            <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
                                                 class="img-fluid" alt="{{ $n->gambarmuka->file_name }}"
                                                 style="object-fit: cover !important; height: 250px; background-position: center; width: 100%;">
                                             @else
-                                            <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid"
+                                            <img loading="lazy" src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid"
                                                 alt="soul of java"
                                                 style="object-fit: cover !important; height: 250px; background-position: center; width: 100%;">
                                             @endif
