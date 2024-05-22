@@ -41,7 +41,7 @@
                             <div id="setda">
                             </div>
                             @elseif($data->menu_name == 'Perangkat Daerah')
-                            <div id="kapalaopda">
+                            <div id="kepalaopd">
                             </div>
                             @elseif($data->menu_name == 'Kecamatan')
                             <div id="camat">

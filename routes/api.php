@@ -24,6 +24,6 @@ Route::get('news', [ApiController::class, 'news']);
 Route::get('cari', [ApiController::class, 'cari']);
 
 Route::get('stafahli', [ApiController::class, 'stafahli'])->name('api.stafahli');
-Route::get('setda', [ApiController::class, 'stafahli'])->name('api.setda');
-Route::get('kapalaopd', [ApiController::class, 'stafahli'])->name('api.kepalaopd');
-Route::get('camat', [ApiController::class, 'stafahli'])->name('api.camat');
+Route::get('setda', [ApiController::class, 'setda'])->name('api.setda');
+Route::get('kepalaopd', [ApiController::class, 'kepalaopd'])->name('api.kepalaopd');
+Route::get('camat', [ApiController::class, 'camat'])->name('api.camat');

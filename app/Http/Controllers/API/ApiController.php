@@ -53,4 +53,24 @@ class ApiController extends Controller
     {
         return view('api.listperson');
     }
+   
+    public function stafahli()
+    {
+        return view('api.stafahli');
+    }
+   
+    public function setda()
+    {
+        return view('api.setda');
+    }
+   
+    public function kepalaopd()
+    {
+        return view('api.kepalaopd');
+    }
+    
+    public function camat()
+    {
+        return view('api.camat');
+    }
 }
