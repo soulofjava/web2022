@@ -35,7 +35,7 @@
                             <img src="{{  $author->gambarmuka->path }}" class="img-fluid"
                                 alt="{{ $author->gambarmuka->file_name }}">
                             @else
-                            <img src="{{ route('helper.show-picture', ['path' => $author->gambarmuka->path]) }}"
+                            <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $author->gambarmuka->path]) }}"
                                 class="img-fluid" alt="{{ $author->gambarmuka->file_name }}">
                             @endif
                             @else

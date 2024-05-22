@@ -96,7 +96,7 @@
                             <img src="{{  $n->gambarmuka->path }}" class="img-fluid"
                                 alt="{{ $n->gambarmuka->file_name }}">
                             @else
-                            <img src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
+                            <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
                                 class="img-fluid" alt="{{ $n->gambarmuka->file_name }}">
                             @endif
                             @else
