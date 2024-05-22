@@ -5,14 +5,14 @@
         @foreach (App\Models\GambarSlide::all() as $item)
         <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
             @mobile
-            <img src="{{ route('helper.show-picture', ['path' => $item->path]) }}" class="d-block w-100"
+            <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $item->path]) }}" class="d-block w-100"
                 alt="Hero Image 1" style="background-repeat: no-repeat;
                         background-position: center;
                         background-size: cover;
                         height: 300px;
                         ">
             @elsemobile
-            <img src="{{ route('helper.show-picture', ['path' => $item->path]) }}" class="d-block w-100"
+            <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $item->path]) }}" class="d-block w-100"
                 alt="Hero Image 1" style="background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
@@ -34,7 +34,7 @@
                     <div class="image">
                         <a href="{{ $rr->url }}" target="_blank">
                             @if(Storage::exists($rr->path_logo))
-                            <img src="{{ route('helper.show-picture', ['path' => $rr->path_logo]) }}" alt="Icon"
+                            <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $rr->path_logo]) }}" alt="Icon"
                                 style="max-width: 100px; max-height: 100px; object-fit: cover;">
                             @else
                             <img src="{{ asset('assets/front/images/features/icon2.png') }}" alt="Icon">
@@ -73,7 +73,7 @@
                     <div class="coach-image">
                         <a href="{{ url('/news-detail', $n->slug) }}">
                             @if($n->gambarmuka)
-                            <img src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
+                            <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
                                 class="img-thumbnail" alt="{{ $n->gambarmuka->file_name }}"
                                 style="object-fit: cover; width: 270px; height: 148px">
                             @else
@@ -120,7 +120,7 @@
                     <div class="coach-image">
                         <a href="{{ url('/news-detail', $iu->slug) }}">
                             @if($iu->gambarmuka)
-                            <img src="{{ route('helper.show-picture', ['path' => $iu->gambarmuka->path]) }}"
+                            <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $iu->gambarmuka->path]) }}"
                                 class="img-thumbnail" alt="{{ $iu->gambarmuka->file_name }}"
                                 style="object-fit: cover; width: 270px; height: 148px">
                             @else
@@ -178,7 +178,7 @@
                         <a target="_blank" href="{{ route('helper.show-picture', ['path' => $bp->path_file]) }}" class="theme-btn">Lihat lebih detail <i class="fas fa-arrow-right"></i></a>
                     </div>
                     <div class="image">
-                        <img src="{{ route('helper.show-picture', ['path' => $bp->path_foto]) }}" height="150px"
+                        <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $bp->path_foto]) }}" height="150px"
                             width="150px" alt="Advertise">
                     </div>
                 </div>
@@ -208,7 +208,7 @@
                             @foreach($chunk as $personil)
                             <div class="col-md-6">
                                 <div class="testimonial-card">
-                                    <img src="{{ route('helper.show-picture', ['path' => $personil->path_foto]) }}"
+                                    <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $personil->path_foto]) }}"
                                         alt="{{ $personil->nama }}">
                                     <p>{{ $personil->nama }}</p>
                                     <footer class="blockquote-footer">{{ $personil->jabatan }}</footer>
