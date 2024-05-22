@@ -11,7 +11,7 @@
         <div class="carousel-inner">
             @forelse($jjj->gambar as $key => $gambar)
             <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                <img src="{{ route('helper.show-picture', ['path' => $gambar->path]) }}" class="d-block w-100"
+                <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $gambar->path]) }}" class="d-block w-100"
                     alt="{{ $gambar->file_name }}">
                 <!-- <div class="carousel-caption">
                         <h3>Slide 1</h3>
