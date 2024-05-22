@@ -1,6 +1,3 @@
-<!-- Preloader -->
-<div class="preloader"></div>
-
 <!-- main header -->
 <header class="main-header {{ (Route::current()->getName() != 'root') ? '' : '' }}">
     <!-- Header-Top -->

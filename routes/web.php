@@ -27,6 +27,7 @@ use App\Http\Controllers\SSO\SSOController;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
 use App\Models\Website;
+use Illuminate\Support\Facades\Cache;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,7 +45,11 @@ Route::get('callback', [SSOController::class, 'getCallback'])->name('sso.callbac
 
 Route::get('/', function () {
     Seo::seO();
-    $news = News::where('tag', 'berita')->where('terbit', 1)->with('gambarmuka', 'uploader')->latest('date')->paginate(8);
+    $news = Cache::remember('latest_news', 600, function () {
+        return News::where('tag', 'berita')->where('terbit', 1)->with('gambarmuka', 'uploader')->latest('date')
+            ->take(8)
+            ->get();
+    });
     return view('front.pages.index', compact('news'));
     // return view('front.index', compact('news', 'berita'));
 })->name('root')->middleware('data_web', 'VisitorMiddleware');
