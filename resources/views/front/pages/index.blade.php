@@ -202,7 +202,7 @@
         <div class="row justify-content-center">
             <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                    @foreach(App\Models\Personil::get()->chunk(2) as $chunk)
+                    @foreach(App\Models\Personil::get()->chunk(5) as $chunk)
                     <div class="carousel-item {{ ($loop->first) ? 'active' : '' }}">
                         <div class="row">
                             @foreach($chunk as $personil)
