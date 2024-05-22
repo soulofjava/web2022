@@ -34,8 +34,8 @@
                     <div class="image">
                         <a href="{{ $rr->url }}" target="_blank">
                             @if(Storage::exists($rr->path_logo))
-                            <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $rr->path_logo]) }}" alt="Icon"
-                                style="max-width: 100px; max-height: 100px; object-fit: cover;">
+                            <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $rr->path_logo]) }}"
+                                alt="Icon" style="max-width: 100px; max-height: 100px; object-fit: cover;">
                             @else
                             <img src="{{ asset('assets/front/images/features/icon2.png') }}" alt="Icon">
                             @endif
@@ -73,7 +73,8 @@
                     <div class="coach-image">
                         <a href="{{ url('/news-detail', $n->slug) }}">
                             @if($n->gambarmuka)
-                            <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
+                            <img loading="lazy"
+                                src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
                                 class="img-thumbnail" alt="{{ $n->gambarmuka->file_name }}"
                                 style="object-fit: cover; width: 270px; height: 148px">
                             @else
@@ -120,7 +121,8 @@
                     <div class="coach-image">
                         <a href="{{ url('/news-detail', $iu->slug) }}">
                             @if($iu->gambarmuka)
-                            <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $iu->gambarmuka->path]) }}"
+                            <img loading="lazy"
+                                src="{{ route('helper.show-picture', ['path' => $iu->gambarmuka->path]) }}"
                                 class="img-thumbnail" alt="{{ $iu->gambarmuka->file_name }}"
                                 style="object-fit: cover; width: 270px; height: 148px">
                             @else
@@ -175,11 +177,12 @@
                     <div class="content">
                         <h4>{{ $bp->judul }}</h4>
                         <p>{{ $bp->keterangan }}</p>
-                        <a target="_blank" href="{{ route('helper.show-picture', ['path' => $bp->path_file]) }}" class="theme-btn">Lihat lebih detail <i class="fas fa-arrow-right"></i></a>
+                        <a target="_blank" href="{{ route('helper.show-picture', ['path' => $bp->path_file]) }}"
+                            class="theme-btn">Lihat lebih detail <i class="fas fa-arrow-right"></i></a>
                     </div>
                     <div class="image">
-                        <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $bp->path_foto]) }}" height="150px"
-                            width="150px" alt="Advertise">
+                        <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $bp->path_foto]) }}"
+                            height="150px" width="150px" alt="Advertise">
                     </div>
                 </div>
             </div>
@@ -208,7 +211,8 @@
                             @foreach($chunk as $personil)
                             <div class="col-md-4">
                                 <div class="testimonial-card">
-                                    <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $personil->path_foto]) }}"
+                                    <img loading="lazy"
+                                        src="{{ route('helper.show-picture', ['path' => $personil->path_foto]) }}"
                                         alt="{{ $personil->nama }}">
                                     <p>{{ $personil->nama }}</p>
                                     <footer class="blockquote-footer">{{ $personil->jabatan }}</footer>
@@ -224,6 +228,46 @@
     </div>
 </section>
 <!-- Advertise Area End -->
+<!-- Counter Start -->
+<div class="counter-section-three">
+    <div class="container">
+        <div class="counter-three-wrap bg-light-blue text-white">
+            <div class="success-item">
+                <span class="count-text " data-speed="3000" data-stop="{{ jmlpegawai() }}">0</span>
+                <span>Jumlah Pegawai</span>
+            </div>
+            <div class="success-item">
+                <span class="count-text " data-speed="3000" data-stop="{{ jmlpns() }}">0</span>
+                <span>Jumlah PNS</span>
+            </div>
+            <div class="success-item">
+                <span class="count-text " data-speed="3000" data-stop="{{ jmlpppk() }}">0</span>
+                <span>Jumlah PPPK</span>
+            </div>
+            <div class="success-item">
+                <span class="count-text " data-speed="3000" data-stop="{{ jmlcpns() }}">0</span>
+                <span>Jumlah CPNS</span>
+            </div>
+            <div class="success-item">
+                <span class="count-text " data-speed="3000" data-stop="{{ jmlstruktural() }}">0</span>
+                <span>Jumlah Struktural</span>
+            </div>
+            <div class="success-item">
+                <span class="count-text " data-speed="3000" data-stop="{{ jmlfungsional() }}">0</span>
+                <span>Jumlah Fungsional</span>
+            </div>
+            <div class="success-item">
+                <span class="count-text " data-speed="3000" data-stop="{{ jmlpelaksana() }}">0</span>
+                <span>Jumlah Pelaksana</span>
+            </div>
+            <div class="success-item">
+                <span class="count-text " data-speed="3000" data-stop="{{ jmlpensiunblnini() }}">0</span>
+                <span>Jumlah Pensiun Bulan Ini</span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Counter End -->
 @endsection
 @push('after-style')
 <style>

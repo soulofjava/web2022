@@ -1,3 +1,4 @@
+
 @extends('front.layouts.app')
 @section('content')
 <!-- Blog Details Start -->

@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Simpeg\Tb01;
+
 if (!function_exists('get_code_group')) {
     function get_code_group($code)
     {
@@ -40,4 +42,69 @@ if (!function_exists('get_kel')) {
     {
         return \App\Models\ComRegion::where("region_root", $code)->pluck('region_nm', 'region_cd');
     }
+}
+
+function jmlpegawai()
+{
+    $data = Tb01::whereNotIn('idjenkedudupeg', [21, 99])->count();
+
+    return $data;
+}
+
+function jmlpns()
+{
+    $data = Tb01::whereNotIn('idjenkedudupeg', [21, 99])->where('idstspeg', 2)->count();
+
+    return $data;
+}
+
+function jmlstruktural()
+{
+    $data = Tb01::whereNotIn('idjenkedudupeg', [21, 99])
+        ->where('idjenjab', '>', 4)
+        ->where('idstspeg', 2)->count();
+
+    return $data;
+}
+
+function jmlpelaksana()
+{
+    $data = Tb01::whereNotIn('idjenkedudupeg', [21, 99])
+        ->where('idjenjab', 3)
+        ->where('idstspeg', 2)->count();
+
+    return $data;
+}
+
+function jmlfungsional()
+{
+    $data = Tb01::whereNotIn('idjenkedudupeg', [21, 99])
+        ->where('idjenjab', 2)
+        ->where('idstspeg', 2)->count();
+
+    return $data;
+}
+
+function jmlpensiunblnini()
+{
+    $data = Tb01::where('idjenkedudupeg', 99)
+        ->whereMonth('tmtpens', date('m'))
+        ->whereYear('tmtpens', date('Y'))
+        ->count();
+
+    return $data;
+}
+
+function jmlpppk()
+{
+    $data = Tb01::whereNotIn('idjenkedudupeg', [21, 99])->where('idstspeg', 3)->count();
+
+    return $data;
+}
+
+function jmlcpns()
+{
+    $data = Tb01::whereNotIn('idjenkedudupeg', [21, 99])->where('idstspeg', 1)->count();
+
+    return $data;
 }
