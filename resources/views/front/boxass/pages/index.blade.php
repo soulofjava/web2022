@@ -37,7 +37,6 @@
 </div>
 <!-- End Banner -->
 
-@if($news->count() != 0)
 <!-- Start Blog Area
     ============================================= -->
 <div id="blog" class="blog-area default-padding bottom-less">
@@ -52,7 +51,13 @@
         <div class="row">
             <div class="blog-items">
                 <!-- Single Item -->
-                @foreach($news as $n)
+                @foreach(App\Models\News::whereNotIn('id', function ($query) {
+                $query->select('taggable_id')
+                ->from('tagging_tagged');
+                })
+                ->where('terbit', 1)
+                ->latest('date')
+                ->take(3)->get() as $n)
                 <div class="col-md-4 single-item">
                     <div class="item">
                         <div class="thumb">
@@ -66,7 +71,7 @@
                                 @endif
                             </a>
                         </div>
-                        <div class="info">
+                        <div class="info" style="height: 304px !important;">
                             <div class="content">
                                 <div class="date">
                                     {{ \Carbon\Carbon::parse($n->date)->format('l') }}, {{
@@ -108,9 +113,6 @@
                         </div>
                     </div>
                 </div>
-                @if($loop->iteration == 3)
-                @break
-                @endif
                 @endforeach
                 <!-- Single Item -->
             </div>
@@ -118,7 +120,6 @@
     </div>
 </div>
 <!-- End Blog Area -->
-@endif
 
 <x-seputar-wonosobo :message='$berita' />
 

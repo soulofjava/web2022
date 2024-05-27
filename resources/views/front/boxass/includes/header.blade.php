@@ -9,9 +9,9 @@
         <div class="row">
             <!-- Start Navigation -->
             <nav id="mainNav"
-                class="navbar navbar-default navbar-fixed white bootsnav on no-full nav-box no-background">
+                class="navbar navbar-default navbar-fixed white bootsnav on no-full nav-box no-background" style="width: 100%; right: 0;">
 
-                <div class="container">
+                <div class="container" style="width: 100%;">
                     <!-- Start Atribute Navigation -->
                     <div class="attr-nav">
                         <ul>
@@ -25,7 +25,7 @@
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                             <i class="fa fa-bars"></i>
                         </button>
-                        <a class="navbar-brand" href="{{ url('/') }}"><img width="50px"
+                        <a class="navbar-brand" href="{{ url('/') }}"><img width="50px" height="50px"
                                 src="{{ asset('assets/pemda.ico') }}" class="logo" alt="Logo"
                                 style="padding-top: 0 !important;"></a>
                     </div>

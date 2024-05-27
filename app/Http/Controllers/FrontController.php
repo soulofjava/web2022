@@ -255,7 +255,7 @@ class FrontController extends Controller
         ->where('terbit', 1)
         ->latest('date')
         ->paginate(9);
-        News::where('terbit', 1)->latest('date')->paginate(9);
+
         $sideposts = News::where('terbit', 1)->latest('date')->take(5)->get();
         return view('front.' . $this->themes->themes_front . '.pages.news', compact('news', 'sideposts'));
     }
