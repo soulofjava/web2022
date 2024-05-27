@@ -70,7 +70,7 @@
                             </div>
                             <div class="acc-content">
                                 <div class="content">
-                                    <p>{{ $faq->jawaban }}</p>
+                                    <p class="abcde">{!! $faq->jawaban !!}</p>
                                 </div>
                             </div>
                         </li>
@@ -83,6 +83,13 @@
 </section>
 <!-- faq-section end -->
 @endsection
+@push('after-style')
+<style>
+    .abcde {
+        all: unset !important;
+    }
+</style>
+@endpush
 @push('after-script')
 <!-- Load Owl Carousel library -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
