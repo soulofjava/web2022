@@ -9,7 +9,7 @@
         <div class="row">
             <!-- Start Navigation -->
             <nav id="mainNav"
-                class="navbar navbar-default navbar-fixed white bootsnav on no-full nav-box no-background" style="width: 100%; right: 0;">
+                class="navbar navbar-default navbar-fixed white bootsnav on no-full nav-box no-background" style="width: 100%; right: 0; top: 0;">
 
                 <div class="container" style="width: 100%;">
                     <!-- Start Atribute Navigation -->
