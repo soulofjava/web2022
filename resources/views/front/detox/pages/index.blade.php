@@ -63,7 +63,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12 inner-column">
                 <div id="content_block_07">
                     <ul class="accordion-box">
-                        @foreach(App\Models\Faq::all() as $faq)
+                        @foreach(App\Models\FAQ::all() as $faq)
                         <li class="accordion block">
                             <div class="acc-btn">
                                 <h4><span>Q.</span>{{ $faq->pertanyaan }}</h4>
