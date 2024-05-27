@@ -1,5 +1,4 @@
 @extends('front.detox.layouts.app')
-
 @section('content')
 <section class="banner-section">
     <div class="owl-carousel owl-theme">
@@ -36,11 +35,13 @@
                             <figure class="image image-1">
                                 <!-- 687x612x -->
                                 @if ($hl->gambarmuka)
-                                <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $hl->gambarmuka->path]) }}"
+                                <img loading="lazy"
+                                    src="{{ route('helper.show-picture', ['path' => $hl->gambarmuka->path]) }}"
                                     alt="thumb"
                                     style="width: 687px !important; height: 612px !important; object-fit: cover !important;">
                                 @else
-                                <img loading="lazy" src="{{ asset('master/Detox/assets/images/banner/banner-1.png') }}" alt="thumb">
+                                <img loading="lazy" src="{{ asset('master/Detox/assets/images/banner/banner-1.png') }}"
+                                    alt="thumb">
                                 @endif
                             </figure>
                         </div>
@@ -52,6 +53,35 @@
     </div>
 </section>
 
+<!-- faq-section -->
+<section class="faq-section faq-page-section sec-pad bg-color-1">
+    <div class="auto-container">
+        <div class="sec-title text-center">
+            <h2>Pertanyaan yang Sering Diajukan</h2>
+            <div class="text">Berikut adalah pertanyaan yang sering diajukan oleh pengunjung</div>
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 inner-column">
+                <div id="content_block_07">
+                    <ul class="accordion-box">
+                        @foreach(App\Models\Faq::all() as $faq)
+                        <li class="accordion block">
+                            <div class="acc-btn">
+                                <h4><span>Q.</span>{{ $faq->pertanyaan }}</h4>
+                            </div>
+                            <div class="acc-content">
+                                <div class="content">
+                                    <p>{{ $faq->jawaban }}</p>
+                                </div>
+                            </div>
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- faq-section end -->
 @endsection
 @push('after-script')
 <!-- Load Owl Carousel library -->

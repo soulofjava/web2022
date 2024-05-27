@@ -1,5 +1,5 @@
 <div>
-    <div>
+    <div style="overflow-y: scroll;">
         <table class="table table-striped table-bordered table-hover">
             <thead class="thead-dark">
                 <tr>

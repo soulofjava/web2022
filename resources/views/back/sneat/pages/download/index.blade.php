@@ -75,7 +75,7 @@
                 lengthMenu: [7, 10, 25, 50, 75, 100],
                 buttons: [
                     {
-                        text: '<i class="bx bx-plus me-1"></i> <span class="d-none d-lg-inline-block">Tambah D</span>',
+                        text: '<i class="bx bx-plus me-1"></i> <span class="d-none d-lg-inline-block">Tambah Data</span>',
                         className: 'create-new btn btn-primary',
                         action: function (e, dt, button, config) {
                             window.location = `{{ route('download.create') }}`;

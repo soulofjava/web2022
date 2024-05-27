@@ -15,6 +15,7 @@ use App\Http\Controllers\RelatedLinkController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\ComRegionController;
 use App\Http\Controllers\DownloadController;
+use App\Http\Controllers\FAQController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\HelperController;
 use App\Http\Controllers\KategoriController;
@@ -113,6 +114,7 @@ Route::group(['middleware' => ['auth', 'data_web', 'cek_inbox'], 'prefix' => 'ad
         Route::resource('kategori', KategoriController::class);
     });
     Route::resource('news', NewsController::class);
+    Route::resource('faq', FAQController::class);
     Route::resource('pinjamtempat', PinjamTempatController::class);
     Route::resource('download', DownloadController::class);
     Route::resource('myprofile', CredentialController::class);

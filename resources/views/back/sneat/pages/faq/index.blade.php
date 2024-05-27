@@ -8,7 +8,7 @@
                 <a href="#">Dashboard</a>
             </li>
             <li class="breadcrumb-item">
-                <a href="#">Agenda</a>
+                <a href="#">FAQ</a>
             </li>
             <li class="breadcrumb-item active">Data</li>
         </ol>
@@ -23,9 +23,8 @@
                     <thead>
                         <tr>
                             <th style="text-align: center;">id</th>
-                            <th style="text-align: center;">Tanggal</th>
-                            <th style="text-align: center;">Nama Kegiatan</th>
-                            <th style="text-align: center;">Lokasi Kegiatan</th>
+                            <th style="text-align: center;">Pertanyaan</th>
+                            <th style="text-align: center;">Jawaban</th>
                             <th style="text-align: center;">Aksi</th>
                         </tr>
                     </thead>
@@ -65,9 +64,8 @@
                 serverSide: true,
                 columns: [
                     { data: 'DT_RowIndex', orderable: false, searchable: false },
-                    { data: 'date', name: 'date' },
-                    { data: 'title', name: 'title' },
-                    { data: 'location', name: 'location' },
+                    { data: 'pertanyaan', name: 'pertanyaan' },
+                    { data: 'jawaban', name: 'jawaban' },
                     { data: 'action' },
                 ],
                 bSort: false,
@@ -80,7 +78,7 @@
                         text: '<i class="bx bx-plus me-1"></i> <span class="d-none d-lg-inline-block">Tambah Data</span>',
                         className: 'create-new btn btn-primary',
                         action: function (e, dt, button, config) {
-                            window.location = `{{ route('event.create') }}`;
+                            window.location = `{{ route('faq.create') }}`;
                         }
                     }
                 ],
