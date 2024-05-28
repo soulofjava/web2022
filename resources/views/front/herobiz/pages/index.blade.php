@@ -68,7 +68,7 @@ background-position: center;" data-aos="zoom-out">
                             @if($n->gambarmuka)
                             <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
                                 class="img-thumbnail" alt="{{ $n->gambarmuka->file_name }}"
-                                style="flex-shrink: 0;" height="250px">
+                                style="flex-shrink: 0; height: 250px !important;">
                             @else
                             <img loading="lazy" src="{{ asset('img/soulofjava.jpg') }}" class="img-thumbnail" alt="soul of java"
                                 style="flex-shrink: 0;">
