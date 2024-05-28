@@ -76,10 +76,10 @@
                             @foreach($news as $n)
                             <div class="post-item clearfix mt-3">
                                 @if($n->gambarmuka)
-                                <img src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
+                                <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
                                     style="min-width: 80px !important; min-height: 60px !important; max-width: 80px !important; max-height: 60px !important; object-fit: cover;">
                                 @else
-                                <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid"
+                                <img loading="lazy" src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid"
                                     style="width: 80px; height: 60;">
                                 @endif
                                 <h4><a href="{{ url('/news-detail', $n->slug) }}">

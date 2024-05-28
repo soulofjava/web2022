@@ -21,19 +21,19 @@ background-position: center;" data-aos="zoom-out">
 
     <div class="media d-flex align-items-between mb-10">
         <div class="avatar avatar-sm avatar-circle mr-3">
-            <img class="img-fluid animated" src="https://sumutprov.go.id/images/spbe.png" alt="Image Description"
+            <img loading="lazy" class="img-fluid animated" src="https://sumutprov.go.id/images/spbe.png" alt="Image Description"
                 style="width:800px">
         </div>
         <div class="avatar avatar-sm avatar-circle mr-3">
-            <img class="img-fluid animated" src="https://diskominfo.wonosobokab.go.id/front/assets/images/pemkab.png"
+            <img loading="lazy" class="img-fluid animated" src="https://diskominfo.wonosobokab.go.id/front/assets/images/pemkab.png"
                 alt="Image Description" style="width:800px">
         </div>
         <div class="avatar avatar-sm avatar-circle mr-3">
-            <img class="img-fluid animated" src="https://diskominfo.wonosobokab.go.id/front/assets/images/soull.png"
+            <img loading="lazy" class="img-fluid animated" src="https://diskominfo.wonosobokab.go.id/front/assets/images/soull.png"
                 alt="Image Description" style="width:800px">
         </div>
         <div class="avatar avatar-sm avatar-circle mr-3">
-            <img class="img-fluid animated" src="https://diskominfo.wonosobokab.go.id/front/assets/images/smartcity.png"
+            <img loading="lazy" class="img-fluid animated" src="https://diskominfo.wonosobokab.go.id/front/assets/images/smartcity.png"
                 alt="Image Description" style="width:800px">
         </div>
     </div>
@@ -64,13 +64,13 @@ background-position: center;" data-aos="zoom-out">
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200" style="display: flex">
                     <div class="post-box">
                         <div class="post-img"
-                            style="width: 500px; height: 500px; justify-content: center; align-items: center; display: flex; overflow: hidden;">
+                            style="width: 500px; justify-content: center; align-items: center; display: flex; overflow: hidden;">
                             @if($n->gambarmuka)
-                            <img src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
+                            <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
                                 class="img-thumbnail" alt="{{ $n->gambarmuka->file_name }}"
                                 style="flex-shrink: 0; min-width: 100%; min-height: 100%">
                             @else
-                            <img src="{{ asset('img/soulofjava.jpg') }}" class="img-thumbnail" alt="soul of java"
+                            <img loading="lazy" src="{{ asset('img/soulofjava.jpg') }}" class="img-thumbnail" alt="soul of java"
                                 style="flex-shrink: 0; min-width: 100%; min-height: 100%">
                             @endif
                         </div>

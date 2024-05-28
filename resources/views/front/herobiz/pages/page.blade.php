@@ -36,5 +36,3 @@
 
 </main>
 @endsection
-@push('after-script')
-@endpush
