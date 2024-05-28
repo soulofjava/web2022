@@ -64,11 +64,11 @@ background-position: center;" data-aos="zoom-out">
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200" style="display: flex">
                     <div class="post-box">
                         <div class="post-img"
-                            style="justify-content: center; align-items: center; display: flex; overflow: hidden; height: 250px;">
+                            style="justify-content: center; align-items: center; display: flex; overflow: hidden; height: 250px !important;">
                             @if($n->gambarmuka)
                             <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
                                 class="img-thumbnail" alt="{{ $n->gambarmuka->file_name }}"
-                                style="flex-shrink: 0;">
+                                style="flex-shrink: 0;" height="250px">
                             @else
                             <img loading="lazy" src="{{ asset('img/soulofjava.jpg') }}" class="img-thumbnail" alt="soul of java"
                                 style="flex-shrink: 0;">
