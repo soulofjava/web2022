@@ -15,10 +15,10 @@
                 <div class="card" style="border-radius: 15px">
                     <div>
                         @if(Storage::get($n->path))
-                        <img src="{{ route('helper.show-picture', ['path' => $n->path]) }}" style="border-radius: 15px"
+                        <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $n->path]) }}" style="border-radius: 15px; height: 304px; width: 304px; object-fit: cover;"
                             class="img-fluid">
                         @else
-                        <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                        <img loading="lazy" src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
                         @endif
                     </div>
                     <span class="m-1" style="color: grey; text-align: center;">{{
