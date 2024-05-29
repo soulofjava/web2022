@@ -14,3 +14,5 @@
 <!-- DataTables   -->
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+<!-- accessibility widget -->
+<script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
