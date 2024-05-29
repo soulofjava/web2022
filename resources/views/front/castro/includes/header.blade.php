@@ -208,7 +208,7 @@
                                 </li>
                                 @endif
                                 @endforeach
-                                <x-komponen li='' a="" ul="" />
+                                <x-komponen li='dropdown' a="" ul="" />
                             </ul>
                         </div>
                     </nav>

@@ -9,7 +9,9 @@
 @endif
 @if($component->slug == 'complaints')
 <li class="{{ $li }}">
-    <a class="{{ $a }}" href="#"><span>{{ $component->name }}</span> <i class="{{ $i }}"></i></a>
+    <a class="{{ $a }}" href="#">
+        {{ $component->name }} 
+    </a>
     <ul class="{{ $ul }}">
         <li>
             <a href="https://laporbupati.wonosobokab.go.id/" target="_blank">LaporBup</a>
