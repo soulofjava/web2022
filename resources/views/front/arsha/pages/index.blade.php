@@ -20,10 +20,10 @@
             </div>
             <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
                 @if($data_website->image_hero)
-                <img src="{{ route('helper.show-picture', ['path' => $data_website->image_hero]) }}"
+                <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $data_website->image_hero]) }}"
                     class="img-fluid animated">
                 @else
-                <img src="{{ asset('assets/front/arsha/assets/img/hero-img.png') }}" class="img-fluid animated">
+                <img loading="lazy" src="{{ asset('assets/front/arsha/assets/img/hero-img.png') }}" class="img-fluid animated">
                 @endif
             </div>
         </div>
@@ -48,9 +48,9 @@
                     <div class="icon-box">
                         <div class="post-img">
                             @if(Storage::get($n->path))
-                            <img src="{{ route('helper.show-picture', ['path' => $n->path]) }}" class="img-fluid">
+                            <img loading="lazy" style="height: 165px; width: 100%; object-fit: cover;" src="{{ route('helper.show-picture', ['path' => $n->path]) }}" class="img-fluid">
                             @else
-                            <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                            <img loading="lazy" src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
                             @endif
                         </div>
                         <h4 style="text-align: center;"><a href="{{ url('/news-detail', $n->slug) }}">
@@ -93,9 +93,9 @@
                 <div class="col-lg-3 col-md-6 portfolio-item filter-web">
                     <div class="portfolio-img">
                         @if(Storage::get($g->path))
-                        <img src="{{ route('helper.show-picture', ['path' => $g->path]) }}" class="img-fluid">
+                        <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $g->path]) }}" class="img-fluid">
                         @else
-                        <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                        <img loading="lazy" src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
                         @endif
                     </div>
                     <div class="portfolio-info">
