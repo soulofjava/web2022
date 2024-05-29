@@ -25,9 +25,9 @@
                         <div class="card mb-3">
                             <div class="entry-img" style="text-align: center;">
                                 @if(file_exists(public_path('storage/'.$author->path)))
-                                <img src="{{ asset('storage/') }}/{{ $author->path}}" class="img-fluid">
+                                <img loading="lazy" src="{{ asset('storage/') }}/{{ $author->path}}" class="img-fluid">
                                 @else
-                                <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                                <img loading="lazy" src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
                                 @endif
                             </div>
                             <h2 class="entry-title" style="text-align: center;">
@@ -83,10 +83,10 @@
                             <div class="row g-0">
                                 <div class="col-md-4 d-flex justify-content-center p-1">
                                     @if(Storage::get($n->path))
-                                    <img src="{{ route('helper.show-picture', ['path' => $n->path]) }}"
+                                    <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $n->path]) }}"
                                         class="img-fluid rounded-start rounded-end">
                                     @else
-                                    <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                                    <img loading="lazy" src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
                                     @endif
                                 </div>
                                 <div class="col-md-8" style="text-align: center;">

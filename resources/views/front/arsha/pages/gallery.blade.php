@@ -28,9 +28,9 @@
                 <div class="col-lg-4 col-md-6 portfolio-item filter-web">
                     <div class="portfolio-img">
                         @if(Storage::get($g->path))
-                        <img src="{{ route('helper.show-picture', ['path' => $g->path]) }}" class="img-fluid">
+                        <img loading="lazy" style="width: 416px; height: 234px; object-fit: cover;" src="{{ route('helper.show-picture', ['path' => $g->path]) }}" class="img-fluid">
                         @else
-                        <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                        <img loading="lazy" src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
                         @endif
                     </div>
                     <div class="portfolio-info">

@@ -18,9 +18,9 @@
                 <div class="col-lg-8 col-md-8">
                     <div class="card mb-3">
                         @if(Storage::get($data->path))
-                        <img src="{{ route('helper.show-picture', ['path' => $data->path]) }}" class="card-img-top">
+                        <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $data->path]) }}" class="card-img-top">
                         @else
-                        <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                        <img loading="lazy" src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
                         @endif
                         <div class="card-body">
                             <h5 class="card-title text-center">
@@ -78,10 +78,10 @@
                             <div class="row g-0">
                                 <div class="col-md-4 d-flex justify-content-center p-1">
                                     @if(Storage::get($n->path))
-                                    <img src="{{ route('helper.show-picture', ['path' => $n->path]) }}"
+                                    <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $n->path]) }}"
                                         class="img-fluid rounded-start rounded-end">
                                     @else
-                                    <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                                    <img loading="lazy" src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
                                     @endif
                                 </div>
                                 <div class="col-md-8" style="text-align: center;">
