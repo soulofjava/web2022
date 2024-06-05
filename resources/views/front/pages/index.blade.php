@@ -231,37 +231,37 @@
 <!-- Counter Start -->
 <div class="counter-section-three">
     <div class="container">
-        <div class="counter-three-wrap bg-light-blue text-white">
-            <div class="success-item">
-                <span class="count-text " data-speed="3000" data-stop="{{ jmlpegawai() }}">0</span>
+        <div class="counter-three-wrap bg-light-blue text-white" style="padding: 0; ">
+            <div class="success-item" style="padding: 15px 15px;">
+                <span class="count-text " style="font-size: 25px;" data-speed="3000" data-stop="{{ jmlpegawai() }}">0</span>
                 <span>Jumlah ASN</span>
             </div>
-            <div class="success-item">
-                <span class="count-text " data-speed="3000" data-stop="{{ jmlpns() }}">0</span>
+            <div class="success-item" style="padding: 15px 15px;">
+                <span class="count-text " style="font-size: 25px;" data-speed="3000" data-stop="{{ jmlpns() }}">0</span>
                 <span>Jumlah PNS</span>
             </div>
-            <div class="success-item">
-                <span class="count-text " data-speed="3000" data-stop="{{ jmlpppk() }}">0</span>
+            <div class="success-item" style="padding: 15px 15px;">
+                <span class="count-text " style="font-size: 25px;" data-speed="3000" data-stop="{{ jmlpppk() }}">0</span>
                 <span>Jumlah PPPK</span>
             </div>
-            <div class="success-item">
-                <span class="count-text " data-speed="3000" data-stop="{{ jmlcpns() }}">0</span>
+            <div class="success-item" style="padding: 15px 15px;">
+                <span class="count-text " style="font-size: 25px;" data-speed="3000" data-stop="{{ jmlcpns() }}">0</span>
                 <span>Jumlah CPNS</span>
             </div>
-            <div class="success-item">
-                <span class="count-text " data-speed="3000" data-stop="{{ jmlstruktural() }}">0</span>
+            <div class="success-item" style="padding: 15px 15px;">
+                <span class="count-text " style="font-size: 25px;" data-speed="3000" data-stop="{{ jmlstruktural() }}">0</span>
                 <span>Jumlah Struktural</span>
             </div>
-            <div class="success-item">
-                <span class="count-text " data-speed="3000" data-stop="{{ jmlfungsional() }}">0</span>
+            <div class="success-item" style="padding: 15px 15px;">
+                <span class="count-text " style="font-size: 25px;" data-speed="3000" data-stop="{{ jmlfungsional() }}">0</span>
                 <span>Jumlah Fungsional</span>
             </div>
-            <div class="success-item">
-                <span class="count-text " data-speed="3000" data-stop="{{ jmlpelaksana() }}">0</span>
+            <div class="success-item" style="padding: 15px 15px;">
+                <span class="count-text " style="font-size: 25px;" data-speed="3000" data-stop="{{ jmlpelaksana() }}">0</span>
                 <span>Jumlah Pelaksana</span>
             </div>
-            <div class="success-item">
-                <span class="count-text " data-speed="3000" data-stop="{{ jmlpensiunblnini() }}">0</span>
+            <div class="success-item" style="padding: 15px 15px;">
+                <span class="count-text " style="font-size: 25px;" data-speed="3000" data-stop="{{ jmlpensiunblnini() }}">0</span>
                 <span>Jumlah Pensiun Bulan Ini</span>
             </div>
         </div>
