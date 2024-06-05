@@ -46,7 +46,7 @@
                                 </div>
                             </li>
                         </div>
-                        <div class="entry-content m-1">
+                        <div class="entry-content m-1" style="overflow-x: scroll;">
                             {!! $data->description !!}
                             <hr>
                             @if($file->count() != 0)
