@@ -3,7 +3,7 @@
         @forelse($jjj->gambar as $gambar)
         <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
             <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $gambar->path]) }}" class="d-block w-100"
-                alt="{{ $gambar->file_name }}" style="width: 416px; height: 312px;">
+                alt="{{ $gambar->file_name }}" style="width: 416px; height: 312px; object-fit: cover;">
         </div>
         @empty
         <div class="carousel-item active">
