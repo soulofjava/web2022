@@ -194,7 +194,7 @@
 
 <!-- Advertise Area Start -->
 <section class="advertise-area pt-40 pb-100 rpb-70">
-    <div class="container">
+    <div class="">
         <div class="row justify-content-center">
             <div class="col-xl-6 col-lg-7 col-md-8">
                 <div class="section-title text-center mb-40">
@@ -207,7 +207,7 @@
                 <div class="carousel-inner">
                     @foreach(App\Models\Personil::get()->chunk(5) as $chunk)
                     <div class="carousel-item {{ ($loop->first) ? 'active' : '' }}">
-                        <div class="row justify-content-between">
+                        <div class="row justify-content-between" style="padding-right: 50px;">
                             @foreach($chunk as $personil)
                             <div class="col-md-2">
                                 <div class="testimonial-card">
@@ -234,7 +234,7 @@
         <div class="counter-three-wrap bg-light-blue text-white">
             <div class="success-item">
                 <span class="count-text " data-speed="3000" data-stop="{{ jmlpegawai() }}">0</span>
-                <span>Jumlah Pegawai</span>
+                <span>Jumlah ASN</span>
             </div>
             <div class="success-item">
                 <span class="count-text " data-speed="3000" data-stop="{{ jmlpns() }}">0</span>
