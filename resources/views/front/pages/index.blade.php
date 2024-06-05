@@ -198,18 +198,18 @@
         <div class="row justify-content-center">
             <div class="col-xl-6 col-lg-7 col-md-8">
                 <div class="section-title text-center mb-40">
-                    <h3>Personil</h3>
+                    <h3>Struktur BKD</h3>
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center">
+        <div class="row justify-content-between">
             <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     @foreach(App\Models\Personil::get()->chunk(5) as $chunk)
                     <div class="carousel-item {{ ($loop->first) ? 'active' : '' }}">
                         <div class="row">
                             @foreach($chunk as $personil)
-                            <div class="col-md-4">
+                            <div class="col-md-2">
                                 <div class="testimonial-card">
                                     <img loading="lazy"
                                         src="{{ route('helper.show-picture', ['path' => $personil->path_foto]) }}"
@@ -272,8 +272,8 @@
 @push('after-style')
 <style>
     .testimonial-card {
-        width: 350px;
-        height: 305px;
+        width: 200px;
+        height: 400px;
         border: 1px solid #ddd;
         border-radius: 8px;
         padding: 20px;
