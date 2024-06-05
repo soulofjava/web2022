@@ -20,4 +20,10 @@ class FrontMenu extends Model
     {
         return $this->hasMany(FrontMenu::class, 'menu_parent');
     }
+
+    public function getContentAttribute($value)
+    {
+        $newValue = str_replace('src="/storage/photos', 'src="' . url('show-picture?path=photos/'), $value);
+        return $newValue;
+    }
 }
