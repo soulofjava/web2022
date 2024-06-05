@@ -8,7 +8,7 @@ use Livewire\Component;
 
 class HalamanTransparansi extends Component
 {
-    public $kategorine, $kategoriTerpilih = null, $datane = null;
+    public $kategorine, $kategoriTerpilih = null, $datane = null, $tahun, $tahunTerpilih = null;
 
     public function mount()
     {
@@ -20,14 +20,36 @@ class HalamanTransparansi extends Component
             ->pluck('name');
     }
 
+    public function ubahTahun($t)
+    {
+        $this->tahunTerpilih = $t;
+
+        $this->datane = News::whereIn('tag', [$this->kategoriTerpilih]) // Changed to use selected category
+            ->whereNotNull('tag')
+            ->where('terbit', 1)
+            ->when($this->tahunTerpilih, function ($query) {
+                $query->whereYear('date', $this->tahunTerpilih);
+            })
+            ->latest('date')
+            ->get();
+    }
+
     public function ubahPilih($kat)
     {
         $this->kategoriTerpilih = $kat;
+        $this->tahunTerpilih = null;
+
         $this->datane = News::whereIn('tag', [$this->kategoriTerpilih]) // Changed to use selected category
             ->whereNotNull('tag')
             ->where('terbit', 1)
             ->latest('date')
             ->get();
+
+        $this->tahun = $this->datane->pluck('date')->sortBy(function ($date) {
+            return strtotime($date);
+        })->map(function ($item) {
+            return date('Y', strtotime($item));
+        })->unique();
     }
 
     public function render()

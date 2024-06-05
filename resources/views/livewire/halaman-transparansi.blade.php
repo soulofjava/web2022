@@ -16,6 +16,15 @@
                 </li>
                 @endforeach
             </ul>
+            @if($datane)
+            <ul class="coach-filter mb-35">
+                @foreach($tahun as $t)
+                <li class="@if($tahunTerpilih === $t) current @endif" wire:click.prevent="ubahTahun('{{ $t }}')">
+                    {{ $t }}
+                </li>
+                @endforeach
+            </ul>
+            @endif
             <div class="row coach-active justify-content-center">
                 @if($datane)
                 @forelse($datane as $iu)
