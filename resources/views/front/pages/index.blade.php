@@ -202,12 +202,12 @@
                 </div>
             </div>
         </div>
-        <div class="row justify-content-between">
+        <div class="row justify-content-center">
             <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     @foreach(App\Models\Personil::get()->chunk(5) as $chunk)
                     <div class="carousel-item {{ ($loop->first) ? 'active' : '' }}">
-                        <div class="row">
+                        <div class="row justify-content-between">
                             @foreach($chunk as $personil)
                             <div class="col-md-2">
                                 <div class="testimonial-card">
