@@ -23,7 +23,8 @@ class FrontMenu extends Model
 
     public function getContentAttribute($value)
     {
-        $newValue = str_replace('src="/storage/photos', 'src="' . url('show-picture?path=photos/'), $value);
+        $newValue = str_replace('src="/storage/photos/', 'src="' . url('show-picture?path=photos/'), $value);
+        $newValue = str_replace('href="/storage/files/', 'href="' . url('show-picture?path=files/'), $newValue);
         return $newValue;
     }
 }
