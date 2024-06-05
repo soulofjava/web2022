@@ -1,17 +1,10 @@
 <div id="carouselExample" class="carousel slide">
     <div class="carousel-inner">
         @forelse($jjj->gambar as $gambar)
-        @if($loop->iteration == 1)
-        <div class="carousel-item active">
+        <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
             <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $gambar->path]) }}" class="d-block w-100"
-                alt="{{ $gambar->file_name }}">
+                alt="{{ $gambar->file_name }}" style="width: 416px; height: 312px;">
         </div>
-        @else
-        <div class="carousel-item">
-            <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $gambar->path]) }}" class="d-block w-100"
-                alt="{{ $gambar->file_name }}">
-        </div>
-        @endif
         @empty
         <div class="carousel-item active">
             <img loading="lazy" src="{{ asset('img/soulofjava.jpg') }}" class="d-block w-100" alt="soul of java">
