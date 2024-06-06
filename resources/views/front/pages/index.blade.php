@@ -209,7 +209,7 @@
                     <div class="carousel-item {{ ($loop->first) ? 'active' : '' }}">
                         <div class="row justify-content-between" style="padding-right: 50px;">
                             @foreach($chunk as $personil)
-                            <div class="col-md-2">
+                            <div class="col-sm-12 col-md-2">
                                 <div class="testimonial-card">
                                     <img loading="lazy"
                                         src="{{ route('helper.show-picture', ['path' => $personil->path_foto]) }}"

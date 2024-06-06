@@ -10,7 +10,7 @@
                             <h5 class="card-title text-primary">Welcome Back {{ Auth::user()->name }}! 🎉</h5>
                             <p class="mb-4">
                                 @php
-                                $hariLabels = [''];
+                                $hariLabels = [];
                                 $totalPengunjung = [];
 
                                 foreach ($statPengPerHari as $hari => $jumlahPengunjung) {
@@ -18,7 +18,6 @@
                                 $totalPengunjung[] = $jumlahPengunjung;
                                 }
                                 @endphp
-
                                 <!-- You have done <span class="fw-bold">72%</span> more sales today.
                                 Check your new badge in
                                 your profile. -->
@@ -260,7 +259,7 @@
     },
     yaxis: {
         labels: {
-            show: false
+            show: true
         },
         min: 0,
             max: 500,
