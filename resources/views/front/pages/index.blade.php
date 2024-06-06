@@ -207,25 +207,33 @@
                 <div class="carousel-inner">
                     @foreach(App\Models\Personil::get()->chunk(5) as $chunk)
                     <div class="carousel-item {{ ($loop->first) ? 'active' : '' }}">
-                        <div class="row justify-content-between" style="padding-right: 50px;">
-                            @foreach($chunk as $personil)
-                            <div class="col-sm-12 col-md-2">
-                                <div class="testimonial-card">
-                                    <img loading="lazy"
-                                        src="{{ route('helper.show-picture', ['path' => $personil->path_foto]) }}"
-                                        alt="{{ $personil->nama }}">
-                                    <p>{{ $personil->nama }}</p>
-                                    <footer class="blockquote-footer">{{ $personil->jabatan }}</footer>
+                        @mobile
+                        <div class="row justify-content-center" style="padding-right: 50px;">
+                            @elsemobile
+                            <div class="row justify-content-between" style="padding-right: 50px;">
+                                @endmobile
+                                @foreach($chunk as $personil)
+                                <div class="col-md-2">
+                                    @mobile
+                                    <div class="testimonial-card-mobile">
+                                        @elsemobile
+                                        <div class="testimonial-card">
+                                            @endmobile
+                                            <img loading="lazy"
+                                                src="{{ route('helper.show-picture', ['path' => $personil->path_foto]) }}"
+                                                alt="{{ $personil->nama }}">
+                                            <p>{{ $personil->nama }}</p>
+                                            <footer class="blockquote-footer">{{ $personil->jabatan }}</footer>
+                                        </div>
+                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                             @endforeach
                         </div>
                     </div>
-                    @endforeach
                 </div>
             </div>
-        </div>
-    </div>
 </section>
 <!-- Advertise Area End -->
 <!-- Counter Start -->
@@ -233,7 +241,8 @@
     <div class="container">
         <div class="counter-three-wrap bg-light-blue text-white" style="padding: 0; ">
             <div class="success-item" style="padding: 15px 15px;">
-                <span class="count-text " style="font-size: 25px;" data-speed="3000" data-stop="{{ jmlpegawai() }}">0</span>
+                <span class="count-text " style="font-size: 25px;" data-speed="3000"
+                    data-stop="{{ jmlpegawai() }}">0</span>
                 <span>Jumlah ASN</span>
             </div>
             <div class="success-item" style="padding: 15px 15px;">
@@ -241,27 +250,33 @@
                 <span>Jumlah PNS</span>
             </div>
             <div class="success-item" style="padding: 15px 15px;">
-                <span class="count-text " style="font-size: 25px;" data-speed="3000" data-stop="{{ jmlpppk() }}">0</span>
+                <span class="count-text " style="font-size: 25px;" data-speed="3000"
+                    data-stop="{{ jmlpppk() }}">0</span>
                 <span>Jumlah PPPK</span>
             </div>
             <div class="success-item" style="padding: 15px 15px;">
-                <span class="count-text " style="font-size: 25px;" data-speed="3000" data-stop="{{ jmlcpns() }}">0</span>
+                <span class="count-text " style="font-size: 25px;" data-speed="3000"
+                    data-stop="{{ jmlcpns() }}">0</span>
                 <span>Jumlah CPNS</span>
             </div>
             <div class="success-item" style="padding: 15px 15px;">
-                <span class="count-text " style="font-size: 25px;" data-speed="3000" data-stop="{{ jmlstruktural() }}">0</span>
+                <span class="count-text " style="font-size: 25px;" data-speed="3000"
+                    data-stop="{{ jmlstruktural() }}">0</span>
                 <span>Jumlah Struktural</span>
             </div>
             <div class="success-item" style="padding: 15px 15px;">
-                <span class="count-text " style="font-size: 25px;" data-speed="3000" data-stop="{{ jmlfungsional() }}">0</span>
+                <span class="count-text " style="font-size: 25px;" data-speed="3000"
+                    data-stop="{{ jmlfungsional() }}">0</span>
                 <span>Jumlah Fungsional</span>
             </div>
             <div class="success-item" style="padding: 15px 15px;">
-                <span class="count-text " style="font-size: 25px;" data-speed="3000" data-stop="{{ jmlpelaksana() }}">0</span>
+                <span class="count-text " style="font-size: 25px;" data-speed="3000"
+                    data-stop="{{ jmlpelaksana() }}">0</span>
                 <span>Jumlah Pelaksana</span>
             </div>
             <div class="success-item" style="padding: 15px 15px;">
-                <span class="count-text " style="font-size: 25px;" data-speed="3000" data-stop="{{ jmlpensiunblnini() }}">0</span>
+                <span class="count-text " style="font-size: 25px;" data-speed="3000"
+                    data-stop="{{ jmlpensiunblnini() }}">0</span>
                 <span>Jumlah Pensiun Bulan Ini</span>
             </div>
         </div>
@@ -271,9 +286,38 @@
 @endsection
 @push('after-style')
 <style>
+    .testimonial-card-mobile {
+        width: 100%;
+        height: 300px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 25px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .testimonial-card-mobile img {
+        width: 150px;
+        height: 150px;
+        object-fit: contain;
+        /* border-radius: 50%; */
+        margin-bottom: 15px;
+    }
+
+    .testimonial-card-mobile p {
+        font-size: 1rem;
+        font-style: italic;
+    }
+
+    .testimonial-card-mobile footer {
+        font-size: 0.9rem;
+        color: #777;
+    }
+
     .testimonial-card {
         width: 200px;
-        height: 400px;
+        height: 360px;
         border: 1px solid #ddd;
         border-radius: 8px;
         padding: 20px;
