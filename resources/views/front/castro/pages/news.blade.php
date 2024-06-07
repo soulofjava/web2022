@@ -35,7 +35,7 @@
                                 style="object-fit: cover !important; height: 240px; background-position: center; width: 100%;">
                             @endif
                         </figure>
-                        <div class="lower-content" style="height: 271px;">
+                        <div class="lower-content" style="height: 220px;">
                             <span class="post-date">
                                 {{ \Carbon\Carbon::parse($n->date)->isoFormat('dddd, D MMMM YYYY') }}
                             </span>
