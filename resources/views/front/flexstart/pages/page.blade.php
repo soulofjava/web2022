@@ -22,14 +22,8 @@
                 <div class="col">
                     <div class="card mb-3">
                         <div class="card-body">
-                            <div class="card-content">
-                                @if($data->menu_name == 'Permohonan Informasi Publik')
-                                <x-form-permohonan-informasi-publik />
-                                @elseif($data->menu_name == 'Pengajuan Keberatan Informasi Publik')
-                                <x-form-pengajuan-keberatan-informasi-publik />
-                                @else
+                            <div class="card-content" style="overflow-x: scroll;">
                                 {!! $data->content !!}
-                                @endif
                             </div>
                         </div>
                     </div>
