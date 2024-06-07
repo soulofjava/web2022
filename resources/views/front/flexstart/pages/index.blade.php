@@ -104,25 +104,25 @@
                 <div class="col-lg-6">
                     <div class="row gy-4">
                         <div class="col-md-6">
-                            <div class="info-box"> <i class="bi bi-geo-alt"></i>
+                            <div class="info-box" style="height: 230px;"> <i class="bi bi-geo-alt"></i>
                                 <h3>Address</h3>
                                 <p>{{ $data_website->address }}</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="info-box"> <i class="bi bi-telephone"></i>
+                            <div class="info-box" style="height: 230px;"> <i class="bi bi-telephone"></i>
                                 <h3>Call Us</h3>
                                 <p>{{ $data_website->phone }}</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="info-box"> <i class="bi bi-envelope"></i>
+                            <div class="info-box" style="height: 230px;"> <i class="bi bi-envelope"></i>
                                 <h3>Email Us</h3>
                                 <p>{{ $data_website->email }}</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="info-box"> <i class="bi bi-clock"></i>
+                            <div class="info-box" style="height: 230px;"> <i class="bi bi-clock"></i>
                                 <h3>Open Hours</h3>
                                 <p>{{ $data_website->open_hours }}</p>
                             </div>
