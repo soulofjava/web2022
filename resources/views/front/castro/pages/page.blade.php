@@ -21,7 +21,7 @@
 <!-- blog-details -->
 <section class="blog-details">
     <div class="auto-container">
-        <div class="blog-details-content">
+        <div class="blog-details-content" style="overflow-x: scroll;">
             @if($data->menu_name == 'Daftar Informasi Publik')
             <x-jip />
             @elseif($data->menu_name == 'Daftar Informasi yang Dikecualikan')
