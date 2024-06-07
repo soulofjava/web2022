@@ -23,10 +23,10 @@
             </div>
             <div class="col-lg-6 hero-img aos-init aos-animate" data-aos="zoom-out" data-aos-delay="200">
                 @if($data_website->image_hero)
-                <img src="{{ route('helper.show-picture', ['path' => $data_website->image_hero]) }}" class="img-fluid"
-                    alt="{{ $data_website->image_hero_name }}">
+                <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $data_website->image_hero]) }}" class="img-fluid"
+                    alt="{{ $data_website->image_hero_name }}" style="object-fit: cover;">
                 @else
-                <img src="{{ asset('assets/front/flexstart/assets/img/hero-img.png') }}" class="img-fluid"
+                <img loading="lazy" src="{{ asset('assets/front/flexstart/assets/img/hero-img.png') }}" class="img-fluid"
                     alt="soul of java">
                 @endif
             </div>
@@ -51,17 +51,19 @@
                     <div class="post-box">
                         <div class="post-img text-center">
                             @if($n->attachment)
-                            <img src="{{ $n->attachment }}" alt="thumbnail" class="img-fluid">
+                            <img loading="lazy" src="{{ $n->attachment }}" alt="thumbnail" class="img-fluid">
                             @elseif($n->gambarmuka)
-                            <img src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}" class="img-fluid"
-                                alt="{{ $n->gambarmuka->file_name }}">
+                            <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}" class="img-fluid"
+                                alt="{{ $n->gambarmuka->file_name }}" style="object-fit: cover; height: 315px; width: 100%;">
                             @else
-                            <img src="{{ asset('img/soulofjava.jpg') }}" alt="soul of java" class="img-fluid">
+                            <img loading="lazy" src="{{ asset('img/soulofjava.jpg') }}" alt="soul of java" class="img-fluid">
                             @endif
                         </div>
-                        <span class="post-date">{{ \Carbon\Carbon::parse($n->date)->format('l') }}, {{
+                        <span class="post-date">
+                            {{ \Carbon\Carbon::parse($n->date)->format('l') }}, {{
                             \Carbon\Carbon::parse( $n->date
-                            )->toFormattedDateString() }}</span>
+                            )->toFormattedDateString() }}
+                        </span>
                         <h3 class="post-title">
                             {{ \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}
                         </h3>
