@@ -57,10 +57,10 @@
                                     </a>
                                 </li>
                             </ul>
-                            <p>
+                            <!-- <p>
                                 {!!\Illuminate\Support\Str::limit($n->content, 100,
                                 $end='...') !!}
-                            </p>
+                            </p> -->
                             <div class="link">
                                 <a href="{{ url('/news-detail', $n->slug) }}">
                                     Read More
