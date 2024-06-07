@@ -358,7 +358,7 @@ class FrontController extends Controller
             Alert::error('Failed', 'Make Sure All Input Is Filled');
             return redirect()->back()->withInput();
         } else {
-            GuestBook::create($request->except('_token'));
+            GuestBook::create($request->except('_token', 'statistik_pengunjung'));
             Alert::success('Success', 'Your Data Has Been Save');
             return redirect()->back();
         }
