@@ -28,11 +28,11 @@
 
                         <div class="entry-img">
                             @if($author->attachment)
-                            <img src="{{ $author->attachment }}" alt="thumbnail" class="img-fluid">
+                            <img loading="lazy" src="{{ $author->attachment }}" alt="thumbnail" class="img-fluid">
                             @elseif($author->gambarmuka)
                             <x-carousel :jjj='$author' />
                             @else
-                            <img src="{{ asset('img/soulofjava.jpg') }}" alt="soul of java" class="img-fluid">
+                            <img loading="lazy" src="{{ asset('img/soulofjava.jpg') }}" alt="soul of java" class="img-fluid">
                             @endif
                         </div>
 
@@ -104,12 +104,12 @@
                             @foreach($news as $n)
                             <div class="post-item clearfix">
                                 @if($n->attachment)
-                                <img src="{{ $n->attachment }}" alt="thumbnail" class="img-fluid">
+                                <img loading="lazy" src="{{ $n->attachment }}" alt="thumbnail" class="img-fluid">
                                 @elseif($n->gambarmuka)
-                                <img src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}" class="img-fluid"
-                                    alt="{{ $n->gambarmuka->file_name }}">
+                                <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}" class="img-fluid"
+                                    alt="{{ $n->gambarmuka->file_name }}" style="height: 60px; object-fit: cover;">
                                 @else
-                                <img src="{{ asset('img/soulofjava.jpg') }}" alt="soul of java" class="img-fluid">
+                                <img loading="lazy" src="{{ asset('img/soulofjava.jpg') }}" alt="soul of java" class="img-fluid">
                                 @endif
                                 <h4><a href="{{ url('/news-detail', $n->slug) }}">
                                         {{ \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}
