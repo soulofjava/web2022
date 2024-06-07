@@ -20,11 +20,11 @@
                 <div class="col-lg-8 entries">
                     <article class="entry entry-single">
                         @if($data->attachment)
-                        <img src="{{ $data->attachment }}" alt="thumbnail" class="img-fluid">
+                        <img loading="lazy" src="{{ $data->attachment }}" alt="thumbnail" class="img-fluid">
                         @elseif($data->gambarmuka)
                         <x-carousel :jjj='$data' />
                         @else
-                        <!-- <img src="{{ asset('img/soulofjava.jpg') }}" alt="soul of java" class="img-fluid"> -->
+                        <!-- <img loading="lazy" src="{{ asset('img/soulofjava.jpg') }}" alt="soul of java" class="img-fluid"> -->
                         @endif
                         <div class="d-flex justify-content-center">
                             <div class="entry-img">
@@ -87,7 +87,7 @@
                     <!-- End blog entry -->
 
                     <!-- <div class="blog-author d-flex align-items-center">
-                        <img src="{{ asset('front.flexstart/assets/img/blog/blog-author.jpg') }}"
+                        <img loading="lazy" src="{{ asset('front.flexstart/assets/img/blog/blog-author.jpg') }}"
                             class="rounded-circle float-left" alt="">
                         <div>
                             <h4>Jane Smith</h4>
@@ -126,12 +126,12 @@
                             @foreach($news as $n)
                             <div class="post-item clearfix">
                                 @if($n->attachment)
-                                <img src="{{ $n->attachment }}" alt="thumbnail" class="img-fluid">
+                                <img loading="lazy" src="{{ $n->attachment }}" alt="thumbnail" class="img-fluid">
                                 @elseif($n->gambarmuka)
-                                <img src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}" class="img-fluid"
-                                    alt="{{ $n->gambarmuka->file_name }}">
+                                <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}" class="img-fluid"
+                                    alt="{{ $n->gambarmuka->file_name }}" style="height: 60px; object-fit: cover;">
                                 @else
-                                <img src="{{ asset('img/soulofjava.jpg') }}" alt="soul of java" class="img-fluid">
+                                <img loading="lazy" src="{{ asset('img/soulofjava.jpg') }}" alt="soul of java" class="img-fluid">
                                 @endif
                                 <h4><a href="{{ url('/news-detail', $n->slug) }}">
                                         {{ \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}
