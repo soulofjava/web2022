@@ -25,7 +25,7 @@
 </div>
 <!-- Counter Start -->
 <div class="counter-section-three">
-    <div class="container">
+    <div class="">
         <div class="counter-three-wrap bg-light-blue text-white" style="padding: 0; ">
             <div class="success-item" style="padding: 15px 15px;">
                 <span class="count-text " style="font-size: 25px;" data-speed="3000"
