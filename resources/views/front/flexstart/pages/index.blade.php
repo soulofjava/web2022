@@ -24,7 +24,7 @@
             <div class="col-lg-6 hero-img aos-init aos-animate" data-aos="zoom-out" data-aos-delay="200">
                 @if($data_website->image_hero)
                 <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $data_website->image_hero]) }}" class="img-fluid"
-                    alt="{{ $data_website->image_hero_name }}" style="object-fit: cover;">
+                    alt="{{ $data_website->image_hero_name }}" style="object-fit: cover; width: 100%; height: 500px;">
                 @else
                 <img loading="lazy" src="{{ asset('assets/front/flexstart/assets/img/hero-img.png') }}" class="img-fluid"
                     alt="soul of java">
