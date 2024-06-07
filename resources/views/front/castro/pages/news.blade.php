@@ -35,22 +35,37 @@
                                 style="object-fit: cover !important; height: 240px; background-position: center; width: 100%;">
                             @endif
                         </figure>
-                        <div class="lower-content">
-                            <span class="post-date">{{ \Carbon\Carbon::parse($n->date)->isoFormat('dddd, D MMMM YYYY')
-                                }}</span>
-                            <h3><a href="{{ url('/news-detail', $n->slug) }}">{{
+                        <div class="lower-content" style="height: 271px;">
+                            <span class="post-date">
+                                {{ \Carbon\Carbon::parse($n->date)->isoFormat('dddd, D MMMM YYYY') }}
+                            </span>
+                            <h3>
+                                <a href="{{ url('/news-detail', $n->slug) }}">{{
                                     \Illuminate\Support\Str::limit($n->title, 50,
-                                    $end='...') }}</a></h3>
+                                    $end='...') }}
+                                </a>
+                            </h3>
                             <ul class="post-info clearfix">
-                                <li><a href="#">by {{ $n->uploader->name ?? 'Admin' }}</a></li>
-                                <li><a href="#">Dilihat {{
-                                        views($n)->count(); }} kali</a></li>
+                                <li>
+                                    <a href="#">
+                                        by {{ $n->uploader->name ?? 'Admin' }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Dilihat {{ views($n)->count(); }} kali
+                                    </a>
+                                </li>
                             </ul>
-                            <p>{!!
-                                \Illuminate\Support\Str::limit($n->content, 100,
-                                $end='...') !!}</p>
-                            <div class="link"><a href="{{ url('/news-detail', $n->slug) }}">Read More<i
-                                        class="flaticon-right-1"></i></a>
+                            <p>
+                                {!!\Illuminate\Support\Str::limit($n->content, 100,
+                                $end='...') !!}
+                            </p>
+                            <div class="link">
+                                <a href="{{ url('/news-detail', $n->slug) }}">
+                                    Read More
+                                    <i class="flaticon-right-1"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
