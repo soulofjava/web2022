@@ -23,41 +23,55 @@
         @endforeach
     </div>
 </div>
-
-<!-- Features Section Start -->
-<section class="features-section rel z-1 pt-40 pb-50 bg-blue text-white">
+<!-- Counter Start -->
+<div class="counter-section-three">
     <div class="container">
-        <div class="row justify-content-center">
-            @foreach($related as $rr)
-            <div class="col-lg-2 col-md-4 col-6 mt-3 d-flex justify-content-center align-items-center">
-                <div class="feature-item wow fadeInUp delay-0-2s">
-                    <div class="image">
-                        <a href="{{ $rr->url }}" target="_blank">
-                            @if(Storage::exists($rr->path_logo))
-                            <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $rr->path_logo]) }}"
-                                alt="Icon" style="max-width: 100px; max-height: 100px; object-fit: cover;">
-                            @else
-                            <img src="{{ asset('assets/front/images/features/icon2.png') }}" alt="Icon">
-                            @endif
-                        </a>
-                        <div class="mt-3">
-                            <a href="{{ $rr->url }}" target="_blank">
-                                <h6>{{ $rr->name }}</h6>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        <div class="counter-three-wrap bg-light-blue text-white" style="padding: 0; ">
+            <div class="success-item" style="padding: 15px 15px;">
+                <span class="count-text " style="font-size: 25px;" data-speed="3000"
+                    data-stop="{{ jmlpegawai() }}">0</span>
+                <span>Jumlah ASN</span>
             </div>
-            @endforeach
+            <div class="success-item" style="padding: 15px 15px;">
+                <span class="count-text " style="font-size: 25px;" data-speed="3000" data-stop="{{ jmlpns() }}">0</span>
+                <span>Jumlah PNS</span>
+            </div>
+            <div class="success-item" style="padding: 15px 15px;">
+                <span class="count-text " style="font-size: 25px;" data-speed="3000"
+                    data-stop="{{ jmlpppk() }}">0</span>
+                <span>Jumlah PPPK</span>
+            </div>
+            <div class="success-item" style="padding: 15px 15px;">
+                <span class="count-text " style="font-size: 25px;" data-speed="3000"
+                    data-stop="{{ jmlcpns() }}">0</span>
+                <span>Jumlah CPNS</span>
+            </div>
+            <div class="success-item" style="padding: 15px 15px;">
+                <span class="count-text " style="font-size: 25px;" data-speed="3000"
+                    data-stop="{{ jmlstruktural() }}">0</span>
+                <span>Jumlah Struktural</span>
+            </div>
+            <div class="success-item" style="padding: 15px 15px;">
+                <span class="count-text " style="font-size: 25px;" data-speed="3000"
+                    data-stop="{{ jmlfungsional() }}">0</span>
+                <span>Jumlah Fungsional</span>
+            </div>
+            <div class="success-item" style="padding: 15px 15px;">
+                <span class="count-text " style="font-size: 25px;" data-speed="3000"
+                    data-stop="{{ jmlpelaksana() }}">0</span>
+                <span>Jumlah Pelaksana</span>
+            </div>
+            <div class="success-item" style="padding: 15px 15px;">
+                <span class="count-text " style="font-size: 25px;" data-speed="3000"
+                    data-stop="{{ jmlpensiunblnini() }}">0</span>
+                <span>Jumlah Pensiun Bulan Ini</span>
+            </div>
         </div>
     </div>
-    <img class="rectangle-dots" src="{{ asset('assets/front/images/shapes/rectangle-dots.png') }}" alt="Shape">
-    <img class="circle-dots" src="{{ asset('assets/front/images/shapes/circle-dots.png') }}" alt="Shape">
-</section>
-<!-- Features Section End -->
-
+</div>
+<!-- Counter End -->
 <!-- Coach Section Start -->
-<section class="coach-section rel z-1 pt-40 rpt-90 rpb-70 bg-lighter">
+<section class="coach-section rel z-1 pt-90 rpt-90 rpb-70 bg-lighter">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-6 col-lg-7 col-md-8">
@@ -236,53 +250,38 @@
             </div>
 </section>
 <!-- Advertise Area End -->
-<!-- Counter Start -->
-<div class="counter-section-three">
+
+<!-- Features Section Start -->
+<section class="features-section rel z-1 pt-40 pb-50 bg-blue text-white">
     <div class="container">
-        <div class="counter-three-wrap bg-light-blue text-white" style="padding: 0; ">
-            <div class="success-item" style="padding: 15px 15px;">
-                <span class="count-text " style="font-size: 25px;" data-speed="3000"
-                    data-stop="{{ jmlpegawai() }}">0</span>
-                <span>Jumlah ASN</span>
+        <div class="row justify-content-center">
+            @foreach($related as $rr)
+            <div class="col-lg-2 col-md-4 col-6 mt-3 d-flex justify-content-center align-items-center">
+                <div class="feature-item wow fadeInUp delay-0-2s">
+                    <div class="image">
+                        <a href="{{ $rr->url }}" target="_blank">
+                            @if(Storage::exists($rr->path_logo))
+                            <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $rr->path_logo]) }}"
+                                alt="Icon" style="max-width: 100px; max-height: 100px; object-fit: cover;">
+                            @else
+                            <img src="{{ asset('assets/front/images/features/icon2.png') }}" alt="Icon">
+                            @endif
+                        </a>
+                        <div class="mt-3">
+                            <a href="{{ $rr->url }}" target="_blank">
+                                <h6>{{ $rr->name }}</h6>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="success-item" style="padding: 15px 15px;">
-                <span class="count-text " style="font-size: 25px;" data-speed="3000" data-stop="{{ jmlpns() }}">0</span>
-                <span>Jumlah PNS</span>
-            </div>
-            <div class="success-item" style="padding: 15px 15px;">
-                <span class="count-text " style="font-size: 25px;" data-speed="3000"
-                    data-stop="{{ jmlpppk() }}">0</span>
-                <span>Jumlah PPPK</span>
-            </div>
-            <div class="success-item" style="padding: 15px 15px;">
-                <span class="count-text " style="font-size: 25px;" data-speed="3000"
-                    data-stop="{{ jmlcpns() }}">0</span>
-                <span>Jumlah CPNS</span>
-            </div>
-            <div class="success-item" style="padding: 15px 15px;">
-                <span class="count-text " style="font-size: 25px;" data-speed="3000"
-                    data-stop="{{ jmlstruktural() }}">0</span>
-                <span>Jumlah Struktural</span>
-            </div>
-            <div class="success-item" style="padding: 15px 15px;">
-                <span class="count-text " style="font-size: 25px;" data-speed="3000"
-                    data-stop="{{ jmlfungsional() }}">0</span>
-                <span>Jumlah Fungsional</span>
-            </div>
-            <div class="success-item" style="padding: 15px 15px;">
-                <span class="count-text " style="font-size: 25px;" data-speed="3000"
-                    data-stop="{{ jmlpelaksana() }}">0</span>
-                <span>Jumlah Pelaksana</span>
-            </div>
-            <div class="success-item" style="padding: 15px 15px;">
-                <span class="count-text " style="font-size: 25px;" data-speed="3000"
-                    data-stop="{{ jmlpensiunblnini() }}">0</span>
-                <span>Jumlah Pensiun Bulan Ini</span>
-            </div>
+            @endforeach
         </div>
     </div>
-</div>
-<!-- Counter End -->
+    <img class="rectangle-dots" src="{{ asset('assets/front/images/shapes/rectangle-dots.png') }}" alt="Shape">
+    <img class="circle-dots" src="{{ asset('assets/front/images/shapes/circle-dots.png') }}" alt="Shape">
+</section>
+<!-- Features Section End -->
 @endsection
 @push('after-style')
 <style>
