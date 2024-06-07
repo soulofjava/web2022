@@ -1,4 +1,4 @@
-@extends('front.Castro.layouts.app')
+@extends('front.castro.layouts.app')
 @push('after-style')
 @endpush
 @section('content')
