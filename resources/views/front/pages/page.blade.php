@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <div class="blog-details-wrap">
+                <div class="blog-details-wrap" style="overflow-x: scroll;">
                     @if($data->menu_name == 'Daftar Informasi Publik')
                     <x-jip />
                     @elseif($data->menu_name == 'Personil')
