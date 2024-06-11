@@ -36,11 +36,11 @@
                             <div class="thumb">
                                 <a href="{{ url('/news-detail', $n->slug) }}">
                                     @if(Storage::get($n->gambarmuka->path ?? ''))
-                                    <img src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
+                                    <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
                                         class="img-fluid" alt="{{ $n->gambarmuka->file_name }}"
-                                        style="background-size: cover; height: 240px; background-position: center; width: 100%;">
+                                        style="object-fit: cover; height: 240px; width: 100%;">
                                     @else
-                                    <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
+                                    <img loading="lazy" src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
                                     @endif
                                 </a>
                             </div>
@@ -63,7 +63,7 @@
                                     <ul>
                                         <li>
                                             <a href="#">
-                                                <img src="https://ui-avatars.com/api/?name= {{ $n->uploader->name ?? 'Admin' }}"
+                                                <img loading="lazy" src="https://ui-avatars.com/api/?name= {{ $n->uploader->name ?? 'Admin' }}"
                                                     alt="Author">
                                                 <span> {{ $n->uploader->name ?? 'Admin' }}</span>
                                             </a>
