@@ -20,6 +20,11 @@ class FrontMenu extends Model
             $newValue = str_replace(url('/') . '/storage/', url('show-picture?path='), $value);
             return $newValue;
         }
+        
+        if (Str::contains($value, '/storage/')) {
+            $newValue = str_replace('/storage/', url('show-picture?path='), $value);
+            return $newValue;
+        }
 
         return $value;
     }
