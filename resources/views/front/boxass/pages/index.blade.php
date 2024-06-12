@@ -24,10 +24,10 @@
                 <div class="col-md-6 right-info">
                     <div class="thumb animated">
                         @if($data_website->image_hero)
-                        <img src="{{ route('helper.show-picture', ['path' => $data_website->image_hero]) }}"
+                        <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $data_website->image_hero]) }}"
                             class="img-fluid" alt="{{ $data_website->image_hero_name }}">
                         @else
-                        <img src="{{ asset('assets/front/boxass/assets/img/illustrations/1.png') }}" alt="Thumb">
+                        <img loading="lazy" src="{{ asset('assets/front/boxass/assets/img/illustrations/1.png') }}" alt="Thumb">
                         @endif
                     </div>
                 </div>
@@ -63,11 +63,11 @@
                         <div class="thumb">
                             <a href="{{ url('/news-detail', $n->slug) }}">
                                 @if(Storage::get($n->gambarmuka->path ?? ''))
-                                <img src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
+                                <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $n->gambarmuka->path]) }}"
                                     class="img-fluid" alt="{{ $n->gambarmuka->file_name }}"
-                                    style="background-size: cover; height: 240px; background-position: center; width: 100%;">
+                                    style="height: 240px; object-fit: cover; width: 100%;">
                                 @else
-                                <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
+                                <img loading="lazy" src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
                                 @endif
                             </a>
                         </div>
@@ -89,7 +89,7 @@
                                 <ul>
                                     <li>
                                         <a href="#">
-                                            <img src="https://ui-avatars.com/api/?name={{ $n->uploader->name ?? 'Admin' }}"
+                                            <img loading="lazy" src="https://ui-avatars.com/api/?name={{ $n->uploader->name ?? 'Admin' }}"
                                                 alt="Author">
                                             <span> {{ $n->uploader->name ?? 'Admin' }}</span>
                                         </a>
