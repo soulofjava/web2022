@@ -4,10 +4,10 @@
     <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative"
         data-aos="zoom-out">
         @if($data_website->image_hero)
-        <img src="{{ route('helper.show-picture', ['path' => $data_website->image_hero]) }}" class="img-fluid animated"
+        <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $data_website->image_hero]) }}" class="img-fluid animated"
             alt="{{ $data_website->image_hero_name }}">
         @else
-        <img src="{{ asset('assets/front/herobiz/assets/img/hero-carousel/hero-carousel-3.svg') }}"
+        <img loading="lazy" src="{{ asset('assets/front/herobiz/assets/img/hero-carousel/hero-carousel-3.svg') }}"
             class="img-fluid animated" alt="hero_image">
         @endif
         <h2><span>{{ $data_website->web_name }}</span></h2>
@@ -36,11 +36,11 @@
                         <div class="post-img">
                             @forelse($n->gambar as $gambar)
                             @if($loop->iteration == 1)
-                            <img src="{{ route('helper.show-picture', ['path' => $gambar->path]) }}" class="img-fluid"
-                                alt="{{ $gambar->file_name }}">
+                            <img loading="lazy" src="{{ route('helper.show-picture', ['path' => $gambar->path]) }}" class="img-fluid"
+                                alt="{{ $gambar->file_name }}" style="height: 231px; width: 356px; object-fit: cover;">
                             @endif
                             @empty
-                            <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
+                            <img loading="lazy" src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
                             @endforelse
                         </div>
                         <div class="meta">

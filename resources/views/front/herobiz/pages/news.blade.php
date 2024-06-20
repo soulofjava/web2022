@@ -51,7 +51,7 @@
                             </div>
                             <div class="content">
                                 <p>
-                                    {{ \Illuminate\Support\Str::limit($n->description, 50, $end='...') }}
+                                    {!! \Illuminate\Support\Str::limit($n->description, 50, $end='...') !!}
                                 </p>
                             </div>
                             <div class="read-more mt-auto align-self-end">
