@@ -12,18 +12,14 @@
             <ul>
                 <!-- start looping menu & submenu -->
                 @php
-                $queryMenu = DB::table('front_menus')
-                ->where('menu_parent', '=', '1')
-                ->where('deleted_at', '=', null)
+                $queryMenu = App\Model\FrontMenu::where('menu_parent', '=', '1')
                 ->orderBy('id', 'ASC')
                 ->get();
                 @endphp
                 @foreach($queryMenu as $menu)
                 @php
                 $menuId = $menu->id;
-                $subMenus = DB::table('front_menus')
-                ->where('menu_parent', '=' , $menuId)
-                ->where('deleted_at', '=', null)
+                $subMenus = App\Model\FrontMenu::where('menu_parent', '=' , $menuId)
                 ->orderBy('menu_parent', 'ASC')
                 ->get();
                 @endphp
@@ -38,9 +34,7 @@
                         @foreach($subMenus as $sm)
                         @php
                         $menuId2 = $sm->id;
-                        $subMenus2 = DB::table('front_menus')
-                        ->where('menu_parent', '=' , $menuId2)
-                        ->where('deleted_at', '=', null)
+                        $subMenus2 = App\Model\FrontMenu::where('menu_parent', '=' , $menuId2)
                         ->orderBy('menu_parent', 'ASC')
                         ->get();
                         @endphp
@@ -54,9 +48,7 @@
 
                                 @php
                                 $menuId3 = $sub3->id;
-                                $subMenus3 = DB::table('front_menus')
-                                ->where('menu_parent', '=' , $menuId3)
-                                ->where('deleted_at', '=', null)
+                                $subMenus3 = App\Models\FrontMenu::where('menu_parent', '=' , $menuId3)
                                 ->orderBy('menu_parent', 'ASC')
                                 ->get();
                                 @endphp
