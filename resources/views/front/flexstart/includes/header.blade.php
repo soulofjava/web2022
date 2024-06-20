@@ -12,14 +12,14 @@
             <ul>
                 <!-- start looping menu & submenu -->
                 @php
-                $queryMenu = App\Model\FrontMenu::where('menu_parent', '=', '1')
+                $queryMenu = App\Models\FrontMenu::where('menu_parent', '=', '1')
                 ->orderBy('id', 'ASC')
                 ->get();
                 @endphp
                 @foreach($queryMenu as $menu)
                 @php
                 $menuId = $menu->id;
-                $subMenus = App\Model\FrontMenu::where('menu_parent', '=' , $menuId)
+                $subMenus = App\Models\FrontMenu::where('menu_parent', '=' , $menuId)
                 ->orderBy('menu_parent', 'ASC')
                 ->get();
                 @endphp
@@ -34,7 +34,7 @@
                         @foreach($subMenus as $sm)
                         @php
                         $menuId2 = $sm->id;
-                        $subMenus2 = App\Model\FrontMenu::where('menu_parent', '=' , $menuId2)
+                        $subMenus2 = App\Models\FrontMenu::where('menu_parent', '=' , $menuId2)
                         ->orderBy('menu_parent', 'ASC')
                         ->get();
                         @endphp
